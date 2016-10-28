@@ -26,6 +26,16 @@ class VLogin:UIView
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.delegate = controller
         
+        let diclaimer:UILabel = UILabel()
+        diclaimer.isUserInteractionEnabled = false
+        diclaimer.translatesAutoresizingMaskIntoConstraints = false
+        diclaimer.numberOfLines = 0
+        diclaimer.backgroundColor = UIColor.clear
+        diclaimer.font = UIFont.regular(size:14)
+        diclaimer.textAlignment = NSTextAlignment.center
+        diclaimer.textColor = UIColor.white
+        diclaimer.text = NSLocalizedString("VLogin_diclaimer", comment:"")
+        
         addSubview(logoView)
         addSubview(loginButton)
         

@@ -3,12 +3,13 @@ import UIKit
 class VAlert:UIView
 {
     static let kMarginHorizontal:CGFloat = 10
-    static let kHeight:CGFloat = 65
+    static let kHeight:CGFloat = 50
     weak var layoutTop:NSLayoutConstraint!
+    weak var timer:Timer?
     private let kMarginTop:CGFloat = 20
-    private let kAnimationDuration:TimeInterval = 0.4
-    private let kTimeOut:TimeInterval = 3
-    private let kFontSize:CGFloat = 16
+    private let kAnimationDuration:TimeInterval = 0.28
+    private let kTimeOut:TimeInterval = 5
+    private let kFontSize:CGFloat = 14
     private let kLabelMargin:CGFloat = 10
     private let kCornerRadius:CGFloat = 5
     private let kBorderWidth:CGFloat = 1
@@ -75,18 +76,28 @@ class VAlert:UIView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.medium(size:kFontSize)
-        label.textColor = UIColor(white:0.4, alpha:1)
+        label.textColor = UIColor(white:0.2, alpha:1)
         label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 0
         label.backgroundColor = UIColor.clear
         label.text = message
         
+        let button:UIButton = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = UIColor.clear
+        button.addTarget(
+            self,
+            action:#selector(actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
         addSubview(blur)
         addSubview(label)
+        addSubview(button)
         
         let views:[String:UIView] = [
             "blur":blur,
-            "label":label]
+            "label":label,
+            "button":button]
         
         let metrics:[String:CGFloat] = [
             "labelMargin":kLabelMargin
@@ -103,28 +114,47 @@ class VAlert:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[button]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[blur]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(labelMargin)-[label]-(labelMargin)-|",
+            withVisualFormat:"V:|-0-[label]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[button]-0-|",
             options:[],
             metrics:metrics,
             views:views))
     }
     
-    func alertTimeOut(sender timer:Timer)
+    func alertTimeOut(sender timer:Timer?)
     {
-        timer.invalidate()
+        timer?.invalidate()
         animate(open:false)
+    }
+    
+    //MARK: actions
+    
+    func actionButton(sender button:UIButton)
+    {
+        button.isUserInteractionEnabled = false
+        timer?.invalidate()
+        alertTimeOut(sender:timer)
     }
     
     //MARK: private
     
     private func scheduleTimer()
     {
-        Timer.scheduledTimer(
+        self.timer = Timer.scheduledTimer(
             timeInterval:kTimeOut,
             target:self,
             selector:#selector(alertTimeOut(sender:)),

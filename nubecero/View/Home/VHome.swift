@@ -16,13 +16,15 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
+        let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
+        
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize.zero
         flow.footerReferenceSize = CGSize.zero
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
-        flow.sectionInset = UIEdgeInsets(top:0, left:0, bottom:kCollectionBottom, right:0)
+        flow.sectionInset = UIEdgeInsets(top:barHeight, left:0, bottom:kCollectionBottom, right:0)
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.clipsToBounds = true

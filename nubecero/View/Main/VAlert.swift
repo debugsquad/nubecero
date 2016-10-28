@@ -8,6 +8,9 @@ class VAlert:UIView
     weak var layoutTop:NSLayoutConstraint!
     private let kAnimationDuration:TimeInterval = 0.4
     private let kTimeOut:TimeInterval = 3
+    private let kFontSize:CGFloat = 15
+    private let kLabelMargin:CGFloat = 10
+    private let kCornerRadius:CGFloat = 5
     
     class func message(message:String)
     {
@@ -56,8 +59,54 @@ class VAlert:UIView
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor.complement
+        backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
+        layer.cornerRadius = kCornerRadius
+        
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
+        let blur:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
+        
+        let label:UILabel = UILabel()
+        label.isUserInteractionEnabled = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.medium(size:kFontSize)
+        label.textColor = UIColor.black
+        label.textAlignment = NSTextAlignment.center
+        label.numberOfLines = 0
+        label.backgroundColor = UIColor.clear
+        label.text = message
+        
+        addSubview(blur)
+        addSubview(label)
+        
+        let views:[String:UIView] = [
+            "blur":blur,
+            "label":label]
+        
+        let metrics:[String:CGFloat] = [
+            "labelMargin":kLabelMargin
+        ]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[blur]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-(labelMargin)-[label]-(labelMargin)-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[blur]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(labelMargin)-[label]-(labelMargin)-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     func timeOut(sender timer:Timer)

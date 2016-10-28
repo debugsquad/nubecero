@@ -7,6 +7,7 @@ class VAlert:UIView
     static let kHeight:CGFloat = 60
     weak var layoutTop:NSLayoutConstraint!
     private let kAnimationDuration:TimeInterval = 0.4
+    private let kTimeOut:TimeInterval = 3
     
     class func message(message:String)
     {
@@ -59,6 +60,12 @@ class VAlert:UIView
         translatesAutoresizingMaskIntoConstraints = false
     }
     
+    func timeOut(sender timer:Timer)
+    {
+        timer.invalidate()
+        animate(open:false)
+    }
+    
     //MARK: public
     
     func animate(open:Bool)
@@ -70,6 +77,36 @@ class VAlert:UIView
         else
         {
             layoutTop.constant = -VAlert.kHeight
+        }
+        
+        UIView.animate(
+            withDuration:kAnimationDuration,
+            animations:
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+            
+        })
+        { [weak self] (done) in
+        
+            if open
+            {
+                guard
+                    
+                    let timeOut:TimeInterval = self?.kTimeOut
+                
+                else
+                {
+                    return
+                }
+                
+                Timer.scheduledTimer(
+                    timeInterval:timeOut,
+                    target:self,
+                    selector:#selector(self?.timeOut(sender:)),
+                    userInfo:nil,
+                    repeats:false)
+            }
         }
         
         UIView.animate(withDuration:kAnimationDuration)

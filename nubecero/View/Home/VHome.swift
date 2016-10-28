@@ -14,5 +14,31 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         self.controller = controller
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MHomeItem
+    {
+        let item:MHomeItem = controller.model.items[index.item]
+        
+        return item
+    }
+    
     //MARK: public
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.model.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let cell:
+    }
 }

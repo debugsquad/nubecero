@@ -40,6 +40,7 @@
 		DACD1F871DC3A0020067D26B /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F861DC3A0020067D26B /* CHome.swift */; };
 		DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1F881DC3A09F0067D26B /* Generic.xcassets */; };
 		DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F8B1DC3AD480067D26B /* CLogin.swift */; };
+		DACD1F8F1DC3ADEB0067D26B /* VLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F8E1DC3ADEB0067D26B /* VLogin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		DACD1F861DC3A0020067D26B /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DACD1F881DC3A09F0067D26B /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DACD1F8B1DC3AD480067D26B /* CLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLogin.swift; sourceTree = "<group>"; };
+		DACD1F8E1DC3ADEB0067D26B /* VLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLogin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +317,7 @@
 		DA4EF8F01DC395B300297C1D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DACD1F8D1DC3ADE20067D26B /* Login */,
 				DA4EF8F11DC395B300297C1D /* Home */,
 				DA4EF8F21DC395B300297C1D /* Main */,
 			);
@@ -344,6 +347,14 @@
 			isa = PBXGroup;
 			children = (
 				DACD1F8B1DC3AD480067D26B /* CLogin.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		DACD1F8D1DC3ADE20067D26B /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				DACD1F8E1DC3ADEB0067D26B /* VLogin.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -563,6 +574,7 @@
 				DA4EF8FE1DC395B300297C1D /* ExtensionFileManager.swift in Sources */,
 				DA4EF9001DC395B300297C1D /* ExtensionNotification.swift in Sources */,
 				DA4EF90B1DC395B300297C1D /* MMainItemHome.swift in Sources */,
+				DACD1F8F1DC3ADEB0067D26B /* VLogin.swift in Sources */,
 				DA4EF8FF1DC395B300297C1D /* ExtensionMTLTexture.swift in Sources */,
 				DA4EF8FC1DC395B300297C1D /* DManager.swift in Sources */,
 				DA4EF90D1DC395B300297C1D /* MMainState.swift in Sources */,

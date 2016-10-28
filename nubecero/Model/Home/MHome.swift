@@ -6,7 +6,10 @@ class MHome
     
     init()
     {
+        let itemUpload:MHomeItemUpload = MHomeItemUpload()
+        
         items = [
+            itemUpload
         ]
     }
 }

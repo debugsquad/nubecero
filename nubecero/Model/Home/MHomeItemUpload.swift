@@ -7,6 +7,15 @@ class MHomeItemUpload:MHomeItem
     
     init()
     {
+        let reusableIdentifier:String = VHomeCellUpload.reusableIdentifier
+        super.init(
+            reusableIdentifier:reusableIdentifier,
+            cellHeight:kCellHeight,
+            selectable:kSelectable)
+    }
+    
+    override func selected(controller:CHome)
+    {
         
     }
 }

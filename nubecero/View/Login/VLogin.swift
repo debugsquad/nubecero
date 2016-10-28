@@ -6,8 +6,8 @@ class VLogin:UIView
 {
     weak var controller:CLogin!
     private let kButtonMargin:CGFloat = 20
-    private let kDiclaimerHeight:CGFloat = 60
-    private let kDiclaimerMargin:CGFloat = 10
+    private let kDisclaimerHeight:CGFloat = 60
+    private let kDisclaimerMargin:CGFloat = 10
     
     convenience init(controller:CLogin)
     {
@@ -28,29 +28,29 @@ class VLogin:UIView
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.delegate = controller
         
-        let diclaimer:UILabel = UILabel()
-        diclaimer.isUserInteractionEnabled = false
-        diclaimer.translatesAutoresizingMaskIntoConstraints = false
-        diclaimer.numberOfLines = 0
-        diclaimer.backgroundColor = UIColor.clear
-        diclaimer.font = UIFont.regular(size:12)
-        diclaimer.textAlignment = NSTextAlignment.center
-        diclaimer.textColor = UIColor.white
-        diclaimer.text = NSLocalizedString("VLogin_diclaimer", comment:"")
+        let disclaimer:UILabel = UILabel()
+        disclaimer.isUserInteractionEnabled = false
+        disclaimer.translatesAutoresizingMaskIntoConstraints = false
+        disclaimer.numberOfLines = 0
+        disclaimer.backgroundColor = UIColor.clear
+        disclaimer.font = UIFont.regular(size:12)
+        disclaimer.textAlignment = NSTextAlignment.center
+        disclaimer.textColor = UIColor.white
+        disclaimer.text = NSLocalizedString("VLogin_disclaimer", comment:"")
         
         addSubview(logoView)
         addSubview(loginButton)
-        addSubview(diclaimer)
+        addSubview(disclaimer)
         
         let views:[String:UIView] = [
             "logoView":logoView,
             "loginButton":loginButton,
-            "diclaimer":diclaimer]
+            "disclaimer":disclaimer]
         
         let metrics:[String:CGFloat] = [
             "buttonMargin":kButtonMargin,
-            "diclaimerHeight":kDiclaimerHeight,
-            "diclaimerMargin":kDiclaimerMargin]
+            "disclaimerHeight":kDisclaimerHeight,
+            "disclaimerMargin":kDisclaimerMargin]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[logoView]-0-|",
@@ -63,7 +63,7 @@ class VLogin:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(diclaimerMargin)-[diclaimer]-(diclaimerMargin)-|",
+            withVisualFormat:"H:|-(disclaimerMargin)-[disclaimer]-(disclaimerMargin)-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -73,7 +73,7 @@ class VLogin:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[diclaimer(diclaimerHeight)]-(diclaimerMargin)-[loginButton(40)]-(buttonMargin)-|",
+            withVisualFormat:"V:[disclaimer(disclaimerHeight)]-(disclaimerMargin)-[loginButton(40)]-(buttonMargin)-|",
             options:[],
             metrics:metrics,
             views:views))

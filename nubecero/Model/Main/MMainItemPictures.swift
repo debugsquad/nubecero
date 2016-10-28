@@ -1,9 +1,18 @@
-//
-//  MMainItemPictures.swift
-//  nubecero
-//
-//  Created by zero on 10/28/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MMainItemPictures:MMainItem
+{
+    private let kIconImage:String = "assetGenericHome"
+    
+    init(index:Int)
+    {
+        super.init(iconImage:kIconImage, index:index)
+    }
+    
+    override func controller() -> CController
+    {
+        let controller:CHome = CHome()
+        
+        return controller
+    }
+}

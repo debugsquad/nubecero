@@ -42,7 +42,9 @@ class CParent:UIViewController
         return false
     }
     
-    private func mainController(underBar:Bool)
+    //MARK: private
+    
+    private func mainController(controller:CController, underBar:Bool)
     {
         addChildViewController(controller)
         controllers.last?.willMove(toParentViewController:nil)
@@ -83,12 +85,12 @@ class CParent:UIViewController
     
     func center(controller:CController)
     {
-        mainController(underBar:true)
+        mainController(controller:controller, underBar:true)
     }
     
     func over(controller:CController)
     {
-        mainController(underBar:false)
+        mainController(controller:controller, underBar:false)
     }
     
     func pop()

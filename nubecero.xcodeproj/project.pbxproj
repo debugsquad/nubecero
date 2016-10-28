@@ -44,6 +44,8 @@
 		DACD1F911DC3B75D0067D26B /* Brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1F901DC3B75D0067D26B /* Brand.xcassets */; };
 		DACD1F931DC3DA4B0067D26B /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F921DC3DA4B0067D26B /* VHome.swift */; };
 		DACD1F951DC3DBDB0067D26B /* VAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F941DC3DBDB0067D26B /* VAlert.swift */; };
+		DACD1F971DC3F0B90067D26B /* MMainItemSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F961DC3F0B90067D26B /* MMainItemSettings.swift */; };
+		DACD1F991DC3F0E80067D26B /* MMainItemPictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F981DC3F0E80067D26B /* MMainItemPictures.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		DACD1F901DC3B75D0067D26B /* Brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand.xcassets; sourceTree = "<group>"; };
 		DACD1F921DC3DA4B0067D26B /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DACD1F941DC3DBDB0067D26B /* VAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAlert.swift; sourceTree = "<group>"; };
+		DACD1F961DC3F0B90067D26B /* MMainItemSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemSettings.swift; sourceTree = "<group>"; };
+		DACD1F981DC3F0E80067D26B /* MMainItemPictures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemPictures.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +302,8 @@
 				DA4EF8E31DC395B300297C1D /* MMain.swift */,
 				DA4EF8E41DC395B300297C1D /* MMainItem.swift */,
 				DA4EF8E51DC395B300297C1D /* MMainItemHome.swift */,
+				DACD1F961DC3F0B90067D26B /* MMainItemSettings.swift */,
+				DACD1F981DC3F0E80067D26B /* MMainItemPictures.swift */,
 				DA4EF8E71DC395B300297C1D /* MMainState.swift */,
 				DA4EF8E81DC395B300297C1D /* MMainStateOptions.swift */,
 				DA4EF8E91DC395B300297C1D /* MMainStatePushed.swift */,
@@ -574,7 +580,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DACD1F971DC3F0B90067D26B /* MMainItemSettings.swift in Sources */,
 				DACD1F871DC3A0020067D26B /* CHome.swift in Sources */,
+				DACD1F991DC3F0E80067D26B /* MMainItemPictures.swift in Sources */,
 				DACD1F951DC3DBDB0067D26B /* VAlert.swift in Sources */,
 				DA4EF9141DC395B300297C1D /* VParent.swift in Sources */,
 				DA4EF8FD1DC395B300297C1D /* DNubecero.xcdatamodeld in Sources */,

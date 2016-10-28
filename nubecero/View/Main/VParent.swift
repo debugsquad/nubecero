@@ -14,7 +14,7 @@ class VParent:UIView
         self.init()
         self.parent = parent
         clipsToBounds = true
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.main
         
         let barDelta:CGFloat = kBarHeight - kBarMinHeight
         let bar:VBar = VBar(parent:parent, barHeight:kBarHeight, barDelta:barDelta)

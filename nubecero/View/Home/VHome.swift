@@ -60,6 +60,12 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             views:views))
     }
     
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MHomeItem

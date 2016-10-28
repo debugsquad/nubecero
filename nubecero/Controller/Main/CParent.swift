@@ -22,7 +22,7 @@ class CParent:UIViewController
         super.viewDidLoad()
         
         let login:CLogin = CLogin()
-        center(controller:login)
+        over(controller:login)
     }
     
     override func loadView()

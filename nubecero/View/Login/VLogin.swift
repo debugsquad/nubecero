@@ -24,6 +24,7 @@ class VLogin:UIView
         
         let loginButton:FBSDKLoginButton = FBSDKLoginButton()
         loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.delegate = controller
         
         addSubview(logoView)
         addSubview(loginButton)

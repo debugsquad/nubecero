@@ -36,7 +36,7 @@ class CController:UIViewController
     {
         super.viewDidLoad()
         
-        FMain.sharedInstance.analytics.screen(controller:self)
+        FMain.sharedInstance.analytics?.screen(controller:self)
         edgesForExtendedLayout = UIRectEdge()
         extendedLayoutIncludesOpaqueBars = false
         automaticallyAdjustsScrollViewInsets = false

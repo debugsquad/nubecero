@@ -4,21 +4,20 @@ import Firebase
 class FMain
 {
     static let sharedInstance:FMain = FMain()
-    let analytics:FAnalytics
+    let analytics:FAnalytics?
     
     private init()
     {
         #if DEBUG
             
-            print("Dry run Analytics")
+            print("Dry run analytics")
+            analytics = nil
             
         #else
             
-            FIRApp.configure()
+            analytics = FAnalytics()
         
         #endif
-        
-        analytics = FAnalytics()
     }
     
     //MARK: public

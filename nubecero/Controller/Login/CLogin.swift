@@ -17,7 +17,14 @@ class CLogin:CController, FBSDKLoginButtonDelegate
     {
         super.viewDidLoad()
         
-        print("user id: \(FBSDKAccessToken.current()?.userID)")
+        if let user = FIRAuth.auth()?.currentUser {
+            
+            print("user signed")
+            
+        } else {
+            
+            print("user not signed")
+        }
     }
     
     //MARK: login button delegate
@@ -37,7 +44,7 @@ class CLogin:CController, FBSDKLoginButtonDelegate
                 with:firebaseCredential)
             { [weak self] (user, error) in
                 
-                
+                print("firebase signed")
             }
         }
     }

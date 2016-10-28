@@ -28,7 +28,6 @@
 		DA4EF9091DC395B300297C1D /* MMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8E31DC395B300297C1D /* MMain.swift */; };
 		DA4EF90A1DC395B300297C1D /* MMainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8E41DC395B300297C1D /* MMainItem.swift */; };
 		DA4EF90B1DC395B300297C1D /* MMainItemHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8E51DC395B300297C1D /* MMainItemHome.swift */; };
-		DA4EF90C1DC395B300297C1D /* MMainItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8E61DC395B300297C1D /* MMainItemStore.swift */; };
 		DA4EF90D1DC395B300297C1D /* MMainState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8E71DC395B300297C1D /* MMainState.swift */; };
 		DA4EF90E1DC395B300297C1D /* MMainStateOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8E81DC395B300297C1D /* MMainStateOptions.swift */; };
 		DA4EF90F1DC395B300297C1D /* MMainStatePushed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8E91DC395B300297C1D /* MMainStatePushed.swift */; };
@@ -80,7 +79,6 @@
 		DA4EF8E31DC395B300297C1D /* MMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMain.swift; sourceTree = "<group>"; };
 		DA4EF8E41DC395B300297C1D /* MMainItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItem.swift; sourceTree = "<group>"; };
 		DA4EF8E51DC395B300297C1D /* MMainItemHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemHome.swift; sourceTree = "<group>"; };
-		DA4EF8E61DC395B300297C1D /* MMainItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemStore.swift; sourceTree = "<group>"; };
 		DA4EF8E71DC395B300297C1D /* MMainState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainState.swift; sourceTree = "<group>"; };
 		DA4EF8E81DC395B300297C1D /* MMainStateOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainStateOptions.swift; sourceTree = "<group>"; };
 		DA4EF8E91DC395B300297C1D /* MMainStatePushed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainStatePushed.swift; sourceTree = "<group>"; };
@@ -285,7 +283,6 @@
 				DA4EF8E31DC395B300297C1D /* MMain.swift */,
 				DA4EF8E41DC395B300297C1D /* MMainItem.swift */,
 				DA4EF8E51DC395B300297C1D /* MMainItemHome.swift */,
-				DA4EF8E61DC395B300297C1D /* MMainItemStore.swift */,
 				DA4EF8E71DC395B300297C1D /* MMainState.swift */,
 				DA4EF8E81DC395B300297C1D /* MMainStateOptions.swift */,
 				DA4EF8E91DC395B300297C1D /* MMainStatePushed.swift */,
@@ -551,7 +548,6 @@
 				DA4EF9001DC395B300297C1D /* ExtensionNotification.swift in Sources */,
 				DA4EF90B1DC395B300297C1D /* MMainItemHome.swift in Sources */,
 				DA4EF8FF1DC395B300297C1D /* ExtensionMTLTexture.swift in Sources */,
-				DA4EF90C1DC395B300297C1D /* MMainItemStore.swift in Sources */,
 				DA4EF8FC1DC395B300297C1D /* DManager.swift in Sources */,
 				DA4EF90D1DC395B300297C1D /* MMainState.swift in Sources */,
 				DA4EF9041DC395B300297C1D /* ExtensionUIFont.swift in Sources */,

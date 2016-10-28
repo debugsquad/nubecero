@@ -94,7 +94,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     {
         let item:MHomeItem = modelAtIndex(index:indexPath)
         let cell:VHomeCell = collectionView.dequeueReusableCell(
-            withReuseIdentifier:VHomeCell.reusableIdentifier,
+            withReuseIdentifier:item.reusableIdentifier,
             for:indexPath) as! VHomeCell
         cell.config(model:item)
         

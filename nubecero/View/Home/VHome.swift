@@ -39,6 +39,12 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let cell:
+        let item:MHomeItem = modelAtIndex(index:indexPath)
+        let cell:VHomeCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:VHomeCell.reusableIdentifier,
+            for:indexPath) as! VHomeCell
+        cell.config(model:model)
+        
+        return cell
     }
 }

@@ -48,6 +48,7 @@
 		DACD1F991DC3F0E80067D26B /* MMainItemPictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F981DC3F0E80067D26B /* MMainItemPictures.swift */; };
 		DACD1F9C1DC400090067D26B /* MHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F9B1DC400090067D26B /* MHome.swift */; };
 		DACD1F9E1DC400240067D26B /* MHomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F9D1DC400240067D26B /* MHomeItem.swift */; };
+		DACD1FA01DC401240067D26B /* VHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F9F1DC401240067D26B /* VHomeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		DACD1F981DC3F0E80067D26B /* MMainItemPictures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemPictures.swift; sourceTree = "<group>"; };
 		DACD1F9B1DC400090067D26B /* MHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHome.swift; sourceTree = "<group>"; };
 		DACD1F9D1DC400240067D26B /* MHomeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItem.swift; sourceTree = "<group>"; };
+		DACD1F9F1DC401240067D26B /* VHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +348,7 @@
 			isa = PBXGroup;
 			children = (
 				DACD1F921DC3DA4B0067D26B /* VHome.swift */,
+				DACD1F9F1DC401240067D26B /* VHomeCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DACD1FA01DC401240067D26B /* VHomeCell.swift in Sources */,
 				DACD1F971DC3F0B90067D26B /* MMainItemSettings.swift in Sources */,
 				DACD1F871DC3A0020067D26B /* CHome.swift in Sources */,
 				DACD1F991DC3F0E80067D26B /* MMainItemPictures.swift in Sources */,

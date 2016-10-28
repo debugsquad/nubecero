@@ -33,12 +33,12 @@ class CLogin:CController, FBSDKLoginButtonDelegate
     
     private func userLogged()
     {
-        
+        VAlert.message(message:"User already logged")
     }
     
     private func loggingError(error:String)
     {
-        
+        VAlert.message(message:error)
     }
     
     //MARK: login button delegate

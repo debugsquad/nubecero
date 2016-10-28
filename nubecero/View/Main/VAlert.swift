@@ -53,6 +53,7 @@ class VAlert:UIView
             
             rootView.addConstraint(alert.layoutTop)
             rootView.setNeedsLayout()
+            alert.animate(open:true)
         }
     }
     
@@ -68,6 +69,8 @@ class VAlert:UIView
         
         let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
         let blur:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
+        blur.isUserInteractionEnabled = false
+        blur.translatesAutoresizingMaskIntoConstraints = false
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false

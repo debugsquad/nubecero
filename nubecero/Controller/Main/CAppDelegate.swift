@@ -1,5 +1,5 @@
 import UIKit
-import StoreKit
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate:UIResponder, UIApplicationDelegate
@@ -9,6 +9,9 @@ class AppDelegate:UIResponder, UIApplicationDelegate
     func application(_ application:UIApplication, didFinishLaunchingWithOptions launchOptions:[UIApplicationLaunchOptionsKey:Any]?) -> Bool
     {
         FMain.sharedInstance.load()
+        FBSDKApplicationDelegate.sharedInstance().application(
+            application,
+            didFinishLaunchingWithOptions:launchOptions)
         
         let window:UIWindow = UIWindow(frame:UIScreen.main.bounds)
         window.backgroundColor = UIColor.white
@@ -19,5 +22,15 @@ class AppDelegate:UIResponder, UIApplicationDelegate
         self.window = window
         
         return true
+    }
+    
+    func application(_ app:UIApplication, open url:URL, options:[UIApplicationOpenURLOptionsKey:Any] = [:]) -> Bool
+    {
+        let handled:Bool = FBSDKApplicationDelegate.sharedInstance().application(
+            app,
+            open:url,
+            options:options)
+        
+        return handled
     }
 }

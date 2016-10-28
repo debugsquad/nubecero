@@ -2,13 +2,13 @@ import UIKit
 
 class VAlert:UIView
 {
-    static let kMarginTop:CGFloat = 10
     static let kMarginHorizontal:CGFloat = 10
-    static let kHeight:CGFloat = 60
+    static let kHeight:CGFloat = 65
     weak var layoutTop:NSLayoutConstraint!
+    private let kMarginTop:CGFloat = 20
     private let kAnimationDuration:TimeInterval = 0.4
     private let kTimeOut:TimeInterval = 3
-    private let kFontSize:CGFloat = 15
+    private let kFontSize:CGFloat = 16
     private let kLabelMargin:CGFloat = 10
     private let kCornerRadius:CGFloat = 5
     private let kBorderWidth:CGFloat = 1
@@ -27,7 +27,6 @@ class VAlert:UIView
                 "alert":alert]
             
             let metrics:[String:CGFloat] = [
-                "marginTop":kMarginTop,
                 "marginHorizontal":kMarginHorizontal,
                 "height":kHeight]
             
@@ -52,7 +51,7 @@ class VAlert:UIView
                 constant:-kHeight)
             
             rootView.addConstraint(alert.layoutTop)
-            rootView.setNeedsLayout()
+            rootView.layoutIfNeeded()
             alert.animate(open:true)
         }
     }
@@ -65,7 +64,7 @@ class VAlert:UIView
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = kCornerRadius
         layer.borderWidth = kBorderWidth
-        layer.borderColor = UIColor(white:0, alpha:0.5).cgColor
+        layer.borderColor = UIColor(white:0, alpha:0.1).cgColor
         
         let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
         let blur:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
@@ -76,7 +75,7 @@ class VAlert:UIView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.medium(size:kFontSize)
-        label.textColor = UIColor.black
+        label.textColor = UIColor(white:0.4, alpha:1)
         label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 0
         label.backgroundColor = UIColor.clear
@@ -115,10 +114,22 @@ class VAlert:UIView
             views:views))
     }
     
-    func timeOut(sender timer:Timer)
+    func alertTimeOut(sender timer:Timer)
     {
         timer.invalidate()
         animate(open:false)
+    }
+    
+    //MARK: private
+    
+    private func scheduleTimer()
+    {
+        Timer.scheduledTimer(
+            timeInterval:kTimeOut,
+            target:self,
+            selector:#selector(alertTimeOut(sender:)),
+            userInfo:nil,
+            repeats:false)
     }
     
     //MARK: public
@@ -127,7 +138,7 @@ class VAlert:UIView
     {
         if open
         {
-            layoutTop.constant = VAlert.kMarginTop
+            layoutTop.constant = kMarginTop
         }
         else
         {
@@ -139,35 +150,19 @@ class VAlert:UIView
             animations:
         { [weak self] in
             
-            self?.layoutIfNeeded()
+            self?.superview?.layoutIfNeeded()
             
         })
         { [weak self] (done) in
         
             if open
             {
-                guard
-                    
-                    let timeOut:TimeInterval = self?.kTimeOut
-                
-                else
-                {
-                    return
-                }
-                
-                Timer.scheduledTimer(
-                    timeInterval:timeOut,
-                    target:self,
-                    selector:#selector(self?.timeOut(sender:)),
-                    userInfo:nil,
-                    repeats:false)
+                self?.scheduleTimer()
             }
-        }
-        
-        UIView.animate(withDuration:kAnimationDuration)
-        { [weak self] in
-            
-            self?.layoutIfNeeded()
+            else
+            {
+                self?.removeFromSuperview()
+            }
         }
     }
 }

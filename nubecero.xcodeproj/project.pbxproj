@@ -23,7 +23,6 @@
 		DA4EF9051DC395B300297C1D /* FAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8DA1DC395B300297C1D /* FAnalytics.swift */; };
 		DA4EF9061DC395B300297C1D /* FMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8DD1DC395B300297C1D /* FMain.swift */; };
 		DA4EF9071DC395B300297C1D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8DE1DC395B300297C1D /* GoogleService-Info.plist */; };
-		DA4EF9081DC395B300297C1D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8E01DC395B300297C1D /* Info.plist */; };
 		DA4EF9091DC395B300297C1D /* MMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8E31DC395B300297C1D /* MMain.swift */; };
 		DA4EF90A1DC395B300297C1D /* MMainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8E41DC395B300297C1D /* MMainItem.swift */; };
 		DA4EF90B1DC395B300297C1D /* MMainItemHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8E51DC395B300297C1D /* MMainItemHome.swift */; };
@@ -32,7 +31,6 @@
 		DA4EF90E1DC395B300297C1D /* MMainStateOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8E81DC395B300297C1D /* MMainStateOptions.swift */; };
 		DA4EF90F1DC395B300297C1D /* MMainStatePushed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8E91DC395B300297C1D /* MMainStatePushed.swift */; };
 		DA4EF9101DC395B300297C1D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8EB1DC395B300297C1D /* Localizable.strings */; };
-		DA4EF9111DC395B300297C1D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8EF1DC395B300297C1D /* Info.plist */; };
 		DA4EF9121DC395B300297C1D /* VBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8F31DC395B300297C1D /* VBar.swift */; };
 		DA4EF9131DC395B300297C1D /* VBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8F41DC395B300297C1D /* VBarCell.swift */; };
 		DA4EF9141DC395B300297C1D /* VParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8F51DC395B300297C1D /* VParent.swift */; };
@@ -392,8 +390,6 @@
 				DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */,
 				DA4EF9101DC395B300297C1D /* Localizable.strings in Resources */,
 				DA4EF9071DC395B300297C1D /* GoogleService-Info.plist in Resources */,
-				DA4EF9111DC395B300297C1D /* Info.plist in Resources */,
-				DA4EF9081DC395B300297C1D /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,7 +598,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
-				INFOPLIST_FILE = nubeceroTests/Info.plist;
+				INFOPLIST_FILE = nubecero/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.nubeceroTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -617,7 +613,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
-				INFOPLIST_FILE = nubeceroTests/Info.plist;
+				INFOPLIST_FILE = nubecero/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.nubeceroTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -7,21 +7,21 @@
 	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
 	<string>ca-app-pub-3940256099942544/4411468910</string>
 	<key>CLIENT_ID</key>
-	<string>793603356540-4o14l3en7hvm94bqlnhrg1424hmhfdt1.apps.googleusercontent.com</string>
+	<string>975411709195-5o53dv2pi910546q5c66kplo0a4e3d5l.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.793603356540-4o14l3en7hvm94bqlnhrg1424hmhfdt1</string>
+	<string>com.googleusercontent.apps.975411709195-5o53dv2pi910546q5c66kplo0a4e3d5l</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAT1-TTVhosKW8UUjR1-KMuieBwpo0mrtk</string>
+	<string>AIzaSyBrGizQwx1UuXQ9X_gBf4XuSwTkxWqRHcM</string>
 	<key>GCM_SENDER_ID</key>
-	<string>793603356540</string>
+	<string>975411709195</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>iturbide.metalic</string>
+	<string>iturbide.nubecero</string>
 	<key>PROJECT_ID</key>
-	<string>metalic-17f1e</string>
+	<string>nubecero</string>
 	<key>STORAGE_BUCKET</key>
-	<string>metalic-17f1e.appspot.com</string>
+	<string>nubecero.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -33,8 +33,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:793603356540:ios:eb949332eb9db93f</string>
+	<string>1:975411709195:ios:8b33fb3d5034d4c5</string>
 	<key>DATABASE_URL</key>
-	<string>https://metalic-17f1e.firebaseio.com</string>
+	<string>https://nubecero.firebaseio.com</string>
 </dict>
 </plist>

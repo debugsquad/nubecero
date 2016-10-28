@@ -11,6 +11,7 @@ class VAlert:UIView
     private let kFontSize:CGFloat = 15
     private let kLabelMargin:CGFloat = 10
     private let kCornerRadius:CGFloat = 5
+    private let kBorderWidth:CGFloat = 1
     
     class func message(message:String)
     {
@@ -62,6 +63,8 @@ class VAlert:UIView
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = kCornerRadius
+        layer.borderWidth = kBorderWidth
+        layer.borderColor = UIColor(white:0, alpha:0.5).cgColor
         
         let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
         let blur:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)

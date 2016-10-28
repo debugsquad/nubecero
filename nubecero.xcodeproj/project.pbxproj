@@ -51,6 +51,7 @@
 		DACD1FA01DC401240067D26B /* VHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F9F1DC401240067D26B /* VHomeCell.swift */; };
 		DACD1FA21DC4025D0067D26B /* MHomeItemUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FA11DC4025D0067D26B /* MHomeItemUpload.swift */; };
 		DACD1FA41DC402960067D26B /* VHomeCellUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FA31DC402960067D26B /* VHomeCellUpload.swift */; };
+		DACD1FA61DC40DEF0067D26B /* Home.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1FA51DC40DEF0067D26B /* Home.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		DACD1F9F1DC401240067D26B /* VHomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCell.swift; sourceTree = "<group>"; };
 		DACD1FA11DC4025D0067D26B /* MHomeItemUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemUpload.swift; sourceTree = "<group>"; };
 		DACD1FA31DC402960067D26B /* VHomeCellUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellUpload.swift; sourceTree = "<group>"; };
+		DACD1FA51DC40DEF0067D26B /* Home.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Home.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 				DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */,
 				DACD1F881DC3A09F0067D26B /* Generic.xcassets */,
 				DACD1F901DC3B75D0067D26B /* Brand.xcassets */,
+				DACD1FA51DC40DEF0067D26B /* Home.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 			files = (
 				DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */,
 				DACD1F911DC3B75D0067D26B /* Brand.xcassets in Resources */,
+				DACD1FA61DC40DEF0067D26B /* Home.xcassets in Resources */,
 				DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */,
 				DA4EF9101DC395B300297C1D /* Localizable.strings in Resources */,
 				DA4EF9071DC395B300297C1D /* GoogleService-Info.plist in Resources */,

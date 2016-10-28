@@ -46,6 +46,8 @@
 		DACD1F951DC3DBDB0067D26B /* VAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F941DC3DBDB0067D26B /* VAlert.swift */; };
 		DACD1F971DC3F0B90067D26B /* MMainItemSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F961DC3F0B90067D26B /* MMainItemSettings.swift */; };
 		DACD1F991DC3F0E80067D26B /* MMainItemPictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F981DC3F0E80067D26B /* MMainItemPictures.swift */; };
+		DACD1F9C1DC400090067D26B /* MHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F9B1DC400090067D26B /* MHome.swift */; };
+		DACD1F9E1DC400240067D26B /* MHomeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F9D1DC400240067D26B /* MHomeItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,8 @@
 		DACD1F941DC3DBDB0067D26B /* VAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAlert.swift; sourceTree = "<group>"; };
 		DACD1F961DC3F0B90067D26B /* MMainItemSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemSettings.swift; sourceTree = "<group>"; };
 		DACD1F981DC3F0E80067D26B /* MMainItemPictures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemPictures.swift; sourceTree = "<group>"; };
+		DACD1F9B1DC400090067D26B /* MHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHome.swift; sourceTree = "<group>"; };
+		DACD1F9D1DC400240067D26B /* MHomeItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +295,7 @@
 		DA4EF8E11DC395B300297C1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DACD1F9A1DC400010067D26B /* Home */,
 				DA4EF8E21DC395B300297C1D /* Main */,
 			);
 			path = Model;
@@ -372,6 +377,15 @@
 				DACD1F8E1DC3ADEB0067D26B /* VLogin.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		DACD1F9A1DC400010067D26B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DACD1F9B1DC400090067D26B /* MHome.swift */,
+				DACD1F9D1DC400240067D26B /* MHomeItem.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -589,6 +603,7 @@
 				DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */,
 				DA4EF9051DC395B300297C1D /* FAnalytics.swift in Sources */,
 				DA4EF9121DC395B300297C1D /* VBar.swift in Sources */,
+				DACD1F9E1DC400240067D26B /* MHomeItem.swift in Sources */,
 				DA4EF9011DC395B300297C1D /* ExtensionNSManagedObject.swift in Sources */,
 				DACD1F931DC3DA4B0067D26B /* VHome.swift in Sources */,
 				DA4EF8FE1DC395B300297C1D /* ExtensionFileManager.swift in Sources */,
@@ -609,6 +624,7 @@
 				DA4EF9131DC395B300297C1D /* VBarCell.swift in Sources */,
 				DA4EF9021DC395B300297C1D /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA4EF9031DC395B300297C1D /* ExtensionUIColor.swift in Sources */,
+				DACD1F9C1DC400090067D26B /* MHome.swift in Sources */,
 				DA4EF90E1DC395B300297C1D /* MMainStateOptions.swift in Sources */,
 				DA4EF9061DC395B300297C1D /* FMain.swift in Sources */,
 				DA4EF9091DC395B300297C1D /* MMain.swift in Sources */,

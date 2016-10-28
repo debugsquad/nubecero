@@ -43,6 +43,7 @@
 		DACD1F8F1DC3ADEB0067D26B /* VLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F8E1DC3ADEB0067D26B /* VLogin.swift */; };
 		DACD1F911DC3B75D0067D26B /* Brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1F901DC3B75D0067D26B /* Brand.xcassets */; };
 		DACD1F931DC3DA4B0067D26B /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F921DC3DA4B0067D26B /* VHome.swift */; };
+		DACD1F951DC3DBDB0067D26B /* VAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F941DC3DBDB0067D26B /* VAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,7 @@
 		DACD1F8E1DC3ADEB0067D26B /* VLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLogin.swift; sourceTree = "<group>"; };
 		DACD1F901DC3B75D0067D26B /* Brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand.xcassets; sourceTree = "<group>"; };
 		DACD1F921DC3DA4B0067D26B /* VHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
+		DACD1F941DC3DBDB0067D26B /* VAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +347,7 @@
 				DA4EF8F51DC395B300297C1D /* VParent.swift */,
 				DA4EF8F61DC395B300297C1D /* VShadow.swift */,
 				DA4EF8F71DC395B300297C1D /* VSpinner.swift */,
+				DACD1F941DC3DBDB0067D26B /* VAlert.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -572,6 +575,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DACD1F871DC3A0020067D26B /* CHome.swift in Sources */,
+				DACD1F951DC3DBDB0067D26B /* VAlert.swift in Sources */,
 				DA4EF9141DC395B300297C1D /* VParent.swift in Sources */,
 				DA4EF8FD1DC395B300297C1D /* DNubecero.xcdatamodeld in Sources */,
 				DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */,

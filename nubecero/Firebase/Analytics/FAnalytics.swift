@@ -17,17 +17,9 @@ class FAnalytics
                 kFIRParameterItemID:controller.name
             ]
             
-            #if DEBUG
-
-                print(parameters)
-            
-            #else
-                
             FIRAnalytics.logEvent(
                 withName:kFIREventSelectContent,
                 parameters:parameters)
-                
-            #endif
         }
     }
 }

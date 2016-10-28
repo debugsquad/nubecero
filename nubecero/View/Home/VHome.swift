@@ -15,6 +15,47 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         backgroundColor = UIColor.background
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSize.zero
+        flow.footerReferenceSize = CGSize.zero
+        flow.minimumLineSpacing = kInterLine
+        flow.minimumInteritemSpacing = 0
+        flow.scrollDirection = UICollectionViewScrollDirection.vertical
+        flow.sectionInset = UIEdgeInsets(top:0, left:0, bottom:kCollectionBottom, right:0)
+        
+        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(
+            VHomeCellUpload.self,
+            forCellWithReuseIdentifier:
+            VHomeCellUpload.reusableIdentifier)
+        self.collectionView = collectionView
+        
+        addSubview(collectionView)
+        
+        let views:[String:UIView] = [
+            "collectionView":collectionView]
+        
+        let metrics:[String:CGFloat] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     //MARK: private

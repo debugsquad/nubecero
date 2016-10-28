@@ -19,13 +19,25 @@ class CLogin:CController, FBSDKLoginButtonDelegate
         
         guard
         
-            let user:FIRUser = FIRAuth.auth()?.currentUser
+            let _:FIRUser = FIRAuth.auth()?.currentUser
         
         else
         {
             return
         }
         
+        userLogged()
+    }
+    
+    //MARK: private
+    
+    private func userLogged()
+    {
+        
+    }
+    
+    private func loggingError(error:String)
+    {
         
     }
     
@@ -46,7 +58,21 @@ class CLogin:CController, FBSDKLoginButtonDelegate
                 with:firebaseCredential)
             { [weak self] (user, error) in
                 
-                print("firebase signed")
+                guard
+                
+                    let _:FIRUser = user
+                
+                else
+                {
+                    if let error:Error = error
+                    {
+                        self?.loggingError(error:error.localizedDescription)
+                    }
+                    
+                    return
+                }
+                
+                self?.userLogged()
             }
         }
     }

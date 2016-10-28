@@ -36,7 +36,7 @@ class CLogin:CController, FBSDKLoginButtonDelegate
         VAlert.message(message:"User already logged")
     }
     
-    private func loggingError(error:String)
+    private func loginError(error:String)
     {
         VAlert.message(message:error)
     }
@@ -47,8 +47,7 @@ class CLogin:CController, FBSDKLoginButtonDelegate
     {
         if let error:Error = error
         {
-            print("facebook error")
-            print(error.localizedDescription)
+            loginError(error:error.localizedDescription)
         }
         else
         {
@@ -66,7 +65,7 @@ class CLogin:CController, FBSDKLoginButtonDelegate
                 {
                     if let error:Error = error
                     {
-                        self?.loggingError(error:error.localizedDescription)
+                        self?.loginError(error:error.localizedDescription)
                     }
                     
                     return

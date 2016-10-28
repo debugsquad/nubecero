@@ -5,9 +5,8 @@ import FBSDKLoginKit
 class VLogin:UIView
 {
     weak var controller:CLogin!
-    private let kButtonMargin:CGFloat = 20
+    private let kMarginHorizontal:CGFloat = 20
     private let kDisclaimerHeight:CGFloat = 60
-    private let kDisclaimerMargin:CGFloat = 10
     
     convenience init(controller:CLogin)
     {
@@ -48,9 +47,8 @@ class VLogin:UIView
             "disclaimer":disclaimer]
         
         let metrics:[String:CGFloat] = [
-            "buttonMargin":kButtonMargin,
-            "disclaimerHeight":kDisclaimerHeight,
-            "disclaimerMargin":kDisclaimerMargin]
+            "marginHorizontal":kMarginHorizontal,
+            "disclaimerHeight":kDisclaimerHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[logoView]-0-|",
@@ -58,12 +56,12 @@ class VLogin:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-(buttonMargin)-[loginButton]-(buttonMargin)-|",
+            withVisualFormat:"H:|-(marginHorizontal)-[loginButton]-(marginHorizontal)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-(disclaimerMargin)-[disclaimer]-(disclaimerMargin)-|",
+            withVisualFormat:"H:|-(marginHorizontal)-[disclaimer]-(marginHorizontal)-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -73,7 +71,7 @@ class VLogin:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[disclaimer(disclaimerHeight)]-(disclaimerMargin)-[loginButton(40)]-(buttonMargin)-|",
+            withVisualFormat:"V:[disclaimer(disclaimerHeight)]-0-[loginButton(40)]-(marginHorizontal)-|",
             options:[],
             metrics:metrics,
             views:views))

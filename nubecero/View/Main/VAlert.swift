@@ -5,6 +5,8 @@ class VAlert:UIView
     static let kMarginTop:CGFloat = 10
     static let kMarginHorizontal:CGFloat = 10
     static let kHeight:CGFloat = 60
+    weak var layoutTop:NSLayoutConstraint!
+    private let kAnimationDuration:TimeInterval = 0.4
     
     class func message(message:String)
     {
@@ -34,6 +36,18 @@ class VAlert:UIView
                 options:[],
                 metrics:metrics,
                 views:views))
+            
+            alert.layoutTop = NSLayoutConstraint(
+                item:alert,
+                attribute:NSLayoutAttribute.top,
+                relatedBy:NSLayoutRelation.equal,
+                toItem:rootView,
+                attribute:NSLayoutAttribute.top,
+                multiplier:1,
+                constant:-kHeight)
+            
+            rootView.addConstraint(alert.layoutTop)
+            rootView.setNeedsLayout()
         }
     }
     
@@ -43,7 +57,25 @@ class VAlert:UIView
         clipsToBounds = true
         backgroundColor = UIColor.complement
         translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    //MARK: public
+    
+    func animate(open:Bool)
+    {
+        if open
+        {
+            layoutTop.constant = VAlert.kMarginTop
+        }
+        else
+        {
+            layoutTop.constant = -VAlert.kHeight
+        }
         
-        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
     }
 }

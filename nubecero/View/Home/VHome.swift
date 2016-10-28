@@ -4,6 +4,8 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
 {
     weak var controller:CHome!
     weak var collectionView:UICollectionView!
+    private let kInterLine:CGFloat = 1
+    private let kCollectionBottom:CGFloat = 20
     
     convenience init(controller:CHome)
     {
@@ -24,6 +26,15 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     }
     
     //MARK: public
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let item:MHomeItem = modelAtIndex(index:indexPath)
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:item.cellHeight)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int
     {

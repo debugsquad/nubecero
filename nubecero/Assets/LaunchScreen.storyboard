@@ -19,7 +19,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="assetGenericLogo" translatesAutoresizingMaskIntoConstraints="NO" id="k8V-Sh-NfC"/>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.35686274509803922" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="k8V-Sh-NfC" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Hw0-up-k3w"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="k8V-Sh-NfC" secondAttribute="bottom" id="J6H-Hz-2SV"/>
@@ -34,6 +34,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="assetGenericLogo" width="100" height="100"/>
+        <image name="assetGenericLogo" width="67" height="67"/>
     </resources>
 </document>

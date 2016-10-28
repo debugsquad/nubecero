@@ -1,5 +1,6 @@
 import UIKit
 import FirebaseAuth
+import FBSDKLoginKit
 
 class VLogin:UIView
 {
@@ -20,12 +21,15 @@ class VLogin:UIView
         logoView.contentMode = UIViewContentMode.center
         logoView.image = #imageLiteral(resourceName: "assetGenericLogo")
         
-//        let loginButton;
+        let loginButton:FBSDKLoginButton = FBSDKLoginButton()
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(logoView)
+        addSubview(loginButton)
         
         let views:[String:UIView] = [
-            "logoView":logoView]
+            "logoView":logoView,
+            "loginButton":loginButton]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -36,6 +40,16 @@ class VLogin:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[logoView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[loginButton]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[loginButton(40)]-10-|",
             options:[],
             metrics:metrics,
             views:views))

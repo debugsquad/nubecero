@@ -52,6 +52,7 @@
 		DACD1FA21DC4025D0067D26B /* MHomeItemUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FA11DC4025D0067D26B /* MHomeItemUpload.swift */; };
 		DACD1FA41DC402960067D26B /* VHomeCellUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FA31DC402960067D26B /* VHomeCellUpload.swift */; };
 		DACD1FA61DC40DEF0067D26B /* Home.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1FA51DC40DEF0067D26B /* Home.xcassets */; };
+		DACD1FA81DC411440067D26B /* CHomeUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FA71DC411440067D26B /* CHomeUpload.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,7 @@
 		DACD1FA11DC4025D0067D26B /* MHomeItemUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemUpload.swift; sourceTree = "<group>"; };
 		DACD1FA31DC402960067D26B /* VHomeCellUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellUpload.swift; sourceTree = "<group>"; };
 		DACD1FA51DC40DEF0067D26B /* Home.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Home.xcassets; sourceTree = "<group>"; };
+		DACD1FA71DC411440067D26B /* CHomeUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHomeUpload.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				DACD1F861DC3A0020067D26B /* CHome.swift */,
+				DACD1FA71DC411440067D26B /* CHomeUpload.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				DA4EF9031DC395B300297C1D /* ExtensionUIColor.swift in Sources */,
 				DACD1F9C1DC400090067D26B /* MHome.swift in Sources */,
 				DA4EF90E1DC395B300297C1D /* MMainStateOptions.swift in Sources */,
+				DACD1FA81DC411440067D26B /* CHomeUpload.swift in Sources */,
 				DA4EF9061DC395B300297C1D /* FMain.swift in Sources */,
 				DA4EF9091DC395B300297C1D /* MMain.swift in Sources */,
 			);

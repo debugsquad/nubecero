@@ -41,6 +41,7 @@
 		DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1F881DC3A09F0067D26B /* Generic.xcassets */; };
 		DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F8B1DC3AD480067D26B /* CLogin.swift */; };
 		DACD1F8F1DC3ADEB0067D26B /* VLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F8E1DC3ADEB0067D26B /* VLogin.swift */; };
+		DACD1F911DC3B75D0067D26B /* Brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1F901DC3B75D0067D26B /* Brand.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		DACD1F881DC3A09F0067D26B /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DACD1F8B1DC3AD480067D26B /* CLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLogin.swift; sourceTree = "<group>"; };
 		DACD1F8E1DC3ADEB0067D26B /* VLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLogin.swift; sourceTree = "<group>"; };
+		DACD1F901DC3B75D0067D26B /* Brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +182,7 @@
 			children = (
 				DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */,
 				DACD1F881DC3A09F0067D26B /* Generic.xcassets */,
+				DACD1F901DC3B75D0067D26B /* Brand.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */,
+				DACD1F911DC3B75D0067D26B /* Brand.xcassets in Resources */,
 				DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */,
 				DA4EF9101DC395B300297C1D /* Localizable.strings in Resources */,
 				DA4EF9071DC395B300297C1D /* GoogleService-Info.plist in Resources */,

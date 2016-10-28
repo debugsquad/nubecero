@@ -21,8 +21,8 @@ class CParent:UIViewController
     {
         super.viewDidLoad()
         
-        let home:CHome = CHome()
-        center(controller:home)
+        let login:CLogin = CLogin()
+        center(controller:login)
     }
     
     override func loadView()

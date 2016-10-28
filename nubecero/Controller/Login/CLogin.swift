@@ -2,7 +2,7 @@ import UIKit
 
 class CLogin:CController
 {
-    weak var viewLogin:VLogin
+    weak var viewLogin:VLogin!
     
     override func loadView()
     {

@@ -33,8 +33,12 @@ class CLogin:CController, FBSDKLoginButtonDelegate
     
     private func userLogged()
     {
-        let homeController:CHome = CHome()
-        parentController.center(controller:homeController)
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            let homeController:CHome = CHome()
+            self?.parentController.center(controller:homeController)
+        }
     }
     
     private func loginError(error:String)

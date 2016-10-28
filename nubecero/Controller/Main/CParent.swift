@@ -42,6 +42,20 @@ class CParent:UIViewController
         return false
     }
     
+    private func mainController(underBar:Bool)
+    {
+        addChildViewController(controller)
+        controllers.last?.willMove(toParentViewController:nil)
+        viewParent.over(controller:controller, underBar:underBar)
+        
+        let lastController:CController? = self.controllers.popLast()
+        lastController?.view.removeFromSuperview()
+        lastController?.removeFromParentViewController()
+        
+        controllers.append(controller)
+        controller.didMove(toParentViewController:self)
+    }
+    
     //MARK: public
     
     func statusBarLight()
@@ -69,18 +83,12 @@ class CParent:UIViewController
     
     func center(controller:CController)
     {
-        addChildViewController(controller)
-        viewParent.over(controller:controller, underBar:true)
-        controllers.append(controller)
-        controller.didMove(toParentViewController:self)
+        mainController(underBar:true)
     }
     
     func over(controller:CController)
     {
-        addChildViewController(controller)
-        viewParent.over(controller:controller, underBar:false)
-        controllers.append(controller)
-        controller.didMove(toParentViewController:self)
+        mainController(underBar:false)
     }
     
     func pop()

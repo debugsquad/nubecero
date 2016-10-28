@@ -7,6 +7,9 @@ def podlist
   pod 'Firebase/Crash'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
+  pod 'Bolts'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
 end
 
 target 'nubecero' do

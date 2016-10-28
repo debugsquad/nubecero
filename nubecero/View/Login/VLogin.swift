@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAuth
 
 class VLogin:UIView
 {
@@ -18,6 +19,8 @@ class VLogin:UIView
         logoView.clipsToBounds = true
         logoView.contentMode = UIViewContentMode.center
         logoView.image = #imageLiteral(resourceName: "assetGenericLogo")
+        
+//        let loginButton;
         
         addSubview(logoView)
         

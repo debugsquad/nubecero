@@ -23,4 +23,12 @@ class CHome:CController
         self.viewHome = viewHome
         view = viewHome
     }
+    
+    //MARK: public
+    
+    func uploadPictures()
+    {
+        let controllerUpload:CHomeUpload = CHomeUpload()
+        parentController.push(controller:controllerUpload)
+    }
 }

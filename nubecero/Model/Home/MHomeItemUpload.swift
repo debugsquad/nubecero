@@ -16,6 +16,6 @@ class MHomeItemUpload:MHomeItem
     
     override func selected(controller:CHome)
     {
-        
+        controller.uploadPictures()
     }
 }

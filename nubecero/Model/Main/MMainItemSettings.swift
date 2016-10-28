@@ -2,7 +2,7 @@ import UIKit
 
 class MMainItemSettings:MMainItem
 {
-    private let kIconImage:String = "assetGenericHome"
+    private let kIconImage:String = "assetGenericSettings"
     
     init(index:Int)
     {

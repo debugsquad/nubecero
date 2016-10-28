@@ -5,6 +5,7 @@ import FBSDKLoginKit
 class VLogin:UIView
 {
     weak var controller:CLogin!
+    private let kButtonMargin:CGFloat = 20
     
     convenience init(controller:CLogin)
     {
@@ -31,7 +32,8 @@ class VLogin:UIView
             "logoView":logoView,
             "loginButton":loginButton]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "buttonMargin":kButtonMargin]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[logoView]-0-|",
@@ -44,12 +46,12 @@ class VLogin:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[loginButton]-0-|",
+            withVisualFormat:"H:|-(buttonMargin)-[loginButton]-(buttonMargin)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[loginButton(40)]-10-|",
+            withVisualFormat:"V:[loginButton(40)]-(buttonMargin)-|",
             options:[],
             metrics:metrics,
             views:views))

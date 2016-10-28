@@ -33,7 +33,8 @@ class CLogin:CController, FBSDKLoginButtonDelegate
     
     private func userLogged()
     {
-        VAlert.message(message:"User already logged")
+        let homeController:CHome = CHome()
+        parentController.center(controller:homeController)
     }
     
     private func loginError(error:String)
@@ -78,5 +79,6 @@ class CLogin:CController, FBSDKLoginButtonDelegate
     
     func loginButtonDidLogOut(_ loginButton:FBSDKLoginButton!)
     {
+        loginError(error:NSLocalizedString("CLogin_logOut", comment:""))
     }
 }

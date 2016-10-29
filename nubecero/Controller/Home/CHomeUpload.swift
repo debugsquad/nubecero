@@ -20,6 +20,20 @@ class CHomeUpload:CController
     
     override func viewDidAppear(_ animated:Bool)
     {
-        PHPhotoLibrary.
+        switch PHPhotoLibrary.authorizationStatus()
+        {
+            case PHAuthorizationStatus.denied,
+                 PHAuthorizationStatus.restricted,
+                 PHAuthorizationStatus.notDetermined:
+            
+                let errorMessage:String = NSLocalizedString("CHomeUpload_authDenied", comment:"")
+                VAlert.message(message:errorMessage)
+                
+                break
+            
+            case PHAuthorizationStatus.authorized:
+                
+                break
+        }
     }
 }

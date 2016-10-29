@@ -3,16 +3,16 @@ import UIKit
 class VAlert:UIView
 {
     static let kMarginHorizontal:CGFloat = 10
-    static let kHeight:CGFloat = 50
+    static let kHeight:CGFloat = 60
     weak var layoutTop:NSLayoutConstraint!
     weak var timer:Timer?
     private let kMarginTop:CGFloat = 20
-    private let kAnimationDuration:TimeInterval = 0.28
-    private let kTimeOut:TimeInterval = 5
+    private let kAnimationDuration:TimeInterval = 0.2
+    private let kTimeOut:TimeInterval = 7
     private let kFontSize:CGFloat = 14
     private let kLabelMargin:CGFloat = 10
     private let kCornerRadius:CGFloat = 5
-    private let kBorderWidth:CGFloat = 1
+    private let kBorderWidth:CGFloat = 0.5
     
     class func message(message:String)
     {
@@ -65,7 +65,7 @@ class VAlert:UIView
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = kCornerRadius
         layer.borderWidth = kBorderWidth
-        layer.borderColor = UIColor(white:0, alpha:0.1).cgColor
+        layer.borderColor = UIColor(white:0, alpha:0.3).cgColor
         
         let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
         let blur:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
@@ -76,7 +76,7 @@ class VAlert:UIView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.medium(size:kFontSize)
-        label.textColor = UIColor(white:0.2, alpha:1)
+        label.textColor = UIColor(white:0.1, alpha:1)
         label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 0
         label.backgroundColor = UIColor.clear

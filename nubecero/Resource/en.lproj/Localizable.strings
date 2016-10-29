@@ -3,3 +3,4 @@
 
 "CLogin_logOut"="Log out succeded";
 "CHomeUpload_title"="Upload pictures";
+"CHomeUpload_authDenied"="Unable to acccess your photo library";

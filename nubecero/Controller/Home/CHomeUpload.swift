@@ -117,9 +117,6 @@ class CHomeUpload:CController
         for indexAsset:Int in 0 ..< countAssets
         {
             let asset:PHAsset = assetsResult[indexAsset]
-            
-            PHImageManager.
-            asset.siz
         }
         
         /*

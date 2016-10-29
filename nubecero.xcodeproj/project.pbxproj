@@ -55,6 +55,8 @@
 		DACD1FA81DC411440067D26B /* CHomeUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FA71DC411440067D26B /* CHomeUpload.swift */; };
 		DACD1FAB1DC4124B0067D26B /* VHomeUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FAA1DC4124B0067D26B /* VHomeUpload.swift */; };
 		DACD1FAD1DC418A20067D26B /* Loader.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1FAC1DC418A20067D26B /* Loader.xcassets */; };
+		DACD1FB01DC540750067D26B /* MHomeUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FAF1DC540750067D26B /* MHomeUpload.swift */; };
+		DACD1FB21DC540810067D26B /* MHomeUploadItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FB11DC540810067D26B /* MHomeUploadItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +127,8 @@
 		DACD1FA71DC411440067D26B /* CHomeUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHomeUpload.swift; sourceTree = "<group>"; };
 		DACD1FAA1DC4124B0067D26B /* VHomeUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUpload.swift; sourceTree = "<group>"; };
 		DACD1FAC1DC418A20067D26B /* Loader.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Loader.xcassets; sourceTree = "<group>"; };
+		DACD1FAF1DC540750067D26B /* MHomeUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUpload.swift; sourceTree = "<group>"; };
+		DACD1FB11DC540810067D26B /* MHomeUploadItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +316,7 @@
 		DA4EF8E11DC395B300297C1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DACD1FAE1DC540450067D26B /* HomeUpload */,
 				DACD1F9A1DC400010067D26B /* Home */,
 				DA4EF8E21DC395B300297C1D /* Main */,
 			);
@@ -413,6 +418,15 @@
 			isa = PBXGroup;
 			children = (
 				DACD1FAA1DC4124B0067D26B /* VHomeUpload.swift */,
+			);
+			path = HomeUpload;
+			sourceTree = "<group>";
+		};
+		DACD1FAE1DC540450067D26B /* HomeUpload */ = {
+			isa = PBXGroup;
+			children = (
+				DACD1FAF1DC540750067D26B /* MHomeUpload.swift */,
+				DACD1FB11DC540810067D26B /* MHomeUploadItem.swift */,
 			);
 			path = HomeUpload;
 			sourceTree = "<group>";
@@ -632,6 +646,7 @@
 				DACD1F991DC3F0E80067D26B /* MMainItemPictures.swift in Sources */,
 				DACD1F951DC3DBDB0067D26B /* VAlert.swift in Sources */,
 				DA4EF9141DC395B300297C1D /* VParent.swift in Sources */,
+				DACD1FB01DC540750067D26B /* MHomeUpload.swift in Sources */,
 				DACD1FAB1DC4124B0067D26B /* VHomeUpload.swift in Sources */,
 				DA4EF8FD1DC395B300297C1D /* DNubecero.xcdatamodeld in Sources */,
 				DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */,
@@ -641,6 +656,7 @@
 				DACD1F9E1DC400240067D26B /* MHomeItem.swift in Sources */,
 				DA4EF9011DC395B300297C1D /* ExtensionNSManagedObject.swift in Sources */,
 				DACD1F931DC3DA4B0067D26B /* VHome.swift in Sources */,
+				DACD1FB21DC540810067D26B /* MHomeUploadItem.swift in Sources */,
 				DA4EF8FE1DC395B300297C1D /* ExtensionFileManager.swift in Sources */,
 				DA4EF9001DC395B300297C1D /* ExtensionNotification.swift in Sources */,
 				DA4EF90B1DC395B300297C1D /* MMainItemHome.swift in Sources */,

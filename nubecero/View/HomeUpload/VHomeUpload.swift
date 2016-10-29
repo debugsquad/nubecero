@@ -34,4 +34,11 @@ class VHomeUpload:UIView
             metrics:metrics,
             views:views))
     }
+    
+    //MARK: public
+    
+    func stopLoading()
+    {
+        
+    }
 }

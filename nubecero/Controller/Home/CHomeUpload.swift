@@ -61,17 +61,40 @@ class CHomeUpload:CController
     
     private func authorized()
     {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.loadCameraRoll()
+        }
+    }
+    
+    private func loadCameraRoll()
+    {
         let fetchOptions:PHFetchOptions = PHFetchOptions()
         let sortNewest:NSSortDescriptor = NSSortDescriptor(key:"creationDate", ascending:false)
         let predicateImages:NSPredicate = NSPredicate(format:"mediaType = %d", PHAssetMediaType.image.rawValue)
-//        fetchOptions.sortDescriptors = [sortNewest]
-//        fetchOptions.predicate = predicateImages
+        //        fetchOptions.sortDescriptors = [sortNewest]
+        //        fetchOptions.predicate = predicateImages
         
         let fetchResult:PHFetchResult = PHAssetCollection.fetchAssetCollections(with:PHAssetCollectionType.smartAlbum, subtype: PHAssetCollectionSubtype.smartAlbumUserLibrary, options:nil)
+        
+        guard
+            
+            let cameraRoll:PHAssetCollection = fetchResult.firstObject
+            
+            else
+        {
+            
+        }
+        
         let countResults:Int = fetchResult.count
+        fetchResult.fi
+        
         
         for indexResult:Int in 0 ..< countResults
         {
+            PHAsset.media
+            
             let collectionResult:PHCollection = fetchResult[indexResult]
             print("-----")
             print(collectionResult.localizedTitle)

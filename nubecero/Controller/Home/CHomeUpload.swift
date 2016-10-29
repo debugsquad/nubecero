@@ -57,6 +57,20 @@ class CHomeUpload:CController
     {
         let errorMessage:String = NSLocalizedString("CHomeUpload_authDenied", comment:"")
         VAlert.message(message:errorMessage)
+        
+        viewUpload.showError()
+    }
+    
+    private func errorLoadingCameraRoll()
+    {
+        let errorMessage:String = NSLocalizedString("CHomeUpload_noCameraRoll", comment:"")
+        VAlert.message(message:errorMessage)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewUpload.showError()
+        }
     }
     
     private func authorized()
@@ -80,13 +94,15 @@ class CHomeUpload:CController
         
         guard
             
-            let cameraRoll:PHAssetCollection = fetchResult.firstObject
+            let cameraRoll:PHAssetCollection = fetchResult[2]
             
-            else
+        else
         {
+            errorLoadingCameraRoll()
             
+            return
         }
-        
+        /*
         let countResults:Int = fetchResult.count
         fetchResult.fi
         
@@ -98,6 +114,6 @@ class CHomeUpload:CController
             let collectionResult:PHCollection = fetchResult[indexResult]
             print("-----")
             print(collectionResult.localizedTitle)
-        }
+        }*/
     }
 }

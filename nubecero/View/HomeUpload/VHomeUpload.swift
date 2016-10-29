@@ -5,7 +5,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     weak var controller:CHomeUpload!
     weak var spinner:VSpinner!
     weak var collectionView:UICollectionView!
-    private let kInterLine:CGFloat = 1
+    private var imageSize:CGFloat!
     private let kCollectionBottom:CGFloat = 20
     
     convenience init(controller:CHomeUpload)
@@ -24,7 +24,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize.zero
         flow.footerReferenceSize = CGSize.zero
-        flow.minimumLineSpacing = kInterLine
+        flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
         flow.sectionInset = UIEdgeInsets(top:0, left:0, bottom:kCollectionBottom, right:0)
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
@@ -75,9 +75,26 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
             options:[],
             metrics:metrics,
             views:views))
+        
+        computeImageSize()
+    }
+    
+    override func layoutSubviews()
+    {
+        computeImageSize()
+        collectionView.collectionViewLayout.invalidateLayout()
+        
+        super.layoutSubviews()
     }
     
     //MARK: private
+    
+    private func computeImageSize()
+    {
+        let width:CGFloat = bounds.maxX
+        let proximate:CGFloat = floor(width / MHomeUpload.kImageMaxSize)
+        imageSize = width / proximate
+    }
     
     private func modelAtIndex(index:IndexPath) -> MHomeUploadItem
     {
@@ -133,7 +150,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
         let item:MHomeUploadItem = modelAtIndex(index:indexPath)
-        let size:CGSize = item.imageSize
+        let size:CGSize = CGSize(width:imageSize, height:imageSize)
         
         return size
     }

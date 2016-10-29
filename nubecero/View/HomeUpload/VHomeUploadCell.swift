@@ -13,7 +13,7 @@ class VHomeUploadCell:UICollectionViewCell
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.clipsToBounds = true
         self.imageView = imageView
         

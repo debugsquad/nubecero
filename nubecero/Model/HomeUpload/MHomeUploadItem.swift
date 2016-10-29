@@ -6,13 +6,14 @@ class MHomeUploadItem
     weak var asset:PHAsset!
     var image:UIImage?
     var requestId:PHImageRequestID?
-    let kImageSide:CGFloat = 150
-    let imageSize:CGSize
     
     init(asset:PHAsset)
     {
-        imageSize = CGSize(width:kImageSide, height:kImageSide)
         self.asset = asset
+        
+        let imageSize:CGSize = CGSize(
+            width:MHomeUpload.kImageMaxSize,
+            height:MHomeUpload.kImageMaxSize)
         
         let requestOptions:PHImageRequestOptions = PHImageRequestOptions()
         requestOptions.resizeMode = PHImageRequestOptionsResizeMode.fast

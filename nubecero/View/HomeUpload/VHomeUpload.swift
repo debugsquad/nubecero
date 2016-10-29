@@ -7,6 +7,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     private weak var collectionView:UICollectionView!
     private var imageSize:CGFloat!
     private let kCollectionBottom:CGFloat = 20
+    private let kInterLine:CGFloat = 1
     
     convenience init(controller:CHomeUpload)
     {
@@ -24,9 +25,9 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize.zero
         flow.footerReferenceSize = CGSize.zero
-        flow.minimumLineSpacing = 0
+        flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
-        flow.sectionInset = UIEdgeInsets(top:0, left:0, bottom:kCollectionBottom, right:0)
+        flow.sectionInset = UIEdgeInsets(top:kInterLine, left:0, bottom:kCollectionBottom, right:0)
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
@@ -37,6 +38,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.alwaysBounceVertical = true
+        collectionView.allowsMultipleSelection = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(
@@ -91,9 +93,9 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     
     private func computeImageSize()
     {
-        let width:CGFloat = bounds.maxX
+        let width:CGFloat = bounds.maxX - kInterLine
         let proximate:CGFloat = floor(width / MHomeUpload.kImageMaxSize)
-        imageSize = width / proximate
+        imageSize = (width / proximate) - kInterLine
     }
     
     private func modelAtIndex(index:IndexPath) -> MHomeUploadItem

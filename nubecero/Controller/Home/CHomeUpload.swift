@@ -53,24 +53,27 @@ class CHomeUpload:CController
     
     //MARK: private
     
+    private func showError()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewUpload.showError()
+        }
+    }
+    
     private func authDenied()
     {
         let errorMessage:String = NSLocalizedString("CHomeUpload_authDenied", comment:"")
         VAlert.message(message:errorMessage)
-        
-        viewUpload.showError()
+        showError()
     }
     
     private func errorLoadingCameraRoll()
     {
         let errorMessage:String = NSLocalizedString("CHomeUpload_noCameraRoll", comment:"")
         VAlert.message(message:errorMessage)
-        
-        DispatchQueue.main.async
-        { [weak self] in
-            
-            self?.viewUpload.showError()
-        }
+        showError()
     }
     
     private func authorized()
@@ -84,17 +87,14 @@ class CHomeUpload:CController
     
     private func loadCameraRoll()
     {
-        let fetchOptions:PHFetchOptions = PHFetchOptions()
-        let sortNewest:NSSortDescriptor = NSSortDescriptor(key:"creationDate", ascending:false)
-        let predicateImages:NSPredicate = NSPredicate(format:"mediaType = %d", PHAssetMediaType.image.rawValue)
-        //        fetchOptions.sortDescriptors = [sortNewest]
-        //        fetchOptions.predicate = predicateImages
-        
-        let fetchResult:PHFetchResult = PHAssetCollection.fetchAssetCollections(with:PHAssetCollectionType.smartAlbum, subtype: PHAssetCollectionSubtype.smartAlbumUserLibrary, options:nil)
+        let collectionResult:PHFetchResult = PHAssetCollection.fetchAssetCollections(
+            with:PHAssetCollectionType.smartAlbum,
+            subtype:PHAssetCollectionSubtype.smartAlbumUserLibrary,
+            options:nil)
         
         guard
             
-            let cameraRoll:PHAssetCollection = fetchResult[2]
+            let cameraRoll:PHAssetCollection = collectionResult.firstObject
             
         else
         {
@@ -102,6 +102,26 @@ class CHomeUpload:CController
             
             return
         }
+        
+        let fetchOptions:PHFetchOptions = PHFetchOptions()
+        let sortNewest:NSSortDescriptor = NSSortDescriptor(key:"creationDate", ascending:false)
+        let predicateImages:NSPredicate = NSPredicate(format:"mediaType = %d", PHAssetMediaType.image.rawValue)
+        fetchOptions.sortDescriptors = [sortNewest]
+        fetchOptions.predicate = predicateImages
+        
+        let assetsResult:PHFetchResult = PHAsset.fetchAssets(
+            in:cameraRoll,
+            options:fetchOptions)
+        let countAssets:Int = assetsResult.count
+        
+        for indexAsset:Int in 0 ..< countAssets
+        {
+            let asset:PHAsset = assetsResult[indexAsset]
+            
+            PHImageManager.
+            asset.siz
+        }
+        
         /*
         let countResults:Int = fetchResult.count
         fetchResult.fi

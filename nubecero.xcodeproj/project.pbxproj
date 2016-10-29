@@ -58,6 +58,7 @@
 		DACD1FB01DC540750067D26B /* MHomeUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FAF1DC540750067D26B /* MHomeUpload.swift */; };
 		DACD1FB21DC540810067D26B /* MHomeUploadItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FB11DC540810067D26B /* MHomeUploadItem.swift */; };
 		DACD1FB41DC545F70067D26B /* VHomeUploadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FB31DC545F70067D26B /* VHomeUploadCell.swift */; };
+		DACD1FB61DC56C250067D26B /* VHomeUploadBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FB51DC56C250067D26B /* VHomeUploadBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		DACD1FAF1DC540750067D26B /* MHomeUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUpload.swift; sourceTree = "<group>"; };
 		DACD1FB11DC540810067D26B /* MHomeUploadItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItem.swift; sourceTree = "<group>"; };
 		DACD1FB31DC545F70067D26B /* VHomeUploadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadCell.swift; sourceTree = "<group>"; };
+		DACD1FB51DC56C250067D26B /* VHomeUploadBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,6 +423,7 @@
 			children = (
 				DACD1FAA1DC4124B0067D26B /* VHomeUpload.swift */,
 				DACD1FB31DC545F70067D26B /* VHomeUploadCell.swift */,
+				DACD1FB51DC56C250067D26B /* VHomeUploadBar.swift */,
 			);
 			path = HomeUpload;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 				DA4EF90E1DC395B300297C1D /* MMainStateOptions.swift in Sources */,
 				DACD1FA81DC411440067D26B /* CHomeUpload.swift in Sources */,
 				DA4EF9061DC395B300297C1D /* FMain.swift in Sources */,
+				DACD1FB61DC56C250067D26B /* VHomeUploadBar.swift in Sources */,
 				DA4EF9091DC395B300297C1D /* MMain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

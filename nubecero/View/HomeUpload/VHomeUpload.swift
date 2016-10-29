@@ -1,6 +1,6 @@
 import UIKit
 
-class VHomeUpload:UIView
+class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CHomeUpload!
     weak var spinner:VSpinner!
@@ -36,6 +36,15 @@ class VHomeUpload:UIView
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MHomeUploadItem
+    {
+        let item:MHomeUploadItem = controller.model.items[index.item]
+        
+        return item
     }
     
     //MARK: public
@@ -76,5 +85,38 @@ class VHomeUpload:UIView
     func imagesLoaded()
     {
         spinner.stopAnimating()
+    }
+    
+    //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let item:MHomeUploadItem = modelAtIndex(index:indexPath)
+        let size:CGSize = item.imageSize
+        
+        return size
+    }
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.model.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MHomeUploadItem = modelAtIndex(index:indexPath)
+        let cell:VHomeUploadCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:VHomeUploadCell.reusableIdentifier,
+            for:indexPath) as! VHomeUploadCell
+        cell.config(model:item)
+        
+        return cell
     }
 }

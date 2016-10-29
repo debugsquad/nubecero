@@ -4,6 +4,9 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
 {
     weak var controller:CHomeUpload!
     weak var spinner:VSpinner!
+    weak var collectionView:UICollectionView!
+    private let kInterLine:CGFloat = 1
+    private let kCollectionBottom:CGFloat = 20
     
     convenience init(controller:CHomeUpload)
     {
@@ -18,10 +21,36 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
         
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSize.zero
+        flow.footerReferenceSize = CGSize.zero
+        flow.minimumLineSpacing = kInterLine
+        flow.minimumInteritemSpacing = 0
+        flow.sectionInset = UIEdgeInsets(top:0, left:0, bottom:kCollectionBottom, right:0)
+        flow.scrollDirection = UICollectionViewScrollDirection.vertical
+        
+        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.isHidden = true
+        collectionView.clipsToBounds = true
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(
+            VHomeUploadCell.self,
+            forCellWithReuseIdentifier:
+            VHomeUploadCell.reusableIdentifier)
+        self.collectionView = collectionView
+        
         addSubview(spinner)
+        addSubview(collectionView)
         
         let views:[String:UIView] = [
-            "spinner":spinner]
+            "spinner":spinner,
+            "collectionView":collectionView]
         
         let metrics:[String:CGFloat] = [
             "barHeight":barHeight]
@@ -33,6 +62,16 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-(barHeight)-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(barHeight)-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -85,6 +124,8 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     func imagesLoaded()
     {
         spinner.stopAnimating()
+        collectionView.reloadData()
+        collectionView.isHidden = false
     }
     
     //MARK: collectionView delegate

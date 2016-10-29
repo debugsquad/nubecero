@@ -12,7 +12,7 @@ class VHomeCellUpload:VHomeCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:12)
+        label.font = UIFont.medium(size:12)
         label.textColor = UIColor.complement
         label.textAlignment = NSTextAlignment.center
         label.text = NSLocalizedString("VHomeCellUpload_label", comment:"")

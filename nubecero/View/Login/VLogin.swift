@@ -4,7 +4,7 @@ import FBSDKLoginKit
 
 class VLogin:UIView
 {
-    weak var controller:CLogin!
+    private weak var controller:CLogin!
     private let kMarginHorizontal:CGFloat = 20
     private let kDisclaimerHeight:CGFloat = 60
     

@@ -4,8 +4,8 @@ class VAlert:UIView
 {
     static let kMarginHorizontal:CGFloat = 10
     static let kHeight:CGFloat = 60
-    weak var layoutTop:NSLayoutConstraint!
-    weak var timer:Timer?
+    private weak var layoutTop:NSLayoutConstraint!
+    private weak var timer:Timer?
     private let kMarginTop:CGFloat = 20
     private let kAnimationDuration:TimeInterval = 0.2
     private let kTimeOut:TimeInterval = 7
@@ -57,7 +57,7 @@ class VAlert:UIView
         }
     }
     
-    convenience init(message:String)
+    private convenience init(message:String)
     {
         self.init()
         clipsToBounds = true
@@ -162,9 +162,7 @@ class VAlert:UIView
             repeats:false)
     }
     
-    //MARK: public
-    
-    func animate(open:Bool)
+    private func animate(open:Bool)
     {
         if open
         {

@@ -2,12 +2,12 @@ import UIKit
 
 class VParent:UIView
 {
-    weak var parent:CParent!
     weak var bar:VBar!
-    weak var layoutBarHeight:NSLayoutConstraint!
+    private weak var parent:CParent!
+    private weak var layoutBarHeight:NSLayoutConstraint!
+    private let kAnimationDuration:TimeInterval = 0.3
     let kBarHeight:CGFloat = 64
     let kBarMinHeight:CGFloat = 20
-    private let kAnimationDuration:TimeInterval = 0.3
     
     convenience init(parent:CParent)
     {

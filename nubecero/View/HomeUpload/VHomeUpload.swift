@@ -2,9 +2,9 @@ import UIKit
 
 class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    weak var controller:CHomeUpload!
-    weak var spinner:VSpinner!
-    weak var collectionView:UICollectionView!
+    private weak var controller:CHomeUpload!
+    private weak var spinner:VSpinner!
+    private weak var collectionView:UICollectionView!
     private var imageSize:CGFloat!
     private let kCollectionBottom:CGFloat = 20
     

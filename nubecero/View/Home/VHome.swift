@@ -2,8 +2,8 @@ import UIKit
 
 class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    weak var controller:CHome!
-    weak var collectionView:UICollectionView!
+    private weak var controller:CHome!
+    private weak var collectionView:UICollectionView!
     private let kInterLine:CGFloat = 1
     private let kCollectionBottom:CGFloat = 20
     private let kDeselectTime:TimeInterval = 1

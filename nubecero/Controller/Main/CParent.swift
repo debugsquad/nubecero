@@ -4,11 +4,12 @@ class CParent:UIViewController
 {
     weak var viewParent:VParent!
     var controllers:[CController]
-    private var statusBarStyle:UIStatusBarStyle = UIStatusBarStyle.lightContent
+    private var statusBarStyle:UIStatusBarStyle
     
     init()
     {
         controllers = []
+        statusBarStyle = UIStatusBarStyle.lightContent
         super.init(nibName:nil, bundle:nil)
     }
     

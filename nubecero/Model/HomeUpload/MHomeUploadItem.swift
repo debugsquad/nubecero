@@ -3,9 +3,9 @@ import Photos
 
 class MHomeUploadItem
 {
-    weak var asset:PHAsset!
     var image:UIImage?
-    var requestId:PHImageRequestID?
+    private weak var asset:PHAsset!
+    private var requestId:PHImageRequestID?
     
     init(asset:PHAsset)
     {

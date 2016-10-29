@@ -2,8 +2,8 @@ import UIKit
 
 class VBarCell:UICollectionViewCell
 {
-    weak var icon:UIImageView!
-    weak var model:MMainItem!
+    private weak var icon:UIImageView!
+    private weak var model:MMainItem!
     
     override init(frame:CGRect)
     {

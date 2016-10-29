@@ -2,11 +2,11 @@ import UIKit
 
 class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    let model:MMain
-    weak var parent:CParent!
-    weak var collectionView:UICollectionView!
     weak var label:UILabel!
-    weak var backButton:UIButton!
+    private let model:MMain
+    private weak var parent:CParent!
+    private weak var collectionView:UICollectionView!
+    private weak var backButton:UIButton!
     private var currentWidth:CGFloat
     private let barHeight:CGFloat
     private let barDelta:CGFloat

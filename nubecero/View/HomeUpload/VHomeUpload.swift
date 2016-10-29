@@ -8,7 +8,7 @@ class VHomeUpload:UIView
     convenience init(controller:CHomeUpload)
     {
         self.init()
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.background
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
         self.controller = controller
@@ -71,5 +71,10 @@ class VHomeUpload:UIView
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    func imagesLoaded()
+    {
+        spinner.stopAnimating()
     }
 }

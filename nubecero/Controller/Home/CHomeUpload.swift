@@ -75,6 +75,15 @@ class CHomeUpload:CController
         }
     }
     
+    private func imagesLoaded()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewUpload.imagesLoaded()
+        }
+    }
+    
     private func authDenied()
     {
         let errorMessage:String = NSLocalizedString("CHomeUpload_authDenied", comment:"")
@@ -130,20 +139,11 @@ class CHomeUpload:CController
         for indexAsset:Int in 0 ..< countAssets
         {
             let asset:PHAsset = assetsResult[indexAsset]
+            let uploadItem:MHomeUploadItem = MHomeUploadItem(asset:asset)
+            
+            model.items.append(uploadItem)
         }
         
-        /*
-        let countResults:Int = fetchResult.count
-        fetchResult.fi
-        
-        
-        for indexResult:Int in 0 ..< countResults
-        {
-            PHAsset.media
-            
-            let collectionResult:PHCollection = fetchResult[indexResult]
-            print("-----")
-            print(collectionResult.localizedTitle)
-        }*/
+        imagesLoaded()
     }
 }

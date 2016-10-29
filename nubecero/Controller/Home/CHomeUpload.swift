@@ -1,4 +1,5 @@
 import UIKit
+import Photos
 
 class CHomeUpload:CController
 {
@@ -15,5 +16,10 @@ class CHomeUpload:CController
     {
         super.viewDidLoad()
         title = NSLocalizedString("CHomeUpload_title", comment:"")
+    }
+    
+    override func viewDidAppear(_ animated:Bool)
+    {
+        PHPhotoLibrary.
     }
 }

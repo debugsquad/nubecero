@@ -61,6 +61,20 @@ class CHomeUpload:CController
     
     private func authorized()
     {
-        print("start loading pictures")
+        let fetchOptions:PHFetchOptions = PHFetchOptions()
+        let sortNewest:NSSortDescriptor = NSSortDescriptor(key:"creationDate", ascending:false)
+        let predicateImages:NSPredicate = NSPredicate(format:"mediaType = %d", PHAssetMediaType.image.rawValue)
+//        fetchOptions.sortDescriptors = [sortNewest]
+//        fetchOptions.predicate = predicateImages
+        
+        let fetchResult:PHFetchResult = PHAssetCollection.fetchAssetCollections(with:PHAssetCollectionType.smartAlbum, subtype: PHAssetCollectionSubtype.smartAlbumUserLibrary, options:nil)
+        let countResults:Int = fetchResult.count
+        
+        for indexResult:Int in 0 ..< countResults
+        {
+            let collectionResult:PHCollection = fetchResult[indexResult]
+            print("-----")
+            print(collectionResult.localizedTitle)
+        }
     }
 }

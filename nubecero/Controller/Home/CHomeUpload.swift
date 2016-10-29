@@ -4,6 +4,19 @@ import Photos
 class CHomeUpload:CController
 {
     weak var viewUpload:VHomeUpload!
+    let model:MHomeUpload
+    
+    init()
+    {
+        model = MHomeUpload()
+        
+        super.init(nibName:nil, bundle:nil)
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
     
     override func loadView()
     {

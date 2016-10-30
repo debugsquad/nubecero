@@ -162,8 +162,12 @@ class CHomeUpload:CController
         }
         
         let fetchOptions:PHFetchOptions = PHFetchOptions()
-        let sortNewest:NSSortDescriptor = NSSortDescriptor(key:"creationDate", ascending:false)
-        let predicateImages:NSPredicate = NSPredicate(format:"mediaType = %d", PHAssetMediaType.image.rawValue)
+        let sortNewest:NSSortDescriptor = NSSortDescriptor(
+            key:"creationDate",
+            ascending:false)
+        let predicateImages:NSPredicate = NSPredicate(
+            format:"mediaType = %d",
+            PHAssetMediaType.image.rawValue)
         fetchOptions.sortDescriptors = [sortNewest]
         fetchOptions.predicate = predicateImages
         

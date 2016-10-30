@@ -9,7 +9,7 @@ class VHomeUploadBar:UIView
     private let kCommitButtonInsetsRight:CGFloat = 50
     private let kAmountLabelRight:CGFloat = -64
     private let kAmountLabelWidth:CGFloat = 100
-    private let kAlphaEmpty:CGFloat = 0.2
+    private let kAlphaEmpty:CGFloat = 0.3
     private let kEmpty:String = ""
     
     convenience init(controller:CHomeUpload)

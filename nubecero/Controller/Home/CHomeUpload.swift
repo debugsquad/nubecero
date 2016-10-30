@@ -191,6 +191,7 @@ class CHomeUpload:CController
     
     func commitUpload()
     {
-        
+        let controllerSync:CHomeUploadSync = CHomeUploadSync()
+        parentController.over(controller:controllerSync, pop:false)
     }
 }

@@ -23,7 +23,7 @@ class CParent:UIViewController
         super.viewDidLoad()
         
         let login:CLogin = CLogin()
-        over(controller:login)
+        over(controller:login, pop:false)
     }
     
     override func loadView()
@@ -45,15 +45,18 @@ class CParent:UIViewController
     
     //MARK: private
     
-    private func mainController(controller:CController, underBar:Bool)
+    private func mainController(controller:CController, underBar:Bool, pop:Bool)
     {
         addChildViewController(controller)
         controllers.last?.willMove(toParentViewController:nil)
         viewParent.over(controller:controller, underBar:underBar)
         
-        let lastController:CController? = self.controllers.popLast()
-        lastController?.view.removeFromSuperview()
-        lastController?.removeFromParentViewController()
+        if pop
+        {
+            let lastController:CController? = self.controllers.popLast()
+            lastController?.view.removeFromSuperview()
+            lastController?.removeFromParentViewController()
+        }
         
         controllers.append(controller)
         controller.didMove(toParentViewController:self)
@@ -84,14 +87,14 @@ class CParent:UIViewController
         }
     }
     
-    func center(controller:CController)
+    func center(controller:CController, pop:Bool)
     {
-        mainController(controller:controller, underBar:true)
+        mainController(controller:controller, underBar:true, pop:pop)
     }
     
-    func over(controller:CController)
+    func over(controller:CController, pop:Bool)
     {
-        mainController(controller:controller, underBar:false)
+        mainController(controller:controller, underBar:false, pop:pop)
     }
     
     func pop()

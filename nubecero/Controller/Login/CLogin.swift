@@ -37,7 +37,7 @@ class CLogin:CController, FBSDKLoginButtonDelegate
         { [weak self] in
             
             let homeController:CHome = CHome()
-            self?.parentController.center(controller:homeController)
+            self?.parentController.center(controller:homeController, pop:true)
         }
     }
     

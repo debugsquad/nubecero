@@ -4,7 +4,9 @@ import Photos
 class CHomeUpload:CController
 {
     weak var viewUpload:VHomeUpload!
+    weak var viewBar:VHomeUploadBar?
     let model:MHomeUpload
+    private let kBarWidth:CGFloat = 150
     
     init()
     {
@@ -66,6 +68,33 @@ class CHomeUpload:CController
     
     //MARK: private
     
+    private func loadBar()
+    {
+        let statusBarHeight:CGFloat = parentController.viewParent.kBarMinHeight
+        let viewBar:VHomeUploadBar = VHomeUploadBar(controller:self)
+        self.viewBar = viewBar
+        
+        viewUpload.addSubview(viewBar)
+        
+        let views:[String:UIView] = [
+            "viewBar":viewBar]
+        
+        let metrics:[String:CGFloat] = [
+            "barWidth":kBarWidth,
+            "statusBarHeight":statusBarHeight]
+        
+        viewUpload.addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[viewBar(barWidth)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        viewUpload.addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(statusBarHeight)-[viewBar]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+    }
+    
     private func showError()
     {
         DispatchQueue.main.async
@@ -81,6 +110,7 @@ class CHomeUpload:CController
         { [weak self] in
             
             self?.viewUpload.imagesLoaded()
+            self?.loadBar()
         }
     }
     

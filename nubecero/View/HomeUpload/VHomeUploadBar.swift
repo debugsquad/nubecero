@@ -32,6 +32,10 @@ class VHomeUploadBar:UIView
         commitButton.imageView!.clipsToBounds = true
         commitButton.imageView!.contentMode = UIViewContentMode.center
         commitButton.imageEdgeInsets = UIEdgeInsets(top:0, left:kCommitButtonInsetsRight, bottom:0, right:0)
+        commitButton.addTarget(
+            self,
+            action:#selector(actionCommit(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.commitButton = commitButton
         
         let amountLabel:UILabel = UILabel()
@@ -72,6 +76,13 @@ class VHomeUploadBar:UIView
             views:views))
         
         config(amount:0)
+    }
+    
+    //MARK: actions
+    
+    func actionCommit(sender button:UIButton)
+    {
+        controller.commitUpload()
     }
     
     //MARK: public

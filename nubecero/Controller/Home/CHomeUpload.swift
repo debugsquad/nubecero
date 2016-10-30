@@ -186,4 +186,11 @@ class CHomeUpload:CController
         
         imagesLoaded()
     }
+    
+    //MARK: public
+    
+    func commitUpload()
+    {
+        
+    }
 }

@@ -105,6 +105,12 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         return item
     }
     
+    private func updateBar()
+    {
+        let amount:Int = collectionView.indexPathsForSelectedItems!.count
+        controller.viewBar?.config(amount:amount)
+    }
+    
     //MARK: public
     
     func showError()
@@ -151,7 +157,6 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
-        let item:MHomeUploadItem = modelAtIndex(index:indexPath)
         let size:CGSize = CGSize(width:imageSize, height:imageSize)
         
         return size
@@ -178,5 +183,15 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        updateBar()
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didDeselectItemAt indexPath:IndexPath)
+    {
+        updateBar()
     }
 }

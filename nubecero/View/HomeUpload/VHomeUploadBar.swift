@@ -41,6 +41,7 @@ class VHomeUploadBar:UIView
         amountLabel.font = UIFont.regular(size:16)
         amountLabel.textColor = UIColor.white
         amountLabel.textAlignment = NSTextAlignment.right
+        self.amountLabel = amountLabel
         
         addSubview(amountLabel)
         addSubview(commitButton)
@@ -79,15 +80,15 @@ class VHomeUploadBar:UIView
     {
         if amount > 0
         {
-            commitButton.isUserInteractionEnabled = false
-            commitButton.alpha = kAlphaEmpty
-            amountLabel.text = kEmpty
-        }
-        else
-        {
             commitButton.isUserInteractionEnabled = true
             commitButton.alpha = 1
             amountLabel.text = "\(amount)"
+        }
+        else
+        {
+            commitButton.isUserInteractionEnabled = false
+            commitButton.alpha = kAlphaEmpty
+            amountLabel.text = kEmpty
         }
     }
 }

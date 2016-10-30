@@ -4,7 +4,7 @@ class VHomeUploadBar:UIView
 {
     private weak var controller:CHomeUpload!
     private weak var commitButton:UIButton!
-    private let kCommitButtonWidth:CGFloat = 70
+    private let kCommitButtonWidth:CGFloat = 80
     
     convenience init(controller:CHomeUpload)
     {
@@ -25,7 +25,7 @@ class VHomeUploadBar:UIView
             for:UIControlState.highlighted)
         commitButton.imageView!.clipsToBounds = true
         commitButton.imageView!.contentMode = UIViewContentMode.center
-        commitButton.imageEdgeInsets = UIEdgeInsets(top:0, left:20, bottom:0, right:0)
+        commitButton.imageEdgeInsets = UIEdgeInsets(top:0, left:30, bottom:0, right:0)
         self.commitButton = commitButton
         
         addSubview(commitButton)

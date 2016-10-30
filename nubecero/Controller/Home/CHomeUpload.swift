@@ -70,26 +70,25 @@ class CHomeUpload:CController
     
     private func loadBar()
     {
-        let statusBarHeight:CGFloat = parentController.viewParent.kBarMinHeight
+        let mainBar:VBar = parentController.viewParent.bar
         let viewBar:VHomeUploadBar = VHomeUploadBar(controller:self)
         self.viewBar = viewBar
         
-        viewUpload.addSubview(viewBar)
+        mainBar.addSubview(viewBar)
         
         let views:[String:UIView] = [
             "viewBar":viewBar]
         
         let metrics:[String:CGFloat] = [
-            "barWidth":kBarWidth,
-            "statusBarHeight":statusBarHeight]
+            "barWidth":kBarWidth]
         
-        viewUpload.addConstraints(NSLayoutConstraint.constraints(
+        mainBar.addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:[viewBar(barWidth)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        viewUpload.addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(statusBarHeight)-[viewBar]-0-|",
+        mainBar.addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[viewBar]-0-|",
             options:[],
             metrics:metrics,
             views:views))

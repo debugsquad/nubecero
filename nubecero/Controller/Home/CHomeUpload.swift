@@ -66,6 +66,13 @@ class CHomeUpload:CController
         }
     }
     
+    override func viewWillDisappear(_ animated:Bool)
+    {
+        super.viewWillDisappear(animated)
+        
+        viewBar?.removeFromSuperview()
+    }
+    
     //MARK: private
     
     private func loadBar()

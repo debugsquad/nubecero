@@ -59,6 +59,7 @@
 		DACD1FB21DC540810067D26B /* MHomeUploadItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FB11DC540810067D26B /* MHomeUploadItem.swift */; };
 		DACD1FB41DC545F70067D26B /* VHomeUploadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FB31DC545F70067D26B /* VHomeUploadCell.swift */; };
 		DACD1FB61DC56C250067D26B /* VHomeUploadBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FB51DC56C250067D26B /* VHomeUploadBar.swift */; };
+		DACD1FB81DC57F560067D26B /* CHomeUploadSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FB71DC57F560067D26B /* CHomeUploadSync.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		DACD1FB11DC540810067D26B /* MHomeUploadItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItem.swift; sourceTree = "<group>"; };
 		DACD1FB31DC545F70067D26B /* VHomeUploadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadCell.swift; sourceTree = "<group>"; };
 		DACD1FB51DC56C250067D26B /* VHomeUploadBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadBar.swift; sourceTree = "<group>"; };
+		DACD1FB71DC57F560067D26B /* CHomeUploadSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHomeUploadSync.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 			children = (
 				DACD1F861DC3A0020067D26B /* CHome.swift */,
 				DACD1FA71DC411440067D26B /* CHomeUpload.swift */,
+				DACD1FB71DC57F560067D26B /* CHomeUploadSync.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -655,6 +658,7 @@
 				DACD1FB01DC540750067D26B /* MHomeUpload.swift in Sources */,
 				DACD1FAB1DC4124B0067D26B /* VHomeUpload.swift in Sources */,
 				DA4EF8FD1DC395B300297C1D /* DNubecero.xcdatamodeld in Sources */,
+				DACD1FB81DC57F560067D26B /* CHomeUploadSync.swift in Sources */,
 				DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */,
 				DA4EF9051DC395B300297C1D /* FAnalytics.swift in Sources */,
 				DACD1FA41DC402960067D26B /* VHomeCellUpload.swift in Sources */,

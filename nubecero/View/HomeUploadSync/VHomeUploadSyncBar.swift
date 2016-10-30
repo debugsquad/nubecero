@@ -2,7 +2,7 @@ import UIKit
 
 class VHomeUploadSyncBar:UIView
 {
-    weak var controller:CHomeUploadSync!
+    private weak var controller:CHomeUploadSync!
     
     convenience init(controller:CHomeUploadSync)
     {
@@ -23,6 +23,10 @@ class VHomeUploadSyncBar:UIView
         cancelButton.setTitleColor(UIColor.white, for:UIControlState.highlighted)
         cancelButton.setTitle(NSLocalizedString("VHomeUploadSyncBar_cancel", comment:""), for:UIControlState.normal)
         cancelButton.titleLabel!.font = UIFont.medium(size:14)
+        cancelButton.addTarget(
+            self,
+            action:#selector(actionCancel(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(border)
         addSubview(cancelButton)
@@ -53,5 +57,12 @@ class VHomeUploadSyncBar:UIView
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    //MARK: actions
+    
+    func actionCancel(sender button:UIButton)
+    {
+        controller.cancelSync()
     }
 }

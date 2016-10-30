@@ -22,4 +22,11 @@ class CHomeUploadSync:CController
         self.viewSync = viewSync
         view = viewSync
     }
+    
+    //MARK: public
+    
+    func cancelSync()
+    {
+        parentController.dismiss()
+    }
 }

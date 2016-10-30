@@ -61,6 +61,7 @@
 		DACD1FB61DC56C250067D26B /* VHomeUploadBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FB51DC56C250067D26B /* VHomeUploadBar.swift */; };
 		DACD1FB81DC57F560067D26B /* CHomeUploadSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FB71DC57F560067D26B /* CHomeUploadSync.swift */; };
 		DACD1FBB1DC582AB0067D26B /* VHomeUploadSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FBA1DC582AB0067D26B /* VHomeUploadSync.swift */; };
+		DACD1FBD1DC589CD0067D26B /* VHomeUploadSyncBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FBC1DC589CD0067D26B /* VHomeUploadSyncBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +138,7 @@
 		DACD1FB51DC56C250067D26B /* VHomeUploadBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadBar.swift; sourceTree = "<group>"; };
 		DACD1FB71DC57F560067D26B /* CHomeUploadSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHomeUploadSync.swift; sourceTree = "<group>"; };
 		DACD1FBA1DC582AB0067D26B /* VHomeUploadSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadSync.swift; sourceTree = "<group>"; };
+		DACD1FBC1DC589CD0067D26B /* VHomeUploadSyncBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadSyncBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -447,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				DACD1FBA1DC582AB0067D26B /* VHomeUploadSync.swift */,
+				DACD1FBC1DC589CD0067D26B /* VHomeUploadSyncBar.swift */,
 			);
 			path = HomeUploadSync;
 			sourceTree = "<group>";
@@ -664,6 +667,7 @@
 				DACD1FBB1DC582AB0067D26B /* VHomeUploadSync.swift in Sources */,
 				DACD1FA21DC4025D0067D26B /* MHomeItemUpload.swift in Sources */,
 				DACD1F871DC3A0020067D26B /* CHome.swift in Sources */,
+				DACD1FBD1DC589CD0067D26B /* VHomeUploadSyncBar.swift in Sources */,
 				DACD1F991DC3F0E80067D26B /* MMainItemPictures.swift in Sources */,
 				DACD1F951DC3DBDB0067D26B /* VAlert.swift in Sources */,
 				DA4EF9141DC395B300297C1D /* VParent.swift in Sources */,

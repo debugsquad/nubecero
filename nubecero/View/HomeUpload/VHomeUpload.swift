@@ -107,7 +107,15 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     
     private func updateBar()
     {
-        let amount:Int = collectionView.indexPathsForSelectedItems!.count
+        guard
+            
+            let amount:Int = collectionView.indexPathsForSelectedItems?.count
+        
+        else
+        {
+            return
+        }
+        
         controller.viewBar?.config(amount:amount)
     }
     

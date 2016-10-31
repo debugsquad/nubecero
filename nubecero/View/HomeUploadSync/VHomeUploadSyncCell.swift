@@ -7,7 +7,7 @@ class VHomeUploadSyncCell:UICollectionViewCell
     private weak var layoutImageViewWidth:NSLayoutConstraint!
     private let kImageViewLeft:CGFloat = 5
     private let kImageViewRight:CGFloat = 5
-    private let kStatusWidth:CGFloat = 30
+    private let kStatusWidth:CGFloat = 50
     private let kImageViewMarginVertical:CGFloat = 5
     private let compoundMarginVertical:CGFloat
     
@@ -33,7 +33,7 @@ class VHomeUploadSyncCell:UICollectionViewCell
         imageStatus.isUserInteractionEnabled = false
         imageStatus.translatesAutoresizingMaskIntoConstraints = false
         imageStatus.clipsToBounds = true
-        imageStatus.contentMode = UIViewContentMode.scaleAspectFill
+        imageStatus.contentMode = UIViewContentMode.center
         imageStatus.image = #imageLiteral(resourceName: "assetHomeSyncWait")
         self.imageStatus = imageStatus
         

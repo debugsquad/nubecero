@@ -121,9 +121,11 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MHomeUploadItem = modelAtIndex(index:indexPath)
         let cell:VHomeUploadSyncCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:VHomeUploadSyncCell.reusableIdentifier,
             for:indexPath) as! VHomeUploadSyncCell
+        cell.config(model:item)
         
         return cell
     }

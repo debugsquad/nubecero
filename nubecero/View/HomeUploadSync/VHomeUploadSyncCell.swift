@@ -72,4 +72,11 @@ class VHomeUploadSyncCell:UICollectionViewCell
         
         super.layoutSubviews()
     }
+    
+    //MARK: public
+    
+    func config(model:MHomeUploadItem)
+    {
+        imageView.image = model.image
+    }
 }

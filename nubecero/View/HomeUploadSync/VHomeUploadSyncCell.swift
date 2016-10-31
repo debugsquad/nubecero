@@ -6,7 +6,7 @@ class VHomeUploadSyncCell:UICollectionViewCell
     private weak var layoutImageViewWidth:NSLayoutConstraint!
     private let kImageViewLeft:CGFloat = 5
     private let kImageViewRight:CGFloat = 5
-    private let kImageViewMarginVertical:CGFloat = 2
+    private let kImageViewMarginVertical:CGFloat = 5
     private let compoundMarginVertical:CGFloat
     
     override init(frame:CGRect)
@@ -15,7 +15,7 @@ class VHomeUploadSyncCell:UICollectionViewCell
         
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor(white:1, alpha:0.3)
+        backgroundColor = UIColor(white:0, alpha:0.04)
         isUserInteractionEnabled = false
         
         let imageView:UIImageView = UIImageView()
@@ -23,6 +23,8 @@ class VHomeUploadSyncCell:UICollectionViewCell
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.layer.borderWidth = 1
+        imageView.layer.borderColor = UIColor(white:0, alpha:0.2).cgColor
         self.imageView = imageView
         
         addSubview(imageView)
@@ -32,10 +34,11 @@ class VHomeUploadSyncCell:UICollectionViewCell
         
         let metrics:[String:CGFloat] = [
             "imageViewLeft":kImageViewLeft,
-            "imageViewRight":kImageViewRight]
+            "imageViewRight":kImageViewRight,
+            "imageViewMarginVertical":kImageViewMarginVertical]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-(imageViewLeft)-[imageView]-(imageViewRight)-|",
+            withVisualFormat:"H:|-(imageViewLeft)-[imageView]",
             options:[],
             metrics:metrics,
             views:views))

@@ -6,7 +6,7 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     private weak var collectionView:UICollectionView!
     private weak var controller:CHomeUploadSync!
     private let kBarHeight:CGFloat = 160
-    private let kCellHeight:CGFloat = 70
+    private let kCellHeight:CGFloat = 60
     private let kCollectionBottom:CGFloat = 20
     private let kInterLineSpace:CGFloat = 1
     
@@ -41,6 +41,7 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
         collectionView.backgroundColor = UIColor.clear
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(
@@ -86,6 +87,12 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
     }
     
     //MARK: private

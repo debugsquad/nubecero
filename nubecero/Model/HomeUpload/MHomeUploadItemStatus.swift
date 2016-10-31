@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class MHomeUploadItemStatus
 {
@@ -14,5 +14,11 @@ class MHomeUploadItemStatus
     {
         self.assetSync = assetSync
         self.finished = finished
+    }
+    
+    //MARK: public
+    
+    func process(controller:CHomeUploadSync)
+    {
     }
 }

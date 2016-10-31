@@ -3,16 +3,14 @@ import UIKit
 class CHomeUploadSync:CController
 {
     weak var viewSync:VHomeUploadSync!
-    weak var controllerUpload:CHomeUpload!
     let uploadItems:[MHomeUploadItem]
     var currentItem:Int
-    var syncStarted:Bool
+    private var syncStarted:Bool
     
-    init(uploadItems:[MHomeUploadItem], controllerUpload:CHomeUpload)
+    init(uploadItems:[MHomeUploadItem])
     {
         currentItem = 0
         syncStarted = false
-        self.controllerUpload = controllerUpload
         self.uploadItems = uploadItems
         super.init(nibName:nil, bundle:nil)
     }
@@ -30,7 +28,7 @@ class CHomeUploadSync:CController
         if !syncStarted
         {
             syncStarted = true
-            syncPictures()
+            keepSyncing()
         }
     }
     
@@ -62,17 +60,8 @@ class CHomeUploadSync:CController
     
     private func nextStep()
     {
-        let totalItems:Int = uploadItems.count
-        
-        if currentItem < totalItems
-        {
-            let uploadItem:MHomeUploadItem = uploadItems[currentItem]
-            referencePicture(uploadItem:uploadItem)
-        }
-        else
-        {
-            syncComplete()
-        }
+        let uploadItem:MHomeUploadItem = uploadItems[currentItem]
+        uploadItem.status.process(controller:self)
     }
     
     private func referencePicture(uploadItem:MHomeUploadItem)
@@ -96,7 +85,23 @@ class CHomeUploadSync:CController
             json: <#T##Any#>)*/
     }
     
-    private func syncComplete()
+    //MARK: public
+    
+    func cancelSync()
+    {
+        parentController.dismiss()
+    }
+    
+    func keepSyncing()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.nextStep()
+        }
+    }
+    
+    func syncComplete()
     {
         let message:String = NSLocalizedString("CHomeUploadSync_syncComplete", comment:"")
         VAlert.message(message:message)
@@ -105,22 +110,7 @@ class CHomeUploadSync:CController
         { [weak self] in
             
             self?.parentController.dismiss()
-        }
-    }
-    
-    //MARK: public
-    
-    func cancelSync()
-    {
-        parentController.dismiss()
-    }
-    
-    func syncPictures()
-    {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            self?.nextStep()
+            self?.parentController.pop()
         }
     }
 }

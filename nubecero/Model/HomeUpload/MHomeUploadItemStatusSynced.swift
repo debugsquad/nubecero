@@ -9,4 +9,18 @@ class MHomeUploadItemStatusSynced:MHomeUploadItemStatus
     {
         super.init(assetSync:kAssetSync, finished:kFinished)
     }
+    
+    override func process(controller:CHomeUploadSync)
+    {
+        controller.currentItem += 1
+        
+        if controller.currentItem < controller.uploadItems.count
+        {
+            controller.keepSyncing()
+        }
+        else
+        {
+            controller.syncComplete()
+        }
+    }
 }

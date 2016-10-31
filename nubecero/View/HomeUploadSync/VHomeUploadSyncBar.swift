@@ -177,7 +177,7 @@ class VHomeUploadSyncBar:UIView
     {
         spinner.startAnimating()
         tryAgainButton.isHidden = true
-        controller.syncPictures()
+        controller.keepSyncing()
     }
 
     //MARK: public

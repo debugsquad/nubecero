@@ -5,6 +5,9 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     private weak var viewBar:VHomeUploadSyncBar!
     private weak var collectionView:UICollectionView!
     private weak var controller:CHomeUploadSync!
+    private let kBarHeight:CGFloat = 150
+    private let kCellHeight:CGFloat = 60
+    private let kCollectionBottom:CGFloat = 20
     
     convenience init(controller:CHomeUploadSync)
     {
@@ -14,7 +17,6 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
         backgroundColor = UIColor.clear
         self.controller = controller
         
-        let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
         let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
         visualEffect.translatesAutoresizingMaskIntoConstraints = false
@@ -32,7 +34,7 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
             "viewBar":viewBar]
         
         let metrics:[String:CGFloat] = [
-            "barHeight":barHeight]
+            "barHeight":kBarHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[visualEffect]-0-|",
@@ -66,6 +68,14 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {

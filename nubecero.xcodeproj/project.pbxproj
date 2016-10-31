@@ -37,6 +37,8 @@
 		DA4EF9141DC395B300297C1D /* VParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8F51DC395B300297C1D /* VParent.swift */; };
 		DA4EF9151DC395B300297C1D /* VShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8F61DC395B300297C1D /* VShadow.swift */; };
 		DA4EF9161DC395B300297C1D /* VSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8F71DC395B300297C1D /* VSpinner.swift */; };
+		DA88F6701DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */; };
+		DA88F6721DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */; };
 		DACD1F871DC3A0020067D26B /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F861DC3A0020067D26B /* CHome.swift */; };
 		DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1F881DC3A09F0067D26B /* Generic.xcassets */; };
 		DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F8B1DC3AD480067D26B /* CLogin.swift */; };
@@ -120,6 +122,8 @@
 		DA4EF8F51DC395B300297C1D /* VParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParent.swift; sourceTree = "<group>"; };
 		DA4EF8F61DC395B300297C1D /* VShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VShadow.swift; sourceTree = "<group>"; };
 		DA4EF8F71DC395B300297C1D /* VSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSpinner.swift; sourceTree = "<group>"; };
+		DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatus.swift; sourceTree = "<group>"; };
+		DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusNone.swift; sourceTree = "<group>"; };
 		DACD1F861DC3A0020067D26B /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DACD1F881DC3A09F0067D26B /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DACD1F8B1DC3AD480067D26B /* CLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLogin.swift; sourceTree = "<group>"; };
@@ -456,6 +460,8 @@
 			children = (
 				DACD1FAF1DC540750067D26B /* MHomeUpload.swift */,
 				DACD1FB11DC540810067D26B /* MHomeUploadItem.swift */,
+				DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */,
+				DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */,
 			);
 			path = HomeUpload;
 			sourceTree = "<group>";
@@ -710,6 +716,7 @@
 				DACD1FA21DC4025D0067D26B /* MHomeItemUpload.swift in Sources */,
 				DACD1F871DC3A0020067D26B /* CHome.swift in Sources */,
 				DACD1FBD1DC589CD0067D26B /* VHomeUploadSyncBar.swift in Sources */,
+				DA88F6721DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift in Sources */,
 				DACD1F991DC3F0E80067D26B /* MMainItemPictures.swift in Sources */,
 				DACD1F951DC3DBDB0067D26B /* VAlert.swift in Sources */,
 				DACD1FC51DC7C6750067D26B /* FDatabaseModel.swift in Sources */,
@@ -737,6 +744,7 @@
 				DA4EF90D1DC395B300297C1D /* MMainState.swift in Sources */,
 				DA4EF9041DC395B300297C1D /* ExtensionUIFont.swift in Sources */,
 				DACD1FBF1DC6FCC00067D26B /* VHomeUploadSyncCell.swift in Sources */,
+				DA88F6701DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift in Sources */,
 				DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */,
 				DA4EF9161DC395B300297C1D /* VSpinner.swift in Sources */,
 				DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */,

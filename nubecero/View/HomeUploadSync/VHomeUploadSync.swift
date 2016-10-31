@@ -104,6 +104,14 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
         return item
     }
     
+    //MARK: public
+    
+    func errorFound()
+    {
+        collectionView.reloadData()
+        viewBar.errorFound()
+    }
+    
     //MARK: collectionView delegate
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize

@@ -56,7 +56,7 @@ class CHomeUploadSync:CController
         DispatchQueue.main.async
         { [weak self] in
             
-            
+            self?.viewSync.errorFound()
         }
     }
     
@@ -84,13 +84,16 @@ class CHomeUploadSync:CController
         else
         {
             return
-        }/*
+        }
         
         let parentUser:String = FDatabase.Parent.user.rawValue
-        let
+        let propertyPictures:String = FDatabaseModelUser.Property.pictures.rawValue
+        let path:String = "\(parentUser)/\(userId)/\(propertyPictures)"
+        let modelPicture:FDatabaseModelPicture = FDatabaseModelPicture(size: <#T##Int#>)
         
         FMain.sharedInstance.database.createChild(
-            path: <#T##String#>, json: <#T##Any#>)*/
+            path:path,
+            json: <#T##Any#>)
     }
     
     private func syncComplete()

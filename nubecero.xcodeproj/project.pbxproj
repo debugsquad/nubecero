@@ -67,6 +67,7 @@
 		DACD1FC51DC7C6750067D26B /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FC41DC7C6750067D26B /* FDatabaseModel.swift */; };
 		DACD1FC71DC7C6AE0067D26B /* FDatabaseModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FC61DC7C6AE0067D26B /* FDatabaseModelUser.swift */; };
 		DACD1FC91DC7C6C80067D26B /* FDatabaseModelUserPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FC81DC7C6C80067D26B /* FDatabaseModelUserPicture.swift */; };
+		DACD1FCC1DC7D0320067D26B /* MSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FCB1DC7D0320067D26B /* MSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +150,7 @@
 		DACD1FC41DC7C6750067D26B /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
 		DACD1FC61DC7C6AE0067D26B /* FDatabaseModelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUser.swift; sourceTree = "<group>"; };
 		DACD1FC81DC7C6C80067D26B /* FDatabaseModelUserPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserPicture.swift; sourceTree = "<group>"; };
+		DACD1FCB1DC7D0320067D26B /* MSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +341,7 @@
 		DA4EF8E11DC395B300297C1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DACD1FCA1DC7D0270067D26B /* Session */,
 				DACD1FAE1DC540450067D26B /* HomeUpload */,
 				DACD1F9A1DC400010067D26B /* Home */,
 				DA4EF8E21DC395B300297C1D /* Main */,
@@ -483,6 +486,14 @@
 				DACD1FC81DC7C6C80067D26B /* FDatabaseModelUserPicture.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DACD1FCA1DC7D0270067D26B /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				DACD1FCB1DC7D0320067D26B /* MSession.swift */,
+			);
+			path = Session;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -715,6 +726,7 @@
 				DACD1F9E1DC400240067D26B /* MHomeItem.swift in Sources */,
 				DA4EF9011DC395B300297C1D /* ExtensionNSManagedObject.swift in Sources */,
 				DACD1F931DC3DA4B0067D26B /* VHome.swift in Sources */,
+				DACD1FCC1DC7D0320067D26B /* MSession.swift in Sources */,
 				DACD1FB21DC540810067D26B /* MHomeUploadItem.swift in Sources */,
 				DA4EF8FE1DC395B300297C1D /* ExtensionFileManager.swift in Sources */,
 				DA4EF9001DC395B300297C1D /* ExtensionNotification.swift in Sources */,

@@ -56,6 +56,15 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
             views:views))
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MHomeUploadItem
+    {
+        let item:MHomeUploadItem = controller.uploadItems[index.item]
+        
+        return item
+    }
+    
     //MARK: collectionView delegate
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
@@ -72,6 +81,10 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let cell
+        let cell:VHomeUploadSyncCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:VHomeUploadSyncCell.reusableIdentifier,
+            for:indexPath) as! VHomeUploadSyncCell
+        
+        return cell
     }
 }

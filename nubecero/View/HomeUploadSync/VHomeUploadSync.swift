@@ -1,8 +1,9 @@
 import UIKit
 
-class VHomeUploadSync:UIView
+class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    weak var viewBar:VHomeUploadSyncBar!
+    private weak var viewBar:VHomeUploadSyncBar!
+    private weak var collectionView:UICollectionView!
     private weak var controller:CHomeUploadSync!
     
     convenience init(controller:CHomeUploadSync)
@@ -54,4 +55,8 @@ class VHomeUploadSync:UIView
             metrics:metrics,
             views:views))
     }
+    
+    //MARK: collectionView delegate
+    
+    
 }

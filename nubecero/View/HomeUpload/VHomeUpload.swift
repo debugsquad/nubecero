@@ -196,7 +196,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         let item:MHomeUploadItem = modelAtIndex(index:indexPath)
-        item.status = MHomeUploadItemStatusWaiting()
+        item.status = MHomeUploadItemStatusWaiting(item:item)
         
         updateBar()
     }
@@ -204,7 +204,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView:UICollectionView, didDeselectItemAt indexPath:IndexPath)
     {
         let item:MHomeUploadItem = modelAtIndex(index:indexPath)
-        item.status = MHomeUploadItemStatusNone()
+        item.status = MHomeUploadItemStatusNone(item:item)
         
         updateBar()
     }

@@ -4,6 +4,7 @@ import Photos
 class MHomeUploadItem
 {
     var image:UIImage?
+    var imageComplete:UIImage?
     var pictureId:String?
     var status:MHomeUploadItemStatus
     private weak var asset:PHAsset!
@@ -11,7 +12,7 @@ class MHomeUploadItem
     
     init(asset:PHAsset)
     {
-        status = MHomeUploadItemStatusNone()
+        status = MHomeUploadItemStatusNone(item:nil)
         self.asset = asset
         
         let imageSize:CGSize = CGSize(
@@ -23,6 +24,7 @@ class MHomeUploadItem
         requestOptions.isSynchronous = false
         requestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.fastFormat
         
+        status.item = self
         requestId = PHImageManager.default().requestImage(
             for:asset,
             targetSize:imageSize,

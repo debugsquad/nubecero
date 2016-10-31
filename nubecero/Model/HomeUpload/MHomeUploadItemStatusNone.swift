@@ -5,8 +5,8 @@ class MHomeUploadItemStatusNone:MHomeUploadItemStatus
     private let kAssetSync:String = "assetHomeSyncError"
     private let kFinished:Bool = false
     
-    override init()
+    init(item:MHomeUploadItem?)
     {
-        super.init(assetSync:kAssetSync, finished:kFinished)
+        super.init(item:item, assetSync:kAssetSync, finished:kFinished)
     }
 }

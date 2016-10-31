@@ -5,9 +5,9 @@ class MHomeUploadItemStatusSynced:MHomeUploadItemStatus
     private let kAssetSync:String = "assetHomeSyncDone"
     private let kFinished:Bool = true
     
-    override init()
+    init(item:MHomeUploadItem)
     {
-        super.init(assetSync:kAssetSync, finished:kFinished)
+        super.init(item:item, assetSync:kAssetSync, finished:kFinished)
     }
     
     override func process(controller:CHomeUploadSync)

@@ -14,6 +14,7 @@ class MHomeUploadItem
     }
     
     var image:UIImage?
+    var pictureId:String?
     var status:Status
     private weak var asset:PHAsset!
     private var requestId:PHImageRequestID?

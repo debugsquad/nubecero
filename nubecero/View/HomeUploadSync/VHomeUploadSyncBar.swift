@@ -5,10 +5,13 @@ class VHomeUploadSyncBar:UIView
     private weak var controller:CHomeUploadSync!
     private weak var spinner:VSpinner!
     private weak var labelCount:UILabel!
+    private weak var tryAgainButton:UIButton!
     private weak var layoutCancelButtonLeft:NSLayoutConstraint!
+    private weak var layoutTryAgainButtonLeft:NSLayoutConstraint!
     private let kSpinnerHeight:CGFloat = 80
     private let kCancelButtonWith:CGFloat = 90
-    private let kCancelButtonHeight:CGFloat = 34
+    private let kTryAgainButtonWith:CGFloat = 90
+    private let kButtonHeight:CGFloat = 34
     private let kLabelCountWidth:CGFloat = 60
     private let kCornerRadius:CGFloat = 4
     
@@ -47,6 +50,20 @@ class VHomeUploadSyncBar:UIView
             action:#selector(actionCancel(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let tryAgainButton:UIButton = UIButton()
+        tryAgainButton.backgroundColor = UIColor.complement
+        tryAgainButton.clipsToBounds = true
+        tryAgainButton.translatesAutoresizingMaskIntoConstraints = false
+        tryAgainButton.setTitleColor(UIColor.white, for:UIControlState.normal)
+        tryAgainButton.setTitleColor(UIColor.black, for:UIControlState.highlighted)
+        tryAgainButton.setTitle(
+            NSLocalizedString("VHomeUploadSyncBar_tryAgain", comment:""),
+            for:UIControlState.highlighted)
+        tryAgainButton.layer.cornerRadius = kCornerRadius
+        tryAgainButton.titleLabel!.font = UIFont.medium(size:13)
+        tryAgainButton.isHidden = true
+        self.tryAgainButton = tryAgainButton
+        
         let labelCount:UILabel = UILabel()
         labelCount.isUserInteractionEnabled = false
         labelCount.translatesAutoresizingMaskIntoConstraints = false
@@ -60,17 +77,20 @@ class VHomeUploadSyncBar:UIView
         addSubview(cancelButton)
         addSubview(spinner)
         addSubview(labelCount)
+        addSubview(tryAgainButton)
         
         let views:[String:UIView] = [
             "border":border,
             "cancelButton":cancelButton,
             "spinner":spinner,
-            "labelCount":labelCount]
+            "labelCount":labelCount,
+            "tryAgainButton":tryAgainButton]
         
         let metrics:[String:CGFloat] = [
             "spinnerHeight":kSpinnerHeight,
             "cancelButtonWidth":kCancelButtonWith,
-            "cancelButtonHeight":kCancelButtonHeight,
+            "tryAgainButtonWidth":kTryAgainButtonWith,
+            "buttonHeight":kButtonHeight,
             "labelCountWidth":kLabelCountWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
@@ -89,12 +109,17 @@ class VHomeUploadSyncBar:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[cancelButton(cancelButtonHeight)]-10-[spinner(spinnerHeight)]-0-[border(1)]-0-|",
+            withVisualFormat:"V:[cancelButton(buttonHeight)]-10-[spinner(spinnerHeight)]-0-[border(1)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[labelCount(cancelButtonHeight)]-10-[spinner]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[tryAgainButton(buttonHeight)]-10-[border(1)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -108,7 +133,17 @@ class VHomeUploadSyncBar:UIView
             multiplier:1,
             constant:0)
         
+        layoutTryAgainButtonLeft = NSLayoutConstraint(
+            item:tryAgainButton,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.left,
+            multiplier:1,
+            constant:0)
+        
         addConstraint(layoutCancelButtonLeft)
+        addConstraint(layoutTryAgainButtonLeft)
         update()
     }
     
@@ -118,7 +153,11 @@ class VHomeUploadSyncBar:UIView
         let cancelButtonLabelWidth:CGFloat = kCancelButtonWith + kLabelCountWidth
         let remainCancelButton:CGFloat = width - cancelButtonLabelWidth
         let marginCancelButton:CGFloat = remainCancelButton / 2.0
+        let remainTryAgainButton:CGFloat = width - kTryAgainButtonWith
+        let marginTryAgainButton:CGFloat = remainTryAgainButton / 2.0
+        
         layoutCancelButtonLeft.constant = marginCancelButton
+        layoutTryAgainButtonLeft.constant = marginTryAgainButton
         
         super.layoutSubviews()
     }

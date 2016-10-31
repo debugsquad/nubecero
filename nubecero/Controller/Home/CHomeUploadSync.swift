@@ -54,20 +54,48 @@ class CHomeUploadSync:CController
     
     //MARK: private
     
+    private func errorSyncing(error:String)
+    {
+        VAlert.message(message:error)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            
+        }
+    }
+    
     private func nextStep()
     {
         let totalItems:Int = uploadItems.count
         
         if currentItem < totalItems
         {
-            
+            let uploadItem:MHomeUploadItem = uploadItems[currentItem]
+            referencePicture(uploadItem:uploadItem)
         }
         else
         {
+            syncComplete()
+        }
+    }
+    
+    private func referencePicture(uploadItem:MHomeUploadItem)
+    {
+        guard
             
+            let userId:String = MSession.sharedInstance.userId
+        
+        else
+        {
+            return
         }
         
-        syncComplete()
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let
+        
+        FMain.sharedInstance.database.createChild(
+            path: <#T##String#>, json: <#T##Any#>)
     }
     
     private func syncComplete()

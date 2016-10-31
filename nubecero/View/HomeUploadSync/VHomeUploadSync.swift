@@ -8,6 +8,7 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     private let kBarHeight:CGFloat = 150
     private let kCellHeight:CGFloat = 60
     private let kCollectionBottom:CGFloat = 20
+    private let kInterLineSpace:CGFloat = 1
     
     convenience init(controller:CHomeUploadSync)
     {
@@ -26,12 +27,36 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
         let viewBar:VHomeUploadSyncBar = VHomeUploadSyncBar(controller:controller)
         self.viewBar = viewBar
         
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSize.zero
+        flow.footerReferenceSize = CGSize.zero
+        flow.minimumInteritemSpacing = 0
+        flow.minimumLineSpacing = kInterLineSpace
+        flow.scrollDirection = UICollectionViewScrollDirection.vertical
+        flow.sectionInset = UIEdgeInsetsMake(0, 0, kCollectionBottom, 0)
+        
+        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(
+            VHomeUploadSyncCell.self,
+            forCellWithReuseIdentifier:
+            VHomeUploadSyncCell.reusableIdentifier)
+        self.collectionView = collectionView
+        
         addSubview(visualEffect)
+        addSubview(collectionView)
         addSubview(viewBar)
         
         let views:[String:UIView] = [
             "visualEffect":visualEffect,
-            "viewBar":viewBar]
+            "viewBar":viewBar,
+            "collectionView":collectionView]
         
         let metrics:[String:CGFloat] = [
             "barHeight":kBarHeight]
@@ -42,17 +67,22 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[visualEffect]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[viewBar]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[viewBar(barHeight)]",
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[visualEffect]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[viewBar(barHeight)]-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))

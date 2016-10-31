@@ -63,6 +63,10 @@
 		DACD1FBB1DC582AB0067D26B /* VHomeUploadSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FBA1DC582AB0067D26B /* VHomeUploadSync.swift */; };
 		DACD1FBD1DC589CD0067D26B /* VHomeUploadSyncBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FBC1DC589CD0067D26B /* VHomeUploadSyncBar.swift */; };
 		DACD1FBF1DC6FCC00067D26B /* VHomeUploadSyncCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FBE1DC6FCC00067D26B /* VHomeUploadSyncCell.swift */; };
+		DACD1FC31DC7C66A0067D26B /* FDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FC21DC7C66A0067D26B /* FDatabase.swift */; };
+		DACD1FC51DC7C6750067D26B /* FDatabaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FC41DC7C6750067D26B /* FDatabaseModel.swift */; };
+		DACD1FC71DC7C6AE0067D26B /* FDatabaseModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FC61DC7C6AE0067D26B /* FDatabaseModelUser.swift */; };
+		DACD1FC91DC7C6C80067D26B /* FDatabaseModelUserPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FC81DC7C6C80067D26B /* FDatabaseModelUserPicture.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +145,10 @@
 		DACD1FBA1DC582AB0067D26B /* VHomeUploadSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadSync.swift; sourceTree = "<group>"; };
 		DACD1FBC1DC589CD0067D26B /* VHomeUploadSyncBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadSyncBar.swift; sourceTree = "<group>"; };
 		DACD1FBE1DC6FCC00067D26B /* VHomeUploadSyncCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadSyncCell.swift; sourceTree = "<group>"; };
+		DACD1FC21DC7C66A0067D26B /* FDatabase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabase.swift; sourceTree = "<group>"; };
+		DACD1FC41DC7C6750067D26B /* FDatabaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModel.swift; sourceTree = "<group>"; };
+		DACD1FC61DC7C6AE0067D26B /* FDatabaseModelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUser.swift; sourceTree = "<group>"; };
+		DACD1FC81DC7C6C80067D26B /* FDatabaseModelUserPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserPicture.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +314,8 @@
 		DA4EF8DB1DC395B300297C1D /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				DACD1FC01DC7C61B0067D26B /* Base */,
+				DACD1FC11DC7C61B0067D26B /* Model */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -455,6 +465,24 @@
 				DACD1FBE1DC6FCC00067D26B /* VHomeUploadSyncCell.swift */,
 			);
 			path = HomeUploadSync;
+			sourceTree = "<group>";
+		};
+		DACD1FC01DC7C61B0067D26B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				DACD1FC21DC7C66A0067D26B /* FDatabase.swift */,
+				DACD1FC41DC7C6750067D26B /* FDatabaseModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		DACD1FC11DC7C61B0067D26B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DACD1FC61DC7C6AE0067D26B /* FDatabaseModelUser.swift */,
+				DACD1FC81DC7C6C80067D26B /* FDatabaseModelUserPicture.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -673,6 +701,7 @@
 				DACD1FBD1DC589CD0067D26B /* VHomeUploadSyncBar.swift in Sources */,
 				DACD1F991DC3F0E80067D26B /* MMainItemPictures.swift in Sources */,
 				DACD1F951DC3DBDB0067D26B /* VAlert.swift in Sources */,
+				DACD1FC51DC7C6750067D26B /* FDatabaseModel.swift in Sources */,
 				DA4EF9141DC395B300297C1D /* VParent.swift in Sources */,
 				DACD1FB01DC540750067D26B /* MHomeUpload.swift in Sources */,
 				DACD1FAB1DC4124B0067D26B /* VHomeUpload.swift in Sources */,
@@ -702,8 +731,11 @@
 				DA4EF8FB1DC395B300297C1D /* CParent.swift in Sources */,
 				DA4EF9151DC395B300297C1D /* VShadow.swift in Sources */,
 				DA4EF90A1DC395B300297C1D /* MMainItem.swift in Sources */,
+				DACD1FC71DC7C6AE0067D26B /* FDatabaseModelUser.swift in Sources */,
+				DACD1FC31DC7C66A0067D26B /* FDatabase.swift in Sources */,
 				DA4EF90F1DC395B300297C1D /* MMainStatePushed.swift in Sources */,
 				DA4EF9131DC395B300297C1D /* VBarCell.swift in Sources */,
+				DACD1FC91DC7C6C80067D26B /* FDatabaseModelUserPicture.swift in Sources */,
 				DA4EF9021DC395B300297C1D /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA4EF9031DC395B300297C1D /* ExtensionUIColor.swift in Sources */,
 				DACD1F9C1DC400090067D26B /* MHome.swift in Sources */,

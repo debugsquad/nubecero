@@ -58,5 +58,20 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     //MARK: collectionView delegate
     
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
     
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.uploadItems.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let cell
+    }
 }

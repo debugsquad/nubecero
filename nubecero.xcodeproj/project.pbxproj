@@ -62,6 +62,7 @@
 		DACD1FB81DC57F560067D26B /* CHomeUploadSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FB71DC57F560067D26B /* CHomeUploadSync.swift */; };
 		DACD1FBB1DC582AB0067D26B /* VHomeUploadSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FBA1DC582AB0067D26B /* VHomeUploadSync.swift */; };
 		DACD1FBD1DC589CD0067D26B /* VHomeUploadSyncBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FBC1DC589CD0067D26B /* VHomeUploadSyncBar.swift */; };
+		DACD1FBF1DC6FCC00067D26B /* VHomeUploadSyncCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FBE1DC6FCC00067D26B /* VHomeUploadSyncCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		DACD1FB71DC57F560067D26B /* CHomeUploadSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHomeUploadSync.swift; sourceTree = "<group>"; };
 		DACD1FBA1DC582AB0067D26B /* VHomeUploadSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadSync.swift; sourceTree = "<group>"; };
 		DACD1FBC1DC589CD0067D26B /* VHomeUploadSyncBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadSyncBar.swift; sourceTree = "<group>"; };
+		DACD1FBE1DC6FCC00067D26B /* VHomeUploadSyncCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadSyncCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -450,6 +452,7 @@
 			children = (
 				DACD1FBA1DC582AB0067D26B /* VHomeUploadSync.swift */,
 				DACD1FBC1DC589CD0067D26B /* VHomeUploadSyncBar.swift */,
+				DACD1FBE1DC6FCC00067D26B /* VHomeUploadSyncCell.swift */,
 			);
 			path = HomeUploadSync;
 			sourceTree = "<group>";
@@ -692,6 +695,7 @@
 				DA4EF8FC1DC395B300297C1D /* DManager.swift in Sources */,
 				DA4EF90D1DC395B300297C1D /* MMainState.swift in Sources */,
 				DA4EF9041DC395B300297C1D /* ExtensionUIFont.swift in Sources */,
+				DACD1FBF1DC6FCC00067D26B /* VHomeUploadSyncCell.swift in Sources */,
 				DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */,
 				DA4EF9161DC395B300297C1D /* VSpinner.swift in Sources */,
 				DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */,

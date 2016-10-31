@@ -2,17 +2,17 @@ import Foundation
 
 class FDatabaseModelPicture:FDatabaseModel
 {
-    enum Status:Int
-    {
-        case waiting
-        case uploaded
-    }
-    
     enum Property:String
     {
         case created = "created"
         case status = "status"
         case size = "size"
+    }
+    
+    enum Status:Int
+    {
+        case waiting
+        case uploaded
     }
     
     let created:TimeInterval

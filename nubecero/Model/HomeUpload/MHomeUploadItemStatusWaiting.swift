@@ -63,7 +63,7 @@ class MHomeUploadItemStatusWaiting:MHomeUploadItemStatus
     
     private func imageLoaded(controller:CHomeUploadSync?)
     {
-        item?.status = MHomeUploadItemStatusReferenced(item:item)
+        item?.status = MHomeUploadItemStatusLoaded(item:item)
         controller?.keepSyncing()
     }
 }

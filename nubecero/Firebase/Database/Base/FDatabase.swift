@@ -99,4 +99,10 @@ class FDatabase
         let pathReference:FIRDatabaseReference = reference.child(path)
         pathReference.removeObserver(withHandle:handler)
     }
+    
+    func transaction(path:String, transactionBlock:@escaping((FIRMutableData) -> (FIRTransactionResult)))
+    {
+        let childReference:FIRDatabaseReference = reference.child(path)
+        childReference.runTransactionBlock(transactionBlock)
+    }
 }

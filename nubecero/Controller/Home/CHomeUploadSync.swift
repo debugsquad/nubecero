@@ -53,27 +53,6 @@ class CHomeUploadSync:CController
         uploadItem.status.process(controller:self)
     }
     
-    private func referencePicture(uploadItem:MHomeUploadItem)
-    {
-        guard
-            
-            let userId:String = MSession.sharedInstance.userId
-        
-        else
-        {
-            return
-        }
-        
-        let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyPictures:String = FDatabaseModelUser.Property.pictures.rawValue
-        let path:String = "\(parentUser)/\(userId)/\(propertyPictures)"
-        /*let modelPicture:FDatabaseModelPicture = FDatabaseModelPicture(size: <#T##Int#>)
-        
-        FMain.sharedInstance.database.createChild(
-            path:path,
-            json: <#T##Any#>)*/
-    }
-    
     //MARK: public
     
     func cancelSync()

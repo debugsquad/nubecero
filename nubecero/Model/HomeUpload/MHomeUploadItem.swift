@@ -3,7 +3,17 @@ import Photos
 
 class MHomeUploadItem
 {
+    enum Status:Int
+    {
+        case None
+        case Waiting
+        case Referenced
+        case Uploaded
+        case Synced
+    }
+    
     var image:UIImage?
+    var status:MHomeUploadItem.Status
     private weak var asset:PHAsset!
     private var requestId:PHImageRequestID?
     

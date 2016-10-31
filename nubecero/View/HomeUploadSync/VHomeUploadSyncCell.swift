@@ -34,7 +34,6 @@ class VHomeUploadSyncCell:UICollectionViewCell
         imageStatus.translatesAutoresizingMaskIntoConstraints = false
         imageStatus.clipsToBounds = true
         imageStatus.contentMode = UIViewContentMode.center
-        imageStatus.image = #imageLiteral(resourceName: "assetHomeSyncWait")
         self.imageStatus = imageStatus
         
         addSubview(imageView)
@@ -99,5 +98,32 @@ class VHomeUploadSyncCell:UICollectionViewCell
     func config(model:MHomeUploadItem)
     {
         imageView.image = model.image
+        let image:UIImage
+        
+        switch model.status
+        {
+            case MHomeUploadItem.Status.None,
+                 MHomeUploadItem.Status.Waiting,
+                 MHomeUploadItem.Status.Referenced,
+                 MHomeUploadItem.Status.Uploaded:
+                
+                image = #imageLiteral(resourceName: "assetHomeSyncWait")
+                
+                break
+                
+            case MHomeUploadItem.Status.Synced:
+                
+                image = #imageLiteral(resourceName: "assetHomeSyncDone")
+                
+                break
+                
+            case MHomeUploadItem.Status.Error:
+                
+                image = #imageLiteral(resourceName: "assetHomeSyncError")
+                
+                break
+        }
+        
+        imageStatus.image = image
     }
 }

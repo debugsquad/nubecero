@@ -10,6 +10,7 @@ class MHomeUploadItem
         case Referenced
         case Uploaded
         case Synced
+        case Error
     }
     
     var image:UIImage?
@@ -19,6 +20,7 @@ class MHomeUploadItem
     
     init(asset:PHAsset)
     {
+        status = MHomeUploadItem.Status.None
         self.asset = asset
         
         let imageSize:CGSize = CGSize(

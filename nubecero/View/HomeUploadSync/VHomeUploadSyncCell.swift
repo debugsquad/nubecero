@@ -3,9 +3,11 @@ import UIKit
 class VHomeUploadSyncCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
+    private weak var imageStatus:UIImageView!
     private weak var layoutImageViewWidth:NSLayoutConstraint!
     private let kImageViewLeft:CGFloat = 5
     private let kImageViewRight:CGFloat = 5
+    private let kStatusWidth:CGFloat = 30
     private let kImageViewMarginVertical:CGFloat = 5
     private let compoundMarginVertical:CGFloat
     
@@ -27,23 +29,39 @@ class VHomeUploadSyncCell:UICollectionViewCell
         imageView.layer.borderColor = UIColor(white:0, alpha:0.2).cgColor
         self.imageView = imageView
         
+        let imageStatus:UIImageView = UIImageView()
+        imageStatus.isUserInteractionEnabled = false
+        imageStatus.translatesAutoresizingMaskIntoConstraints = false
+        imageStatus.clipsToBounds = true
+        imageStatus.contentMode = UIViewContentMode.scaleAspectFill
+        imageStatus.image = #imageLiteral(resourceName: "assetHomeSyncWait")
+        self.imageStatus = imageStatus
+        
         addSubview(imageView)
+        addSubview(imageStatus)
         
         let views:[String:UIView] = [
-            "imageView":imageView]
+            "imageView":imageView,
+            "imageStatus":imageStatus]
         
         let metrics:[String:CGFloat] = [
             "imageViewLeft":kImageViewLeft,
             "imageViewRight":kImageViewRight,
-            "imageViewMarginVertical":kImageViewMarginVertical]
+            "imageViewMarginVertical":kImageViewMarginVertical,
+            "statusWidth":kStatusWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-(imageViewLeft)-[imageView]",
+            withVisualFormat:"H:|-(imageViewLeft)-[imageView]-(imageViewRight)-[imageStatus(statusWidth)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-(imageViewMarginVertical)-[imageView]-(imageViewMarginVertical)-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[imageStatus]-0-|",
             options:[],
             metrics:metrics,
             views:views))

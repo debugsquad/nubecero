@@ -15,7 +15,7 @@ class VHomeUploadSyncCell:UICollectionViewCell
         
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor(white:0, alpha:0.04)
+        backgroundColor = UIColor(white:0, alpha:0.06)
         isUserInteractionEnabled = false
         
         let imageView:UIImageView = UIImageView()

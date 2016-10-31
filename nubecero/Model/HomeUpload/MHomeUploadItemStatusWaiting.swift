@@ -3,7 +3,7 @@ import Photos
 
 class MHomeUploadItemStatusWaiting:MHomeUploadItemStatus
 {
-    private let kAssetSync:String = "assetHomeSyncWaiting"
+    private let kAssetSync:String = "assetHomeSyncWait"
     private let kFinished:Bool = false
     
     init(item:MHomeUploadItem?)

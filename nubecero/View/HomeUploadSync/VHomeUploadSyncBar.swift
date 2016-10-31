@@ -10,7 +10,7 @@ class VHomeUploadSyncBar:UIView
     private weak var layoutTryAgainButtonLeft:NSLayoutConstraint!
     private let kSpinnerHeight:CGFloat = 80
     private let kCancelButtonWith:CGFloat = 90
-    private let kTryAgainButtonWith:CGFloat = 90
+    private let kTryAgainButtonWith:CGFloat = 140
     private let kButtonHeight:CGFloat = 34
     private let kLabelCountWidth:CGFloat = 60
     private let kCornerRadius:CGFloat = 4
@@ -58,7 +58,7 @@ class VHomeUploadSyncBar:UIView
         tryAgainButton.setTitleColor(UIColor.black, for:UIControlState.highlighted)
         tryAgainButton.setTitle(
             NSLocalizedString("VHomeUploadSyncBar_tryAgain", comment:""),
-            for:UIControlState.highlighted)
+            for:UIControlState.normal)
         tryAgainButton.layer.cornerRadius = kCornerRadius
         tryAgainButton.titleLabel!.font = UIFont.medium(size:13)
         tryAgainButton.isHidden = true
@@ -109,6 +109,11 @@ class VHomeUploadSyncBar:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:[cancelButton(cancelButtonWidth)]-0-[labelCount(labelCountWidth)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[tryAgainButton(tryAgainButtonWidth)]",
             options:[],
             metrics:metrics,
             views:views))

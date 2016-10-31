@@ -99,6 +99,12 @@ class CHomeUploadSync:CController
             
             self?.nextStep()
         }
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewSync.stepCompleted()
+        }
     }
     
     func syncComplete()

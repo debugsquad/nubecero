@@ -30,12 +30,7 @@ class CHomeUploadSync:CController
         if !syncStarted
         {
             syncStarted = true
-            
-            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            { [weak self] in
-                
-                self?.nextStep()
-            }
+            syncPictures()
         }
     }
     
@@ -89,13 +84,13 @@ class CHomeUploadSync:CController
         else
         {
             return
-        }
+        }/*
         
         let parentUser:String = FDatabase.Parent.user.rawValue
         let
         
         FMain.sharedInstance.database.createChild(
-            path: <#T##String#>, json: <#T##Any#>)
+            path: <#T##String#>, json: <#T##Any#>)*/
     }
     
     private func syncComplete()
@@ -115,5 +110,14 @@ class CHomeUploadSync:CController
     func cancelSync()
     {
         parentController.dismiss()
+    }
+    
+    func syncPictures()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.nextStep()
+        }
     }
 }

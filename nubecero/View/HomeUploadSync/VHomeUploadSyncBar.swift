@@ -62,6 +62,10 @@ class VHomeUploadSyncBar:UIView
         tryAgainButton.layer.cornerRadius = kCornerRadius
         tryAgainButton.titleLabel!.font = UIFont.medium(size:13)
         tryAgainButton.isHidden = true
+        tryAgainButton.addTarget(
+            self,
+            action:#selector(actionTryAgain(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.tryAgainButton = tryAgainButton
         
         let labelCount:UILabel = UILabel()
@@ -114,7 +118,7 @@ class VHomeUploadSyncBar:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[labelCount(cancelButtonHeight)]-10-[spinner]",
+            withVisualFormat:"V:[labelCount(buttonHeight)]-10-[spinner]",
             options:[],
             metrics:metrics,
             views:views))
@@ -169,6 +173,13 @@ class VHomeUploadSyncBar:UIView
         controller.cancelSync()
     }
     
+    func actionTryAgain(sender button:UIButton)
+    {
+        spinner.startAnimating()
+        tryAgainButton.isHidden = true
+        controller.syncPictures()
+    }
+
     //MARK: public
     
     func update()
@@ -178,5 +189,11 @@ class VHomeUploadSyncBar:UIView
         let countText:String = "\(uploadedItems)/\(totalItems)"
         
         labelCount.text = countText
+    }
+    
+    func errorFound()
+    {
+        spinner.stopAnimating()
+        tryAgainButton.isHidden = false
     }
 }

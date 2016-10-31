@@ -100,7 +100,7 @@ class VHomeUploadBar:UIView
             uploadItems.append(uploadItem)
         }
         
-        controller.commitUpload()
+        controller.commitUpload(uploadItems:uploadItems)
     }
     
     //MARK: public

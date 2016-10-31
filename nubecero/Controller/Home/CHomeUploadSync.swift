@@ -3,6 +3,18 @@ import UIKit
 class CHomeUploadSync:CController
 {
     weak var viewSync:VHomeUploadSync!
+    let uploadItems:[MHomeUploadItem]
+    
+    init(uploadItems:[MHomeUploadItem])
+    {
+        self.uploadItems = uploadItems
+        super.init(nibName:nil, bundle:nil)
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
     
     override func viewDidAppear(_ animated:Bool)
     {

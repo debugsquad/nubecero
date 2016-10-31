@@ -3,6 +3,11 @@ import FirebaseStorage
 
 class FStorage
 {
+    enum Parent:String
+    {
+        case user = "user"
+    }
+    
     private let reference:FIRStorageReference
     
     init()
@@ -20,6 +25,8 @@ class FStorage
             metadata:nil)
         { (metaData, error) in
             
+            let errorString:String? = error?.localizedDescription
+            completionHandler(errorString)
         }
     }
 }

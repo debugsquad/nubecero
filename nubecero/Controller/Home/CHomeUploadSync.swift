@@ -47,17 +47,6 @@ class CHomeUploadSync:CController
     
     //MARK: private
     
-    private func errorSyncing(error:String)
-    {
-        VAlert.message(message:error)
-        
-        DispatchQueue.main.async
-        { [weak self] in
-            
-            self?.viewSync.errorFound()
-        }
-    }
-    
     private func nextStep()
     {
         let uploadItem:MHomeUploadItem = uploadItems[currentItem]
@@ -90,6 +79,17 @@ class CHomeUploadSync:CController
     func cancelSync()
     {
         parentController.dismiss()
+    }
+    
+    func errorSyncing(error:String)
+    {
+        VAlert.message(message:error)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewSync.errorFound()
+        }
     }
     
     func keepSyncing()

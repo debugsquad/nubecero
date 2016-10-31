@@ -4,10 +4,10 @@ import Photos
 class MHomeUploadItem
 {
     var image:UIImage?
-    var imageComplete:UIImage?
+    var imageData:Data?
     var pictureId:String?
     var status:MHomeUploadItemStatus
-    private weak var asset:PHAsset!
+    weak var asset:PHAsset!
     private var requestId:PHImageRequestID?
     
     init(asset:PHAsset)

@@ -8,3 +8,5 @@
 "CHomeUpload_authDenied"="Unable to acccess your photo library";
 "CHomeUpload_noCameraRoll"="Unable to load your pictures";
 "CHomeUploadSync_syncComplete"="Pictures uploaded";
+
+"MHomeUploadItemStatusWaiting_error"="Error loading image, try again";

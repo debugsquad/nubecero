@@ -5,7 +5,7 @@ class MHomeUploadItemStatusSynced:MHomeUploadItemStatus
     private let kAssetSync:String = "assetHomeSyncDone"
     private let kFinished:Bool = true
     
-    init(item:MHomeUploadItem)
+    init(item:MHomeUploadItem?)
     {
         super.init(item:item, assetSync:kAssetSync, finished:kFinished)
     }

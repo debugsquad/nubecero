@@ -7,7 +7,7 @@ class MHomeUploadItem
     var imageData:Data?
     var pictureId:String?
     var status:MHomeUploadItemStatus
-    weak var asset:PHAsset!
+    let asset:PHAsset
     private var requestId:PHImageRequestID?
     
     init(asset:PHAsset)

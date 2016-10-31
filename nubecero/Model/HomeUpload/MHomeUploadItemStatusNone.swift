@@ -5,7 +5,7 @@ class MHomeUploadItemStatusNone:MHomeUploadItemStatus
     private let kAssetUpload:String = ""
     private let kAssetSync:String = ""
     
-    init()
+    override init()
     {
         super.init(
             assetUpload:kAssetUpload,

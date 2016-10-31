@@ -3,25 +3,15 @@ import Photos
 
 class MHomeUploadItem
 {
-    enum Status:Int
-    {
-        case None
-        case Waiting
-        case Referenced
-        case Uploaded
-        case Synced
-        case Error
-    }
-    
     var image:UIImage?
     var pictureId:String?
-    var status:Status
+    var status:MHomeUploadItemStatus
     private weak var asset:PHAsset!
     private var requestId:PHImageRequestID?
     
     init(asset:PHAsset)
     {
-        status = Status.None
+        status = MHomeUploadItemStatusNone()
         self.asset = asset
         
         let imageSize:CGSize = CGSize(

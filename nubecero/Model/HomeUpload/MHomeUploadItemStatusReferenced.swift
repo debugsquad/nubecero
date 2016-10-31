@@ -2,13 +2,10 @@ import Foundation
 
 class MHomeUploadItemStatusReferenced:MHomeUploadItemStatus
 {
-    private let kAssetUpload:String = ""
-    private let kAssetSync:String = ""
+    private let kAssetSync:String = "assetHomeSyncWaiting"
     
     override init()
     {
-        super.init(
-            assetUpload:kAssetUpload,
-            assetSync:kAssetSync)
+        super.init(assetSync:kAssetSync)
     }
 }

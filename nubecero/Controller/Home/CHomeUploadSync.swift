@@ -89,11 +89,11 @@ class CHomeUploadSync:CController
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyPictures:String = FDatabaseModelUser.Property.pictures.rawValue
         let path:String = "\(parentUser)/\(userId)/\(propertyPictures)"
-        let modelPicture:FDatabaseModelPicture = FDatabaseModelPicture(size: <#T##Int#>)
+        /*let modelPicture:FDatabaseModelPicture = FDatabaseModelPicture(size: <#T##Int#>)
         
         FMain.sharedInstance.database.createChild(
             path:path,
-            json: <#T##Any#>)
+            json: <#T##Any#>)*/
     }
     
     private func syncComplete()

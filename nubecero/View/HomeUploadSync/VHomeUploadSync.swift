@@ -5,8 +5,8 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     private weak var viewBar:VHomeUploadSyncBar!
     private weak var collectionView:UICollectionView!
     private weak var controller:CHomeUploadSync!
-    private let kBarHeight:CGFloat = 150
-    private let kCellHeight:CGFloat = 60
+    private let kBarHeight:CGFloat = 160
+    private let kCellHeight:CGFloat = 70
     private let kCollectionBottom:CGFloat = 20
     private let kInterLineSpace:CGFloat = 1
     
@@ -33,7 +33,7 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
         flow.minimumInteritemSpacing = 0
         flow.minimumLineSpacing = kInterLineSpace
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
-        flow.sectionInset = UIEdgeInsetsMake(0, 0, kCollectionBottom, 0)
+        flow.sectionInset = UIEdgeInsetsMake(kInterLineSpace, 0, kCollectionBottom, 0)
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.clipsToBounds = true

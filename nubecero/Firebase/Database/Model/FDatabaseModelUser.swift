@@ -24,7 +24,7 @@ class FDatabaseModelUser:FDatabaseModel
         super.init()
     }
     
-    required init(snapshot:Any?)
+    required init(snapshot:Any)
     {
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
         

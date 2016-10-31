@@ -33,11 +33,24 @@ class CLogin:CController, FBSDKLoginButtonDelegate
     
     private func userLogged()
     {
+        guard
+            
+            let userId:String = FIRAuth.auth()?.currentUser?.uid
+        
+        else
+        {
+            return
+        }
+        
+        MSession.sharedInstance.loadUser(userId:userId)
+        
         DispatchQueue.main.async
         { [weak self] in
             
             let homeController:CHome = CHome()
-            self?.parentController.center(controller:homeController, pop:true)
+            self?.parentController.center(
+                controller:homeController,
+                pop:true)
         }
     }
     

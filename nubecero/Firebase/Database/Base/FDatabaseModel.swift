@@ -6,7 +6,7 @@ class FDatabaseModel
     {
     }
     
-    required init(snapshot:Any?)
+    required init(snapshot:Any)
     {
         fatalError()
     }

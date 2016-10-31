@@ -32,29 +32,63 @@ class FDatabase
         childReference.setValue(json)
     }
     
-    func listenOnce<ModelType:FDatabaseModel>(path:String, modelType:ModelType.Type, completion:@escaping((ModelType) -> ()))
+    func listenOnce<ModelType:FDatabaseModel>(path:String, modelType:ModelType.Type, completion:@escaping((ModelType?) -> ()))
     {
         let pathReference:FIRDatabaseReference = reference.child(path)
         pathReference.observeSingleEvent(of:FIRDataEventType.value)
         { (snapshot:FIRDataSnapshot) in
             
-            let json:Any? = snapshot.value
-            let model:ModelType = ModelType(snapshot:json)
+            guard
             
-            completion(model)
+                let json:Any = snapshot.value
+            
+            else
+            {
+                completion(nil)
+                
+                return
+            }
+            
+            if let _:NSNull = json as? NSNull
+            {
+                completion(nil)
+            }
+            else
+            {
+                let model:ModelType = ModelType(snapshot:json)
+                
+                completion(model)
+            }
         }
     }
     
-    func listen<ModelType:FDatabaseModel>(eventType:FIRDataEventType, path:String, modelType:ModelType.Type, completion:@escaping((ModelType) -> ())) -> UInt
+    func listen<ModelType:FDatabaseModel>(eventType:FIRDataEventType, path:String, modelType:ModelType.Type, completion:@escaping((ModelType?) -> ())) -> UInt
     {
         let pathReference:FIRDatabaseReference = reference.child(path)
         let handler:UInt = pathReference.observe(eventType)
         { (snapshot:FIRDataSnapshot) in
             
-            let json:Any? = snapshot.value
-            let model:ModelType = ModelType(snapshot:json)
+            guard
+                
+                let json:Any = snapshot.value
             
-            completion(model)
+            else
+            {
+                completion(nil)
+                
+                return
+            }
+            
+            if let _:NSNull = json as? NSNull
+            {
+                completion(nil)
+            }
+            else
+            {
+                let model:ModelType = ModelType(snapshot:json)
+                
+                completion(model)
+            }
         }
         
         return handler

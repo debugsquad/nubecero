@@ -14,13 +14,13 @@ class MHomeUploadItem
     }
     
     var image:UIImage?
-    var status:MHomeUploadItem.Status
+    var status:Status
     private weak var asset:PHAsset!
     private var requestId:PHImageRequestID?
     
     init(asset:PHAsset)
     {
-        status = MHomeUploadItem.Status.None
+        status = Status.None
         self.asset = asset
         
         let imageSize:CGSize = CGSize(

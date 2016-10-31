@@ -16,12 +16,15 @@ class FDatabaseModelPicture:FDatabaseModel
     }
     
     let created:TimeInterval
+    let status:Status
+    let size:Int
     private let kNoTime:TimeInterval = 0
     
-    override init()
+    init(size:Int)
     {
         created = NSDate().timeIntervalSince1970
-        lastSession = created
+        status = Status.waiting
+        self.size = size
         
         super.init()
     }
@@ -39,13 +42,29 @@ class FDatabaseModelPicture:FDatabaseModel
             self.created = kNoTime
         }
         
-        if let lastSession:TimeInterval = snapshotDict?[Property.lastSession.rawValue] as? TimeInterval
+        if let statusInt:Int = snapshotDict?[Property.status.rawValue] as? Int
         {
-            self.lastSession = lastSession
+            if let status:Status = Status(rawValue:statusInt)
+            {
+                self.status = status
+            }
+            else
+            {
+                self.status = Status.waiting
+            }
         }
         else
         {
-            self.lastSession = kNoTime
+            self.status = Status.waiting
+        }
+        
+        if let size:Int = snapshotDict?[Property.size.rawValue] as? Int
+        {
+            self.size = size
+        }
+        else
+        {
+            self.size = 0
         }
         
         super.init()
@@ -55,7 +74,8 @@ class FDatabaseModelPicture:FDatabaseModel
     {
         let json:[String:Any] = [
             Property.created.rawValue:created,
-            Property.lastSession.rawValue:lastSession
+            Property.status.rawValue:status.rawValue,
+            Property.size.rawValue:size
         ]
         
         return json

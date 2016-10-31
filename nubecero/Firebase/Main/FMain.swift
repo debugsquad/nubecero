@@ -5,6 +5,7 @@ class FMain
 {
     static let sharedInstance:FMain = FMain()
     let analytics:FAnalytics?
+    let database:FDatabase
     
     private init()
     {
@@ -20,6 +21,8 @@ class FMain
             analytics = FAnalytics()
         
         #endif
+        
+        database = FDatabase()
     }
     
     //MARK: public

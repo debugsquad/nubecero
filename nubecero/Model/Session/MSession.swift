@@ -23,13 +23,41 @@ class MSession
             
             if modelUser == nil
             {
-                print("user not existing")
+                self.createUser(userId:userId)
             }
             else
             {
-                print("user loaded")
+                self.updateLastSession(userId:userId)
             }
         }
+    }
+    
+    private func createUser(userId:String)
+    {
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let userPath:String = "\(parentUser)/\(userId)"
+        let modelUser:FDatabaseModelUser = FDatabaseModelUser()
+        let json:Any = modelUser.modelJson()
+        
+        FMain.sharedInstance.database.updateChild(
+            path:userPath,
+            json:json)
+        
+        self.userId = userId
+    }
+    
+    private func updateLastSession(userId:String)
+    {
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let propertyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
+        let userPath:String = "\(parentUser)/\(userId)/\(propertyLastSession)"
+        let currentTime:TimeInterval = NSDate().timeIntervalSince1970
+        
+        FMain.sharedInstance.database.updateChild(
+            path:userPath,
+            json:currentTime)
+        
+        self.userId = userId
     }
     
     //MARK: public

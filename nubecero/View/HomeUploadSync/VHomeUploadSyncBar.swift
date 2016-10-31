@@ -134,36 +134,10 @@ class VHomeUploadSyncBar:UIView
     
     func update()
     {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            guard
-                
-                let uploadItems:[MHomeUploadItem] = self?.controller.uploadItems
-            
-            else
-            {
-                return
-            }
-            
-            let totalItems:Int = uploadItems.count
-            var uploadedItems:Int = 0
-            
-            for item:MHomeUploadItem in uploadItems
-            {
-                if item.status == MHomeUploadItem.Status.Synced
-                {
-                    uploadedItems += 1
-                }
-            }
-            
-            let countText:String = "\(uploadedItems)/\(totalItems)"
-            
-            DispatchQueue.main.async
-            { [weak self] in
-                
-                self?.labelCount.text = countText
-            }
-        }
+        let totalItems:Int = controller.uploadItems.count
+        let uploadedItems:Int = controller.currentItem
+        let countText:String = "\(uploadedItems)/\(totalItems)"
+        
+        labelCount.text = countText
     }
 }

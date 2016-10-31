@@ -6,3 +6,4 @@
 "CHomeUpload_title"="Upload";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";
 "CHomeUpload_noCameraRoll"="Unable to load your pictures";
+"CHomeUploadSync_syncComplete"="Pictures uploaded";

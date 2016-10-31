@@ -2,21 +2,24 @@ import Foundation
 
 class FDatabaseModelUser:FDatabaseModel
 {
-    let created:TimeInterval
-    let lastSession:TimeInterval
-    private let kNoTime:TimeInterval = 0
-    
     enum Property:String
     {
         case created = "created"
         case lastSession = "lastSession"
+        case diskUsed = "diskUsed"
         case pictures = "pictures"
     }
+    
+    let created:TimeInterval
+    let lastSession:TimeInterval
+    let diskUsed:Int
+    private let kNoTime:TimeInterval = 0
     
     override init()
     {
         created = NSDate().timeIntervalSince1970
         lastSession = created
+        diskUsed = 0
         
         super.init()
     }
@@ -43,6 +46,15 @@ class FDatabaseModelUser:FDatabaseModel
             self.lastSession = kNoTime
         }
         
+        if let diskUsed:Int = snapshotDict?[Property.diskUsed.rawValue] as? Int
+        {
+            self.diskUsed = diskUsed
+        }
+        else
+        {
+            self.diskUsed = 0
+        }
+        
         super.init()
     }
     
@@ -50,7 +62,8 @@ class FDatabaseModelUser:FDatabaseModel
     {
         let json:[String:Any] = [
             Property.created.rawValue:created,
-            Property.lastSession.rawValue:lastSession
+            Property.lastSession.rawValue:lastSession,
+            Property.diskUsed.rawValue:diskUsed
         ]
         
         return json

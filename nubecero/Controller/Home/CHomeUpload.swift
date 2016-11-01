@@ -226,11 +226,57 @@ class CHomeUpload:CController
     {
         guard
             
-            let  uploadItems:[MHomeUploadItem] = selectedItems()
+            let uploadItems:[MHomeUploadItem] = selectedItems()
             
         else
         {
             return
+        }
+        
+        var deletableAssets:[PHAsset] = []
+        
+        for uploadItem:MHomeUploadItem in uploadItems
+        {
+            deletableAssets.append(uploadItem.asset)
+        }
+        
+        let deletableEnumeration:NSFastEnumeration = deletableAssets as NSFastEnumeration
+        
+        PHPhotoLibrary.shared().performChanges(
+        {
+            PHAssetChangeRequest.deleteAssets(deletableEnumeration)
+        })
+        { [weak self] (done, error) in
+            
+            if let errorStrong:Error = error
+            {
+                VAlert.message(message:errorStrong.localizedDescription)
+            }
+            else
+            {
+                self?.hideUploadedItems()
+            }
+        }
+    }
+    
+    private func hideUploadedItems()
+    {
+        var newModelItems:[MHomeUploadItem] = []
+        
+        for currentItem:MHomeUploadItem in model.items
+        {
+            if !currentItem.status.finished
+            {
+                newModelItems.append(currentItem)
+            }
+        }
+        
+        model.items = newModelItems
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewUpload.collectionView.reloadData()
         }
     }
     
@@ -263,7 +309,7 @@ class CHomeUpload:CController
     {
         guard
             
-            let  uploadItems:[MHomeUploadItem] = selectedItems()
+            let uploadItems:[MHomeUploadItem] = selectedItems()
         
         else
         {

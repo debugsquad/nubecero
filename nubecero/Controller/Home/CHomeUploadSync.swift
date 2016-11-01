@@ -3,15 +3,17 @@ import UIKit
 class CHomeUploadSync:CController
 {
     weak var viewSync:VHomeUploadSync!
+    weak var controllerUpload:CHomeUpload!
     let uploadItems:[MHomeUploadItem]
     var currentItem:Int
     private var syncStarted:Bool
     
-    init(uploadItems:[MHomeUploadItem])
+    init(uploadItems:[MHomeUploadItem], controllerUpload:CHomeUpload)
     {
         currentItem = 0
         syncStarted = false
         self.uploadItems = uploadItems
+        self.controllerUpload = controllerUpload
         super.init(nibName:nil, bundle:nil)
     }
     

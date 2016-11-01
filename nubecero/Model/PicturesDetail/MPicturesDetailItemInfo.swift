@@ -1,9 +1,14 @@
-//
-//  MPicturesDetailItemInfo.swift
-//  nubecero
-//
-//  Created by zero on 11/1/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
-
 import Foundation
+
+class MPicturesDetailItemInfo:MPicturesDetailItem
+{
+    private let kSizeWeight:Int = 1
+    
+    override init()
+    {
+        let reusableIdentifier:String = VPicturesDetailCellInfo.reusableIdentifier
+        super.init(
+            reusableIdentifier:reusableIdentifier,
+            sizeWeight:kSizeWeight)
+    }
+}

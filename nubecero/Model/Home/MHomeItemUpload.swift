@@ -5,7 +5,7 @@ class MHomeItemUpload:MHomeItem
     private let kCellHeight:CGFloat = 70
     private let kSelectable:Bool = true
     
-    init()
+    override init()
     {
         let reusableIdentifier:String = VHomeCellUpload.reusableIdentifier
         super.init(

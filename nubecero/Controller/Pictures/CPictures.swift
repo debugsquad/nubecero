@@ -10,4 +10,11 @@ class CPictures:CController
         self.viewPictures = viewPictures
         view = viewPictures
     }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        MPictures.sharedInstance.loadReferences()
+    }
 }

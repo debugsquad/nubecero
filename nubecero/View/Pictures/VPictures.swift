@@ -91,34 +91,15 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[viewDetail]-0-[collectionView(collectionHeight)]-0-|",
+            withVisualFormat:"V:|-(barHeight)-[spinner]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector:#selector(notifiedPicturesLoaded(sender:)),
-            name:Notification.picturesLoaded,
-            object:nil)
-    }
-    
-    deinit
-    {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    //MARK: notified
-    
-    func notifiedPicturesLoaded(sender notification:Notification)
-    {
-        NotificationCenter.default.removeObserver(self)
-        
-        DispatchQueue.main.async
-        { [weak self] in
-            
-            self?.picturesLoaded()
-        }
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(barHeight)-[viewDetail]-0-[collectionView(collectionHeight)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     //MARK: private
@@ -130,7 +111,15 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         return item
     }
     
-    private func picturesLoaded()
+    private func selectItemNumber(index:Int)
+    {
+        currentItem = MPictures.sharedInstance.pictureAtIndex(index:index)
+        viewDetail.refresh()
+    }
+    
+    //MARK: public
+    
+    func picturesLoaded()
     {
         spinner?.removeFromSuperview()
         collectionView.isHidden = false
@@ -150,12 +139,6 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
                 scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
             selectItemNumber(index:itemSelected)
         }
-    }
-    
-    private func selectItemNumber(index:Int)
-    {
-        currentItem = MPictures.sharedInstance.pictureAtIndex(index:index)
-        viewDetail.refresh()
     }
     
     //MARK: collectionView delegate

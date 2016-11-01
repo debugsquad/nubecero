@@ -20,9 +20,9 @@ class VPicturesDetail:UIView, UICollectionViewDataSource, UICollectionViewDelega
         flow.headerReferenceSize = CGSize.zero
         flow.footerReferenceSize = CGSize.zero
         flow.sectionInset = UIEdgeInsets.zero
-        flow.scrollDirection = UICollectionViewScrollDirection.vertical
         flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
+        flow.scrollDirection = UICollectionViewScrollDirection.vertical
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.backgroundColor = UIColor.clear
@@ -69,7 +69,7 @@ class VPicturesDetail:UIView, UICollectionViewDataSource, UICollectionViewDelega
     
     override func layoutSubviews()
     {
-        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.collectionViewLayout.invalidateLayout()   
         super.layoutSubviews()
     }
     
@@ -94,22 +94,24 @@ class VPicturesDetail:UIView, UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
         let item:MPicturesDetailItem = modelAtIndex(index:indexPath)
-        let width:CGFloat = collectionView.bounds.size.width
-        let height:CGFloat = collectionView.bounds.size.height
+        let width:CGFloat = collectionView.bounds.maxX
+        let height:CGFloat = collectionView.bounds.maxY
         let totalWeights:CGFloat = CGFloat(model.itemsWeight)
         let itemWeight:CGFloat = CGFloat(item.sizeWeight)
         let size:CGSize
         
-        if height > width
+        if height >= width
         {
             let heightDivided:CGFloat = height / totalWeights
-            let itemHeight:CGFloat = heightDivided * itemWeight
+            let itemHeight:CGFloat = floor(heightDivided * itemWeight)
+            
             size = CGSize(width:width, height:itemHeight)
         }
         else
         {
             let widthDivided:CGFloat = width / totalWeights
-            let itemWidth:CGFloat = widthDivided * itemWeight
+            let itemWidth:CGFloat = floor(widthDivided * itemWeight)
+            
             size = CGSize(width:itemWidth, height:height)
         }
         

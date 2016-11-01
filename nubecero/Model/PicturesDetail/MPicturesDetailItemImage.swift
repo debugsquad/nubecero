@@ -2,7 +2,7 @@ import Foundation
 
 class MPicturesDetailItemImage:MPicturesDetailItem
 {
-    private let kSizeWeight:Int = 3
+    private let kSizeWeight:Int = 7
     
     override init()
     {

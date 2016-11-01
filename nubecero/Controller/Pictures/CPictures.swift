@@ -15,6 +15,30 @@ class CPictures:CController
     {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedPicturesLoaded(sender:)),
+            name:Notification.picturesLoaded,
+            object:nil)
+        
         MPictures.sharedInstance.loadPictures()
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //MARK: notified
+    
+    func notifiedPicturesLoaded(sender notification:Notification)
+    {
+        NotificationCenter.default.removeObserver(self)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewPictures.picturesLoaded()
+        }
     }
 }

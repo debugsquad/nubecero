@@ -8,8 +8,8 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private weak var viewDetail:VPicturesDetail!
     private weak var spinner:VSpinner?
     private let kCollectionHeight:CGFloat = 100
-    private let kCollectionTop:CGFloat = 5
-    private let kCollectionBottom:CGFloat = 10
+    private let kCollectionTop:CGFloat = 2
+    private let kCollectionBottom:CGFloat = 6
     private let kCollectionHorizontal:CGFloat = 5
     private let kInterLine:CGFloat = 1
     
@@ -46,7 +46,6 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.isHidden = true
-        collectionView.isUserInteractionEnabled = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.clipsToBounds = true
         collectionView.backgroundColor = UIColor(white:0, alpha:0.1)

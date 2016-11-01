@@ -2,11 +2,6 @@ import Foundation
 
 class MMainState
 {
-    init()
-    {
-        fatalError()
-    }
-    
     //MARK: public
     
     func showOptions() -> Bool

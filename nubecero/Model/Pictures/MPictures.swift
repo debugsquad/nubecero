@@ -55,7 +55,9 @@ class MPictures
     
     private func picturesLoaded()
     {
-        
+        NotificationCenter.default.post(
+            name:Notification.picturesLoaded,
+            object:nil)
     }
     
     //MARK: public

@@ -196,4 +196,34 @@ class CHomeUpload:CController
             controllerUpload:self)
         parentController.over(controller:controllerSync, pop:false)
     }
+    
+    func picturesUploaded()
+    {
+        let alert:UIAlertController = UIAlertController(
+            title:
+            NSLocalizedString("CHomeUpload_uploadedTitle", comment:""),
+            message:
+            NSLocalizedString("CHomeUpload_uploadedMessage", comment:""),
+            preferredStyle:UIAlertControllerStyle.actionSheet)
+        
+        let actionDontRemove:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CHomeUpload_uploadedDontRemove", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionRemove:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CHomeUpload_uploadedRemove", comment:""),
+            style:
+            UIAlertActionStyle.destructive)
+        { [weak self] (action) in
+            
+            
+        }
+        
+        alert.addAction(actionRemove)
+        alert.addAction(actionDontRemove)
+        present(alert, animated:true, completion:nil)
+    }
 }

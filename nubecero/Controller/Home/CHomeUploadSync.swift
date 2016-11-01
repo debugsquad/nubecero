@@ -97,6 +97,7 @@ class CHomeUploadSync:CController
         { [weak self] in
             
             self?.parentController.dismiss()
+            self?.controllerUpload.picturesUploaded()
         }
     }
 }

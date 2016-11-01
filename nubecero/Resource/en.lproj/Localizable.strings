@@ -8,6 +8,10 @@
 "CHomeUpload_authDenied"="Unable to acccess your photo library";
 "CHomeUpload_noCameraRoll"="Unable to load your pictures";
 "CHomeUploadSync_syncComplete"="Pictures uploaded";
+"CHomeUpload_uploadedTitle"="Want to remove the pictures from the device?";
+"CHomeUpload_uploadedMessage"="You have them already on the cloud";
+"CHomeUpload_uploadedDontRemove"="Keep them";
+"CHomeUpload_uploadedRemove"="Remove";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading image, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

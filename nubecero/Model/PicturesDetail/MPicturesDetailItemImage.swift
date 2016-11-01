@@ -4,8 +4,11 @@ class MPicturesDetailItemImage:MPicturesDetailItem
 {
     private let kSizeWeight:Int = 3
     
-    init()
+    override init()
     {
-        
+        let reusableIdentifier:String = VPicturesDetailCellImage.reusableIdentifier
+        super.init(
+            reusableIdentifier:reusableIdentifier,
+            sizeWeight:kSizeWeight)
     }
 }

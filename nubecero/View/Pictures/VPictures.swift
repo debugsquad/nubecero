@@ -181,4 +181,14 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         
         return cell
     }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        selectItemNumber(index:indexPath.item)
+        
+        collectionView.scrollToItem(
+            at:indexPath,
+            at:UICollectionViewScrollPosition.centeredHorizontally,
+            animated:true)
+    }
 }

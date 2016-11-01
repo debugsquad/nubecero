@@ -2,9 +2,11 @@ import UIKit
 
 class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    weak var controller:CPictures!
-    weak var collectionView:UICollectionView!
-    weak var spinner:VSpinner?
+    weak var currentItem:MPicturesItem?
+    private weak var controller:CPictures!
+    private weak var collectionView:UICollectionView!
+    private weak var viewDetail:VPicturesDetail!
+    private weak var spinner:VSpinner?
     private let kCollectionHeight:CGFloat = 100
     private let kCollectionTop:CGFloat = 5
     private let kCollectionBottom:CGFloat = 10
@@ -21,8 +23,13 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         
         let cellHeigh:CGFloat = kCollectionHeight - (kCollectionTop + kCollectionBottom)
         let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
+        
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
+        
+        let viewDetail:VPicturesDetail = VPicturesDetail(controller:controller)
+        viewDetail.isHidden = true
+        self.viewDetail = viewDetail
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize.zero
@@ -55,11 +62,13 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         self.collectionView = collectionView
         
         addSubview(spinner)
+        addSubview(viewDetail)
         addSubview(collectionView)
         
         let views:[String:UIView] = [
             "spinner":spinner,
-            "collectionView":collectionView]
+            "collectionView":collectionView,
+            "viewDetail":viewDetail]
         
         let metrics:[String:CGFloat] = [
             "barHeight":barHeight,
@@ -76,7 +85,12 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[collectionView(collectionHeight)]-0-|",
+            withVisualFormat:"H:|-0-[viewDetail]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[viewDetail]-0-[collectionView(collectionHeight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -102,9 +116,7 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.spinner?.removeFromSuperview()
-            self?.collectionView.isHidden = false
-            self?.collectionView.reloadData()
+            self?.picturesLoaded()
         }
     }
     
@@ -115,6 +127,34 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         let item:MPicturesItem = MPictures.sharedInstance.pictureAtIndex(index:index.item)
         
         return item
+    }
+    
+    private func picturesLoaded()
+    {
+        spinner?.removeFromSuperview()
+        collectionView.isHidden = false
+        collectionView.reloadData()
+        viewDetail.isHidden = false
+        
+        let count:Int = MPictures.sharedInstance.references.count
+        
+        if count > 0
+        {
+            let itemSelected:Int = 0
+            let indexPathSelected:IndexPath = IndexPath(item:itemSelected, section:0)
+            
+            collectionView.selectItem(
+                at:indexPathSelected,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
+            selectItemNumber(index:itemSelected)
+        }
+    }
+    
+    private func selectItemNumber(index:Int)
+    {
+        currentItem = MPictures.sharedInstance.pictureAtIndex(index:index)
+        viewDetail.refresh()
     }
     
     //MARK: collectionView delegate

@@ -16,6 +16,8 @@
 		DA2F668F1DC90AF50078B466 /* FDatabaseModelUserPictureList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F668E1DC90AF50078B466 /* FDatabaseModelUserPictureList.swift */; };
 		DA2F66911DC919570078B466 /* MPicturesItemReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66901DC919570078B466 /* MPicturesItemReference.swift */; };
 		DA2F66931DC91B780078B466 /* VPicturesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66921DC91B780078B466 /* VPicturesCell.swift */; };
+		DA2F66951DC92D780078B466 /* VPicturesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66941DC92D780078B466 /* VPicturesDetail.swift */; };
+		DA2F66971DC92D840078B466 /* VPicturesDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66961DC92D840078B466 /* VPicturesDetailCell.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -111,6 +113,8 @@
 		DA2F668E1DC90AF50078B466 /* FDatabaseModelUserPictureList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserPictureList.swift; sourceTree = "<group>"; };
 		DA2F66901DC919570078B466 /* MPicturesItemReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesItemReference.swift; sourceTree = "<group>"; };
 		DA2F66921DC91B780078B466 /* VPicturesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesCell.swift; sourceTree = "<group>"; };
+		DA2F66941DC92D780078B466 /* VPicturesDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDetail.swift; sourceTree = "<group>"; };
+		DA2F66961DC92D840078B466 /* VPicturesDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDetailCell.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -272,6 +276,8 @@
 			children = (
 				DA2F66871DC8FE8B0078B466 /* VPictures.swift */,
 				DA2F66921DC91B780078B466 /* VPicturesCell.swift */,
+				DA2F66941DC92D780078B466 /* VPicturesDetail.swift */,
+				DA2F66961DC92D840078B466 /* VPicturesDetailCell.swift */,
 			);
 			path = Pictures;
 			sourceTree = "<group>";
@@ -781,6 +787,7 @@
 				DACD1F871DC3A0020067D26B /* CHome.swift in Sources */,
 				DACD1FBD1DC589CD0067D26B /* VHomeUploadSyncBar.swift in Sources */,
 				DA2F66911DC919570078B466 /* MPicturesItemReference.swift in Sources */,
+				DA2F66951DC92D780078B466 /* VPicturesDetail.swift in Sources */,
 				DA88F6721DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift in Sources */,
 				DACD1F991DC3F0E80067D26B /* MMainItemPictures.swift in Sources */,
 				DA2F668B1DC8FFB20078B466 /* MPictures.swift in Sources */,
@@ -810,6 +817,7 @@
 				DA88F67C1DC7EE1F009F61B3 /* MHomeUploadItemStatusUploaded.swift in Sources */,
 				DA4EF9001DC395B300297C1D /* ExtensionNotification.swift in Sources */,
 				DA4EF90B1DC395B300297C1D /* MMainItemHome.swift in Sources */,
+				DA2F66971DC92D840078B466 /* VPicturesDetailCell.swift in Sources */,
 				DACD1F8F1DC3ADEB0067D26B /* VLogin.swift in Sources */,
 				DA4EF8FF1DC395B300297C1D /* ExtensionMTLTexture.swift in Sources */,
 				DA4EF8FC1DC395B300297C1D /* DManager.swift in Sources */,

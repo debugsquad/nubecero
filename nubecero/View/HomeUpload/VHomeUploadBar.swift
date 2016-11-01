@@ -82,25 +82,7 @@ class VHomeUploadBar:UIView
     
     func actionCommit(sender button:UIButton)
     {
-        guard
-            
-            let selectedItems:[IndexPath] = controller.viewUpload.collectionView.indexPathsForSelectedItems
-        
-        else
-        {
-            return
-        }
-        
-        var uploadItems:[MHomeUploadItem] = []
-        
-        for indexSelected:IndexPath in selectedItems
-        {
-            let itemIndex:Int = indexSelected.item
-            let uploadItem:MHomeUploadItem = controller.model.items[itemIndex]
-            uploadItems.append(uploadItem)
-        }
-        
-        controller.commitUpload(uploadItems:uploadItems)
+        controller.commitUpload()
     }
     
     //MARK: public

@@ -208,9 +208,13 @@ class CHomeUpload:CController
             NSLocalizedString("CHomeUpload_uploadedRemove", comment:""),
             style:
             UIAlertActionStyle.destructive)
-        { [weak self] (action) in
+        { (action) in
             
-            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.performRemovePictures()
+            }
         }
         
         alert.addAction(actionRemove)
@@ -218,10 +222,54 @@ class CHomeUpload:CController
         present(alert, animated:true, completion:nil)
     }
     
+    private func performRemovePictures()
+    {
+        guard
+            
+            let  uploadItems:[MHomeUploadItem] = selectedItems()
+            
+        else
+        {
+            return
+        }
+    }
+    
+    private func selectedItems() -> [MHomeUploadItem]?
+    {
+        guard
+            
+            let selectedItems:[IndexPath] = viewUpload.collectionView.indexPathsForSelectedItems
+            
+        else
+        {
+            return nil
+        }
+        
+        var uploadItems:[MHomeUploadItem] = []
+        
+        for indexSelected:IndexPath in selectedItems
+        {
+            let itemIndex:Int = indexSelected.item
+            let uploadItem:MHomeUploadItem = model.items[itemIndex]
+            uploadItems.append(uploadItem)
+        }
+        
+        return uploadItems
+    }
+    
     //MARK: public
     
-    func commitUpload(uploadItems:[MHomeUploadItem])
+    func commitUpload()
     {
+        guard
+            
+            let  uploadItems:[MHomeUploadItem] = selectedItems()
+        
+        else
+        {
+            return
+        }
+        
         let controllerSync:CHomeUploadSync = CHomeUploadSync(
             uploadItems:uploadItems,
             controllerUpload:self)

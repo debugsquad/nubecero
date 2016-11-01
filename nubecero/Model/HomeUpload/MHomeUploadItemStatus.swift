@@ -27,5 +27,6 @@ class MHomeUploadItemStatus
     
     func process(controller:CHomeUploadSync)
     {
+        print("process:: \(NSStringFromClass(object_getClass(self)))")
     }
 }

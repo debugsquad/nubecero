@@ -12,6 +12,8 @@ class MHomeUploadItemStatusReferenced:MHomeUploadItemStatus
     
     override func process(controller:CHomeUploadSync)
     {
+        super.process(controller:controller)
+        
         guard
             
             let userId:String = MSession.sharedInstance.userId,
@@ -49,8 +51,17 @@ class MHomeUploadItemStatusReferenced:MHomeUploadItemStatus
     
     private func imageUploaded(controller:CHomeUploadSync?)
     {
+        guard
+        
+            let controllerStrong:CHomeUploadSync = controller
+        
+        else
+        {
+            return
+        }
+        
         item?.status = MHomeUploadItemStatusUploaded(item:item)
-        controller?.keepSyncing()
+        controllerStrong.keepSyncing()
     }
     
     private func imageUploadingError(controller:CHomeUploadSync?, errorName:String)

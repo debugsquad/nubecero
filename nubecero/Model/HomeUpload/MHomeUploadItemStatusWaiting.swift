@@ -13,6 +13,8 @@ class MHomeUploadItemStatusWaiting:MHomeUploadItemStatus
     
     override func process(controller:CHomeUploadSync)
     {
+        super.process(controller:controller)
+        
         if item?.imageData == nil
         {
             guard
@@ -63,7 +65,16 @@ class MHomeUploadItemStatusWaiting:MHomeUploadItemStatus
     
     private func imageLoaded(controller:CHomeUploadSync?)
     {
+        guard
+            
+            let controllerStrong:CHomeUploadSync = controller
+            
+        else
+        {
+            return
+        }
+        
         item?.status = MHomeUploadItemStatusLoaded(item:item)
-        controller?.keepSyncing()
+        controllerStrong.keepSyncing()
     }
 }

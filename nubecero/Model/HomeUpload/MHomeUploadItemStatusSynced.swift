@@ -12,6 +12,8 @@ class MHomeUploadItemStatusSynced:MHomeUploadItemStatus
     
     override func process(controller:CHomeUploadSync)
     {
+        super.process(controller:controller)
+        
         controller.currentItem += 1
         
         if controller.currentItem < controller.uploadItems.count

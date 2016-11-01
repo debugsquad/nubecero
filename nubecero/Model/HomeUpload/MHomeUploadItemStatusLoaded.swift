@@ -14,6 +14,8 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
     
     override func process(controller:CHomeUploadSync)
     {
+        super.process(controller:controller)
+        
         guard
             
             let userId:String = MSession.sharedInstance.userId,

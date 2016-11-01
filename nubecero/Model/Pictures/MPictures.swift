@@ -6,10 +6,12 @@ class MPictures
     
     static let sharedInstance:MPictures = MPictures()
     var items:[PictureId:MPicturesItem]
+    var references:[MPicturesItemReference]
     
     private init()
     {
         items = [:]
+        references = []
     }
     
     //MARK: private
@@ -41,6 +43,7 @@ class MPictures
             else
             {
                 self.items = [:]
+                self.references = []
                 self.picturesLoaded()
                 
                 return
@@ -53,6 +56,7 @@ class MPictures
     private func comparePictures(picturesMap:[PictureId:FDatabaseModelPicture])
     {
         var items:[PictureId:MPicturesItem] = [:]
+        var references:[MPicturesItemReference] = []
         let picturesIds:[PictureId] = Array(picturesMap.keys)
         
         for pictureId:PictureId in picturesIds
@@ -66,7 +70,10 @@ class MPictures
                 continue
             }
             
-            if firebasePicture.status == FDatabaseModelPicture.Status.synced
+            let pictureStatus:FDatabaseModelPicture.Status = firebasePicture.status
+            let pictureCreated:TimeInterval = firebasePicture.created
+            
+            if pictureStatus == FDatabaseModelPicture.Status.synced
             {
                 if let loadedItem:MPicturesItem = self.items[pictureId]
                 {
@@ -77,10 +84,26 @@ class MPictures
                     let newItem:MPicturesItem = MPicturesItem(firebasePicture:firebasePicture)
                     items[pictureId] = newItem
                 }
+                
+                let pictureReference:MPicturesItemReference = MPicturesItemReference(
+                    pictureId:pictureId,
+                    created:pictureCreated)
+                
+                references.append(pictureReference)
             }
         }
         
+        references.sort()
+        { (referenceA, referenceB) -> Bool in
+            
+            let createdA:TimeInterval = referenceA.created
+            let createdB:TimeInterval = referenceB.created
+            
+            return createdA > createdB
+        }
+        
         self.items = items
+        self.references = references
         picturesLoaded()
     }
     

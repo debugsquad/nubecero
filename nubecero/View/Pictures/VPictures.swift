@@ -7,10 +7,10 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private weak var collectionView:UICollectionView!
     private weak var viewDetail:VPicturesDetail!
     private weak var spinner:VSpinner?
-    private let kCollectionHeight:CGFloat = 80
-    private let kCollectionTop:CGFloat = 2
-    private let kCollectionBottom:CGFloat = 6
-    private let kCollectionHorizontal:CGFloat = 5
+    private let kCollectionHeight:CGFloat = 66
+    private let kCollectionTop:CGFloat = 1
+    private let kCollectionBottom:CGFloat = 2
+    private let kCollectionHorizontal:CGFloat = 1
     private let kInterLine:CGFloat = 1
     
     convenience init(controller:CPictures)

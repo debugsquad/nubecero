@@ -4,7 +4,7 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
 {
     weak var controller:CPictures!
     weak var collectionView:UICollectionView!
-    weak var spinner:VSpinner!
+    weak var spinner:VSpinner?
     private let kCollectionHeight:CGFloat = 100
     private let kCollectionTop:CGFloat = 5
     private let kCollectionBottom:CGFloat = 10
@@ -19,6 +19,7 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
+        let cellHeigh:CGFloat = kCollectionHeight - (kCollectionTop + kCollectionBottom)
         let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
@@ -26,6 +27,7 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize.zero
         flow.footerReferenceSize = CGSize.zero
+        flow.itemSize = CGSize(width:cellHeigh, height:cellHeigh)
         flow.sectionInset = UIEdgeInsets(
             top:kCollectionTop,
             left:kCollectionHorizontal,
@@ -40,7 +42,7 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         collectionView.isUserInteractionEnabled = false
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.clipsToBounds = true
-        collectionView.backgroundColor = UIColor.clear
+        collectionView.backgroundColor = UIColor(white:0, alpha:0.1)
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.alwaysBounceHorizontal = true
@@ -73,12 +75,33 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             views:views))
     }
     
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //MARK: notified
+    
+    func notifiedPicturesLoaded(sender notification:Notification)
+    {
+        NotificationCenter.default.removeObserver(self)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.spinner?.removeFromSuperview()
+            self?.collectionView.isHidden = false
+            self?.collectionView.reloadData()
+        }
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MPicturesItem
     {
-        let reference
-        let item:MPicturesItem = MPictures.sharedInstance.items[]
+        let item:MPicturesItem = MPictures.sharedInstance.pictureAtIndex(index:index.item)
+        
+        return item
     }
     
     //MARK: collectionView delegate

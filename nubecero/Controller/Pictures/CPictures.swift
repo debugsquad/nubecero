@@ -15,6 +15,6 @@ class CPictures:CController
     {
         super.viewDidLoad()
         
-        MPictures.sharedInstance.loadReferences()
+        MPictures.sharedInstance.loadPictures()
     }
 }

@@ -66,7 +66,7 @@ class VPicturesCell:UICollectionViewCell
         }
         else
         {
-            backgroundColor = UIColor.clear
+            backgroundColor = UIColor(white:0, alpha:0.1)
         }
     }
     
@@ -74,6 +74,6 @@ class VPicturesCell:UICollectionViewCell
     
     func config(model:MPicturesItem)
     {
-        
+        hover()
     }
 }

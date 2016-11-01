@@ -81,7 +81,9 @@ class MPictures
                 }
                 else
                 {
-                    let newItem:MPicturesItem = MPicturesItem(firebasePicture:firebasePicture)
+                    let newItem:MPicturesItem = MPicturesItem(
+                        pictureId:pictureId,
+                        firebasePicture:firebasePicture)
                     items[pictureId] = newItem
                 }
                 

@@ -3,6 +3,7 @@ import UIKit
 class VPicturesDetail:UIView
 {
     private weak var controller:CPictures!
+    private weak var collectionView:UICollectionView!
     
     convenience init(controller:CPictures)
     {

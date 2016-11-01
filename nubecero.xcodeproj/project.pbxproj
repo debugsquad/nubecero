@@ -18,6 +18,8 @@
 		DA2F66931DC91B780078B466 /* VPicturesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66921DC91B780078B466 /* VPicturesCell.swift */; };
 		DA2F66951DC92D780078B466 /* VPicturesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66941DC92D780078B466 /* VPicturesDetail.swift */; };
 		DA2F66971DC92D840078B466 /* VPicturesDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66961DC92D840078B466 /* VPicturesDetailCell.swift */; };
+		DA2F669B1DC92ED90078B466 /* VPicturesDetailCellImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F669A1DC92ED90078B466 /* VPicturesDetailCellImage.swift */; };
+		DA2F669D1DC92EE70078B466 /* VPicturesDetailCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F669C1DC92EE70078B466 /* VPicturesDetailCellInfo.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -115,6 +117,8 @@
 		DA2F66921DC91B780078B466 /* VPicturesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesCell.swift; sourceTree = "<group>"; };
 		DA2F66941DC92D780078B466 /* VPicturesDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDetail.swift; sourceTree = "<group>"; };
 		DA2F66961DC92D840078B466 /* VPicturesDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDetailCell.swift; sourceTree = "<group>"; };
+		DA2F669A1DC92ED90078B466 /* VPicturesDetailCellImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDetailCellImage.swift; sourceTree = "<group>"; };
+		DA2F669C1DC92EE70078B466 /* VPicturesDetailCellInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDetailCellInfo.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -278,6 +282,8 @@
 				DA2F66921DC91B780078B466 /* VPicturesCell.swift */,
 				DA2F66941DC92D780078B466 /* VPicturesDetail.swift */,
 				DA2F66961DC92D840078B466 /* VPicturesDetailCell.swift */,
+				DA2F669A1DC92ED90078B466 /* VPicturesDetailCellImage.swift */,
+				DA2F669C1DC92EE70078B466 /* VPicturesDetailCellInfo.swift */,
 			);
 			path = Pictures;
 			sourceTree = "<group>";
@@ -781,6 +787,7 @@
 			files = (
 				DACD1FA01DC401240067D26B /* VHomeCell.swift in Sources */,
 				DACD1F971DC3F0B90067D26B /* MMainItemSettings.swift in Sources */,
+				DA2F669D1DC92EE70078B466 /* VPicturesDetailCellInfo.swift in Sources */,
 				DA88F67E1DC7EE28009F61B3 /* MHomeUploadItemStatusSynced.swift in Sources */,
 				DACD1FBB1DC582AB0067D26B /* VHomeUploadSync.swift in Sources */,
 				DACD1FA21DC4025D0067D26B /* MHomeItemUpload.swift in Sources */,
@@ -807,6 +814,7 @@
 				DACD1F9E1DC400240067D26B /* MHomeItem.swift in Sources */,
 				DA2F66931DC91B780078B466 /* VPicturesCell.swift in Sources */,
 				DA4EF9011DC395B300297C1D /* ExtensionNSManagedObject.swift in Sources */,
+				DA2F669B1DC92ED90078B466 /* VPicturesDetailCellImage.swift in Sources */,
 				DA2F668D1DC9002E0078B466 /* MPicturesItem.swift in Sources */,
 				DACD1F931DC3DA4B0067D26B /* VHome.swift in Sources */,
 				DA88F6741DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift in Sources */,

@@ -8,11 +8,12 @@ class VAlert:UIView
     private weak var timer:Timer?
     private let kMarginTop:CGFloat = 20
     private let kAnimationDuration:TimeInterval = 0.2
-    private let kTimeOut:TimeInterval = 5
+    private let kTimeOut:TimeInterval = 6
     private let kFontSize:CGFloat = 14
     private let kLabelMargin:CGFloat = 10
     private let kCornerRadius:CGFloat = 5
     private let kBorderWidth:CGFloat = 0.5
+    private let kHeaderHeight:CGFloat = 10
     
     class func message(message:String)
     {
@@ -65,18 +66,23 @@ class VAlert:UIView
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = kCornerRadius
         layer.borderWidth = kBorderWidth
-        layer.borderColor = UIColor(white:0, alpha:0.3).cgColor
+        layer.borderColor = UIColor(white:0, alpha:0.6).cgColor
         
         let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
         let blur:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
         blur.isUserInteractionEnabled = false
         blur.translatesAutoresizingMaskIntoConstraints = false
         
+        let header:UIView = UIView()
+        header.isUserInteractionEnabled = false
+        header.backgroundColor = UIColor.complement
+        header.translatesAutoresizingMaskIntoConstraints = false
+        
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.medium(size:kFontSize)
-        label.textColor = UIColor(white:0.1, alpha:1)
+        label.textColor = UIColor.black
         label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 0
         label.backgroundColor = UIColor.clear
@@ -91,16 +97,19 @@ class VAlert:UIView
             for:UIControlEvents.touchUpInside)
         
         addSubview(blur)
+        addSubview(header)
         addSubview(label)
         addSubview(button)
         
         let views:[String:UIView] = [
             "blur":blur,
             "label":label,
-            "button":button]
+            "button":button,
+            "header":header]
         
         let metrics:[String:CGFloat] = [
-            "labelMargin":kLabelMargin
+            "labelMargin":kLabelMargin,
+            "headerHeight":kHeaderHeight
         ]
         
         addConstraints(NSLayoutConstraint.constraints(
@@ -119,12 +128,22 @@ class VAlert:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[header]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[header(headerHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[blur]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[label]-0-|",
+            withVisualFormat:"V:|-(headerHeight)-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))

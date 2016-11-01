@@ -7,6 +7,7 @@ class CHomeUpload:CController
     weak var viewBar:VHomeUploadBar?
     let model:MHomeUpload
     private let kBarWidth:CGFloat = 150
+    private let kAlertAfter:TimeInterval = 2
     
     init()
     {
@@ -187,17 +188,7 @@ class CHomeUpload:CController
         imagesLoaded()
     }
     
-    //MARK: public
-    
-    func commitUpload(uploadItems:[MHomeUploadItem])
-    {
-        let controllerSync:CHomeUploadSync = CHomeUploadSync(
-            uploadItems:uploadItems,
-            controllerUpload:self)
-        parentController.over(controller:controllerSync, pop:false)
-    }
-    
-    func picturesUploaded()
+    private func removePicturesAlert()
     {
         let alert:UIAlertController = UIAlertController(
             title:
@@ -225,5 +216,25 @@ class CHomeUpload:CController
         alert.addAction(actionRemove)
         alert.addAction(actionDontRemove)
         present(alert, animated:true, completion:nil)
+    }
+    
+    //MARK: public
+    
+    func commitUpload(uploadItems:[MHomeUploadItem])
+    {
+        let controllerSync:CHomeUploadSync = CHomeUploadSync(
+            uploadItems:uploadItems,
+            controllerUpload:self)
+        parentController.over(controller:controllerSync, pop:false)
+    }
+    
+    func picturesUploaded()
+    {
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kAlertAfter)
+        { [weak self] in
+            
+            self?.removePicturesAlert()
+        }
     }
 }

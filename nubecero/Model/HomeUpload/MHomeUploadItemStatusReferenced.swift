@@ -60,7 +60,7 @@ class MHomeUploadItemStatusReferenced:MHomeUploadItemStatus
             return
         }
         
-        item?.status = MHomeUploadItemStatusUploaded(item:item)
+        item?.statusUploaded()
         controllerStrong.keepSyncing()
     }
     

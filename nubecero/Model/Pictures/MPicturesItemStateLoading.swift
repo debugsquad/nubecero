@@ -30,7 +30,7 @@ class MPicturesItemStateLoading:MPicturesItemState
                 
                 else
                 {
-                    self?.returnToNone()
+                    self?.item?.cleanState()
                     
                     return
                 }
@@ -42,27 +42,13 @@ class MPicturesItemStateLoading:MPicturesItemState
                 
                 else
                 {
-                    self?.returnToNone()
+                    self?.item?.cleanState()
                     
                     return
                 }
                 
-                self?.loadingCompleted(image:image)
+                self?.item?.generateThumbnail(image:image)
             }
         }
-    }
-    
-    //MARK: private
-    
-    private func returnToNone()
-    {
-        item?.state = MPicturesItemStateNone(item:item)
-    }
-    
-    private func loadingCompleted(image:UIImage)
-    {
-        item?.image = image
-        item?.thumbnail = image
-        item?.state = MPicturesItemStateLoaded(item:item)
     }
 }

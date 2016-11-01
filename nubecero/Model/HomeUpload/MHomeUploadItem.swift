@@ -6,8 +6,8 @@ class MHomeUploadItem
     var image:UIImage?
     var imageData:Data?
     var pictureId:String?
-    var status:MHomeUploadItemStatus
     let asset:PHAsset
+    private(set) var status:MHomeUploadItemStatus
     private var requestId:PHImageRequestID?
     
     init(asset:PHAsset)
@@ -43,5 +43,27 @@ class MHomeUploadItem
         {
             PHImageManager.default().cancelImageRequest(requestId)
         }
+    }
+    
+    //MARK: public
+    
+    func statusLoaded()
+    {
+        status = MHomeUploadItemStatusReferenced(item:self)
+    }
+    
+    func statusReferenced()
+    {
+        status = MHomeUploadItemStatusReferenced(item:self)
+    }
+    
+    func statusUploaded()
+    {
+        status = MHomeUploadItemStatusUploaded(item:self)
+    }
+    
+    func statusSynced()
+    {
+        status = MHomeUploadItemStatusSynced(item:self)
     }
 }

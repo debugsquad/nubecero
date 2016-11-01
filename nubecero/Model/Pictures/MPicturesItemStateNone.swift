@@ -4,7 +4,7 @@ class MPicturesItemStateNone:MPicturesItemState
 {
     override func loadThumbnail() -> UIImage?
     {
-        item?.state = MPicturesItemStateLoading(item:item)
+        item?.startLoadingImage()
         
         return nil
     }

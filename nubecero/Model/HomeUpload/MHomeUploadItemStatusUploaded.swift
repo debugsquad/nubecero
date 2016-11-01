@@ -37,7 +37,7 @@ class MHomeUploadItemStatusUploaded:MHomeUploadItemStatus
             path:pathStatus,
             json:status)
         
-        item?.status = MHomeUploadItemStatusSynced(item:item)
+        item?.statusSynced()
         controller.keepSyncing()
     }
 }

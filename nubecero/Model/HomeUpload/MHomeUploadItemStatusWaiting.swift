@@ -74,7 +74,7 @@ class MHomeUploadItemStatusWaiting:MHomeUploadItemStatus
             return
         }
         
-        item?.status = MHomeUploadItemStatusLoaded(item:item)
+        item?.statusLoaded()
         controllerStrong.keepSyncing()
     }
 }

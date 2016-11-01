@@ -6,6 +6,11 @@ class MHomeItem
     let cellHeight:CGFloat
     let selectable:Bool
     
+    init()
+    {
+        fatalError()
+    }
+    
     init(reusableIdentifier:String, cellHeight:CGFloat, selectable:Bool)
     {
         self.reusableIdentifier = reusableIdentifier

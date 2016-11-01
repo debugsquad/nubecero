@@ -6,6 +6,11 @@ class MMainItem
     let iconImageOff:String
     let index:Int
     
+    init()
+    {
+        fatalError()
+    }
+    
     init(iconImage:String, index:Int)
     {
         self.index = index

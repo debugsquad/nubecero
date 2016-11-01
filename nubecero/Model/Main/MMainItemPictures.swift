@@ -11,7 +11,7 @@ class MMainItemPictures:MMainItem
     
     override func controller() -> CController
     {
-        let controller:CHome = CHome()
+        let controller:CPictures = CPictures()
         
         return controller
     }

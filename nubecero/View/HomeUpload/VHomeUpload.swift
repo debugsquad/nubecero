@@ -105,12 +105,14 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         return item
     }
     
-    private func updateBar()
+    //MARK: public
+    
+    func updateBar()
     {
         guard
             
             let amount:Int = collectionView.indexPathsForSelectedItems?.count
-        
+            
         else
         {
             return
@@ -118,8 +120,6 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         
         controller.viewBar?.config(amount:amount)
     }
-    
-    //MARK: public
     
     func showError()
     {

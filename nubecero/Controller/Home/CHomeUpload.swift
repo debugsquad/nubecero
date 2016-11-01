@@ -277,6 +277,7 @@ class CHomeUpload:CController
         { [weak self] in
             
             self?.viewUpload.collectionView.reloadData()
+            self?.viewUpload.updateBar()
         }
     }
     

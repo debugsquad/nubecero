@@ -7,7 +7,7 @@ class CHomeUpload:CController
     weak var viewBar:VHomeUploadBar?
     let model:MHomeUpload
     private let kBarWidth:CGFloat = 150
-    private let kAlertAfter:TimeInterval = 2
+    private let kAlertAfter:TimeInterval = 1
     
     init()
     {

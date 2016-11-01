@@ -58,10 +58,12 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         addSubview(collectionView)
         
         let views:[String:UIView] = [
-            "spinner":spinner]
+            "spinner":spinner,
+            "collectionView":collectionView]
         
         let metrics:[String:CGFloat] = [
-            "barHeight":barHeight]
+            "barHeight":barHeight,
+            "collectionHeight":kCollectionHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[spinner]-0-|",
@@ -69,10 +71,21 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(barHeight)-[spinner]-0-|",
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[collectionView(collectionHeight)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedPicturesLoaded(sender:)),
+            name:Notification.picturesLoaded,
+            object:nil)
     }
     
     deinit

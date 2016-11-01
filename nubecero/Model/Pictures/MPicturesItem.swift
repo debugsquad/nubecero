@@ -14,7 +14,8 @@ class MPicturesItem
         self.pictureId = pictureId
         created = firebasePicture.created
         size = firebasePicture.size
-        state = MPicturesItemStateNone()
+        state = MPicturesItemStateNone(item:nil)
+        state.item = self
     }
     
     //MARK: private

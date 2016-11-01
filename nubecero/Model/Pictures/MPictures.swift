@@ -5,8 +5,8 @@ class MPictures
     typealias PictureId = String
     
     static let sharedInstance:MPictures = MPictures()
-    var items:[PictureId:MPicturesItem]
     var references:[MPicturesItemReference]
+    private var items:[PictureId:MPicturesItem]
     
     private init()
     {
@@ -16,7 +16,7 @@ class MPictures
     
     //MARK: private
     
-    private func asyncLoadReferences()
+    private func asyncLoadPictures()
     {
         guard
             
@@ -116,11 +116,19 @@ class MPictures
     
     //MARK: public
     
-    func loadReferences()
+    func loadPictures()
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
-            self.asyncLoadReferences()
+            self.asyncLoadPictures()
         }
+    }
+    
+    func pictureAtIndex(index:Int) -> MPicturesItem
+    {
+        let reference:MPicturesItemReference = references[index]
+        let picture:MPicturesItem = items[reference.pictureId]!
+        
+        return picture
     }
 }

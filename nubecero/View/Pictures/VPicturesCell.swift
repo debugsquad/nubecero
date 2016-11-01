@@ -3,6 +3,7 @@ import UIKit
 class VPicturesCell:UICollectionViewCell
 {
     weak var imageView:UIImageView!
+    weak var model:MPicturesItem?
     
     override init(frame:CGRect)
     {
@@ -74,6 +75,17 @@ class VPicturesCell:UICollectionViewCell
     
     func config(model:MPicturesItem)
     {
+        self.model = model
+        
+        if model.thumbnail == nil
+        {
+            model.fetchPicture()
+        }
+        else
+        {
+            imageView.image = model.thumbnail
+        }
+        
         hover()
     }
 }

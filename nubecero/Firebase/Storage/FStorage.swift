@@ -9,6 +9,7 @@ class FStorage
     }
     
     private let reference:FIRStorageReference
+    private let kFifteenMegaBytes:Int64 = 15000000
     
     init()
     {
@@ -27,6 +28,17 @@ class FStorage
             
             let errorString:String? = error?.localizedDescription
             completionHandler(errorString)
+        }
+    }
+    
+    func loadData(path:String, completionHandler:@escaping((Data?) -> ()))
+    {
+        let childReference:FIRStorageReference = reference.child(path)
+        childReference.data(
+            withMaxSize:kFifteenMegaBytes)
+        { (data, error) in
+            
+            completionHandler(data)
         }
     }
 }

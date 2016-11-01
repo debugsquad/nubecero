@@ -3,11 +3,11 @@ import Foundation
 class MPictures
 {
     static let sharedInstance:MPictures = MPictures()
-    var items:[MPicturesItem]
+    var items:[String:MPicturesItem]
     
     private init()
     {
-        items = []
+        items = [:]
     }
     
     //MARK: private
@@ -38,7 +38,7 @@ class MPictures
             
             else
             {
-                self.items = []
+                self.items = [:]
                 self.picturesLoaded()
                 
                 return
@@ -50,7 +50,10 @@ class MPictures
     
     private func comparePictures(picturesArray:[FDatabaseModelPicture])
     {
-        
+        for arrayItem:FDatabaseModelPicture in picturesArray
+        {
+            let arrayItemId:String = arrayItem
+        }
     }
     
     private func picturesLoaded()

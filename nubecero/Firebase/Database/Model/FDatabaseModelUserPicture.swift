@@ -12,7 +12,7 @@ class FDatabaseModelPicture:FDatabaseModel
     enum Status:Int
     {
         case waiting
-        case uploaded
+        case synced
     }
     
     let created:TimeInterval

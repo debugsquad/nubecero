@@ -34,7 +34,7 @@ class MPictures
             
             guard
             
-                let picturesArray:[FDatabaseModelPicture] = pictureList?.items
+                let picturesMap:[String:FDatabaseModelPicture] = pictureList?.items
             
             else
             {
@@ -44,15 +44,30 @@ class MPictures
                 return
             }
             
-            self.comparePictures(picturesArray:picturesArray)
+            self.comparePictures(picturesMap:picturesMap)
         }
     }
     
-    private func comparePictures(picturesArray:[FDatabaseModelPicture])
+    private func comparePictures(picturesMap:[String:FDatabaseModelPicture])
     {
-        for arrayItem:FDatabaseModelPicture in picturesArray
+        var items:[String:]
+        let picturesIds:[String] = Array(picturesMap.keys)
+        
+        for pictureId:String in picturesIds
         {
-            let arrayItemId:String = arrayItem
+            guard
+            
+                let firebasePicture:FDatabaseModelPicture = picturesMap[pictureId]
+            
+            else
+            {
+                continue
+            }
+            
+            if firebasePicture.status == FDatabaseModelPicture.Status.synced
+            {
+                
+            }
         }
     }
     

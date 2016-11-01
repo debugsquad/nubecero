@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		06D9E2BF766CCF1EB9054A38 /* Pods_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A506DC17B7ED85B8FB3EE2 /* Pods_tests.framework */; };
 		1E9AC0186DB6141BB7B8E493 /* Pods_nubecero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139B6F190B9092431A50FEE0 /* Pods_nubecero.framework */; };
+		DA2F66851DC8FE5C0078B466 /* CPictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66841DC8FE5C0078B466 /* CPictures.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -97,6 +98,7 @@
 		B32F1F3C4801828AB2F625CA /* Pods-tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tests/Pods-tests.release.xcconfig"; sourceTree = "<group>"; };
 		DA1F0E221DC2C6480003AAB8 /* nubecero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nubecero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1F0E361DC2C6480003AAB8 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA2F66841DC8FE5C0078B466 /* CPictures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPictures.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -245,6 +247,14 @@
 			path = nubecero;
 			sourceTree = "<group>";
 		};
+		DA2F66831DC8FE530078B466 /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				DA2F66841DC8FE5C0078B466 /* CPictures.swift */,
+			);
+			path = Pictures;
+			sourceTree = "<group>";
+		};
 		DA4EF8C41DC395B300297C1D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +270,7 @@
 		DA4EF8C61DC395B300297C1D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DA2F66831DC8FE530078B466 /* Pictures */,
 				DACD1F8A1DC3AD310067D26B /* Login */,
 				DA4EF8C71DC395B300297C1D /* Home */,
 				DA4EF8C81DC395B300297C1D /* Main */,
@@ -786,6 +797,7 @@
 				DA4EF90E1DC395B300297C1D /* MMainStateOptions.swift in Sources */,
 				DACD1FA81DC411440067D26B /* CHomeUpload.swift in Sources */,
 				DA4EF9061DC395B300297C1D /* FMain.swift in Sources */,
+				DA2F66851DC8FE5C0078B466 /* CPictures.swift in Sources */,
 				DACD1FB61DC56C250067D26B /* VHomeUploadBar.swift in Sources */,
 				DA4EF9091DC395B300297C1D /* MMain.swift in Sources */,
 			);

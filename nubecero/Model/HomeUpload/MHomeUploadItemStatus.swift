@@ -18,15 +18,9 @@ class MHomeUploadItemStatus
         self.finished = finished
     }
     
-    deinit
-    {
-        print("kill \(NSStringFromClass(object_getClass(self)))")
-    }
-    
     //MARK: public
     
     func process(controller:CHomeUploadSync)
     {
-        print("process:: \(NSStringFromClass(object_getClass(self)))")
     }
 }

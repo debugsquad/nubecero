@@ -8,7 +8,7 @@ class VAlert:UIView
     private weak var timer:Timer?
     private let kMarginTop:CGFloat = 20
     private let kAnimationDuration:TimeInterval = 0.2
-    private let kTimeOut:TimeInterval = 7
+    private let kTimeOut:TimeInterval = 5
     private let kFontSize:CGFloat = 14
     private let kLabelMargin:CGFloat = 10
     private let kCornerRadius:CGFloat = 5

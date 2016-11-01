@@ -108,13 +108,15 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     func stepCompleted()
     {
-        collectionView.reloadData()    
+        collectionView.reloadData()
+        viewBar.update()
     }
     
     func errorFound()
     {
         collectionView.reloadData()
         viewBar.errorFound()
+        viewBar.update()
     }
     
     //MARK: collectionView delegate

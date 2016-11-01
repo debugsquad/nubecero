@@ -20,6 +20,10 @@
 		DA2F66971DC92D840078B466 /* VPicturesDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66961DC92D840078B466 /* VPicturesDetailCell.swift */; };
 		DA2F669B1DC92ED90078B466 /* VPicturesDetailCellImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F669A1DC92ED90078B466 /* VPicturesDetailCellImage.swift */; };
 		DA2F669D1DC92EE70078B466 /* VPicturesDetailCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F669C1DC92EE70078B466 /* VPicturesDetailCellInfo.swift */; };
+		DA2F66A01DC92F380078B466 /* MPicturesDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F669F1DC92F380078B466 /* MPicturesDetail.swift */; };
+		DA2F66A21DC92F5F0078B466 /* MPicturesDetailItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66A11DC92F5F0078B466 /* MPicturesDetailItem.swift */; };
+		DA2F66A41DC92F670078B466 /* MPicturesDetailItemImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66A31DC92F670078B466 /* MPicturesDetailItemImage.swift */; };
+		DA2F66A61DC92F720078B466 /* MPicturesDetailItemInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66A51DC92F720078B466 /* MPicturesDetailItemInfo.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -119,6 +123,10 @@
 		DA2F66961DC92D840078B466 /* VPicturesDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDetailCell.swift; sourceTree = "<group>"; };
 		DA2F669A1DC92ED90078B466 /* VPicturesDetailCellImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDetailCellImage.swift; sourceTree = "<group>"; };
 		DA2F669C1DC92EE70078B466 /* VPicturesDetailCellInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDetailCellInfo.swift; sourceTree = "<group>"; };
+		DA2F669F1DC92F380078B466 /* MPicturesDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetail.swift; sourceTree = "<group>"; };
+		DA2F66A11DC92F5F0078B466 /* MPicturesDetailItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailItem.swift; sourceTree = "<group>"; };
+		DA2F66A31DC92F670078B466 /* MPicturesDetailItemImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailItemImage.swift; sourceTree = "<group>"; };
+		DA2F66A51DC92F720078B466 /* MPicturesDetailItemInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailItemInfo.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -298,6 +306,17 @@
 			path = Pictures;
 			sourceTree = "<group>";
 		};
+		DA2F669E1DC92F2E0078B466 /* PicturesDetail */ = {
+			isa = PBXGroup;
+			children = (
+				DA2F669F1DC92F380078B466 /* MPicturesDetail.swift */,
+				DA2F66A11DC92F5F0078B466 /* MPicturesDetailItem.swift */,
+				DA2F66A31DC92F670078B466 /* MPicturesDetailItemImage.swift */,
+				DA2F66A51DC92F720078B466 /* MPicturesDetailItemInfo.swift */,
+			);
+			path = PicturesDetail;
+			sourceTree = "<group>";
+		};
 		DA4EF8C41DC395B300297C1D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +431,7 @@
 		DA4EF8E11DC395B300297C1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA2F669E1DC92F2E0078B466 /* PicturesDetail */,
 				DA2F66891DC8FFA90078B466 /* Pictures */,
 				DACD1FCA1DC7D0270067D26B /* Session */,
 				DACD1FAE1DC540450067D26B /* HomeUpload */,
@@ -792,6 +812,7 @@
 				DACD1FBB1DC582AB0067D26B /* VHomeUploadSync.swift in Sources */,
 				DACD1FA21DC4025D0067D26B /* MHomeItemUpload.swift in Sources */,
 				DACD1F871DC3A0020067D26B /* CHome.swift in Sources */,
+				DA2F66A61DC92F720078B466 /* MPicturesDetailItemInfo.swift in Sources */,
 				DACD1FBD1DC589CD0067D26B /* VHomeUploadSyncBar.swift in Sources */,
 				DA2F66911DC919570078B466 /* MPicturesItemReference.swift in Sources */,
 				DA2F66951DC92D780078B466 /* VPicturesDetail.swift in Sources */,
@@ -800,10 +821,12 @@
 				DA2F668B1DC8FFB20078B466 /* MPictures.swift in Sources */,
 				DACD1F951DC3DBDB0067D26B /* VAlert.swift in Sources */,
 				DACD1FC51DC7C6750067D26B /* FDatabaseModel.swift in Sources */,
+				DA2F66A01DC92F380078B466 /* MPicturesDetail.swift in Sources */,
 				DA4EF9141DC395B300297C1D /* VParent.swift in Sources */,
 				DACD1FB01DC540750067D26B /* MHomeUpload.swift in Sources */,
 				DACD1FAB1DC4124B0067D26B /* VHomeUpload.swift in Sources */,
 				DA4EF8FD1DC395B300297C1D /* DNubecero.xcdatamodeld in Sources */,
+				DA2F66A41DC92F670078B466 /* MPicturesDetailItemImage.swift in Sources */,
 				DACD1FB81DC57F560067D26B /* CHomeUploadSync.swift in Sources */,
 				DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */,
 				DA4EF9051DC395B300297C1D /* FAnalytics.swift in Sources */,
@@ -835,6 +858,7 @@
 				DA88F6701DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift in Sources */,
 				DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */,
 				DA4EF9161DC395B300297C1D /* VSpinner.swift in Sources */,
+				DA2F66A21DC92F5F0078B466 /* MPicturesDetailItem.swift in Sources */,
 				DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */,
 				DA4EF8FB1DC395B300297C1D /* CParent.swift in Sources */,
 				DA4EF9151DC395B300297C1D /* VShadow.swift in Sources */,

@@ -24,14 +24,38 @@ class MPictures
         }
         
         let parentUser:String = FDatabase.Parent.user.rawValue
-        let path:String = "\(parentUser)/\(userId)"
+        let propertyPictures:String = FDatabaseModelUser.Property.pictures.rawValue
+        let path:String = "\(parentUser)/\(userId)/\(propertyPictures)"
         
         FMain.sharedInstance.database.listenOnce(
             path:path,
-            modelType:FDatabaseModelUser.self)
-        { (model) in
+            modelType:FDatabaseModelPictureList.self)
+        { (pictureList) in
             
+            guard
+            
+                let picturesArray:[FDatabaseModelPicture] = pictureList?.items
+            
+            else
+            {
+                self.items = []
+                self.picturesLoaded()
+                
+                return
+            }
+            
+            self.comparePictures(picturesArray:picturesArray)
         }
+    }
+    
+    private func comparePictures(picturesArray:[FDatabaseModelPicture])
+    {
+        
+    }
+    
+    private func picturesLoaded()
+    {
+        
     }
     
     //MARK: public
@@ -39,9 +63,8 @@ class MPictures
     func loadReferences()
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            self?.asyncLoadReferences()
+        {
+            self.asyncLoadReferences()
         }
     }
 }

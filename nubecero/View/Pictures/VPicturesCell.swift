@@ -4,6 +4,7 @@ class VPicturesCell:UICollectionViewCell
 {
     weak var imageView:UIImageView!
     weak var model:MPicturesItem?
+    private let kImageMargin:CGFloat = 1
     
     override init(frame:CGRect)
     {
@@ -22,15 +23,16 @@ class VPicturesCell:UICollectionViewCell
         let views:[String:UIView] = [
             "imageView":imageView]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "imageMargin":kImageMargin]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[imageView]-0-|",
+            withVisualFormat:"H:|-(imageMargin)-[imageView]-(imageMargin)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[imageView]-0-|",
+            withVisualFormat:"V:|-(imageMargin)-[imageView]-(imageMargin)-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -76,16 +78,7 @@ class VPicturesCell:UICollectionViewCell
     func config(model:MPicturesItem)
     {
         self.model = model
-        
-        if model.thumbnail == nil
-        {
-            model.fetchPicture()
-        }
-        else
-        {
-            imageView.image = model.thumbnail
-        }
-        
+        imageView.image = model.state.loadThumbnail()
         hover()
     }
 }

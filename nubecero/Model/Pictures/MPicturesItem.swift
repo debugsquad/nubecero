@@ -17,18 +17,4 @@ class MPicturesItem
         state = MPicturesItemStateNone(item:nil)
         state.item = self
     }
-    
-    //MARK: private
-    
-    private func asyncFetchPicture()
-    {
-        
-    }
-    
-    //MARK: public
-    
-    func fetchPicture()
-    {
-        
-    }
 }

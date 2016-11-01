@@ -7,7 +7,7 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private weak var collectionView:UICollectionView!
     private weak var viewDetail:VPicturesDetail!
     private weak var spinner:VSpinner?
-    private let kCollectionHeight:CGFloat = 66
+    private let kCollectionHeight:CGFloat = 75
     private let kCollectionTop:CGFloat = 1
     private let kCollectionBottom:CGFloat = 2
     private let kCollectionHorizontal:CGFloat = 1

@@ -2,8 +2,10 @@ import Foundation
 
 class MPictures
 {
+    typealias PictureId = String
+    
     static let sharedInstance:MPictures = MPictures()
-    var items:[String:MPicturesItem]
+    var items:[PictureId:MPicturesItem]
     
     private init()
     {
@@ -34,7 +36,7 @@ class MPictures
             
             guard
             
-                let picturesMap:[String:FDatabaseModelPicture] = pictureList?.items
+                let picturesMap:[PictureId:FDatabaseModelPicture] = pictureList?.items
             
             else
             {
@@ -48,12 +50,12 @@ class MPictures
         }
     }
     
-    private func comparePictures(picturesMap:[String:FDatabaseModelPicture])
+    private func comparePictures(picturesMap:[PictureId:FDatabaseModelPicture])
     {
-        var items:[String:]
-        let picturesIds:[String] = Array(picturesMap.keys)
+        var items:[PictureId:MPicturesItem] = [:]
+        let picturesIds:[PictureId] = Array(picturesMap.keys)
         
-        for pictureId:String in picturesIds
+        for pictureId:PictureId in picturesIds
         {
             guard
             
@@ -66,9 +68,20 @@ class MPictures
             
             if firebasePicture.status == FDatabaseModelPicture.Status.synced
             {
-                
+                if let loadedItem:MPicturesItem = self.items[pictureId]
+                {
+                    items[pictureId] = loadedItem
+                }
+                else
+                {
+                    let newItem:MPicturesItem = MPicturesItem(firebasePicture:firebasePicture)
+                    items[pictureId] = newItem
+                }
             }
         }
+        
+        self.items = items
+        picturesLoaded()
     }
     
     private func picturesLoaded()

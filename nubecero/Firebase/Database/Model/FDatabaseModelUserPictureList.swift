@@ -2,16 +2,16 @@ import Foundation
 
 class FDatabaseModelPictureList:FDatabaseModel
 {
-    let items:[String:FDatabaseModelPicture]
+    let items:[MPictures.PictureId:FDatabaseModelPicture]
     
     required init(snapshot:Any)
     {
-        if let rawItems:[String:Any] = snapshot as? [String:Any]
+        if let rawItems:[MPictures.PictureId:Any] = snapshot as? [MPictures.PictureId:Any]
         {
-            var items:[String:FDatabaseModelPicture] = [:]
-            let keys:[String] = Array(rawItems.keys)
+            var items:[MPictures.PictureId:FDatabaseModelPicture] = [:]
+            let keys:[MPictures.PictureId] = Array(rawItems.keys)
             
-            for rawKey:String in keys
+            for rawKey:MPictures.PictureId in keys
             {
                 let rawItem:Any = rawItems[rawKey]
                 let item:FDatabaseModelPicture = FDatabaseModelPicture(snapshot:rawItem)

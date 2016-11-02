@@ -101,6 +101,7 @@
 		DAE455541DCA4DE400948D70 /* VPicturesDetailCellInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455531DCA4DE400948D70 /* VPicturesDetailCellInfoCell.swift */; };
 		DAE455561DCA52BB00948D70 /* MPicturesDetailInfoItemDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455551DCA52BB00948D70 /* MPicturesDetailInfoItemDelete.swift */; };
 		DAE455581DCA611100948D70 /* MPicturesDetailInfoItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455571DCA611100948D70 /* MPicturesDetailInfoItemData.swift */; };
+		DAE4555A1DCA74B900948D70 /* CPicturesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455591DCA74B900948D70 /* CPicturesData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,6 +218,7 @@
 		DAE455531DCA4DE400948D70 /* VPicturesDetailCellInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDetailCellInfoCell.swift; sourceTree = "<group>"; };
 		DAE455551DCA52BB00948D70 /* MPicturesDetailInfoItemDelete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfoItemDelete.swift; sourceTree = "<group>"; };
 		DAE455571DCA611100948D70 /* MPicturesDetailInfoItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfoItemData.swift; sourceTree = "<group>"; };
+		DAE455591DCA74B900948D70 /* CPicturesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPicturesData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				DA2F66841DC8FE5C0078B466 /* CPictures.swift */,
+				DAE455591DCA74B900948D70 /* CPicturesData.swift */,
 			);
 			path = Pictures;
 			sourceTree = "<group>";
@@ -890,6 +893,7 @@
 				DA2F66931DC91B780078B466 /* VPicturesCell.swift in Sources */,
 				DA2F66B51DC9508F0078B466 /* MPicturesItemStateLoading.swift in Sources */,
 				DA4EF9011DC395B300297C1D /* ExtensionNSManagedObject.swift in Sources */,
+				DAE4555A1DCA74B900948D70 /* CPicturesData.swift in Sources */,
 				DA2F668D1DC9002E0078B466 /* MPicturesItem.swift in Sources */,
 				DACD1F931DC3DA4B0067D26B /* VHome.swift in Sources */,
 				DA88F6741DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift in Sources */,

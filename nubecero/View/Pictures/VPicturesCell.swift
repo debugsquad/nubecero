@@ -4,7 +4,7 @@ class VPicturesCell:UICollectionViewCell
 {
     weak var imageView:UIImageView!
     weak var model:MPicturesItem?
-    private let kImageMargin:CGFloat = 1
+    private let kImageMargin:CGFloat = 2
     
     override init(frame:CGRect)
     {

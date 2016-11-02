@@ -7,10 +7,8 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private weak var collectionView:UICollectionView!
     private weak var viewDetail:VPicturesDetail!
     private weak var spinner:VSpinner?
-    private let kCollectionHeight:CGFloat = 75
-    private let kCollectionTop:CGFloat = 1
-    private let kCollectionBottom:CGFloat = 2
-    private let kCollectionHorizontal:CGFloat = 1
+    private let kCollectionHeight:CGFloat = 80
+    private let kCollectionMargin:CGFloat = 1
     private let kInterLine:CGFloat = 1
     
     convenience init(controller:CPictures)
@@ -21,7 +19,7 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let cellHeigh:CGFloat = kCollectionHeight - (kCollectionTop + kCollectionBottom)
+        let cellHeigh:CGFloat = kCollectionHeight - (kCollectionMargin + kCollectionMargin)
         let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         
         let spinner:VSpinner = VSpinner()
@@ -36,10 +34,10 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         flow.footerReferenceSize = CGSize.zero
         flow.itemSize = CGSize(width:cellHeigh, height:cellHeigh)
         flow.sectionInset = UIEdgeInsets(
-            top:kCollectionTop,
-            left:kCollectionHorizontal,
-            bottom:kCollectionBottom,
-            right:kCollectionHorizontal)
+            top:kCollectionMargin,
+            left:kCollectionMargin,
+            bottom:kCollectionMargin,
+            right:kCollectionMargin)
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.horizontal

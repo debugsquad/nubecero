@@ -8,7 +8,7 @@ class MPicturesItem
     var state:MPicturesItemState
     private(set) var thumbnail:UIImage?
     private(set) var image:UIImage?
-    private let kThumbnailSize:CGFloat = 70
+    private let kThumbnailSize:CGFloat = 128
     
     init(pictureId:MPictures.PictureId, firebasePicture:FDatabaseModelPicture)
     {
@@ -39,9 +39,11 @@ class MPicturesItem
         let deltaWidth:CGFloat = imageOriginalWidth / kThumbnailSize
         let deltaHeight:CGFloat = imageOriginalHeight / kThumbnailSize
         let maxDelta:CGFloat = max(deltaWidth, deltaHeight)
-        let scaledWidth:CGFloat = imageOriginalWidth / maxDelta
-        let scaledHeight:CGFloat = imageOriginalHeight / maxDelta
+        let scaledWidth:CGFloat = floor(imageOriginalWidth / maxDelta)
+        let scaledHeight:CGFloat = floor(imageOriginalHeight / maxDelta)
         let rect:CGRect = CGRect(x:0, y:0, width:scaledWidth, height:scaledHeight)
+        
+        print("width \(scaledWidth) height \(scaledHeight)")
         
         UIGraphicsBeginImageContext(rect.size)
         originalImage.draw(in:rect)

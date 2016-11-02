@@ -1,16 +1,15 @@
 import UIKit
 
-class VPicturesDataCellCreate:VPicturesDataCell
+class VPicturesDataCellCreated:VPicturesDataCell
 {
-    private weak var labelSize:UILabel!
+    private weak var labelDate:UILabel!
+    private let kDateFormat:String = "MMMM-dd"
     private let kFontLabelTitle:CGFloat = 13
-    private let kFontLabelSize:CGFloat = 65
+    private let kFontLabelDate:CGFloat = 16
     private let kLabelTitleTop:CGFloat = 20
     private let kLabelTitleHeight:CGFloat = 16
-    private let kLabelSizeTop:CGFloat = 0
-    private let kLabelSizeHeight:CGFloat = 90
-    private let kKbInMb:CGFloat = 1000
-    private let kMaxFractionDigits:Int = 2
+    private let kLabelDateTop:CGFloat = 10
+    private let kLabelDateHeight:CGFloat = 20
     
     override init(frame:CGRect)
     {
@@ -23,29 +22,29 @@ class VPicturesDataCellCreate:VPicturesDataCell
         labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.textColor = UIColor.black
         labelTitle.font = UIFont.medium(size:kFontLabelTitle)
-        labelTitle.text = NSLocalizedString("VPicturesDataCellSize_labelTitle", comment:"")
+        labelTitle.text = NSLocalizedString("VPicturesDataCellCreated_labelTitle", comment:"")
         
-        let labelSize:UILabel = UILabel()
-        labelSize.isUserInteractionEnabled = false
-        labelSize.translatesAutoresizingMaskIntoConstraints = false
-        labelSize.backgroundColor = UIColor.clear
-        labelSize.textAlignment = NSTextAlignment.center
-        labelSize.textColor = UIColor.main
-        labelSize.font = UIFont.numeric(size:kFontLabelSize)
-        self.labelSize = labelSize
+        let labelDate:UILabel = UILabel()
+        labelDate.isUserInteractionEnabled = false
+        labelDate.translatesAutoresizingMaskIntoConstraints = false
+        labelDate.backgroundColor = UIColor.clear
+        labelDate.textAlignment = NSTextAlignment.center
+        labelDate.textColor = UIColor.complement
+        labelDate.font = UIFont.numeric(size:kFontLabelDate)
+        self.labelDate = labelDate
         
         addSubview(labelTitle)
-        addSubview(labelSize)
+        addSubview(labelDate)
         
         let views:[String:UIView] = [
             "labelTitle":labelTitle,
-            "labelSize":labelSize]
+            "labelDate":labelDate]
         
         let metrics:[String:CGFloat] = [
             "labelTitleTop":kLabelTitleTop,
             "labelTitleHeight":kLabelTitleHeight,
-            "labelSizeTop":kLabelSizeTop,
-            "labelSizeHeight":kLabelSizeHeight]
+            "labelDateTop":kLabelDateTop,
+            "labelDateHeight":kLabelDateHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[labelTitle]-0-|",
@@ -53,12 +52,12 @@ class VPicturesDataCellCreate:VPicturesDataCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[labelSize]-0-|",
+            withVisualFormat:"H:|-0-[labelDate]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(labelTitleTop)-[labelTitle(labelTitleHeight)]-(labelSizeTop)-[labelSize(labelSizeHeight)]",
+            withVisualFormat:"V:|-(labelTitleTop)-[labelTitle(labelTitleHeight)]-(labelDateTop)-[labelDate(labelDateHeight)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -71,14 +70,12 @@ class VPicturesDataCellCreate:VPicturesDataCell
     
     override func config(controller:CPicturesData, model:MPicturesDataItem)
     {
-        let sizeKb:CGFloat = CGFloat(controller.model.size)
-        let sizeMb:CGFloat = sizeKb / kKbInMb
-        let sizeNumber:NSNumber = sizeMb as NSNumber
-        let numberFormatter:NumberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = NumberFormatter.Style.decimal
-        numberFormatter.maximumFractionDigits = kMaxFractionDigits
+        let timestamp:TimeInterval = controller.model.created
+        let dateCreated:Date = Date(timeIntervalSince1970:timestamp)
+        let dateFormatter:DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = kDateFormat
         
-        let sizeString:String? = numberFormatter.string(from:sizeNumber)
-        labelSize.text = sizeString
+        let dateString:String = dateFormatter.string(from:dateCreated)
+        labelDate.text = dateString
     }
 }

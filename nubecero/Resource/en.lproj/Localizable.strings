@@ -4,6 +4,7 @@
 "VHomeUploadSyncBar_tryAgain"="Resume";
 "VPicturesDataCellClose_buttonTitle"="Close";
 "VPicturesDataCellSize_labelTitle"="Megabytes";
+"VPicturesDataCellCreated_labelTitle"="Uploaded";
 
 "CLogin_logOut"="Log out succeded";
 "CHomeUpload_title"="Upload";

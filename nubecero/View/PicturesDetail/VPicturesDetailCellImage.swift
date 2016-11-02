@@ -8,7 +8,6 @@ class VPicturesDetailCellImage:VPicturesDetailCell
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        backgroundColor = UIColor.clear
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false

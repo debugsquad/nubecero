@@ -11,7 +11,6 @@ class VPicturesDetailCellInfo:VPicturesDetailCell, UICollectionViewDelegate, UIC
         model = MPicturesDetailInfo()
         
         super.init(frame:frame)
-        backgroundColor = UIColor.white
     }
     
     required init?(coder:NSCoder)

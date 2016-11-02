@@ -3,13 +3,13 @@ import UIKit
 class VPicturesDataCellCreated:VPicturesDataCell
 {
     private weak var labelDate:UILabel!
-    private let kDateFormat:String = "MMMM-dd"
+    private let kDateFormat:String = "MM/dd/yy"
     private let kFontLabelTitle:CGFloat = 13
-    private let kFontLabelDate:CGFloat = 16
+    private let kFontLabelDate:CGFloat = 19
     private let kLabelTitleTop:CGFloat = 20
     private let kLabelTitleHeight:CGFloat = 16
     private let kLabelDateTop:CGFloat = 10
-    private let kLabelDateHeight:CGFloat = 20
+    private let kLabelDateHeight:CGFloat = 24
     
     override init(frame:CGRect)
     {
@@ -30,7 +30,7 @@ class VPicturesDataCellCreated:VPicturesDataCell
         labelDate.backgroundColor = UIColor.clear
         labelDate.textAlignment = NSTextAlignment.center
         labelDate.textColor = UIColor.complement
-        labelDate.font = UIFont.numeric(size:kFontLabelDate)
+        labelDate.font = UIFont.medium(size:kFontLabelDate)
         self.labelDate = labelDate
         
         addSubview(labelTitle)

@@ -47,9 +47,19 @@ class MHomeUploadItem
     
     //MARK: public
     
+    func statusClear()
+    {
+        status = MHomeUploadItemStatusNone(item:self)
+    }
+    
+    func statusWaiting()
+    {
+        status = MHomeUploadItemStatusWaiting(item:self)
+    }
+    
     func statusLoaded()
     {
-        status = MHomeUploadItemStatusReferenced(item:self)
+        status = MHomeUploadItemStatusLoaded(item:self)
     }
     
     func statusReferenced()

@@ -203,7 +203,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         let item:MHomeUploadItem = modelAtIndex(index:indexPath)
-        item.status = MHomeUploadItemStatusWaiting(item:item)
+        item.statusWaiting()
         
         updateBar()
     }
@@ -214,7 +214,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         
         if !item.status.finished
         {
-            item.status = MHomeUploadItemStatusNone(item:item)
+            item.statusClear()
         }
         
         updateBar()

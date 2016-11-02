@@ -30,11 +30,10 @@ class MPicturesItemStateLoading:MPicturesItemState
                 
                 else
                 {
-                    self?.item?.cleanState()
+                    self?.item?.stateClear()
                     
                     return
                 }
-                
                 
                 guard
                     
@@ -42,7 +41,7 @@ class MPicturesItemStateLoading:MPicturesItemState
                 
                 else
                 {
-                    self?.item?.cleanState()
+                    self?.item?.stateClear()
                     
                     return
                 }

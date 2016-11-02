@@ -124,6 +124,9 @@ class VPicturesDetailCellInfo:VPicturesDetailCell, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        let item:MPicturesDetailInfoItem = modelAtIndex(index:indexPath)
+        item.selected(controller:controller)
+        
         DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kDeselectTime)
         { [weak collectionView] in
             

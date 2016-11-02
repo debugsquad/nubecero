@@ -3,6 +3,7 @@ import UIKit
 class VPicturesDetailCellImage:VPicturesDetailCell
 {
     weak var imageView:UIImageView!
+    weak var model:MPicturesItem?
     
     override init(frame:CGRect)
     {
@@ -33,6 +34,12 @@ class VPicturesDetailCellImage:VPicturesDetailCell
             options:[],
             metrics:metrics,
             views:views))
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedImageDataLoaded(sender:)),
+            name:Notification.imageDataLoaded,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
@@ -40,8 +47,37 @@ class VPicturesDetailCellImage:VPicturesDetailCell
         fatalError()
     }
     
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func config(controller:CPictures)
     {
-        imageView.image = controller.viewPictures.currentItem?.image
+        model = controller.viewPictures.currentItem
+        imageView.image = model?.image
+    }
+    
+    //MARK: notified
+    
+    func notifiedImageDataLoaded(sender notification:Notification)
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            guard
+                
+                let picture:MPicturesItem = notification.object as? MPicturesItem
+                
+            else
+            {
+                return
+            }
+            
+            if picture === self?.model
+            {
+                self?.imageView.image = picture.image
+            }
+        }
     }
 }

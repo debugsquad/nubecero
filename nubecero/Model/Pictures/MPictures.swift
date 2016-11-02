@@ -101,7 +101,7 @@ class MPictures
             let createdA:TimeInterval = referenceA.created
             let createdB:TimeInterval = referenceB.created
             
-            return createdA > createdB
+            return createdA < createdB
         }
         
         self.items = items

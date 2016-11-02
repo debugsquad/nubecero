@@ -10,8 +10,6 @@ class MHomeUploadItem
     let asset:PHAsset
     private(set) var status:MHomeUploadItemStatus
     private var requestId:PHImageRequestID?
-    private let kJpegImageQuality:CGFloat = 1
-    private let kMinBytesPerRow:Int = 3000
     
     init(asset:PHAsset)
     {

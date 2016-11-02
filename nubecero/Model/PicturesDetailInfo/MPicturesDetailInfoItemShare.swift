@@ -6,4 +6,9 @@ class MPicturesDetailInfoItemShare:MPicturesDetailInfoItem
     {
         super.init(image:#imageLiteral(resourceName: "assetPicturesShare"))
     }
+    
+    override func selected(controller:CPictures?)
+    {
+        controller?.share()
+    }
 }

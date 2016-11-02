@@ -4,11 +4,12 @@ class VPicturesDataCellSize:VPicturesDataCell
 {
     private weak var labelSize:UILabel!
     private let kFontLabelTitle:CGFloat = 14
-    private let kFontLabelSize:CGFloat = 50
+    private let kFontLabelSize:CGFloat = 60
     private let kLabelTitleTop:CGFloat = 20
     private let kLabelTitleHeight:CGFloat = 16
     private let kLabelSizeTop:CGFloat = -5
-    private let kLabelSizeHeight:CGFloat = 60
+    private let kLabelSizeHeight:CGFloat = 110
+    private let kMaxFractionDigits:Int = 2
     
     override init(frame:CGRect)
     {
@@ -70,6 +71,12 @@ class VPicturesDataCellSize:VPicturesDataCell
     
     override func config(controller:CPicturesData, model:MPicturesDataItem)
     {
+        let sizeInt:Int = controller.model.size
+        let numberFormatter:NumberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        numberFormatter.maximumFractionDigits = kMaxFractionDigits
         
+        let sizeString:String = numberFormatter.string(from:sizeInt)
+        labelSize.text = sizeString
     }
 }

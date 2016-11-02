@@ -110,6 +110,7 @@
 		DAE455681DCA84A800948D70 /* MPicturesDataItemClose.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455671DCA84A800948D70 /* MPicturesDataItemClose.swift */; };
 		DAE4556A1DCA92FA00948D70 /* VPicturesDataCellSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455691DCA92FA00948D70 /* VPicturesDataCellSize.swift */; };
 		DAE4556C1DCA994900948D70 /* MPicturesDataItemSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4556B1DCA994900948D70 /* MPicturesDataItemSize.swift */; };
+		DAE4556E1DCAA62800948D70 /* VPicturesDataCellCreated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4556D1DCAA62800948D70 /* VPicturesDataCellCreated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +236,7 @@
 		DAE455671DCA84A800948D70 /* MPicturesDataItemClose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDataItemClose.swift; sourceTree = "<group>"; };
 		DAE455691DCA92FA00948D70 /* VPicturesDataCellSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDataCellSize.swift; sourceTree = "<group>"; };
 		DAE4556B1DCA994900948D70 /* MPicturesDataItemSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDataItemSize.swift; sourceTree = "<group>"; };
+		DAE4556D1DCAA62800948D70 /* VPicturesDataCellCreated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDataCellCreated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -671,6 +673,7 @@
 				DAE4555E1DCA7FD900948D70 /* VPicturesDataCell.swift */,
 				DAE455601DCA7FF200948D70 /* VPicturesDataCellClose.swift */,
 				DAE455691DCA92FA00948D70 /* VPicturesDataCellSize.swift */,
+				DAE4556D1DCAA62800948D70 /* VPicturesDataCellCreated.swift */,
 			);
 			path = PicturesData;
 			sourceTree = "<group>";
@@ -901,6 +904,7 @@
 				DACD1FBB1DC582AB0067D26B /* VHomeUploadSync.swift in Sources */,
 				DACD1FA21DC4025D0067D26B /* MHomeItemUpload.swift in Sources */,
 				DACD1F871DC3A0020067D26B /* CHome.swift in Sources */,
+				DAE4556E1DCAA62800948D70 /* VPicturesDataCellCreated.swift in Sources */,
 				DA2F66AE1DC942480078B466 /* VPicturesDetailCellImage.swift in Sources */,
 				DAE4555D1DCA765D00948D70 /* VPicturesData.swift in Sources */,
 				DA2F66A61DC92F720078B466 /* MPicturesDetailItemInfo.swift in Sources */,

@@ -39,19 +39,8 @@ class MHomeUploadItemStatusWaiting:MHomeUploadItemStatus
                 options:requestOptions)
             { [weak self, weak controller] (data, dataUTI, orientation, info) in
                 
-                guard
-                
-                    let dataStrong:Data = data
-                
-                else
-                {
-                    let errorName:String = NSLocalizedString("MHomeUploadItemStatusWaiting_error", comment:"")
-                    controller?.errorSyncing(error:errorName)
-                    
-                    return
-                }
-                
-                self?.item?.imageData = dataStrong
+                self?.item?.imageData = data
+                self?.item?.removeImageOrientation()
                 self?.imageLoaded(controller:controller)
             }
         }
@@ -67,10 +56,14 @@ class MHomeUploadItemStatusWaiting:MHomeUploadItemStatus
     {
         guard
             
-            let controllerStrong:CHomeUploadSync = controller
+            let controllerStrong:CHomeUploadSync = controller,
+            let _:Data = item?.imageData
             
         else
         {
+            let errorName:String = NSLocalizedString("MHomeUploadItemStatusWaiting_error", comment:"")
+            controller?.errorSyncing(error:errorName)
+            
             return
         }
         

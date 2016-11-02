@@ -2,7 +2,7 @@ import UIKit
 
 class MPicturesDataItemClose:MPicturesDataItem
 {
-    private let kCellHeight:CGFloat = 70
+    private let kCellHeight:CGFloat = 76
     
     override init()
     {

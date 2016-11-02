@@ -2,6 +2,7 @@
 "VHomeCellUpload_label"="Upload pictures";
 "VHomeUploadSyncBar_cancel"="Stop";
 "VHomeUploadSyncBar_tryAgain"="Resume";
+"VPicturesDataCellClose_buttonTitle"="Close";
 
 "CLogin_logOut"="Log out succeded";
 "CHomeUpload_title"="Upload";

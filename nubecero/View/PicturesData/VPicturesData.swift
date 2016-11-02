@@ -1,8 +1,9 @@
 import UIKit
 
-class VPicturesData:UIView
+class VPicturesData:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CPicturesData!
+    weak var collectionView:UICollectionView!
     
     convenience init(controller:CPicturesData)
     {
@@ -36,4 +37,6 @@ class VPicturesData:UIView
             metrics:metrics,
             views:views))
     }
+    
+    
 }

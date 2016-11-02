@@ -6,7 +6,10 @@ class MPicturesData
     
     init()
     {
+        let itemClose:MPicturesDataItemClose = MPicturesDataItemClose()
+        
         items = [
+            itemClose
         ]
     }
 }

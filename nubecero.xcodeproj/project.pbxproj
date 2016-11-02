@@ -99,6 +99,7 @@
 		DAE455501DCA4CB000948D70 /* MPicturesDetailInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4554F1DCA4CB000948D70 /* MPicturesDetailInfoItem.swift */; };
 		DAE455521DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455511DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift */; };
 		DAE455541DCA4DE400948D70 /* VPicturesDetailCellInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455531DCA4DE400948D70 /* VPicturesDetailCellInfoCell.swift */; };
+		DAE455561DCA52BB00948D70 /* MPicturesDetailInfoItemDelete.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455551DCA52BB00948D70 /* MPicturesDetailInfoItemDelete.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +214,7 @@
 		DAE4554F1DCA4CB000948D70 /* MPicturesDetailInfoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfoItem.swift; sourceTree = "<group>"; };
 		DAE455511DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfoItemShare.swift; sourceTree = "<group>"; };
 		DAE455531DCA4DE400948D70 /* VPicturesDetailCellInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDetailCellInfoCell.swift; sourceTree = "<group>"; };
+		DAE455551DCA52BB00948D70 /* MPicturesDetailInfoItemDelete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfoItemDelete.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -633,6 +635,7 @@
 				DAE4554D1DCA4C9F00948D70 /* MPicturesDetailInfo.swift */,
 				DAE4554F1DCA4CB000948D70 /* MPicturesDetailInfoItem.swift */,
 				DAE455511DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift */,
+				DAE455551DCA52BB00948D70 /* MPicturesDetailInfoItemDelete.swift */,
 			);
 			path = PicturesDetailInfo;
 			sourceTree = "<group>";
@@ -866,6 +869,7 @@
 				DA2F66A01DC92F380078B466 /* MPicturesDetail.swift in Sources */,
 				DA4EF9141DC395B300297C1D /* VParent.swift in Sources */,
 				DACD1FB01DC540750067D26B /* MHomeUpload.swift in Sources */,
+				DAE455561DCA52BB00948D70 /* MPicturesDetailInfoItemDelete.swift in Sources */,
 				DACD1FAB1DC4124B0067D26B /* VHomeUpload.swift in Sources */,
 				DA4EF8FD1DC395B300297C1D /* DNubecero.xcdatamodeld in Sources */,
 				DA2F66A41DC92F670078B466 /* MPicturesDetailItemImage.swift in Sources */,

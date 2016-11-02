@@ -6,7 +6,10 @@ class MPicturesDetailInfo
     
     init()
     {
+        let itemDelete:MPicturesDetailInfoItemDelete = MPicturesDetailInfoItemDelete()
+        
         items = [
+            itemDelete
         ]
     }
 }

@@ -59,4 +59,29 @@ class CPictures:CController
         let controllerData:CPicturesData = CPicturesData(model:picture)
         parentController.over(controller:controllerData, pop:false)
     }
+    
+    func share()
+    {
+        guard
+            
+            let image:UIImage = viewPictures.currentItem?.image
+        
+        else
+        {
+            return
+        }
+        
+        let activity:UIActivityViewController = UIActivityViewController(
+            activityItems:[image],
+            applicationActivities:nil)
+        
+        if activity.popoverPresentationController != nil
+        {
+            activity.popoverPresentationController!.sourceView = viewPictures
+            activity.popoverPresentationController!.sourceRect = CGRect.zero
+            activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
+        }
+        
+        present(activity, animated:true)
+    }
 }

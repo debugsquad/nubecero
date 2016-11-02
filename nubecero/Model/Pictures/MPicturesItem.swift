@@ -5,6 +5,7 @@ class MPicturesItem
     let pictureId:MPictures.PictureId
     let created:TimeInterval
     let size:Int
+    let orientation:Int
     var state:MPicturesItemState
     private(set) var thumbnail:UIImage?
     private(set) var image:UIImage?
@@ -16,6 +17,7 @@ class MPicturesItem
         self.pictureId = pictureId
         created = firebasePicture.created
         size = firebasePicture.size
+        orientation = firebasePicture.orientation
         state = MPicturesItemStateNone(item:nil)
         state.item = self
     }
@@ -96,10 +98,17 @@ class MPicturesItem
         }
         
         let resultImage:UIImage = UIImage(cgImage:editedImage)
+        
+        print("thumSize: \(UIImageJPEGRepresentation(resultImage, 1)?.count)")
+        
         thumbnail = resultImage
         
         stateLoaded()
         image = nil
+        
+        NotificationCenter.default.post(
+            name:Notification.thumbnailReady,
+            object:self)
     }
     
     //MARK: public

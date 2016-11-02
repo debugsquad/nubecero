@@ -36,11 +36,22 @@ class VPicturesCell:UICollectionViewCell
             options:[],
             metrics:metrics,
             views:views))
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedThumbnailReady(sender:)),
+            name:Notification.thumbnailReady,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override var isSelected:Bool
@@ -56,6 +67,29 @@ class VPicturesCell:UICollectionViewCell
         didSet
         {
             hover()
+        }
+    }
+    
+    //MARK: notified
+    
+    func notifiedThumbnailReady(sender notification:Notification)
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            guard
+            
+                let picture:MPicturesItem = notification.object as? MPicturesItem
+            
+            else
+            {
+                return
+            }
+            
+            if picture === self?.model
+            {
+                self?.config(model:picture)
+            }
         }
     }
     

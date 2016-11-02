@@ -3,6 +3,7 @@ import UIKit
 class CPicturesData:CController
 {
     weak var model:MPicturesItem!
+    weak var viewData:VPicturesData!
     
     init(model:MPicturesItem)
     {
@@ -13,5 +14,12 @@ class CPicturesData:CController
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func loadView()
+    {
+        let viewData:VPicturesData = VPicturesData(controller:self)
+        self.viewData = viewData
+        view = viewData
     }
 }

@@ -16,7 +16,7 @@ class MPicturesDetailInfoItem
     
     //MARK: public
     
-    func selected(controller:CController?)
+    func selected(controller:CPictures?)
     {
         
     }

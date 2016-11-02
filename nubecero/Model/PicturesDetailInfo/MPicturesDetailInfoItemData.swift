@@ -6,4 +6,9 @@ class MPicturesDetailInfoItemData:MPicturesDetailInfoItem
     {
         super.init(image:#imageLiteral(resourceName: "assetPicturesData"))
     }
+    
+    override func selected(controller:CPictures?)
+    {
+        controller?.showData()
+    }
 }

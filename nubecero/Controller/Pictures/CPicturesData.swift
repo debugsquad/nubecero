@@ -22,4 +22,16 @@ class CPicturesData:CController
         self.viewData = viewData
         view = viewData
     }
+    
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        parentController.statusBarDefault()
+    }
+    
+    override func viewWillDisappear(_ animated:Bool)
+    {
+        super.viewWillDisappear(animated)
+        parentController.statusBarLight()
+    }
 }

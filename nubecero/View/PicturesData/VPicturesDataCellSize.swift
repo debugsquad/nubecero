@@ -3,12 +3,13 @@ import UIKit
 class VPicturesDataCellSize:VPicturesDataCell
 {
     private weak var labelSize:UILabel!
-    private let kFontLabelTitle:CGFloat = 14
-    private let kFontLabelSize:CGFloat = 60
+    private let kFontLabelTitle:CGFloat = 13
+    private let kFontLabelSize:CGFloat = 65
     private let kLabelTitleTop:CGFloat = 20
     private let kLabelTitleHeight:CGFloat = 16
-    private let kLabelSizeTop:CGFloat = -5
-    private let kLabelSizeHeight:CGFloat = 110
+    private let kLabelSizeTop:CGFloat = 0
+    private let kLabelSizeHeight:CGFloat = 90
+    private let kKbInMb:CGFloat = 1000
     private let kMaxFractionDigits:Int = 2
     
     override init(frame:CGRect)
@@ -21,7 +22,7 @@ class VPicturesDataCellSize:VPicturesDataCell
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.textColor = UIColor.black
-        labelTitle.font = UIFont.bold(size:kFontLabelTitle)
+        labelTitle.font = UIFont.medium(size:kFontLabelTitle)
         labelTitle.text = NSLocalizedString("VPicturesDataCellSize_labelTitle", comment:"")
         
         let labelSize:UILabel = UILabel()
@@ -31,7 +32,6 @@ class VPicturesDataCellSize:VPicturesDataCell
         labelSize.textAlignment = NSTextAlignment.center
         labelSize.textColor = UIColor.main
         labelSize.font = UIFont.numeric(size:kFontLabelSize)
-        labelSize.text = "1,200"
         self.labelSize = labelSize
         
         addSubview(labelTitle)
@@ -71,12 +71,14 @@ class VPicturesDataCellSize:VPicturesDataCell
     
     override func config(controller:CPicturesData, model:MPicturesDataItem)
     {
-        let sizeInt:Int = controller.model.size
+        let sizeKb:CGFloat = CGFloat(controller.model.size)
+        let sizeMb:CGFloat = sizeKb / kKbInMb
+        let sizeNumber:NSNumber = sizeMb as NSNumber
         let numberFormatter:NumberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
         numberFormatter.maximumFractionDigits = kMaxFractionDigits
         
-        let sizeString:String = numberFormatter.string(from:sizeInt)
+        let sizeString:String? = numberFormatter.string(from:sizeNumber)
         labelSize.text = sizeString
     }
 }

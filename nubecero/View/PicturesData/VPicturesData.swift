@@ -22,10 +22,33 @@ class VPicturesData:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         blurView.translatesAutoresizingMaskIntoConstraints = false
         blurView.clipsToBounds = true
         
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSize.zero
+        flow.footerReferenceSize = CGSize.zero
+        flow.minimumLineSpacing = 0
+        flow.minimumInteritemSpacing = 0
+        flow.scrollDirection = UICollectionViewScrollDirection.vertical
+        
+        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(
+            VPicturesDataCellClose.self,
+            forCellWithReuseIdentifier:
+            VPicturesDataCellClose.reusableIdentifier)
+        self.collectionView = collectionView
+        
         addSubview(blurView)
+        addSubview(collectionView)
         
         let views:[String:UIView] = [
-            "blurView":blurView]
+            "blurView":blurView,
+            "collectionView":collectionView]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -39,11 +62,27 @@ class VPicturesData:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             options:[],
             metrics:metrics,
             views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
     }
     
     //MARK: private
@@ -57,12 +96,21 @@ class VPicturesData:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     
     //MARK: collectionView delegate
     
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let item:MPicturesDataItem = modelAtIndex(index:indexPath)
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:item.cellHeight)
+        
+        return size
+    }
+    
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
         let count:Int = model.items.count
         

@@ -81,7 +81,14 @@ class MPicturesItem
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
-            self?.asyncGenerateThumbnail()
+            NotificationCenter.default.post(
+                name:Notification.imageDataLoaded,
+                object:self)
+            
+            if self?.thumbnail == nil
+            {
+                self?.asyncGenerateThumbnail()
+            }
         }
     }
 }

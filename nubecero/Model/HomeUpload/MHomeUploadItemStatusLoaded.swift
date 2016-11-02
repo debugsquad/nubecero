@@ -19,7 +19,8 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
         guard
             
             let userId:String = MSession.sharedInstance.userId,
-            let imageData:Data = item?.imageData
+            let imageData:Data = item?.imageData,
+            let orientation:Int = item?.imageOrientation
             
         else
         {
@@ -35,7 +36,8 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
         let pathPicture:String = "\(parentUser)/\(userId)/\(propertyPictures)"
         let pathDiskUsed:String = "\(parentUser)/\(userId)/\(propertyDiskUsed)"
         let dataLength:Int = imageData.count / kKilobytePerByte
-        let modelPicture:FDatabaseModelPicture = FDatabaseModelPicture(size:dataLength)
+        let modelPicture:FDatabaseModelPicture = FDatabaseModelPicture(
+            size:dataLength, orientation:orientation)
         let pictureJson:Any = modelPicture.modelJson()
         
         item?.pictureId = FMain.sharedInstance.database.createChild(

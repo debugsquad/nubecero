@@ -34,13 +34,25 @@ class MHomeUploadItemStatusWaiting:MHomeUploadItemStatus
             requestOptions.isSynchronous = false
             requestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.highQualityFormat
             
-            PHImageManager.default().requestimage
             PHImageManager.default().requestImageData(
                 for:asset,
                 options:requestOptions)
             { [weak self, weak controller] (data, dataUTI, orientation, info) in
                 
-                self?.item?.removeImageOrientation(rawData:data)
+                guard
+                    
+                    let dataStrong:Data = data
+                
+                else
+                {
+                    let errorName:String = NSLocalizedString("MHomeUploadItemStatusWaiting_error", comment:"")
+                    controller?.errorSyncing(error:errorName)
+                    
+                    return
+                }
+                
+                self?.item?.imageData = dataStrong
+                self?.item?.imageOrientation = orientation.rawValue
                 self?.imageLoaded(controller:controller)
             }
         }
@@ -56,14 +68,10 @@ class MHomeUploadItemStatusWaiting:MHomeUploadItemStatus
     {
         guard
             
-            let controllerStrong:CHomeUploadSync = controller,
-            let _:Data = item?.imageData
+            let controllerStrong:CHomeUploadSync = controller
             
         else
         {
-            let errorName:String = NSLocalizedString("MHomeUploadItemStatusWaiting_error", comment:"")
-            controller?.errorSyncing(error:errorName)
-            
             return
         }
         

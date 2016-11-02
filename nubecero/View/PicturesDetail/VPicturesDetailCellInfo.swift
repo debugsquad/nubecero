@@ -6,6 +6,7 @@ class VPicturesDetailCellInfo:VPicturesDetailCell, UICollectionViewDelegate, UIC
     private weak var collectionView:UICollectionView!
     private let model:MPicturesDetailInfo
     private let kDeselectTime:TimeInterval = 1
+    private let kInterLine:CGFloat = 1
     
     override init(frame:CGRect)
     {
@@ -17,7 +18,7 @@ class VPicturesDetailCellInfo:VPicturesDetailCell, UICollectionViewDelegate, UIC
         flow.headerReferenceSize = CGSize.zero
         flow.footerReferenceSize = CGSize.zero
         flow.minimumLineSpacing = 0
-        flow.minimumInteritemSpacing = 0
+        flow.minimumInteritemSpacing = kInterLine
         flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         flow.sectionInset = UIEdgeInsets.zero
         

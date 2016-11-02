@@ -147,9 +147,8 @@ class MPictures
     func cleanResources()
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            self?.asyncCleanResources()
+        {   
+            self.asyncCleanResources()
         }
     }
 }

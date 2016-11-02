@@ -3,6 +3,8 @@ import UIKit
 class VPicturesDetailCellInfoCell:UICollectionViewCell
 {
     weak var imageView:UIImageView!
+    private let kAlphaSelected:CGFloat = 0.2
+    private let kAlphaNotSelected:CGFloat = 1
     
     override init(frame:CGRect)
     {
@@ -41,10 +43,41 @@ class VPicturesDetailCellInfoCell:UICollectionViewCell
         fatalError()
     }
     
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            imageView.alpha = kAlphaSelected
+        }
+        else
+        {
+            imageView.alpha = kAlphaNotSelected
+        }
+    }
+    
     //MARK: public
     
     func config(model:MPicturesDetailInfoItem)
     {
         imageView.image = model.image
+        hover()
     }
 }

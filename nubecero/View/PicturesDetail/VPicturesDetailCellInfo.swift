@@ -5,6 +5,7 @@ class VPicturesDetailCellInfo:VPicturesDetailCell, UICollectionViewDelegate, UIC
     private weak var controller:CPictures?
     private weak var collectionView:UICollectionView!
     private let model:MPicturesDetailInfo
+    private let kDeselectTime:TimeInterval = 1
     
     override init(frame:CGRect)
     {
@@ -119,5 +120,17 @@ class VPicturesDetailCellInfo:VPicturesDetailCell, UICollectionViewDelegate, UIC
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }

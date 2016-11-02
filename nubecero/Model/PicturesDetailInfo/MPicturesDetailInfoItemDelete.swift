@@ -2,7 +2,7 @@ import UIKit
 
 class MPicturesDetailInfoItemDelete:MPicturesDetailInfoItem
 {
-    init()
+    override init()
     {
         super.init(image:#imageLiteral(resourceName: "assetPicturesDelete"))
     }

@@ -13,4 +13,11 @@ class MPicturesDetailInfoItem
     {
         self.image = image
     }
+    
+    //MARK: public
+    
+    func selected(controller:CController)
+    {
+        
+    }
 }

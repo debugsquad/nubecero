@@ -84,7 +84,7 @@ class VPicturesDetailCellInfo:VPicturesDetailCell, UICollectionViewDelegate, UIC
         let countItems:CGFloat = CGFloat(model.items.count)
         let size:CGSize
         
-        if height >= width
+        if width >= height
         {
             let itemWidth:CGFloat = width / countItems
             size = CGSize(width:itemWidth, height:height)

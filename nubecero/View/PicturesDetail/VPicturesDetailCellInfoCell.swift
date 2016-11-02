@@ -2,7 +2,7 @@ import UIKit
 
 class VPicturesDetailCellInfoCell:UICollectionViewCell
 {
-    weak var imageView:UIImageView!
+    private weak var imageView:UIImageView!
     private let kAlphaSelected:CGFloat = 0.2
     private let kAlphaNotSelected:CGFloat = 1
     

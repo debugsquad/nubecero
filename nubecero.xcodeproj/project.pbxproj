@@ -108,6 +108,7 @@
 		DAE455641DCA844100948D70 /* MPicturesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455631DCA844100948D70 /* MPicturesData.swift */; };
 		DAE455661DCA846000948D70 /* MPicturesDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455651DCA846000948D70 /* MPicturesDataItem.swift */; };
 		DAE455681DCA84A800948D70 /* MPicturesDataItemClose.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455671DCA84A800948D70 /* MPicturesDataItemClose.swift */; };
+		DAE4556A1DCA92FA00948D70 /* VPicturesDataCellSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455691DCA92FA00948D70 /* VPicturesDataCellSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -231,6 +232,7 @@
 		DAE455631DCA844100948D70 /* MPicturesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesData.swift; sourceTree = "<group>"; };
 		DAE455651DCA846000948D70 /* MPicturesDataItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDataItem.swift; sourceTree = "<group>"; };
 		DAE455671DCA84A800948D70 /* MPicturesDataItemClose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDataItemClose.swift; sourceTree = "<group>"; };
+		DAE455691DCA92FA00948D70 /* VPicturesDataCellSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDataCellSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -666,6 +668,7 @@
 				DAE4555C1DCA765D00948D70 /* VPicturesData.swift */,
 				DAE4555E1DCA7FD900948D70 /* VPicturesDataCell.swift */,
 				DAE455601DCA7FF200948D70 /* VPicturesDataCellClose.swift */,
+				DAE455691DCA92FA00948D70 /* VPicturesDataCellSize.swift */,
 			);
 			path = PicturesData;
 			sourceTree = "<group>";
@@ -913,6 +916,7 @@
 				DAE455561DCA52BB00948D70 /* MPicturesDetailInfoItemDelete.swift in Sources */,
 				DACD1FAB1DC4124B0067D26B /* VHomeUpload.swift in Sources */,
 				DA4EF8FD1DC395B300297C1D /* DNubecero.xcdatamodeld in Sources */,
+				DAE4556A1DCA92FA00948D70 /* VPicturesDataCellSize.swift in Sources */,
 				DA2F66A41DC92F670078B466 /* MPicturesDetailItemImage.swift in Sources */,
 				DAE455661DCA846000948D70 /* MPicturesDataItem.swift in Sources */,
 				DACD1FB81DC57F560067D26B /* CHomeUploadSync.swift in Sources */,

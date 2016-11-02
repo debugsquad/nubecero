@@ -5,6 +5,7 @@ class VPicturesData:UIView, UICollectionViewDelegate, UICollectionViewDataSource
     private weak var controller:CPicturesData!
     private weak var collectionView:UICollectionView!
     private let model:MPicturesData
+    private let kCollectionVerticalMargin:CGFloat = 40
     
     init(controller:CPicturesData)
     {
@@ -28,6 +29,11 @@ class VPicturesData:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
+        flow.sectionInset = UIEdgeInsets(
+            top:kCollectionVerticalMargin,
+            left:0,
+            bottom:kCollectionVerticalMargin,
+            right:0)
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.clipsToBounds = true
@@ -35,6 +41,7 @@ class VPicturesData:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         collectionView.backgroundColor = UIColor.clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(

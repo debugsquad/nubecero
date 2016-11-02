@@ -3,6 +3,7 @@
 "VHomeUploadSyncBar_cancel"="Stop";
 "VHomeUploadSyncBar_tryAgain"="Resume";
 "VPicturesDataCellClose_buttonTitle"="Close";
+"VPicturesDataCellSize_labelTitle"="Megabytes";
 
 "CLogin_logOut"="Log out succeded";
 "CHomeUpload_title"="Upload";

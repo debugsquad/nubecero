@@ -1,63 +1,66 @@
 import UIKit
 
-class VPicturesDataCellSize:UICollectionViewCell
+class VPicturesDataCellSize:VPicturesDataCell
 {
-    private weak var layoutButtonLeft:NSLayoutConstraint!
+    private weak var labelSize:UILabel!
+    private let kFontLabelTitle:CGFloat = 14
+    private let kFontLabelSize:CGFloat = 50
+    private let kLabelTitleTop:CGFloat = 20
+    private let kLabelTitleHeight:CGFloat = 16
+    private let kLabelSizeTop:CGFloat = -5
+    private let kLabelSizeHeight:CGFloat = 60
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         
-        let button:UIButton = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.clipsToBounds = true
-        button.backgroundColor = UIColor.complement
-        button.setTitleColor(
-            UIColor.white,
-            for:UIControlState.normal)
-        button.setTitleColor(
-            UIColor.black,
-            for:UIControlState.highlighted)
-        button.setTitle(
-            NSLocalizedString("VPicturesDataCellClose_buttonTitle", comment:""),
-            for:UIControlState.normal)
-        button.layer.cornerRadius = kCornerRadius
-        button.titleLabel!.font = UIFont.medium(size:14)
-        button.addTarget(
-            self,
-            action:#selector(actionClose(sender:)),
-            for:UIControlEvents.touchUpInside)
+        let labelTitle:UILabel = UILabel()
+        labelTitle.isUserInteractionEnabled = false
+        labelTitle.translatesAutoresizingMaskIntoConstraints = false
+        labelTitle.backgroundColor = UIColor.clear
+        labelTitle.textAlignment = NSTextAlignment.center
+        labelTitle.textColor = UIColor.black
+        labelTitle.font = UIFont.bold(size:kFontLabelTitle)
+        labelTitle.text = NSLocalizedString("VPicturesDataCellSize_labelTitle", comment:"")
         
-        addSubview(button)
+        let labelSize:UILabel = UILabel()
+        labelSize.isUserInteractionEnabled = false
+        labelSize.translatesAutoresizingMaskIntoConstraints = false
+        labelSize.backgroundColor = UIColor.clear
+        labelSize.textAlignment = NSTextAlignment.center
+        labelSize.textColor = UIColor.main
+        labelSize.font = UIFont.numeric(size:kFontLabelSize)
+        labelSize.text = "1,200"
+        self.labelSize = labelSize
+        
+        addSubview(labelTitle)
+        addSubview(labelSize)
         
         let views:[String:UIView] = [
-            "button":button]
+            "labelTitle":labelTitle,
+            "labelSize":labelSize]
         
         let metrics:[String:CGFloat] = [
-            "buttonWidth":kButtonWidth,
-            "buttonMarginVertical":kButtonMarginVertical]
+            "labelTitleTop":kLabelTitleTop,
+            "labelTitleHeight":kLabelTitleHeight,
+            "labelSizeTop":kLabelSizeTop,
+            "labelSizeHeight":kLabelSizeHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[button(buttonWidth)]",
+            withVisualFormat:"H:|-0-[labelTitle]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(buttonMarginVertical)-[button]-(buttonMarginVertical)-|",
+            withVisualFormat:"H:|-0-[labelSize]-0-|",
             options:[],
             metrics:metrics,
             views:views))
-        
-        layoutButtonLeft = NSLayoutConstraint(
-            item:button,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        
-        addConstraint(layoutButtonLeft)
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(labelTitleTop)-[labelTitle(labelTitleHeight)]-(labelSizeTop)-[labelSize(labelSizeHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     required init?(coder:NSCoder)
@@ -65,13 +68,8 @@ class VPicturesDataCellSize:UICollectionViewCell
         fatalError()
     }
     
-    override func layoutSubviews()
+    override func config(controller:CPicturesData, model:MPicturesDataItem)
     {
-        let maxWidth:CGFloat = bounds.maxX
-        let remainX:CGFloat = maxWidth - kButtonWidth
-        let margin:CGFloat = remainX / 2.0
-        layoutButtonLeft.constant = margin
         
-        super.layoutSubviews()
     }
 }

@@ -111,6 +111,7 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     private func selectItemNumber(index:Int)
     {
+        currentItem?.countDown()
         currentItem = MPictures.sharedInstance.pictureAtIndex(index:index)
         viewDetail.refresh()
     }

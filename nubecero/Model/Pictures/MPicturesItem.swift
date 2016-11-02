@@ -8,7 +8,9 @@ class MPicturesItem
     var state:MPicturesItemState
     private(set) var thumbnail:UIImage?
     private(set) var image:UIImage?
+    private weak var timer:Timer?
     private let kThumbnailSize:CGFloat = 128
+    private let kPictureTimeout:TimeInterval = 5
     
     init(pictureId:MPictures.PictureId, firebasePicture:FDatabaseModelPicture)
     {
@@ -19,9 +21,48 @@ class MPicturesItem
         state.item = self
     }
     
+    @objc func timeoutCleanPicture(sender timer:Timer)
+    {
+        self.timer?.invalidate()
+        image = nil
+        
+        print("cleaned picture")
+    }
+    
     //MARK: private
     
-    private func asyncGenerateThumbnail()
+    private func imageDataReceived(data:Data)
+    {
+        guard
+            
+            let image:UIImage = UIImage(data:data)
+        
+        else
+        {
+            stateClear()
+            
+            return
+        }
+        
+        self.image = image
+        
+        NotificationCenter.default.post(
+            name:Notification.imageDataLoaded,
+            object:self)
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.countDown()
+            
+            if self?.thumbnail == nil
+            {
+                self?.generateThumbnail()
+            }
+        }
+    }
+    
+    private func generateThumbnail()
     {
         guard
             
@@ -43,8 +84,6 @@ class MPicturesItem
         let scaledHeight:CGFloat = floor(imageOriginalHeight / maxDelta)
         let rect:CGRect = CGRect(x:0, y:0, width:scaledWidth, height:scaledHeight)
         
-        print("width \(scaledWidth) height \(scaledHeight)")
-        
         UIGraphicsBeginImageContext(rect.size)
         originalImage.draw(in:rect)
         thumbnail = UIGraphicsGetImageFromCurrentImageContext()
@@ -55,6 +94,16 @@ class MPicturesItem
         NotificationCenter.default.post(
             name:Notification.thumbnailReady,
             object:self)
+    }
+    
+    private func asyncCountDown()
+    {
+        timer = Timer.scheduledTimer(
+            timeInterval:kPictureTimeout,
+            target:self,
+            selector:#selector(timeoutCleanPicture(sender:)),
+            userInfo:nil,
+            repeats:false)
     }
     
     //MARK: public
@@ -78,10 +127,9 @@ class MPicturesItem
     {
         guard
             
-            let pictureId:MPictures.PictureId = self?.item?.pictureId,
             let userId:String = MSession.sharedInstance.userId
             
-            else
+        else
         {
             return
         }
@@ -97,40 +145,34 @@ class MPicturesItem
                 
                 let dataStrong:Data = data
                 
-                else
+            else
             {
-                self?.item?.stateClear()
+                self?.stateClear()
                 
                 return
             }
-            
-            guard
-                
-                let image:UIImage = UIImage(data:dataStrong)
-                
-                else
-            {
-                self?.item?.stateClear()
-                
-                return
-            }
-            
-            
-            
-            self.image = image
-            
-            NotificationCenter.default.post(
-                name:Notification.imageDataLoaded,
-                object:self)
             
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-                { [weak self] in
-                    
-                    if self?.thumbnail == nil
-                    {
-                        self?.asyncGenerateThumbnail()
-                    }
+            { [weak self] in
+                
+                self?.imageDataReceived(data:dataStrong)
             }
+        }
+    }
+    
+    func becameActive()
+    {
+        timer?.invalidate()
+    }
+    
+    func countDown()
+    {
+        timer?.invalidate()
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.asyncCountDown()
         }
     }
 }

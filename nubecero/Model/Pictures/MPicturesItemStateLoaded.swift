@@ -9,8 +9,11 @@ class MPicturesItemStateLoaded:MPicturesItemState
     
     override func loadImage() -> UIImage?
     {
+        item?.becameActive()
+        
         if item?.image == nil
         {
+            print("reload image data")
             item?.loadImageData()
         }
         

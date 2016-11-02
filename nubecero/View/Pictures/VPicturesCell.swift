@@ -100,8 +100,6 @@ class VPicturesCell:UICollectionViewCell
         if isSelected || isHighlighted
         {
             backgroundColor = UIColor.main
-            
-            print("image size:::: \(model?.size)")
         }
         else
         {

@@ -55,7 +55,7 @@ class VPicturesDetailCellImage:VPicturesDetailCell
     override func config(controller:CPictures)
     {
         model = controller.viewPictures.currentItem
-        imageView.image = model?.image
+        imageView.image = model?.state.loadImage()
     }
     
     //MARK: notified

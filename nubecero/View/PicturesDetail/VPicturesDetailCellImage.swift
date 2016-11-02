@@ -76,6 +76,7 @@ class VPicturesDetailCellImage:VPicturesDetailCell
             
             if picture === self?.model
             {
+                picture.becameActive()
                 self?.imageView.image = picture.image
             }
         }

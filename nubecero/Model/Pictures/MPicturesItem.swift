@@ -24,9 +24,7 @@ class MPicturesItem
     @objc func timeoutCleanPicture(sender timer:Timer)
     {
         self.timer?.invalidate()
-        image = nil
-        
-        print("cleaned picture")
+        cleanResources()
     }
     
     //MARK: private
@@ -45,6 +43,7 @@ class MPicturesItem
         }
         
         self.image = image
+        countDown()
         
         NotificationCenter.default.post(
             name:Notification.imageDataLoaded,
@@ -52,8 +51,6 @@ class MPicturesItem
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
-            
-            self?.countDown()
             
             if self?.thumbnail == nil
             {
@@ -174,5 +171,10 @@ class MPicturesItem
             
             self?.asyncCountDown()
         }
+    }
+    
+    func cleanResources()
+    {
+        image = nil
     }
 }

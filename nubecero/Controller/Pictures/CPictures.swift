@@ -27,6 +27,7 @@ class CPictures:CController
     deinit
     {
         NotificationCenter.default.removeObserver(self)
+        MPictures.sharedInstance.cleanResources()
     }
     
     //MARK: notified

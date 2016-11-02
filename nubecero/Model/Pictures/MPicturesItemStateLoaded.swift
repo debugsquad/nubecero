@@ -13,7 +13,6 @@ class MPicturesItemStateLoaded:MPicturesItemState
         
         if item?.image == nil
         {
-            print("reload image data")
             item?.loadImageData()
         }
         

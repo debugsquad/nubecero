@@ -116,6 +116,16 @@ class MPictures
             object:nil)
     }
     
+    private func asyncCleanResources()
+    {
+        for reference:MPicturesItemReference in references
+        {
+            let pictureId:PictureId = reference.pictureId
+            let item:MPicturesItem? = items[pictureId]
+            item?.cleanResources()
+        }
+    }
+    
     //MARK: public
     
     func loadPictures()
@@ -132,5 +142,14 @@ class MPictures
         let picture:MPicturesItem = items[reference.pictureId]!
         
         return picture
+    }
+    
+    func cleanResources()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncCleanResources()
+        }
     }
 }

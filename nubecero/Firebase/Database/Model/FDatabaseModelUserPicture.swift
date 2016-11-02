@@ -7,7 +7,6 @@ class FDatabaseModelPicture:FDatabaseModel
         case created = "created"
         case status = "status"
         case size = "size"
-        case orientation = "orientation"
     }
     
     enum Status:Int
@@ -19,15 +18,13 @@ class FDatabaseModelPicture:FDatabaseModel
     let created:TimeInterval
     let status:Status
     let size:Int
-    let orientation:Int
     private let kNoTime:TimeInterval = 0
     
-    init(size:Int, orientation:Int)
+    init(size:Int)
     {
         created = NSDate().timeIntervalSince1970
         status = Status.waiting
         self.size = size
-        self.orientation = orientation
         
         super.init()
     }
@@ -70,15 +67,6 @@ class FDatabaseModelPicture:FDatabaseModel
             self.size = 0
         }
         
-        if let orientation:Int = snapshotDict?[Property.orientation.rawValue] as? Int
-        {
-            self.orientation = orientation
-        }
-        else
-        {
-            self.orientation = 0
-        }
-        
         super.init()
     }
     
@@ -87,8 +75,7 @@ class FDatabaseModelPicture:FDatabaseModel
         let json:[String:Any] = [
             Property.created.rawValue:created,
             Property.status.rawValue:status.rawValue,
-            Property.size.rawValue:size,
-            Property.orientation.rawValue:orientation
+            Property.size.rawValue:size
         ]
         
         return json

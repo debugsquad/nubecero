@@ -52,7 +52,6 @@ class MHomeUploadItemStatusWaiting:MHomeUploadItemStatus
                 }
                 
                 self?.item?.imageData = dataStrong
-                self?.item?.imageOrientation = orientation.rawValue
                 self?.imageLoaded(controller:controller)
             }
         }

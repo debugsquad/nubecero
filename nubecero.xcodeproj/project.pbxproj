@@ -35,7 +35,6 @@
 		DA4EF8FC1DC395B300297C1D /* DManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CD1DC395B300297C1D /* DManager.swift */; };
 		DA4EF8FD1DC395B300297C1D /* DNubecero.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CE1DC395B300297C1D /* DNubecero.xcdatamodeld */; };
 		DA4EF8FE1DC395B300297C1D /* ExtensionFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8D11DC395B300297C1D /* ExtensionFileManager.swift */; };
-		DA4EF8FF1DC395B300297C1D /* ExtensionMTLTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8D21DC395B300297C1D /* ExtensionMTLTexture.swift */; };
 		DA4EF9001DC395B300297C1D /* ExtensionNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8D31DC395B300297C1D /* ExtensionNotification.swift */; };
 		DA4EF9011DC395B300297C1D /* ExtensionNSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8D41DC395B300297C1D /* ExtensionNSManagedObject.swift */; };
 		DA4EF9021DC395B300297C1D /* ExtensionUICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8D51DC395B300297C1D /* ExtensionUICollectionReusableView.swift */; };
@@ -142,7 +141,6 @@
 		DA4EF8CD1DC395B300297C1D /* DManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DManager.swift; sourceTree = "<group>"; };
 		DA4EF8CF1DC395B300297C1D /* DMetalic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DMetalic.xcdatamodel; sourceTree = "<group>"; };
 		DA4EF8D11DC395B300297C1D /* ExtensionFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionFileManager.swift; sourceTree = "<group>"; };
-		DA4EF8D21DC395B300297C1D /* ExtensionMTLTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionMTLTexture.swift; sourceTree = "<group>"; };
 		DA4EF8D31DC395B300297C1D /* ExtensionNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNotification.swift; sourceTree = "<group>"; };
 		DA4EF8D41DC395B300297C1D /* ExtensionNSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSManagedObject.swift; sourceTree = "<group>"; };
 		DA4EF8D51DC395B300297C1D /* ExtensionUICollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUICollectionReusableView.swift; sourceTree = "<group>"; };
@@ -392,7 +390,6 @@
 			isa = PBXGroup;
 			children = (
 				DA4EF8D11DC395B300297C1D /* ExtensionFileManager.swift */,
-				DA4EF8D21DC395B300297C1D /* ExtensionMTLTexture.swift */,
 				DA4EF8D31DC395B300297C1D /* ExtensionNotification.swift */,
 				DA4EF8D41DC395B300297C1D /* ExtensionNSManagedObject.swift */,
 				DA4EF8D51DC395B300297C1D /* ExtensionUICollectionReusableView.swift */,
@@ -873,7 +870,6 @@
 				DA4EF9001DC395B300297C1D /* ExtensionNotification.swift in Sources */,
 				DA4EF90B1DC395B300297C1D /* MMainItemHome.swift in Sources */,
 				DACD1F8F1DC3ADEB0067D26B /* VLogin.swift in Sources */,
-				DA4EF8FF1DC395B300297C1D /* ExtensionMTLTexture.swift in Sources */,
 				DA4EF8FC1DC395B300297C1D /* DManager.swift in Sources */,
 				DA4EF90D1DC395B300297C1D /* MMainState.swift in Sources */,
 				DA4EF9041DC395B300297C1D /* ExtensionUIFont.swift in Sources */,

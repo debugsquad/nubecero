@@ -5,7 +5,6 @@ class MPicturesItem
     let pictureId:MPictures.PictureId
     let created:TimeInterval
     let size:Int
-    let orientation:Int
     var state:MPicturesItemState
     private(set) var thumbnail:UIImage?
     private(set) var image:UIImage?
@@ -16,7 +15,6 @@ class MPicturesItem
         self.pictureId = pictureId
         created = firebasePicture.created
         size = firebasePicture.size
-        orientation = firebasePicture.orientation
         state = MPicturesItemStateNone(item:nil)
         state.item = self
     }

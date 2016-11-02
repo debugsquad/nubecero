@@ -103,6 +103,8 @@
 		DAE455581DCA611100948D70 /* MPicturesDetailInfoItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455571DCA611100948D70 /* MPicturesDetailInfoItemData.swift */; };
 		DAE4555A1DCA74B900948D70 /* CPicturesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455591DCA74B900948D70 /* CPicturesData.swift */; };
 		DAE4555D1DCA765D00948D70 /* VPicturesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4555C1DCA765D00948D70 /* VPicturesData.swift */; };
+		DAE4555F1DCA7FD900948D70 /* VPicturesDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4555E1DCA7FD900948D70 /* VPicturesDataCell.swift */; };
+		DAE455611DCA7FF200948D70 /* VPicturesDataCellClose.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455601DCA7FF200948D70 /* VPicturesDataCellClose.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +223,8 @@
 		DAE455571DCA611100948D70 /* MPicturesDetailInfoItemData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfoItemData.swift; sourceTree = "<group>"; };
 		DAE455591DCA74B900948D70 /* CPicturesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPicturesData.swift; sourceTree = "<group>"; };
 		DAE4555C1DCA765D00948D70 /* VPicturesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesData.swift; sourceTree = "<group>"; };
+		DAE4555E1DCA7FD900948D70 /* VPicturesDataCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDataCell.swift; sourceTree = "<group>"; };
+		DAE455601DCA7FF200948D70 /* VPicturesDataCellClose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDataCellClose.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -653,6 +657,8 @@
 			isa = PBXGroup;
 			children = (
 				DAE4555C1DCA765D00948D70 /* VPicturesData.swift */,
+				DAE4555E1DCA7FD900948D70 /* VPicturesDataCell.swift */,
+				DAE455601DCA7FF200948D70 /* VPicturesDataCellClose.swift */,
 			);
 			path = PicturesData;
 			sourceTree = "<group>";
@@ -894,6 +900,7 @@
 				DACD1FB81DC57F560067D26B /* CHomeUploadSync.swift in Sources */,
 				DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */,
 				DA2F66B11DC9506E0078B466 /* MPicturesItemState.swift in Sources */,
+				DAE455611DCA7FF200948D70 /* VPicturesDataCellClose.swift in Sources */,
 				DA2F66AD1DC942480078B466 /* VPicturesDetailCell.swift in Sources */,
 				DA4EF9051DC395B300297C1D /* FAnalytics.swift in Sources */,
 				DACD1FA41DC402960067D26B /* VHomeCellUpload.swift in Sources */,
@@ -902,6 +909,7 @@
 				DACD1FB41DC545F70067D26B /* VHomeUploadCell.swift in Sources */,
 				DA88F6781DC7EE00009F61B3 /* MHomeUploadItemStatusReferenced.swift in Sources */,
 				DACD1F9E1DC400240067D26B /* MHomeItem.swift in Sources */,
+				DAE4555F1DCA7FD900948D70 /* VPicturesDataCell.swift in Sources */,
 				DA2F66931DC91B780078B466 /* VPicturesCell.swift in Sources */,
 				DA2F66B51DC9508F0078B466 /* MPicturesItemStateLoading.swift in Sources */,
 				DA4EF9011DC395B300297C1D /* ExtensionNSManagedObject.swift in Sources */,

@@ -2,7 +2,6 @@ import UIKit
 
 class VPicturesDetailCellInfo:VPicturesDetailCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    private weak var controller:CPictures?
     private weak var collectionView:UICollectionView!
     private let model:MPicturesDetailInfo
     private let kDeselectTime:TimeInterval = 1

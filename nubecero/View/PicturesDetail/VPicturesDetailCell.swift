@@ -2,6 +2,8 @@ import UIKit
 
 class VPicturesDetailCell:UICollectionViewCell
 {
+    weak var controller:CPictures?
+    
     override init(frame:CGRect)
     {
         super.init(frame:frame)
@@ -18,5 +20,6 @@ class VPicturesDetailCell:UICollectionViewCell
     
     func config(controller:CPictures)
     {
+        self.controller = controller
     }
 }

@@ -12,7 +12,7 @@ class VPicturesData:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
         let blurView:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
         blurView.isUserInteractionEnabled = false
         blurView.translatesAutoresizingMaskIntoConstraints = false

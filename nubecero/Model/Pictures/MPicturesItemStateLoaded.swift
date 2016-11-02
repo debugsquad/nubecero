@@ -6,4 +6,14 @@ class MPicturesItemStateLoaded:MPicturesItemState
     {
         return item?.thumbnail
     }
+    
+    override func loadImage() -> UIImage?
+    {
+        if item?.image == nil
+        {
+            item?.loadImageData()
+        }
+        
+        return item?.image
+    }
 }

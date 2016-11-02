@@ -17,6 +17,11 @@ class MPicturesItemState
         return nil
     }
     
+    func loadImage() -> UIImage?
+    {
+        return nil
+    }
+    
     func preparations()
     {
     }

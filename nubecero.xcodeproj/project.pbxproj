@@ -94,6 +94,7 @@
 		DACD1FC71DC7C6AE0067D26B /* FDatabaseModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FC61DC7C6AE0067D26B /* FDatabaseModelUser.swift */; };
 		DACD1FC91DC7C6C80067D26B /* FDatabaseModelUserPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FC81DC7C6C80067D26B /* FDatabaseModelUserPicture.swift */; };
 		DACD1FCC1DC7D0320067D26B /* MSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FCB1DC7D0320067D26B /* MSession.swift */; };
+		DAE4554B1DCA4C2400948D70 /* Pictures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE4554A1DCA4C2400948D70 /* Pictures.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +204,7 @@
 		DACD1FC61DC7C6AE0067D26B /* FDatabaseModelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUser.swift; sourceTree = "<group>"; };
 		DACD1FC81DC7C6C80067D26B /* FDatabaseModelUserPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserPicture.swift; sourceTree = "<group>"; };
 		DACD1FCB1DC7D0320067D26B /* MSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSession.swift; sourceTree = "<group>"; };
+		DAE4554A1DCA4C2400948D70 /* Pictures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Pictures.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +344,7 @@
 				DACD1F901DC3B75D0067D26B /* Brand.xcassets */,
 				DACD1FA51DC40DEF0067D26B /* Home.xcassets */,
 				DACD1FAC1DC418A20067D26B /* Loader.xcassets */,
+				DAE4554A1DCA4C2400948D70 /* Pictures.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				DACD1F911DC3B75D0067D26B /* Brand.xcassets in Resources */,
 				DACD1FA61DC40DEF0067D26B /* Home.xcassets in Resources */,
 				DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */,
+				DAE4554B1DCA4C2400948D70 /* Pictures.xcassets in Resources */,
 				DA4EF9101DC395B300297C1D /* Localizable.strings in Resources */,
 				DACD1FAD1DC418A20067D26B /* Loader.xcassets in Resources */,
 				DA4EF9071DC395B300297C1D /* GoogleService-Info.plist in Resources */,

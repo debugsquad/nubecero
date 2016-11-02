@@ -9,6 +9,7 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private weak var spinner:VSpinner?
     private let kCollectionHeight:CGFloat = 80
     private let kCollectionMargin:CGFloat = 1
+    private let kInterLine:CGFloat = 1
     
     convenience init(controller:CPictures)
     {
@@ -18,7 +19,7 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let cellHeigh:CGFloat = kCollectionHeight - (kCollectionMargin + kCollectionMargin)
+        let cellHeigh:CGFloat = kCollectionHeight - kCollectionMargin
         let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         
         let spinner:VSpinner = VSpinner()
@@ -35,9 +36,9 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         flow.sectionInset = UIEdgeInsets(
             top:kCollectionMargin,
             left:kCollectionMargin,
-            bottom:kCollectionMargin,
+            bottom:0,
             right:kCollectionMargin)
-        flow.minimumLineSpacing = 0
+        flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         

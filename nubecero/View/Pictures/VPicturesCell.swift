@@ -5,14 +5,15 @@ class VPicturesCell:UICollectionViewCell
     private weak var blurView:UIView!
     private weak var imageView:UIImageView!
     private weak var model:MPicturesItem?
-    private let kBlurAlpha:CGFloat = 0.99
+    private let kBlurAlpha:CGFloat = 0.7
+    private let kBorderWidth:CGFloat = 1
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
         let blur:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
         blur.isUserInteractionEnabled = false
         blur.translatesAutoresizingMaskIntoConstraints = false
@@ -30,8 +31,7 @@ class VPicturesCell:UICollectionViewCell
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFill
-        imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor(white:0, alpha:1).cgColor
+        imageView.layer.borderColor = UIColor.black.cgColor
         self.imageView = imageView
         
         blurView.addSubview(blur)
@@ -43,7 +43,8 @@ class VPicturesCell:UICollectionViewCell
             "blur":blur,
             "blurView":blurView]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "borderWidth":kBorderWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[imageView]-0-|",
@@ -66,12 +67,12 @@ class VPicturesCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[blurView]-0-|",
+            withVisualFormat:"H:|-(borderWidth)-[blurView]-(borderWidth)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[blurView]-0-|",
+            withVisualFormat:"V:|-(borderWidth)-[blurView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -139,10 +140,12 @@ class VPicturesCell:UICollectionViewCell
         if isSelected || isHighlighted
         {
             blurView.isHidden = false
+            imageView.layer.borderWidth = kBorderWidth
         }
         else
         {
             blurView.isHidden = true
+            imageView.layer.borderWidth = 0
         }
     }
     

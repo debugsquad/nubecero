@@ -137,6 +137,7 @@ class VPicturesDetail:UIView, UICollectionViewDataSource, UICollectionViewDelega
             withReuseIdentifier:
             item.reusableIdentifier,
             for:indexPath) as! VPicturesDetailCell
+        cell.config(controller:controller)
         
         return cell
     }

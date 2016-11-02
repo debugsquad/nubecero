@@ -12,4 +12,10 @@ class VPicturesDetailCell:UICollectionViewCell
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(controller:CPictures)
+    {
+    }
 }

@@ -51,7 +51,6 @@ class MPicturesItem
         UIGraphicsEndImageContext()
         
         stateLoaded()
-        image = nil
         
         NotificationCenter.default.post(
             name:Notification.thumbnailReady,

@@ -2,9 +2,6 @@ import UIKit
 
 class VPicturesDataCell:UICollectionViewCell
 {
-    weak var controller:CPicturesData?
-    weak var model:MPicturesDataItem?
-    
     override init(frame:CGRect)
     {
         super.init(frame:frame)
@@ -19,9 +16,11 @@ class VPicturesDataCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(controller:CPicturesData, model:MPicturesDataItem)
+    func config(model:MPicturesDataItem)
     {
-        self.controller = controller
-        self.model = model
+    }
+    
+    func selected(controller:CPicturesData)
+    {
     }
 }

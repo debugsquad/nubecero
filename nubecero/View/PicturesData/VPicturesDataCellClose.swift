@@ -12,4 +12,6 @@ class VPicturesDataCellClose:VPicturesDataCell
     {
         fatalError()
     }
+    
+    selected
 }

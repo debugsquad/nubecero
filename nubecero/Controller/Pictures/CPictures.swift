@@ -42,4 +42,21 @@ class CPictures:CController
             self?.viewPictures.picturesLoaded()
         }
     }
+    
+    //MARK: public
+    
+    func showData()
+    {
+        guard
+        
+            let picture:MPicturesItem = viewPictures.currentItem
+        
+        else
+        {
+            return
+        }
+        
+        let controllerData:CPicturesData = CPicturesData(model:picture)
+        parentController.over(controller:controllerData, pop:false)
+    }
 }

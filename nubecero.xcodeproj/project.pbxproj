@@ -107,6 +107,7 @@
 		DAE455611DCA7FF200948D70 /* VPicturesDataCellClose.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455601DCA7FF200948D70 /* VPicturesDataCellClose.swift */; };
 		DAE455641DCA844100948D70 /* MPicturesData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455631DCA844100948D70 /* MPicturesData.swift */; };
 		DAE455661DCA846000948D70 /* MPicturesDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455651DCA846000948D70 /* MPicturesDataItem.swift */; };
+		DAE455681DCA84A800948D70 /* MPicturesDataItemClose.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455671DCA84A800948D70 /* MPicturesDataItemClose.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -229,6 +230,7 @@
 		DAE455601DCA7FF200948D70 /* VPicturesDataCellClose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDataCellClose.swift; sourceTree = "<group>"; };
 		DAE455631DCA844100948D70 /* MPicturesData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesData.swift; sourceTree = "<group>"; };
 		DAE455651DCA846000948D70 /* MPicturesDataItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDataItem.swift; sourceTree = "<group>"; };
+		DAE455671DCA84A800948D70 /* MPicturesDataItemClose.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDataItemClose.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -673,6 +675,7 @@
 			children = (
 				DAE455631DCA844100948D70 /* MPicturesData.swift */,
 				DAE455651DCA846000948D70 /* MPicturesDataItem.swift */,
+				DAE455671DCA84A800948D70 /* MPicturesDataItemClose.swift */,
 			);
 			path = PicturesData;
 			sourceTree = "<group>";
@@ -961,6 +964,7 @@
 				DA2F66881DC8FE8B0078B466 /* VPictures.swift in Sources */,
 				DACD1FC71DC7C6AE0067D26B /* FDatabaseModelUser.swift in Sources */,
 				DAE455501DCA4CB000948D70 /* MPicturesDetailInfoItem.swift in Sources */,
+				DAE455681DCA84A800948D70 /* MPicturesDataItemClose.swift in Sources */,
 				DACD1FC31DC7C66A0067D26B /* FDatabase.swift in Sources */,
 				DA4EF90F1DC395B300297C1D /* MMainStatePushed.swift in Sources */,
 				DA4EF9131DC395B300297C1D /* VBarCell.swift in Sources */,

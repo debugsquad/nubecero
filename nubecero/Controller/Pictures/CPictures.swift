@@ -43,6 +43,29 @@ class CPictures:CController
         }
     }
     
+    private func confirmedDeletePicture()
+    {
+        guard
+            
+            let userId:String = MSession.sharedInstance.userId,
+            let pictureId:MPictures.PictureId = viewPictures.currentItem?.pictureId
+        
+        else
+        {
+            return
+        }
+        
+        let parentUser:String = FStorage.Parent.user.rawValue
+        let imagePath:String = "\(parentUser)/\(userId)/\(pictureId)"
+        
+        FMain.sharedInstance.storage.deleteData(
+            path:imagePath)
+        { [weak self] (error) in
+            
+            
+        }
+    }
+    
     //MARK: public
     
     func showData()
@@ -83,5 +106,39 @@ class CPictures:CController
         }
         
         present(activity, animated:true)
+    }
+    
+    func deletePicture()
+    {
+        let alert:UIAlertController = UIAlertController(
+            title:
+            NSLocalizedString("CPictures_deleteTitle", comment:""),
+            message:
+            NSLocalizedString("CPictures_deleteMessage", comment:""),
+            preferredStyle:UIAlertControllerStyle.actionSheet)
+        
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CPictures_deleteCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionDelete:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CPictures_deleteDelete", comment:""),
+            style:
+            UIAlertActionStyle.destructive)
+        { (action) in
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.confirmedDeletePicture()
+            }
+        }
+        
+        alert.addAction(actionDelete)
+        alert.addAction(actionCancel)
+        present(alert, animated:true, completion:nil)
     }
 }

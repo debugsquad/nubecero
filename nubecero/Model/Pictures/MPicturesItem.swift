@@ -136,7 +136,7 @@ class MPicturesItem
         
         FMain.sharedInstance.storage.loadData(
             path:imagePath)
-        { [weak self] (data) in
+        { [weak self] (data, error) in
             
             guard
                 

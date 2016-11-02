@@ -99,7 +99,7 @@ class CParent:UIViewController
     
     func pop()
     {
-        viewParent.pop()
+        viewParent.pop
         {
             let controller:CController = self.controllers.popLast()!
             controller.view.removeFromSuperview()
@@ -109,7 +109,7 @@ class CParent:UIViewController
     
     func dismiss()
     {
-        viewParent.dismiss()
+        viewParent.dismiss
         {
             let controller:CController = self.controllers.popLast()!
             controller.view.removeFromSuperview()

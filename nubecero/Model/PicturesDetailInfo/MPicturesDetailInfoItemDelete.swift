@@ -6,4 +6,9 @@ class MPicturesDetailInfoItemDelete:MPicturesDetailInfoItem
     {
         super.init(image:#imageLiteral(resourceName: "assetPicturesDelete"))
     }
+    
+    override func selected(controller:CPictures?)
+    {
+        controller?.deletePicture()
+    }
 }

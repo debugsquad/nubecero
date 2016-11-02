@@ -18,6 +18,5 @@ class MPicturesDetailInfoItem
     
     func selected(controller:CPictures?)
     {
-        
     }
 }

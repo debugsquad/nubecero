@@ -9,7 +9,7 @@ class FStorage
     }
     
     private let reference:FIRStorageReference
-    private let kFifteenMegaBytes:Int64 = 15000000
+    private let kTenMegaBytes:Int64 = 10000000
     
     init()
     {
@@ -31,14 +31,17 @@ class FStorage
         }
     }
     
-    func loadData(path:String, completionHandler:@escaping((Data?) -> ()))
+    func loadData(path:String, completionHandler:@escaping((Data?, Error?) -> ()))
     {
         let childReference:FIRStorageReference = reference.child(path)
         childReference.data(
-            withMaxSize:kFifteenMegaBytes)
-        { (data, error) in
-            
-            completionHandler(data)
-        }
+            withMaxSize:kTenMegaBytes,
+            completion:completionHandler)
+    }
+    
+    func deleteData(path:String, completionHandler:@escaping((Error?) -> ()))
+    {
+        let childReference:FIRStorageReference = reference.child(path)
+        childReference.delete(completion:completionHandler)
     }
 }

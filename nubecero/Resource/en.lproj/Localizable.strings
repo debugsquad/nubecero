@@ -15,6 +15,10 @@
 "CHomeUpload_uploadedMessage"="You have them already on the cloud";
 "CHomeUpload_uploadedDontRemove"="Keep them";
 "CHomeUpload_uploadedRemove"="Remove";
+"CPictures_deleteTitle"="Delete picture?";
+"CPictures_deleteMessage"="Can't undo";
+"CPictures_deleteCancel"="Cancel";
+"CPictures_deleteDelete"="Delete";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading image, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

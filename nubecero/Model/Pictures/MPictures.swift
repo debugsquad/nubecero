@@ -95,7 +95,7 @@ class MPictures
             }
         }
         
-        references.sort()
+        references.sort
         { (referenceA, referenceB) -> Bool in
             
             let createdA:TimeInterval = referenceA.created

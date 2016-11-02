@@ -98,6 +98,7 @@
 		DAE4554E1DCA4C9F00948D70 /* MPicturesDetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4554D1DCA4C9F00948D70 /* MPicturesDetailInfo.swift */; };
 		DAE455501DCA4CB000948D70 /* MPicturesDetailInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4554F1DCA4CB000948D70 /* MPicturesDetailInfoItem.swift */; };
 		DAE455521DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455511DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift */; };
+		DAE455541DCA4DE400948D70 /* VPicturesDetailCellInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455531DCA4DE400948D70 /* VPicturesDetailCellInfoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,6 +212,7 @@
 		DAE4554D1DCA4C9F00948D70 /* MPicturesDetailInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfo.swift; sourceTree = "<group>"; };
 		DAE4554F1DCA4CB000948D70 /* MPicturesDetailInfoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfoItem.swift; sourceTree = "<group>"; };
 		DAE455511DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfoItemShare.swift; sourceTree = "<group>"; };
+		DAE455531DCA4DE400948D70 /* VPicturesDetailCellInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDetailCellInfoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,6 +340,7 @@
 				DA2F66A91DC942480078B466 /* VPicturesDetailCell.swift */,
 				DA2F66AA1DC942480078B466 /* VPicturesDetailCellImage.swift */,
 				DA2F66AB1DC942480078B466 /* VPicturesDetailCellInfo.swift */,
+				DAE455531DCA4DE400948D70 /* VPicturesDetailCellInfoCell.swift */,
 			);
 			path = PicturesDetail;
 			sourceTree = "<group>";
@@ -907,6 +910,7 @@
 				DA88F6801DC80C62009F61B3 /* FStorage.swift in Sources */,
 				DA88F6761DC7EDF5009F61B3 /* MHomeUploadItemStatusLoaded.swift in Sources */,
 				DA4EF90A1DC395B300297C1D /* MMainItem.swift in Sources */,
+				DAE455541DCA4DE400948D70 /* VPicturesDetailCellInfoCell.swift in Sources */,
 				DA2F66881DC8FE8B0078B466 /* VPictures.swift in Sources */,
 				DACD1FC71DC7C6AE0067D26B /* FDatabaseModelUser.swift in Sources */,
 				DAE455501DCA4CB000948D70 /* MPicturesDetailInfoItem.swift in Sources */,

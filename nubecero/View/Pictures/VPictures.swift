@@ -9,13 +9,12 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private weak var spinner:VSpinner?
     private let kCollectionHeight:CGFloat = 80
     private let kCollectionMargin:CGFloat = 1
-    private let kInterLine:CGFloat = 1
     
     convenience init(controller:CPictures)
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor.background
+        backgroundColor = UIColor.white
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
@@ -38,7 +37,7 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             left:kCollectionMargin,
             bottom:kCollectionMargin,
             right:kCollectionMargin)
-        flow.minimumLineSpacing = kInterLine
+        flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         
@@ -48,7 +47,7 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         collectionView.isHidden = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.clipsToBounds = true
-        collectionView.backgroundColor = UIColor(white:0, alpha:0.1)
+        collectionView.backgroundColor = UIColor.clear
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.alwaysBounceHorizontal = true

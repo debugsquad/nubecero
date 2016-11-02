@@ -4,7 +4,7 @@ class VPicturesCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private weak var model:MPicturesItem?
-    private let kImageMargin:CGFloat = 2
+    private let kImageMargin:CGFloat = 3
     
     override init(frame:CGRect)
     {
@@ -99,11 +99,11 @@ class VPicturesCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
-            backgroundColor = UIColor.main
+            backgroundColor = UIColor.black
         }
         else
         {
-            backgroundColor = UIColor(white:0, alpha:0.1)
+            backgroundColor = UIColor.clear
         }
     }
     

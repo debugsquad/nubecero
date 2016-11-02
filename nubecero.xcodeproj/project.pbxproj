@@ -97,6 +97,7 @@
 		DAE4554B1DCA4C2400948D70 /* Pictures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE4554A1DCA4C2400948D70 /* Pictures.xcassets */; };
 		DAE4554E1DCA4C9F00948D70 /* MPicturesDetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4554D1DCA4C9F00948D70 /* MPicturesDetailInfo.swift */; };
 		DAE455501DCA4CB000948D70 /* MPicturesDetailInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4554F1DCA4CB000948D70 /* MPicturesDetailInfoItem.swift */; };
+		DAE455521DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE455511DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -209,6 +210,7 @@
 		DAE4554A1DCA4C2400948D70 /* Pictures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Pictures.xcassets; sourceTree = "<group>"; };
 		DAE4554D1DCA4C9F00948D70 /* MPicturesDetailInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfo.swift; sourceTree = "<group>"; };
 		DAE4554F1DCA4CB000948D70 /* MPicturesDetailInfoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfoItem.swift; sourceTree = "<group>"; };
+		DAE455511DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfoItemShare.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -627,6 +629,7 @@
 			children = (
 				DAE4554D1DCA4C9F00948D70 /* MPicturesDetailInfo.swift */,
 				DAE4554F1DCA4CB000948D70 /* MPicturesDetailInfoItem.swift */,
+				DAE455511DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift */,
 			);
 			path = PicturesDetailInfo;
 			sourceTree = "<group>";
@@ -912,6 +915,7 @@
 				DA4EF9131DC395B300297C1D /* VBarCell.swift in Sources */,
 				DACD1FC91DC7C6C80067D26B /* FDatabaseModelUserPicture.swift in Sources */,
 				DA4EF9021DC395B300297C1D /* ExtensionUICollectionReusableView.swift in Sources */,
+				DAE455521DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift in Sources */,
 				DA4EF9031DC395B300297C1D /* ExtensionUIColor.swift in Sources */,
 				DACD1F9C1DC400090067D26B /* MHome.swift in Sources */,
 				DA4EF90E1DC395B300297C1D /* MMainStateOptions.swift in Sources */,

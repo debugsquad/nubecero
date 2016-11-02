@@ -6,5 +6,7 @@ class MPicturesDetailInfo
     
     init()
     {
+        items = [
+        ]
     }
 }

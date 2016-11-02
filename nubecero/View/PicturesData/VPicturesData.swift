@@ -45,6 +45,10 @@ class VPicturesData:UIView, UICollectionViewDelegate, UICollectionViewDataSource
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(
+            VPicturesDataCellCreated.self,
+            forCellWithReuseIdentifier:
+            VPicturesDataCellCreated.reusableIdentifier)
+        collectionView.register(
             VPicturesDataCellSize.self,
             forCellWithReuseIdentifier:
             VPicturesDataCellSize.reusableIdentifier)

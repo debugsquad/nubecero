@@ -79,23 +79,57 @@ class MHomeUploadItem
         status = MHomeUploadItemStatusSynced(item:self)
     }
     
-    func removeImageOrientation()
+    func removeImageOrientation(rawData:Data?)
     {
         guard
             
-            let imageData:Data = self.imageData,
-            let originalImage:UIImage = UIImage(data:imageData),
-            let cgImage:CGImage = originalImage.cgImage
-            
+            let data:Data = rawData,
+            let baseImage:UIImage = UIImage(data:data)
+        
         else
         {
-            self.imageData = nil
-            
             return
         }
         
-        let imageOriginalWidth:CGFloat = originalImage.size.width
-        let imageOriginalHeight:CGFloat = originalImage.size.height
+        let imageOriginalWidth:CGFloat = baseImage.size.width
+        let imageOriginalHeight:CGFloat = baseImage.size.height
+        let size:CGSize = CGSize(width:imageOriginalWidth, height:imageOriginalHeight)
+        let rect:CGRect = CGRect(origin:CGPoint.zero, size:size)
+        
+        UIGraphicsBeginImageContext(size)
+        baseImage.draw(in:rect)
+        let normalizedImage:UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        guard
+        
+            let usableImage:UIImage = normalizedImage
+        
+        else
+        {
+            return
+        }
+        
+        imageData = UIImageJPEGRepresentation(usableImage, kJpegImageQuality)
+        
+        /*
+        let rotatedImage:UIImage = UIImage(
+            cgImage:baseCgImage,
+            scale:0,
+            orientation:UIImageOrientation.upMirrored)
+        
+        guard
+            
+            let cgImage:CGImage = rotatedImage.cgImage
+            
+        else
+        {
+            return
+        }
+        
+        
+        let imageOriginalWidth:CGFloat = rotatedImage.size.width
+        let imageOriginalHeight:CGFloat = rotatedImage.size.height
         let usableWidth:Int = Int(imageOriginalWidth)
         let usableHeight:Int = Int(imageOriginalHeight)
         let bitsPerComponent:Int = cgImage.bitsPerComponent
@@ -126,8 +160,6 @@ class MHomeUploadItem
             
         else
         {
-            self.imageData = nil
-            
             return
         }
         
@@ -142,12 +174,10 @@ class MHomeUploadItem
             
         else
         {
-            self.imageData = nil
-            
             return
         }
         
         let resultImage:UIImage = UIImage(cgImage:editedImage)
-        self.imageData = UIImageJPEGRepresentation(resultImage, kJpegImageQuality)
+        self.imageData = UIImageJPEGRepresentation(resultImage, kJpegImageQuality)*/
     }
 }

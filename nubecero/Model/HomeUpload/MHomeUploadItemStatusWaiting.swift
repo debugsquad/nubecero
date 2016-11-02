@@ -34,13 +34,13 @@ class MHomeUploadItemStatusWaiting:MHomeUploadItemStatus
             requestOptions.isSynchronous = false
             requestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.highQualityFormat
             
+            PHImageManager.default().requestimage
             PHImageManager.default().requestImageData(
                 for:asset,
                 options:requestOptions)
             { [weak self, weak controller] (data, dataUTI, orientation, info) in
                 
-                self?.item?.imageData = data
-                self?.item?.removeImageOrientation()
+                self?.item?.removeImageOrientation(rawData:data)
                 self?.imageLoaded(controller:controller)
             }
         }

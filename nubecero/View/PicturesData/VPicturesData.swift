@@ -2,12 +2,15 @@ import UIKit
 
 class VPicturesData:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    weak var controller:CPicturesData!
-    weak var collectionView:UICollectionView!
+    private weak var controller:CPicturesData!
+    private weak var collectionView:UICollectionView!
+    private let model:MPicturesData
     
-    convenience init(controller:CPicturesData)
+    init(controller:CPicturesData)
     {
-        self.init()
+        model = MPicturesData()
+        
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
@@ -38,5 +41,43 @@ class VPicturesData:UIView, UICollectionViewDelegate, UICollectionViewDataSource
             views:views))
     }
     
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MPicturesDataItem
+    {
+        let item:MPicturesDataItem = model.items[index.item]
+        
+        return item
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
+        let count:Int = model.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MPicturesDataItem = modelAtIndex(index:indexPath)
+        let cell:VPicturesDataCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            item.reusableIdentifier,
+            for:indexPath) as! VPicturesDataCell
+        cell.config(controller:controller, model:item)
+        
+        return cell
+    }
 }

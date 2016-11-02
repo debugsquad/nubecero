@@ -5,7 +5,7 @@ class VPicturesCell:UICollectionViewCell
     private weak var blurView:UIView!
     private weak var imageView:UIImageView!
     private weak var model:MPicturesItem?
-    private let kBlurAlpha:CGFloat = 0.7
+    private let kBlurAlpha:CGFloat = 0.98
     private let kBorderWidth:CGFloat = 1
     
     override init(frame:CGRect)

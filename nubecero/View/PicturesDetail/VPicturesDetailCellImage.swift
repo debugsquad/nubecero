@@ -39,4 +39,9 @@ class VPicturesDetailCellImage:VPicturesDetailCell
     {
         fatalError()
     }
+    
+    override func config(controller:CPictures)
+    {
+        imageView.image = controller.viewPictures.currentItem?.image
+    }
 }

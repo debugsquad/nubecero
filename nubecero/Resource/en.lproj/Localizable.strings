@@ -6,6 +6,7 @@
 "VPicturesDataCellSize_labelTitle"="Megabytes";
 "VPicturesDataCellCreated_labelTitle"="Uploaded";
 "VBanned_disclaimer"="Your account is suspended\nContact support for further information";
+"VHomeCellSpace_labelTitle"="Cloud space avialable";
 
 "CLogin_logOut"="Log out succeded";
 "CHomeUpload_title"="Upload";

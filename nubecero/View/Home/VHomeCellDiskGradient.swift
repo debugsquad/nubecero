@@ -27,6 +27,7 @@ class VHomeCellDiskGradient:UIView
             green:0.835294117647059,
             blue:0.388235294117647,
             alpha:1)
+        
         let topColor:CGColor = yellowColor.cgColor
         let middleColor:CGColor = UIColor.main.cgColor
         let bottomColor:CGColor = yellowColor.cgColor

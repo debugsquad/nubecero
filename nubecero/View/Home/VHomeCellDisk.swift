@@ -5,16 +5,12 @@ class VHomeCellDisk:VHomeCell
     private weak var circle:VHomeCellDiskCircle!
     private let circleSize:CGSize
     private let circleSide:CGFloat
-    private let kCircleMargin:CGFloat = 24
     
     override init(frame:CGRect)
     {
         let width:CGFloat = frame.size.width
         let height:CGFloat = frame.size.height
-        let minSize:CGFloat = min(width, height)
-        let compoundMargin:CGFloat = kCircleMargin + kCircleMargin
-        circleSide = minSize - compoundMargin
-        
+        circleSide = min(width, height)
         circleSize = CGSize(width:circleSide, height:circleSide)
         
         super.init(frame:frame)

@@ -14,11 +14,4 @@ class MHomeItemDisk:MHomeItem
             cellHeight:kCellHeight,
             selectable:kSelectable)
     }
-    
-    //MARK: public
-    
-    private func loadPercentUsed(cell:VHomeCellDisk)
-    {
-        
-    }
 }

@@ -63,7 +63,7 @@ class VHomeCellDisk:VHomeCell
         super.layoutSubviews()
     }
     
-    override func config(model:MHomeItem)
+    override func config(controller:CHome, model:MHomeItem)
     {
         guard
         
@@ -73,7 +73,5 @@ class VHomeCellDisk:VHomeCell
         {
             return
         }
-        
-        model
     }
 }

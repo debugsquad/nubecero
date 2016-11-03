@@ -49,7 +49,7 @@ class VHomeCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MHomeItem)
+    func config(controller:CHome, model:MHomeItem)
     {
         
     }

@@ -135,7 +135,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         let cell:VHomeCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:item.reusableIdentifier,
             for:indexPath) as! VHomeCell
-        cell.config(model:item)
+        cell.config(controller:controller, model:item)
         
         return cell
     }

@@ -43,6 +43,17 @@ class CParent:UIViewController
         return false
     }
     
+    //MARK: notified
+    
+    func notifiedUserBanned(sender notification:Notification)
+    {
+        DispatchQueue.main.async
+        {
+            let controllerBanned:CBanned = CBanned()
+            over(controller:controllerBanned, pop:true)
+        }
+    }
+    
     //MARK: private
     
     private func mainController(controller:CController, underBar:Bool, pop:Bool)

@@ -2,57 +2,72 @@ import UIKit
 
 class VHomeCellDisk:VHomeCell
 {
-    private let kImageHeight:CGFloat = 40
+    private let kCircleSize:CGFloat = 100
+    private weak var layoutCircleLeft:NSLayoutConstraint!
+    private weak var layoutCircleTop:NSLayoutConstraint!
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         
-        let label:UILabel = UILabel()
-        label.isUserInteractionEnabled = false
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.clear
-        label.font = UIFont.medium(size:12)
-        label.textColor = UIColor.complement
-        label.textAlignment = NSTextAlignment.center
-        label.text = NSLocalizedString("VHomeCellUpload_label", comment:"")
+        let circle:VHomeCellDiskCircle = VHomeCellDiskCircle()
         
-        let imageView:UIImageView = UIImageView()
-        imageView.isUserInteractionEnabled = false
-        imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.center
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = #imageLiteral(resourceName: "assetHomeUpload")
-        
-        addSubview(label)
-        addSubview(imageView)
+        addSubview(circle)
         
         let views:[String:UIView] = [
-            "label":label,
-            "imageView":imageView]
+            "circle":circle]
         
         let metrics:[String:CGFloat] = [
-            "imageHeight":kImageHeight]
+            "circleSize":kCircleSize]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[label]-0-|",
+            withVisualFormat:"H:[circle(circleSize)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[imageView]-0-|",
+            withVisualFormat:"V:[circle(circleSize)]",
             options:[],
             metrics:metrics,
             views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-5-[imageView(imageHeight)]-(-5)-[label]-10-|",
-            options:[],
-            metrics:metrics,
-            views:views))
+        
+        layoutCircleLeft = NSLayoutConstraint(
+            item:circle,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.left,
+            multiplier:1,
+            constant:0)
+        layoutCircleTop = NSLayoutConstraint(
+            item:circle,
+            attribute:NSLayoutAttribute.top,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.top,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutCircleLeft)
+        addConstraint(layoutCircleTop)
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        let cellWidth:CGFloat = bounds.maxX
+        let cellHeight:CGFloat = bounds.maxY
+        let remainWidth:CGFloat = cellWidth - kCircleSize
+        let remainHeight:CGFloat = cellHeight - kCircleSize
+        let marginLeft:CFloat = remainWidth / 2.0
+        let marginTop:CGFloat = remainHeight / 2.0
+        layoutCircleLeft.constant = marginLeft
+        layoutCircleTop.constant = marginTop
+        
+        super.layoutSubviews()
     }
 }

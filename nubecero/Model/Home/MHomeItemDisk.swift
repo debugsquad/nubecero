@@ -4,7 +4,7 @@ class MHomeItemDisk:MHomeItem
 {
     private let kCellHeight:CGFloat = 250
     private let kSelectable:Bool = false
-    var percentUsed:CGFloat?
+    private var percentUsed:CGFloat?
     
     override init()
     {
@@ -13,5 +13,12 @@ class MHomeItemDisk:MHomeItem
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight,
             selectable:kSelectable)
+    }
+    
+    //MARK: public
+    
+    private func loadPercentUsed(cell:VHomeCellDisk)
+    {
+        
     }
 }

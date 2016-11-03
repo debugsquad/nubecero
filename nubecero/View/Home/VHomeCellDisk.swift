@@ -2,7 +2,7 @@ import UIKit
 
 class VHomeCellDisk:VHomeCell
 {
-    private weak var circle:VHomeCellDiskCircle!
+    weak var circle:VHomeCellDiskCircle!
     private let circleSize:CGSize
     private let circleSide:CGFloat
     
@@ -65,6 +65,15 @@ class VHomeCellDisk:VHomeCell
     
     override func config(model:MHomeItem)
     {
-//        circle.maxRadius(maxCircleEndAngle:3)
+        guard
+        
+            let modelDisk:MHomeItemDisk = model as? MHomeItemDisk
+        
+        else
+        {
+            return
+        }
+        
+        model
     }
 }

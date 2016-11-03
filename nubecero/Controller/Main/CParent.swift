@@ -58,23 +58,20 @@ class CParent:UIViewController
             currentController = nil
         }
         
-        currentController?.willMove(toParentViewController:nil)
         currentController?.beginAppearanceTransition(false, animated:true)
         
         controllers.append(controller)
-        controller.willMove(toParentViewController:self)
-        controller.beginAppearanceTransition(true, animated:true)
         addChildViewController(controller)
+        controller.beginAppearanceTransition(true, animated:true)
         
         viewParent.over(controller:controller, underBar:underBar)
-        
-        currentController?.view.removeFromSuperview()
-        currentController?.removeFromParentViewController()
-        currentController?.didMove(toParentViewController:nil)
-        currentController?.endAppearanceTransition()
-        
-        controller.didMove(toParentViewController:self)
-        controller.endAppearanceTransition()
+        {
+            currentController?.view.removeFromSuperview()
+            currentController?.removeFromParentViewController()
+            currentController?.endAppearanceTransition()
+            
+            controller.endAppearanceTransition()
+        }
     }
     
     //MARK: public
@@ -106,9 +103,9 @@ class CParent:UIViewController
         currentController.willMove(toParentViewController:nil)
         currentController.beginAppearanceTransition(false, animated:true)
         
+        addChildViewController(controller)
         controller.willMove(toParentViewController:self)
         controller.beginAppearanceTransition(true, animated:true)
-        addChildViewController(controller)
         
         viewParent.push(controller:controller, currentController:currentController)
         {
@@ -208,9 +205,9 @@ class CParent:UIViewController
         currentController.beginAppearanceTransition(false, animated:true)
         
         controllers.append(controller)
+        addChildViewController(controller)
         controller.willMove(toParentViewController:self)
         controller.beginAppearanceTransition(true, animated:true)
-        addChildViewController(controller)
         
         viewParent.fromLeft(controller:controller, currentController:currentController)
         {
@@ -239,9 +236,9 @@ class CParent:UIViewController
         currentController.beginAppearanceTransition(false, animated:true)
         
         controllers.append(controller)
+        addChildViewController(controller)
         controller.willMove(toParentViewController:self)
         controller.beginAppearanceTransition(true, animated:true)
-        addChildViewController(controller)
         
         viewParent.fromRight(controller:controller, currentController:currentController)
         {

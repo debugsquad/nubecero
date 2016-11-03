@@ -103,7 +103,7 @@ class VParent:UIView
     
     //MARK: public
     
-    func over(controller:CController, underBar:Bool)
+    func over(controller:CController, underBar:Bool, completion:@escaping(() -> ()))
     {
         if underBar
         {
@@ -147,9 +147,13 @@ class VParent:UIView
         addConstraint(controller.layoutLeft)
         addConstraint(controller.layoutRight)
         
-        UIView.animate(withDuration:kAnimationDuration)
+        UIView.animate(withDuration:kAnimationDuration, animations:
         {
             controller.view.alpha = 1
+        })
+        { (done) in
+            
+            completion()
         }
     }
     

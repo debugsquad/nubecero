@@ -32,6 +32,12 @@ class FDatabase
         childReference.setValue(json)
     }
     
+    func removeChild(path:String)
+    {
+        let childReference:FIRDatabaseReference = reference.child(path)
+        childReference.removeValue()
+    }
+    
     func listenOnce<ModelType:FDatabaseModel>(path:String, modelType:ModelType.Type, completion:@escaping((ModelType?) -> ()))
     {
         let pathReference:FIRDatabaseReference = reference.child(path)

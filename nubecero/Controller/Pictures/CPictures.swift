@@ -68,7 +68,9 @@ class CPictures:CController
             
             else
             {
-                self?.deleteCompleted()
+                self?.deleteCompleted(
+                    userId:userId,
+                    pictureId:pictureId)
                 
                 return
             }
@@ -77,8 +79,14 @@ class CPictures:CController
         }
     }
     
-    private func deleteCompleted()
+    private func deleteCompleted(userId:String, pictureId:MPictures.PictureId)
     {
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let propertyPictures:String = FDatabaseModelUser.Property.pictures.rawValue
+        let path:String = "\(parentUser)/\(userId)/\(propertyPictures)/\(pictureId)"
+        
+        FMain.sharedInstance.database.removeChild(path:path)
+        
         DispatchQueue.main.async
         { [weak self] in
             

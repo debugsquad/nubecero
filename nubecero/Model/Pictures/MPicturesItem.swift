@@ -10,7 +10,7 @@ class MPicturesItem
     private(set) var image:UIImage?
     private weak var timer:Timer?
     private let kThumbnailSize:CGFloat = 128
-    private let kPictureTimeout:TimeInterval = 10
+    private let kPictureTimeout:TimeInterval = 15
     
     init(pictureId:MPictures.PictureId, firebasePicture:FDatabaseModelPicture)
     {

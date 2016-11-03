@@ -172,10 +172,7 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             nextIndexPath = nil
         }
         
-        collectionView.selectItem(
-            at:nextIndexPath,
-            animated:true,
-            scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
+        collectionView.reloadData()
         
         guard
         
@@ -185,6 +182,11 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         {
             return
         }
+        
+        collectionView.selectItem(
+            at:nextIndexPath,
+            animated:true,
+            scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
         
         selectItemNumber(index:newItem)
     }

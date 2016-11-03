@@ -79,11 +79,10 @@ class CPictures:CController
     
     private func deleteCompleted()
     {
-        
-        
         DispatchQueue.main.async
-        {
+        { [weak self] in
             
+            self?.viewPictures.removeSelected()
         }
     }
     

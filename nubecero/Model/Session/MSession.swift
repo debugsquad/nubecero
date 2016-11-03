@@ -38,7 +38,8 @@ class MSession
     {
         let parentUser:String = FDatabase.Parent.user.rawValue
         let userPath:String = "\(parentUser)/\(userId)"
-        let modelUser:FDatabaseModelUser = FDatabaseModelUser()
+        let modelUser:FDatabaseModelUser = FDatabaseModelUser(
+            status:FDatabaseModelUser.Status.active)
         let json:Any = modelUser.modelJson()
         
         FMain.sharedInstance.database.updateChild(

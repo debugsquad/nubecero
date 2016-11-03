@@ -4,7 +4,7 @@ class CHome:CController
 {
     weak var viewHome:VHome!
     let model:MHome
-    var usedDisk:Int?
+    var diskUsed:Int?
     
     init()
     {
@@ -54,12 +54,6 @@ class CHome:CController
     {
         NotificationCenter.default.removeObserver(self)
         loadUsedDisk()
-        
-        DispatchQueue.main.async
-        { [weak self] in
-            
-            self?.sessionLoaded()
-        }
     }
     
     //MARK: private
@@ -67,8 +61,7 @@ class CHome:CController
     private func loadUsedDisk()
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
+        {
             guard
                 
                 let userId:String = MSession.sharedInstance.userId
@@ -84,7 +77,26 @@ class CHome:CController
             
             FMain.sharedInstance.database.listenOnce(
                 path:pathDiskUsed,
-                modelType:fdatamodel, completion: <#T##((ModelType?) -> ())##((ModelType?) -> ())##(ModelType?) -> ()#>)
+                modelType:FDatabaseModelUserDiskUsed.self)
+            { [weak self] (diskUsed) in
+                
+                guard
+                
+                    let firebaseDiskUsed:FDatabaseModelUserDiskUsed = diskUsed
+                
+                else
+                {
+                    return
+                }
+                
+                self?.diskUsed = firebaseDiskUsed.diskUsed
+                
+                DispatchQueue.main.async
+                { [weak self] in
+                        
+                    self?.viewHome.sessionLoaded()
+                }
+            }
         }
     }
     

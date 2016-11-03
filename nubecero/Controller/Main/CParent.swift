@@ -130,27 +130,66 @@ class CParent:UIViewController
         mainController(controller:controller, underBar:false, pop:pop)
     }
     
-    func pop()
+    func pop(popBar:Bool)
     {
-        viewParent.pop
+        guard
+            
+            let currentController:CController = controllers.popLast(),
+            let previousController:CController = controllers.popLast()
+        
+        else
         {
-            let controller:CController = self.controllers.popLast()!
-            controller.view.removeFromSuperview()
-            controller.removeFromParentViewController()
-            let current:CController = self.controllers.last!
-            current.didMove(toParentViewController:self)
-            current.beginAppearanceTransition(true, animated:true)
-            current.endAppearanceTransition()
+            return
+        }
+        
+        currentController.willMove(toParentViewController:nil)
+        currentController.beginAppearanceTransition(false, animated:true)
+        
+        previousController.willMove(toParentViewController:self)
+        previousController.beginAppearanceTransition(true, animated:true)
+        
+        viewParent.pop(
+            currentController:currentController,
+            previousController:previousController,
+            popBar:popBar)
+        {
+            currentController.view.removeFromSuperview()
+            currentController.removeFromParentViewController()
+            currentController.didMove(toParentViewController:nil)
+            currentController.endAppearanceTransition()
+            
+            previousController.didMove(toParentViewController:self)
+            previousController.endAppearanceTransition()
         }
     }
     
     func dismiss()
     {
-        viewParent.dismiss
+        guard
+            
+            let currentController:CController = controllers.popLast(),
+            let previousController:CController = controllers.popLast()
+        
+        else
         {
-            let controller:CController = self.controllers.popLast()!
-            controller.view.removeFromSuperview()
-            controller.removeFromParentViewController()
+            return
+        }
+        
+        currentController.willMove(toParentViewController:nil)
+        currentController.beginAppearanceTransition(false, animated:true)
+        
+        previousController.willMove(toParentViewController:self)
+        previousController.beginAppearanceTransition(true, animated:true)
+        
+        viewParent.dismiss(currentController:currentController)
+        {
+            currentController.view.removeFromSuperview()
+            currentController.removeFromParentViewController()
+            currentController.didMove(toParentViewController:nil)
+            currentController.endAppearanceTransition()
+            
+            previousController.didMove(toParentViewController:self)
+            previousController.endAppearanceTransition()
         }
     }
     

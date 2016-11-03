@@ -16,20 +16,34 @@ class MSession
     private func asyncLoadUser(userId:String)
     {
         let parentUser:String = FDatabase.Parent.user.rawValue
-        let userPath:String = "\(parentUser)/\(userId)"
+        let propertyStatus:String = FDatabaseModelUser.Property.status.rawValue
+        let userStatusPath:String = "\(parentUser)/\(userId)/\(propertyStatus)"
         
         FMain.sharedInstance.database.listenOnce(
-            path:userPath,
-            modelType:FDatabaseModelUser.self)
-        { (modelUser) in
+            path:userStatusPath,
+            modelType:FDatabaseModelUserStatus.self)
+        { (status) in
             
-            if modelUser == nil
+            if let statusStrong:FDatabaseModelUserStatus = status
             {
-                self.createUser(userId:userId)
+                switch statusStrong.status
+                {
+                    case FDatabaseModelUser.Status.active:
+                    
+                        self.updateLastSession(userId:userId)
+                        
+                        break
+                    
+                    default:
+                    
+                        
+                        
+                        break
+                }
             }
             else
             {
-                self.updateLastSession(userId:userId)
+                self.createUser(userId:userId)
             }
         }
     }

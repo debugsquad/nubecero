@@ -4,16 +4,23 @@ class VHomeCellDisk:VHomeCell
 {
     private weak var circle:VHomeCellDiskCircle!
     private let circleSize:CGSize
-    private let kCircleSize:CGFloat = 240
+    private let circleSide:CGFloat
+    private let kCircleMargin:CGFloat = 30
     
     override init(frame:CGRect)
     {
-        circleSize = CGSize(width:kCircleSize, height:kCircleSize)
+        let width:CGFloat = frame.size.width
+        let height:CGFloat = frame.size.height
+        let minSize:CGFloat = min(width, height)
+        let compoundMargin:CGFloat = kCircleMargin + kCircleMargin
+        circleSide = minSize - compoundMargin
+        
+        circleSize = CGSize(width:circleSide, height:circleSide)
         
         super.init(frame:frame)
         
         let circleFrame:CGRect = CGRect(
-            origin:CGPoint(x:-kCircleSize, y:-kCircleSize),
+            origin:CGPoint(x:-circleSide, y:-circleSide),
             size:circleSize)
         let circle:VHomeCellDiskCircle = VHomeCellDiskCircle(frame:circleFrame)
         self.circle = circle
@@ -49,8 +56,8 @@ class VHomeCellDisk:VHomeCell
     {
         let cellWidth:CGFloat = bounds.maxX
         let cellHeight:CGFloat = bounds.maxY
-        let remainWidth:CGFloat = cellWidth - kCircleSize
-        let remainHeight:CGFloat = cellHeight - kCircleSize
+        let remainWidth:CGFloat = cellWidth - circleSide
+        let remainHeight:CGFloat = cellHeight - circleSide
         let marginLeft:CGFloat = remainWidth / 2.0
         let marginTop:CGFloat = remainHeight / 2.0
         let marginPoint:CGPoint = CGPoint(x:marginLeft, y:marginTop)

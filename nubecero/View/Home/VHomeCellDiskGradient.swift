@@ -3,6 +3,7 @@ import UIKit
 class VHomeCellDiskGradient:UIView
 {
     private let kLocationTop:NSNumber = 0
+    private let kLocationMiddle:NSNumber = 0.5
     private let kLocationBottom:NSNumber = 1
     
     init()
@@ -21,16 +22,24 @@ class VHomeCellDiskGradient:UIView
             return
         }
         
-        let topColor:CGColor = UIColor.red.cgColor
-        let bottomColor:CGColor = UIColor.green.cgColor
+        let yellowColor:UIColor = UIColor(
+            red:0.980392156862745,
+            green:0.835294117647059,
+            blue:0.388235294117647,
+            alpha:1)
+        let topColor:CGColor = yellowColor.cgColor
+        let middleColor:CGColor = UIColor.main.cgColor
+        let bottomColor:CGColor = yellowColor.cgColor
         
         gradientLayer.locations = [
             kLocationTop,
+            kLocationMiddle,
             kLocationBottom
         ]
         
         gradientLayer.colors = [
             topColor,
+            middleColor,
             bottomColor
         ]
     }

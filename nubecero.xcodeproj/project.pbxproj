@@ -28,6 +28,7 @@
 		DA2F66B31DC950850078B466 /* MPicturesItemStateNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66B21DC950850078B466 /* MPicturesItemStateNone.swift */; };
 		DA2F66B51DC9508F0078B466 /* MPicturesItemStateLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66B41DC9508F0078B466 /* MPicturesItemStateLoading.swift */; };
 		DA2F66B71DC9509D0078B466 /* MPicturesItemStateLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66B61DC9509D0078B466 /* MPicturesItemStateLoaded.swift */; };
+		DA3411751DCB90D7006E6D71 /* VHomeCellDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411741DCB90D7006E6D71 /* VHomeCellDisk.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -152,6 +153,7 @@
 		DA2F66B21DC950850078B466 /* MPicturesItemStateNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesItemStateNone.swift; sourceTree = "<group>"; };
 		DA2F66B41DC9508F0078B466 /* MPicturesItemStateLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesItemStateLoading.swift; sourceTree = "<group>"; };
 		DA2F66B61DC9509D0078B466 /* MPicturesItemStateLoaded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesItemStateLoaded.swift; sourceTree = "<group>"; };
+		DA3411741DCB90D7006E6D71 /* VHomeCellDisk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellDisk.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -550,6 +552,7 @@
 				DACD1F921DC3DA4B0067D26B /* VHome.swift */,
 				DACD1F9F1DC401240067D26B /* VHomeCell.swift */,
 				DACD1FA31DC402960067D26B /* VHomeCellUpload.swift */,
+				DA3411741DCB90D7006E6D71 /* VHomeCellDisk.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -925,6 +928,7 @@
 				DACD1FB01DC540750067D26B /* MHomeUpload.swift in Sources */,
 				DAE455561DCA52BB00948D70 /* MPicturesDetailInfoItemDelete.swift in Sources */,
 				DACD1FAB1DC4124B0067D26B /* VHomeUpload.swift in Sources */,
+				DA3411751DCB90D7006E6D71 /* VHomeCellDisk.swift in Sources */,
 				DA4EF8FD1DC395B300297C1D /* DNubecero.xcdatamodeld in Sources */,
 				DAE4556A1DCA92FA00948D70 /* VPicturesDataCellSize.swift in Sources */,
 				DA2F66A41DC92F670078B466 /* MPicturesDetailItemImage.swift in Sources */,

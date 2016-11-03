@@ -23,8 +23,6 @@ class MSession
             modelType:FDatabaseModelUser.self)
         { (modelUser) in
             
-            self.loadServer()
-            
             if modelUser == nil
             {
                 self.createUser(userId:userId)
@@ -48,6 +46,7 @@ class MSession
             json:json)
         
         self.userId = userId
+        self.loadServer()
     }
     
     private func updateLastSession(userId:String)
@@ -62,6 +61,7 @@ class MSession
             json:currentTime)
         
         self.userId = userId
+        self.loadServer()
     }
     
     private func loadServer()

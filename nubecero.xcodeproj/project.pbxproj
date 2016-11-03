@@ -35,6 +35,7 @@
 		DA34117D1DCBC1C0006E6D71 /* FDatabaseModelServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34117C1DCBC1C0006E6D71 /* FDatabaseModelServer.swift */; };
 		DA34117F1DCBC4A8006E6D71 /* MSessionServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34117E1DCBC4A8006E6D71 /* MSessionServer.swift */; };
 		DA3411811DCBE893006E6D71 /* FDatabaseModelUserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411801DCBE893006E6D71 /* FDatabaseModelUserStatus.swift */; };
+		DA3411831DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411821DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -166,6 +167,7 @@
 		DA34117C1DCBC1C0006E6D71 /* FDatabaseModelServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelServer.swift; sourceTree = "<group>"; };
 		DA34117E1DCBC4A8006E6D71 /* MSessionServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionServer.swift; sourceTree = "<group>"; };
 		DA3411801DCBE893006E6D71 /* FDatabaseModelUserStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserStatus.swift; sourceTree = "<group>"; };
+		DA3411821DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserDiskUsed.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -661,6 +663,7 @@
 			children = (
 				DACD1FC61DC7C6AE0067D26B /* FDatabaseModelUser.swift */,
 				DA3411801DCBE893006E6D71 /* FDatabaseModelUserStatus.swift */,
+				DA3411821DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift */,
 				DACD1FC81DC7C6C80067D26B /* FDatabaseModelUserPicture.swift */,
 				DA2F668E1DC90AF50078B466 /* FDatabaseModelUserPictureList.swift */,
 				DA34117C1DCBC1C0006E6D71 /* FDatabaseModelServer.swift */,
@@ -940,6 +943,7 @@
 				DACD1F991DC3F0E80067D26B /* MMainItemPictures.swift in Sources */,
 				DA2F668B1DC8FFB20078B466 /* MPictures.swift in Sources */,
 				DA3411791DCB92A3006E6D71 /* VHomeCellDiskCircle.swift in Sources */,
+				DA3411831DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift in Sources */,
 				DAE4554E1DCA4C9F00948D70 /* MPicturesDetailInfo.swift in Sources */,
 				DACD1F951DC3DBDB0067D26B /* VAlert.swift in Sources */,
 				DACD1FC51DC7C6750067D26B /* FDatabaseModel.swift in Sources */,

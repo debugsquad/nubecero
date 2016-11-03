@@ -2,7 +2,7 @@ import UIKit
 
 class VHomeCellDisk:VHomeCell
 {
-    private let kCircleSize:CGFloat = 100
+    private let kCircleSize:CGFloat = 200
     private weak var layoutCircleLeft:NSLayoutConstraint!
     private weak var layoutCircleTop:NSLayoutConstraint!
     

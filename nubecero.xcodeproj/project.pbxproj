@@ -31,6 +31,7 @@
 		DA3411751DCB90D7006E6D71 /* VHomeCellDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411741DCB90D7006E6D71 /* VHomeCellDisk.swift */; };
 		DA3411771DCB9107006E6D71 /* MHomeItemDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411761DCB9107006E6D71 /* MHomeItemDisk.swift */; };
 		DA3411791DCB92A3006E6D71 /* VHomeCellDiskCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411781DCB92A3006E6D71 /* VHomeCellDiskCircle.swift */; };
+		DA34117B1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34117A1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -158,6 +159,7 @@
 		DA3411741DCB90D7006E6D71 /* VHomeCellDisk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellDisk.swift; sourceTree = "<group>"; };
 		DA3411761DCB9107006E6D71 /* MHomeItemDisk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemDisk.swift; sourceTree = "<group>"; };
 		DA3411781DCB92A3006E6D71 /* VHomeCellDiskCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellDiskCircle.swift; sourceTree = "<group>"; };
+		DA34117A1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellDiskGradient.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -558,6 +560,7 @@
 				DACD1FA31DC402960067D26B /* VHomeCellUpload.swift */,
 				DA3411741DCB90D7006E6D71 /* VHomeCellDisk.swift */,
 				DA3411781DCB92A3006E6D71 /* VHomeCellDiskCircle.swift */,
+				DA34117A1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -934,6 +937,7 @@
 				DA4EF9141DC395B300297C1D /* VParent.swift in Sources */,
 				DACD1FB01DC540750067D26B /* MHomeUpload.swift in Sources */,
 				DAE455561DCA52BB00948D70 /* MPicturesDetailInfoItemDelete.swift in Sources */,
+				DA34117B1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift in Sources */,
 				DACD1FAB1DC4124B0067D26B /* VHomeUpload.swift in Sources */,
 				DA3411751DCB90D7006E6D71 /* VHomeCellDisk.swift in Sources */,
 				DA4EF8FD1DC395B300297C1D /* DNubecero.xcdatamodeld in Sources */,

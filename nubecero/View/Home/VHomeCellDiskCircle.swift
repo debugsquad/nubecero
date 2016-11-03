@@ -2,8 +2,8 @@ import UIKit
 
 class VHomeCellDiskCircle:UIView
 {
-    private let kLineWidth:CGFloat = 10
-    private let kCircleRadius:CGFloat = 50
+    private let kLineWidth:CGFloat = 25
+    private let kCircleRadius:CGFloat = 80
     private let kCircleStartAngle:CGFloat = 0
     private let strokeColor:CGColor
     
@@ -41,6 +41,7 @@ class VHomeCellDiskCircle:UIView
         let centerPoint:CGPoint = CGPoint(x:centerX, y:centerY)
         
         context.setLineWidth(kLineWidth)
+        context.setLineCap(CGLineCap.round)
         context.setStrokeColor(strokeColor)
         context.addArc(
             center:centerPoint,

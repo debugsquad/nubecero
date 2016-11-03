@@ -89,6 +89,10 @@ class MSession
             }
             
             self.server = MSessionServer(firebaseServer:firebaseServer)
+            
+            NotificationCenter.default.post(
+                name:Notification.sessionLoaded,
+                object:nil)
         }
     }
     

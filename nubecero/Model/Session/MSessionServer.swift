@@ -6,6 +6,7 @@ class MSessionServer
     
     init(firebaseServer:FDatabaseModelServer)
     {
+        print("loaded server")
         froobSpace = firebaseServer.froobSpace
     }
 }

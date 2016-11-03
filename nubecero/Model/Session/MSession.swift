@@ -99,9 +99,11 @@ class MSession
             froobSpace:kServerInitialFroobSize)
         let firebaseServerJson:Any = firebaseServer.modelJson()
         
-        let _:String = FMain.sharedInstance.database.createChild(
+        FMain.sharedInstance.database.updateChild(
             path:parentServer,
             json:firebaseServerJson)
+        
+        loadServer()
     }
     
     //MARK: public

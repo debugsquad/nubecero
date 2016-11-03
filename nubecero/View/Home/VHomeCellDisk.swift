@@ -5,7 +5,7 @@ class VHomeCellDisk:VHomeCell
     private weak var circle:VHomeCellDiskCircle!
     private let circleSize:CGSize
     private let circleSide:CGFloat
-    private let kCircleMargin:CGFloat = 30
+    private let kCircleMargin:CGFloat = 24
     
     override init(frame:CGRect)
     {

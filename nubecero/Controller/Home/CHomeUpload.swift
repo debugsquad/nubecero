@@ -237,7 +237,10 @@ class CHomeUpload:CController
         
         for uploadItem:MHomeUploadItem in uploadItems
         {
-            deletableAssets.append(uploadItem.asset)
+            if uploadItem.status.finished
+            {
+                deletableAssets.append(uploadItem.asset)
+            }
         }
         
         let deletableEnumeration:NSFastEnumeration = deletableAssets as NSFastEnumeration

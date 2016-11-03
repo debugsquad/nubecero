@@ -38,6 +38,7 @@
 		DA3411831DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411821DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift */; };
 		DA3411851DCBEE57006E6D71 /* CBanned.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411841DCBEE57006E6D71 /* CBanned.swift */; };
 		DA3411881DCBF016006E6D71 /* VBanned.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411871DCBF016006E6D71 /* VBanned.swift */; };
+		DA34118A1DCBFCD1006E6D71 /* MHomeUploadItemStatusDiskFull.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411891DCBFCD1006E6D71 /* MHomeUploadItemStatusDiskFull.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -172,6 +173,7 @@
 		DA3411821DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserDiskUsed.swift; sourceTree = "<group>"; };
 		DA3411841DCBEE57006E6D71 /* CBanned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBanned.swift; sourceTree = "<group>"; };
 		DA3411871DCBF016006E6D71 /* VBanned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBanned.swift; sourceTree = "<group>"; };
+		DA3411891DCBFCD1006E6D71 /* MHomeUploadItemStatusDiskFull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusDiskFull.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -649,6 +651,7 @@
 				DA88F6771DC7EE00009F61B3 /* MHomeUploadItemStatusReferenced.swift */,
 				DA88F67B1DC7EE1F009F61B3 /* MHomeUploadItemStatusUploaded.swift */,
 				DA88F67D1DC7EE28009F61B3 /* MHomeUploadItemStatusSynced.swift */,
+				DA3411891DCBFCD1006E6D71 /* MHomeUploadItemStatusDiskFull.swift */,
 			);
 			path = HomeUpload;
 			sourceTree = "<group>";
@@ -1037,6 +1040,7 @@
 				DA4EF9021DC395B300297C1D /* ExtensionUICollectionReusableView.swift in Sources */,
 				DAE455521DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift in Sources */,
 				DA4EF9031DC395B300297C1D /* ExtensionUIColor.swift in Sources */,
+				DA34118A1DCBFCD1006E6D71 /* MHomeUploadItemStatusDiskFull.swift in Sources */,
 				DACD1F9C1DC400090067D26B /* MHome.swift in Sources */,
 				DA4EF90E1DC395B300297C1D /* MMainStateOptions.swift in Sources */,
 				DACD1FA81DC411440067D26B /* CHomeUpload.swift in Sources */,

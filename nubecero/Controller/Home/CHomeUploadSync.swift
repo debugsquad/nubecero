@@ -100,4 +100,17 @@ class CHomeUploadSync:CController
             self?.controllerUpload.picturesUploaded()
         }
     }
+    
+    func diskFull()
+    {
+        let message:String = NSLocalizedString("CHomeUploadSync_diskFull", comment:"")
+        VAlert.message(message:message)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+                
+            self?.parentController.dismiss()
+            self?.controllerUpload.picturesUploaded()
+        }
+    }
 }

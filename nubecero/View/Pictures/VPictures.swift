@@ -161,6 +161,10 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         {
             nextIndexPath = IndexPath(item:currentItemIndex, section:0)
         }
+        else if currentItemIndex == count && currentItemIndex > 0
+        {
+            nextIndexPath = IndexPath(item:currentItemIndex - 1, section:0)
+        }
         else
         {
             self.currentItemIndex = nil

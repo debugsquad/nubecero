@@ -19,12 +19,13 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
         guard
             
             let userId:String = MSession.sharedInstance.userId,
+            let froobSpace:Int = MSession.sharedInstance.server?.froobSpace,
             let imageData:Data = item?.imageData
             
         else
         {
-            let errorName:String = NSLocalizedString("MHomeUploadItemStatusLoaded_errorUser", comment:"")
-            controller.errorSyncing(error:errorName)
+            let errorString:String = NSLocalizedString("MHomeUploadItemStatusLoaded_errorUser", comment:"")
+            controller.errorSyncing(error:errorString)
             
             return
         }
@@ -38,30 +39,58 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
         let modelPicture:FDatabaseModelPicture = FDatabaseModelPicture(size:dataLength)
         let pictureJson:Any = modelPicture.modelJson()
         
-        item?.pictureId = FMain.sharedInstance.database.createChild(
-            path:pathPicture,
-            json:pictureJson)
-        
-        FMain.sharedInstance.database.transaction(
-            path:pathDiskUsed)
-        { (mutableData:FIRMutableData) -> (FIRTransactionResult) in
+        FMain.sharedInstance.database.listenOnce(
+            path:pathDiskUsed,
+            modelType:FDatabaseModelUserDiskUsed.self)
+        { [weak self, weak controller] (diskUsed) in
             
-            if let currentDiskUsed:Int = mutableData.value as? Int
+            guard
+            
+                let totalDiskUsed:Int = diskUsed?.diskUsed
+            
+            else
             {
-                let newDataLength:Int = dataLength + currentDiskUsed
-                mutableData.value = newDataLength
+                let errorString:String = NSLocalizedString("MHomeUploadItemStatusLoaded_errorUser", comment:"")
+                controller?.errorSyncing(error:errorString)
+                
+                return
+            }
+            
+            let remainDisk:Int = froobSpace - totalDiskUsed
+            
+            if remainDisk > dataLength
+            {
+                self?.item?.pictureId = FMain.sharedInstance.database.createChild(
+                    path:pathPicture,
+                    json:pictureJson)
+                
+                FMain.sharedInstance.database.transaction(
+                    path:pathDiskUsed)
+                { (mutableData:FIRMutableData) -> (FIRTransactionResult) in
+                    
+                    if let currentDiskUsed:Int = mutableData.value as? Int
+                    {
+                        let newDataLength:Int = dataLength + currentDiskUsed
+                        mutableData.value = newDataLength
+                    }
+                    else
+                    {
+                        mutableData.value = dataLength
+                    }
+                    
+                    let transactionResult:FIRTransactionResult = FIRTransactionResult.success(withValue:mutableData)
+                    
+                    return transactionResult
+                }
+                
+                self?.item?.statusReferenced()
             }
             else
             {
-                mutableData.value = dataLength
+                self?.item?.statusDiskFull()
             }
             
-            let transactionResult:FIRTransactionResult = FIRTransactionResult.success(withValue:mutableData)
-            
-            return transactionResult
+            controller?.keepSyncing()
         }
-        
-        item?.statusReferenced()
-        controller.keepSyncing()
     }
 }

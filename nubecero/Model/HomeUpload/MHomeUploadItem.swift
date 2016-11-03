@@ -76,4 +76,9 @@ class MHomeUploadItem
     {
         status = MHomeUploadItemStatusSynced(item:self)
     }
+    
+    func statusDiskFull()
+    {
+        status = MHomeUploadItemStatusDiskFull(item:self)
+    }
 }

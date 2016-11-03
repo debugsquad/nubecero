@@ -58,19 +58,19 @@ class CParent:UIViewController
             currentController = nil
         }
         
-        currentController?.beginAppearanceTransition(false, animated:true)
-        
         controllers.append(controller)
         addChildViewController(controller)
         controller.beginAppearanceTransition(true, animated:true)
         
+        currentController?.beginAppearanceTransition(false, animated:true)
+        
         viewParent.over(controller:controller, underBar:underBar)
         {
+            controller.endAppearanceTransition()
+            
             currentController?.view.removeFromSuperview()
             currentController?.removeFromParentViewController()
             currentController?.endAppearanceTransition()
-            
-            controller.endAppearanceTransition()
         }
     }
     
@@ -100,20 +100,15 @@ class CParent:UIViewController
         }
         
         controllers.append(controller)
-        currentController.willMove(toParentViewController:nil)
-        currentController.beginAppearanceTransition(false, animated:true)
-        
         addChildViewController(controller)
-        controller.willMove(toParentViewController:self)
         controller.beginAppearanceTransition(true, animated:true)
+        
+        currentController.beginAppearanceTransition(false, animated:true)
         
         viewParent.push(controller:controller, currentController:currentController)
         {
-            currentController.didMove(toParentViewController:nil)
-            currentController.endAppearanceTransition()
-            
-            controller.didMove(toParentViewController:self)
             controller.endAppearanceTransition()
+            currentController.endAppearanceTransition()
         }
     }
     
@@ -139,24 +134,19 @@ class CParent:UIViewController
             return
         }
         
-        currentController.willMove(toParentViewController:nil)
-        currentController.beginAppearanceTransition(false, animated:true)
-        
-        previousController.willMove(toParentViewController:self)
         previousController.beginAppearanceTransition(true, animated:true)
+        currentController.beginAppearanceTransition(false, animated:true)
         
         viewParent.pop(
             currentController:currentController,
             previousController:previousController,
             popBar:popBar)
         {
+            previousController.endAppearanceTransition()
+            
             currentController.view.removeFromSuperview()
             currentController.removeFromParentViewController()
-            currentController.didMove(toParentViewController:nil)
             currentController.endAppearanceTransition()
-            
-            previousController.didMove(toParentViewController:self)
-            previousController.endAppearanceTransition()
         }
     }
     
@@ -172,21 +162,16 @@ class CParent:UIViewController
             return
         }
         
-        currentController.willMove(toParentViewController:nil)
-        currentController.beginAppearanceTransition(false, animated:true)
-        
-        previousController.willMove(toParentViewController:self)
         previousController.beginAppearanceTransition(true, animated:true)
+        currentController.beginAppearanceTransition(false, animated:true)
         
         viewParent.dismiss(currentController:currentController)
         {
+            previousController.endAppearanceTransition()
+            
             currentController.view.removeFromSuperview()
             currentController.removeFromParentViewController()
-            currentController.didMove(toParentViewController:nil)
             currentController.endAppearanceTransition()
-            
-            previousController.didMove(toParentViewController:self)
-            previousController.endAppearanceTransition()
         }
     }
     
@@ -201,23 +186,19 @@ class CParent:UIViewController
             return
         }
         
-        currentController.willMove(toParentViewController:nil)
-        currentController.beginAppearanceTransition(false, animated:true)
-        
         controllers.append(controller)
         addChildViewController(controller)
-        controller.willMove(toParentViewController:self)
         controller.beginAppearanceTransition(true, animated:true)
+        
+        currentController.beginAppearanceTransition(false, animated:true)
         
         viewParent.fromLeft(controller:controller, currentController:currentController)
         {
+            controller.endAppearanceTransition()
+            
             currentController.view.removeFromSuperview()
             currentController.removeFromParentViewController()
-            currentController.didMove(toParentViewController:nil)
             currentController.endAppearanceTransition()
-            
-            controller.didMove(toParentViewController:self)
-            controller.endAppearanceTransition()
         }
     }
     
@@ -232,23 +213,19 @@ class CParent:UIViewController
             return
         }
         
-        currentController.willMove(toParentViewController:nil)
-        currentController.beginAppearanceTransition(false, animated:true)
-        
         controllers.append(controller)
         addChildViewController(controller)
-        controller.willMove(toParentViewController:self)
         controller.beginAppearanceTransition(true, animated:true)
+        
+        currentController.beginAppearanceTransition(false, animated:true)
         
         viewParent.fromRight(controller:controller, currentController:currentController)
         {
+            controller.endAppearanceTransition()
+            
             currentController.view.removeFromSuperview()
             currentController.removeFromParentViewController()
-            currentController.didMove(toParentViewController:nil)
             currentController.endAppearanceTransition()
-            
-            controller.didMove(toParentViewController:self)
-            controller.endAppearanceTransition()
         }
     }
 }

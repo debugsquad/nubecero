@@ -127,7 +127,7 @@ class CParent:UIViewController
         guard
             
             let currentController:CController = controllers.popLast(),
-            let previousController:CController = controllers.popLast()
+            let previousController:CController = controllers.last
         
         else
         {
@@ -155,7 +155,7 @@ class CParent:UIViewController
         guard
             
             let currentController:CController = controllers.popLast(),
-            let previousController:CController = controllers.popLast()
+            let previousController:CController = controllers.last
         
         else
         {

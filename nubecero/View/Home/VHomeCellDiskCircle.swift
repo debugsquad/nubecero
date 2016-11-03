@@ -2,15 +2,15 @@ import UIKit
 
 class VHomeCellDiskCircle:UIView
 {
-    private let kLineWidth:CGFloat = 25
-    private let kCircleRadius:CGFloat = 80
-    private let kCircleStartAngle:CGFloat = 0
     private let circleEndAngle:CGFloat
     private let rectWidth:CGFloat
     private let rectHeight:CGFloat
     private let centerX:CGFloat
     private let centerY:CGFloat
     private let centerPoint:CGPoint
+    private let kLineWidth:CGFloat = 25
+    private let kCircleRadius:CGFloat = 80
+    private let kCircleStartAngle:CGFloat = 0
     
     override init(frame:CGRect)
     {

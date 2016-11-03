@@ -3,6 +3,7 @@ import UIKit
 class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var currentItem:MPicturesItem?
+    private var currentItemIndex:Int?
     private weak var controller:CPictures!
     private weak var collectionView:UICollectionView!
     private weak var viewDetail:VPicturesDetail!
@@ -111,6 +112,7 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     
     private func selectItemNumber(index:Int)
     {
+        currentItemIndex = index
         currentItem?.countDown()
         currentItem = MPictures.sharedInstance.pictureAtIndex(index:index)
         viewDetail.refresh()
@@ -137,6 +139,36 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
                 animated:true,
                 scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
             selectItemNumber(index:itemSelected)
+        }
+    }
+    
+    func removeSelected()
+    {
+        guard
+        
+            let currentItemIndex:Int = currentItemIndex
+        
+        else
+        {
+            return
+        }
+        
+        
+        let count:Int = MPictures.sharedInstance.references.count
+        let nextIndex:Int?
+        
+        if currentItemIndex > 0
+        {
+            nextIndex = currentItemIndex - 1
+        }
+        else if currentItemIndex < count - 1
+        {
+            nextIndex = currentItemIndex + 1
+        }
+        else
+        {
+            nextIndex = nil
+            
         }
     }
     

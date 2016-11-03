@@ -62,6 +62,27 @@ class CPictures:CController
             path:imagePath)
         { [weak self] (error) in
             
+            guard
+            
+                let errorString:String = error?.localizedDescription
+            
+            else
+            {
+                self?.deleteCompleted()
+                
+                return
+            }
+            
+            VAlert.message(message:errorString)
+        }
+    }
+    
+    private func deleteCompleted()
+    {
+        
+        
+        DispatchQueue.main.async
+        {
             
         }
     }

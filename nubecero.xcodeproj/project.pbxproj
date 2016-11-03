@@ -37,6 +37,7 @@
 		DA3411811DCBE893006E6D71 /* FDatabaseModelUserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411801DCBE893006E6D71 /* FDatabaseModelUserStatus.swift */; };
 		DA3411831DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411821DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift */; };
 		DA3411851DCBEE57006E6D71 /* CBanned.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411841DCBEE57006E6D71 /* CBanned.swift */; };
+		DA3411881DCBF016006E6D71 /* VBanned.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411871DCBF016006E6D71 /* VBanned.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -170,6 +171,7 @@
 		DA3411801DCBE893006E6D71 /* FDatabaseModelUserStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserStatus.swift; sourceTree = "<group>"; };
 		DA3411821DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserDiskUsed.swift; sourceTree = "<group>"; };
 		DA3411841DCBEE57006E6D71 /* CBanned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBanned.swift; sourceTree = "<group>"; };
+		DA3411871DCBF016006E6D71 /* VBanned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBanned.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -390,6 +392,14 @@
 			path = PicturesDetail;
 			sourceTree = "<group>";
 		};
+		DA3411861DCBF00F006E6D71 /* Banned */ = {
+			isa = PBXGroup;
+			children = (
+				DA3411871DCBF016006E6D71 /* VBanned.swift */,
+			);
+			path = Banned;
+			sourceTree = "<group>";
+		};
 		DA4EF8C41DC395B300297C1D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,6 +560,7 @@
 		DA4EF8F01DC395B300297C1D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA3411861DCBF00F006E6D71 /* Banned */,
 				DAE4555B1DCA765300948D70 /* PicturesData */,
 				DA2F66A71DC942480078B466 /* PicturesDetail */,
 				DA2F66861DC8FE830078B466 /* Pictures */,
@@ -1012,6 +1023,7 @@
 				DA88F6801DC80C62009F61B3 /* FStorage.swift in Sources */,
 				DA88F6761DC7EDF5009F61B3 /* MHomeUploadItemStatusLoaded.swift in Sources */,
 				DA4EF90A1DC395B300297C1D /* MMainItem.swift in Sources */,
+				DA3411881DCBF016006E6D71 /* VBanned.swift in Sources */,
 				DAE455541DCA4DE400948D70 /* VPicturesDetailCellInfoCell.swift in Sources */,
 				DA2F66881DC8FE8B0078B466 /* VPictures.swift in Sources */,
 				DACD1FC71DC7C6AE0067D26B /* FDatabaseModelUser.swift in Sources */,

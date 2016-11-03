@@ -195,34 +195,63 @@ class CParent:UIViewController
     
     func scrollLeft(controller:CController)
     {
-        addChildViewController(controller)
-        controllers.last?.willMove(toParentViewController:nil)
+        guard
+            
+            let currentController:CController = controllers.popLast()
         
-        viewParent.fromLeft(controller:controller)
+        else
         {
-            let lastController:CController? = self.controllers.popLast()
-            lastController?.view.removeFromSuperview()
-            lastController?.removeFromParentViewController()
-            self.controllers.append(controller)
+            return
+        }
+        
+        currentController.willMove(toParentViewController:nil)
+        currentController.beginAppearanceTransition(false, animated:true)
+        
+        controllers.append(controller)
+        controller.willMove(toParentViewController:self)
+        controller.beginAppearanceTransition(true, animated:true)
+        addChildViewController(controller)
+        
+        viewParent.fromLeft(controller:controller, currentController:currentController)
+        {
+            currentController.view.removeFromSuperview()
+            currentController.removeFromParentViewController()
+            currentController.didMove(toParentViewController:nil)
+            currentController.endAppearanceTransition()
+            
             controller.didMove(toParentViewController:self)
+            controller.endAppearanceTransition()
         }
     }
     
     func scrollRight(controller:CController)
     {
-        let currentController:CController? = controllers.last
-        
-        addChildViewController(controller)
-        currentController?.willMove(toParentViewController:nil)
-        currentController?.beginAppearanceTransition(false, animated:true)
-        
-        viewParent.fromRight(controller:controller)
+        guard
+            
+            let currentController:CController = controllers.popLast()
+            
+            else
         {
-            let lastController:CController? = self.controllers.popLast()
-            lastController?.view.removeFromSuperview()
-            lastController?.removeFromParentViewController()
-            self.controllers.append(controller)
+            return
+        }
+        
+        currentController.willMove(toParentViewController:nil)
+        currentController.beginAppearanceTransition(false, animated:true)
+        
+        controllers.append(controller)
+        controller.willMove(toParentViewController:self)
+        controller.beginAppearanceTransition(true, animated:true)
+        addChildViewController(controller)
+        
+        viewParent.fromRight(controller:controller, currentController:currentController)
+        {
+            currentController.view.removeFromSuperview()
+            currentController.removeFromParentViewController()
+            currentController.didMove(toParentViewController:nil)
+            currentController.endAppearanceTransition()
+            
             controller.didMove(toParentViewController:self)
+            controller.endAppearanceTransition()
         }
     }
 }

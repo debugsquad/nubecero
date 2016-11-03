@@ -30,11 +30,13 @@ class CHome:CController
         view = viewHome
     }
     
-    override func viewDidLoad()
+    override func viewDidAppear(_ animated:Bool)
     {
+        super.viewDidAppear(animated)
+        
         if let _:MSessionServer = MSession.sharedInstance.server
         {
-            sessionLoaded()
+            loadUsedDisk()
         }
         else
         {
@@ -46,22 +48,12 @@ class CHome:CController
         }
     }
     
-    override func viewDidAppear(_ animated:Bool)
-    {
-        super.viewDidAppear(animated)
-        
-        print("::::::::::::::::::::::::::::::::::::::::   view did appear")
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        print("::::::::::::::::::::::::::::::::::::::::   view will disappear")
-    }
-    
     //MARK: notified
     
     func notifiedSessionLoaded(sender notification:Notification)
     {
         NotificationCenter.default.removeObserver(self)
+        loadUsedDisk()
         
         DispatchQueue.main.async
         { [weak self] in
@@ -72,9 +64,28 @@ class CHome:CController
     
     //MARK: private
     
-    private func sessionLoaded()
+    private func loadUsedDisk()
     {
-        viewHome.sessionLoaded()
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            guard
+                
+                let userId:String = MSession.sharedInstance.userId
+            
+            else
+            {
+                return
+            }
+            
+            let parentUser:String = FDatabase.Parent.user.rawValue
+            let propertyDiskUsed:String = FDatabaseModelUser.Property.diskUsed.rawValue
+            let pathDiskUsed:String = "\(parentUser)/\(userId)/\(propertyDiskUsed)"
+            
+            FMain.sharedInstance.database.listenOnce(
+                path:pathDiskUsed,
+                modelType:fdatamodel, completion: <#T##((ModelType?) -> ())##((ModelType?) -> ())##(ModelType?) -> ()#>)
+        }
     }
     
     //MARK: public

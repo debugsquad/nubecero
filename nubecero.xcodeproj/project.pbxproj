@@ -34,6 +34,7 @@
 		DA34117B1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34117A1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift */; };
 		DA34117D1DCBC1C0006E6D71 /* FDatabaseModelServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34117C1DCBC1C0006E6D71 /* FDatabaseModelServer.swift */; };
 		DA34117F1DCBC4A8006E6D71 /* MSessionServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34117E1DCBC4A8006E6D71 /* MSessionServer.swift */; };
+		DA3411811DCBE893006E6D71 /* FDatabaseModelUserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411801DCBE893006E6D71 /* FDatabaseModelUserStatus.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -164,6 +165,7 @@
 		DA34117A1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellDiskGradient.swift; sourceTree = "<group>"; };
 		DA34117C1DCBC1C0006E6D71 /* FDatabaseModelServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelServer.swift; sourceTree = "<group>"; };
 		DA34117E1DCBC4A8006E6D71 /* MSessionServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionServer.swift; sourceTree = "<group>"; };
+		DA3411801DCBE893006E6D71 /* FDatabaseModelUserStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserStatus.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -658,6 +660,7 @@
 			isa = PBXGroup;
 			children = (
 				DACD1FC61DC7C6AE0067D26B /* FDatabaseModelUser.swift */,
+				DA3411801DCBE893006E6D71 /* FDatabaseModelUserStatus.swift */,
 				DACD1FC81DC7C6C80067D26B /* FDatabaseModelUserPicture.swift */,
 				DA2F668E1DC90AF50078B466 /* FDatabaseModelUserPictureList.swift */,
 				DA34117C1DCBC1C0006E6D71 /* FDatabaseModelServer.swift */,
@@ -953,6 +956,7 @@
 				DAE4556C1DCA994900948D70 /* MPicturesDataItemSize.swift in Sources */,
 				DAE455661DCA846000948D70 /* MPicturesDataItem.swift in Sources */,
 				DACD1FB81DC57F560067D26B /* CHomeUploadSync.swift in Sources */,
+				DA3411811DCBE893006E6D71 /* FDatabaseModelUserStatus.swift in Sources */,
 				DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */,
 				DA34117F1DCBC4A8006E6D71 /* MSessionServer.swift in Sources */,
 				DA2F66B11DC9506E0078B466 /* MPicturesItemState.swift in Sources */,

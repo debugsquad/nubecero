@@ -1,6 +1,6 @@
 import Foundation
 
-class FDatabaseModelUser:FDatabaseModel
+class FDatabaseModelUserStatus:FDatabaseModel
 {
     enum Property:String
     {
@@ -11,22 +11,13 @@ class FDatabaseModelUser:FDatabaseModel
         case pictures = "pictures"
     }
     
-    enum Status:Int
-    {
-        case unknown
-        case active
-        case banned
-    }
-    
     let created:TimeInterval
     let lastSession:TimeInterval
-    let status:Status
     let diskUsed:Int
     private let kNoTime:TimeInterval = 0
     
-    init(status:Status)
+    override init()
     {
-        self.status = status
         created = NSDate().timeIntervalSince1970
         lastSession = created
         diskUsed = 0
@@ -37,22 +28,6 @@ class FDatabaseModelUser:FDatabaseModel
     required init(snapshot:Any)
     {
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
-        
-        if let statusInt:Int = snapshotDict?[Property.status.rawValue] as? Int
-        {
-            if let status:Status = Status(rawValue:statusInt)
-            {
-                self.status = status
-            }
-            else
-            {
-                self.status = Status.unknown
-            }
-        }
-        else
-        {
-            self.status = Status.unknown
-        }
         
         if let created:TimeInterval = snapshotDict?[Property.created.rawValue] as? TimeInterval
         {
@@ -87,7 +62,6 @@ class FDatabaseModelUser:FDatabaseModel
     override func modelJson() -> Any
     {
         let json:[String:Any] = [
-            Property.status.rawValue:status.rawValue,
             Property.created.rawValue:created,
             Property.lastSession.rawValue:lastSession,
             Property.diskUsed.rawValue:diskUsed

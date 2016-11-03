@@ -5,16 +5,25 @@ class VHomeCellDiskCircle:UIView
     private let kLineWidth:CGFloat = 25
     private let kCircleRadius:CGFloat = 80
     private let kCircleStartAngle:CGFloat = 0
-    private let strokeColor:CGColor
+    private let circleEndAngle:CGFloat
+    private let rectWidth:CGFloat
+    private let rectHeight:CGFloat
+    private let centerX:CGFloat
+    private let centerY:CGFloat
+    private let centerPoint:CGPoint
     
-    init()
+    override init(frame:CGRect)
     {
-        strokeColor = UIColor.red.cgColor
+        rectWidth = frame.maxX
+        rectHeight = frame.maxY
+        centerX = rectWidth / 2.0
+        centerY = rectHeight / 2.0
+        centerPoint = CGPoint(x:centerX, y:centerY)
+        circleEndAngle = 2.5
         
-        super.init(frame:CGRect.zero)
+        super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
-        translatesAutoresizingMaskIntoConstraints = false
         isUserInteractionEnabled = false
     }
     
@@ -34,20 +43,13 @@ class VHomeCellDiskCircle:UIView
             return
         }
         
-        let rectWidth:CGFloat = rect.maxX
-        let rectHeight:CGFloat = rect.maxY
-        let centerX:CGFloat = rectWidth / 2.0
-        let centerY:CGFloat = rectHeight / 2.0
-        let centerPoint:CGPoint = CGPoint(x:centerX, y:centerY)
-        
         context.setLineWidth(kLineWidth)
         context.setLineCap(CGLineCap.round)
-        context.setStrokeColor(strokeColor)
         context.addArc(
             center:centerPoint,
             radius:kCircleRadius,
             startAngle:kCircleStartAngle,
-            endAngle:2,
+            endAngle:circleEndAngle,
             clockwise:false)
         context.drawPath(using:CGPathDrawingMode.stroke)
     }

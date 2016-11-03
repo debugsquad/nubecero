@@ -11,22 +11,35 @@ class VHomeCellDisk:VHomeCell
         super.init(frame:frame)
         
         let circle:VHomeCellDiskCircle = VHomeCellDiskCircle()
+        let gradient:VHomeCellDiskGradient = VHomeCellDiskGradient()
         
-        addSubview(circle)
+        addSubview(gradient)
+//        addSubview(circle)
         
         let views:[String:UIView] = [
-            "circle":circle]
+            "circle":circle,
+            "gradient":gradient]
         
         let metrics:[String:CGFloat] = [
             "circleSize":kCircleSize]
         
+//        addConstraints(NSLayoutConstraint.constraints(
+//            withVisualFormat:"H:[circle(circleSize)]",
+//            options:[],
+//            metrics:metrics,
+//            views:views))
+//        addConstraints(NSLayoutConstraint.constraints(
+//            withVisualFormat:"V:[circle(circleSize)]",
+//            options:[],
+//            metrics:metrics,
+//            views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[circle(circleSize)]",
+            withVisualFormat:"H:|-0-[gradient]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[circle(circleSize)]",
+            withVisualFormat:"V:|-0-[gradient]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -47,6 +60,8 @@ class VHomeCellDisk:VHomeCell
             attribute:NSLayoutAttribute.top,
             multiplier:1,
             constant:0)
+        
+        gradient.mask = circle
         
         addConstraint(layoutCircleLeft)
         addConstraint(layoutCircleTop)

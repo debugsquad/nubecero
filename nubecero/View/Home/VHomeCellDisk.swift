@@ -15,7 +15,7 @@ class VHomeCellDisk:VHomeCell
         let circleFrame:CGRect = CGRect(
             origin:CGPoint(x:-kCircleSize, y:-kCircleSize),
             size:circleSize)
-        let circle:VHomeCellDiskCircle = VHomeCellDiskCircle(frame:)
+        let circle:VHomeCellDiskCircle = VHomeCellDiskCircle(frame:circleFrame)
         self.circle = circle
         
         let gradient:VHomeCellDiskGradient = VHomeCellDiskGradient()

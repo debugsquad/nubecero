@@ -14,8 +14,8 @@ class VHomeCellDiskCircle:UIView
     
     override init(frame:CGRect)
     {
-        rectWidth = frame.maxX
-        rectHeight = frame.maxY
+        rectWidth = frame.size.width
+        rectHeight = frame.size.height
         centerX = rectWidth / 2.0
         centerY = rectHeight / 2.0
         centerPoint = CGPoint(x:centerX, y:centerY)

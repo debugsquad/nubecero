@@ -3,7 +3,9 @@ import Foundation
 class MSession
 {
     static let sharedInstance:MSession = MSession()
+    var server:MSessionServer?
     var userId:String?
+    private let kServerInitialFroobSize:Int = 10000
     
     private init()
     {
@@ -20,6 +22,8 @@ class MSession
             path:userPath,
             modelType:FDatabaseModelUser.self)
         { (modelUser) in
+            
+            self.loadServer()
             
             if modelUser == nil
             {
@@ -58,6 +62,46 @@ class MSession
             json:currentTime)
         
         self.userId = userId
+    }
+    
+    private func loadServer()
+    {
+        let parentServer:String = FDatabase.Parent.server.rawValue
+        
+        FMain.sharedInstance.database.listenOnce(
+            path:parentServer,
+            modelType:FDatabaseModelServer.self)
+        { (modelServer) in
+            
+            guard
+            
+                let firebaseServer:FDatabaseModelServer = modelServer
+            
+            else
+            {
+                #if DEBUG
+                    
+                    self.firstTimeServer()
+                    
+                #endif
+                
+                return
+            }
+            
+            self.server = MSessionServer(firebaseServer:firebaseServer)
+        }
+    }
+    
+    private func firstTimeServer()
+    {
+        let parentServer:String = FDatabase.Parent.server.rawValue
+        let firebaseServer:FDatabaseModelServer = FDatabaseModelServer(
+            froobSpace:kServerInitialFroobSize)
+        let firebaseServerJson:Any = firebaseServer.modelJson()
+        
+        let _:String = FMain.sharedInstance.database.createChild(
+            path:parentServer,
+            json:firebaseServerJson)
     }
     
     //MARK: public

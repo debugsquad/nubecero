@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseDatabase
 
 class CPictures:CController
 {
@@ -48,7 +49,8 @@ class CPictures:CController
         guard
             
             let userId:String = MSession.sharedInstance.userId,
-            let pictureId:MPictures.PictureId = viewPictures.currentItem?.pictureId
+            let pictureId:MPictures.PictureId = viewPictures.currentItem?.pictureId,
+            let dataLength:Int = viewPictures.currentItem?.size
         
         else
         {
@@ -70,7 +72,8 @@ class CPictures:CController
             {
                 self?.deleteCompleted(
                     userId:userId,
-                    pictureId:pictureId)
+                    pictureId:pictureId,
+                    dataLength:dataLength)
                 
                 return
             }
@@ -79,13 +82,40 @@ class CPictures:CController
         }
     }
     
-    private func deleteCompleted(userId:String, pictureId:MPictures.PictureId)
+    private func deleteCompleted(userId:String, pictureId:MPictures.PictureId, dataLength:Int)
     {
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyPictures:String = FDatabaseModelUser.Property.pictures.rawValue
-        let path:String = "\(parentUser)/\(userId)/\(propertyPictures)/\(pictureId)"
+        let propertyDiskUsed:String = FDatabaseModelUser.Property.diskUsed.rawValue
+        let pathPicture:String = "\(parentUser)/\(userId)/\(propertyPictures)/\(pictureId)"
+        let pathDiskUsed:String = "\(parentUser)/\(userId)/\(propertyDiskUsed)"
         
-        FMain.sharedInstance.database.removeChild(path:path)
+        FMain.sharedInstance.database.transaction(
+            path:pathDiskUsed)
+        { (mutableData:FIRMutableData) -> (FIRTransactionResult) in
+            
+            if let currentDiskUsed:Int = mutableData.value as? Int
+            {
+                var newDataLength:Int = currentDiskUsed - dataLength
+                
+                if newDataLength < 0
+                {
+                    newDataLength = 0
+                }
+                
+                mutableData.value = newDataLength
+            }
+            else
+            {
+                mutableData.value = 0
+            }
+            
+            let transactionResult:FIRTransactionResult = FIRTransactionResult.success(withValue:mutableData)
+            
+            return transactionResult
+        }
+        
+        FMain.sharedInstance.database.removeChild(path:pathPicture)
         
         DispatchQueue.main.async
         { [weak self] in

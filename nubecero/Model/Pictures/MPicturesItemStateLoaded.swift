@@ -13,7 +13,11 @@ class MPicturesItemStateLoaded:MPicturesItemState
         
         if item?.image == nil
         {
-            item?.loadImageData()
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.item?.loadImageData()
+            }
         }
         
         return item?.image

@@ -4,6 +4,7 @@ class CHome:CController
 {
     weak var viewHome:VHome!
     let model:MHome
+    var usedDisk:Int?
     
     init()
     {
@@ -43,6 +44,17 @@ class CHome:CController
                 name:Notification.sessionLoaded,
                 object:nil)
         }
+    }
+    
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        
+        print("::::::::::::::::::::::::::::::::::::::::   view did appear")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("::::::::::::::::::::::::::::::::::::::::   view will disappear")
     }
     
     //MARK: notified

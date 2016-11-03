@@ -5,9 +5,9 @@ class VParent:UIView
     weak var bar:VBar!
     private weak var parent:CParent!
     private weak var layoutBarHeight:NSLayoutConstraint!
-    private let kAnimationDuration:TimeInterval = 0.3
     let kBarHeight:CGFloat = 64
     let kBarMinHeight:CGFloat = 20
+    private let kAnimationDuration:TimeInterval = 0.3
     
     convenience init(parent:CParent)
     {
@@ -51,7 +51,7 @@ class VParent:UIView
     
     //MARK: private
     
-    private func scroll(controller:CController, delta:CGFloat, completion:@escaping(() -> ()))
+    private func scroll(controller:CController, currentController:CController, delta:CGFloat, completion:@escaping(() -> ()))
     {
         insertSubview(controller.view, belowSubview:bar)
         
@@ -90,8 +90,8 @@ class VParent:UIView
         
         controller.layoutLeft.constant = 0
         controller.layoutRight.constant = 0
-        parent.controllers.last?.layoutLeft.constant = delta
-        parent.controllers.last?.layoutRight.constant = delta
+        currentController.layoutLeft.constant = delta
+        currentController.layoutRight.constant = delta
         
         UIView.animate(withDuration:kAnimationDuration, animations:
         {
@@ -149,25 +149,25 @@ class VParent:UIView
         addConstraint(controller.layoutLeft)
         addConstraint(controller.layoutRight)
         
-        UIView.animate(withDuration:kAnimationDuration, animations:
+        UIView.animate(withDuration:kAnimationDuration)
         {
             controller.view.alpha = 1
-        })
+        }
     }
     
-    func fromLeft(controller:CController, completion:@escaping(() -> ()))
+    func fromLeft(controller:CController, currentController:CController, completion:@escaping(() -> ()))
     {
         let width:CGFloat = bounds.maxX
-        scroll(controller:controller, delta:width, completion:completion)
+        scroll(controller:controller, currentController:currentController, delta:width, completion:completion)
     }
     
-    func fromRight(controller:CController, completion:@escaping(() -> ()))
+    func fromRight(controller:CController, currentController:CController, completion:@escaping(() -> ()))
     {
         let width:CGFloat = -bounds.maxX
-        scroll(controller:controller, delta:width, completion:completion)
+        scroll(controller:controller, currentController:currentController, delta:width, completion:completion)
     }
     
-    func push(controller:CController, completion:@escaping(() -> ()))
+    func push(controller:CController, currentController:CController, completion:@escaping(() -> ()))
     {
         let width:CGFloat = bounds.maxX
         let width_2:CGFloat = width / 2.0
@@ -209,15 +209,15 @@ class VParent:UIView
         
         controller.layoutLeft.constant = 0
         controller.layoutRight.constant = 0
-        parent.controllers.last?.layoutLeft.constant = -width_2
-        parent.controllers.last?.layoutRight.constant = -width_2
-        parent.controllers.last?.addShadow()
+        currentController.layoutLeft.constant = -width_2
+        currentController.layoutRight.constant = -width_2
+        currentController.addShadow()
         bar.push(name:controller.title)
         
         UIView.animate(withDuration:kAnimationDuration, animations:
         {
             self.layoutIfNeeded()
-            self.parent.controllers.last?.shadow?.maxAlpha()
+            currentController.shadow?.maxAlpha()
         })
         { (done:Bool) in
             
@@ -225,40 +225,36 @@ class VParent:UIView
         }
     }
     
-    func pop(completion:@escaping(() -> ()))
+    func pop(currentController:CController, previousController:CController, popBar:Bool, completion:@escaping(() -> ()))
     {
         let width:CGFloat = bounds.maxX
-        let countControllers:Int = parent.controllers.count
-        let lastController:Int = countControllers - 1
-        let previousController:Int = countControllers - 2
-        let controller:CController = parent.controllers[lastController]
-        let previous:CController = parent.controllers[previousController]
-        controller.layoutRight.constant = width
-        controller.layoutLeft.constant = width
-        previous.layoutLeft.constant = 0
-        previous.layoutRight.constant = 0
-        bar.pop()
+        currentController.layoutRight.constant = width
+        currentController.layoutLeft.constant = width
+        previousController.layoutLeft.constant = 0
+        previousController.layoutRight.constant = 0
+        
+        if popBar
+        {
+            bar.pop()
+        }
         
         UIView.animate(withDuration:kAnimationDuration, animations:
         {
             self.layoutIfNeeded()
-            previous.shadow?.minAlpha()
+            previousController.shadow?.minAlpha()
         })
         { (done:Bool) in
             
-            previous.shadow?.removeFromSuperview()
+            previousController.shadow?.removeFromSuperview()
             completion()
         }
     }
     
-    func dismiss(completion:@escaping(() -> ()))
+    func dismiss(currentController:CController, completion:@escaping(() -> ()))
     {
-        let countControllers:Int = parent.controllers.count
-        let controller:CController = parent.controllers[countControllers - 1]
-        
         UIView.animate(withDuration:kAnimationDuration, animations:
         {
-            controller.view.alpha = 0
+            currentController.view.alpha = 0
         })
         { (done:Bool) in
             

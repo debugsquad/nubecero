@@ -78,12 +78,16 @@ class CParent:UIViewController
     
     func push(controller:CController)
     {
+        let current:CController = self.controllers.last!
+        current.willMove(toParentViewController:nil)
+        
         addChildViewController(controller)
         
         viewParent.push(controller:controller)
         {
             self.controllers.append(controller)
             controller.didMove(toParentViewController:self)
+            current.didMove(toParentViewController:nil)
         }
     }
     
@@ -104,6 +108,10 @@ class CParent:UIViewController
             let controller:CController = self.controllers.popLast()!
             controller.view.removeFromSuperview()
             controller.removeFromParentViewController()
+            let current:CController = self.controllers.last!
+            current.didMove(toParentViewController:self)
+            current.beginAppearanceTransition(true, animated:true)
+            current.endAppearanceTransition()
         }
     }
     
@@ -134,8 +142,11 @@ class CParent:UIViewController
     
     func scrollRight(controller:CController)
     {
+        let currentController:CController? = controllers.last
+        
         addChildViewController(controller)
-        controllers.last?.willMove(toParentViewController:nil)
+        currentController?.willMove(toParentViewController:nil)
+        currentController?.beginAppearanceTransition(false, animated:true)
         
         viewParent.fromRight(controller:controller)
         {

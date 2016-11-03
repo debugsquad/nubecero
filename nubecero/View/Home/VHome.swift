@@ -39,6 +39,10 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             VHomeCellUpload.self,
             forCellWithReuseIdentifier:
             VHomeCellUpload.reusableIdentifier)
+        collectionView.register(
+            VHomeCellDisk.self,
+            forCellWithReuseIdentifier:
+            VHomeCellDisk.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(collectionView)

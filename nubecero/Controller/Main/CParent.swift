@@ -13,6 +13,11 @@ class CParent:UIViewController
         super.init(nibName:nil, bundle:nil)
     }
     
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     required init?(coder:NSCoder)
     {
         fatalError()
@@ -21,6 +26,12 @@ class CParent:UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedUserBanned(sender:)),
+            name:Notification.userBanned,
+            object:nil)
         
         let login:CLogin = CLogin()
         over(controller:login, pop:false)
@@ -50,7 +61,7 @@ class CParent:UIViewController
         DispatchQueue.main.async
         {
             let controllerBanned:CBanned = CBanned()
-            over(controller:controllerBanned, pop:true)
+            self.over(controller:controllerBanned, pop:true)
         }
     }
     

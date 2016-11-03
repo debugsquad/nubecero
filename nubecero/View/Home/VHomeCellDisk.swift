@@ -2,9 +2,10 @@ import UIKit
 
 class VHomeCellDisk:VHomeCell
 {
-    weak var circle:VHomeCellDiskCircle!
+    private weak var circle:VHomeCellDiskCircle!
     private let circleSize:CGSize
     private let circleSide:CGFloat
+    private let kCircleRadians:CGFloat = 6.28319
     
     override init(frame:CGRect)
     {
@@ -66,12 +67,29 @@ class VHomeCellDisk:VHomeCell
     override func config(controller:CHome, model:MHomeItem)
     {
         guard
-        
-            let modelDisk:MHomeItemDisk = model as? MHomeItemDisk
-        
+            
+            let diskUsed:Int = controller.diskUsed,
+            let froobSpace:Int = MSession.sharedInstance.server?.froobSpace
+            
         else
         {
             return
         }
+        
+        let froobSpaceFloat:CGFloat = CGFloat(froobSpace)
+        let diskUsedFloat:CGFloat = CGFloat(diskUsed)
+        var ratioDisk:CGFloat = diskUsedFloat / froobSpaceFloat
+        
+        if ratioDisk > 1
+        {
+            ratioDisk = 1
+        }
+        else if ratioDisk < 0
+        {
+            ratioDisk = 0
+        }
+        
+        let percentDisk:CGFloat = ratioDisk * kCircleRadians
+        circle.maxRadius(maxCircleEndAngle:percentDisk)
     }
 }

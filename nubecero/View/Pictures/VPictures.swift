@@ -157,13 +157,9 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         let count:Int = MPictures.sharedInstance.references.count
         let nextIndexPath:IndexPath?
         
-        if currentItemIndex > 0
+        if currentItemIndex < count
         {
-            nextIndexPath = IndexPath(item:currentItemIndex - 1, section:0)
-        }
-        else if currentItemIndex < count
-        {
-            nextIndexPath = IndexPath(item:currentItemIndex + 1, section:0)
+            nextIndexPath = IndexPath(item:currentItemIndex, section:0)
         }
         else
         {
@@ -180,6 +176,8 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         
         else
         {
+            viewDetail.refresh()
+            
             return
         }
         

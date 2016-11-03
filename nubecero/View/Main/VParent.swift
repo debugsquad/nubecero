@@ -3,7 +3,6 @@ import UIKit
 class VParent:UIView
 {
     weak var bar:VBar!
-    private weak var parent:CParent!
     private weak var layoutBarHeight:NSLayoutConstraint!
     let kBarHeight:CGFloat = 64
     let kBarMinHeight:CGFloat = 20
@@ -12,7 +11,6 @@ class VParent:UIView
     convenience init(parent:CParent)
     {
         self.init()
-        self.parent = parent
         clipsToBounds = true
         backgroundColor = UIColor.main
         

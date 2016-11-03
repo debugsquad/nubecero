@@ -3,7 +3,7 @@ import UIKit
 class CParent:UIViewController
 {
     weak var viewParent:VParent!
-    var controllers:[CController]
+    private var controllers:[CController]
     private var statusBarStyle:UIStatusBarStyle
     
     init()
@@ -47,19 +47,34 @@ class CParent:UIViewController
     
     private func mainController(controller:CController, underBar:Bool, pop:Bool)
     {
-        addChildViewController(controller)
-        controllers.last?.willMove(toParentViewController:nil)
-        viewParent.over(controller:controller, underBar:underBar)
+        let currentController:CController?
         
         if pop
         {
-            let lastController:CController? = self.controllers.popLast()
-            lastController?.view.removeFromSuperview()
-            lastController?.removeFromParentViewController()
+            currentController = controllers.popLast()
+        }
+        else
+        {
+            currentController = nil
         }
         
+        currentController?.willMove(toParentViewController:nil)
+        currentController?.beginAppearanceTransition(false, animated:true)
+        
         controllers.append(controller)
+        controller.willMove(toParentViewController:self)
+        controller.beginAppearanceTransition(true, animated:true)
+        addChildViewController(controller)
+        
+        viewParent.over(controller:controller, underBar:underBar)
+        
+        currentController?.view.removeFromSuperview()
+        currentController?.removeFromParentViewController()
+        currentController?.didMove(toParentViewController:nil)
+        currentController?.endAppearanceTransition()
+        
         controller.didMove(toParentViewController:self)
+        controller.endAppearanceTransition()
     }
     
     //MARK: public
@@ -78,16 +93,30 @@ class CParent:UIViewController
     
     func push(controller:CController)
     {
-        let current:CController = self.controllers.last!
-        current.willMove(toParentViewController:nil)
+        guard
+            
+            let currentController:CController = controllers.last
         
+        else
+        {
+            return
+        }
+        
+        controllers.append(controller)
+        currentController.willMove(toParentViewController:nil)
+        currentController.beginAppearanceTransition(false, animated:true)
+        
+        controller.willMove(toParentViewController:self)
+        controller.beginAppearanceTransition(true, animated:true)
         addChildViewController(controller)
         
-        viewParent.push(controller:controller)
+        viewParent.push(controller:controller, currentController:currentController)
         {
-            self.controllers.append(controller)
+            currentController.didMove(toParentViewController:nil)
+            currentController.endAppearanceTransition()
+            
             controller.didMove(toParentViewController:self)
-            current.didMove(toParentViewController:nil)
+            controller.endAppearanceTransition()
         }
     }
     

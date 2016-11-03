@@ -153,23 +153,40 @@ class VPictures:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             return
         }
         
-        
+        MPictures.sharedInstance.removeItem(index:currentItemIndex)
         let count:Int = MPictures.sharedInstance.references.count
-        let nextIndex:Int?
+        let nextIndexPath:IndexPath?
         
         if currentItemIndex > 0
         {
-            nextIndex = currentItemIndex - 1
+            nextIndexPath = IndexPath(item:currentItemIndex - 1, section:0)
         }
-        else if currentItemIndex < count - 1
+        else if currentItemIndex < count
         {
-            nextIndex = currentItemIndex + 1
+            nextIndexPath = IndexPath(item:currentItemIndex + 1, section:0)
         }
         else
         {
-            nextIndex = nil
-            
+            self.currentItemIndex = nil
+            self.currentItem = nil
+            nextIndexPath = nil
         }
+        
+        collectionView.selectItem(
+            at:nextIndexPath,
+            animated:true,
+            scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
+        
+        guard
+        
+            let newItem:Int = nextIndexPath?.item
+        
+        else
+        {
+            return
+        }
+        
+        selectItemNumber(index:newItem)
     }
     
     //MARK: collectionView delegate

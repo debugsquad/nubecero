@@ -151,4 +151,11 @@ class MPictures
             self.asyncCleanResources()
         }
     }
+    
+    func removeItem(index:Int)
+    {
+        let reference:MPicturesItemReference = references.remove(at:index)
+        let pictureId:PictureId = reference.pictureId
+        items.removeValue(forKey:pictureId)
+    }
 }

@@ -33,6 +33,7 @@
 		DA3411791DCB92A3006E6D71 /* VHomeCellDiskCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411781DCB92A3006E6D71 /* VHomeCellDiskCircle.swift */; };
 		DA34117B1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34117A1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift */; };
 		DA34117D1DCBC1C0006E6D71 /* FDatabaseModelServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34117C1DCBC1C0006E6D71 /* FDatabaseModelServer.swift */; };
+		DA34117F1DCBC4A8006E6D71 /* MSessionServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34117E1DCBC4A8006E6D71 /* MSessionServer.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -162,6 +163,7 @@
 		DA3411781DCB92A3006E6D71 /* VHomeCellDiskCircle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellDiskCircle.swift; sourceTree = "<group>"; };
 		DA34117A1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellDiskGradient.swift; sourceTree = "<group>"; };
 		DA34117C1DCBC1C0006E6D71 /* FDatabaseModelServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelServer.swift; sourceTree = "<group>"; };
+		DA34117E1DCBC4A8006E6D71 /* MSessionServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionServer.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -667,6 +669,7 @@
 			isa = PBXGroup;
 			children = (
 				DACD1FCB1DC7D0320067D26B /* MSession.swift */,
+				DA34117E1DCBC4A8006E6D71 /* MSessionServer.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -951,6 +954,7 @@
 				DAE455661DCA846000948D70 /* MPicturesDataItem.swift in Sources */,
 				DACD1FB81DC57F560067D26B /* CHomeUploadSync.swift in Sources */,
 				DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */,
+				DA34117F1DCBC4A8006E6D71 /* MSessionServer.swift in Sources */,
 				DA2F66B11DC9506E0078B466 /* MPicturesItemState.swift in Sources */,
 				DAE455611DCA7FF200948D70 /* VPicturesDataCellClose.swift in Sources */,
 				DA2F66AD1DC942480078B466 /* VPicturesDetailCell.swift in Sources */,

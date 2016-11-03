@@ -36,7 +36,9 @@ class MSession
                     
                     default:
                     
-                        
+                        NotificationCenter.default.post(
+                            name:Notification.userBanned,
+                            object:nil)
                         
                         break
                 }

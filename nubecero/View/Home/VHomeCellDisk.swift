@@ -62,4 +62,9 @@ class VHomeCellDisk:VHomeCell
         
         super.layoutSubviews()
     }
+    
+    override func config(model:MHomeItem)
+    {
+        circle.maxRadius(maxCircleEndAngle:3)
+    }
 }

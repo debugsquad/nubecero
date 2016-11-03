@@ -2,7 +2,9 @@ import UIKit
 
 class VHomeCellDiskCircle:UIView
 {
-    private let circleEndAngle:CGFloat
+    private weak var timer:Timer?
+    private var circleEndAngle:CGFloat
+    private var maxCircleEndAngle:CGFloat
     private let rectWidth:CGFloat
     private let rectHeight:CGFloat
     private let centerX:CGFloat
@@ -12,6 +14,8 @@ class VHomeCellDiskCircle:UIView
     private let arrowSize:CGSize
     private let colorMain:CGColor
     private let colorBackground:CGColor
+    private let kTimeInterval:TimeInterval = 0.02
+    private let kAngleDelta:CGFloat = 0.1
     private let kLineWidth:CGFloat = 40
     private let kArrowRadius:CGFloat = 3
     private let kCircleRadius:CGFloat = 80
@@ -30,7 +34,8 @@ class VHomeCellDiskCircle:UIView
         arrowRadius_2 = kArrowRadius / 2.0
         centerPoint = CGPoint(x:centerX, y:centerY)
         arrowSize = CGSize(width:kArrowRadius, height:kArrowRadius)
-        circleEndAngle = 4.2
+        circleEndAngle = kCircleStartAngle
+        maxCircleEndAngle = kCircleStartAngle
         
         super.init(frame:frame)
         clipsToBounds = true
@@ -79,5 +84,34 @@ class VHomeCellDiskCircle:UIView
                 x:arrowPoint.x - arrowRadius_2,
                 y:arrowPoint.y - arrowRadius_2),
             size:arrowSize))
+    }
+    
+    func tick(sender timer:Timer)
+    {
+        circleEndAngle += kAngleDelta
+        
+        if circleEndAngle > maxCircleEndAngle
+        {
+            circleEndAngle = maxCircleEndAngle
+            timer.invalidate()
+        }
+        
+        setNeedsDisplay()
+    }
+    
+    //MARK: public
+    
+    func maxRadius(maxCircleEndAngle:CGFloat)
+    {
+        timer?.invalidate()
+        
+        self.maxCircleEndAngle = maxCircleEndAngle
+        circleEndAngle = kCircleStartAngle
+        timer = Timer.scheduledTimer(
+            timeInterval:kTimeInterval,
+            target:self,
+            selector:#selector(tick(sender:)),
+            userInfo:nil,
+            repeats:true)
     }
 }

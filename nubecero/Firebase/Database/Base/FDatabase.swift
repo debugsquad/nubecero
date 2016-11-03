@@ -5,6 +5,7 @@ class FDatabase
 {
     enum Parent:String
     {
+        case server = "server"
         case user = "user"
     }
     

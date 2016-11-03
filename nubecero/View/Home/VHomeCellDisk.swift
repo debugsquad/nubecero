@@ -63,7 +63,7 @@ class VHomeCellDisk:VHomeCell
         let cellHeight:CGFloat = bounds.maxY
         let remainWidth:CGFloat = cellWidth - kCircleSize
         let remainHeight:CGFloat = cellHeight - kCircleSize
-        let marginLeft:CFloat = remainWidth / 2.0
+        let marginLeft:CGFloat = remainWidth / 2.0
         let marginTop:CGFloat = remainHeight / 2.0
         layoutCircleLeft.constant = marginLeft
         layoutCircleTop.constant = marginTop

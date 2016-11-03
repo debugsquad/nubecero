@@ -4,6 +4,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
 {
     private weak var controller:CHome!
     private weak var collectionView:UICollectionView!
+    private weak var spinner:VSpinner?
     private let kInterLine:CGFloat = 1
     private let kCollectionBottom:CGFloat = 20
     private let kDeselectTime:TimeInterval = 1
@@ -18,15 +19,19 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         
         let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         
+        let spinner:VSpinner = VSpinner()
+        self.spinner = spinner
+        
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize.zero
         flow.footerReferenceSize = CGSize.zero
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
-        flow.sectionInset = UIEdgeInsets(top:barHeight, left:0, bottom:kCollectionBottom, right:0)
+        flow.sectionInset = UIEdgeInsets.zero
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.isHidden = true
         collectionView.clipsToBounds = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = UIColor.clear
@@ -46,11 +51,14 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         self.collectionView = collectionView
         
         addSubview(collectionView)
+        addSubview(spinner)
         
         let views:[String:UIView] = [
-            "collectionView":collectionView]
+            "collectionView":collectionView,
+            "spinner":spinner]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "barHeight":barHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[collectionView]-0-|",
@@ -58,7 +66,17 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[collectionView]-0-|",
+            withVisualFormat:"V:|-(barHeight)-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(barHeight)-[spinner]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -80,6 +98,15 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     }
     
     //MARK: public
+    
+    func sessionLoaded()
+    {
+        collectionView.reloadData()
+        collectionView.isHidden = false
+        spinner?.removeFromSuperview()
+    }
+    
+    //MARK: collectionView delegate
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {

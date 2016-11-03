@@ -65,6 +65,6 @@ class VHomeCellDisk:VHomeCell
     
     override func config(model:MHomeItem)
     {
-        circle.maxRadius(maxCircleEndAngle:3)
+//        circle.maxRadius(maxCircleEndAngle:3)
     }
 }

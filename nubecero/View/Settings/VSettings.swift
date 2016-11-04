@@ -6,6 +6,7 @@ class VSettings:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
     private weak var collectionView:UICollectionView!
     private let kCollectionBottom:CGFloat = 30
     private let kInterLine:CGFloat = 1
+    private let kDeselectTime:TimeInterval = 1
     
     convenience init(controller:CSettings)
     {
@@ -23,7 +24,7 @@ class VSettings:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
-        flow.sectionInset = UIEdgeInsets(top:0, left:0, bottom:kCollectionBottom, right:0)
+        flow.sectionInset = UIEdgeInsets(top:kInterLine, left:0, bottom:kCollectionBottom, right:0)
         
         let collectionView:UICollectionView = UICollectionView(
             frame:CGRect.zero,
@@ -110,5 +111,35 @@ class VSettings:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
+    {
+        let item:MSettingsItem = modelAtIndex(index:indexPath)
+        
+        return item.selectable
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
+    {
+        let item:MSettingsItem = modelAtIndex(index:indexPath)
+        
+        return item.selectable
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MSettingsItem = modelAtIndex(index:indexPath)
+        item.selected(controller:controller)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }

@@ -8,6 +8,7 @@
 "VBanned_disclaimer"="Your account is suspended\nContact support for further information";
 "VHomeCellSpace_labelTitle"="Cloud Megabytes used";
 "VAuth_buttonTryAgain"="Try again";
+"VSettingsCellSecurity_label"="Require Passcode (enhance privacy)";
 
 "CLogin_logOut"="Log out succeded";
 "CLogin_errorUnknown"="Couldn't log in, try again";

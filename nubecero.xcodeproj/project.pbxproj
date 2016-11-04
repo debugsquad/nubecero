@@ -42,6 +42,7 @@
 		DA34118C1DCC037D006E6D71 /* VHomeCellSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34118B1DCC037D006E6D71 /* VHomeCellSpace.swift */; };
 		DA34118E1DCC0716006E6D71 /* MHomeItemSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34118D1DCC0716006E6D71 /* MHomeItemSpace.swift */; };
 		DA406BC61DCCE7BF0098D347 /* CAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BC51DCCE7BF0098D347 /* CAuth.swift */; };
+		DA406BC91DCCE8480098D347 /* VAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BC81DCCE8480098D347 /* VAuth.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -180,6 +181,7 @@
 		DA34118B1DCC037D006E6D71 /* VHomeCellSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellSpace.swift; sourceTree = "<group>"; };
 		DA34118D1DCC0716006E6D71 /* MHomeItemSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemSpace.swift; sourceTree = "<group>"; };
 		DA406BC51DCCE7BF0098D347 /* CAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAuth.swift; sourceTree = "<group>"; };
+		DA406BC81DCCE8480098D347 /* VAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAuth.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -408,6 +410,14 @@
 			path = Banned;
 			sourceTree = "<group>";
 		};
+		DA406BC71DCCE8400098D347 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				DA406BC81DCCE8480098D347 /* VAuth.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		DA4EF8C41DC395B300297C1D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,6 +578,7 @@
 		DA4EF8F01DC395B300297C1D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA406BC71DCCE8400098D347 /* Auth */,
 				DA3411861DCBF00F006E6D71 /* Banned */,
 				DAE4555B1DCA765300948D70 /* PicturesData */,
 				DA2F66A71DC942480078B466 /* PicturesDetail */,
@@ -963,6 +974,7 @@
 				DA2F66A61DC92F720078B466 /* MPicturesDetailItemInfo.swift in Sources */,
 				DA2F66B31DC950850078B466 /* MPicturesItemStateNone.swift in Sources */,
 				DACD1FBD1DC589CD0067D26B /* VHomeUploadSyncBar.swift in Sources */,
+				DA406BC91DCCE8480098D347 /* VAuth.swift in Sources */,
 				DA34117D1DCBC1C0006E6D71 /* FDatabaseModelServer.swift in Sources */,
 				DA2F66911DC919570078B466 /* MPicturesItemReference.swift in Sources */,
 				DA88F6721DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift in Sources */,

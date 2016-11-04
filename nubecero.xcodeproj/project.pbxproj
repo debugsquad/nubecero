@@ -45,6 +45,8 @@
 		DA406BC91DCCE8480098D347 /* VAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BC81DCCE8480098D347 /* VAuth.swift */; };
 		DA406BCC1DCD01E30098D347 /* CSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BCB1DCD01E30098D347 /* CSettings.swift */; };
 		DA406BCF1DCD022F0098D347 /* VSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BCE1DCD022F0098D347 /* VSettings.swift */; };
+		DA406BD11DCD02DB0098D347 /* VSetingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BD01DCD02DB0098D347 /* VSetingsCell.swift */; };
+		DA406BD31DCD02E90098D347 /* VSettingsCellSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BD21DCD02E90098D347 /* VSettingsCellSecurity.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -186,6 +188,8 @@
 		DA406BC81DCCE8480098D347 /* VAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAuth.swift; sourceTree = "<group>"; };
 		DA406BCB1DCD01E30098D347 /* CSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSettings.swift; sourceTree = "<group>"; };
 		DA406BCE1DCD022F0098D347 /* VSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettings.swift; sourceTree = "<group>"; };
+		DA406BD01DCD02DB0098D347 /* VSetingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSetingsCell.swift; sourceTree = "<group>"; };
+		DA406BD21DCD02E90098D347 /* VSettingsCellSecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellSecurity.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -434,6 +438,8 @@
 			isa = PBXGroup;
 			children = (
 				DA406BCE1DCD022F0098D347 /* VSettings.swift */,
+				DA406BD01DCD02DB0098D347 /* VSetingsCell.swift */,
+				DA406BD21DCD02E90098D347 /* VSettingsCellSecurity.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -999,6 +1005,7 @@
 				DA406BC91DCCE8480098D347 /* VAuth.swift in Sources */,
 				DA34117D1DCBC1C0006E6D71 /* FDatabaseModelServer.swift in Sources */,
 				DA2F66911DC919570078B466 /* MPicturesItemReference.swift in Sources */,
+				DA406BD31DCD02E90098D347 /* VSettingsCellSecurity.swift in Sources */,
 				DA88F6721DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift in Sources */,
 				DACD1F991DC3F0E80067D26B /* MMainItemPictures.swift in Sources */,
 				DA2F668B1DC8FFB20078B466 /* MPictures.swift in Sources */,
@@ -1018,6 +1025,7 @@
 				DA4EF8FD1DC395B300297C1D /* DNubecero.xcdatamodeld in Sources */,
 				DAE4556A1DCA92FA00948D70 /* VPicturesDataCellSize.swift in Sources */,
 				DA34118E1DCC0716006E6D71 /* MHomeItemSpace.swift in Sources */,
+				DA406BD11DCD02DB0098D347 /* VSetingsCell.swift in Sources */,
 				DA2F66A41DC92F670078B466 /* MPicturesDetailItemImage.swift in Sources */,
 				DAE4556C1DCA994900948D70 /* MPicturesDataItemSize.swift in Sources */,
 				DAE455661DCA846000948D70 /* MPicturesDataItem.swift in Sources */,

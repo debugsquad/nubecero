@@ -4,6 +4,7 @@ class VAuth:UIView
 {
     private weak var controller:CAuth!
     private weak var buttonTryAgain:UIButton!
+    private weak var layoutButtonTryAgainLeft:NSLayoutConstraint!
     private let kButtonTryAgainWidth:CGFloat = 100
     private let kButtonTryAgainHeight:CGFloat = 34
     private let kButtonTryAgainBottom:CGFloat = 40
@@ -60,12 +61,51 @@ class VAuth:UIView
             options:[],
             metrics:metrics,
             views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[buttonTryAgain(buttonTryAgainWidth)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[buttonTryAgain(buttonTryAgainHeight)]-(buttonTryAgainBottom)-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        
+        layoutButtonTryAgainLeft = NSLayoutConstraint(
+            item:self,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.left,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutButtonTryAgainLeft)
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let remainWidth:CGFloat = width - kButtonTryAgainWidth
+        let margin:CGFloat = remainWidth / 2.0
+        layoutButtonTryAgainLeft.constant = margin
+        
+        super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionTryAgain(sender button:UIButton)
+    {
+        buttonTryAgain.isHidden = true
+        controller.askAuth()
     }
     
     //MARK: public
     
     func showTryAgain()
     {
-        
+        buttonTryAgain.isHidden = false
     }
 }

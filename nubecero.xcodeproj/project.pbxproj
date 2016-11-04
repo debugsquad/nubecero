@@ -51,6 +51,7 @@
 		DA406BD81DCD03760098D347 /* MSettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BD71DCD03760098D347 /* MSettingsItem.swift */; };
 		DA406BDA1DCD03820098D347 /* MSettingsItemSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BD91DCD03820098D347 /* MSettingsItemSecurity.swift */; };
 		DA406BDC1DCD1CF00098D347 /* VSettingsCellLogout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BDB1DCD1CF00098D347 /* VSettingsCellLogout.swift */; };
+		DA406BDE1DCD1D240098D347 /* MSettingsItemLogout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BDD1DCD1D240098D347 /* MSettingsItemLogout.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -198,6 +199,7 @@
 		DA406BD71DCD03760098D347 /* MSettingsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItem.swift; sourceTree = "<group>"; };
 		DA406BD91DCD03820098D347 /* MSettingsItemSecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemSecurity.swift; sourceTree = "<group>"; };
 		DA406BDB1DCD1CF00098D347 /* VSettingsCellLogout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellLogout.swift; sourceTree = "<group>"; };
+		DA406BDD1DCD1D240098D347 /* MSettingsItemLogout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemLogout.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -459,6 +461,7 @@
 				DA406BD51DCD036C0098D347 /* MSettings.swift */,
 				DA406BD71DCD03760098D347 /* MSettingsItem.swift */,
 				DA406BD91DCD03820098D347 /* MSettingsItemSecurity.swift */,
+				DA406BDD1DCD1D240098D347 /* MSettingsItemLogout.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1036,6 +1039,7 @@
 				DACD1F951DC3DBDB0067D26B /* VAlert.swift in Sources */,
 				DACD1FC51DC7C6750067D26B /* FDatabaseModel.swift in Sources */,
 				DA2F66A01DC92F380078B466 /* MPicturesDetail.swift in Sources */,
+				DA406BDE1DCD1D240098D347 /* MSettingsItemLogout.swift in Sources */,
 				DA406BDA1DCD03820098D347 /* MSettingsItemSecurity.swift in Sources */,
 				DA4EF9141DC395B300297C1D /* VParent.swift in Sources */,
 				DACD1FB01DC540750067D26B /* MHomeUpload.swift in Sources */,

@@ -253,4 +253,10 @@ class CParent:UIViewController
             currentController.endAppearanceTransition()
         }
     }
+    
+    func presentAuth()
+    {
+        let controllerAuth:CAuth = CAuth()
+        over(controller:controllerAuth, pop:false, animate:false)
+    }
 }

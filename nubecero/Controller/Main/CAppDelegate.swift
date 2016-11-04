@@ -5,6 +5,7 @@ import FBSDKCoreKit
 class AppDelegate:UIResponder, UIApplicationDelegate
 {
     var window:UIWindow?
+    private weak var parent:CParent!
 
     func application(_ application:UIApplication, didFinishLaunchingWithOptions launchOptions:[UIApplicationLaunchOptionsKey:Any]?) -> Bool
     {
@@ -18,6 +19,8 @@ class AppDelegate:UIResponder, UIApplicationDelegate
         window.makeKeyAndVisible()
         
         let parent:CParent = CParent()
+        self.parent = parent
+        
         window.rootViewController = parent
         self.window = window
         
@@ -32,5 +35,10 @@ class AppDelegate:UIResponder, UIApplicationDelegate
             options:options)
         
         return handled
+    }
+    
+    func applicationWillResignActive(_ application:UIApplication)
+    {
+        parent.presentAuth()
     }
 }

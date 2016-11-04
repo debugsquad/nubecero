@@ -8,7 +8,7 @@ class VAuth:UIView
     {
         self.init()
         clipsToBounds = true
-        translatesAutoresizingMaskIntoConstraints = true
+        translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.main
         self.controller = controller
         

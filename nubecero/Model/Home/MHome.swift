@@ -7,10 +7,12 @@ class MHome
     init()
     {
         let itemDisk:MHomeItemDisk = MHomeItemDisk()
+        let itemSpace:MHomeItemSpace = MHomeItemSpace()
         let itemUpload:MHomeItemUpload = MHomeItemUpload()
         
         items = [
             itemDisk,
+            itemSpace,
             itemUpload
         ]
     }

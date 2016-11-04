@@ -47,6 +47,9 @@
 		DA406BCF1DCD022F0098D347 /* VSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BCE1DCD022F0098D347 /* VSettings.swift */; };
 		DA406BD11DCD02DB0098D347 /* VSetingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BD01DCD02DB0098D347 /* VSetingsCell.swift */; };
 		DA406BD31DCD02E90098D347 /* VSettingsCellSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BD21DCD02E90098D347 /* VSettingsCellSecurity.swift */; };
+		DA406BD61DCD036C0098D347 /* MSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BD51DCD036C0098D347 /* MSettings.swift */; };
+		DA406BD81DCD03760098D347 /* MSettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BD71DCD03760098D347 /* MSettingsItem.swift */; };
+		DA406BDA1DCD03820098D347 /* MSettingsItemSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BD91DCD03820098D347 /* MSettingsItemSecurity.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -190,6 +193,9 @@
 		DA406BCE1DCD022F0098D347 /* VSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettings.swift; sourceTree = "<group>"; };
 		DA406BD01DCD02DB0098D347 /* VSetingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSetingsCell.swift; sourceTree = "<group>"; };
 		DA406BD21DCD02E90098D347 /* VSettingsCellSecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellSecurity.swift; sourceTree = "<group>"; };
+		DA406BD51DCD036C0098D347 /* MSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettings.swift; sourceTree = "<group>"; };
+		DA406BD71DCD03760098D347 /* MSettingsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItem.swift; sourceTree = "<group>"; };
+		DA406BD91DCD03820098D347 /* MSettingsItemSecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemSecurity.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -444,6 +450,16 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		DA406BD41DCD03640098D347 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DA406BD51DCD036C0098D347 /* MSettings.swift */,
+				DA406BD71DCD03760098D347 /* MSettingsItem.swift */,
+				DA406BD91DCD03820098D347 /* MSettingsItemSecurity.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		DA4EF8C41DC395B300297C1D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,6 +575,7 @@
 		DA4EF8E11DC395B300297C1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA406BD41DCD03640098D347 /* Settings */,
 				DAE455621DCA843300948D70 /* PicturesData */,
 				DAE4554C1DCA4C9000948D70 /* PicturesDetailInfo */,
 				DA2F669E1DC92F2E0078B466 /* PicturesDetail */,
@@ -1016,6 +1033,7 @@
 				DACD1F951DC3DBDB0067D26B /* VAlert.swift in Sources */,
 				DACD1FC51DC7C6750067D26B /* FDatabaseModel.swift in Sources */,
 				DA2F66A01DC92F380078B466 /* MPicturesDetail.swift in Sources */,
+				DA406BDA1DCD03820098D347 /* MSettingsItemSecurity.swift in Sources */,
 				DA4EF9141DC395B300297C1D /* VParent.swift in Sources */,
 				DACD1FB01DC540750067D26B /* MHomeUpload.swift in Sources */,
 				DAE455561DCA52BB00948D70 /* MPicturesDetailInfoItemDelete.swift in Sources */,
@@ -1045,6 +1063,7 @@
 				DACD1F9E1DC400240067D26B /* MHomeItem.swift in Sources */,
 				DAE4555F1DCA7FD900948D70 /* VPicturesDataCell.swift in Sources */,
 				DA2F66931DC91B780078B466 /* VPicturesCell.swift in Sources */,
+				DA406BD81DCD03760098D347 /* MSettingsItem.swift in Sources */,
 				DA2F66B51DC9508F0078B466 /* MPicturesItemStateLoading.swift in Sources */,
 				DA3411851DCBEE57006E6D71 /* CBanned.swift in Sources */,
 				DA4EF9011DC395B300297C1D /* ExtensionNSManagedObject.swift in Sources */,
@@ -1103,6 +1122,7 @@
 				DA4EF9061DC395B300297C1D /* FMain.swift in Sources */,
 				DA2F66851DC8FE5C0078B466 /* CPictures.swift in Sources */,
 				DACD1FB61DC56C250067D26B /* VHomeUploadBar.swift in Sources */,
+				DA406BD61DCD036C0098D347 /* MSettings.swift in Sources */,
 				DA4EF9091DC395B300297C1D /* MMain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

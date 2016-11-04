@@ -6,7 +6,10 @@ class MSettings
     
     init()
     {
+        let itemSecurity:MSettingsItemSecurity = MSettingsItemSecurity()
+        
         items = [
+            itemSecurity
         ]
     }
 }

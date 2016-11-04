@@ -5,6 +5,7 @@ class MSession
     static let sharedInstance:MSession = MSession()
     var server:MSessionServer?
     var userId:String?
+    var settings:DObjectSettings?
     private let kServerInitialFroobSize:Int = 10000
     
     private init()
@@ -127,7 +128,45 @@ class MSession
         loadServer()
     }
     
+    private func createSettings()
+    {
+        DManager.sharedInstance.createManagedObject(
+            modelType:DObjectSettings.self)
+        { (settings) in
+            
+            self.settings = settings
+        }
+    }
+    
+    private func asyncLoadSettings()
+    {
+        DManager.sharedInstance.fetchManagedObjects(
+            modelType:DObjectSettings.self,
+            limit:1)
+        { (objects) in
+            
+            guard
+            
+                let settings:DObjectSettings = objects?.first
+            
+            else
+            {
+                return
+            }
+            
+            self.settings = settings
+        }
+    }
+    
     //MARK: public
+    
+    func loadSettings()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            self.asyncLoadSettings()
+        }
+    }
     
     func loadUser(userId:String)
     {

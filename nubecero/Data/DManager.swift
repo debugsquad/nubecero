@@ -115,7 +115,7 @@ class DManager
         }
     }
     
-    func fetchManagedObjects<ModelType:NSManagedObject>(modelType:ModelType.Type, limit:Int = 0, predicate:NSPredicate? = nil, sorters:[NSSortDescriptor]? = nil, completion:@escaping(([ModelType]) -> ()))
+    func fetchManagedObjects<ModelType:NSManagedObject>(modelType:ModelType.Type, limit:Int = 0, predicate:NSPredicate? = nil, sorters:[NSSortDescriptor]? = nil, completion:@escaping(([ModelType]?) -> ()))
     {
         delaySaving()
         
@@ -130,7 +130,7 @@ class DManager
         
         managedObjectContext.perform
         {
-            let results:[ModelType]
+            let results:[ModelType]?
             
             do
             {
@@ -138,7 +138,7 @@ class DManager
             }
             catch
             {
-                results = []
+                results = nil
             }
             
             completion(results)

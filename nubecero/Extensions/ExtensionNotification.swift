@@ -4,6 +4,7 @@ extension Notification
 {
     static let sessionLoaded:Notification.Name = Notification.Name("sessionLoaded")
     static let userBanned:Notification.Name = Notification.Name("userBanned")
+    static let settingsLoaded:Notification.Name = Notification.Name("settingsLoaded")
     static let picturesLoaded:Notification.Name = Notification.Name("picturesLoaded")
     static let imageDataLoaded:Notification.Name = Notification.Name("imageDataLoaded")
     static let thumbnailReady:Notification.Name = Notification.Name("thumbnailReady")

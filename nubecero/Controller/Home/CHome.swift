@@ -6,7 +6,6 @@ class CHome:CController
     let model:MHome
     let askAuth:Bool
     var diskUsed:Int?
-    private let kAuthAfter:TimeInterval = 1
     
     init(askAuth:Bool)
     {
@@ -50,13 +49,8 @@ class CHome:CController
             
             if shouldAuth
             {
-                DispatchQueue.main.asyncAfter(
-                    deadline:DispatchTime.now() + kAuthAfter)
-                { [weak self] in
-                    
-                    self?.parentController.presentAuth()
-                    self?.parentController.controllerAuth?.askAuth()
-                }
+                parentController.presentAuth()
+                parentController.controllerAuth?.askAuth()
             }
         }
     }

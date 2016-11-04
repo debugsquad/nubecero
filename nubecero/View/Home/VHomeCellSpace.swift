@@ -6,23 +6,23 @@ class VHomeCellSpace:VHomeCell
     private weak var labelTotalSpace:UILabel!
     private weak var labelUsedSpace:UILabel!
     private let kEmpty:String = ""
-    private let kFontTitleSize:CGFloat = 14
-    private let kFontUsedSpaceSize:CGFloat = 24
+    private let kMaxFractions:Int = 1
+    private let kFontTitleSize:CGFloat = 15
+    private let kFontUsedSpaceSize:CGFloat = 50
     private let kFontTotalSpaceSize:CGFloat = 20
     private let kSeparatorHeight:CGFloat = 1
-    private let kSeparatorWidth:CGFloat = 100
+    private let kSeparatorMargin:CGFloat = 120
     private let kLabelsTop:CGFloat = 10
-    private let kLabelsLeft:CGFloat = 10
-    private let kLabelsWidth:CGFloat = 250
-    private let kLabelTitleHeight:CGFloat = 30
+    private let kLabelTitleHeight:CGFloat = 40
     private let kLabelTotalSpaceHeight:CGFloat = 25
-    private let kLabelUsedSpaceHeight:CGFloat = 30
+    private let kLabelUsedSpaceHeight:CGFloat = 60
     private let kKilobytesPerMega:CGFloat = 1000
     
     override init(frame:CGRect)
     {
         numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        numberFormatter.maximumFractionDigits = kMaxFractions
         
         super.init(frame:frame)
         
@@ -38,6 +38,7 @@ class VHomeCellSpace:VHomeCell
         labelTitle.font = UIFont.medium(size:kFontTitleSize)
         labelTitle.textColor = UIColor.black
         labelTitle.text = NSLocalizedString("VHomeCellSpace_labelTitle", comment:"")
+        labelTitle.textAlignment = NSTextAlignment.center
         
         let labelTotalSpace:UILabel = UILabel()
         labelTotalSpace.isUserInteractionEnabled = false
@@ -45,6 +46,7 @@ class VHomeCellSpace:VHomeCell
         labelTotalSpace.backgroundColor = UIColor.clear
         labelTotalSpace.font = UIFont.numeric(size:kFontTotalSpaceSize)
         labelTotalSpace.textColor = UIColor.complement
+        labelTotalSpace.textAlignment = NSTextAlignment.center
         self.labelTotalSpace = labelTotalSpace
         
         let labelUsedSpace:UILabel = UILabel()
@@ -53,6 +55,7 @@ class VHomeCellSpace:VHomeCell
         labelUsedSpace.backgroundColor = UIColor.clear
         labelUsedSpace.font = UIFont.numeric(size:kFontUsedSpaceSize)
         labelUsedSpace.textColor = UIColor.main
+        labelUsedSpace.textAlignment = NSTextAlignment.center
         self.labelUsedSpace = labelUsedSpace
         
         addSubview(labelTotalSpace)
@@ -67,37 +70,35 @@ class VHomeCellSpace:VHomeCell
             "labelUsedSpace":labelUsedSpace]
         
         let metrics:[String:CGFloat] = [
-            "separatorWidth":kSeparatorWidth,
             "separatorHeight":kSeparatorHeight,
-            "labelsLeft":kLabelsLeft,
-            "labelsWidth":kLabelsWidth,
+            "separatorMargin":kSeparatorMargin,
             "labelTitleHeight":kLabelTitleHeight,
             "labelTotalSpaceHeight":kLabelTotalSpaceHeight,
             "labelUsedSpaceHeight":kLabelUsedSpaceHeight,
             "labelsTop":kLabelsTop]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-(labelsLeft)-[labelTitle(labelsWidth)]",
+            withVisualFormat:"H:|-0-[labelTitle(labelsWidth)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-(labelsLeft)-[labelTotalSpace(labelsWidth)]",
+            withVisualFormat:"H:|-0-[labelTotalSpace(labelsWidth)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-(labelsLeft)-[labelUsedSpace(labelsWidth)]",
+            withVisualFormat:"H:|-0-[labelUsedSpace(labelsWidth)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-(labelsLeft)-[separator(separatorWidth)]",
+            withVisualFormat:"H:|-(separatorMargin)-[separator(separatorWidth)]-(separatorMargin)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(labelsTop)-[labelTitle(labelTitleHeight)]-0-[labelUsedSpace(labelUsedSpaceHeight)]-0-[labelTotalSpace(labelTotalSpaceHeight)]",
+            withVisualFormat:"V:|-(labelsTop)-[labelTitle(labelTitleHeight)]-0-[labelUsedSpace(labelUsedSpaceHeight)]-0-[separator(separatorHeight)]-0-[labelTotalSpace(labelTotalSpaceHeight)]",
             options:[],
             metrics:metrics,
             views:views))

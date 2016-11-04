@@ -257,8 +257,11 @@ class CParent:UIViewController
     
     func presentAuth()
     {
-        let controllerAuth:CAuth = CAuth()
-        self.controllerAuth = controllerAuth
-        over(controller:controllerAuth, pop:false, animate:false)
+        if controllerAuth == nil
+        {
+            let controllerAuth:CAuth = CAuth()
+            self.controllerAuth = controllerAuth
+            over(controller:controllerAuth, pop:false, animate:false)
+        }
     }
 }

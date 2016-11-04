@@ -22,6 +22,8 @@
 "CPictures_deleteMessage"="Can't undo";
 "CPictures_deleteCancel"="Cancel";
 "CPictures_deleteDelete"="Delete";
+"CAuth_reason"="Authenticate to access your cloud";
+"CAuth_errorUnknown"="Couldn't authenticate, try again";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading image, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

@@ -2,8 +2,10 @@ import UIKit
 
 class VHomeCellSpace:VHomeCell
 {
-    weak var labelTotalSpace:UILabel!
-    weak var labelUsedSpace:UILabel!
+    private let numberFormatter:NumberFormatter
+    private weak var labelTotalSpace:UILabel!
+    private weak var labelUsedSpace:UILabel!
+    private let kEmpty:String = ""
     private let kFontTitleSize:CGFloat = 14
     private let kFontUsedSpaceSize:CGFloat = 24
     private let kFontTotalSpaceSize:CGFloat = 20
@@ -18,6 +20,9 @@ class VHomeCellSpace:VHomeCell
     
     override init(frame:CGRect)
     {
+        numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        
         super.init(frame:frame)
         
         let separator:UIView = UIView()
@@ -104,6 +109,24 @@ class VHomeCellSpace:VHomeCell
     
     override func config(controller:CHome, model:MHomeItem)
     {
+        guard
         
+            let usedSpaceInt:Int = controller.diskUsed,
+            let totalSpaceInt:Int = MSession.sharedInstance.server?.froobSpace
+        
+        else
+        {
+            labelUsedSpace.text = kEmpty
+            labelTotalSpace.text = kEmpty
+            
+            return
+        }
+        
+        let usedSpace:NSNumber = usedSpaceInt as NSNumber
+        let totalSpace:NSNumber = totalSpaceInt as NSNumber
+        let usedSpaceString:String? = numberFormatter.string(from:usedSpace)
+        let totalSpaceString:String? =  numberFormatter.string(from:totalSpace)
+        labelUsedSpace.text = usedSpaceString
+        labelTotalSpace.text = totalSpaceString
     }
 }

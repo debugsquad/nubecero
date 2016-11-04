@@ -107,7 +107,7 @@ class CLogin:CController, FBSDKLoginButtonDelegate
             
             let firebaseCredential:FIRAuthCredential = FIRFacebookAuthProvider.credential(
                 withAccessToken:tokenString)
-            
+
             FIRAuth.auth()?.signIn(
                 with:firebaseCredential)
             { [weak self] (user, error) in

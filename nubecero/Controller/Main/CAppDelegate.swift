@@ -37,7 +37,7 @@ class AppDelegate:UIResponder, UIApplicationDelegate
         return handled
     }
     
-    func applicationWillResignActive(_ application:UIApplication)
+    func applicationDidEnterBackground(_ application:UIApplication)
     {
         parent.presentAuth()
     }

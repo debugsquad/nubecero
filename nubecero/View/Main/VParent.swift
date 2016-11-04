@@ -103,8 +103,19 @@ class VParent:UIView
     
     //MARK: public
     
-    func over(controller:CController, underBar:Bool, completion:@escaping(() -> ()))
+    func over(controller:CController, underBar:Bool, animate:Bool, completion:@escaping(() -> ()))
     {
+        let animationDuration:TimeInterval
+        
+        if animate
+        {
+            animationDuration = kAnimationDuration
+        }
+        else
+        {
+            animationDuration = 0
+        }
+        
         if underBar
         {
             insertSubview(controller.view, belowSubview:bar)
@@ -147,7 +158,7 @@ class VParent:UIView
         addConstraint(controller.layoutLeft)
         addConstraint(controller.layoutRight)
         
-        UIView.animate(withDuration:kAnimationDuration, animations:
+        UIView.animate(withDuration:animationDuration, animations:
         {
             controller.view.alpha = 1
         })

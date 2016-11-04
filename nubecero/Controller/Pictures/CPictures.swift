@@ -138,7 +138,10 @@ class CPictures:CController
         }
         
         let controllerData:CPicturesData = CPicturesData(model:picture)
-        parentController.over(controller:controllerData, pop:false)
+        parentController.over(
+            controller:controllerData,
+            pop:false,
+            animate:true)
     }
     
     func share()

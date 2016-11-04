@@ -50,7 +50,8 @@ class CLogin:CController, FBSDKLoginButtonDelegate
             let homeController:CHome = CHome()
             self?.parentController.center(
                 controller:homeController,
-                pop:true)
+                pop:true,
+                animate:true)
         }
     }
     

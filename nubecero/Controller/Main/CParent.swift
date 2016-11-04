@@ -34,7 +34,7 @@ class CParent:UIViewController
             object:nil)
         
         let login:CLogin = CLogin()
-        over(controller:login, pop:false)
+        over(controller:login, pop:false, animate:false)
     }
     
     override func loadView()
@@ -61,13 +61,16 @@ class CParent:UIViewController
         DispatchQueue.main.async
         {
             let controllerBanned:CBanned = CBanned()
-            self.over(controller:controllerBanned, pop:true)
+            self.over(
+                controller:controllerBanned,
+                pop:true,
+                animate:false)
         }
     }
     
     //MARK: private
     
-    private func mainController(controller:CController, underBar:Bool, pop:Bool)
+    private func mainController(controller:CController, underBar:Bool, pop:Bool, animate:Bool)
     {
         let currentController:CController?
         
@@ -86,7 +89,7 @@ class CParent:UIViewController
         
         currentController?.beginAppearanceTransition(false, animated:true)
         
-        viewParent.over(controller:controller, underBar:underBar)
+        viewParent.over(controller:controller, underBar:underBar, animate:animate)
         {
             controller.endAppearanceTransition()
             
@@ -134,14 +137,14 @@ class CParent:UIViewController
         }
     }
     
-    func center(controller:CController, pop:Bool)
+    func center(controller:CController, pop:Bool, animate:Bool)
     {
-        mainController(controller:controller, underBar:true, pop:pop)
+        mainController(controller:controller, underBar:true, pop:pop, animate:animate)
     }
     
-    func over(controller:CController, pop:Bool)
+    func over(controller:CController, pop:Bool, animate:Bool)
     {
-        mainController(controller:controller, underBar:false, pop:pop)
+        mainController(controller:controller, underBar:false, pop:pop, animate:animate)
     }
     
     func pop(popBar:Bool)

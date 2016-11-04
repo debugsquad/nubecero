@@ -14,7 +14,7 @@ class VHomeCellSpace:VHomeCell
     private let kLabelsTop:CGFloat = 10
     private let kLabelsLeft:CGFloat = 10
     private let kLabelsWidth:CGFloat = 250
-    private let kLabelTitleHeight:CGFloat = 18
+    private let kLabelTitleHeight:CGFloat = 30
     private let kLabelTotalSpaceHeight:CGFloat = 25
     private let kLabelUsedSpaceHeight:CGFloat = 30
     

@@ -11,7 +11,7 @@ class MMainItemSettings:MMainItem
     
     override func controller() -> CController
     {
-        let controller:CHome = CHome()
+        let controller:CSettings = CSettings()
         
         return controller
     }

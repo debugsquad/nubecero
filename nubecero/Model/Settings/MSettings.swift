@@ -7,9 +7,11 @@ class MSettings
     init()
     {
         let itemSecurity:MSettingsItemSecurity = MSettingsItemSecurity()
+        let itemLogout:MSettingsItemLogout = MSettingsItemLogout()
         
         items = [
-            itemSecurity
+            itemSecurity,
+            itemLogout
         ]
     }
 }

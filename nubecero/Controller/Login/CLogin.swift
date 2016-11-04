@@ -13,14 +13,14 @@ class CLogin:CController, FBSDKLoginButtonDelegate
         view = viewLogin
     }
     
-    override func viewDidAppear(_ animated:Bool)
+    override func viewDidLoad()
     {
-        super.viewDidAppear(animated)
+        super.viewDidLoad()
         
         guard
-        
+            
             let _:FIRUser = FIRAuth.auth()?.currentUser
-        
+            
         else
         {
             return

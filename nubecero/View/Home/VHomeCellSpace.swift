@@ -17,6 +17,7 @@ class VHomeCellSpace:VHomeCell
     private let kLabelTitleHeight:CGFloat = 30
     private let kLabelTotalSpaceHeight:CGFloat = 25
     private let kLabelUsedSpaceHeight:CGFloat = 30
+    private let kKilobytesPerMega:CGFloat = 1000
     
     override init(frame:CGRect)
     {
@@ -122,8 +123,8 @@ class VHomeCellSpace:VHomeCell
             return
         }
         
-        let usedSpace:NSNumber = usedSpaceInt as NSNumber
-        let totalSpace:NSNumber = totalSpaceInt as NSNumber
+        let usedSpace:NSNumber = (CGFloat(usedSpaceInt) / kKilobytesPerMega) as NSNumber
+        let totalSpace:NSNumber = (CGFloat(totalSpaceInt) / kKilobytesPerMega) as NSNumber
         let usedSpaceString:String? = numberFormatter.string(from:usedSpace)
         let totalSpaceString:String? =  numberFormatter.string(from:totalSpace)
         labelUsedSpace.text = usedSpaceString

@@ -16,6 +16,7 @@ class CLogin:CController, FBSDKLoginButtonDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        MSession.sharedInstance.loadSettings()
         
         guard
             

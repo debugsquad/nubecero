@@ -135,6 +135,8 @@ class MSession
         { (settings) in
             
             self.settings = settings
+            
+            DManager.sharedInstance.save()
         }
     }
     
@@ -151,6 +153,8 @@ class MSession
             
             else
             {
+                self.createSettings()
+                
                 return
             }
             

@@ -13,6 +13,10 @@ class VSettingsCellSecurity:VSettingsCell
         let check:UISwitch = UISwitch()
         check.translatesAutoresizingMaskIntoConstraints = false
         check.onTintColor = UIColor.main
+        check.addTarget(
+            self,
+            action:#selector(actionCheck(sender:)),
+            for:UIControlEvents.valueChanged)
         self.check = check
         
         let label:UILabel = UILabel()
@@ -59,6 +63,25 @@ class VSettingsCellSecurity:VSettingsCell
     
     override func config(model:MSettingsItem)
     {
+        guard
         
+            let securityOn:Bool = MSession.sharedInstance.settings?.security
+        
+        else
+        {
+            return
+        }
+        
+        check.isOn = securityOn
+    }
+    
+    //MARK: actions
+    
+    func actionCheck(sender check:UISwitch)
+    {
+        let securityOn:Bool = check.isOn
+        MSession.sharedInstance.settings?.security = securityOn
+        
+        DManager.sharedInstance.save()
     }
 }

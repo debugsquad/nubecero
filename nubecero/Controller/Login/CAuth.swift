@@ -1,4 +1,5 @@
 import UIKit
+import LocalAuthentication
 
 class CAuth:CController
 {
@@ -9,5 +10,12 @@ class CAuth:CController
         let viewAuth:VAuth = VAuth(controller:self)
         self.viewAuth = viewAuth
         view = viewAuth
+    }
+    
+    //MARK: public
+    
+    func askAuth()
+    {
+        
     }
 }

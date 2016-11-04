@@ -41,4 +41,9 @@ class AppDelegate:UIResponder, UIApplicationDelegate
     {
         parent.presentAuth()
     }
+    
+    func applicationDidBecomeActive(_ application:UIApplication)
+    {
+        parent.controllerAuth?.askAuth()
+    }
 }

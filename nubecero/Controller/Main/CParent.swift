@@ -3,6 +3,7 @@ import UIKit
 class CParent:UIViewController
 {
     weak var viewParent:VParent!
+    weak var controllerAuth:CAuth?
     private var controllers:[CController]
     private var statusBarStyle:UIStatusBarStyle
     
@@ -257,6 +258,7 @@ class CParent:UIViewController
     func presentAuth()
     {
         let controllerAuth:CAuth = CAuth()
+        self.controllerAuth = controllerAuth
         over(controller:controllerAuth, pop:false, animate:false)
     }
 }

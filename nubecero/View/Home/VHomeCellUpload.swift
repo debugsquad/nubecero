@@ -45,7 +45,7 @@ class VHomeCellUpload:VHomeCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-5-[imageView(imageHeight)]-(-5)-[label]-10-|",
+            withVisualFormat:"V:|-20-[imageView(imageHeight)]-(-5)-[label]-25-|",
             options:[],
             metrics:metrics,
             views:views))

@@ -13,8 +13,8 @@ class VPicturesDetailHeader:UICollectionReusableView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.textColor = UIColor(white:0.8, alpha:1)
-        label.font = UIFont.medium(size:17)
+        label.textColor = UIColor(white:0.75, alpha:1)
+        label.font = UIFont.medium(size:18)
         label.textAlignment = NSTextAlignment.center
         label.numberOfLines = 0
         label.text = NSLocalizedString("VPicturesDetailHeader_label", comment:"")

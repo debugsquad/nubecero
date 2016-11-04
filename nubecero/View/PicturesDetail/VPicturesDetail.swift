@@ -130,11 +130,11 @@ class VPicturesDetail:UIView, UICollectionViewDataSource, UICollectionViewDelega
         
         if MPictures.sharedInstance.references.count > 0
         {
-            height = kHeaderHeight
+            height = 0
         }
         else
         {
-            height = 0
+            height = kHeaderHeight
         }
         
         let size:CGSize = CGSize(width:0, height:height)

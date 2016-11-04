@@ -61,4 +61,54 @@ class VSettings:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             metrics:metrics,
             views:views))
     }
+    
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
+    }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MSettingsItem
+    {
+        let item:MSettingsItem = controller.model.items[index.item]
+        
+        return item
+    }
+    
+    //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let item:MSettingsItem = modelAtIndex(index:indexPath)
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:item.cellHeight)
+        
+        return size
+    }
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.model.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MSettingsItem = modelAtIndex(index:indexPath)
+        let cell:VSettingsCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            item.reusableIdentifier,
+            for:indexPath) as! VSettingsCell
+        cell.config(model:item)
+        
+        return cell
+    }
 }

@@ -39,7 +39,19 @@ class AppDelegate:UIResponder, UIApplicationDelegate
     
     func applicationDidEnterBackground(_ application:UIApplication)
     {
-        parent.presentAuth()
+        guard
+            
+            let askAuth:Bool = MSession.sharedInstance.settings?.security
+            
+        else
+        {
+            return
+        }
+        
+        if askAuth
+        {
+            parent.presentAuth()
+        }
     }
     
     func applicationWillEnterForeground(_ application:UIApplication)

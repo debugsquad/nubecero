@@ -69,7 +69,7 @@ class CLogin:CController, FBSDKLoginButtonDelegate
         DispatchQueue.main.async
         { [weak self] in
             
-            let homeController:CHome = CHome()
+            let homeController:CHome = CHome(askAuth:true)
             self?.parentController.center(
                 controller:homeController,
                 pop:true,

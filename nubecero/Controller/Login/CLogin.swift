@@ -4,7 +4,7 @@ import FirebaseAuth
 
 class CLogin:CController, FBSDKLoginButtonDelegate
 {
-    weak var viewLogin:VLogin!
+    private weak var viewLogin:VLogin!
     
     override func loadView()
     {

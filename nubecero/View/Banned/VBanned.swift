@@ -2,7 +2,7 @@ import UIKit
 
 class VBanned:UIView
 {
-    weak var controller:CBanned!
+    private weak var controller:CBanned!
     private let kLabelMargin:CGFloat = 20
     private let kLabelHeight:CGFloat = 120
     

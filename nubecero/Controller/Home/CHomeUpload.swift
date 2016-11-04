@@ -3,9 +3,9 @@ import Photos
 
 class CHomeUpload:CController
 {
-    weak var viewUpload:VHomeUpload!
-    weak var viewBar:VHomeUploadBar?
     let model:MHomeUpload
+    weak var viewBar:VHomeUploadBar?
+    private weak var viewUpload:VHomeUpload!
     private let kBarWidth:CGFloat = 150
     private let kAlertAfter:TimeInterval = 1
     

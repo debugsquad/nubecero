@@ -2,7 +2,7 @@ import UIKit
 
 class CBanned:CController
 {
-    weak var viewBanned:VBanned!
+    private weak var viewBanned:VBanned!
     
     override func loadView()
     {

@@ -2,7 +2,7 @@ import UIKit
 
 class CHome:CController
 {
-    weak var viewHome:VHome!
+    private weak var viewHome:VHome!
     let model:MHome
     var diskUsed:Int?
     

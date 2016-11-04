@@ -50,6 +50,7 @@
 		DA406BD61DCD036C0098D347 /* MSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BD51DCD036C0098D347 /* MSettings.swift */; };
 		DA406BD81DCD03760098D347 /* MSettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BD71DCD03760098D347 /* MSettingsItem.swift */; };
 		DA406BDA1DCD03820098D347 /* MSettingsItemSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BD91DCD03820098D347 /* MSettingsItemSecurity.swift */; };
+		DA406BDC1DCD1CF00098D347 /* VSettingsCellLogout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BDB1DCD1CF00098D347 /* VSettingsCellLogout.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -196,6 +197,7 @@
 		DA406BD51DCD036C0098D347 /* MSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettings.swift; sourceTree = "<group>"; };
 		DA406BD71DCD03760098D347 /* MSettingsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItem.swift; sourceTree = "<group>"; };
 		DA406BD91DCD03820098D347 /* MSettingsItemSecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemSecurity.swift; sourceTree = "<group>"; };
+		DA406BDB1DCD1CF00098D347 /* VSettingsCellLogout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellLogout.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 				DA406BCE1DCD022F0098D347 /* VSettings.swift */,
 				DA406BD01DCD02DB0098D347 /* VSetingsCell.swift */,
 				DA406BD21DCD02E90098D347 /* VSettingsCellSecurity.swift */,
+				DA406BDB1DCD1CF00098D347 /* VSettingsCellLogout.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1074,6 +1077,7 @@
 				DAE455641DCA844100948D70 /* MPicturesData.swift in Sources */,
 				DA2F668F1DC90AF50078B466 /* FDatabaseModelUserPictureList.swift in Sources */,
 				DACD1FCC1DC7D0320067D26B /* MSession.swift in Sources */,
+				DA406BDC1DCD1CF00098D347 /* VSettingsCellLogout.swift in Sources */,
 				DA2F66B71DC9509D0078B466 /* MPicturesItemStateLoaded.swift in Sources */,
 				DACD1FB21DC540810067D26B /* MHomeUploadItem.swift in Sources */,
 				DA4EF8FE1DC395B300297C1D /* ExtensionFileManager.swift in Sources */,

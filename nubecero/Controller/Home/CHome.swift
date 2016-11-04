@@ -4,11 +4,14 @@ class CHome:CController
 {
     private weak var viewHome:VHome!
     let model:MHome
+    let askAuth:Bool
     var diskUsed:Int?
+    private let kAuthAfter:TimeInterval = 1
     
-    init()
+    init(askAuth:Bool)
     {
         model = MHome()
+        self.askAuth = askAuth
         
         super.init(nibName:nil, bundle:nil)
     }
@@ -28,6 +31,34 @@ class CHome:CController
         let viewHome:VHome = VHome(controller:self)
         self.viewHome = viewHome
         view = viewHome
+    }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        if askAuth
+        {
+            guard
+            
+                let shouldAuth:Bool = MSession.sharedInstance.settings?.security
+            
+            else
+            {
+                return
+            }
+            
+            if shouldAuth
+            {
+                DispatchQueue.main.asyncAfter(
+                    deadline:DispatchTime.now() + kAuthAfter)
+                { [weak self] in
+                    
+                    self?.parentController.presentAuth()
+                    self?.parentController.controllerAuth?.askAuth()
+                }
+            }
+        }
     }
     
     override func viewDidAppear(_ animated:Bool)

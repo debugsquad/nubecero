@@ -6,6 +6,11 @@ class CLogin:CController, FBSDKLoginButtonDelegate
 {
     private weak var viewLogin:VLogin!
     
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func loadView()
     {
         let viewLogin:VLogin = VLogin(controller:self)
@@ -16,18 +21,34 @@ class CLogin:CController, FBSDKLoginButtonDelegate
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedSettingsLoaded(sender:)),
+            name:Notification.settingsLoaded,
+            object:nil)
+        
         MSession.sharedInstance.loadSettings()
-        
-        guard
+    }
+    
+    //MARK: notified
+    
+    func notifiedSettingsLoaded(sender notification:Notification)
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
             
-            let _:FIRUser = FIRAuth.auth()?.currentUser
+            guard
+                
+                let _:FIRUser = FIRAuth.auth()?.currentUser
+                
+            else
+            {
+                return
+            }
             
-        else
-        {
-            return
+            self?.userLogged()
         }
-        
-        userLogged()
     }
     
     //MARK: private

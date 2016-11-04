@@ -5,6 +5,7 @@ class MMain
     let items:[MMainItem]
     var state:MMainState
     weak var current:MMainItem!
+    private weak var home:MMainItem!
     
     init()
     {
@@ -16,7 +17,7 @@ class MMain
         items.append(itemSettings)
         
         let itemHome:MMainItemHome = MMainItemHome(index:items.count)
-        current = itemHome
+        home = itemHome
         items.append(itemHome)
         
         let itemPictures:MMainItemPictures = MMainItemPictures(index:items.count)
@@ -35,5 +36,10 @@ class MMain
     func poped()
     {
         state = MMainStateOptions()
+    }
+    
+    func restart()
+    {
+        current = home
     }
 }

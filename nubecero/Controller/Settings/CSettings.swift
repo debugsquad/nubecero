@@ -2,7 +2,7 @@ import UIKit
 import FBSDKLoginKit
 import FirebaseAuth
 
-class CSettings:CController, FBSDKLoginButtonDelegate
+class CSettings:CController
 {
     private weak var viewSettings:VSettings!
     let model:MSettings
@@ -38,21 +38,11 @@ class CSettings:CController, FBSDKLoginButtonDelegate
         }
         catch
         {
-            
         }
         
+        parentController.viewParent.bar.restart()
+        
         let controllerLogin:CLogin = CLogin()
-        parentController.over(controller:controllerLogin, pop:true, animate:false)
-    }
-    
-    //MARK: login delegate
-    
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        print("more shit")
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!)
-    {
-        print("shit")
+        parentController.over(controller:controllerLogin, pop:true, animate:true)
     }
 }

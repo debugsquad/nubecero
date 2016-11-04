@@ -10,7 +10,7 @@ class VSettingsCellLogout:VSettingsCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:16)
+        label.font = UIFont.bold(size:14)
         label.textColor = UIColor.black
         label.textAlignment = NSTextAlignment.center
         label.text = NSLocalizedString("VSettingsCellLogout_label", comment:"")

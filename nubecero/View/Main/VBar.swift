@@ -125,11 +125,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kWaitingTime)
         {
-            let indexPath:IndexPath = IndexPath(item:self.model.current.index, section:0)
-            self.collectionView.selectItem(
-                at:indexPath,
-                animated:false,
-                scrollPosition:UICollectionViewScrollPosition())
+            self.restart()
         }
     }
     
@@ -207,6 +203,16 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     }
     
     //MARK: public
+    
+    func restart()
+    {
+        model.restart()
+        let indexPath:IndexPath = IndexPath(item:model.current.index, section:0)
+        collectionView.selectItem(
+            at:indexPath,
+            animated:false,
+            scrollPosition:UICollectionViewScrollPosition())
+    }
     
     func push(name:String?)
     {

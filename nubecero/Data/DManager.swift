@@ -6,7 +6,7 @@ class DManager
     static let sharedInstance:DManager = DManager()
     private weak var timer:Timer?
     private let managedObjectContext:NSManagedObjectContext
-    private let kModelName:String = "DMetalic"
+    private let kModelName:String = "DNubecero"
     private let kModelExtension:String = "momd"
     private let kSQLiteExtension:String = "%@.sqlite"
     private let kTimeoutSave:TimeInterval = 1
@@ -46,8 +46,7 @@ class DManager
     
     @objc func timerDone(sender timer:Timer)
     {
-        timer.invalidate()
-        self.timer = nil
+        self.timer?.invalidate()
         actualSave()
     }
     

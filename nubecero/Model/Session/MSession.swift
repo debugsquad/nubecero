@@ -128,6 +128,13 @@ class MSession
         loadServer()
     }
     
+    private func settingsLoaded()
+    {
+        NotificationCenter.default.post(
+            name:Notification.settingsLoaded,
+            object:nil)
+    }
+    
     private func createSettings()
     {
         DManager.sharedInstance.createManagedObject(
@@ -137,6 +144,7 @@ class MSession
             self.settings = settings
             
             DManager.sharedInstance.save()
+            self.settingsLoaded()
         }
     }
     
@@ -159,6 +167,7 @@ class MSession
             }
             
             self.settings = settings
+            self.settingsLoaded()
         }
     }
     

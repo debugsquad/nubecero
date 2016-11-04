@@ -5,9 +5,9 @@ class VAuth:UIView
     private weak var controller:CAuth!
     private weak var buttonTryAgain:UIButton!
     private weak var layoutButtonTryAgainLeft:NSLayoutConstraint!
-    private let kButtonTryAgainWidth:CGFloat = 100
-    private let kButtonTryAgainHeight:CGFloat = 34
-    private let kButtonTryAgainBottom:CGFloat = 40
+    private let kButtonTryAgainWidth:CGFloat = 140
+    private let kButtonTryAgainHeight:CGFloat = 36
+    private let kButtonTryAgainBottom:CGFloat = 30
     private let kCornerRadius:CGFloat = 4
     
     convenience init(controller:CAuth)
@@ -29,14 +29,18 @@ class VAuth:UIView
         buttonTryAgain.isHidden = true
         buttonTryAgain.clipsToBounds = true
         buttonTryAgain.translatesAutoresizingMaskIntoConstraints = false
-        buttonTryAgain.backgroundColor = UIColor.complement
+        buttonTryAgain.backgroundColor = UIColor.black
         buttonTryAgain.setTitleColor(UIColor.white, for:UIControlState.normal)
-        buttonTryAgain.setTitleColor(UIColor.black, for:UIControlState.highlighted)
+        buttonTryAgain.setTitleColor(UIColor.complement, for:UIControlState.highlighted)
         buttonTryAgain.setTitle(
             NSLocalizedString("VAuth_buttonTryAgain", comment:""),
             for:UIControlState.normal)
-        buttonTryAgain.titleLabel!.font = UIFont.medium(size:14)
+        buttonTryAgain.titleLabel!.font = UIFont.bold(size:14)
         buttonTryAgain.layer.cornerRadius = kCornerRadius
+        buttonTryAgain.addTarget(
+            self,
+            action:#selector(actionTryAgain(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.buttonTryAgain = buttonTryAgain
         
         addSubview(imageView)
@@ -73,7 +77,7 @@ class VAuth:UIView
             views:views))
         
         layoutButtonTryAgainLeft = NSLayoutConstraint(
-            item:self,
+            item:buttonTryAgain,
             attribute:NSLayoutAttribute.left,
             relatedBy:NSLayoutRelation.equal,
             toItem:self,

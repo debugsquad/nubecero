@@ -26,6 +26,12 @@ class CAuth:CController
     private func authError(error:String)
     {
         VAlert.message(message:error)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewAuth.showTryAgain()
+        }
     }
     
     //MARK: public

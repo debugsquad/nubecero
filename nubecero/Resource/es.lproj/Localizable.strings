@@ -1,0 +1,36 @@
+"VLogin_disclaimer"="Valida tu cuenta\nNunca publicaremos nada en Facebook";
+"VHomeCellUpload_label"="Subir imágenes";
+"VHomeUploadSyncBar_cancel"="Detener";
+"VHomeUploadSyncBar_tryAgain"="Reiniciar";
+"VPicturesDataCellClose_buttonTitle"="Cerrar sessión";
+"VPicturesDataCellSize_labelTitle"="Megabytes";
+"VPicturesDataCellCreated_labelTitle"="Subida";
+"VBanned_disclaimer"="Tu cuenta esta suspendida\nContacta soporte para mayor información";
+"VHomeCellSpace_labelTitle"="Megabytes usados de tu Nube";
+"VAuth_buttonTryAgain"="Reintentar";
+"VSettingsCellSecurity_label"="Pedir contraseña (mejora privacidad)";
+"VSettingsCellLogout_label"="Salir";
+"VPicturesDetailHeader_label"="Tu Nube esta vacía";
+
+"CLogin_logOut"="Cerraste sessión";
+"CLogin_errorUnknown"="No se pudo ingresar, reintantalo";
+"CHomeUpload_title"="Subir";
+"CHomeUpload_authDenied"="No se pudo acceder a tu librería";
+"CHomeUpload_noCameraRoll"="No se pudieron subir tus imágenes";
+"CHomeUploadSync_syncComplete"="Imágenes subidas";
+"CHomeUploadSync_diskFull"="Tu Nube esta llena, algunas imágenes no se pudieron subir";
+"CHomeUpload_uploadedTitle"="¿Borras esas imágenes de tu dispositivo?";
+"CHomeUpload_uploadedMessage"="Ya estan respaldadas en la Nube";
+"CHomeUpload_uploadedDontRemove"="Mantenerlas";
+"CHomeUpload_uploadedRemove"="Borrarlas";
+"CPictures_deleteTitle"="¿Borrar imagen?";
+"CPictures_deleteMessage"="No podras recuperarla";
+"CPictures_deleteCancel"="Cancelar";
+"CPictures_deleteDelete"="Borrarla";
+"CAuth_reason"="Validate para ingresar a tu Nube";
+"CAuth_errorUnknown"="No se pudo validad, reintentalo";
+"CAuth_passCodeNotSet"="Define una contraseña en la configuración del dispositivo para asegurar tu Nube";
+
+"MHomeUploadItemStatusWaiting_error"="Error cargando imagen, reintentalo";
+"MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";
+"MHomeUploadItemStatusReferenced_errorUser"="Error guardando imagen, reintentalo";

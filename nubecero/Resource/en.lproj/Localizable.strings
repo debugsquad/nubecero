@@ -10,7 +10,7 @@
 "VAuth_buttonTryAgain"="Try again";
 "VSettingsCellSecurity_label"="Require Passcode (enhance privacy)";
 "VSettingsCellLogout_label"="Log out";
-"VPicturesDetailHeader_label"="Your cloud is empty";
+"VPicturesDetailHeader_label"="Your Cloud is empty";
 
 "CLogin_logOut"="Log out succeded";
 "CLogin_errorUnknown"="Couldn't log in, try again";
@@ -18,18 +18,18 @@
 "CHomeUpload_authDenied"="Unable to acccess your photo library";
 "CHomeUpload_noCameraRoll"="Unable to load your pictures";
 "CHomeUploadSync_syncComplete"="Pictures uploaded";
-"CHomeUploadSync_diskFull"="Your cloud is full, some pictures couldn't be uploaded";
+"CHomeUploadSync_diskFull"="Your Cloud is full, some pictures couldn't be uploaded";
 "CHomeUpload_uploadedTitle"="Remove uploaded pictures from this device?";
-"CHomeUpload_uploadedMessage"="You have them already on the cloud";
+"CHomeUpload_uploadedMessage"="You have them already on the Cloud";
 "CHomeUpload_uploadedDontRemove"="Keep them";
 "CHomeUpload_uploadedRemove"="Remove";
 "CPictures_deleteTitle"="Delete picture?";
 "CPictures_deleteMessage"="Can't undo";
 "CPictures_deleteCancel"="Cancel";
 "CPictures_deleteDelete"="Delete";
-"CAuth_reason"="Authenticate to access your cloud";
+"CAuth_reason"="Authenticate to access your Cloud";
 "CAuth_errorUnknown"="Couldn't authenticate, try again";
-"CAuth_passCodeNotSet"="Set your password in the device Settings to secure your cloud";
+"CAuth_passCodeNotSet"="Set your password in the device Settings to secure your Cloud";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading image, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

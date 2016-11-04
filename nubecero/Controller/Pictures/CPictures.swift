@@ -171,6 +171,15 @@ class CPictures:CController
     
     func deletePicture()
     {
+        guard
+            
+            let _:MPicturesItem = viewPictures.currentItem
+            
+        else
+        {
+            return
+        }
+        
         let alert:UIAlertController = UIAlertController(
             title:
             NSLocalizedString("CPictures_deleteTitle", comment:""),

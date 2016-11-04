@@ -11,9 +11,9 @@ class MHome
         let itemUpload:MHomeItemUpload = MHomeItemUpload()
         
         items = [
+            itemUpload,
             itemDisk,
-            itemSpace,
-            itemUpload
+            itemSpace
         ]
     }
 }

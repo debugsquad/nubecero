@@ -52,6 +52,7 @@
 		DA406BDA1DCD03820098D347 /* MSettingsItemSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BD91DCD03820098D347 /* MSettingsItemSecurity.swift */; };
 		DA406BDC1DCD1CF00098D347 /* VSettingsCellLogout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BDB1DCD1CF00098D347 /* VSettingsCellLogout.swift */; };
 		DA406BDE1DCD1D240098D347 /* MSettingsItemLogout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BDD1DCD1D240098D347 /* MSettingsItemLogout.swift */; };
+		DA406BE01DCD28210098D347 /* VPicturesDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BDF1DCD28210098D347 /* VPicturesDetailHeader.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -200,6 +201,7 @@
 		DA406BD91DCD03820098D347 /* MSettingsItemSecurity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemSecurity.swift; sourceTree = "<group>"; };
 		DA406BDB1DCD1CF00098D347 /* VSettingsCellLogout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellLogout.swift; sourceTree = "<group>"; };
 		DA406BDD1DCD1D240098D347 /* MSettingsItemLogout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemLogout.swift; sourceTree = "<group>"; };
+		DA406BDF1DCD28210098D347 /* VPicturesDetailHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDetailHeader.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 			isa = PBXGroup;
 			children = (
 				DA2F66A81DC942480078B466 /* VPicturesDetail.swift */,
+				DA406BDF1DCD28210098D347 /* VPicturesDetailHeader.swift */,
 				DA2F66A91DC942480078B466 /* VPicturesDetailCell.swift */,
 				DA2F66AA1DC942480078B466 /* VPicturesDetailCellImage.swift */,
 				DA2F66AB1DC942480078B466 /* VPicturesDetailCellInfo.swift */,
@@ -1108,6 +1111,7 @@
 				DA88F6761DC7EDF5009F61B3 /* MHomeUploadItemStatusLoaded.swift in Sources */,
 				DA406BCC1DCD01E30098D347 /* CSettings.swift in Sources */,
 				DA4EF90A1DC395B300297C1D /* MMainItem.swift in Sources */,
+				DA406BE01DCD28210098D347 /* VPicturesDetailHeader.swift in Sources */,
 				DA3411881DCBF016006E6D71 /* VBanned.swift in Sources */,
 				DAE455541DCA4DE400948D70 /* VPicturesDetailCellInfoCell.swift in Sources */,
 				DA2F66881DC8FE8B0078B466 /* VPictures.swift in Sources */,

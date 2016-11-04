@@ -15,7 +15,7 @@ class VHomeCellDiskCircle:UIView
     private let colorMain:CGColor
     private let colorBackground:CGColor
     private let kTimeInterval:TimeInterval = 0.03
-    private let kAngleDelta:CGFloat = 0.1
+    private let kAngleDelta:CGFloat = 0.14
     private let kLineWidth:CGFloat = 40
     private let kArrowRadius:CGFloat = 3
     private let kCircleRadius:CGFloat = 80

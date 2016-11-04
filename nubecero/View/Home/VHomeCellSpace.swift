@@ -5,17 +5,17 @@ class VHomeCellSpace:VHomeCell
     private let numberFormatter:NumberFormatter
     private weak var labelTotalSpace:UILabel!
     private weak var labelUsedSpace:UILabel!
+    private weak var layoutSeparatorLeft:NSLayoutConstraint!
     private let kEmpty:String = ""
     private let kMaxFractions:Int = 1
-    private let kFontTitleSize:CGFloat = 15
-    private let kFontUsedSpaceSize:CGFloat = 50
+    private let kFontTitleSize:CGFloat = 14
+    private let kFontUsedSpaceSize:CGFloat = 60
     private let kFontTotalSpaceSize:CGFloat = 20
     private let kSeparatorHeight:CGFloat = 1
-    private let kSeparatorMargin:CGFloat = 120
-    private let kLabelsTop:CGFloat = 10
-    private let kLabelTitleHeight:CGFloat = 40
-    private let kLabelTotalSpaceHeight:CGFloat = 25
-    private let kLabelUsedSpaceHeight:CGFloat = 60
+    private let kSeparatorWidth:CGFloat = 80
+    private let kLabelTitleHeight:CGFloat = 30
+    private let kLabelTotalSpaceHeight:CGFloat = 27
+    private let kLabelUsedSpaceHeight:CGFloat = 64
     private let kKilobytesPerMega:CGFloat = 1000
     
     override init(frame:CGRect)
@@ -71,42 +71,64 @@ class VHomeCellSpace:VHomeCell
         
         let metrics:[String:CGFloat] = [
             "separatorHeight":kSeparatorHeight,
-            "separatorMargin":kSeparatorMargin,
+            "separatorWidth":kSeparatorWidth,
             "labelTitleHeight":kLabelTitleHeight,
             "labelTotalSpaceHeight":kLabelTotalSpaceHeight,
-            "labelUsedSpaceHeight":kLabelUsedSpaceHeight,
-            "labelsTop":kLabelsTop]
+            "labelUsedSpaceHeight":kLabelUsedSpaceHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[labelTitle(labelsWidth)]-0-|",
+            withVisualFormat:"H:|-0-[labelTitle]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[labelTotalSpace(labelsWidth)]-0-|",
+            withVisualFormat:"H:|-0-[labelTotalSpace]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[labelUsedSpace(labelsWidth)]-0-|",
+            withVisualFormat:"H:|-0-[labelUsedSpace]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-(separatorMargin)-[separator(separatorWidth)]-(separatorMargin)-|",
+            withVisualFormat:
+            "H:[separator(separatorWidth)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(labelsTop)-[labelTitle(labelTitleHeight)]-0-[labelUsedSpace(labelUsedSpaceHeight)]-0-[separator(separatorHeight)]-0-[labelTotalSpace(labelTotalSpaceHeight)]",
+            withVisualFormat:
+            "V:|-30-[labelTitle(labelTitleHeight)]-20-[labelUsedSpace(labelUsedSpaceHeight)]-0-[separator(separatorHeight)]-0-[labelTotalSpace(labelTotalSpaceHeight)]",
             options:[],
             metrics:metrics,
             views:views))
+        
+        layoutSeparatorLeft = NSLayoutConstraint(
+            item:separator,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.left,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutSeparatorLeft)
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        let totalWidth:CGFloat = bounds.maxX
+        let remainWidth:CGFloat = totalWidth - kSeparatorWidth
+        let marginLeft:CGFloat = remainWidth / 2.0
+        
+        layoutSeparatorLeft.constant = marginLeft
+        super.layoutSubviews()
     }
     
     override func config(controller:CHome, model:MHomeItem)

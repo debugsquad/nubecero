@@ -5,6 +5,7 @@ class VPicturesDetail:UIView, UICollectionViewDataSource, UICollectionViewDelega
     private let model:MPicturesDetail
     private weak var controller:CPictures!
     private weak var collectionView:UICollectionView!
+    private let kHeaderHeight:CGFloat = 200
     
     init(controller:CPictures)
     {
@@ -17,7 +18,6 @@ class VPicturesDetail:UIView, UICollectionViewDataSource, UICollectionViewDelega
         self.controller = controller
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSize.zero
         flow.footerReferenceSize = CGSize.zero
         flow.sectionInset = UIEdgeInsets.zero
         flow.minimumLineSpacing = 0
@@ -33,6 +33,12 @@ class VPicturesDetail:UIView, UICollectionViewDataSource, UICollectionViewDelega
         collectionView.isScrollEnabled = false
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(
+            VPicturesDetailHeader.self,
+            forSupplementaryViewOfKind:
+            UICollectionElementKindSectionHeader,
+            withReuseIdentifier:
+            VPicturesDetailHeader.reusableIdentifier)
         collectionView.register(
             VPicturesDetailCellInfo.self,
             forCellWithReuseIdentifier:
@@ -118,6 +124,24 @@ class VPicturesDetail:UIView, UICollectionViewDataSource, UICollectionViewDelega
         return size
     }
     
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, referenceSizeForHeaderInSection section:Int) -> CGSize
+    {
+        let height:CGFloat
+        
+        if MPictures.sharedInstance.references.count > 0
+        {
+            height = kHeaderHeight
+        }
+        else
+        {
+            height = 0
+        }
+        
+        let size:CGSize = CGSize(width:0, height:height)
+        
+        return size
+    }
+    
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
@@ -125,9 +149,29 @@ class VPicturesDetail:UIView, UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = model.items.count
+        let count:Int
+        
+        if MPictures.sharedInstance.references.count > 0
+        {
+            count = model.items.count
+        }
+        else
+        {
+            count = 0
+        }
         
         return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
+    {
+        let reusable:UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(
+            ofKind:kind,
+            withReuseIdentifier:
+            VPicturesDetailHeader.reusableIdentifier,
+            for:indexPath)
+        
+        return reusable
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
@@ -140,5 +184,15 @@ class VPicturesDetail:UIView, UICollectionViewDataSource, UICollectionViewDelega
         cell.config(controller:controller)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
     }
 }

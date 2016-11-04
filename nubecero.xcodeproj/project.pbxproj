@@ -41,6 +41,7 @@
 		DA34118A1DCBFCD1006E6D71 /* MHomeUploadItemStatusDiskFull.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411891DCBFCD1006E6D71 /* MHomeUploadItemStatusDiskFull.swift */; };
 		DA34118C1DCC037D006E6D71 /* VHomeCellSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34118B1DCC037D006E6D71 /* VHomeCellSpace.swift */; };
 		DA34118E1DCC0716006E6D71 /* MHomeItemSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34118D1DCC0716006E6D71 /* MHomeItemSpace.swift */; };
+		DA406BC61DCCE7BF0098D347 /* CAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BC51DCCE7BF0098D347 /* CAuth.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -178,6 +179,7 @@
 		DA3411891DCBFCD1006E6D71 /* MHomeUploadItemStatusDiskFull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusDiskFull.swift; sourceTree = "<group>"; };
 		DA34118B1DCC037D006E6D71 /* VHomeCellSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellSpace.swift; sourceTree = "<group>"; };
 		DA34118D1DCC0716006E6D71 /* MHomeItemSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemSpace.swift; sourceTree = "<group>"; };
+		DA406BC51DCCE7BF0098D347 /* CAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAuth.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -611,6 +613,7 @@
 			children = (
 				DACD1F8B1DC3AD480067D26B /* CLogin.swift */,
 				DA3411841DCBEE57006E6D71 /* CBanned.swift */,
+				DA406BC51DCCE7BF0098D347 /* CAuth.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1040,6 +1043,7 @@
 				DACD1FC71DC7C6AE0067D26B /* FDatabaseModelUser.swift in Sources */,
 				DAE455501DCA4CB000948D70 /* MPicturesDetailInfoItem.swift in Sources */,
 				DAE455681DCA84A800948D70 /* MPicturesDataItemClose.swift in Sources */,
+				DA406BC61DCCE7BF0098D347 /* CAuth.swift in Sources */,
 				DACD1FC31DC7C66A0067D26B /* FDatabase.swift in Sources */,
 				DA4EF90F1DC395B300297C1D /* MMainStatePushed.swift in Sources */,
 				DA4EF9131DC395B300297C1D /* VBarCell.swift in Sources */,

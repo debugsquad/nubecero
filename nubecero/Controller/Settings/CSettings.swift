@@ -1,4 +1,5 @@
 import UIKit
+import FBSDKLoginKit
 
 class CSettings:CController
 {
@@ -21,5 +22,16 @@ class CSettings:CController
         let viewSettings:VSettings = VSettings(controller:self)
         self.viewSettings = viewSettings
         view = viewSettings
+    }
+    
+    //MARK: public
+    
+    func logOut()
+    {
+        let manager:FBSDKLoginManager = FBSDKLoginManager()
+        manager.logOut()
+        
+        let controllerLogin:CLogin = CLogin()
+//        parentController.over(controller:controllerLogin, pop:true, animate:false)
     }
 }

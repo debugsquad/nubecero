@@ -175,9 +175,12 @@ class MSession
     
     func loadSettings()
     {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        if settings == nil
         {
-            self.asyncLoadSettings()
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            {
+                    self.asyncLoadSettings()
+            }
         }
     }
     

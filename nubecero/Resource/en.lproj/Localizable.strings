@@ -25,6 +25,7 @@
 "CPictures_deleteDelete"="Delete";
 "CAuth_reason"="Authenticate to access your cloud";
 "CAuth_errorUnknown"="Couldn't authenticate, try again";
+"CAuth_passCodeNotSet"="Set your password in the device Settings to secure your cloud";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading image, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

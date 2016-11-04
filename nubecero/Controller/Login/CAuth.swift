@@ -45,9 +45,27 @@ class CAuth:CController
             }
             else
             {
-                if let errorString:String = error?.localizedDescription
+                if let errorLA:LAError = error as? LAError
                 {
-                    self?.authError(error:errorString)
+                    if errorLA.code == LAError.Code.passcodeNotSet
+                    {
+                        self?.authSuccess()
+                        
+                        let notSet:String = NSLocalizedString("CAuth_passCodeNotSet", comment:"")
+                        VAlert.message(message:notSet)
+                    }
+                    else
+                    {
+                        if let errorString:String = error?.localizedDescription
+                        {
+                            self?.authError(error:errorString)
+                        }
+                        else
+                        {
+                            let errorString:String = NSLocalizedString("CAuth_errorUnknown", comment:"")
+                            self?.authError(error:errorString)
+                        }
+                    }
                 }
                 else
                 {
@@ -56,31 +74,5 @@ class CAuth:CController
                 }
             }
         }
-        
-        /*
-        let myContext = LAContext()
-        let myLocalizedReasonString = "just for shit"
-        
-        var authError: NSError? = nil
-        if #available(iOS 8.0, OSX 10.12, *) {
-            if myContext.canEvaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, error: &authError) {
-                myContext.evaluatePolicy(LAPolicy.deviceOwnerAuthenticationWithBiometrics, localizedReason: myLocalizedReasonString) { (success, evaluateError) in
-                    if (success) {
-                        
-                        DispatchQueue.main.async {
-                            self.parentController.dismiss()
-                        }
-                        // User authenticated successfully, take appropriate action
-                    } else {
-                        VAlert.message(message:evaluateError!.localizedDescription)
-                        // User did not authenticate successfully, look at error and take appropriate action
-                    }
-                }
-            } else {
-                // Could not evaluate policy; look at authError and present an appropriate message to user
-            }
-        } else {
-            // Fallback on earlier versions
-        }*/
     }
 }

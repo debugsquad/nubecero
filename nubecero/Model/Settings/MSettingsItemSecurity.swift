@@ -1,9 +1,14 @@
-//
-//  MSettingsItemSecurity.swift
-//  nubecero
-//
-//  Created by zero on 11/4/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MSettingsItemSecurity:MSettingsItem
+{
+    private let kCellHeight:CGFloat = 100
+    
+    override init()
+    {
+        let reusableIdentifier:String = VSettingsCellSecurity.reusableIdentifier
+        super.init(
+            reusableIdentifier:reusableIdentifier,
+            cellHeight:kCellHeight)
+    }
+}

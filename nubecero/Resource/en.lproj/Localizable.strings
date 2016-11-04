@@ -9,6 +9,7 @@
 "VHomeCellSpace_labelTitle"="Cloud Megabytes used";
 
 "CLogin_logOut"="Log out succeded";
+"CLogin_errorUnknown"="Couldn't log in, try again";
 "CHomeUpload_title"="Upload";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";
 "CHomeUpload_noCameraRoll"="Unable to load your pictures";

@@ -70,8 +70,22 @@ class CLogin:CController, FBSDKLoginButtonDelegate
         }
         else
         {
+            guard
+                
+                let accessToken:FBSDKAccessToken = FBSDKAccessToken.current(),
+                let tokenString:String = accessToken.tokenString
+            
+            else
+            {
+                let errorString:String = NSLocalizedString("CLogin_errorUnknown", comment:"")
+                loginError(error:errorString)
+                
+                return
+            }
+            
             let firebaseCredential:FIRAuthCredential = FIRFacebookAuthProvider.credential(
-                withAccessToken:FBSDKAccessToken.current().tokenString)
+                withAccessToken:tokenString)
+            
             FIRAuth.auth()?.signIn(
                 with:firebaseCredential)
             { [weak self] (user, error) in

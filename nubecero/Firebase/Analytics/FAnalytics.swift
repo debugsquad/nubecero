@@ -28,13 +28,13 @@ class FAnalytics
         }
     }
     
-    func upload(pictures:Int)
+    func logout()
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
             let parameters:[String:NSObject] = [
                 kFIRParameterContentType:self.kEventAction,
-                kFIRParameterItemID:pictures as NSObject
+                kFIRParameterItemID:self.kEventActionLogout
             ]
             
             FIRAnalytics.logEvent(
@@ -43,13 +43,13 @@ class FAnalytics
         }
     }
     
-    func logout()
+    func upload(pictures:Int)
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
             let parameters:[String:NSObject] = [
                 kFIRParameterContentType:self.kEventAction,
-                kFIRParameterItemID:self.kEventActionLogout
+                kFIRParameterItemID:pictures as NSObject
             ]
             
             FIRAnalytics.logEvent(

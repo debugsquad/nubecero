@@ -6,10 +6,12 @@ class MSettings
     
     init()
     {
+        let itemProfile:MSettingsItemProfile = MSettingsItemProfile()
         let itemSecurity:MSettingsItemSecurity = MSettingsItemSecurity()
         let itemLogout:MSettingsItemLogout = MSettingsItemLogout()
         
         items = [
+            itemProfile,
             itemSecurity,
             itemLogout
         ]

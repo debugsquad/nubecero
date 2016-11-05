@@ -9,6 +9,8 @@ class MPicturesDetailInfoItemDelete:MPicturesDetailInfoItem
     
     override func selected(controller:CPictures?)
     {
+        FMain.sharedInstance.analytics?.pictureDelete()
+        
         controller?.deletePicture()
     }
 }

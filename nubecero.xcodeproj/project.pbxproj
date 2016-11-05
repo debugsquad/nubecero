@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		06D9E2BF766CCF1EB9054A38 /* Pods_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A506DC17B7ED85B8FB3EE2 /* Pods_tests.framework */; };
 		1E9AC0186DB6141BB7B8E493 /* Pods_nubecero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139B6F190B9092431A50FEE0 /* Pods_nubecero.framework */; };
+		DA253EA91DCE75D700C704A3 /* MSettingsItemProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA253EA81DCE75D700C704A3 /* MSettingsItemProfile.swift */; };
+		DA253EAB1DCE764200C704A3 /* VSettingsCellProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA253EAA1DCE764200C704A3 /* VSettingsCellProfile.swift */; };
 		DA25F8E11DCD63A50048DFFE /* TFDatabaseModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA25F8E01DCD63A50048DFFE /* TFDatabaseModelUser.swift */; };
 		DA2F66851DC8FE5C0078B466 /* CPictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66841DC8FE5C0078B466 /* CPictures.swift */; };
 		DA2F66881DC8FE8B0078B466 /* VPictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66871DC8FE8B0078B466 /* VPictures.swift */; };
@@ -159,6 +161,8 @@
 		B32F1F3C4801828AB2F625CA /* Pods-tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tests/Pods-tests.release.xcconfig"; sourceTree = "<group>"; };
 		DA1F0E221DC2C6480003AAB8 /* nubecero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nubecero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1F0E361DC2C6480003AAB8 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA253EA81DCE75D700C704A3 /* MSettingsItemProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemProfile.swift; sourceTree = "<group>"; };
+		DA253EAA1DCE764200C704A3 /* VSettingsCellProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellProfile.swift; sourceTree = "<group>"; };
 		DA25F8E01DCD63A50048DFFE /* TFDatabaseModelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelUser.swift; sourceTree = "<group>"; };
 		DA2F66841DC8FE5C0078B466 /* CPictures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPictures.swift; sourceTree = "<group>"; };
 		DA2F66871DC8FE8B0078B466 /* VPictures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPictures.swift; sourceTree = "<group>"; };
@@ -456,6 +460,7 @@
 				DA406BD01DCD02DB0098D347 /* VSetingsCell.swift */,
 				DA406BD21DCD02E90098D347 /* VSettingsCellSecurity.swift */,
 				DA406BDB1DCD1CF00098D347 /* VSettingsCellLogout.swift */,
+				DA253EAA1DCE764200C704A3 /* VSettingsCellProfile.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -467,6 +472,7 @@
 				DA406BD71DCD03760098D347 /* MSettingsItem.swift */,
 				DA406BD91DCD03820098D347 /* MSettingsItemSecurity.swift */,
 				DA406BDD1DCD1D240098D347 /* MSettingsItemLogout.swift */,
+				DA253EA81DCE75D700C704A3 /* MSettingsItemProfile.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1095,6 +1101,7 @@
 				DA4EF9051DC395B300297C1D /* FAnalytics.swift in Sources */,
 				DACD1FA41DC402960067D26B /* VHomeCellUpload.swift in Sources */,
 				DA2F66AC1DC942480078B466 /* VPicturesDetail.swift in Sources */,
+				DA253EAB1DCE764200C704A3 /* VSettingsCellProfile.swift in Sources */,
 				DA4EF9121DC395B300297C1D /* VBar.swift in Sources */,
 				DACD1FB41DC545F70067D26B /* VHomeUploadCell.swift in Sources */,
 				DA88F6781DC7EE00009F61B3 /* MHomeUploadItemStatusReferenced.swift in Sources */,
@@ -1157,6 +1164,7 @@
 				DA4EF9031DC395B300297C1D /* ExtensionUIColor.swift in Sources */,
 				DA34118A1DCBFCD1006E6D71 /* MHomeUploadItemStatusDiskFull.swift in Sources */,
 				DACD1F9C1DC400090067D26B /* MHome.swift in Sources */,
+				DA253EA91DCE75D700C704A3 /* MSettingsItemProfile.swift in Sources */,
 				DA4EF90E1DC395B300297C1D /* MMainStateOptions.swift in Sources */,
 				DACD1FA81DC411440067D26B /* CHomeUpload.swift in Sources */,
 				DA4EF9061DC395B300297C1D /* FMain.swift in Sources */,
@@ -1202,6 +1210,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1216,6 +1225,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1252,6 +1262,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1266,6 +1277,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

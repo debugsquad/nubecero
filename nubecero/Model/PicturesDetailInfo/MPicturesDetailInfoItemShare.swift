@@ -9,6 +9,8 @@ class MPicturesDetailInfoItemShare:MPicturesDetailInfoItem
     
     override func selected(controller:CPictures?)
     {
+        FMain.sharedInstance.analytics?.pictureShare()
+        
         controller?.share()
     }
 }

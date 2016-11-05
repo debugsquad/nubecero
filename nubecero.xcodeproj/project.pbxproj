@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		06D9E2BF766CCF1EB9054A38 /* Pods_tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A506DC17B7ED85B8FB3EE2 /* Pods_tests.framework */; };
 		1E9AC0186DB6141BB7B8E493 /* Pods_nubecero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139B6F190B9092431A50FEE0 /* Pods_nubecero.framework */; };
+		DA25F8E11DCD63A50048DFFE /* TFDatabaseModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA25F8E01DCD63A50048DFFE /* TFDatabaseModelUser.swift */; };
 		DA2F66851DC8FE5C0078B466 /* CPictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66841DC8FE5C0078B466 /* CPictures.swift */; };
 		DA2F66881DC8FE8B0078B466 /* VPictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F66871DC8FE8B0078B466 /* VPictures.swift */; };
 		DA2F668B1DC8FFB20078B466 /* MPictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F668A1DC8FFB20078B466 /* MPictures.swift */; };
@@ -158,6 +159,7 @@
 		B32F1F3C4801828AB2F625CA /* Pods-tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tests/Pods-tests.release.xcconfig"; sourceTree = "<group>"; };
 		DA1F0E221DC2C6480003AAB8 /* nubecero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nubecero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1F0E361DC2C6480003AAB8 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA25F8E01DCD63A50048DFFE /* TFDatabaseModelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelUser.swift; sourceTree = "<group>"; };
 		DA2F66841DC8FE5C0078B466 /* CPictures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPictures.swift; sourceTree = "<group>"; };
 		DA2F66871DC8FE8B0078B466 /* VPictures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPictures.swift; sourceTree = "<group>"; };
 		DA2F668A1DC8FFB20078B466 /* MPictures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPictures.swift; sourceTree = "<group>"; };
@@ -469,6 +471,30 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		DA406BE11DCD63650098D347 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				DA406BE21DCD63650098D347 /* Database */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		DA406BE21DCD63650098D347 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				DA406BE31DCD63650098D347 /* Model */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		DA406BE31DCD63650098D347 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DA25F8E01DCD63A50048DFFE /* TFDatabaseModelUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		DA4EF8C41DC395B300297C1D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -623,6 +649,7 @@
 		DA4EF8EE1DC395B300297C1D /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				DA406BE11DCD63650098D347 /* Firebase */,
 				DA4EF8EF1DC395B300297C1D /* Info.plist */,
 			);
 			path = Tests;
@@ -869,6 +896,7 @@
 					DA1F0E351DC2C6480003AAB8 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 7AMWG3RLHN;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = DA1F0E211DC2C6480003AAB8;
 					};
@@ -1143,6 +1171,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA25F8E11DCD63A50048DFFE /* TFDatabaseModelUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1304,11 +1333,13 @@
 			baseConfigurationReference = 05168BDBDA950F8F7578679F /* Pods-tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = nubecero/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.nubeceroTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nubecero.app/nubecero";
 			};
@@ -1319,6 +1350,7 @@
 			baseConfigurationReference = B32F1F3C4801828AB2F625CA /* Pods-tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = nubecero/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

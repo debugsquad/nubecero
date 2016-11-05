@@ -179,7 +179,7 @@ class MSession
         {
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             {
-                    self.asyncLoadSettings()
+                self.asyncLoadSettings()
             }
         }
     }

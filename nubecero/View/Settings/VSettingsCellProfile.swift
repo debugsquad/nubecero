@@ -1,4 +1,5 @@
 import UIKit
+import FBSDKCoreKit
 
 class VSettingsCellProfile:VSettingsCell
 {
@@ -34,6 +35,8 @@ class VSettingsCellProfile:VSettingsCell
             options:[],
             metrics:metrics,
             views:views))
+        
+        loadFacebookProfile()
     }
     
     required init?(coder:NSCoder)
@@ -41,17 +44,32 @@ class VSettingsCellProfile:VSettingsCell
         fatalError()
     }
     
-    override func config(model:MSettingsItem)
+    //MARK: private
+    
+    private func loadFacebookProfile()
     {
         guard
+            
+            let accessToken:FBSDKAccessToken = FBSDKAccessToken.current()
         
-            let settingsProfile:MSettingsItemProfile = model as? MSettingsItemProfile
-        
+            
         else
         {
             return
         }
         
-        label.text = settingsProfile.userName
+        let userId:String = accessToken.userID
+        let picturesString:String = "\(userId)/picture"
+        
+        let request:FBSDKGraphRequest = FBSDKGraphRequest(
+            graphPath:picturesString,
+            parameters:[:],
+            httpMethod:"GET")
+        
+        request.start
+        { (request, result, error) in
+            
+            print("error \(error)")
+        }
     }
 }

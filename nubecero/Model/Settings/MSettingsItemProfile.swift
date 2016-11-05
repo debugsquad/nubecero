@@ -4,7 +4,6 @@ class MSettingsItemProfile:MSettingsItem
 {
     private let kCellHeight:CGFloat = 200
     private let kSelectable:Bool = false
-    var userName:String = ""
     
     override init()
     {

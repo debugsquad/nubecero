@@ -1,5 +1,6 @@
 import UIKit
 import FBSDKCoreKit
+import FirebaseAuth
 
 class VSettingsCellProfile:VSettingsCell
 {
@@ -48,28 +49,17 @@ class VSettingsCellProfile:VSettingsCell
     
     private func loadFacebookProfile()
     {
-        guard
+        
+        if let user = FIRAuth.auth()?.currentUser {
+            let name = user.displayName
+            let email = user.email
+            let photoUrl = user.photoURL
+            let uid = user.uid;
             
-            let accessToken:FBSDKAccessToken = FBSDKAccessToken.current()
-        
-            
-        else
-        {
-            return
-        }
-        
-        let userId:String = accessToken.userID
-        let picturesString:String = "\(userId)/picture"
-        
-        let request:FBSDKGraphRequest = FBSDKGraphRequest(
-            graphPath:picturesString,
-            parameters:[:],
-            httpMethod:"GET")
-        
-        request.start
-        { (request, result, error) in
-            
-            print("error \(error)")
+            print("username \(name)")
+            print("user photo \(photoUrl)")
+        } else {
+            // No user is signed in.
         }
     }
 }

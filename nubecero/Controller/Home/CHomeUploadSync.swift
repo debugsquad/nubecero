@@ -22,9 +22,18 @@ class CHomeUploadSync:CController
         fatalError()
     }
     
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        let uploadTotal:Int = uploadItems.count
+        FMain.sharedInstance.analytics?.upload(pictures:uploadTotal)
+    }
+    
     override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
+        
         parentController.statusBarDefault()
         
         if !syncStarted
@@ -37,6 +46,7 @@ class CHomeUploadSync:CController
     override func viewWillDisappear(_ animated:Bool)
     {
         super.viewWillDisappear(animated)
+        
         parentController.statusBarLight()
     }
     

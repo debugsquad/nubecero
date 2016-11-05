@@ -36,7 +36,8 @@ class VSettingsCellProfile:VSettingsCell
         addSubview(imageView)
         
         let views:[String:UIView] = [
-            "userName":userName]
+            "userName":userName,
+            "imageView":imageView]
         
         let metrics:[String:CGFloat] = [
             "userNameBottom":kUserNameBottom,
@@ -44,12 +45,17 @@ class VSettingsCellProfile:VSettingsCell
             "imageViewHeight":kImageViewHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[imageView(imageViewHeight)]-0-[userName(userNameHeight)]-(userNameBottom)-|",
+            withVisualFormat:"H:|-0-[userName]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[userName]-0-|",
+            withVisualFormat:"H:[imageView(imageViewHeihgt)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[imageView(imageViewHeight)]-0-[userName(userNameHeight)]-(userNameBottom)-|",
             options:[],
             metrics:metrics,
             views:views))

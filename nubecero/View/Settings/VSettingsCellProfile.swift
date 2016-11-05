@@ -6,13 +6,15 @@ class VSettingsCellProfile:VSettingsCell
     private weak var userName:UILabel!
     private weak var imageView:UIImageView!
     private weak var layoutImageViewLeft:NSLayoutConstraint!
-    private let kUserNameBottom:CGFloat = 10
-    private let kUserNameHeight:CGFloat = 20
-    private let kImageViewHeight:CGFloat = 80
+    private let kUserNameBottom:CGFloat = 30
+    private let kUserNameHeight:CGFloat = 40
+    private let kImageViewHeight:CGFloat = 100
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
+        isUserInteractionEnabled = false
+        backgroundColor = UIColor.clear
         
         let userName:UILabel = UILabel()
         userName.isUserInteractionEnabled = false
@@ -50,12 +52,13 @@ class VSettingsCellProfile:VSettingsCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[imageView(imageViewHeihgt)]",
+            withVisualFormat:"H:[imageView(imageViewHeight)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[imageView(imageViewHeight)]-0-[userName(userNameHeight)]-(userNameBottom)-|",
+            withVisualFormat:
+            "V:[imageView(imageViewHeight)]-0-[userName(userNameHeight)]-(userNameBottom)-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -103,5 +106,39 @@ class VSettingsCellProfile:VSettingsCell
         }
         
         userName.text = firebaseUser.displayName
+        
+        guard
+            
+            let pictureUrl:URL = firebaseUser.photoURL
+        
+        else
+        {
+            return
+        }
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            URLSession.shared.dataTask(
+                with:pictureUrl)
+            { (data, response, error) in
+                
+                guard
+                    
+                    let imageData:Data = data
+                    
+                else
+                {
+                    return
+                }
+                
+                let image:UIImage? = UIImage(data:imageData)
+                
+                DispatchQueue.main.async
+                { [weak self] in
+                    
+                    self?.imageView.image = image
+                }
+            }
+        }
     }
 }

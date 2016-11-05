@@ -33,6 +33,7 @@ class VSettingsCellProfile:VSettingsCell
         imageView.layer.cornerRadius = kImageViewHeight / 2.0
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.borderWidth = 1
+        self.imageView = imageView
         
         addSubview(userName)
         addSubview(imageView)
@@ -118,7 +119,7 @@ class VSettingsCellProfile:VSettingsCell
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
-            URLSession.shared.dataTask(
+            let dataTask:URLSessionDataTask = URLSession.shared.dataTask(
                 with:pictureUrl)
             { (data, response, error) in
                 
@@ -139,6 +140,8 @@ class VSettingsCellProfile:VSettingsCell
                     self?.imageView.image = image
                 }
             }
+            
+            dataTask.resume()
         }
     }
 }

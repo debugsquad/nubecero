@@ -6,7 +6,9 @@ class TVSettingsCellProfile:XCTestCase
     func testUserName()
     {
         let vSettingsCellProfile:VSettingsCellProfile = VSettingsCellProfile(frame:CGRect.zero)
+        let userName:String? = vSettingsCellProfile.userName.text
         
-        XCTAssertNotNil(name, "name is nil")
+        XCTAssertNotNil(userName, "Username can't be nil")
+        XCTAssertGreaterThan(userName!.characters.count, 0, "Username can't be empty")
     }
 }

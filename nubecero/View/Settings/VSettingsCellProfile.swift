@@ -3,8 +3,8 @@ import FirebaseAuth
 
 class VSettingsCellProfile:VSettingsCell
 {
-    private weak var userName:UILabel!
-    private weak var imageView:UIImageView!
+    weak var userName:UILabel!
+    weak var imageView:UIImageView!
     private weak var layoutImageViewLeft:NSLayoutConstraint!
     private let kUserNameBottom:CGFloat = 30
     private let kUserNameHeight:CGFloat = 40
@@ -77,7 +77,7 @@ class VSettingsCellProfile:VSettingsCell
         
         addConstraint(layoutImageViewLeft)
         
-        //loadProfile()
+        loadProfile()
     }
     
     required init?(coder:NSCoder)

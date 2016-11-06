@@ -1,11 +1,11 @@
 import XCTest
-import FirebaseAuth
+@testable import nubecero
 
 class TVSettingsCellProfile:XCTestCase
 {
     func testUserName()
     {
-        let name = FIRAuth.auth()?.currentUser?.displayName
+        let vSettingsCellProfile:VSettingsCellProfile = VSettingsCellProfile(frame:CGRect.zero)
         
         XCTAssertNotNil(name, "name is nil")
     }

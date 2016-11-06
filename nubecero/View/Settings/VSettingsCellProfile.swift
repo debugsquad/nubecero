@@ -23,6 +23,7 @@ class VSettingsCellProfile:VSettingsCell
         userName.font = UIFont.regular(size:14)
         userName.textColor = UIColor.black
         userName.textAlignment = NSTextAlignment.center
+        userName.text = NSLocalizedString("VSettingsCellProfile_defaultUserName", comment:"")
         self.userName = userName
         
         let imageView:UIImageView = UIImageView()
@@ -33,6 +34,7 @@ class VSettingsCellProfile:VSettingsCell
         imageView.layer.cornerRadius = kImageViewHeight / 2.0
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.borderWidth = 1
+        imageView.image = #imageLiteral(resourceName: "assetLoader0")
         self.imageView = imageView
         
         addSubview(userName)
@@ -75,7 +77,7 @@ class VSettingsCellProfile:VSettingsCell
         
         addConstraint(layoutImageViewLeft)
         
-        loadProfile()
+        //loadProfile()
     }
     
     required init?(coder:NSCoder)

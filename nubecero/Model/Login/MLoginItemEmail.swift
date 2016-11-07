@@ -1,9 +1,16 @@
-//
-//  MLoginItemEmail.swift
-//  nubecero
-//
-//  Created by zero on 11/7/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MLoginItemEmail:MLoginItem
+{
+    private let kCellHeight:CGFloat = 70
+    private let kSelectable:Bool = false
+    
+    init()
+    {
+        let reusableIdentifier:String = VLoginCellEmail.reusableIdentifier
+        super.init(
+            reusableIdentifier:reusableIdentifier,
+            cellHeight:kCellHeight,
+            selectable:kSelectable)
+    }
+}

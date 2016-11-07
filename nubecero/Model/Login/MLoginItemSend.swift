@@ -1,9 +1,16 @@
-//
-//  MLoginItemSend.swift
-//  nubecero
-//
-//  Created by zero on 11/7/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MLoginItemSend:MLoginItem
+{
+    private let kCellHeight:CGFloat = 60
+    private let kSelectable:Bool = true
+    
+    init()
+    {
+        let reusableIdentifier:String = VLoginCellSend.reusableIdentifier
+        super.init(
+            reusableIdentifier:reusableIdentifier,
+            cellHeight:kCellHeight,
+            selectable:kSelectable)
+    }
+}

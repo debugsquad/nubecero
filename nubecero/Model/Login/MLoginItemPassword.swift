@@ -1,9 +1,16 @@
-//
-//  MLoginItemPassword.swift
-//  nubecero
-//
-//  Created by zero on 11/7/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MLoginItemPassword:MLoginItem
+{
+    private let kCellHeight:CGFloat = 70
+    private let kSelectable:Bool = false
+    
+    init()
+    {
+        let reusableIdentifier:String = VLoginCellPassword.reusableIdentifier
+        super.init(
+            reusableIdentifier:reusableIdentifier,
+            cellHeight:kCellHeight,
+            selectable:kSelectable)
+    }
+}

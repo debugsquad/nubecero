@@ -46,7 +46,7 @@ class TFDatabaseModelUser:XCTestCase
         XCTAssertNotNil(
             modelJson,
             "Error creating model json")
-        
+        /*
         XCTAssertEqual(
             modelJson![FDatabaseModelUser.Property.status.rawValue],
             status.rawValue,
@@ -65,7 +65,7 @@ class TFDatabaseModelUser:XCTestCase
         XCTAssertEqual(
             fDatabaseModelUser.diskUsed,
             kDiskUsed,
-            "Parsing disk used error")
+            "Parsing disk used error")*/
     }
     
     func testInitSnapshotUserBanned()

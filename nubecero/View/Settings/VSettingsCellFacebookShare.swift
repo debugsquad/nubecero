@@ -1,7 +1,7 @@
 import UIKit
 import FBSDKShareKit
 
-class VSettingsCellFacebookShare:VSettingsCell, FBSDKAppInviteDialogDelegate
+class VSettingsCellFacebookShare:VSettingsCell
 {
     private weak var fbButton:FBSDKShareButton!
     private weak var layoutFbButtonLeft:NSLayoutConstraint!
@@ -74,9 +74,6 @@ class VSettingsCellFacebookShare:VSettingsCell, FBSDKAppInviteDialogDelegate
             constant:0)
         
         addConstraint(layoutFbButtonLeft)
-        
-        
-        
     }
     
     required init?(coder:NSCoder)
@@ -93,15 +90,5 @@ class VSettingsCellFacebookShare:VSettingsCell, FBSDKAppInviteDialogDelegate
         layoutFbButtonLeft.constant = margin
         
         super.layoutSubviews()
-    }
-    
-    func appInviteDialog(_ appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: Error!) {
-        
-        print("a")
-    }
-    
-    func appInviteDialog(_ appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [AnyHashable : Any]!) {
-
-        print("b")
     }
 }

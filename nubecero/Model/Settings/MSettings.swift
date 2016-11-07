@@ -7,11 +7,13 @@ class MSettings
     init()
     {
         let itemProfile:MSettingsItemProfile = MSettingsItemProfile()
+        let itemFacebookShare:MSettingsItemFacebookShare = MSettingsItemFacebookShare()
         let itemSecurity:MSettingsItemSecurity = MSettingsItemSecurity()
         let itemLogout:MSettingsItemLogout = MSettingsItemLogout()
         
         items = [
             itemProfile,
+            itemFacebookShare,
             itemSecurity,
             itemLogout
         ]

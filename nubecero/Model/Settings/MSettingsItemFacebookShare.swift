@@ -7,7 +7,7 @@ class MSettingsItemFacebookShare:MSettingsItem
     
     override init()
     {
-        let reusableIdentifier:String = VSettingsCellSecurity.reusableIdentifier
+        let reusableIdentifier:String = VSettingsCellFacebookShare.reusableIdentifier
         super.init(
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight,

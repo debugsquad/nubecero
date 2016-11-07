@@ -1,4 +1,3 @@
-"VLogin_disclaimer"="Valida tu cuenta\nNunca publicaremos nada en Facebook";
 "VHomeCellUpload_label"="Subir imágenes";
 "VHomeUploadSyncBar_cancel"="Detener";
 "VHomeUploadSyncBar_tryAgain"="Reiniciar";
@@ -12,8 +11,6 @@
 "VSettingsCellLogout_label"="Salir";
 "VPicturesDetailHeader_label"="Tu Nube esta vacía";
 
-"CLogin_logOut"="Cerraste sessión";
-"CLogin_errorUnknown"="No se pudo ingresar, reintantalo";
 "CHomeUpload_title"="Subir";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";
 "CHomeUpload_noCameraRoll"="No se pudieron subir tus imágenes";

@@ -126,6 +126,8 @@
 		DAD7395B1DD0E47E00FC3297 /* TFDatabaseModelPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7395A1DD0E47E00FC3297 /* TFDatabaseModelPicture.swift */; };
 		DAD7395D1DD0EE9F00FC3297 /* TFDatabaseModelPictureList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7395C1DD0EE9F00FC3297 /* TFDatabaseModelPictureList.swift */; };
 		DAD7395F1DD0F70900FC3297 /* TFDatabaseModelServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7395E1DD0F70900FC3297 /* TFDatabaseModelServer.swift */; };
+		DAD739611DD11A4600FC3297 /* VLoginHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739601DD11A4600FC3297 /* VLoginHeader.swift */; };
+		DAD739631DD11A4F00FC3297 /* VLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739621DD11A4F00FC3297 /* VLoginCell.swift */; };
 		DAE4554B1DCA4C2400948D70 /* Pictures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE4554A1DCA4C2400948D70 /* Pictures.xcassets */; };
 		DAE4554E1DCA4C9F00948D70 /* MPicturesDetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4554D1DCA4C9F00948D70 /* MPicturesDetailInfo.swift */; };
 		DAE455501DCA4CB000948D70 /* MPicturesDetailInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4554F1DCA4CB000948D70 /* MPicturesDetailInfoItem.swift */; };
@@ -285,6 +287,8 @@
 		DAD7395A1DD0E47E00FC3297 /* TFDatabaseModelPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelPicture.swift; sourceTree = "<group>"; };
 		DAD7395C1DD0EE9F00FC3297 /* TFDatabaseModelPictureList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelPictureList.swift; sourceTree = "<group>"; };
 		DAD7395E1DD0F70900FC3297 /* TFDatabaseModelServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelServer.swift; sourceTree = "<group>"; };
+		DAD739601DD11A4600FC3297 /* VLoginHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoginHeader.swift; sourceTree = "<group>"; };
+		DAD739621DD11A4F00FC3297 /* VLoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoginCell.swift; sourceTree = "<group>"; };
 		DAE4554A1DCA4C2400948D70 /* Pictures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Pictures.xcassets; sourceTree = "<group>"; };
 		DAE4554D1DCA4C9F00948D70 /* MPicturesDetailInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfo.swift; sourceTree = "<group>"; };
 		DAE4554F1DCA4CB000948D70 /* MPicturesDetailInfoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfoItem.swift; sourceTree = "<group>"; };
@@ -732,6 +736,8 @@
 			isa = PBXGroup;
 			children = (
 				DACD1F8E1DC3ADEB0067D26B /* VLogin.swift */,
+				DAD739601DD11A4600FC3297 /* VLoginHeader.swift */,
+				DAD739621DD11A4F00FC3297 /* VLoginCell.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1150,6 +1156,7 @@
 				DA2F66B71DC9509D0078B466 /* MPicturesItemStateLoaded.swift in Sources */,
 				DACD1FB21DC540810067D26B /* MHomeUploadItem.swift in Sources */,
 				DA4EF8FE1DC395B300297C1D /* ExtensionFileManager.swift in Sources */,
+				DAD739631DD11A4F00FC3297 /* VLoginCell.swift in Sources */,
 				DA88F67C1DC7EE1F009F61B3 /* MHomeUploadItemStatusUploaded.swift in Sources */,
 				DA4EF9001DC395B300297C1D /* ExtensionNotification.swift in Sources */,
 				DA4EF90B1DC395B300297C1D /* MMainItemHome.swift in Sources */,
@@ -1187,6 +1194,7 @@
 				DAE455581DCA611100948D70 /* MPicturesDetailInfoItemData.swift in Sources */,
 				DACD1FC91DC7C6C80067D26B /* FDatabaseModelPicture.swift in Sources */,
 				DA4EF9021DC395B300297C1D /* ExtensionUICollectionReusableView.swift in Sources */,
+				DAD739611DD11A4600FC3297 /* VLoginHeader.swift in Sources */,
 				DAE455521DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift in Sources */,
 				DA4EF9031DC395B300297C1D /* ExtensionUIColor.swift in Sources */,
 				DA34118A1DCBFCD1006E6D71 /* MHomeUploadItemStatusDiskFull.swift in Sources */,

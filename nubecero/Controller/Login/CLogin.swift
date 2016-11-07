@@ -1,7 +1,7 @@
 import UIKit
 import FirebaseAuth
 
-class CLogin:CController, FBSDKLoginButtonDelegate
+class CLogin:CController
 {
     private weak var viewLogin:VLogin!
     
@@ -43,6 +43,8 @@ class CLogin:CController, FBSDKLoginButtonDelegate
                 
             else
             {
+                self?.userNotLogged()
+                
                 return
             }
             
@@ -51,6 +53,15 @@ class CLogin:CController, FBSDKLoginButtonDelegate
     }
     
     //MARK: private
+    
+    private func userNotLogged()
+    {
+        DispatchQueue.main.async
+        { [weak self]
+            
+            
+        }
+    }
     
     private func userLogged()
     {
@@ -81,6 +92,8 @@ class CLogin:CController, FBSDKLoginButtonDelegate
         VAlert.message(message:error)
     }
     
+    
+    /*
     //MARK: login button delegate
     
     func loginButton(_ loginButton:FBSDKLoginButton!, didCompleteWith result:FBSDKLoginManagerLoginResult!, error:Error!)
@@ -128,10 +141,5 @@ class CLogin:CController, FBSDKLoginButtonDelegate
                 self?.userLogged()
             }
         }
-    }
-    
-    func loginButtonDidLogOut(_ loginButton:FBSDKLoginButton!)
-    {
-        loginError(error:NSLocalizedString("CLogin_logOut", comment:""))
-    }
+    }*/
 }

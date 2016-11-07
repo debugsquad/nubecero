@@ -22,10 +22,6 @@ class VLogin:UIView
         logoView.contentMode = UIViewContentMode.center
         logoView.image = #imageLiteral(resourceName: "assetGenericLogo")
         
-        let loginButton:FBSDKLoginButton = FBSDKLoginButton()
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.delegate = controller
-        
         let disclaimer:UILabel = UILabel()
         disclaimer.isUserInteractionEnabled = false
         disclaimer.translatesAutoresizingMaskIntoConstraints = false

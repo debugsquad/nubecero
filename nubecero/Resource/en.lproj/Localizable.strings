@@ -1,4 +1,3 @@
-"VLogin_disclaimer"="Validate your account\nWe will never post anything to Facebook";
 "VHomeCellUpload_label"="Upload pictures";
 "VHomeUploadSyncBar_cancel"="Stop";
 "VHomeUploadSyncBar_tryAgain"="Resume";
@@ -12,8 +11,6 @@
 "VSettingsCellLogout_label"="Log out";
 "VPicturesDetailHeader_label"="Your Cloud is empty";
 
-"CLogin_logOut"="Log out succeded";
-"CLogin_errorUnknown"="Couldn't log in, try again";
 "CHomeUpload_title"="Upload";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";
 "CHomeUpload_noCameraRoll"="Unable to load your pictures";

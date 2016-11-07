@@ -1,11 +1,12 @@
 import UIKit
 import FirebaseAuth
 
-class VLogin:UIView
+class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CLogin!
-    private let kMarginHorizontal:CGFloat = 20
-    private let kDisclaimerHeight:CGFloat = 60
+    private weak var collectionView:UICollectionView!
+    private let kHeaderHeight:CGFloat = 150
+    private let kCollectionBottom:CGFloat = 20
     
     convenience init(controller:CLogin)
     {

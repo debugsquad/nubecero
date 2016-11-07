@@ -5,7 +5,7 @@ class MLoginItemMode:MLoginItem
     private let kCellHeight:CGFloat = 100
     private let kSelectable:Bool = false
     
-    init()
+    override init()
     {
         let reusableIdentifier:String = VLoginCellMode.reusableIdentifier
         super.init(

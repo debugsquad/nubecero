@@ -10,6 +10,7 @@ def podlist
   pod 'Bolts'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
+  pod 'FBSDKShareKit'
 end
 
 target 'nubecero' do

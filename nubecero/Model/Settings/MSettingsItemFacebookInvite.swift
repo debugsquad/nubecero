@@ -16,6 +16,8 @@ class MSettingsItemFacebookInvite:MSettingsItem
     
     override func selected(controller:CSettings)
     {
+        FMain.sharedInstance.analytics?.invite()
+        
         controller.facebookInvite()
     }
 }

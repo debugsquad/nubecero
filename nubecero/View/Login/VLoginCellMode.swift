@@ -93,6 +93,7 @@ class VLoginCellMode:VLoginCell
     
     func actionChangeMode(sender segmented:UISegmentedControl)
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
         let selected:Int = segmented.selectedSegmentIndex
         
         guard

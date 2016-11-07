@@ -13,7 +13,8 @@
 "VLoginCellDisclaimerSignin_label"="Ingresa si ya tienes cuenta";
 "VLoginCellDisclaimerRegister_label"="Crea una nueva cuenta";
 "VLoginCellSend_label"="Enviar";
-"VLoginCellEmail_placeholder"="Correo eletrónico";
+"VLoginCellEmail_placeholder"="Correo electrónico";
+"VLoginCellPassword_placeholder"="Contraseña";
 
 "CHomeUpload_title"="Subir";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

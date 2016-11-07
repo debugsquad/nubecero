@@ -5,10 +5,10 @@ class VLoginCellEmail:VLoginCell, UITextFieldDelegate
     private weak var textField:UITextField!
     private weak var layoutFieldTop:NSLayoutConstraint!
     private weak var layoutFieldLeft:NSLayoutConstraint!
-    private let kCornerRadius:CGFloat = 4
-    private let kFieldWidth:CGFloat = 124
-    private let kFieldHeight:CGFloat = 40
-    private let kFieldMargin:CGFloat = 2
+    private let kCornerRadius:CGFloat = 6
+    private let kFieldWidth:CGFloat = 170
+    private let kFieldHeight:CGFloat = 37
+    private let kFieldMargin:CGFloat = 6
     
     override init(frame:CGRect)
     {
@@ -29,6 +29,7 @@ class VLoginCellEmail:VLoginCell, UITextFieldDelegate
         textField.spellCheckingType = UITextSpellCheckingType.no
         textField.autocapitalizationType = UITextAutocapitalizationType.none
         textField.clearButtonMode = UITextFieldViewMode.never
+        textField.keyboardType = UIKeyboardType.emailAddress
         textField.placeholder = NSLocalizedString("VLoginCellEmail_placeholder", comment:"")
         self.textField = textField
         
@@ -56,7 +57,7 @@ class VLoginCellEmail:VLoginCell, UITextFieldDelegate
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(fieldMargin)-[textField]-(fieldMargin)-|",
+            withVisualFormat:"V:|-0-[textField]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -113,7 +114,20 @@ class VLoginCellEmail:VLoginCell, UITextFieldDelegate
         super.layoutSubviews()
     }
     
+    override func config(controller:CLogin, model:MLoginItem)
+    {
+        super.config(controller:controller, model:model)
+        
+        textField.text = controller.model.email
+    }
+    
     //MARK: field delegate
+    
+    func textFieldDidEndEditing(_ textField:UITextField)
+    {
+        let email:String? = textField.text
+        controller?.model.email = email
+    }
     
     func textFieldShouldReturn(_ textField:UITextField) -> Bool
     {

@@ -13,4 +13,10 @@ class MLoginItemSend:MLoginItem
             cellHeight:kCellHeight,
             selectable:kSelectable)
     }
+    
+    override func selected(controller:CLogin)
+    {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        controller.sendLogin()
+    }
 }

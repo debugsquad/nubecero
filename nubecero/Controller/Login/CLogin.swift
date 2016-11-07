@@ -115,6 +115,11 @@ class CLogin:CController
         }
     }
     
+    func sendLogin()
+    {
+        
+    }
+    
     /*
     //MARK: login button delegate
     

@@ -4,6 +4,8 @@ class MLogin
 {
     let items:[MLoginItem]
     let mode:MLoginMode?
+    var email:String?
+    var password:String?
     
     class func WithMode(modeType:MLoginMode.ModeType) -> MLogin
     {
@@ -39,7 +41,6 @@ class MLogin
         let mode:MLoginMode = MLoginModeRegister()
         let itemMode:MLoginItemMode = MLoginItemMode()
         let itemDisclaimer:MLoginItemDisclaimerRegister = MLoginItemDisclaimerRegister()
-        let itemVoidTop:MLoginItemVoid = MLoginItemVoid()
         let itemEmail:MLoginItemEmail = MLoginItemEmail()
         let itemPassword:MLoginItemPassword = MLoginItemPassword()
         let itemVoidBottom:MLoginItemVoid = MLoginItemVoid()
@@ -48,7 +49,6 @@ class MLogin
         let items:[MLoginItem] = [
             itemMode,
             itemDisclaimer,
-            itemVoidTop,
             itemEmail,
             itemPassword,
             itemVoidBottom,
@@ -65,7 +65,6 @@ class MLogin
         let mode:MLoginModeSignin = MLoginModeSignin()
         let itemMode:MLoginItemMode = MLoginItemMode()
         let itemDisclaimer:MLoginItemDisclaimerSignin = MLoginItemDisclaimerSignin()
-        let itemVoidTop:MLoginItemVoid = MLoginItemVoid()
         let itemEmail:MLoginItemEmail = MLoginItemEmail()
         let itemPassword:MLoginItemPassword = MLoginItemPassword()
         let itemVoidBottom:MLoginItemVoid = MLoginItemVoid()
@@ -74,7 +73,6 @@ class MLogin
         let items:[MLoginItem] = [
             itemMode,
             itemDisclaimer,
-            itemVoidTop,
             itemEmail,
             itemPassword,
             itemVoidBottom,

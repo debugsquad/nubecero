@@ -5,7 +5,7 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
 {
     private weak var controller:CLogin!
     private weak var collectionView:UICollectionView!
-    private let kHeaderHeight:CGFloat = 160
+    private let kHeaderHeight:CGFloat = 140
     private let kCollectionBottom:CGFloat = 20
     private let kDeselectTime:TimeInterval = 1
     

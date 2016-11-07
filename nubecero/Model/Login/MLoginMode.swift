@@ -2,10 +2,10 @@ import Foundation
 
 class MLoginMode
 {
-    enum ModeType
+    enum ModeType:Int
     {
-        case register
-        case signin
+        case register = 0
+        case signin = 1
     }
     
     let name:String

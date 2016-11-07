@@ -5,6 +5,28 @@ class MLogin
     let items:[MLoginItem]
     let mode:MLoginMode?
     
+    class func WithMode(modeType:MLoginMode.ModeType)
+    {
+        let model:MLogin
+        
+        switch modeType
+        {
+            case MLoginMode.ModeType.register:
+                
+                model = Register()
+                
+                break
+            
+            case MLoginMode.ModeType.signin:
+            
+                model = Signin()
+            
+                break
+        }
+        
+        return model
+    }
+    
     class func None() -> MLogin
     {
         let model:MLogin = MLogin(items:[], mode:nil)

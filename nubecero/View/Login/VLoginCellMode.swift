@@ -5,7 +5,7 @@ class VLoginCellMode:VLoginCell
     private weak var segmentedControl:UISegmentedControl!
     private weak var layoutSegmentedLeft:NSLayoutConstraint!
     private weak var controller:CLogin?
-    private let kSegmentedWidth:CGFloat = 220
+    private let kSegmentedWidth:CGFloat = 230
     private let kSegmentedHeight:CGFloat = 36
     private let kSegmentedTop:CGFloat = 2
     
@@ -20,6 +20,11 @@ class VLoginCellMode:VLoginCell
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         segmentedControl.clipsToBounds = true
         segmentedControl.tintColor = UIColor.white
+        segmentedControl.addTarget(
+            self,
+            action:#selector(actionChangeMode(sender:)),
+            for:UIControlEvents.valueChanged)
+        self.segmentedControl = segmentedControl
         
         addSubview(segmentedControl)
         
@@ -73,7 +78,16 @@ class VLoginCellMode:VLoginCell
     {
         self.controller = controller
         
+        guard
+            
+            let mode:MLoginMode = controller.model.mode
         
+        else
+        {
+            return
+        }
+    
+        segmentedControl.selectedSegmentIndex = mode.modeType.rawValue
     }
     
     //MARK: actions

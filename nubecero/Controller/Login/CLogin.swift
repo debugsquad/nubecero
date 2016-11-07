@@ -102,6 +102,12 @@ class CLogin:CController
         }
     }
     
+    //MARK: public
+    
+    func changeMode()
+    {
+        
+    }
     
     /*
     //MARK: login button delegate

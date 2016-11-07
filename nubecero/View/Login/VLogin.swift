@@ -5,6 +5,7 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
 {
     private weak var controller:CLogin!
     private weak var collectionView:UICollectionView!
+    private weak var spinner:VSpinner!
     private let kHeaderHeight:CGFloat = 140
     private let kCollectionBottom:CGFloat = 20
     private let kDeselectTime:TimeInterval = 1
@@ -69,10 +70,16 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             VLoginCellVoid.reusableIdentifier)
         self.collectionView = collectionView
         
+        let spinner:VSpinner = VSpinner()
+        spinner.stopAnimating()
+        self.spinner = spinner
+        
         addSubview(collectionView)
+        addSubview(spinner)
         
         let views:[String:UIView] = [
-            "collectionView":collectionView]
+            "collectionView":collectionView,
+            "spinner":spinner]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -83,6 +90,16 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[spinner]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -108,6 +125,18 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     func refresh()
     {
         collectionView.reloadData()
+    }
+    
+    func showLoading()
+    {
+        spinner.startAnimating()
+        collectionView.isHidden = true
+    }
+    
+    func hideLoading()
+    {
+        spinner.stopAnimating()
+        collectionView.isHidden = false
     }
     
     //MARK: collectionView delegate

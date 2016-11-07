@@ -3,7 +3,7 @@ import UIKit
 class VAlert:UIView
 {
     static let kMarginHorizontal:CGFloat = 10
-    static let kHeight:CGFloat = 60
+    static let kHeight:CGFloat = 70
     private weak var layoutTop:NSLayoutConstraint!
     private weak var timer:Timer?
     private let kMarginTop:CGFloat = 20

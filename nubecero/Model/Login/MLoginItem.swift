@@ -17,4 +17,10 @@ class MLoginItem
         self.cellHeight = cellHeight
         self.selectable = selectable
     }
+    
+    //MARK: public
+    
+    func selected(controller:CLogin)
+    {
+    }
 }

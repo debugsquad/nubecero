@@ -17,58 +17,72 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         backgroundColor = UIColor.main
         self.controller = controller
         
-        let logoView:UIImageView = UIImageView()
-        logoView.isUserInteractionEnabled = false
-        logoView.translatesAutoresizingMaskIntoConstraints = false
-        logoView.clipsToBounds = true
-        logoView.contentMode = UIViewContentMode.center
-        logoView.image = #imageLiteral(resourceName: "assetGenericLogo")
+        let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         
-        let disclaimer:UILabel = UILabel()
-        disclaimer.isUserInteractionEnabled = false
-        disclaimer.translatesAutoresizingMaskIntoConstraints = false
-        disclaimer.numberOfLines = 0
-        disclaimer.backgroundColor = UIColor.clear
-        disclaimer.font = UIFont.regular(size:12)
-        disclaimer.textAlignment = NSTextAlignment.center
-        disclaimer.textColor = UIColor.white
-        disclaimer.text = NSLocalizedString("VLogin_disclaimer", comment:"")
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
+        flow.footerReferenceSize = CGSize.zero
+        flow.minimumLineSpacing = 0
+        flow.minimumInteritemSpacing = 0
+        flow.scrollDirection = UICollectionViewScrollDirection.vertical
+        flow.sectionInset = UIEdgeInsets(top:0, left:0, bottom:0, right:kCollectionBottom)
         
-        addSubview(logoView)
-        addSubview(loginButton)
-        addSubview(disclaimer)
+        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(
+            VLoginHeader.self,
+            forSupplementaryViewOfKind:
+            UICollectionElementKindSectionHeader,
+            withReuseIdentifier:
+            VLoginHeader.reusableIdentifier)
+        collectionView.register(
+            VLoginCellMode.self,
+            forCellWithReuseIdentifier:
+            VLoginCellMode.reusableIdentifier)
+        collectionView.register(
+            VLoginCellEmail.self,
+            forCellWithReuseIdentifier:
+            VLoginCellEmail.reusableIdentifier)
+        collectionView.register(
+            VLoginCellPassword.self,
+            forCellWithReuseIdentifier:
+            VLoginCellPassword.reusableIdentifier)
+        collectionView.register(
+            VLoginCellSend.self,
+            forCellWithReuseIdentifier:
+            VLoginCellSend.reusableIdentifier)
+        collectionView.register(
+            VLoginCellDisclaimerSignup.self,
+            forCellWithReuseIdentifier:
+            VLoginCellDisclaimerSignup.reusableIdentifier)
+        collectionView.register(
+            VLoginCellDisclaimerRegister.self,
+            forCellWithReuseIdentifier:
+            VLoginCellDisclaimerRegister.reusableIdentifier)
+        self.collectionView = collectionView
+        
+        addSubview(collectionView)
         
         let views:[String:UIView] = [
-            "logoView":logoView,
-            "loginButton":loginButton,
-            "disclaimer":disclaimer]
+            "collectionView":collectionView]
         
         let metrics:[String:CGFloat] = [
-            "marginHorizontal":kMarginHorizontal,
-            "disclaimerHeight":kDisclaimerHeight]
+            "barHeight":barHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[logoView]-0-|",
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-(marginHorizontal)-[loginButton]-(marginHorizontal)-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-(marginHorizontal)-[disclaimer]-(marginHorizontal)-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[logoView]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[disclaimer(disclaimerHeight)]-0-[loginButton(40)]-(marginHorizontal)-|",
+            withVisualFormat:"V:|-(barHeight)-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -91,6 +105,15 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let item:MLoginItem = modelAtIndex(index:indexPath)
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:item.cellHeight)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {

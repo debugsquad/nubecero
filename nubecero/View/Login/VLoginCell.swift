@@ -13,4 +13,10 @@ class VLoginCell:UICollectionViewCell
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(model:MLoginItem)
+    {
+    }
 }

@@ -149,17 +149,6 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         return count
     }
     
-    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
-    {
-        let item:MLoginItem = modelAtIndex(index:indexPath)
-        let cell:VLoginCell = collectionView.dequeueReusableCell(
-            withReuseIdentifier:
-            item.reusableIdentifier,
-            for:indexPath) as! VLoginCell
-        
-        return cell
-    }
-    
     func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
     {
         let reusableView:UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(
@@ -169,6 +158,18 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             for:indexPath)
         
         return reusableView
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MLoginItem = modelAtIndex(index:indexPath)
+        let cell:VLoginCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            item.reusableIdentifier,
+            for:indexPath) as! VLoginCell
+        cell.config(model:item)
+
+        return cell
     }
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)

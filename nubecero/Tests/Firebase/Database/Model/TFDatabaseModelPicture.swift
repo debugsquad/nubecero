@@ -1,7 +1,7 @@
 import XCTest
 @testable import nubecero
 
-class TFDatabaseModelUserPicture:XCTestCase
+class TFDatabaseModelPicture:XCTestCase
 {
     private let kCreated:TimeInterval = 123456
     private let kSize:Int = 98655

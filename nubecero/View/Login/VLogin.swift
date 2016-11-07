@@ -81,7 +81,8 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             "collectionView":collectionView,
             "spinner":spinner]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "headerHeight":kHeaderHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[collectionView]-0-|",
@@ -99,7 +100,7 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[spinner]-0-|",
+            withVisualFormat:"V:|-0-[spinner(headerHeight)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -130,7 +131,7 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     func showLoading()
     {
         spinner.startAnimating()
-        collectionView.isHidden = true
+        collectionView.isUserInteractionEnabled = false
     }
     
     func hideLoading()
@@ -139,7 +140,7 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         { [weak self] in
             
             self?.spinner.stopAnimating()
-            self?.collectionView.isHidden = false
+            self?.collectionView.isUserInteractionEnabled = true
         }
     }
     

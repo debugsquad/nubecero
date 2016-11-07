@@ -5,7 +5,7 @@ class VSettingsCellFacebookShare:VSettingsCell
 {
     private weak var fbButton:FBSDKShareButton!
     private weak var layoutFbButtonLeft:NSLayoutConstraint!
-    private let kFbButtonTop:CGFloat = 50
+    private let kFbButtonTop:CGFloat = 44
     private let kStringUrl:String = "https://itunes.apple.com/us/app/nubecero/id1012571476"
     
     override init(frame:CGRect)
@@ -26,7 +26,7 @@ class VSettingsCellFacebookShare:VSettingsCell
         title.translatesAutoresizingMaskIntoConstraints = false
         title.backgroundColor = UIColor.clear
         title.font = UIFont.medium(size:14)
-        title.textColor = UIColor.main
+        title.textColor = UIColor.complement
         title.textAlignment = NSTextAlignment.center
         title.text = NSLocalizedString("VSettingsCellFacebookShare_labelTitle", comment:"")
         
@@ -49,7 +49,7 @@ class VSettingsCellFacebookShare:VSettingsCell
             "fbButtonTop":kFbButtonTop]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[title(40)]",
+            withVisualFormat:"V:|-0-[title(48)]",
             options:[],
             metrics:metrics,
             views:views))

@@ -12,6 +12,7 @@
 "VSettingsCellLogout_label"="Log out";
 "VPicturesDetailHeader_label"="Your Cloud is empty";
 "VSettingsCellProfile_defaultUserName"="nubecero";
+"VSettingsCellFacebookShare_labelTitle"="Tell your friends about nubecero";
 
 "CLogin_logOut"="Log out succeded";
 "CLogin_errorUnknown"="Couldn't log in, try again";

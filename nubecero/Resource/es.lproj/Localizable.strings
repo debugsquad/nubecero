@@ -11,6 +11,8 @@
 "VSettingsCellSecurity_label"="Pedir contraseña (mejora privacidad)";
 "VSettingsCellLogout_label"="Salir";
 "VPicturesDetailHeader_label"="Tu Nube esta vacía";
+"VSettingsCellProfile_defaultUserName"="nubecero";
+"VSettingsCellFacebookShare_labelTitle"="Comparte nubecero con tus amigos";
 
 "CLogin_logOut"="Cerraste sessión";
 "CLogin_errorUnknown"="No se pudo ingresar, reintantalo";

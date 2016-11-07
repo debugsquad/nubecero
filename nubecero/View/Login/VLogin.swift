@@ -7,6 +7,7 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     private weak var collectionView:UICollectionView!
     private let kHeaderHeight:CGFloat = 150
     private let kCollectionBottom:CGFloat = 20
+    private let kDeselectTime:TimeInterval = 1
     
     convenience init(controller:CLogin)
     {
@@ -71,5 +72,62 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MLoginItem
+    {
+        let item:MLoginItem = controller.model.items[index.item]
+        
+        return item
+    }
+    
+    //MARK: public
+    
+    func refresh()
+    {
+        collectionView.reloadData()
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.model.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MLoginItem = modelAtIndex(index:indexPath)
+        let cell:VLoginCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            item.reusableIdentifier,
+            for:indexPath) as! VLoginCell
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MLoginItem = modelAtIndex(index:indexPath)
+        item.selected(controller:self)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+
+            collectionView?.selectItem(
+                at:nil,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }

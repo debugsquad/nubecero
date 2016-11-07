@@ -138,6 +138,17 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         return cell
     }
     
+    func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
+    {
+        let reusableView:UICollectionReusableView = collectionView.dequeueReusableSupplementaryView(
+            ofKind:kind,
+            withReuseIdentifier:
+            VLoginHeader.reusableIdentifier,
+            for:indexPath)
+        
+        return reusableView
+    }
+    
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         let item:MLoginItem = modelAtIndex(index:indexPath)

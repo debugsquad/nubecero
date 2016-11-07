@@ -4,6 +4,7 @@ import XCTest
 class TFDatabaseModelServer:XCTestCase
 {
     private let kFroobSpace:Int = 2434234
+    private let kNoSpace:Int = 0
     
     func testInitSnapshot()
     {
@@ -33,5 +34,18 @@ class TFDatabaseModelServer:XCTestCase
             jsonFroobSpace,
             kFroobSpace,
             "Error storing froob space on json model")
+    }
+    
+    func testInitSnapshotNil()
+    {
+        let snapshot:Any = ""
+        
+        let fDatabaseModelServer:FDatabaseModelServer = FDatabaseModelServer(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            fDatabaseModelServer.froobSpace,
+            kNoSpace,
+            "When nil snapshot there should be no space")
     }
 }

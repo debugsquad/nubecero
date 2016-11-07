@@ -17,15 +17,12 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         backgroundColor = UIColor.main
         self.controller = controller
         
-        let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
-        
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
         flow.footerReferenceSize = CGSize.zero
         flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
-        flow.sectionInset = UIEdgeInsets(top:0, left:0, bottom:0, right:kCollectionBottom)
+        flow.sectionInset = UIEdgeInsets(top:0, left:0, bottom:kCollectionBottom, right:0)
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.clipsToBounds = true
@@ -73,8 +70,7 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         let views:[String:UIView] = [
             "collectionView":collectionView]
         
-        let metrics:[String:CGFloat] = [
-            "barHeight":barHeight]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[collectionView]-0-|",
@@ -82,7 +78,7 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(barHeight)-[collectionView]-0-|",
+            withVisualFormat:"V:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -111,6 +107,26 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         let item:MLoginItem = modelAtIndex(index:indexPath)
         let width:CGFloat = collectionView.bounds.maxX
         let size:CGSize = CGSize(width:width, height:item.cellHeight)
+        
+        return size
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, referenceSizeForHeaderInSection section:Int) -> CGSize
+    {
+        let count:Int = controller.model.items.count
+        let height:CGFloat
+        let size:CGSize
+        
+        if count > 0
+        {
+            height = collectionView.bounds.maxY
+        }
+        else
+        {
+            height = kHeaderHeight
+        }
+        
+        size = CGSize(width:0, height:height)
         
         return size
     }

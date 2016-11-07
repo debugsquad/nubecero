@@ -86,6 +86,8 @@ class CLogin:CController
         
         else
         {
+            viewLogin.hideLoading()
+            
             return
         }
         
@@ -110,6 +112,8 @@ class CLogin:CController
         
         else
         {
+            viewLogin.hideLoading()
+            
             return
         }
         
@@ -121,6 +125,7 @@ class CLogin:CController
         {
             let message:String = NSLocalizedString("CLogin_invalidEmail", comment:"")
             VAlert.message(message:message)
+            viewLogin.hideLoading()
             
             return
         }
@@ -133,6 +138,7 @@ class CLogin:CController
         {
             let message:String = NSLocalizedString("CLogin_invalidPassword", comment:"")
             VAlert.message(message:message)
+            viewLogin.hideLoading()
             
             return
         }
@@ -141,6 +147,7 @@ class CLogin:CController
         {
             let message:String = NSLocalizedString("CLogin_invalidEmail", comment:"")
             VAlert.message(message:message)
+            viewLogin.hideLoading()
             
             return
         }
@@ -149,6 +156,7 @@ class CLogin:CController
         {
             let message:String = NSLocalizedString("CLogin_invalidPassword", comment:"")
             VAlert.message(message:message)
+            viewLogin.hideLoading()
             
             return
         }
@@ -194,6 +202,7 @@ class CLogin:CController
                 }
                 
                 VAlert.message(message:errorString)
+                self?.viewLogin.hideLoading()
                 
                 return
             }
@@ -227,6 +236,7 @@ class CLogin:CController
                 }
                 
                 VAlert.message(message:errorString)
+                self?.viewLogin.hideLoading()
                 
                 return
             }
@@ -250,60 +260,12 @@ class CLogin:CController
     
     func sendLogin()
     {
+        viewLogin.showLoading()
+        
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
             self?.asyncSendLogin()
         }
     }
-    
-    /*
-    //MARK: login button delegate
-    
-    func loginButton(_ loginButton:FBSDKLoginButton!, didCompleteWith result:FBSDKLoginManagerLoginResult!, error:Error!)
-    {
-        if let error:Error = error
-        {
-            loginError(error:error.localizedDescription)
-        }
-        else
-        {
-            guard
-                
-                let accessToken:FBSDKAccessToken = FBSDKAccessToken.current(),
-                let tokenString:String = accessToken.tokenString
-            
-            else
-            {
-                let errorString:String = NSLocalizedString("CLogin_errorUnknown", comment:"")
-                loginError(error:errorString)
-                
-                return
-            }
-            
-            let firebaseCredential:FIRAuthCredential = FIRFacebookAuthProvider.credential(
-                withAccessToken:tokenString)
-
-            FIRAuth.auth()?.signIn(
-                with:firebaseCredential)
-            { [weak self] (user, error) in
-                
-                guard
-                
-                    let _:FIRUser = user
-                
-                else
-                {
-                    if let error:Error = error
-                    {
-                        self?.loginError(error:error.localizedDescription)
-                    }
-                    
-                    return
-                }
-                
-                self?.userLogged()
-            }
-        }
-    }*/
 }

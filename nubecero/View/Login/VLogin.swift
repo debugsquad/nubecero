@@ -135,8 +135,12 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func hideLoading()
     {
-        spinner.stopAnimating()
-        collectionView.isHidden = false
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.spinner.stopAnimating()
+            self?.collectionView.isHidden = false
+        }
     }
     
     //MARK: collectionView delegate

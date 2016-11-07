@@ -1,5 +1,4 @@
 import UIKit
-import FBSDKLoginKit
 import FirebaseAuth
 
 class CLogin:CController, FBSDKLoginButtonDelegate

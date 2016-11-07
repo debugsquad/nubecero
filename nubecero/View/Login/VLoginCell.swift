@@ -16,7 +16,7 @@ class VLoginCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MLoginItem)
+    func config(controller:CLogin, model:MLoginItem)
     {
     }
 }

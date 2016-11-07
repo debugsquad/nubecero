@@ -5,7 +5,7 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
 {
     private weak var controller:CLogin!
     private weak var collectionView:UICollectionView!
-    private let kHeaderHeight:CGFloat = 180
+    private let kHeaderHeight:CGFloat = 160
     private let kCollectionBottom:CGFloat = 20
     private let kDeselectTime:TimeInterval = 1
     
@@ -167,7 +167,7 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             withReuseIdentifier:
             item.reusableIdentifier,
             for:indexPath) as! VLoginCell
-        cell.config(model:item)
+        cell.config(controller:controller, model:item)
 
         return cell
     }

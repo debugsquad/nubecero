@@ -2,7 +2,7 @@ import UIKit
 
 class MLoginItemVoid:MLoginItem
 {
-    private let kCellHeight:CGFloat = 20
+    private let kCellHeight:CGFloat = 40
     private let kSelectable:Bool = false
     
     override init()

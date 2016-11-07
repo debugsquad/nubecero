@@ -6,8 +6,8 @@ class VLoginCellEmail:VLoginCell, UITextFieldDelegate
     private weak var layoutFieldTop:NSLayoutConstraint!
     private weak var layoutFieldLeft:NSLayoutConstraint!
     private let kCornerRadius:CGFloat = 6
-    private let kFieldWidth:CGFloat = 170
-    private let kFieldHeight:CGFloat = 37
+    private let kFieldWidth:CGFloat = 190
+    private let kFieldHeight:CGFloat = 40
     private let kFieldMargin:CGFloat = 6
     
     override init(frame:CGRect)

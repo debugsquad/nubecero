@@ -117,7 +117,9 @@ class CLogin:CController
     
     func sendLogin()
     {
+        guard
         
+            let 
     }
     
     /*

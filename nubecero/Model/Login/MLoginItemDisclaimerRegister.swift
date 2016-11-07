@@ -2,7 +2,7 @@ import UIKit
 
 class MLoginItemDisclaimerRegister:MLoginItem
 {
-    private let kCellHeight:CGFloat = 60
+    private let kCellHeight:CGFloat = 70
     private let kSelectable:Bool = false
     
     override init()

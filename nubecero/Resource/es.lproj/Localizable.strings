@@ -31,3 +31,5 @@
 "MHomeUploadItemStatusWaiting_error"="Error cargando imagen, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";
 "MHomeUploadItemStatusReferenced_errorUser"="Error guardando imagen, reintentalo";
+"MLoginModeRegister_name"="Registrate";
+"MLoginModeSignup_name"="Ingresa";

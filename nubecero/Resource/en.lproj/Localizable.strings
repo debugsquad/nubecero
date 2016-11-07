@@ -31,3 +31,5 @@
 "MHomeUploadItemStatusWaiting_error"="Error loading image, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";
 "MHomeUploadItemStatusReferenced_errorUser"="Error saving picture, try again";
+"MLoginModeRegister_name"="Register";
+"MLoginModeSignup_name"="Signup";

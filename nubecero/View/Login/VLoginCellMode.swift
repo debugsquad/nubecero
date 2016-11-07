@@ -11,7 +11,7 @@ class VLoginCellMode:VLoginCell
         let itemsSegmented
         
         let segmentedControl:UISegmentedControl = UISegmentedControl(
-            items: <#T##[Any]?#>)
+            items:nil)
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         segmentedControl.clipsToBounds = true
         segmentedControl.setite

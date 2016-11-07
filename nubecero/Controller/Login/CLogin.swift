@@ -4,6 +4,19 @@ import FirebaseAuth
 class CLogin:CController
 {
     private weak var viewLogin:VLogin!
+    var model:MLogin
+    
+    init()
+    {
+        model = MLogin.None()
+        
+        super.init(nibName:nil, bundle:nil)
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
     
     deinit
     {
@@ -56,10 +69,12 @@ class CLogin:CController
     
     private func userNotLogged()
     {
+        model = MLogin.Register()
+        
         DispatchQueue.main.async
-        { [weak self]
+        { [weak self] in
             
-            
+            self?.viewLogin.refresh()
         }
     }
     

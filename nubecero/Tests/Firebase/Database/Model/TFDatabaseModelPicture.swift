@@ -74,12 +74,12 @@ class TFDatabaseModelPicture:XCTestCase
     {
         let snapshot:Any = ""
         
-        let fDatabaseModelUserPicture:FDatabaseModelUserPicture = FDatabaseModelUserPicture(
+        let fDatabaseModelUserPicture:FDatabaseModelPicture = FDatabaseModelPicture(
             snapshot:snapshot)
         
         XCTAssertEqual(
-            fDatabaseModelUser.status,
-            FDatabaseModelUser.Status.unknown,
-            "Snapshot nil not using unknown status")
+            FDatabaseModelPicture.status,
+            FDatabaseModelPicture.Status.waiting,
+            "Snapshot nil not using waiting status")
     }
 }

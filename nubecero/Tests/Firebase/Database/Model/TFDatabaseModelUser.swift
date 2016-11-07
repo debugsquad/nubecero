@@ -6,6 +6,7 @@ class TFDatabaseModelUser:XCTestCase
     private let kCreated:TimeInterval = 123456
     private let kLastSession:TimeInterval = 45678
     private let kDiskUsed:Int = 3098765
+    private let kDiskInitial:Int = 0
     
     func testInitSnapshot()
     {
@@ -112,5 +113,34 @@ class TFDatabaseModelUser:XCTestCase
             fDatabaseModelUser.status,
             FDatabaseModelUser.Status.unknown,
             "Snapshot nil not using unknown status")
+    }
+    
+    func testInitStatus()
+    {
+        let status:FDatabaseModelUser.Status = FDatabaseModelUser.Status.active
+        let currentTime:TimeInterval = Date().timeIntervalSince1970
+        
+        let fDatabaseModelUser:FDatabaseModelUser = FDatabaseModelUser(
+            status:status)
+        
+        XCTAssertEqual(
+            fDatabaseModelUser.status,
+            status,
+            "Error init with status")
+        
+        XCTAssertGreaterThanOrEqual(
+            fDatabaseModelUser.created,
+            currentTime,
+            "Error making the created timestamp")
+        
+        XCTAssertEqual(
+            fDatabaseModelUser.created,
+            fDatabaseModelUser.lastSession,
+            "Last session and created are not the same")
+        
+        XCTAssertEqual(
+            fDatabaseModelUser.diskUsed,
+            kDiskInitial,
+            "Error initializing disk space")
     }
 }

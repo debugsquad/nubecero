@@ -132,6 +132,12 @@
 		DAD739681DD11B9B00FC3297 /* MLoginItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739671DD11B9B00FC3297 /* MLoginItem.swift */; };
 		DAD7396A1DD11C3B00FC3297 /* VLoginCellMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739691DD11C3B00FC3297 /* VLoginCellMode.swift */; };
 		DAD7396C1DD11C8300FC3297 /* MLoginItemMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7396B1DD11C8300FC3297 /* MLoginItemMode.swift */; };
+		DAD7396E1DD11D0D00FC3297 /* MLoginItemEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7396D1DD11D0D00FC3297 /* MLoginItemEmail.swift */; };
+		DAD739701DD11D1600FC3297 /* MLoginItemPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7396F1DD11D1600FC3297 /* MLoginItemPassword.swift */; };
+		DAD739721DD11D2000FC3297 /* MLoginItemSend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739711DD11D2000FC3297 /* MLoginItemSend.swift */; };
+		DAD739741DD11D3400FC3297 /* VLoginCellEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739731DD11D3400FC3297 /* VLoginCellEmail.swift */; };
+		DAD739761DD11D4000FC3297 /* VLoginCellPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739751DD11D4000FC3297 /* VLoginCellPassword.swift */; };
+		DAD739781DD11D4A00FC3297 /* VLoginCellSend.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739771DD11D4A00FC3297 /* VLoginCellSend.swift */; };
 		DAE4554B1DCA4C2400948D70 /* Pictures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE4554A1DCA4C2400948D70 /* Pictures.xcassets */; };
 		DAE4554E1DCA4C9F00948D70 /* MPicturesDetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4554D1DCA4C9F00948D70 /* MPicturesDetailInfo.swift */; };
 		DAE455501DCA4CB000948D70 /* MPicturesDetailInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4554F1DCA4CB000948D70 /* MPicturesDetailInfoItem.swift */; };
@@ -297,6 +303,12 @@
 		DAD739671DD11B9B00FC3297 /* MLoginItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoginItem.swift; sourceTree = "<group>"; };
 		DAD739691DD11C3B00FC3297 /* VLoginCellMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoginCellMode.swift; sourceTree = "<group>"; };
 		DAD7396B1DD11C8300FC3297 /* MLoginItemMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoginItemMode.swift; sourceTree = "<group>"; };
+		DAD7396D1DD11D0D00FC3297 /* MLoginItemEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoginItemEmail.swift; sourceTree = "<group>"; };
+		DAD7396F1DD11D1600FC3297 /* MLoginItemPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoginItemPassword.swift; sourceTree = "<group>"; };
+		DAD739711DD11D2000FC3297 /* MLoginItemSend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoginItemSend.swift; sourceTree = "<group>"; };
+		DAD739731DD11D3400FC3297 /* VLoginCellEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoginCellEmail.swift; sourceTree = "<group>"; };
+		DAD739751DD11D4000FC3297 /* VLoginCellPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoginCellPassword.swift; sourceTree = "<group>"; };
+		DAD739771DD11D4A00FC3297 /* VLoginCellSend.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoginCellSend.swift; sourceTree = "<group>"; };
 		DAE4554A1DCA4C2400948D70 /* Pictures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Pictures.xcassets; sourceTree = "<group>"; };
 		DAE4554D1DCA4C9F00948D70 /* MPicturesDetailInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfo.swift; sourceTree = "<group>"; };
 		DAE4554F1DCA4CB000948D70 /* MPicturesDetailInfoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfoItem.swift; sourceTree = "<group>"; };
@@ -748,6 +760,9 @@
 				DAD739601DD11A4600FC3297 /* VLoginHeader.swift */,
 				DAD739621DD11A4F00FC3297 /* VLoginCell.swift */,
 				DAD739691DD11C3B00FC3297 /* VLoginCellMode.swift */,
+				DAD739731DD11D3400FC3297 /* VLoginCellEmail.swift */,
+				DAD739751DD11D4000FC3297 /* VLoginCellPassword.swift */,
+				DAD739771DD11D4A00FC3297 /* VLoginCellSend.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -838,6 +853,9 @@
 				DAD739651DD11B9100FC3297 /* MLogin.swift */,
 				DAD739671DD11B9B00FC3297 /* MLoginItem.swift */,
 				DAD7396B1DD11C8300FC3297 /* MLoginItemMode.swift */,
+				DAD7396D1DD11D0D00FC3297 /* MLoginItemEmail.swift */,
+				DAD7396F1DD11D1600FC3297 /* MLoginItemPassword.swift */,
+				DAD739711DD11D2000FC3297 /* MLoginItemSend.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1131,6 +1149,7 @@
 				DACD1FC51DC7C6750067D26B /* FDatabaseModel.swift in Sources */,
 				DA2F66A01DC92F380078B466 /* MPicturesDetail.swift in Sources */,
 				DA406BDE1DCD1D240098D347 /* MSettingsItemLogout.swift in Sources */,
+				DAD739701DD11D1600FC3297 /* MLoginItemPassword.swift in Sources */,
 				DA406BDA1DCD03820098D347 /* MSettingsItemSecurity.swift in Sources */,
 				DA4EF9141DC395B300297C1D /* VParent.swift in Sources */,
 				DACD1FB01DC540750067D26B /* MHomeUpload.swift in Sources */,
@@ -1155,8 +1174,10 @@
 				DAE455611DCA7FF200948D70 /* VPicturesDataCellClose.swift in Sources */,
 				DA2F66AD1DC942480078B466 /* VPicturesDetailCell.swift in Sources */,
 				DA4EF9051DC395B300297C1D /* FAnalytics.swift in Sources */,
+				DAD739721DD11D2000FC3297 /* MLoginItemSend.swift in Sources */,
 				DACD1FA41DC402960067D26B /* VHomeCellUpload.swift in Sources */,
 				DA2F66AC1DC942480078B466 /* VPicturesDetail.swift in Sources */,
+				DAD739741DD11D3400FC3297 /* VLoginCellEmail.swift in Sources */,
 				DA4EF9121DC395B300297C1D /* VBar.swift in Sources */,
 				DACD1FB41DC545F70067D26B /* VHomeUploadCell.swift in Sources */,
 				DA88F6781DC7EE00009F61B3 /* MHomeUploadItemStatusReferenced.swift in Sources */,
@@ -1225,10 +1246,13 @@
 				DACD1F9C1DC400090067D26B /* MHome.swift in Sources */,
 				DA4EF90E1DC395B300297C1D /* MMainStateOptions.swift in Sources */,
 				DACD1FA81DC411440067D26B /* CHomeUpload.swift in Sources */,
+				DAD739781DD11D4A00FC3297 /* VLoginCellSend.swift in Sources */,
+				DAD7396E1DD11D0D00FC3297 /* MLoginItemEmail.swift in Sources */,
 				DA4EF9061DC395B300297C1D /* FMain.swift in Sources */,
 				DA2F66851DC8FE5C0078B466 /* CPictures.swift in Sources */,
 				DACD1FB61DC56C250067D26B /* VHomeUploadBar.swift in Sources */,
 				DA406BD61DCD036C0098D347 /* MSettings.swift in Sources */,
+				DAD739761DD11D4000FC3297 /* VLoginCellPassword.swift in Sources */,
 				DA4EF9091DC395B300297C1D /* MMain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

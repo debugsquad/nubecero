@@ -7,10 +7,15 @@ class MSettingsItemFacebookInvite:MSettingsItem
     
     override init()
     {
-        let reusableIdentifier:String = VSettingsCellFacebookShare.reusableIdentifier
+        let reusableIdentifier:String = VSettingsCellFacebookInvite.reusableIdentifier
         super.init(
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight,
             selectable:kSelectable)
+    }
+    
+    override func selected(controller:CSettings)
+    {
+        controller.facebookInvite()
     }
 }

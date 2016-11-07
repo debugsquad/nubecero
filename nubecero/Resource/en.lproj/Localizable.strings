@@ -13,6 +13,7 @@
 "VPicturesDetailHeader_label"="Your Cloud is empty";
 "VSettingsCellProfile_defaultUserName"="nubecero";
 "VSettingsCellFacebookShare_labelTitle"="Tell your friends about nubecero";
+"VSettingsCellFacebookInvite_label"="Invite friends to nubecero";
 
 "CLogin_logOut"="Log out succeded";
 "CLogin_errorUnknown"="Couldn't log in, try again";
@@ -32,6 +33,7 @@
 "CAuth_reason"="Authenticate to access your Cloud";
 "CAuth_errorUnknown"="Couldn't authenticate, try again";
 "CAuth_passCodeNotSet"="Set your password in the device Settings to secure your Cloud";
+"CSettings_cantInvite"="Couldn't invite with Facebook";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading image, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

@@ -13,6 +13,7 @@
 "VPicturesDetailHeader_label"="Tu Nube esta vacía";
 "VSettingsCellProfile_defaultUserName"="nubecero";
 "VSettingsCellFacebookShare_labelTitle"="Comparte nubecero con tus amigos";
+"VSettingsCellFacebookInvite_label"="Invita tu amigos a nubecero";
 
 "CLogin_logOut"="Cerraste sessión";
 "CLogin_errorUnknown"="No se pudo ingresar, reintantalo";
@@ -32,6 +33,7 @@
 "CAuth_reason"="Validate para ingresar a tu Nube";
 "CAuth_errorUnknown"="No se pudo validad, reintentalo";
 "CAuth_passCodeNotSet"="Define una contraseña en la configuración del dispositivo para asegurar tu Nube";
+"CSettings_cantInvite"="No se pudó invitar con Facebook";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando imagen, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

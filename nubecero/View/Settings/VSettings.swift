@@ -53,6 +53,10 @@ class VSettings:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             VSettingsCellFacebookShare.self,
             forCellWithReuseIdentifier:
             VSettingsCellFacebookShare.reusableIdentifier)
+        collectionView.register(
+            VSettingsCellFacebookInvite.self,
+            forCellWithReuseIdentifier:
+            VSettingsCellFacebookInvite.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(collectionView)

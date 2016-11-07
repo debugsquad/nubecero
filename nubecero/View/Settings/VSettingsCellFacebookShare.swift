@@ -25,8 +25,8 @@ class VSettingsCellFacebookShare:VSettingsCell, FBSDKAppInviteDialogDelegate
         title.isUserInteractionEnabled = false
         title.translatesAutoresizingMaskIntoConstraints = false
         title.backgroundColor = UIColor.clear
-        title.font = UIFont.medium(size:14)
-        title.textColor = UIColor.complement
+        title.font = UIFont.regular(size:14)
+        title.textColor = UIColor(white:0.3, alpha:1)
         title.textAlignment = NSTextAlignment.center
         title.text = NSLocalizedString("VSettingsCellFacebookShare_labelTitle", comment:"")
         
@@ -76,9 +76,7 @@ class VSettingsCellFacebookShare:VSettingsCell, FBSDKAppInviteDialogDelegate
         addConstraint(layoutFbButtonLeft)
         
         
-        let content = FBSDKAppInviteContent()
-        content.appLinkURL = URL(string:"https://itunes.apple.com/us/app/metalic/id1168066325?ls=1&mt=8")!
-        FBSDKAppInviteDialog.show(from:UIApplication.shared.keyWindow?.rootViewController, with:content, delegate: self)
+        
     }
     
     required init?(coder:NSCoder)

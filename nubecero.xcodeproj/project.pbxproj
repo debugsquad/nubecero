@@ -88,6 +88,7 @@
 		DA5768751DD0304C00590B5F /* MSettingsItemFacebookShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5768741DD0304C00590B5F /* MSettingsItemFacebookShare.swift */; };
 		DA5768771DD030D200590B5F /* VSettingsCellFacebookShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5768761DD030D200590B5F /* VSettingsCellFacebookShare.swift */; };
 		DA5768791DD0484900590B5F /* MSettingsItemFacebookInvite.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5768781DD0484900590B5F /* MSettingsItemFacebookInvite.swift */; };
+		DA57687B1DD048BB00590B5F /* VSettingsCellFacebookInvite.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA57687A1DD048BB00590B5F /* VSettingsCellFacebookInvite.swift */; };
 		DA88F6701DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */; };
 		DA88F6721DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */; };
 		DA88F6741DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F6731DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift */; };
@@ -248,6 +249,7 @@
 		DA5768741DD0304C00590B5F /* MSettingsItemFacebookShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemFacebookShare.swift; sourceTree = "<group>"; };
 		DA5768761DD030D200590B5F /* VSettingsCellFacebookShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellFacebookShare.swift; sourceTree = "<group>"; };
 		DA5768781DD0484900590B5F /* MSettingsItemFacebookInvite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemFacebookInvite.swift; sourceTree = "<group>"; };
+		DA57687A1DD048BB00590B5F /* VSettingsCellFacebookInvite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellFacebookInvite.swift; sourceTree = "<group>"; };
 		DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatus.swift; sourceTree = "<group>"; };
 		DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusNone.swift; sourceTree = "<group>"; };
 		DA88F6731DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusWaiting.swift; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 				DA406BDB1DCD1CF00098D347 /* VSettingsCellLogout.swift */,
 				DA253EAA1DCE764200C704A3 /* VSettingsCellProfile.swift */,
 				DA5768761DD030D200590B5F /* VSettingsCellFacebookShare.swift */,
+				DA57687A1DD048BB00590B5F /* VSettingsCellFacebookInvite.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -481,10 +484,10 @@
 			children = (
 				DA406BD51DCD036C0098D347 /* MSettings.swift */,
 				DA406BD71DCD03760098D347 /* MSettingsItem.swift */,
-				DA5768741DD0304C00590B5F /* MSettingsItemFacebookShare.swift */,
 				DA406BD91DCD03820098D347 /* MSettingsItemSecurity.swift */,
 				DA406BDD1DCD1D240098D347 /* MSettingsItemLogout.swift */,
 				DA253EA81DCE75D700C704A3 /* MSettingsItemProfile.swift */,
+				DA5768741DD0304C00590B5F /* MSettingsItemFacebookShare.swift */,
 				DA5768781DD0484900590B5F /* MSettingsItemFacebookInvite.swift */,
 			);
 			path = Settings;
@@ -1187,6 +1190,7 @@
 				DACD1FC71DC7C6AE0067D26B /* FDatabaseModelUser.swift in Sources */,
 				DAE455501DCA4CB000948D70 /* MPicturesDetailInfoItem.swift in Sources */,
 				DAE455681DCA84A800948D70 /* MPicturesDataItemClose.swift in Sources */,
+				DA57687B1DD048BB00590B5F /* VSettingsCellFacebookInvite.swift in Sources */,
 				DA406BC61DCCE7BF0098D347 /* CAuth.swift in Sources */,
 				DACD1FC31DC7C66A0067D26B /* FDatabase.swift in Sources */,
 				DA4EF90F1DC395B300297C1D /* MMainStatePushed.swift in Sources */,

@@ -104,9 +104,15 @@ class CLogin:CController
     
     //MARK: public
     
-    func changeMode()
+    func changeMode(modeType:MLoginMode.ModeType)
     {
+        model = MLogin.WithMode(modeType:modeType)
         
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewLogin.refresh()
+        }
     }
     
     /*

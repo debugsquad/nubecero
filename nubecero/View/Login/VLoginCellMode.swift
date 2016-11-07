@@ -94,6 +94,18 @@ class VLoginCellMode:VLoginCell
     
     func actionChangeMode(sender segmented:UISegmentedControl)
     {
+        let selected:Int = segmented.selectedSegmentIndex
         
+        guard
+            
+            let newModeType:MLoginMode.ModeType = MLoginMode.ModeType(
+                rawValue:selected)
+        
+        else
+        {
+            return
+        }
+        
+        controller?.changeMode(modeType:newModeType)
     }
 }

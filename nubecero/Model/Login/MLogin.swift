@@ -5,7 +5,7 @@ class MLogin
     let items:[MLoginItem]
     let mode:MLoginMode?
     
-    class func WithMode(modeType:MLoginMode.ModeType)
+    class func WithMode(modeType:MLoginMode.ModeType) -> MLogin
     {
         let model:MLogin
         

@@ -13,6 +13,7 @@
 "VLoginCellDisclaimerSignin_label"="Use existing an account";
 "VLoginCellDisclaimerRegister_label"="Create a new account";
 "VLoginCellSend_label"="Send";
+"VLoginCellEmail_placeholder"="Email";
 
 "CHomeUpload_title"="Upload";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

@@ -13,7 +13,20 @@ class MLogin
     
     class func Register() -> MLogin
     {
-        let items:[MLoginItem] = []
+        let itemMode:MLoginItemMode = MLoginItemMode()
+        let itemDisclaimer:MLoginItemDisclaimerRegister = MLoginItemDisclaimerRegister()
+        let itemEmail:MLoginItemEmail = MLoginItemEmail()
+        let itemPassword:MLoginItemPassword = MLoginItemPassword()
+        let itemSend:MLoginItemSend = MLoginItemSend()
+        
+        let items:[MLoginItem] = [
+            itemMode,
+            itemDisclaimer,
+            itemEmail,
+            itemPassword,
+            itemSend
+        ]
+        
         let model:MLogin = MLogin(items:items)
         
         return model
@@ -21,7 +34,20 @@ class MLogin
     
     class func Signup() -> MLogin
     {
-        let items:[MLoginItem] = []
+        let itemMode:MLoginItemMode = MLoginItemMode()
+        let itemDisclaimer:MLoginItemDisclaimerSignup = MLoginItemDisclaimerSignup()
+        let itemEmail:MLoginItemEmail = MLoginItemEmail()
+        let itemPassword:MLoginItemPassword = MLoginItemPassword()
+        let itemSend:MLoginItemSend = MLoginItemSend()
+        
+        let items:[MLoginItem] = [
+            itemMode,
+            itemDisclaimer,
+            itemEmail,
+            itemPassword,
+            itemSend
+        ]
+        
         let model:MLogin = MLogin(items:items)
         
         return model

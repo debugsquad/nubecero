@@ -14,7 +14,6 @@ class VSettingsCellProfile:VSettingsCell
     {
         super.init(frame:frame)
         isUserInteractionEnabled = false
-        backgroundColor = UIColor.clear
         
         let userName:UILabel = UILabel()
         userName.isUserInteractionEnabled = false

@@ -7,7 +7,7 @@ class MLoginItemDisclaimerRegister:MLoginItem
     
     override init()
     {
-        let reusableIdentifier:String = VLoginCellEmail.reusableIdentifier
+        let reusableIdentifier:String = VLoginCellDisclaimerRegister.reusableIdentifier
         super.init(
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight,

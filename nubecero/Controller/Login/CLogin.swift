@@ -102,11 +102,6 @@ class CLogin:CController
         }
     }
     
-    private func loginError(error:String)
-    {
-        VAlert.message(message:error)
-    }
-    
     
     /*
     //MARK: login button delegate

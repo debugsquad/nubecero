@@ -5,7 +5,7 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
 {
     private weak var controller:CLogin!
     private weak var collectionView:UICollectionView!
-    private let kHeaderHeight:CGFloat = 150
+    private let kHeaderHeight:CGFloat = 180
     private let kCollectionBottom:CGFloat = 20
     private let kDeselectTime:TimeInterval = 1
     
@@ -84,6 +84,12 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             views:views))
     }
     
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MLoginItem
@@ -119,11 +125,11 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         
         if count > 0
         {
-            height = collectionView.bounds.maxY
+            height = kHeaderHeight
         }
         else
         {
-            height = kHeaderHeight
+            height = collectionView.bounds.maxY
         }
         
         size = CGSize(width:0, height:height)

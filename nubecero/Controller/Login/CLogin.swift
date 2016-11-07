@@ -4,11 +4,13 @@ import FirebaseAuth
 class CLogin:CController
 {
     private weak var viewLogin:VLogin!
+    private let fetchCredentials:Bool
     var model:MLogin
     
-    init()
+    init(fetchCredentials:Bool)
     {
         model = MLogin.None()
+        self.fetchCredentials = fetchCredentials
         
         super.init(nibName:nil, bundle:nil)
     }
@@ -34,19 +36,28 @@ class CLogin:CController
     {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector:#selector(notifiedSettingsLoaded(sender:)),
-            name:Notification.settingsLoaded,
-            object:nil)
-        
-        MSession.sharedInstance.loadSettings()
+        if fetchCredentials
+        {
+            NotificationCenter.default.addObserver(
+                self,
+                selector:#selector(notifiedSettingsLoaded(sender:)),
+                name:Notification.settingsLoaded,
+                object:nil)
+            
+            MSession.sharedInstance.loadSettings()
+        }
+        else
+        {
+            userNotLogged()
+        }
     }
     
     //MARK: notified
     
     func notifiedSettingsLoaded(sender notification:Notification)
     {
+        NotificationCenter.default.removeObserver(self)
+        
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
@@ -67,7 +78,7 @@ class CLogin:CController
     
     //MARK: private
     
-    private func userNotLogged()
+    func userNotLogged()
     {
         model = MLogin.Register()
         

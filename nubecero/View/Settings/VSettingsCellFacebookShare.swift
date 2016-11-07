@@ -1,11 +1,11 @@
 import UIKit
 import FBSDKShareKit
 
-class VSettingsCellFacebookShare:VSettingsCell
+class VSettingsCellFacebookShare:VSettingsCell, FBSDKAppInviteDialogDelegate
 {
     private weak var fbButton:FBSDKShareButton!
     private weak var layoutFbButtonLeft:NSLayoutConstraint!
-    private let kFbButtonTop:CGFloat = 44
+    private let kFbButtonTop:CGFloat = 46
     private let kStringUrl:String = "https://itunes.apple.com/us/app/nubecero/id1012571476"
     
     override init(frame:CGRect)
@@ -74,6 +74,11 @@ class VSettingsCellFacebookShare:VSettingsCell
             constant:0)
         
         addConstraint(layoutFbButtonLeft)
+        
+        
+        let content = FBSDKAppInviteContent()
+        content.appLinkURL = URL(string:"https://itunes.apple.com/us/app/metalic/id1168066325?ls=1&mt=8")!
+        FBSDKAppInviteDialog.show(from:UIApplication.shared.keyWindow?.rootViewController, with:content, delegate: self)
     }
     
     required init?(coder:NSCoder)
@@ -90,5 +95,15 @@ class VSettingsCellFacebookShare:VSettingsCell
         layoutFbButtonLeft.constant = margin
         
         super.layoutSubviews()
+    }
+    
+    func appInviteDialog(_ appInviteDialog: FBSDKAppInviteDialog!, didFailWithError error: Error!) {
+        
+        print("a")
+    }
+    
+    func appInviteDialog(_ appInviteDialog: FBSDKAppInviteDialog!, didCompleteWithResults results: [AnyHashable : Any]!) {
+
+        print("b")
     }
 }

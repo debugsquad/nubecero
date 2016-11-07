@@ -13,8 +13,8 @@ class MSettings
         
         items = [
             itemProfile,
-            itemFacebookShare,
             itemSecurity,
+            itemFacebookShare,
             itemLogout
         ]
     }

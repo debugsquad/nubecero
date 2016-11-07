@@ -44,4 +44,18 @@ class TFDatabaseModelUserStatus:XCTestCase
             status,
             "Parsing status banned error")
     }
+    
+    func testInitSnapshotNil()
+    {
+        let status:FDatabaseModelUser.Status = FDatabaseModelUser.Status.unknown
+        let snapshot:Any = 0
+        
+        let fDatabaseModelUserStatus:FDatabaseModelUserStatus = FDatabaseModelUserStatus(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            fDatabaseModelUserStatus.status,
+            status,
+            "Parsing status nil")
+    }
 }

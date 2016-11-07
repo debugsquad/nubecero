@@ -63,6 +63,10 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             VLoginCellDisclaimerRegister.self,
             forCellWithReuseIdentifier:
             VLoginCellDisclaimerRegister.reusableIdentifier)
+        collectionView.register(
+            VLoginCellVoid.self,
+            forCellWithReuseIdentifier:
+            VLoginCellVoid.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(collectionView)

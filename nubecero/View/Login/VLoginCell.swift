@@ -1,9 +1,16 @@
-//
-//  VLoginCell.swift
-//  nubecero
-//
-//  Created by zero on 11/7/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class VLoginCell:UICollectionViewCell
+{
+    override init(frame:CGRect)
+    {
+        super.init(frame:frame)
+        clipsToBounds = true
+        backgroundColor = UIColor.clear
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+}

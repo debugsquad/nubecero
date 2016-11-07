@@ -1,9 +1,17 @@
-//
-//  VLoginHeader.swift
-//  nubecero
-//
-//  Created by zero on 11/7/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class VLoginHeader:UICollectionReusableView
+{
+    override init(frame:CGRect)
+    {
+        super.init(frame:frame)
+        clipsToBounds = true
+        backgroundColor = UIColor.clear
+        isUserInteractionEnabled = false
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+}

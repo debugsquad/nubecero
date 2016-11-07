@@ -103,7 +103,7 @@ class TFDatabaseModelUser:XCTestCase
     
     func testInitSnapshotNil()
     {
-        let snapshot:[String:Any] = [:]
+        let snapshot:Any = ""
         
         let fDatabaseModelUser:FDatabaseModelUser = FDatabaseModelUser(
             snapshot:snapshot)

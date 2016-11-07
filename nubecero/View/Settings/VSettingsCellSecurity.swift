@@ -24,8 +24,9 @@ class VSettingsCellSecurity:VSettingsCell
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
         label.font = UIFont.medium(size:15)
-        label.textColor = UIColor(white:0.5, alpha:1)
+        label.textColor = UIColor(white:0.25, alpha:1)
         label.numberOfLines = 0
+        label.textAlignment = NSTextAlignment.right
         label.text = NSLocalizedString("VSettingsCellSecurity_label", comment:"")
         
         addSubview(label)
@@ -40,7 +41,7 @@ class VSettingsCellSecurity:VSettingsCell
             "checkTop":kCheckTop]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[label]-20-[check(checkWidth)]-0-|",
+            withVisualFormat:"H:|-0-[label]-10-[check(checkWidth)]-0-|",
             options:[],
             metrics:metrics,
             views:views))

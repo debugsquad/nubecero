@@ -26,7 +26,7 @@ class VSettingsCellFacebookShare:VSettingsCell, FBSDKAppInviteDialogDelegate
         title.translatesAutoresizingMaskIntoConstraints = false
         title.backgroundColor = UIColor.clear
         title.font = UIFont.regular(size:14)
-        title.textColor = UIColor(white:0.3, alpha:1)
+        title.textColor = UIColor(white:0.2, alpha:1)
         title.textAlignment = NSTextAlignment.center
         title.text = NSLocalizedString("VSettingsCellFacebookShare_labelTitle", comment:"")
         

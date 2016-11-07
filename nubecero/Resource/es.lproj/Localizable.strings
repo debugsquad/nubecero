@@ -8,12 +8,12 @@
 "VBanned_disclaimer"="Tu cuenta esta suspendida\nContacta soporte para mayor información";
 "VHomeCellSpace_labelTitle"="Megabytes usados de tu Nube";
 "VAuth_buttonTryAgain"="Reintentar";
-"VSettingsCellSecurity_label"="Pedir contraseña (mejora privacidad)";
+"VSettingsCellSecurity_label"="Pedir contraseña";
 "VSettingsCellLogout_label"="Salir";
 "VPicturesDetailHeader_label"="Tu Nube esta vacía";
 "VSettingsCellProfile_defaultUserName"="nubecero";
 "VSettingsCellFacebookShare_labelTitle"="Comparte nubecero con tus amigos";
-"VSettingsCellFacebookInvite_label"="Invita tu amigos a nubecero";
+"VSettingsCellFacebookInvite_label"="Invita a tu amigos de Facebook";
 
 "CLogin_logOut"="Cerraste sessión";
 "CLogin_errorUnknown"="No se pudo ingresar, reintantalo";

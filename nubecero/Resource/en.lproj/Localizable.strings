@@ -32,6 +32,9 @@
 "CAuth_reason"="Authenticate to access your Cloud";
 "CAuth_errorUnknown"="Couldn't authenticate, try again";
 "CAuth_passCodeNotSet"="Set your password in the device Settings to secure your Cloud";
+"CLogin_invalidEmail"="Need to enter your Email";
+"CLogin_invalidPassword"="Need to enter your Password";
+"CLogin_errorUnknown"="There was an error, try again";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading image, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

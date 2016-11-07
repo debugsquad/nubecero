@@ -102,6 +102,139 @@ class CLogin:CController
         }
     }
     
+    private func asyncSendLogin()
+    {
+        guard
+        
+            let modeType:MLoginMode.ModeType = model.mode?.modeType
+        
+        else
+        {
+            return
+        }
+        
+        guard
+            
+            let email:String = model.email
+            
+        else
+        {
+            let message:String = NSLocalizedString("CLogin_invalidEmail", comment:"")
+            VAlert.message(message:message)
+            
+            return
+        }
+        
+        guard
+            
+            let password:String = model.password
+            
+        else
+        {
+            let message:String = NSLocalizedString("CLogin_invalidPassword", comment:"")
+            VAlert.message(message:message)
+            
+            return
+        }
+        
+        if email.characters.count < 1
+        {
+            let message:String = NSLocalizedString("CLogin_invalidEmail", comment:"")
+            VAlert.message(message:message)
+            
+            return
+        }
+        
+        if password.characters.count < 1
+        {
+            let message:String = NSLocalizedString("CLogin_invalidPassword", comment:"")
+            VAlert.message(message:message)
+            
+            return
+        }
+        
+        switch modeType
+        {
+            case MLoginMode.ModeType.register:
+            
+                tryRegister(email:email, password:password)
+                
+                break
+            
+            case MLoginMode.ModeType.signin:
+            
+                trySignin(email:email, password:password)
+                
+                break
+        }
+    }
+    
+    private func trySignin(email:String, password:String)
+    {
+        FIRAuth.auth()?.signIn(
+            withEmail:email,
+            password:password)
+        { [weak self] (user, error) in
+            
+            guard
+                
+                let _:FIRUser = user
+                
+            else
+            {
+                let errorString:String
+                
+                if let error:Error = error
+                {
+                    errorString = error.localizedDescription
+                }
+                else
+                {
+                    errorString = NSLocalizedString("CLogin_errorUnknown", comment:"")
+                }
+                
+                VAlert.message(message:errorString)
+                
+                return
+            }
+            
+            self?.userLogged()
+        }
+    }
+    
+    private func tryRegister(email:String, password:String)
+    {
+        FIRAuth.auth()?.createUser(
+            withEmail:email,
+            password:password)
+        { [weak self] (user, error) in
+            
+            guard
+                
+                let _:FIRUser = user
+                
+            else
+            {
+                let errorString:String
+                
+                if let error:Error = error
+                {
+                    errorString = error.localizedDescription
+                }
+                else
+                {
+                    errorString = NSLocalizedString("CLogin_errorUnknown", comment:"")
+                }
+                
+                VAlert.message(message:errorString)
+                
+                return
+            }
+            
+            self?.userLogged()
+        }
+    }
+    
     //MARK: public
     
     func changeMode(modeType:MLoginMode.ModeType)
@@ -117,9 +250,11 @@ class CLogin:CController
     
     func sendLogin()
     {
-        guard
-        
-            let 
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncSendLogin()
+        }
     }
     
     /*

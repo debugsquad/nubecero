@@ -32,6 +32,9 @@
 "CAuth_reason"="Validate para ingresar a tu Nube";
 "CAuth_errorUnknown"="No se pudo validad, reintentalo";
 "CAuth_passCodeNotSet"="Define una contraseña en la configuración del dispositivo para asegurar tu Nube";
+"CLogin_invalidEmail"="Necesitas poner tu correo electrónico";
+"CLogin_invalidPassword"="Necesitas poner tu constraseña";
+"CLogin_errorUnknown"="Hubo un error, reintenta";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando imagen, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

@@ -74,12 +74,34 @@ class TFDatabaseModelPicture:XCTestCase
     {
         let snapshot:Any = ""
         
-        let fDatabaseModelUserPicture:FDatabaseModelPicture = FDatabaseModelPicture(
+        let fDatabaseModelPicture:FDatabaseModelPicture = FDatabaseModelPicture(
             snapshot:snapshot)
         
         XCTAssertEqual(
-            FDatabaseModelPicture.status,
+            fDatabaseModelPicture.status,
             FDatabaseModelPicture.Status.waiting,
             "Snapshot nil not using waiting status")
+    }
+    
+    func testInitSize()
+    {
+        let currentTime:TimeInterval = Date().timeIntervalSince1970
+        let fDatabaseModelPicture:FDatabaseModelPicture = FDatabaseModelPicture(
+            size:kSize)
+        
+        XCTAssertEqual(
+            fDatabaseModelPicture.size,
+            kSize,
+            "Error parsing size")
+        
+        XCTAssertGreaterThanOrEqual(
+            fDatabaseModelPicture.created,
+            currentTime,
+            "Error making the created timestamp")
+        
+        XCTAssertEqual(
+            fDatabaseModelPicture.status,
+            FDatabaseModelPicture.Status.waiting,
+            "When no status found picture should have a status waiting")
     }
 }

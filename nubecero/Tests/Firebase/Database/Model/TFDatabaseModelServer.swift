@@ -48,4 +48,15 @@ class TFDatabaseModelServer:XCTestCase
             kNoSpace,
             "When nil snapshot there should be no space")
     }
+    
+    func testInitFroobSpace()
+    {
+        let fDatabaseModelServer:FDatabaseModelServer = FDatabaseModelServer(
+            froobSpace:kFroobSpace)
+        
+        XCTAssertEqual(
+            fDatabaseModelServer.froobSpace,
+            kFroobSpace,
+            "Error parsing init with froob space")
+    }
 }

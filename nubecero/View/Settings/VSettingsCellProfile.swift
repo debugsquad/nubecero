@@ -3,8 +3,8 @@ import FirebaseAuth
 
 class VSettingsCellProfile:VSettingsCell
 {
-    private weak var userName:UILabel!
-    private weak var imageView:UIImageView!
+    weak var userName:UILabel!
+    weak var imageView:UIImageView!
     private weak var layoutImageViewLeft:NSLayoutConstraint!
     private let kUserNameBottom:CGFloat = 30
     private let kUserNameHeight:CGFloat = 40
@@ -14,7 +14,6 @@ class VSettingsCellProfile:VSettingsCell
     {
         super.init(frame:frame)
         isUserInteractionEnabled = false
-        backgroundColor = UIColor.clear
         
         let userName:UILabel = UILabel()
         userName.isUserInteractionEnabled = false
@@ -23,6 +22,7 @@ class VSettingsCellProfile:VSettingsCell
         userName.font = UIFont.regular(size:14)
         userName.textColor = UIColor.black
         userName.textAlignment = NSTextAlignment.center
+        userName.text = NSLocalizedString("VSettingsCellProfile_defaultUserName", comment:"")
         self.userName = userName
         
         let imageView:UIImageView = UIImageView()
@@ -33,6 +33,7 @@ class VSettingsCellProfile:VSettingsCell
         imageView.layer.cornerRadius = kImageViewHeight / 2.0
         imageView.layer.borderColor = UIColor.black.cgColor
         imageView.layer.borderWidth = 1
+        imageView.image = #imageLiteral(resourceName: "assetLoader0")
         self.imageView = imageView
         
         addSubview(userName)

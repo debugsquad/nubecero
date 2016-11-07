@@ -6,6 +6,7 @@ class AppDelegate:UIResponder, UIApplicationDelegate
 {
     var window:UIWindow?
     private weak var parent:CParent!
+    private let kEmpty:String = ""
 
     func application(_ application:UIApplication, didFinishLaunchingWithOptions launchOptions:[UIApplicationLaunchOptionsKey:Any]?) -> Bool
     {
@@ -29,10 +30,32 @@ class AppDelegate:UIResponder, UIApplicationDelegate
     
     func application(_ app:UIApplication, open url:URL, options:[UIApplicationOpenURLOptionsKey:Any] = [:]) -> Bool
     {
+        let sourceApplication:String
+        let annotation:Any
+        
+        if let optionsSourceApplication:String = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String
+        {
+            sourceApplication = optionsSourceApplication
+        }
+        else
+        {
+            sourceApplication = kEmpty
+        }
+        
+        if let optionsAnnotation:Any = options[UIApplicationOpenURLOptionsKey.annotation]
+        {
+            annotation = optionsAnnotation
+        }
+        else
+        {
+            annotation = kEmpty
+        }
+        
         let handled:Bool = FBSDKApplicationDelegate.sharedInstance().application(
             app,
             open:url,
-            options:options)
+            sourceApplication:sourceApplication,
+            annotation:annotation)
         
         return handled
     }

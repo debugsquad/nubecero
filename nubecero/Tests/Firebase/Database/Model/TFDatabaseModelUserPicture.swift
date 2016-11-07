@@ -69,4 +69,17 @@ class TFDatabaseModelUserPicture:XCTestCase
             jsonSize,
             "Size received from json is no the same as the stored")
     }
+    
+    func testInitSnapshotNil()
+    {
+        let snapshot:Any = ""
+        
+        let fDatabaseModelUserPicture:FDatabaseModelUserPicture = FDatabaseModelUserPicture(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            fDatabaseModelUser.status,
+            FDatabaseModelUser.Status.unknown,
+            "Snapshot nil not using unknown status")
+    }
 }

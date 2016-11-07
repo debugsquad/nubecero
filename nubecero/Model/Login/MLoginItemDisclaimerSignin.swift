@@ -1,13 +1,13 @@
 import UIKit
 
-class MLoginItemDisclaimerSignup:MLoginItem
+class MLoginItemDisclaimerSignin:MLoginItem
 {
     private let kCellHeight:CGFloat = 50
     private let kSelectable:Bool = false
     
     override init()
     {
-        let reusableIdentifier:String = VLoginCellDisclaimerSignup.reusableIdentifier
+        let reusableIdentifier:String = VLoginCellDisclaimerSignin.reusableIdentifier
         super.init(
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight,

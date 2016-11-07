@@ -10,6 +10,8 @@
 "VSettingsCellSecurity_label"="Require Passcode";
 "VSettingsCellLogout_label"="Log out";
 "VPicturesDetailHeader_label"="Your Cloud is empty";
+"VLoginCellDisclaimerSignin_label"="Log in if already have an account";
+"VLoginCellDisclaimerRegister_label"="Create a new account";
 
 "CHomeUpload_title"="Upload";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";
@@ -32,4 +34,4 @@
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";
 "MHomeUploadItemStatusReferenced_errorUser"="Error saving picture, try again";
 "MLoginModeRegister_name"="Register";
-"MLoginModeSignup_name"="Signup";
+"MLoginModeSignin_name"="Signin";

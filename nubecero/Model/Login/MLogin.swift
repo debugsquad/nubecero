@@ -34,11 +34,11 @@ class MLogin
         return model
     }
     
-    class func Signup() -> MLogin
+    class func Signin() -> MLogin
     {
-        let mode:MLoginModeSignup = MLoginModeSignup()
+        let mode:MLoginModeSignin = MLoginModeSignin()
         let itemMode:MLoginItemMode = MLoginItemMode()
-        let itemDisclaimer:MLoginItemDisclaimerSignup = MLoginItemDisclaimerSignup()
+        let itemDisclaimer:MLoginItemDisclaimerSignin = MLoginItemDisclaimerSignin()
         let itemEmail:MLoginItemEmail = MLoginItemEmail()
         let itemPassword:MLoginItemPassword = MLoginItemPassword()
         let itemSend:MLoginItemSend = MLoginItemSend()

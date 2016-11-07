@@ -10,6 +10,8 @@
 "VSettingsCellSecurity_label"="Pedir contraseña";
 "VSettingsCellLogout_label"="Salir";
 "VPicturesDetailHeader_label"="Tu Nube esta vacía";
+"VLoginCellDisclaimerSignin_label"="Ingresa si ya tienes cuenta";
+"VLoginCellDisclaimerRegister_label"="Crea una nueva cuenta";
 
 "CHomeUpload_title"="Subir";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";
@@ -32,4 +34,4 @@
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";
 "MHomeUploadItemStatusReferenced_errorUser"="Error guardando imagen, reintentalo";
 "MLoginModeRegister_name"="Registrate";
-"MLoginModeSignup_name"="Ingresa";
+"MLoginModeSignin_name"="Ingresa";

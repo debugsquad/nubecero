@@ -4,9 +4,9 @@ class VLoginCellMode:VLoginCell
 {
     private weak var segmentedControl:UISegmentedControl!
     private weak var layoutSegmentedLeft:NSLayoutConstraint!
-    private let kSegmentedWidth:CGFloat = 160
+    private let kSegmentedWidth:CGFloat = 220
     private let kSegmentedHeight:CGFloat = 36
-    private let kSegmentedTop:CGFloat = 10
+    private let kSegmentedTop:CGFloat = 2
     
     override init(frame:CGRect)
     {

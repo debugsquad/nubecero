@@ -56,9 +56,9 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             forCellWithReuseIdentifier:
             VLoginCellSend.reusableIdentifier)
         collectionView.register(
-            VLoginCellDisclaimerSignup.self,
+            VLoginCellDisclaimerSignin.self,
             forCellWithReuseIdentifier:
-            VLoginCellDisclaimerSignup.reusableIdentifier)
+            VLoginCellDisclaimerSignin.reusableIdentifier)
         collectionView.register(
             VLoginCellDisclaimerRegister.self,
             forCellWithReuseIdentifier:

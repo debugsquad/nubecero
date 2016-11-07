@@ -7,11 +7,11 @@ class MLoginMode
     class func ModeNames() -> [String]
     {
         let modeRegister:MLoginModeRegister = MLoginModeRegister()
-        let modeSignup:MLoginModeSignup = MLoginModeSignup()
+        let modeSignin:MLoginModeSignin = MLoginModeSignin()
         
         let names:[String] = [
             modeRegister.name,
-            modeSignup.name
+            modeSignin.name
         ]
         
         return names

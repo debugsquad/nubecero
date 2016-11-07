@@ -5,8 +5,10 @@ class VLoginCellEmail:VLoginCell, UITextFieldDelegate
     private weak var textField:UITextField!
     private weak var layoutFieldTop:NSLayoutConstraint!
     private weak var layoutFieldLeft:NSLayoutConstraint!
-    private let kFieldWidth:CGFloat = 120
-    private let kFieldHeight:CGFloat = 36
+    private let kCornerRadius:CGFloat = 4
+    private let kFieldWidth:CGFloat = 124
+    private let kFieldHeight:CGFloat = 40
+    private let kFieldMargin:CGFloat = 2
     
     override init(frame:CGRect)
     {
@@ -30,26 +32,65 @@ class VLoginCellEmail:VLoginCell, UITextFieldDelegate
         textField.placeholder = NSLocalizedString("VLoginCellEmail_placeholder", comment:"")
         self.textField = textField
         
-        addSubview(textField)
+        let baseView:UIView = UIView()
+        baseView.translatesAutoresizingMaskIntoConstraints = false
+        baseView.backgroundColor = UIColor.white
+        baseView.clipsToBounds = true
+        baseView.layer.cornerRadius = kCornerRadius
+        
+        baseView.addSubview(textField)
+        addSubview(baseView)
         
         let views:[String:UIView] = [
-            "textField":textField]
+            "textField":textField,
+            "baseView":baseView]
         
         let metrics:[String:CGFloat] = [
             "fieldWidth":kFieldWidth,
-            "fieldHeihgt":kFieldHeight]
+            "fieldHeight":kFieldHeight,
+            "fieldMargin":kFieldMargin]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[textField(fieldWidth)]",
+            withVisualFormat:"H:|-(fieldMargin)-[textField]-(fieldMargin)-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(fieldMargin)-[textField]-(fieldMargin)-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[baseView(fieldWidth)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[baseView(fieldHeight)]",
             options:[],
             metrics:metrics,
             views:views))
         
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[textField(fieldHeight)]",
-            options:[],
-            metrics:metrics,
-            views:views))
+        layoutFieldLeft = NSLayoutConstraint(
+            item:baseView,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.left,
+            multiplier:1,
+            constant:0)
+        
+        layoutFieldTop = NSLayoutConstraint(
+            item:baseView,
+            attribute:NSLayoutAttribute.top,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.top,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutFieldLeft)
+        addConstraint(layoutFieldTop)
     }
     
     required init?(coder:NSCoder)

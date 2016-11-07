@@ -10,8 +10,9 @@
 "VSettingsCellSecurity_label"="Require Passcode";
 "VSettingsCellLogout_label"="Log out";
 "VPicturesDetailHeader_label"="Your Cloud is empty";
-"VLoginCellDisclaimerSignin_label"="Log in if already have an account";
+"VLoginCellDisclaimerSignin_label"="Use existing an account";
 "VLoginCellDisclaimerRegister_label"="Create a new account";
+"VLoginCellSend_label"="Send";
 
 "CHomeUpload_title"="Upload";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

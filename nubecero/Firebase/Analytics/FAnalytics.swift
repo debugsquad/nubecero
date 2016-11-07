@@ -6,6 +6,7 @@ class FAnalytics
     private let kEventScreen:NSString = "Screen"
     private let kEventAction:NSString = "Action"
     private let kEventActionLogout:NSString = "Logout"
+    private let kEventActionInvite:NSString = "Invite"
     private let kEventPicture:NSString = "Picture"
     private let kEventPictureShare:NSString = "Share"
     private let kEventPictureDelete:NSString = "Delete"
@@ -35,6 +36,21 @@ class FAnalytics
             let parameters:[String:NSObject] = [
                 kFIRParameterContentType:self.kEventAction,
                 kFIRParameterItemID:self.kEventActionLogout
+            ]
+            
+            FIRAnalytics.logEvent(
+                withName:kFIREventSelectContent,
+                parameters:parameters)
+        }
+    }
+    
+    func invite()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            let parameters:[String:NSObject] = [
+                kFIRParameterContentType:self.kEventAction,
+                kFIRParameterItemID:self.kEventActionInvite
             ]
             
             FIRAnalytics.logEvent(

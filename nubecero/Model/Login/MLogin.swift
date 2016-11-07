@@ -3,16 +3,18 @@ import UIKit
 class MLogin
 {
     let items:[MLoginItem]
+    let mode:MLoginMode?
     
     class func None() -> MLogin
     {
-        let model:MLogin = MLogin(items:[])
+        let model:MLogin = MLogin(items:[], mode:nil)
         
         return model
     }
     
     class func Register() -> MLogin
     {
+        let mode:MLoginMode = MLoginModeRegister()
         let itemMode:MLoginItemMode = MLoginItemMode()
         let itemDisclaimer:MLoginItemDisclaimerRegister = MLoginItemDisclaimerRegister()
         let itemEmail:MLoginItemEmail = MLoginItemEmail()
@@ -27,13 +29,14 @@ class MLogin
             itemSend
         ]
         
-        let model:MLogin = MLogin(items:items)
+        let model:MLogin = MLogin(items:items, mode:mode)
         
         return model
     }
     
     class func Signup() -> MLogin
     {
+        let mode:MLoginModeSignup = MLoginModeSignup()
         let itemMode:MLoginItemMode = MLoginItemMode()
         let itemDisclaimer:MLoginItemDisclaimerSignup = MLoginItemDisclaimerSignup()
         let itemEmail:MLoginItemEmail = MLoginItemEmail()
@@ -48,7 +51,7 @@ class MLogin
             itemSend
         ]
         
-        let model:MLogin = MLogin(items:items)
+        let model:MLogin = MLogin(items:items, mode:mode)
         
         return model
     }
@@ -58,8 +61,9 @@ class MLogin
         fatalError()
     }
     
-    private init(items:[MLoginItem])
+    private init(items:[MLoginItem], mode:MLoginMode?)
     {
         self.items = items
+        self.mode = mode
     }
 }

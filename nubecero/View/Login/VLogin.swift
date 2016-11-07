@@ -1,6 +1,5 @@
 import UIKit
 import FirebaseAuth
-import FBSDKLoginKit
 
 class VLogin:UIView
 {

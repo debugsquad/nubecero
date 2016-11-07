@@ -141,7 +141,7 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         let item:MLoginItem = modelAtIndex(index:indexPath)
-        item.selected(controller:self)
+        item.selected(controller:controller)
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)

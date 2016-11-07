@@ -145,6 +145,7 @@
 		DAD739821DD128A400FC3297 /* MLoginMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739811DD128A400FC3297 /* MLoginMode.swift */; };
 		DAD739841DD128BE00FC3297 /* MLoginModeRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739831DD128BE00FC3297 /* MLoginModeRegister.swift */; };
 		DAD739861DD128CA00FC3297 /* MLoginModeSignin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739851DD128CA00FC3297 /* MLoginModeSignin.swift */; };
+		DAD739881DD1349E00FC3297 /* VLoginCellVoid.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739871DD1349E00FC3297 /* VLoginCellVoid.swift */; };
 		DAE4554B1DCA4C2400948D70 /* Pictures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE4554A1DCA4C2400948D70 /* Pictures.xcassets */; };
 		DAE4554E1DCA4C9F00948D70 /* MPicturesDetailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4554D1DCA4C9F00948D70 /* MPicturesDetailInfo.swift */; };
 		DAE455501DCA4CB000948D70 /* MPicturesDetailInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAE4554F1DCA4CB000948D70 /* MPicturesDetailInfoItem.swift */; };
@@ -323,6 +324,7 @@
 		DAD739811DD128A400FC3297 /* MLoginMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoginMode.swift; sourceTree = "<group>"; };
 		DAD739831DD128BE00FC3297 /* MLoginModeRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoginModeRegister.swift; sourceTree = "<group>"; };
 		DAD739851DD128CA00FC3297 /* MLoginModeSignin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLoginModeSignin.swift; sourceTree = "<group>"; };
+		DAD739871DD1349E00FC3297 /* VLoginCellVoid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VLoginCellVoid.swift; sourceTree = "<group>"; };
 		DAE4554A1DCA4C2400948D70 /* Pictures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Pictures.xcassets; sourceTree = "<group>"; };
 		DAE4554D1DCA4C9F00948D70 /* MPicturesDetailInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfo.swift; sourceTree = "<group>"; };
 		DAE4554F1DCA4CB000948D70 /* MPicturesDetailInfoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfoItem.swift; sourceTree = "<group>"; };
@@ -779,6 +781,7 @@
 				DAD739771DD11D4A00FC3297 /* VLoginCellSend.swift */,
 				DAD7397D1DD11F3300FC3297 /* VLoginCellDisclaimerRegister.swift */,
 				DAD7397F1DD11F3E00FC3297 /* VLoginCellDisclaimerSignin.swift */,
+				DAD739871DD1349E00FC3297 /* VLoginCellVoid.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1147,6 +1150,7 @@
 				DACD1F971DC3F0B90067D26B /* MMainItemSettings.swift in Sources */,
 				DA88F67E1DC7EE28009F61B3 /* MHomeUploadItemStatusSynced.swift in Sources */,
 				DACD1FBB1DC582AB0067D26B /* VHomeUploadSync.swift in Sources */,
+				DAD739881DD1349E00FC3297 /* VLoginCellVoid.swift in Sources */,
 				DACD1FA21DC4025D0067D26B /* MHomeItemUpload.swift in Sources */,
 				DACD1F871DC3A0020067D26B /* CHome.swift in Sources */,
 				DAD7397C1DD11EEA00FC3297 /* MLoginItemDisclaimerSignin.swift in Sources */,

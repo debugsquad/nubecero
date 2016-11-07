@@ -4,7 +4,6 @@ class VLoginCellMode:VLoginCell
 {
     private weak var segmentedControl:UISegmentedControl!
     private weak var layoutSegmentedLeft:NSLayoutConstraint!
-    private weak var controller:CLogin?
     private let kSegmentedWidth:CGFloat = 230
     private let kSegmentedHeight:CGFloat = 36
     private let kSegmentedTop:CGFloat = 2
@@ -76,7 +75,7 @@ class VLoginCellMode:VLoginCell
     
     override func config(controller:CLogin, model:MLoginItem)
     {
-        self.controller = controller
+        super.config(controller:controller, model:model)
         
         guard
             

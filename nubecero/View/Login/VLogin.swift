@@ -160,6 +160,20 @@ class VLogin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         return reusableView
     }
     
+    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
+    {
+        let item:MLoginItem = modelAtIndex(index:indexPath)
+        
+        return item.selectable
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
+    {
+        let item:MLoginItem = modelAtIndex(index:indexPath)
+        
+        return item.selectable
+    }
+    
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
         let item:MLoginItem = modelAtIndex(index:indexPath)

@@ -6,16 +6,21 @@ class TFDatabaseModelUser:XCTestCase
     private let kCreated:TimeInterval = 123456
     private let kLastSession:TimeInterval = 45678
     private let kDiskUsed:Int = 3098765
+    private let kDiskInitial:Int = 0
     
     func testInitSnapshot()
     {
         let status:FDatabaseModelUser.Status = FDatabaseModelUser.Status.active
+        let keyStatus:String = FDatabaseModelUser.Property.status.rawValue
+        let keyCreated:String = FDatabaseModelUser.Property.created.rawValue
+        let keyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
+        let keyDiskUsed:String = FDatabaseModelUser.Property.diskUsed.rawValue
         
         let snapshot:[String:Any] = [
-            FDatabaseModelUser.Property.status.rawValue:status.rawValue,
-            FDatabaseModelUser.Property.created.rawValue:kCreated,
-            FDatabaseModelUser.Property.lastSession.rawValue:kLastSession,
-            FDatabaseModelUser.Property.diskUsed.rawValue:kDiskUsed
+            keyStatus:status.rawValue,
+            keyCreated:kCreated,
+            keyLastSession:kLastSession,
+            keyDiskUsed:kDiskUsed
         ]
         
         let fDatabaseModelUser:FDatabaseModelUser = FDatabaseModelUser(
@@ -46,26 +51,38 @@ class TFDatabaseModelUser:XCTestCase
         XCTAssertNotNil(
             modelJson,
             "Error creating model json")
-        /*
-        XCTAssertEqual(
-            modelJson![FDatabaseModelUser.Property.status.rawValue],
-            status.rawValue,
-            "Parsing json status error")
+        
+        let jsonStatusInt:Int? = modelJson![keyStatus] as? Int
+        let jsonCreated:TimeInterval? = modelJson![keyCreated] as? TimeInterval
+        let jsonLastSession:TimeInterval? = modelJson![keyLastSession] as? TimeInterval
+        let jsonDiskUsed:Int? = modelJson![keyDiskUsed] as? Int
+        
+        XCTAssertNotNil(
+            jsonStatusInt,
+            "Error storing status on json")
+        
+        let jsonStatus:FDatabaseModelUser.Status? = FDatabaseModelUser.Status(
+            rawValue:jsonStatusInt!)
         
         XCTAssertEqual(
-            fDatabaseModelUser.created,
+            status,
+            jsonStatus,
+            "Status received from json is no the same as the stored")
+        
+        XCTAssertEqual(
             kCreated,
-            "Parsing created error")
+            jsonCreated,
+            "Created received from json is not the same as the stored")
         
         XCTAssertEqual(
-            fDatabaseModelUser.lastSession,
             kLastSession,
-            "Parsing last session error")
+            jsonLastSession,
+            "Last session received from json is not the same as the stored")
         
         XCTAssertEqual(
-            fDatabaseModelUser.diskUsed,
             kDiskUsed,
-            "Parsing disk used error")*/
+            jsonDiskUsed,
+            "Disk used received from json is not the same as the recived")
     }
     
     func testInitSnapshotUserBanned()
@@ -87,7 +104,7 @@ class TFDatabaseModelUser:XCTestCase
     
     func testInitSnapshotNil()
     {
-        let snapshot:[String:Any] = [:]
+        let snapshot:Any = ""
         
         let fDatabaseModelUser:FDatabaseModelUser = FDatabaseModelUser(
             snapshot:snapshot)
@@ -96,5 +113,34 @@ class TFDatabaseModelUser:XCTestCase
             fDatabaseModelUser.status,
             FDatabaseModelUser.Status.unknown,
             "Snapshot nil not using unknown status")
+    }
+    
+    func testInitStatus()
+    {
+        let status:FDatabaseModelUser.Status = FDatabaseModelUser.Status.active
+        let currentTime:TimeInterval = Date().timeIntervalSince1970
+        
+        let fDatabaseModelUser:FDatabaseModelUser = FDatabaseModelUser(
+            status:status)
+        
+        XCTAssertEqual(
+            fDatabaseModelUser.status,
+            status,
+            "Error init with status")
+        
+        XCTAssertGreaterThanOrEqual(
+            fDatabaseModelUser.created,
+            currentTime,
+            "Error making the created timestamp")
+        
+        XCTAssertEqual(
+            fDatabaseModelUser.created,
+            fDatabaseModelUser.lastSession,
+            "Last session and created are not the same")
+        
+        XCTAssertEqual(
+            fDatabaseModelUser.diskUsed,
+            kDiskInitial,
+            "Error initializing disk space")
     }
 }

@@ -1,35 +1,61 @@
-//
-//  TFDatabaseModelUserStatus.swift
-//  nubecero
-//
-//  Created by zero on 11/5/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
-
 import XCTest
+@testable import nubecero
 
-class TFDatabaseModelUserStatus: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+class TFDatabaseModelUserStatus:XCTestCase
+{
+    func testInitSnapshotActive()
+    {
+        let status:FDatabaseModelUser.Status = FDatabaseModelUser.Status.active
+        let snapshot:Any = status.rawValue
+        
+        let fDatabaseModelUserStatus:FDatabaseModelUserStatus = FDatabaseModelUserStatus(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            fDatabaseModelUserStatus.status,
+            status,
+            "Parsing status active error")
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testInitSnapshotUnknown()
+    {
+        let status:FDatabaseModelUser.Status = FDatabaseModelUser.Status.unknown
+        let snapshot:Any = status.rawValue
+        
+        let fDatabaseModelUserStatus:FDatabaseModelUserStatus = FDatabaseModelUserStatus(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            fDatabaseModelUserStatus.status,
+            status,
+            "Parsing status unknown error")
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testInitSnapshotBanned()
+    {
+        let status:FDatabaseModelUser.Status = FDatabaseModelUser.Status.banned
+        let snapshot:Any = status.rawValue
+        
+        let fDatabaseModelUserStatus:FDatabaseModelUserStatus = FDatabaseModelUserStatus(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            fDatabaseModelUserStatus.status,
+            status,
+            "Parsing status banned error")
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testInitSnapshotNil()
+    {
+        let status:FDatabaseModelUser.Status = FDatabaseModelUser.Status.unknown
+        let snapshot:Any = 0
+        
+        let fDatabaseModelUserStatus:FDatabaseModelUserStatus = FDatabaseModelUserStatus(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            fDatabaseModelUserStatus.status,
+            status,
+            "Parsing status nil")
     }
-    
 }

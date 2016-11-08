@@ -12,6 +12,7 @@ class VOnboardCell:UICollectionViewCell
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
+        isUserInteractionEnabled = false
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false

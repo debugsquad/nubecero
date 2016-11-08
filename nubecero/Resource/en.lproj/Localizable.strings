@@ -15,6 +15,7 @@
 "VLoginCellSend_label"="Send";
 "VLoginCellEmail_placeholder"="Email";
 "VLoginCellPassword_placeholder"="Password";
+"VSettingsCellAbout_labelTitle"="nubecero";
 
 "CHomeUpload_title"="Upload";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

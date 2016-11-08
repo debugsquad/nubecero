@@ -15,6 +15,7 @@
 "VLoginCellSend_label"="Enviar";
 "VLoginCellEmail_placeholder"="Correo electrónico";
 "VLoginCellPassword_placeholder"="Contraseña";
+"VSettingsCellAbout_labelTitle"="nubecero";
 
 "CHomeUpload_title"="Subir";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

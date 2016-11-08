@@ -91,6 +91,7 @@
 		DA88F67E1DC7EE28009F61B3 /* MHomeUploadItemStatusSynced.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F67D1DC7EE28009F61B3 /* MHomeUploadItemStatusSynced.swift */; };
 		DA88F6801DC80C62009F61B3 /* FStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F67F1DC80C62009F61B3 /* FStorage.swift */; };
 		DAC55F181DD23B0A00213C27 /* COnboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F171DD23B0A00213C27 /* COnboard.swift */; };
+		DAC55F1B1DD23C7900213C27 /* VOnboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F1A1DD23C7900213C27 /* VOnboard.swift */; };
 		DACD1F871DC3A0020067D26B /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F861DC3A0020067D26B /* CHome.swift */; };
 		DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1F881DC3A09F0067D26B /* Generic.xcassets */; };
 		DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F8B1DC3AD480067D26B /* CLogin.swift */; };
@@ -277,6 +278,7 @@
 		DA88F67D1DC7EE28009F61B3 /* MHomeUploadItemStatusSynced.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusSynced.swift; sourceTree = "<group>"; };
 		DA88F67F1DC80C62009F61B3 /* FStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FStorage.swift; sourceTree = "<group>"; };
 		DAC55F171DD23B0A00213C27 /* COnboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = COnboard.swift; sourceTree = "<group>"; };
+		DAC55F1A1DD23C7900213C27 /* VOnboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboard.swift; sourceTree = "<group>"; };
 		DACD1F861DC3A0020067D26B /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DACD1F881DC3A09F0067D26B /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DACD1F8B1DC3AD480067D26B /* CLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLogin.swift; sourceTree = "<group>"; };
@@ -737,6 +739,7 @@
 		DA4EF8F01DC395B300297C1D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DAC55F191DD23C6F00213C27 /* Onboard */,
 				DA406BCD1DCD02270098D347 /* Settings */,
 				DA406BC71DCCE8400098D347 /* Auth */,
 				DA3411861DCBF00F006E6D71 /* Banned */,
@@ -783,6 +786,14 @@
 			isa = PBXGroup;
 			children = (
 				DAC55F171DD23B0A00213C27 /* COnboard.swift */,
+			);
+			path = Onboard;
+			sourceTree = "<group>";
+		};
+		DAC55F191DD23C6F00213C27 /* Onboard */ = {
+			isa = PBXGroup;
+			children = (
+				DAC55F1A1DD23C7900213C27 /* VOnboard.swift */,
 			);
 			path = Onboard;
 			sourceTree = "<group>";
@@ -1194,6 +1205,7 @@
 				DA406BDA1DCD03820098D347 /* MSettingsItemSecurity.swift in Sources */,
 				DA4EF9141DC395B300297C1D /* VParent.swift in Sources */,
 				DACD1FB01DC540750067D26B /* MHomeUpload.swift in Sources */,
+				DAC55F1B1DD23C7900213C27 /* VOnboard.swift in Sources */,
 				DAE455561DCA52BB00948D70 /* MPicturesDetailInfoItemDelete.swift in Sources */,
 				DA34117B1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift in Sources */,
 				DACD1FAB1DC4124B0067D26B /* VHomeUpload.swift in Sources */,

@@ -3,6 +3,8 @@ import UIKit
 class VOnboardCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
+    private weak var labelTitle:UILabel!
+    private let kTitleHeight:CGFloat = 60
     
     override init(frame:CGRect)
     {
@@ -17,12 +19,25 @@ class VOnboardCell:UICollectionViewCell
         imageView.contentMode = UIViewContentMode.center
         self.imageView = imageView
         
+        let labelTitle:UILabel = UILabel()
+        labelTitle.isUserInteractionEnabled = false
+        labelTitle.translatesAutoresizingMaskIntoConstraints = false
+        labelTitle.backgroundColor = UIColor.clear
+        labelTitle.textAlignment = NSTextAlignment.center
+        labelTitle.numberOfLines = 0
+        labelTitle.font = UIFont.regular(size:18)
+        labelTitle.textColor = UIColor(white:0.3, alpha:1)
+        self.labelTitle = labelTitle
+        
+        addSubview(labelTitle)
         addSubview(imageView)
         
         let views:[String:UIView] = [
-            "imageView":imageView]
+            "imageView":imageView,
+            "labelTitle":labelTitle]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "titleHeight":kTitleHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[imageView]-0-|",
@@ -31,6 +46,16 @@ class VOnboardCell:UICollectionViewCell
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[imageView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[labelTitle]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[labelTitle(titleHeight)]",
             options:[],
             metrics:metrics,
             views:views))

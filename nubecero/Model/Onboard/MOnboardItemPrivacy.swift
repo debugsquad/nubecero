@@ -6,6 +6,6 @@ class MOnboardItemPrivacy:MOnboardItem
     {
         let title:String = NSLocalizedString("MOnboardItemPrivacy_title", comment:"")
         
-        super.init(image:#imageLiteral(resourceName: "assetOnboardAccess"), title:title)
+        super.init(image:#imageLiteral(resourceName: "assetOnboardPrivacy"), title:title)
     }
 }

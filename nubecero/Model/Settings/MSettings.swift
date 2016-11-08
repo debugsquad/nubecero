@@ -7,6 +7,7 @@ class MSettings
     init()
     {
         let itemAbout:MSettingsItemAbout = MSettingsItemAbout()
+        let itemShare:MSettingsItemShare = MSettingsItemShare()
         let itemSecurity:MSettingsItemSecurity = MSettingsItemSecurity()
         let itemRate:MSettingsItemRate = MSettingsItemRate()
         let itemLogout:MSettingsItemLogout = MSettingsItemLogout()
@@ -14,6 +15,7 @@ class MSettings
         items = [
             itemAbout,
             itemSecurity,
+            itemShare,
             itemRate,
             itemLogout
         ]

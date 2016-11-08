@@ -4,6 +4,8 @@ class MOnboardItemUpload:MOnboardItem
 {
     override init()
     {
-        super.init(image:#imageLiteral(resourceName: "assetOnboardUpload"))
+        let title:String = NSLocalizedString("MOnboardItemUpload_title", comment:"")
+        
+        super.init(image:#imageLiteral(resourceName: "assetOnboardUpload"), title:title)
     }
 }

@@ -4,7 +4,8 @@ class VOnboardCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private weak var labelTitle:UILabel!
-    private let kTitleHeight:CGFloat = 60
+    private let kTitleHeight:CGFloat = 80
+    private let kImageViewHeight:CGFloat = 260
     
     override init(frame:CGRect)
     {
@@ -25,8 +26,8 @@ class VOnboardCell:UICollectionViewCell
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.numberOfLines = 0
-        labelTitle.font = UIFont.regular(size:18)
-        labelTitle.textColor = UIColor(white:0.3, alpha:1)
+        labelTitle.font = UIFont.regular(size:20)
+        labelTitle.textColor = UIColor.black
         self.labelTitle = labelTitle
         
         addSubview(labelTitle)
@@ -37,7 +38,8 @@ class VOnboardCell:UICollectionViewCell
             "labelTitle":labelTitle]
         
         let metrics:[String:CGFloat] = [
-            "titleHeight":kTitleHeight]
+            "titleHeight":kTitleHeight,
+            "imageViewHeight":kImageViewHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[imageView]-0-|",
@@ -45,17 +47,12 @@ class VOnboardCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[imageView]-0-|",
+            withVisualFormat:"H:|-10-[labelTitle]-10-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[labelTitle]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[labelTitle(titleHeight)]",
+            withVisualFormat:"V:|-20-[labelTitle(titleHeight)]-0-[imageView(imageViewHeight)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -71,5 +68,6 @@ class VOnboardCell:UICollectionViewCell
     func config(model:MOnboardItem)
     {
         imageView.image = model.image
+        labelTitle.text = model.title
     }
 }

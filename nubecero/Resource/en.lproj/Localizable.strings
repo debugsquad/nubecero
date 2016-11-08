@@ -43,3 +43,4 @@
 "MHomeUploadItemStatusReferenced_errorUser"="Error saving picture, try again";
 "MLoginModeRegister_name"="Register";
 "MLoginModeSignin_name"="Signin";
+"MOnboardItemUpload_title"="Upload your pictures to the Cloud";

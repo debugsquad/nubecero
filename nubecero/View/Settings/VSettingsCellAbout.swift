@@ -7,6 +7,7 @@ class VSettingsCellAbout:VSettingsCell
     override init(frame:CGRect)
     {
         super.init(frame:frame)
+        isUserInteractionEnabled = false
         
         let buildVersion:String? = Bundle.main.infoDictionary?[kBuildKey] as? String
         
@@ -19,10 +20,19 @@ class VSettingsCellAbout:VSettingsCell
         label.textAlignment = NSTextAlignment.center
         label.text = buildVersion
         
+        let imageView:UIImageView = UIImageView()
+        imageView.isUserInteractionEnabled = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = UIViewContentMode.center
+        imageView.image = #imageLiteral(resourceName: "assetGenericLogoNegative")
+        
         addSubview(label)
+        addSubview(imageView)
         
         let views:[String:UIView] = [
-            "label":label]
+            "label":label,
+            "imageView":imageView]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -32,7 +42,12 @@ class VSettingsCellAbout:VSettingsCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[label(28)]-30-|",
+            withVisualFormat:"H:|-0-[imageView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[imageView(80)]-0-[label(28)]-35-|",
             options:[],
             metrics:metrics,
             views:views))

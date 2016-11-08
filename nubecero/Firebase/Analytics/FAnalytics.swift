@@ -5,13 +5,14 @@ class FAnalytics
 {
     private let kEventScreen:NSString = "Screen"
     private let kEventAction:NSString = "Action"
-    private let kEventActionLogout:NSString = "Logout"
     private let kEventActionRate:NSString = "Rate"
     private let kEventActionShare:NSString = "Share"
     private let kEventPicture:NSString = "Picture"
     private let kEventPictureShare:NSString = "Share"
     private let kEventPictureDelete:NSString = "Delete"
     private let kEventPictureInfo:NSString = "Info"
+    private let kEventSession:NSString = "Session"
+    private let kEventSessionLogout:NSString = "Logout"
     
     //MARK: public
     
@@ -30,13 +31,15 @@ class FAnalytics
         }
     }
     
+    //MARK: session
+    
     func logout()
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
             let parameters:[String:NSObject] = [
-                kFIRParameterContentType:self.kEventAction,
-                kFIRParameterItemID:self.kEventActionLogout
+                kFIRParameterContentType:self.kEventSession,
+                kFIRParameterItemID:self.kEventSessionLogout
             ]
             
             FIRAnalytics.logEvent(
@@ -44,6 +47,8 @@ class FAnalytics
                 parameters:parameters)
         }
     }
+    
+    //MARK: actions
     
     func rate()
     {
@@ -75,12 +80,14 @@ class FAnalytics
         }
     }
     
+    //MARK: pictures
+    
     func upload(pictures:Int)
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
             let parameters:[String:NSObject] = [
-                kFIRParameterContentType:self.kEventAction,
+                kFIRParameterContentType:self.kEventPicture,
                 kFIRParameterItemID:pictures as NSObject
             ]
             

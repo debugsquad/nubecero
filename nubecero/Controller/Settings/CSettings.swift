@@ -3,7 +3,7 @@ import FirebaseAuth
 
 class CSettings:CController
 {
-    private let kRateUrl:String = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1168066325&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"
+    private let kRateUrl:String = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1012571476&type=Purple+Software&mt=8"
     
     private weak var viewSettings:VSettings!
     let model:MSettings

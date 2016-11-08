@@ -2,18 +2,22 @@ import UIKit
 
 class VSettingsCellAbout:VSettingsCell
 {
+    private let kBuildKey:String = "CFBundleVersion"
+    
     override init(frame:CGRect)
     {
         super.init(frame:frame)
+        
+        let buildVersion:String? = Bundle.main.infoDictionary?[kBuildKey] as? String
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:14)
+        label.font = UIFont.numeric(size:16)
         label.textColor = UIColor.black
         label.textAlignment = NSTextAlignment.center
-        label.text = NSLocalizedString("VSettingsCellLogout_label", comment:"")
+        label.text = buildVersion
         
         addSubview(label)
         
@@ -28,7 +32,7 @@ class VSettingsCellAbout:VSettingsCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[label]-0-|",
+            withVisualFormat:"V:[label(20)]-10-|",
             options:[],
             metrics:metrics,
             views:views))

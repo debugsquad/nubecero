@@ -8,11 +8,13 @@ class MSettings
     {
         let itemAbout:MSettingsItemAbout = MSettingsItemAbout()
         let itemSecurity:MSettingsItemSecurity = MSettingsItemSecurity()
+        let itemRate:MSettingsItemRate = MSettingsItemRate()
         let itemLogout:MSettingsItemLogout = MSettingsItemLogout()
         
         items = [
             itemAbout,
             itemSecurity,
+            itemRate,
             itemLogout
         ]
     }

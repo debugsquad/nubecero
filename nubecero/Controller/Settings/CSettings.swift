@@ -3,6 +3,8 @@ import FirebaseAuth
 
 class CSettings:CController
 {
+    private let kRateUrl:String = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1168066325&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8"
+    
     private weak var viewSettings:VSettings!
     let model:MSettings
     
@@ -44,6 +46,15 @@ class CSettings:CController
     
     func rate()
     {
+        guard
+            
+            let url:URL = URL(string:kRateUrl)
         
+        else
+        {
+            return
+        }
+        
+        UIApplication.shared.openURL(url)
     }
 }

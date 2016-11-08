@@ -28,6 +28,7 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.alwaysBounceHorizontal = true
+        collectionView.isPagingEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(
@@ -71,6 +72,15 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     }
     
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let height:CGFloat = collectionView.bounds.maxY
+        let size:CGSize = CGSize(width:width, height:height)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {

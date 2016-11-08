@@ -41,4 +41,9 @@ class CSettings:CController
         let controllerLogin:CLogin = CLogin(fetchCredentials:false)
         parentController.over(controller:controllerLogin, pop:true, animate:true)
     }
+    
+    func rate()
+    {
+        
+    }
 }

@@ -8,10 +8,14 @@ class MOnboard
     {
         let itemUpload:MOnboardItemUpload = MOnboardItemUpload()
         let itemAccess:MOnboardItemAccess = MOnboardItemAccess()
+        let itemFree:MOnboardItemFree = MOnboardItemFree()
+        let itemPrivacy:MOnboardItemPrivacy = MOnboardItemPrivacy()
         
         items = [
             itemUpload,
-            itemAccess
+            itemAccess,
+            itemFree,
+            itemPrivacy
         ]
     }
 }

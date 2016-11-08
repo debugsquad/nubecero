@@ -99,6 +99,8 @@
 		DAC55F261DD25ED200213C27 /* VOnboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F251DD25ED200213C27 /* VOnboardCell.swift */; };
 		DAC55F281DD26B0000213C27 /* VOnboardOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F271DD26B0000213C27 /* VOnboardOptions.swift */; };
 		DAC55F2A1DD27FB000213C27 /* MOnboardItemAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F291DD27FB000213C27 /* MOnboardItemAccess.swift */; };
+		DAC55F2C1DD2823600213C27 /* MOnboardItemFree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F2B1DD2823600213C27 /* MOnboardItemFree.swift */; };
+		DAC55F2E1DD2829200213C27 /* MOnboardItemPrivacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F2D1DD2829200213C27 /* MOnboardItemPrivacy.swift */; };
 		DACD1F871DC3A0020067D26B /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F861DC3A0020067D26B /* CHome.swift */; };
 		DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1F881DC3A09F0067D26B /* Generic.xcassets */; };
 		DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F8B1DC3AD480067D26B /* CLogin.swift */; };
@@ -293,6 +295,8 @@
 		DAC55F251DD25ED200213C27 /* VOnboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardCell.swift; sourceTree = "<group>"; };
 		DAC55F271DD26B0000213C27 /* VOnboardOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardOptions.swift; sourceTree = "<group>"; };
 		DAC55F291DD27FB000213C27 /* MOnboardItemAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardItemAccess.swift; sourceTree = "<group>"; };
+		DAC55F2B1DD2823600213C27 /* MOnboardItemFree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardItemFree.swift; sourceTree = "<group>"; };
+		DAC55F2D1DD2829200213C27 /* MOnboardItemPrivacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardItemPrivacy.swift; sourceTree = "<group>"; };
 		DACD1F861DC3A0020067D26B /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DACD1F881DC3A09F0067D26B /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DACD1F8B1DC3AD480067D26B /* CLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLogin.swift; sourceTree = "<group>"; };
@@ -823,6 +827,8 @@
 				DAC55F1F1DD2592200213C27 /* MOnboardItem.swift */,
 				DAC55F211DD25A0C00213C27 /* MOnboardItemUpload.swift */,
 				DAC55F291DD27FB000213C27 /* MOnboardItemAccess.swift */,
+				DAC55F2B1DD2823600213C27 /* MOnboardItemFree.swift */,
+				DAC55F2D1DD2829200213C27 /* MOnboardItemPrivacy.swift */,
 			);
 			path = Onboard;
 			sourceTree = "<group>";
@@ -1208,6 +1214,7 @@
 				DACD1FA21DC4025D0067D26B /* MHomeItemUpload.swift in Sources */,
 				DACD1F871DC3A0020067D26B /* CHome.swift in Sources */,
 				DAD7397C1DD11EEA00FC3297 /* MLoginItemDisclaimerSignin.swift in Sources */,
+				DAC55F2E1DD2829200213C27 /* MOnboardItemPrivacy.swift in Sources */,
 				DAE4556E1DCAA62800948D70 /* VPicturesDataCellCreated.swift in Sources */,
 				DA2F66AE1DC942480078B466 /* VPicturesDetailCellImage.swift in Sources */,
 				DAE4555D1DCA765D00948D70 /* VPicturesData.swift in Sources */,
@@ -1312,6 +1319,7 @@
 				DA4EF9161DC395B300297C1D /* VSpinner.swift in Sources */,
 				DAE455701DCAA81C00948D70 /* MPicturesDataItemCreated.swift in Sources */,
 				DA2F66A21DC92F5F0078B466 /* MPicturesDetailItem.swift in Sources */,
+				DAC55F2C1DD2823600213C27 /* MOnboardItemFree.swift in Sources */,
 				DAD739961DD170B000FC3297 /* MSettingsItemShare.swift in Sources */,
 				DA406BCF1DCD022F0098D347 /* VSettings.swift in Sources */,
 				DAD739861DD128CA00FC3297 /* MLoginModeSignin.swift in Sources */,

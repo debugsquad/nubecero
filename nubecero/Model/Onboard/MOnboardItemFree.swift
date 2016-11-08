@@ -6,6 +6,6 @@ class MOnboardItemFree:MOnboardItem
     {
         let title:String = NSLocalizedString("MOnboardItemFree_title", comment:"")
         
-        super.init(image:#imageLiteral(resourceName: "assetOnboardAccess"), title:title)
+        super.init(image:#imageLiteral(resourceName: "assetOnboardFree"), title:title)
     }
 }

@@ -14,6 +14,10 @@ class FAnalytics
     private let kEventPictureUpload:NSString = "Picture/Upload"
     private let kEventSession:NSString = "Session"
     private let kEventSessionLogout:NSString = "Logout"
+    private let kEventSessionTrySignin:NSString = "Try/Signin"
+    private let kEventSessionTryRegister:NSString = "Try/Register"
+    private let kEventSessionRegister:NSString = "Signin"
+    private let kEventSessionSignin:NSString = "Register"
     
     //MARK: private
     
@@ -44,6 +48,26 @@ class FAnalytics
     func logout()
     {
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionLogout)
+    }
+    
+    func trySignin()
+    {
+        trackSelectContent(contentType:kEventSession, itemId:kEventSessionTrySignin)
+    }
+    
+    func tryRegister()
+    {
+        trackSelectContent(contentType:kEventSession, itemId:kEventSessionTryRegister)
+    }
+    
+    func signin()
+    {
+        trackSelectContent(contentType:kEventSession, itemId:kEventSessionSignin)
+    }
+    
+    func register()
+    {
+        trackSelectContent(contentType:kEventSession, itemId:kEventSessionRegister)
     }
     
     //MARK: actions

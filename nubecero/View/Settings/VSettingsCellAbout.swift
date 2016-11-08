@@ -14,8 +14,8 @@ class VSettingsCellAbout:VSettingsCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.numeric(size:16)
-        label.textColor = UIColor.black
+        label.font = UIFont.numeric(size:22)
+        label.textColor = UIColor(white:0.75, alpha:1)
         label.textAlignment = NSTextAlignment.center
         label.text = buildVersion
         
@@ -32,7 +32,7 @@ class VSettingsCellAbout:VSettingsCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[label(20)]-10-|",
+            withVisualFormat:"V:[label(28)]-30-|",
             options:[],
             metrics:metrics,
             views:views))

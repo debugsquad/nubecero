@@ -3,6 +3,8 @@ import FirebaseAuth
 
 class CSettings:CController
 {
+    private let kRateUrl:String = "http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1012571476&type=Purple+Software&mt=8"
+    private let kShareUrl:String = "https://itunes.apple.com/us/app/nubecero/id1012571476"
     private weak var viewSettings:VSettings!
     let model:MSettings
     
@@ -40,5 +42,44 @@ class CSettings:CController
         
         let controllerLogin:CLogin = CLogin(fetchCredentials:false)
         parentController.over(controller:controllerLogin, pop:true, animate:true)
+    }
+    
+    func rate()
+    {
+        guard
+            
+            let url:URL = URL(string:kRateUrl)
+        
+        else
+        {
+            return
+        }
+        
+        UIApplication.shared.openURL(url)
+    }
+    
+    func share()
+    {
+        guard
+            
+            let url:URL = URL(string:kShareUrl)
+            
+        else
+        {
+            return
+        }
+        
+        let activity:UIActivityViewController = UIActivityViewController(
+            activityItems:[url],
+            applicationActivities:nil)
+        
+        if activity.popoverPresentationController != nil
+        {
+            activity.popoverPresentationController!.sourceView = viewSettings
+            activity.popoverPresentationController!.sourceRect = CGRect.zero
+            activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
+        }
+        
+        present(activity, animated:true)
     }
 }

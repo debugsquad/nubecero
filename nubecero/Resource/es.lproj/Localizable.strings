@@ -17,6 +17,7 @@
 "VLoginCellPassword_placeholder"="Contraseña";
 "VSettingsCellAbout_labelTitle"="nubecero";
 "VSettingsCellRate_label"="Calificar en la tienda";
+"VOnboard_labelDisclaimer"="Tu cuenta te permite entrar a la Nube desde cualquier lugar";
 
 "CHomeUpload_title"="Subir";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

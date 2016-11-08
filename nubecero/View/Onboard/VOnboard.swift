@@ -2,8 +2,12 @@ import UIKit
 
 class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    private weak var viewOptions:VOnboardOptions!
     private weak var controller:COnboard!
     private weak var collectionView:UICollectionView!
+    private weak var labelDisclaimer:UILabel!
+    private let kOptionsHeight:CGFloat = 36
+    private let kDisclaimerHeight:CGFloat = 80
     
     convenience init(controller:COnboard)
     {
@@ -12,6 +16,9 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
         self.controller = controller
+        
+        let viewOptions:VOnboardOptions = VOnboardOptions(controller:controller)
+        self.viewOptions = viewOptions
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize.zero
@@ -37,12 +44,29 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
             VOnboardCell.reusableIdentifier)
         self.collectionView = collectionView
         
+        let labelDisclaimer:UILabel = UILabel()
+        labelDisclaimer.isUserInteractionEnabled = false
+        labelDisclaimer.translatesAutoresizingMaskIntoConstraints = false
+        labelDisclaimer.backgroundColor = UIColor.clear
+        labelDisclaimer.font = UIFont.regular(size:15)
+        labelDisclaimer.textColor = UIColor(white:0.3, alpha:1)
+        labelDisclaimer.numberOfLines = 0
+        labelDisclaimer.textAlignment = NSTextAlignment.center
+        labelDisclaimer.text = NSLocalizedString("VOnboard_labelDisclaimer", comment:"")
+        self.labelDisclaimer = labelDisclaimer
+        
         addSubview(collectionView)
+        addSubview(labelDisclaimer)
+        addSubview(viewOptions)
         
         let views:[String:UIView] = [
-            "collectionView":collectionView]
+            "collectionView":collectionView,
+            "viewOptions":viewOptions,
+            "labelDisclaimer":labelDisclaimer]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "optionsHeight":kOptionsHeight,
+            "disclaimerHeight":kDisclaimerHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[collectionView]-0-|",
@@ -50,7 +74,18 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[collectionView]-0-|",
+            withVisualFormat:"H:|-0-[viewOptions]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-10-[labelDisclaimer]-10-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:
+            "V:|-0-[collectionView]-0-[viewOptions(optionsHeight)]-0-[labelDisclaimer(disclaimerHeight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))

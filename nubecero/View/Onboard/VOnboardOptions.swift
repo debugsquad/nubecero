@@ -4,7 +4,7 @@ class VOnboardOptions:UIView
 {
     private weak var controller:COnboard!
     private weak var layoutBaseButtonsLeft:NSLayoutConstraint!
-    private let kCornerRadius:CGFloat = 6
+    private let kCornerRadius:CGFloat = 15
     private let kBaseButtonsWith:CGFloat = 280
     private let kButtonsHorizontalMargin:CGFloat = -10
     
@@ -27,7 +27,7 @@ class VOnboardOptions:UIView
         let buttonSignin:UIButton = UIButton()
         buttonSignin.translatesAutoresizingMaskIntoConstraints = false
         buttonSignin.clipsToBounds = true
-        buttonSignin.backgroundColor = UIColor.complement
+        buttonSignin.backgroundColor = UIColor.main
         
         let baseButtons:UIView = UIView()
         baseButtons.translatesAutoresizingMaskIntoConstraints = false

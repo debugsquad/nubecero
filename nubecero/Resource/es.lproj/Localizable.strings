@@ -16,6 +16,7 @@
 "VLoginCellEmail_placeholder"="Correo electrónico";
 "VLoginCellPassword_placeholder"="Contraseña";
 "VSettingsCellAbout_labelTitle"="nubecero";
+"VSettingsCellRate_label"="Calificar en la tienda";
 
 "CHomeUpload_title"="Subir";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

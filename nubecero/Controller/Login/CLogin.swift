@@ -154,7 +154,7 @@ class CLogin:CController
             return
         }
         
-        if email.characters.count < 1
+        if email.characters.isEmpty
         {
             let message:String = NSLocalizedString("CLogin_invalidEmail", comment:"")
             VAlert.message(message:message)
@@ -163,7 +163,7 @@ class CLogin:CController
             return
         }
         
-        if password.characters.count < 1
+        if password.characters.isEmpty
         {
             let message:String = NSLocalizedString("CLogin_invalidPassword", comment:"")
             VAlert.message(message:message)
@@ -190,6 +190,8 @@ class CLogin:CController
     
     private func trySignin(email:String, password:String)
     {
+        FMain.sharedInstance.analytics?.trySignin()
+        
         FIRAuth.auth()?.signIn(
             withEmail:email,
             password:password)
@@ -218,12 +220,16 @@ class CLogin:CController
                 return
             }
             
+            FMain.sharedInstance.analytics?.signin()
+            
             self?.userLogged()
         }
     }
     
     private func tryRegister(email:String, password:String)
     {
+        FMain.sharedInstance.analytics?.tryRegister()
+        
         FIRAuth.auth()?.createUser(
             withEmail:email,
             password:password)
@@ -251,6 +257,8 @@ class CLogin:CController
                 
                 return
             }
+            
+            FMain.sharedInstance.analytics?.register()
             
             self?.userLogged()
         }

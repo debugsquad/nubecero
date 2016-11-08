@@ -7,7 +7,7 @@ class VOnboard:UIView
     convenience init(controller:COnboard)
     {
         self.init()
-        backgroundColor = UIColor.complement
+        backgroundColor = UIColor.white
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
         self.controller = controller

@@ -10,4 +10,16 @@ class COnboard:CController
         self.viewOnboard = viewOnboard
         view = viewOnboard
     }
+    
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        parentController.statusBarDefault()
+    }
+    
+    override func viewDidDisappear(_ animated:Bool)
+    {
+        super.viewDidDisappear(animated)
+        parentController.statusBarLight()
+    }
 }

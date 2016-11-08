@@ -1,9 +1,16 @@
-//
-//  MOnboardItem.swift
-//  nubecero
-//
-//  Created by zero on 11/8/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MOnboardItem
+{
+    let image:UIImage
+    
+    init()
+    {
+        fatalError()
+    }
+    
+    init(image:UIImage)
+    {
+        self.image = image
+    }
+}

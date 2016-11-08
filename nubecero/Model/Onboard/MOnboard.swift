@@ -7,9 +7,11 @@ class MOnboard
     init()
     {
         let itemUpload:MOnboardItemUpload = MOnboardItemUpload()
+        let itemAccess:MOnboardItemAccess = MOnboardItemAccess()
         
         items = [
-            itemUpload
+            itemUpload,
+            itemAccess
         ]
     }
 }

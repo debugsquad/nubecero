@@ -48,7 +48,7 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         labelDisclaimer.isUserInteractionEnabled = false
         labelDisclaimer.translatesAutoresizingMaskIntoConstraints = false
         labelDisclaimer.backgroundColor = UIColor.clear
-        labelDisclaimer.font = UIFont.regular(size:15)
+        labelDisclaimer.font = UIFont.regular(size:16)
         labelDisclaimer.textColor = UIColor(white:0.3, alpha:1)
         labelDisclaimer.numberOfLines = 0
         labelDisclaimer.textAlignment = NSTextAlignment.center

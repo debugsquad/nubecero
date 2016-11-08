@@ -98,6 +98,7 @@
 		DAC55F241DD25A2C00213C27 /* Onboard.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAC55F231DD25A2C00213C27 /* Onboard.xcassets */; };
 		DAC55F261DD25ED200213C27 /* VOnboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F251DD25ED200213C27 /* VOnboardCell.swift */; };
 		DAC55F281DD26B0000213C27 /* VOnboardOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F271DD26B0000213C27 /* VOnboardOptions.swift */; };
+		DAC55F2A1DD27FB000213C27 /* MOnboardItemAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F291DD27FB000213C27 /* MOnboardItemAccess.swift */; };
 		DACD1F871DC3A0020067D26B /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F861DC3A0020067D26B /* CHome.swift */; };
 		DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1F881DC3A09F0067D26B /* Generic.xcassets */; };
 		DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F8B1DC3AD480067D26B /* CLogin.swift */; };
@@ -291,6 +292,7 @@
 		DAC55F231DD25A2C00213C27 /* Onboard.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Onboard.xcassets; sourceTree = "<group>"; };
 		DAC55F251DD25ED200213C27 /* VOnboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardCell.swift; sourceTree = "<group>"; };
 		DAC55F271DD26B0000213C27 /* VOnboardOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardOptions.swift; sourceTree = "<group>"; };
+		DAC55F291DD27FB000213C27 /* MOnboardItemAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardItemAccess.swift; sourceTree = "<group>"; };
 		DACD1F861DC3A0020067D26B /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DACD1F881DC3A09F0067D26B /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DACD1F8B1DC3AD480067D26B /* CLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLogin.swift; sourceTree = "<group>"; };
@@ -820,6 +822,7 @@
 				DAC55F1D1DD258D800213C27 /* MOnboard.swift */,
 				DAC55F1F1DD2592200213C27 /* MOnboardItem.swift */,
 				DAC55F211DD25A0C00213C27 /* MOnboardItemUpload.swift */,
+				DAC55F291DD27FB000213C27 /* MOnboardItemAccess.swift */,
 			);
 			path = Onboard;
 			sourceTree = "<group>";
@@ -1273,6 +1276,7 @@
 				DACD1F9E1DC400240067D26B /* MHomeItem.swift in Sources */,
 				DAE4555F1DCA7FD900948D70 /* VPicturesDataCell.swift in Sources */,
 				DAD739901DD161F600FC3297 /* VSettingsCellRate.swift in Sources */,
+				DAC55F2A1DD27FB000213C27 /* MOnboardItemAccess.swift in Sources */,
 				DA2F66931DC91B780078B466 /* VPicturesCell.swift in Sources */,
 				DA406BD81DCD03760098D347 /* MSettingsItem.swift in Sources */,
 				DA2F66B51DC9508F0078B466 /* MPicturesItemStateLoading.swift in Sources */,

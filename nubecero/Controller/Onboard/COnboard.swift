@@ -2,7 +2,7 @@ import UIKit
 
 class COnboard:CController
 {
-    weak var viewOnboard:UIView!
+    weak var viewOnboard:VOnboard!
     
     override func loadView()
     {

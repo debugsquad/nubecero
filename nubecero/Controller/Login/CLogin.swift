@@ -78,8 +78,20 @@ class CLogin:CController
     
     //MARK: private
     
-    func userNotLogged()
+    private func userNotLogged()
     {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            let controllerOnboard:COnboard = COnboard()
+            self?.parentController.over(
+                controller:controllerOnboard,
+                pop:true,
+                animate:true)
+        }
+        
+        return
+        
         model = MLogin.Register()
         
         DispatchQueue.main.async

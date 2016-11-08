@@ -1,4 +1,3 @@
-"VLogin_disclaimer"="Valida tu cuenta\nNunca publicaremos nada en Facebook";
 "VHomeCellUpload_label"="Subir imágenes";
 "VHomeUploadSyncBar_cancel"="Detener";
 "VHomeUploadSyncBar_tryAgain"="Reiniciar";
@@ -11,12 +10,12 @@
 "VSettingsCellSecurity_label"="Pedir contraseña";
 "VSettingsCellLogout_label"="Salir";
 "VPicturesDetailHeader_label"="Tu Nube esta vacía";
-"VSettingsCellProfile_defaultUserName"="nubecero";
-"VSettingsCellFacebookShare_labelTitle"="Comparte nubecero con tus amigos";
-"VSettingsCellFacebookInvite_label"="Invita a tu amigos de Facebook";
+"VLoginCellDisclaimerSignin_label"="Ingresa si ya tienes cuenta";
+"VLoginCellDisclaimerRegister_label"="Crea una nueva cuenta";
+"VLoginCellSend_label"="Enviar";
+"VLoginCellEmail_placeholder"="Correo electrónico";
+"VLoginCellPassword_placeholder"="Contraseña";
 
-"CLogin_logOut"="Cerraste sessión";
-"CLogin_errorUnknown"="No se pudo ingresar, reintantalo";
 "CHomeUpload_title"="Subir";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";
 "CHomeUpload_noCameraRoll"="No se pudieron subir tus imágenes";
@@ -33,8 +32,12 @@
 "CAuth_reason"="Validate para ingresar a tu Nube";
 "CAuth_errorUnknown"="No se pudo validad, reintentalo";
 "CAuth_passCodeNotSet"="Define una contraseña en la configuración del dispositivo para asegurar tu Nube";
-"CSettings_cantInvite"="No se pudó invitar con Facebook";
+"CLogin_invalidEmail"="Necesitas poner tu correo electrónico";
+"CLogin_invalidPassword"="Necesitas poner tu constraseña";
+"CLogin_errorUnknown"="Hubo un error, reintenta";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando imagen, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";
 "MHomeUploadItemStatusReferenced_errorUser"="Error guardando imagen, reintentalo";
+"MLoginModeRegister_name"="Registrate";
+"MLoginModeSignin_name"="Ingresa";

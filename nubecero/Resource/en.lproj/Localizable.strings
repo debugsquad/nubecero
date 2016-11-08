@@ -1,4 +1,3 @@
-"VLogin_disclaimer"="Validate your account\nWe will never post anything to Facebook";
 "VHomeCellUpload_label"="Upload pictures";
 "VHomeUploadSyncBar_cancel"="Stop";
 "VHomeUploadSyncBar_tryAgain"="Resume";
@@ -11,12 +10,12 @@
 "VSettingsCellSecurity_label"="Require Passcode";
 "VSettingsCellLogout_label"="Log out";
 "VPicturesDetailHeader_label"="Your Cloud is empty";
-"VSettingsCellProfile_defaultUserName"="nubecero";
-"VSettingsCellFacebookShare_labelTitle"="Tell your friends about nubecero";
-"VSettingsCellFacebookInvite_label"="Invite Facebook friends";
+"VLoginCellDisclaimerSignin_label"="Use an existing account";
+"VLoginCellDisclaimerRegister_label"="Create a new account";
+"VLoginCellSend_label"="Send";
+"VLoginCellEmail_placeholder"="Email";
+"VLoginCellPassword_placeholder"="Password";
 
-"CLogin_logOut"="Log out succeded";
-"CLogin_errorUnknown"="Couldn't log in, try again";
 "CHomeUpload_title"="Upload";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";
 "CHomeUpload_noCameraRoll"="Unable to load your pictures";
@@ -33,8 +32,12 @@
 "CAuth_reason"="Authenticate to access your Cloud";
 "CAuth_errorUnknown"="Couldn't authenticate, try again";
 "CAuth_passCodeNotSet"="Set your password in the device Settings to secure your Cloud";
-"CSettings_cantInvite"="Couldn't invite with Facebook";
+"CLogin_invalidEmail"="Need to enter your Email";
+"CLogin_invalidPassword"="Need to enter your Password";
+"CLogin_errorUnknown"="There was an error, try again";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading image, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";
 "MHomeUploadItemStatusReferenced_errorUser"="Error saving picture, try again";
+"MLoginModeRegister_name"="Register";
+"MLoginModeSignin_name"="Signin";

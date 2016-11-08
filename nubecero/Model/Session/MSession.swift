@@ -6,7 +6,7 @@ class MSession
     var server:MSessionServer?
     var userId:String?
     var settings:DObjectSettings?
-    private let kServerInitialFroobSize:Int = 10000
+    private let kServerInitialFroobSize:Int = 15000
     
     private init()
     {

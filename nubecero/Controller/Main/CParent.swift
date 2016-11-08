@@ -34,7 +34,7 @@ class CParent:UIViewController
             name:Notification.userBanned,
             object:nil)
         
-        let login:CLogin = CLogin()
+        let login:CLogin = CLogin(fetchCredentials:true)
         over(controller:login, pop:false, animate:false)
     }
     

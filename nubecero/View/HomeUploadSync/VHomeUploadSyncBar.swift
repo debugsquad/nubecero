@@ -190,7 +190,7 @@ class VHomeUploadSyncBar:UIView
     func update()
     {
         let totalItems:Int = controller.uploadItems.count
-        let uploadedItems:Int = controller.currentItem
+        let uploadedItems:Int = controller.uploadedItems()
         let countText:String = "\(uploadedItems)/\(totalItems)"
         
         labelCount.text = countText

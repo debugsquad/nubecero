@@ -67,6 +67,21 @@ class CHomeUploadSync:CController
     
     //MARK: public
     
+    func uploadedItems() -> Int
+    {
+        var uploaded:Int = 0
+     
+        for uploadedItem:MHomeUploadItem in uploadItems
+        {
+            if uploadedItem.status.finished
+            {
+                uploaded += 1
+            }
+        }
+        
+        return uploaded
+    }
+    
     func cancelSync()
     {
         parentController.dismiss()

@@ -6,7 +6,10 @@ class MOnboard
     
     init()
     {
+        let itemUpload:MOnboardItemUpload = MOnboardItemUpload()
+        
         items = [
+            itemUpload
         ]
     }
 }

@@ -2,7 +2,19 @@ import UIKit
 
 class COnboard:CController
 {
-    weak var viewOnboard:VOnboard!
+    private weak var viewOnboard:VOnboard!
+    let model:MOnboard
+    
+    init()
+    {
+        model = MOnboard()
+        super.init(nibName:nil, bundle:nil)
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
     
     override func loadView()
     {

@@ -46,4 +46,5 @@
 "MLoginModeSignin_name"="Ingresa";
 "MOnboardItemUpload_title"="Sube tus fotos a la Nube";
 "MOnboardItemAccess_title"="Accede a ellas cuando quieras";
-"MOnboardItemFree_title"="Libera memoria en tu dispositivo";
+"MOnboardItemFree_title"="Libera memoria";
+"MOnboardItemPrivacy_title"="Dale privacidad a tus imagénes";

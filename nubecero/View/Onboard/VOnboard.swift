@@ -93,6 +93,7 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     
     override func layoutSubviews()
     {
+        collectionView.contentOffset = CGPoint.zero
         collectionView.collectionViewLayout.invalidateLayout()
         super.layoutSubviews()
     }

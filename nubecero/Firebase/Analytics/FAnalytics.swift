@@ -7,6 +7,7 @@ class FAnalytics
     private let kEventAction:NSString = "Action"
     private let kEventActionLogout:NSString = "Logout"
     private let kEventActionRate:NSString = "Rate"
+    private let kEventActionShare:NSString = "Share"
     private let kEventPicture:NSString = "Picture"
     private let kEventPictureShare:NSString = "Share"
     private let kEventPictureDelete:NSString = "Delete"
@@ -51,6 +52,21 @@ class FAnalytics
             let parameters:[String:NSObject] = [
                 kFIRParameterContentType:self.kEventAction,
                 kFIRParameterItemID:self.kEventActionRate
+            ]
+            
+            FIRAnalytics.logEvent(
+                withName:kFIREventSelectContent,
+                parameters:parameters)
+        }
+    }
+    
+    func share()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            let parameters:[String:NSObject] = [
+                kFIRParameterContentType:self.kEventAction,
+                kFIRParameterItemID:self.kEventActionShare
             ]
             
             FIRAnalytics.logEvent(

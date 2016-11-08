@@ -56,4 +56,18 @@ class CSettings:CController
         
         UIApplication.shared.openURL(url)
     }
+    
+    func share()
+    {
+        guard
+            
+            let url:URL = URL(string:kRateUrl)
+            
+        else
+        {
+            return
+        }
+        
+        UIApplication.shared.openURL(url)
+    }
 }

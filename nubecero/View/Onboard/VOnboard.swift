@@ -9,6 +9,7 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     private weak var pageController:UIPageControl!
     private weak var layoutCollectionTop:NSLayoutConstraint!
     private weak var layoutCollectionBottom:NSLayoutConstraint!
+    private weak var viewForm:VOnboardForm!
     private let kOptionsHeight:CGFloat = 34
     private let kDisclaimerHeight:CGFloat = 70
     private let kPageControlHeight:CGFloat = 15
@@ -24,6 +25,9 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         self.controller = controller
         
         let maxHeight:CGFloat = UIScreen.main.bounds.maxY
+        
+        let viewForm:VOnboardForm = VOnboardForm(controller:controller)
+        self.viewForm = viewForm//here
         
         let pageControl:UIPageControl = UIPageControl()
         pageControl.isUserInteractionEnabled = false

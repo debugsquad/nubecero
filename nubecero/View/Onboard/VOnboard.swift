@@ -9,7 +9,6 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     private weak var pageController:UIPageControl!
     private weak var layoutCollectionTop:NSLayoutConstraint!
     private weak var layoutCollectionBottom:NSLayoutConstraint!
-    private weak var viewForm:VOnboardForm!
     private let kOptionsHeight:CGFloat = 34
     private let kDisclaimerHeight:CGFloat = 70
     private let kPageControlHeight:CGFloat = 15
@@ -25,9 +24,6 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         self.controller = controller
         
         let maxHeight:CGFloat = UIScreen.main.bounds.maxY
-        
-        let viewForm:VOnboardForm = VOnboardForm(controller:controller)
-        self.viewForm = viewForm
         
         let pageControl:UIPageControl = UIPageControl()
         pageControl.isUserInteractionEnabled = false
@@ -80,14 +76,12 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         addSubview(labelDisclaimer)
         addSubview(viewOptions)
         addSubview(pageControl)
-        addSubview(viewForm)
         
         let views:[String:UIView] = [
             "collectionView":collectionView,
             "viewOptions":viewOptions,
             "labelDisclaimer":labelDisclaimer,
-            "pageControl":pageControl,
-            "viewForm":viewForm]
+            "pageControl":pageControl]
         
         let metrics:[String:CGFloat] = [
             "optionsHeight":kOptionsHeight,
@@ -115,18 +109,8 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[viewForm]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:
             "V:[collectionView]-0-[pageControl(pageControlHeight)]-5-[viewOptions(optionsHeight)]-0-[labelDisclaimer(disclaimerHeight)]",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[viewForm]-0-|",
             options:[],
             metrics:metrics,
             views:views))

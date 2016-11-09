@@ -76,4 +76,41 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             metrics:metrics,
             views:views))
     }
+    
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
+    }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MOnboardFormItem
+    {
+        let item:MOnboardFormItem = controller.model.items[index.item]
+        
+        return item
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.model.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MOnboardFormItem = modelAtIndex(index:indexPath)
+        let cell:VOnboardFormCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            item.re, for: <#T##IndexPath#>)
+    }
 }

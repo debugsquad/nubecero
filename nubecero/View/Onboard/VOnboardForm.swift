@@ -7,6 +7,7 @@ class VOnboardForm:UIView
     convenience init(controller:COnboard)
     {
         self.init()
+        alpha = 0
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false

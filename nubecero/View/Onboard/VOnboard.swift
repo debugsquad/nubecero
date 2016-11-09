@@ -86,7 +86,8 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
             "collectionView":collectionView,
             "viewOptions":viewOptions,
             "labelDisclaimer":labelDisclaimer,
-            "pageControl":pageControl]
+            "pageControl":pageControl,
+            "viewForm":viewForm]
         
         let metrics:[String:CGFloat] = [
             "optionsHeight":kOptionsHeight,
@@ -114,8 +115,18 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[viewForm]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:
             "V:[collectionView]-0-[pageControl(pageControlHeight)]-5-[viewOptions(optionsHeight)]-0-[labelDisclaimer(disclaimerHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[viewForm]-0-|",
             options:[],
             metrics:metrics,
             views:views))

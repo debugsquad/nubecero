@@ -37,7 +37,7 @@ class VOnboardOptionsButton:UIButton
     {
         if isSelected || isHighlighted
         {
-            alpha = 0.2
+            alpha = 0.5
         }
         else
         {

@@ -19,7 +19,7 @@
 "VSettingsCellRate_label"="Review on the store";
 "VOnboard_labelDisclaimer"="Your account allows you to access the Cloud from everywhere";
 "VOnboardOptions_buttonRegister"="Register";
-"VOnboardOptions_buttonSignin"="Signin";
+"VOnboardOptions_buttonSignin"="Sign in";
 "VOnboardFormHeader_buttonCancel"="Cancel";
 "VOnboardFormCellEmail_placeholder"="Email";
 "VOnboardFormCellPassword_placeholder"="Password";
@@ -48,10 +48,12 @@
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";
 "MHomeUploadItemStatusReferenced_errorUser"="Error saving picture, try again";
 "MLoginModeRegister_name"="Register";
-"MLoginModeSignin_name"="Signin";
+"MLoginModeSignin_name"="Sign in";
 "MOnboardItemUpload_title"="Upload your pictures to the Cloud";
 "MOnboardItemAccess_title"="Access them any time";
 "MOnboardItemFree_title"="Free up space";
 "MOnboardItemPrivacy_title"="Passcode protect your images";
 "MOnboardForm_titleRegister"="New account";
 "MOnboardForm_titleSignin"="Existing account";
+"MOnboardForm_buttonRegister"="Register";
+"MOnboardForm_buttonSignin"="Sign in";

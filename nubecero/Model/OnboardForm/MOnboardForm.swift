@@ -9,7 +9,7 @@ class MOnboardForm
     class func Register() -> MOnboardForm
     {
         let title:String = NSLocalizedString("MOnboardForm_titleRegister", comment:"")
-        let buttonMessage:String = NSLocalizedString("", comment:"")
+        let buttonMessage:String = NSLocalizedString("MOnboardForm_buttonRegister", comment:"")
         
         let itemEmail:MOnboardFormItemEmailRegister = MOnboardFormItemEmailRegister()
         let itemPassword:MOnboardFormItemPasswordRegister = MOnboardFormItemPasswordRegister()
@@ -30,7 +30,7 @@ class MOnboardForm
     class func Signin() -> MOnboardForm
     {
         let title:String = NSLocalizedString("MOnboardForm_titleSignin", comment:"")
-        let buttonMessage:String = NSLocalizedString("", comment:"")
+        let buttonMessage:String = NSLocalizedString("MOnboardForm_buttonSignin", comment:"")
         
         let itemEmail:MOnboardFormItemEmailSignin = MOnboardFormItemEmailSignin()
         let itemPassword:MOnboardFormItemPasswordSignin = MOnboardFormItemPasswordSignin()

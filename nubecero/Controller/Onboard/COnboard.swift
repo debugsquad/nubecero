@@ -34,4 +34,15 @@ class COnboard:CController
         super.viewDidDisappear(animated)
         parentController.statusBarLight()
     }
+    
+    //MARK: public
+    
+    func showForm(model:MOnboardForm)
+    {
+        let controllerForm:COnboardForm = COnboardForm(model:model)
+        parentController.over(
+            controller:controllerForm,
+            pop:false,
+            animate:true)
+    }
 }

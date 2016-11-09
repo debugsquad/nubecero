@@ -23,8 +23,16 @@ class VOnboardOptions:UIView
         
         let buttonRegister:VOnboardOptionsButton = VOnboardOptionsButton(
             title:buttonRegisterTitle)
+        buttonRegister.addTarget(
+            self,
+            action:#selector(actionRegister(sender:)),
+            for:UIControlEvents.touchUpInside)
         let buttonSignin:VOnboardOptionsButton = VOnboardOptionsButton(
             title:buttonSigninTitle)
+        buttonSignin.addTarget(
+            self,
+            action:#selector(actionSignin(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let baseButtons:UIView = UIView()
         baseButtons.translatesAutoresizingMaskIntoConstraints = false
@@ -99,5 +107,19 @@ class VOnboardOptions:UIView
         baseButtons.layer.cornerRadius = height_2
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionRegister(sender button:UIButton)
+    {
+        let model:MOnboardForm = MOnboardForm.Register()
+        controller.showForm(model:model)
+    }
+    
+    func actionSignin(sender button:UIButton)
+    {
+        let model:MOnboardForm = MOnboardForm.Signin()
+        controller.showForm(model:model)
     }
 }

@@ -2,8 +2,8 @@ import UIKit
 
 class MOnboardFormItemPassword:MOnboardFormItem
 {
-    let password:String?
-    private let kCellHeight:CGFloat = 34
+    var password:String?
+    private let kCellHeight:CGFloat = 40
     
     override init()
     {

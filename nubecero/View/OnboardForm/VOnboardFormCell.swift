@@ -16,7 +16,7 @@ class VOnboardFormCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MOnboardFormItem)
+    func config(model:MOnboardFormItem, controller:COnboardForm)
     {
     }
 }

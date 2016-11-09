@@ -4,6 +4,7 @@ class COnboardForm:CController
 {
     private weak var viewForm:VOnboardForm!
     let model:MOnboardForm
+    weak var passwordField:UITextField?
     
     init(model:MOnboardForm)
     {
@@ -27,6 +28,12 @@ class COnboardForm:CController
     
     func cancel()
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
         parentController.dismiss()
+    }
+    
+    func send()
+    {
+        UIApplication.shared.keyWindow!.endEditing(true)
     }
 }

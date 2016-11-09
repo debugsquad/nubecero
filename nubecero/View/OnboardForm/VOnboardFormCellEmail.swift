@@ -3,6 +3,8 @@ import UIKit
 class VOnboardFormCellEmail:VOnboardFormCell, UITextFieldDelegate
 {
     private weak var textField:UITextField!
+    private weak var model:MOnboardFormItemEmail?
+    private weak var controller:COnboardForm?
     
     override init(frame:CGRect)
     {
@@ -66,5 +68,26 @@ class VOnboardFormCellEmail:VOnboardFormCell, UITextFieldDelegate
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func config(model:MOnboardFormItem, controller:COnboardForm)
+    {
+        self.model = model as? MOnboardFormItemEmail
+        self.controller = controller
+        textField.text = self.model?.email
+    }
+    
+    //MARK: textfield delegate
+    
+    func textFieldDidEndEditing(_ textField:UITextField)
+    {
+        model?.email = textField.text
+    }
+    
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool
+    {
+        controller?.passwordField?.becomeFirstResponder()
+        
+        return true
     }
 }

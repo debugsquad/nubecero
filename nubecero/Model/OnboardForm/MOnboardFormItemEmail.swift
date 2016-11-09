@@ -2,8 +2,8 @@ import UIKit
 
 class MOnboardFormItemEmail:MOnboardFormItem
 {
-    let email:String?
-    private let kCellHeight:CGFloat = 34
+    var email:String?
+    private let kCellHeight:CGFloat = 40
     
     override init()
     {

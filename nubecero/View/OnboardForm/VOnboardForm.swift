@@ -142,7 +142,7 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             withReuseIdentifier:
             item.reusableIdentifier,
             for:indexPath) as! VOnboardFormCell
-        cell.config(model:item)
+        cell.config(model:item, controller:controller)
         
         return cell
     }

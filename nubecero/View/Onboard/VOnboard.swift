@@ -27,7 +27,7 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         let maxHeight:CGFloat = UIScreen.main.bounds.maxY
         
         let viewForm:VOnboardForm = VOnboardForm(controller:controller)
-        self.viewForm = viewForm//here
+        self.viewForm = viewForm
         
         let pageControl:UIPageControl = UIPageControl()
         pageControl.isUserInteractionEnabled = false
@@ -80,6 +80,7 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         addSubview(labelDisclaimer)
         addSubview(viewOptions)
         addSubview(pageControl)
+        addSubview(viewForm)
         
         let views:[String:UIView] = [
             "collectionView":collectionView,

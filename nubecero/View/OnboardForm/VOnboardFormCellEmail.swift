@@ -74,6 +74,7 @@ class VOnboardFormCellEmail:VOnboardFormCell, UITextFieldDelegate
     {
         self.model = model as? MOnboardFormItemEmail
         self.controller = controller
+        controller.emailField = textField
         textField.text = self.model?.email
     }
     

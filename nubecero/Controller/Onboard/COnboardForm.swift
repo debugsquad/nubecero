@@ -4,6 +4,7 @@ class COnboardForm:CController
 {
     private weak var viewForm:VOnboardForm!
     let model:MOnboardForm
+    weak var emailField:UITextField?
     weak var passwordField:UITextField?
     
     init(model:MOnboardForm)
@@ -22,6 +23,12 @@ class COnboardForm:CController
         let viewForm:VOnboardForm = VOnboardForm(controller:self)
         self.viewForm = viewForm
         view = viewForm
+    }
+    
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        emailField?.becomeFirstResponder()
     }
     
     //MARK: public

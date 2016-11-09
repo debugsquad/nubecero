@@ -75,6 +75,7 @@ class VOnboardFormCellPassword:VOnboardFormCell, UITextFieldDelegate
     {
         self.model = model as? MOnboardFormItemPassword
         self.controller = controller
+        controller.passwordField = textField
         textField.text = self.model?.password
     }
     

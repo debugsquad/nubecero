@@ -13,4 +13,10 @@ class VOnboardFormHeader:UICollectionReusableView
     {
         fatalError()
     }
+    
+    //MARK: config
+    
+    func config(controller:COnboardForm)
+    {
+    }
 }

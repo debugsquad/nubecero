@@ -94,6 +94,15 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     
     //MARK: collectionView delegate
     
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let item:MOnboardFormItem = modelAtIndex(index:indexPath)
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:item.cellHeight)
+        
+        return size
+    }
+    
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
@@ -106,11 +115,37 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         return count
     }
     
+    func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath: IndexPath) -> UICollectionReusableView
+    {
+        let header:VOnboardFormHeader = collectionView.dequeueReusableSupplementaryView(
+            ofKind:kind,
+            withReuseIdentifier:
+            VOnboardFormHeader.reusableIdentifier,
+            for:indexPath) as! VOnboardFormHeader
+        header.config(controller:controller)
+        
+        return header
+    }
+    
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
         let item:MOnboardFormItem = modelAtIndex(index:indexPath)
         let cell:VOnboardFormCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
-            item.re, for: <#T##IndexPath#>)
+            item.reusableIdentifier,
+            for:indexPath) as! VOnboardFormCell
+        cell.config(model:item)
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
     }
 }

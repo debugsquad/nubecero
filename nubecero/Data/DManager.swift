@@ -4,12 +4,10 @@ import CoreData
 class DManager
 {
     static let sharedInstance:DManager = DManager()
-    private weak var timer:Timer?
     private let managedObjectContext:NSManagedObjectContext
     private let kModelName:String = "DNubecero"
     private let kModelExtension:String = "momd"
     private let kSQLiteExtension:String = "%@.sqlite"
-    private let kTimeoutSave:TimeInterval = 1
     
     private init()
     {
@@ -44,64 +42,30 @@ class DManager
         managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
     }
     
-    @objc func timerDone(sender timer:Timer)
-    {
-        self.timer?.invalidate()
-        actualSave()
-    }
-    
-    //MARK: private
-    
-    private func actualSave()
-    {
-        if managedObjectContext.hasChanges
-        {
-            managedObjectContext.perform
-            {
-                do
-                {
-                    try self.managedObjectContext.save()
-                }
-                catch
-                {
-                }
-            }
-        }
-    }
-    
-    private func startTimer()
-    {
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(
-            timeInterval:kTimeoutSave,
-            target:self,
-            selector:#selector(timerDone(sender:)),
-            userInfo:nil,
-            repeats:false)
-    }
-    
     //MARK: public
     
-    func save(force:Bool = false)
+    func save()
     {
-        if force
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
-            clearTimer()
-            actualSave()
-        }
-        else
-        {
-            DispatchQueue.main.async
+            if self.managedObjectContext.hasChanges
             {
-                self.startTimer()
+                self.managedObjectContext.perform
+                {
+                    do
+                    {
+                        try self.managedObjectContext.save()
+                    }
+                    catch
+                    {
+                    }
+                }
             }
         }
     }
     
     func createManagedObject<ModelType:NSManagedObject>(modelType:ModelType.Type, completion:@escaping((ModelType) -> ()))
     {
-        delaySaving()
-        
         managedObjectContext.perform
         {
             let entityDescription:NSEntityDescription = NSEntityDescription.entity(
@@ -117,8 +81,6 @@ class DManager
     
     func fetchManagedObjects<ModelType:NSManagedObject>(modelType:ModelType.Type, limit:Int = 0, predicate:NSPredicate? = nil, sorters:[NSSortDescriptor]? = nil, completion:@escaping(([ModelType]?) -> ()))
     {
-        delaySaving()
-        
         let fetchRequest:NSFetchRequest<ModelType> = NSFetchRequest(
             entityName:modelType.entityName)
         fetchRequest.predicate = predicate
@@ -147,8 +109,6 @@ class DManager
     
     func delete(object:NSManagedObject, completion:(() -> ())? = nil)
     {
-        delaySaving()
-        
         managedObjectContext.perform
         {
             self.managedObjectContext.delete(object)
@@ -167,21 +127,5 @@ class DManager
         let model:ModelType = managedObject as! ModelType
         
         return model
-    }
-    
-    func delaySaving()
-    {
-        if timer != nil
-        {
-            save(force:false)
-        }
-    }
-    
-    func clearTimer()
-    {
-        DispatchQueue.main.async
-        {
-            self.timer?.invalidate()
-        }
     }
 }

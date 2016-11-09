@@ -99,7 +99,7 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[senderView(senderHeight)]",
+            withVisualFormat:"V:[senderView(senderViewHeight)]",
             options:[],
             metrics:metrics,
             views:views))

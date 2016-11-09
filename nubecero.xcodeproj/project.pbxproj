@@ -59,7 +59,6 @@
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
 		DA4EF8FB1DC395B300297C1D /* CParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CB1DC395B300297C1D /* CParent.swift */; };
 		DA4EF8FC1DC395B300297C1D /* DManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CD1DC395B300297C1D /* DManager.swift */; };
-		DA4EF8FD1DC395B300297C1D /* DNubecero.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CE1DC395B300297C1D /* DNubecero.xcdatamodeld */; };
 		DA4EF8FE1DC395B300297C1D /* ExtensionFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8D11DC395B300297C1D /* ExtensionFileManager.swift */; };
 		DA4EF9001DC395B300297C1D /* ExtensionNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8D31DC395B300297C1D /* ExtensionNotification.swift */; };
 		DA4EF9011DC395B300297C1D /* ExtensionNSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8D41DC395B300297C1D /* ExtensionNSManagedObject.swift */; };
@@ -269,7 +268,6 @@
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
 		DA4EF8CB1DC395B300297C1D /* CParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CParent.swift; sourceTree = "<group>"; };
 		DA4EF8CD1DC395B300297C1D /* DManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DManager.swift; sourceTree = "<group>"; };
-		DA4EF8CF1DC395B300297C1D /* DMetalic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DMetalic.xcdatamodel; sourceTree = "<group>"; };
 		DA4EF8D11DC395B300297C1D /* ExtensionFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionFileManager.swift; sourceTree = "<group>"; };
 		DA4EF8D31DC395B300297C1D /* ExtensionNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNotification.swift; sourceTree = "<group>"; };
 		DA4EF8D41DC395B300297C1D /* ExtensionNSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSManagedObject.swift; sourceTree = "<group>"; };
@@ -677,7 +675,6 @@
 			isa = PBXGroup;
 			children = (
 				DA4EF8CD1DC395B300297C1D /* DManager.swift */,
-				DA4EF8CE1DC395B300297C1D /* DNubecero.xcdatamodeld */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -1323,7 +1320,6 @@
 				DA34117B1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift in Sources */,
 				DACD1FAB1DC4124B0067D26B /* VHomeUpload.swift in Sources */,
 				DA3411751DCB90D7006E6D71 /* VHomeCellDisk.swift in Sources */,
-				DA4EF8FD1DC395B300297C1D /* DNubecero.xcdatamodeld in Sources */,
 				DAD7396C1DD11C8300FC3297 /* MLoginItemMode.swift in Sources */,
 				DAE4556A1DCA92FA00948D70 /* VPicturesDataCellSize.swift in Sources */,
 				DAD739681DD11B9B00FC3297 /* MLoginItem.swift in Sources */,
@@ -1684,19 +1680,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		DA4EF8CE1DC395B300297C1D /* DNubecero.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				DA4EF8CF1DC395B300297C1D /* DMetalic.xcdatamodel */,
-			);
-			currentVersion = DA4EF8CF1DC395B300297C1D /* DMetalic.xcdatamodel */;
-			path = DNubecero.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = DA1F0E1A1DC2C6480003AAB8 /* Project object */;
 }

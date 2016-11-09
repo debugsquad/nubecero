@@ -198,6 +198,7 @@
 		DAF6F2BE1DD3A2380053ED1B /* VOnboardFormSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2BD1DD3A2380053ED1B /* VOnboardFormSender.swift */; };
 		DAF6F2C01DD3B0610053ED1B /* MOnboardFormCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2BF1DD3B0610053ED1B /* MOnboardFormCredentials.swift */; };
 		DAF6F2C31DD3D2530053ED1B /* DNubecero.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2C11DD3D2530053ED1B /* DNubecero.xcdatamodeld */; };
+		DAF6F2C51DD3D8430053ED1B /* VOnboardFormCellRemember.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2C41DD3D8430053ED1B /* VOnboardFormCellRemember.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -411,6 +412,7 @@
 		DAF6F2BD1DD3A2380053ED1B /* VOnboardFormSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardFormSender.swift; sourceTree = "<group>"; };
 		DAF6F2BF1DD3B0610053ED1B /* MOnboardFormCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormCredentials.swift; sourceTree = "<group>"; };
 		DAF6F2C21DD3D2530053ED1B /* DNubecero.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DNubecero.xcdatamodel; sourceTree = "<group>"; };
+		DAF6F2C41DD3D8430053ED1B /* VOnboardFormCellRemember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardFormCellRemember.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1057,6 +1059,7 @@
 				DAF6F2AB1DD381BA0053ED1B /* VOnboardFormCell.swift */,
 				DAF6F2AD1DD3954E0053ED1B /* VOnboardFormCellEmail.swift */,
 				DAF6F2B51DD39A690053ED1B /* VOnboardFormCellPassword.swift */,
+				DAF6F2C41DD3D8430053ED1B /* VOnboardFormCellRemember.swift */,
 				DAF6F2BD1DD3A2380053ED1B /* VOnboardFormSender.swift */,
 			);
 			path = OnboardForm;
@@ -1390,6 +1393,7 @@
 				DA3411771DCB9107006E6D71 /* MHomeItemDisk.swift in Sources */,
 				DA4EF90D1DC395B300297C1D /* MMainState.swift in Sources */,
 				DA4EF9041DC395B300297C1D /* ExtensionUIFont.swift in Sources */,
+				DAF6F2C51DD3D8430053ED1B /* VOnboardFormCellRemember.swift in Sources */,
 				DACD1FBF1DC6FCC00067D26B /* VHomeUploadSyncCell.swift in Sources */,
 				DA88F6701DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift in Sources */,
 				DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */,

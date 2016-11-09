@@ -39,6 +39,10 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(
+            VOnboardFormCellEmail.self,
+            forCellWithReuseIdentifier:
+            VOnboardFormCellEmail.reusableIdentifier)
+        collectionView.register(
             VOnboardFormHeader.self,
             forSupplementaryViewOfKind:
             UICollectionElementKindSectionHeader,

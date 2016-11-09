@@ -8,7 +8,7 @@ class MOnboardForm
 
     class func Register() -> MOnboardForm
     {
-        let title:String = NSLocalizedString("", comment:"")
+        let title:String = NSLocalizedString("MOnboardForm_titleRegister", comment:"")
         let buttonMessage:String = NSLocalizedString("", comment:"")
         let items:[MOnboardFormItem] = [
         ]
@@ -23,7 +23,7 @@ class MOnboardForm
     
     class func Signin() -> MOnboardForm
     {
-        let title:String = NSLocalizedString("", comment:"")
+        let title:String = NSLocalizedString("MOnboardForm_titleSignin", comment:"")
         let buttonMessage:String = NSLocalizedString("", comment:"")
         let items:[MOnboardFormItem] = [
         ]

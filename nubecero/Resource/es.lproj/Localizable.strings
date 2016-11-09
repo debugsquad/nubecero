@@ -51,3 +51,5 @@
 "MOnboardItemAccess_title"="Accede a ellas cuando quieras";
 "MOnboardItemFree_title"="Libera memoria";
 "MOnboardItemPrivacy_title"="Protege tus imagénes con contraseña";
+"MOnboardForm_titleRegister"="Crear una cuenta";
+"MOnboardForm_titleSignin"="Usar cuenta existente";

@@ -2,8 +2,9 @@ import UIKit
 
 class COnboard:CController
 {
-    private weak var viewOnboard:VOnboard!
     let model:MOnboard
+    private weak var viewOnboard:VOnboard!
+    private let kSuccessAfter:TimeInterval = 0.5
     
     init()
     {
@@ -39,10 +40,29 @@ class COnboard:CController
     
     func showForm(model:MOnboardForm)
     {
-        let controllerForm:COnboardForm = COnboardForm(model:model)
+        let controllerForm:COnboardForm = COnboardForm(
+            model:model,
+            onboard:self)
         parentController.over(
             controller:controllerForm,
             pop:false,
             animate:true)
+    }
+    
+    func authSuccess()
+    {
+        let successAfter:TimeInterval = kSuccessAfter
+        parentController.dismiss()
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + successAfter)
+        { [weak self] in
+            
+            let homeController:CHome = CHome(askAuth:true)
+            self?.parentController.center(
+                controller:homeController,
+                pop:true,
+                animate:true)
+        }
     }
 }

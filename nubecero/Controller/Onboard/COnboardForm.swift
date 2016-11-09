@@ -4,14 +4,15 @@ import FirebaseAuth
 class COnboardForm:CController
 {
     private weak var viewForm:VOnboardForm!
+    private weak var onboard:COnboard?
     let model:MOnboardForm
     weak var emailField:UITextField?
     weak var passwordField:UITextField?
-    private let kSuccessAfter:TimeInterval = 1
     
-    init(model:MOnboardForm)
+    init(model:MOnboardForm, onboard:COnboard)
     {
         self.model = model
+        self.onboard = onboard
         super.init(nibName:nil, bundle:nil)
     }
     
@@ -48,24 +49,12 @@ class COnboardForm:CController
     
     private func authSuccess(userId:String)
     {
-        let successAfter:TimeInterval = kSuccessAfter
         MSession.sharedInstance.loadUser(userId:userId)
         
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.parentController.dismiss()
-            
-            DispatchQueue.main.asyncAfter(
-                deadline:DispatchTime.now() + successAfter)
-            { [weak self] in
-                
-                let homeController:CHome = CHome(askAuth:true)
-                self?.parentController.center(
-                    controller:homeController,
-                    pop:true,
-                    animate:true)
-            }
+            self?.onboard?.authSuccess()
         }
     }
     

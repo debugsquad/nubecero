@@ -4,8 +4,12 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
 {
     private weak var controller:COnboardForm!
     private weak var collectionView:UICollectionView!
+    private weak var senderView:VOnboardFormSender!
+    private weak var layoutSenderBottom:NSLayoutConstraint!
     private let kHeaderHeight:CGFloat = 135
     private let kCollectionBottom:CGFloat = 50
+    private let kSenderViewHeight:CGFloat = 40
+    private let kAnimationDuration:TimeInterval = 0.3
     
     convenience init(controller:COnboardForm)
     {
@@ -14,6 +18,9 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        
+        let senderView:VOnboardFormSender = VOnboardFormSender(controller:controller)
+        self.senderView = senderView
         
         let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
         let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
@@ -56,20 +63,18 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         
         addSubview(visualEffect)
         addSubview(collectionView)
+        addSubview(senderView)
         
         let views:[String:UIView] = [
             "visualEffect":visualEffect,
-            "collectionView":collectionView]
+            "collectionView":collectionView,
+            "senderView":senderView]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "senderViewHeight":kSenderViewHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[visualEffect]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[visualEffect]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -79,16 +84,91 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[senderView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[visualEffect]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[senderView(senderHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        
+        layoutSenderBottom = NSLayoutConstraint(
+            item:senderView,
+            attribute:NSLayoutAttribute.bottom,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.bottom,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutSenderBottom)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedKeyboardChanged(sender:)),
+            name:NSNotification.Name.UIKeyboardWillChangeFrame,
+            object:nil)
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func layoutSubviews()
     {
         collectionView.collectionViewLayout.invalidateLayout()
         super.layoutSubviews()
+    }
+    
+    //MARK: notified
+    
+    func notifiedKeyboardChanged(sender notification:Notification)
+    {
+        guard
+            
+            let userInfo:[AnyHashable:Any] = notification.userInfo,
+            let keyboardFrameValue:NSValue = userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue
+        
+        else
+        {
+            return
+        }
+        
+        
+        let keyRect:CGRect = keyboardFrameValue.cgRectValue
+        let yOrigin = keyRect.origin.y
+        let height:CGFloat = bounds.maxY
+        let keyboardHeight:CGFloat
+        
+        if yOrigin < height
+        {
+            keyboardHeight = height - yOrigin
+        }
+        else
+        {
+            keyboardHeight = 0
+        }
+        
+        layoutSenderBottom.constant = -keyboardHeight
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
     }
     
     //MARK: private

@@ -4,7 +4,7 @@ class COnboard:CController
 {
     let model:MOnboard
     private weak var viewOnboard:VOnboard!
-    private let kSuccessAfter:TimeInterval = 0.5
+    private let kSuccessAfter:TimeInterval = 1
     
     init()
     {

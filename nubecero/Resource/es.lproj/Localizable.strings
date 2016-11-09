@@ -20,6 +20,7 @@
 "VOnboard_labelDisclaimer"="Tu cuenta te permite entrar a la Nube desde cualquier lugar";
 "VOnboardOptions_buttonRegister"="Crear cuenta";
 "VOnboardOptions_buttonSignin"="Ingresar";
+"VOnboardFormHeader_buttonCancel"="Cancelar";
 
 "CHomeUpload_title"="Subir";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

@@ -22,4 +22,11 @@ class COnboardForm:CController
         self.viewForm = viewForm
         view = viewForm
     }
+    
+    //MARK: public
+    
+    func cancel()
+    {
+        parentController.dismiss()
+    }
 }

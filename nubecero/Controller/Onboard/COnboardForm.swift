@@ -31,6 +31,24 @@ class COnboardForm:CController
         emailField?.becomeFirstResponder()
     }
     
+    //MARK: private
+    
+    private func errorForm(error:String)
+    {
+        VAlert.message(message:error)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewForm.hideLoading()
+        }
+    }
+    
+    private func authenticate(credentials:MOnboardFormCredentials)
+    {
+        
+    }
+    
     //MARK: public
     
     func cancel()
@@ -47,6 +65,25 @@ class COnboardForm:CController
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
 
+            self?.model.createCredentials
+            { [weak self] (credentials, errorString) in
+                
+                guard
+                
+                    let strongCredentials:MOnboardFormCredentials = credentials
+                
+                else
+                {
+                    if let error:String = errorString
+                    {
+                        self?.errorForm(error:error)
+                    }
+                    
+                    return
+                }
+                
+                self?.authenticate(credentials:strongCredentials)
+            }
         }
     }
 }

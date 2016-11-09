@@ -4,7 +4,7 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
 {
     private weak var controller:COnboardForm!
     private weak var collectionView:UICollectionView!
-    private let kHeaderHeight:CGFloat = 100
+    private let kHeaderHeight:CGFloat = 110
     private let kCollectionBottom:CGFloat = 50
     
     convenience init(controller:COnboardForm)

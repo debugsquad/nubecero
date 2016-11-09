@@ -4,7 +4,7 @@ class VOnboardFormHeader:UICollectionReusableView
 {
     private weak var controller:COnboardForm?
     private weak var labelTitle:UILabel!
-    private let kButtonCancelWidth:CGFloat = 95
+    private let kButtonCancelWidth:CGFloat = 100
     
     override init(frame:CGRect)
     {
@@ -27,7 +27,7 @@ class VOnboardFormHeader:UICollectionReusableView
         buttonCancel.setTitle(
             NSLocalizedString("VOnboardFormHeader_buttonCancel", comment:""),
             for:UIControlState.normal)
-        buttonCancel.titleLabel!.font = UIFont.medium(size:17)
+        buttonCancel.titleLabel!.font = UIFont.medium(size:18)
         buttonCancel.addTarget(
             self,
             action:#selector(actionCancel(sender:)),
@@ -37,7 +37,7 @@ class VOnboardFormHeader:UICollectionReusableView
         labelTitle.isUserInteractionEnabled = false
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
-        labelTitle.font = UIFont.regular(size:22)
+        labelTitle.font = UIFont.regular(size:16)
         labelTitle.textColor = UIColor.black
         self.labelTitle = labelTitle
         
@@ -64,7 +64,7 @@ class VOnboardFormHeader:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[labelTitle(250)]",
+            withVisualFormat:"H:|-20-[labelTitle(250)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -79,7 +79,7 @@ class VOnboardFormHeader:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[labelTitle(25)]-0-|",
+            withVisualFormat:"V:[labelTitle(20)]-0-|",
             options:[],
             metrics:metrics,
             views:views))

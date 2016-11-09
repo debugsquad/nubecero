@@ -51,5 +51,5 @@
 "MOnboardItemAccess_title"="Access them any time";
 "MOnboardItemFree_title"="Free up space";
 "MOnboardItemPrivacy_title"="Passcode protect your images";
-"MOnboardForm_titleRegister"="Create new account";
-"MOnboardForm_titleSignin"="Use existing account";
+"MOnboardForm_titleRegister"="New account";
+"MOnboardForm_titleSignin"="Existing account";

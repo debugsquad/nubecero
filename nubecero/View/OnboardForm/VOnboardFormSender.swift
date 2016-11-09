@@ -30,6 +30,10 @@ class VOnboardFormSender:UIView
         button.setTitle(controller.model.buttonMessage, for:UIControlState.normal)
         button.titleLabel!.font = UIFont.medium(size:14)
         button.layer.cornerRadius = kCornerRadius
+        button.addTarget(
+            self,
+            action:#selector(actionButton(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(border)
         addSubview(button)
@@ -62,5 +66,12 @@ class VOnboardFormSender:UIView
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    //MARK: actions
+    
+    func actionButton(sender button:UIButton)
+    {
+        controller.send()
     }
 }

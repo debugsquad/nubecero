@@ -4,6 +4,7 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
 {
     private weak var controller:COnboardForm!
     private weak var collectionView:UICollectionView!
+    private weak var spinner:VSpinner!
     private weak var senderView:VOnboardFormSender!
     private weak var layoutSenderBottom:NSLayoutConstraint!
     private let kHeaderHeight:CGFloat = 135
@@ -27,6 +28,10 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         visualEffect.translatesAutoresizingMaskIntoConstraints = false
         visualEffect.clipsToBounds = true
         visualEffect.isUserInteractionEnabled = false
+        
+        let spinner:VSpinner = VSpinner()
+        spinner.stopAnimating()
+        self.spinner = spinner
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
@@ -63,12 +68,14 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         
         addSubview(visualEffect)
         addSubview(collectionView)
+        addSubview(spinner)
         addSubview(senderView)
         
         let views:[String:UIView] = [
             "visualEffect":visualEffect,
             "collectionView":collectionView,
-            "senderView":senderView]
+            "senderView":senderView,
+            "spinner":spinner]
         
         let metrics:[String:CGFloat] = [
             "senderViewHeight":kSenderViewHeight]
@@ -89,6 +96,11 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[visualEffect]-0-|",
             options:[],
             metrics:metrics,
@@ -100,6 +112,11 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[senderView(senderViewHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[spinner]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -178,6 +195,22 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         let item:MOnboardFormItem = controller.model.items[index.item]
         
         return item
+    }
+    
+    //MARK: public
+    
+    func showLoading()
+    {
+        spinner.startAnimating()
+        collectionView.isHidden = true
+        senderView.isUserInteractionEnabled = false
+    }
+    
+    func hideLoading()
+    {
+        spinner.stopAnimating()
+        collectionView.isHidden = false
+        senderView.isUserInteractionEnabled = true
     }
     
     //MARK: collectionView delegate

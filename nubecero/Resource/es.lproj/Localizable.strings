@@ -55,3 +55,5 @@
 "MOnboardItemPrivacy_title"="Protege tus imagénes con contraseña";
 "MOnboardForm_titleRegister"="Crear una cuenta";
 "MOnboardForm_titleSignin"="Usar cuenta existente";
+"MOnboardForm_buttonRegister"="Registrate";
+"MOnboardForm_buttonSignin"="Ingresar";

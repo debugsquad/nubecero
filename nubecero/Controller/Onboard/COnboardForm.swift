@@ -42,5 +42,11 @@ class COnboardForm:CController
     func send()
     {
         UIApplication.shared.keyWindow!.endEditing(true)
+        viewForm.showLoading()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+
+        }
     }
 }

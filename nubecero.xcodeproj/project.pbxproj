@@ -187,7 +187,6 @@
 		DAF6F2A41DD378B80053ED1B /* MOnboardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2A31DD378B80053ED1B /* MOnboardForm.swift */; };
 		DAF6F2A61DD378FF0053ED1B /* MOnboardFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2A51DD378FF0053ED1B /* MOnboardFormItem.swift */; };
 		DAF6F2A81DD381A50053ED1B /* VOnboardFormHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2A71DD381A50053ED1B /* VOnboardFormHeader.swift */; };
-		DAF6F2AA1DD381AF0053ED1B /* VOnboardFormFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2A91DD381AF0053ED1B /* VOnboardFormFooter.swift */; };
 		DAF6F2AC1DD381BA0053ED1B /* VOnboardFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2AB1DD381BA0053ED1B /* VOnboardFormCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -391,7 +390,6 @@
 		DAF6F2A31DD378B80053ED1B /* MOnboardForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardForm.swift; sourceTree = "<group>"; };
 		DAF6F2A51DD378FF0053ED1B /* MOnboardFormItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItem.swift; sourceTree = "<group>"; };
 		DAF6F2A71DD381A50053ED1B /* VOnboardFormHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardFormHeader.swift; sourceTree = "<group>"; };
-		DAF6F2A91DD381AF0053ED1B /* VOnboardFormFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardFormFooter.swift; sourceTree = "<group>"; };
 		DAF6F2AB1DD381BA0053ED1B /* VOnboardFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardFormCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1029,7 +1027,6 @@
 			children = (
 				DAF6F2A11DD378100053ED1B /* VOnboardForm.swift */,
 				DAF6F2A71DD381A50053ED1B /* VOnboardFormHeader.swift */,
-				DAF6F2A91DD381AF0053ED1B /* VOnboardFormFooter.swift */,
 				DAF6F2AB1DD381BA0053ED1B /* VOnboardFormCell.swift */,
 			);
 			path = OnboardForm;
@@ -1347,7 +1344,6 @@
 				DACD1FB21DC540810067D26B /* MHomeUploadItem.swift in Sources */,
 				DA4EF8FE1DC395B300297C1D /* ExtensionFileManager.swift in Sources */,
 				DAD739631DD11A4F00FC3297 /* VLoginCell.swift in Sources */,
-				DAF6F2AA1DD381AF0053ED1B /* VOnboardFormFooter.swift in Sources */,
 				DA88F67C1DC7EE1F009F61B3 /* MHomeUploadItemStatusUploaded.swift in Sources */,
 				DA4EF9001DC395B300297C1D /* ExtensionNotification.swift in Sources */,
 				DA4EF90B1DC395B300297C1D /* MMainItemHome.swift in Sources */,

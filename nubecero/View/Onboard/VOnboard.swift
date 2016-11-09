@@ -7,9 +7,13 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     private weak var collectionView:UICollectionView!
     private weak var labelDisclaimer:UILabel!
     private weak var pageController:UIPageControl!
+    private weak var layoutCollectionTop:NSLayoutConstraint!
+    private weak var layoutCollectionBottom:NSLayoutConstraint!
     private let kOptionsHeight:CGFloat = 34
     private let kDisclaimerHeight:CGFloat = 70
     private let kPageControlHeight:CGFloat = 15
+    private let kAnimateAfter:TimeInterval = 0.1
+    private let kAnimationDuration:TimeInterval = 0.5
     
     convenience init(controller:COnboard)
     {
@@ -18,6 +22,8 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
         self.controller = controller
+        
+        let maxHeight:CGFloat = UIScreen.main.bounds.maxY
         
         let pageControl:UIPageControl = UIPageControl()
         pageControl.isUserInteractionEnabled = false
@@ -104,10 +110,56 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:
-            "V:|-0-[collectionView]-0-[pageControl(pageControlHeight)]-5-[viewOptions(optionsHeight)]-0-[labelDisclaimer(disclaimerHeight)]-0-|",
+            "V:[collectionView]-0-[pageControl(pageControlHeight)]-5-[viewOptions(optionsHeight)]-0-[labelDisclaimer(disclaimerHeight)]",
             options:[],
             metrics:metrics,
             views:views))
+        
+        layoutCollectionTop = NSLayoutConstraint(
+            item:collectionView,
+            attribute:NSLayoutAttribute.top,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.top,
+            multiplier:1,
+            constant:maxHeight)
+        
+        layoutCollectionBottom = NSLayoutConstraint(
+            item:labelDisclaimer,
+            attribute:NSLayoutAttribute.bottom,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.bottom,
+            multiplier:1,
+            constant:maxHeight)
+        
+        addConstraint(layoutCollectionTop)
+        addConstraint(layoutCollectionBottom)
+        
+        layoutIfNeeded()
+        
+        DispatchQueue.main.asyncAfter(
+        deadline:DispatchTime.now() + kAnimateAfter)
+        { [weak self] in
+            
+            guard
+                
+                let animationDuration:TimeInterval = self?.kAnimationDuration
+            
+            else
+            {
+                return
+            }
+            
+            self?.layoutCollectionTop.constant = 0
+            self?.layoutCollectionBottom.constant = 0
+            
+            UIView.animate(withDuration:animationDuration)
+            { [weak self] in
+                
+                self?.layoutIfNeeded()
+            }
+        }
     }
     
     override func layoutSubviews()

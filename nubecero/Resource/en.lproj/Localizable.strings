@@ -57,3 +57,7 @@
 "MOnboardForm_titleSignin"="Existing account";
 "MOnboardForm_buttonRegister"="Register";
 "MOnboardForm_buttonSignin"="Sign in";
+"MOnboardForm_errorEmail"="Enter your Email";
+"MOnboardForm_errorEmailShort"="Email seems wrong";
+"MOnboardForm_errorPassword"="Enter your Password";
+"MOnboardForm_errorPasswordShort"="Password seems too short";

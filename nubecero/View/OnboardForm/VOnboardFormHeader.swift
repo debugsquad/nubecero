@@ -2,8 +2,9 @@ import UIKit
 
 class VOnboardFormHeader:UICollectionReusableView
 {
-    private let kButtonCancelWidth:CGFloat = 90
     private weak var controller:COnboardForm?
+    private weak var labelTitle:UILabel!
+    private let kButtonCancelWidth:CGFloat = 95
     
     override init(frame:CGRect)
     {
@@ -26,18 +27,28 @@ class VOnboardFormHeader:UICollectionReusableView
         buttonCancel.setTitle(
             NSLocalizedString("VOnboardFormHeader_buttonCancel", comment:""),
             for:UIControlState.normal)
-        buttonCancel.titleLabel!.font = UIFont.bold(size:16)
+        buttonCancel.titleLabel!.font = UIFont.medium(size:17)
         buttonCancel.addTarget(
             self,
             action:#selector(actionCancel(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let labelTitle:UILabel = UILabel()
+        labelTitle.isUserInteractionEnabled = false
+        labelTitle.backgroundColor = UIColor.clear
+        labelTitle.translatesAutoresizingMaskIntoConstraints = false
+        labelTitle.font = UIFont.regular(size:22)
+        labelTitle.textColor = UIColor.black
+        self.labelTitle = labelTitle
+        
         addSubview(imageView)
+        addSubview(labelTitle)
         addSubview(buttonCancel)
         
         let views:[String:UIView] = [
             "imageView":imageView,
-            "buttonCancel":buttonCancel]
+            "buttonCancel":buttonCancel,
+            "labelTitle":labelTitle]
         
         let metrics:[String:CGFloat] = [
             "buttonCancelWidth":kButtonCancelWidth]
@@ -53,12 +64,22 @@ class VOnboardFormHeader:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-10-[labelTitle(150)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-20-[buttonCancel(44)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-22-[imageView(40)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[labelTitle(25)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -81,5 +102,6 @@ class VOnboardFormHeader:UICollectionReusableView
     func config(controller:COnboardForm)
     {
         self.controller = controller
+        labelTitle.text = controller.model.title
     }
 }

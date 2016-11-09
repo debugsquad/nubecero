@@ -2,7 +2,7 @@ import UIKit
 
 class VOnboardFormHeader:UICollectionReusableView
 {
-    private let kButtonCancelWidth:CGFloat = 120
+    private let kButtonCancelWidth:CGFloat = 90
     private weak var controller:COnboardForm?
     
     override init(frame:CGRect)
@@ -26,7 +26,7 @@ class VOnboardFormHeader:UICollectionReusableView
         buttonCancel.setTitle(
             NSLocalizedString("VOnboardFormHeader_buttonCancel", comment:""),
             for:UIControlState.normal)
-        buttonCancel.titleLabel!.font = UIFont.medium(size:16)
+        buttonCancel.titleLabel!.font = UIFont.bold(size:16)
         buttonCancel.addTarget(
             self,
             action:#selector(actionCancel(sender:)),
@@ -53,12 +53,12 @@ class VOnboardFormHeader:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-20-[buttonCancel]-0-|",
+            withVisualFormat:"V:|-20-[buttonCancel(44)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-22-[imageView]-2-|",
+            withVisualFormat:"V:|-22-[imageView(40)]",
             options:[],
             metrics:metrics,
             views:views))

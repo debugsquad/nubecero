@@ -4,6 +4,7 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
 {
     private weak var controller:COnboardForm!
     private weak var collectionView:UICollectionView!
+    private let kHeaderHeight:CGFloat = 100
     private let kCollectionBottom:CGFloat = 50
     
     convenience init(controller:COnboardForm)
@@ -14,7 +15,6 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let headerHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
         let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
         visualEffect.translatesAutoresizingMaskIntoConstraints = false
@@ -22,7 +22,7 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         visualEffect.isUserInteractionEnabled = false
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSize(width:0, height:headerHeight)
+        flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
         flow.footerReferenceSize = CGSize.zero
         flow.minimumLineSpacing = 0
         flow.minimumInteritemSpacing = 0

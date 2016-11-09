@@ -18,28 +18,13 @@ class VOnboardOptions:UIView
         
         let baseButtonsWidth_2:CGFloat = kBaseButtonsWith / 2.0
         let buttonsWidth:CGFloat = baseButtonsWidth_2 - kButtonsHorizontalMargin
+        let buttonRegisterTitle:String = NSLocalizedString("VOnboardOptions_buttonRegister", comment:"")
+        let buttonSigninTitle:String = NSLocalizedString("VOnboardOptions_buttonSignin", comment:"")
         
-        let buttonRegister:UIButton = UIButton()
-        buttonRegister.translatesAutoresizingMaskIntoConstraints = false
-        buttonRegister.clipsToBounds = true
-        buttonRegister.backgroundColor = UIColor.main
-        buttonRegister.setTitleColor(UIColor.white, for:UIControlState.normal)
-        buttonRegister.setTitleColor(UIColor.black, for:UIControlState.highlighted)
-        buttonRegister.setTitle(
-            NSLocalizedString("VOnboardOptions_buttonRegister", comment:""),
-            for:UIControlState.normal)
-        buttonRegister.titleLabel!.font = UIFont.medium(size:13)
-        
-        let buttonSignin:UIButton = UIButton()
-        buttonSignin.translatesAutoresizingMaskIntoConstraints = false
-        buttonSignin.clipsToBounds = true
-        buttonSignin.backgroundColor = UIColor.main
-        buttonSignin.setTitleColor(UIColor.white, for:UIControlState.normal)
-        buttonSignin.setTitleColor(UIColor.black, for:UIControlState.highlighted)
-        buttonSignin.setTitle(
-            NSLocalizedString("VOnboardOptions_buttonSignin", comment:""),
-            for:UIControlState.normal)
-        buttonSignin.titleLabel!.font = UIFont.medium(size:13)
+        let buttonRegister:VOnboardOptionsButton = VOnboardOptionsButton(
+            title:buttonRegisterTitle)
+        let buttonSignin:VOnboardOptionsButton = VOnboardOptionsButton(
+            title:buttonSigninTitle)
         
         let baseButtons:UIView = UIView()
         baseButtons.translatesAutoresizingMaskIntoConstraints = false

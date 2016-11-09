@@ -13,7 +13,7 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     private let kDisclaimerHeight:CGFloat = 70
     private let kPageControlHeight:CGFloat = 15
     private let kAnimateAfter:TimeInterval = 0.1
-    private let kAnimationDuration:TimeInterval = 0.5
+    private let kAnimationDuration:TimeInterval = 0.9
     
     convenience init(controller:COnboard)
     {

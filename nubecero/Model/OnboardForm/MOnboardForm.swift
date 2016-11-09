@@ -2,9 +2,16 @@ import Foundation
 
 class MOnboardForm
 {
+    enum Method
+    {
+        case Register
+        case Signin
+    }
+    
     let items:[MOnboardFormItem]
     let title:String
     let buttonMessage:String
+    let method:Method
     weak var itemEmail:MOnboardFormItemEmail!
     weak var itemPassword:MOnboardFormItemPassword!
     private let kEmailMinLength:Int = 4
@@ -12,6 +19,7 @@ class MOnboardForm
 
     class func Register() -> MOnboardForm
     {
+        let method:Method = Method.Register
         let title:String = NSLocalizedString("MOnboardForm_titleRegister", comment:"")
         let buttonMessage:String = NSLocalizedString("MOnboardForm_buttonRegister", comment:"")
         
@@ -24,6 +32,7 @@ class MOnboardForm
         ]
         
         let model:MOnboardForm = MOnboardForm(
+            method:method,
             items:items,
             title:title,
             buttonMessage:buttonMessage,
@@ -35,6 +44,7 @@ class MOnboardForm
     
     class func Signin() -> MOnboardForm
     {
+        let method:Method = Method.Signin
         let title:String = NSLocalizedString("MOnboardForm_titleSignin", comment:"")
         let buttonMessage:String = NSLocalizedString("MOnboardForm_buttonSignin", comment:"")
         
@@ -47,6 +57,7 @@ class MOnboardForm
         ]
         
         let model:MOnboardForm = MOnboardForm(
+            method:method,
             items:items,
             title:title,
             buttonMessage:buttonMessage,
@@ -63,8 +74,9 @@ class MOnboardForm
     
     //MARK: private
     
-    private init(items:[MOnboardFormItem], title:String, buttonMessage:String, itemEmail:MOnboardFormItemEmail, itemPassword:MOnboardFormItemPassword)
+    private init(method:Method, items:[MOnboardFormItem], title:String, buttonMessage:String, itemEmail:MOnboardFormItemEmail, itemPassword:MOnboardFormItemPassword)
     {
+        self.method = method
         self.items = items
         self.title = title
         self.buttonMessage = buttonMessage

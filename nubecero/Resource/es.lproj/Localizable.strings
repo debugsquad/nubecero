@@ -43,6 +43,7 @@
 "CLogin_invalidEmail"="Necesitas poner tu correo electrónico";
 "CLogin_invalidPassword"="Necesitas poner tu constraseña";
 "CLogin_errorUnknown"="Hubo un error, reintenta";
+"COnboardForm_errorUnknown"="Error inesperado, reintenta";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando imagen, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

@@ -79,7 +79,7 @@ class VOnboardFormHeader:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[labelTitle(20)]-10-|",
+            withVisualFormat:"V:[labelTitle(20)]-15-|",
             options:[],
             metrics:metrics,
             views:views))

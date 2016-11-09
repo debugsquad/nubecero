@@ -5,12 +5,12 @@ class MOnboardFormItemEmail:MOnboardFormItem
     let email:String?
     private let kCellHeight:CGFloat = 34
     
-    init()
+    override init()
     {
         fatalError()
     }
     
-    init(reusableIdentifier:String, cellHeight:CGFloat)
+    override init(reusableIdentifier:String, cellHeight:CGFloat)
     {
         fatalError()
     }

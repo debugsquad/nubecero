@@ -192,6 +192,7 @@
 		DAF6F2B01DD397150053ED1B /* MOnboardFormItemEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2AF1DD397150053ED1B /* MOnboardFormItemEmail.swift */; };
 		DAF6F2B21DD3971E0053ED1B /* MOnboardFormItemEmailRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2B11DD3971E0053ED1B /* MOnboardFormItemEmailRegister.swift */; };
 		DAF6F2B41DD397260053ED1B /* MOnboardFormItemEmailSignin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2B31DD397260053ED1B /* MOnboardFormItemEmailSignin.swift */; };
+		DAF6F2B61DD39A690053ED1B /* VOnboardFormCellPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2B51DD39A690053ED1B /* VOnboardFormCellPassword.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -399,6 +400,7 @@
 		DAF6F2AF1DD397150053ED1B /* MOnboardFormItemEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItemEmail.swift; sourceTree = "<group>"; };
 		DAF6F2B11DD3971E0053ED1B /* MOnboardFormItemEmailRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItemEmailRegister.swift; sourceTree = "<group>"; };
 		DAF6F2B31DD397260053ED1B /* MOnboardFormItemEmailSignin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItemEmailSignin.swift; sourceTree = "<group>"; };
+		DAF6F2B51DD39A690053ED1B /* VOnboardFormCellPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardFormCellPassword.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1040,6 +1042,7 @@
 				DAF6F2A71DD381A50053ED1B /* VOnboardFormHeader.swift */,
 				DAF6F2AB1DD381BA0053ED1B /* VOnboardFormCell.swift */,
 				DAF6F2AD1DD3954E0053ED1B /* VOnboardFormCellEmail.swift */,
+				DAF6F2B51DD39A690053ED1B /* VOnboardFormCellPassword.swift */,
 			);
 			path = OnboardForm;
 			sourceTree = "<group>";
@@ -1353,6 +1356,7 @@
 				DA88F6741DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift in Sources */,
 				DAE455641DCA844100948D70 /* MPicturesData.swift in Sources */,
 				DA2F668F1DC90AF50078B466 /* FDatabaseModelPictureList.swift in Sources */,
+				DAF6F2B61DD39A690053ED1B /* VOnboardFormCellPassword.swift in Sources */,
 				DACD1FCC1DC7D0320067D26B /* MSession.swift in Sources */,
 				DA406BDC1DCD1CF00098D347 /* VSettingsCellLogout.swift in Sources */,
 				DA2F66B71DC9509D0078B466 /* MPicturesItemStateLoaded.swift in Sources */,

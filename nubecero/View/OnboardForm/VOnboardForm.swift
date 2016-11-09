@@ -4,7 +4,7 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
 {
     private weak var controller:COnboardForm!
     private weak var collectionView:UICollectionView!
-    private let kHeaderHeight:CGFloat = 130
+    private let kHeaderHeight:CGFloat = 135
     private let kCollectionBottom:CGFloat = 50
     
     convenience init(controller:COnboardForm)
@@ -42,6 +42,10 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             VOnboardFormCellEmail.self,
             forCellWithReuseIdentifier:
             VOnboardFormCellEmail.reusableIdentifier)
+        collectionView.register(
+            VOnboardFormCellPassword.self,
+            forCellWithReuseIdentifier:
+            VOnboardFormCellPassword.reusableIdentifier)
         collectionView.register(
             VOnboardFormHeader.self,
             forSupplementaryViewOfKind:

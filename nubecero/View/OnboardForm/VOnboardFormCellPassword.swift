@@ -1,6 +1,6 @@
 import UIKit
 
-class VOnboardFormCellEmail:VOnboardFormCell, UITextFieldDelegate
+class VOnboardFormCellPassword:VOnboardFormCell, UITextFieldDelegate
 {
     private weak var textField:UITextField!
     
@@ -28,8 +28,9 @@ class VOnboardFormCellEmail:VOnboardFormCell, UITextFieldDelegate
         textField.spellCheckingType = UITextSpellCheckingType.no
         textField.autocapitalizationType = UITextAutocapitalizationType.none
         textField.clearButtonMode = UITextFieldViewMode.whileEditing
-        textField.keyboardType = UIKeyboardType.emailAddress
-        textField.placeholder = NSLocalizedString("VOnboardFormCellEmail_placeholder", comment:"")
+        textField.keyboardType = UIKeyboardType.alphabet
+        textField.isSecureTextEntry = true
+        textField.placeholder = NSLocalizedString("VOnboardFormCellPassword_placeholder", comment:"")
         self.textField = textField
         
         addSubview(border)

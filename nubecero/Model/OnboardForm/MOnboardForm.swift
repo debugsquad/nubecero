@@ -10,7 +10,11 @@ class MOnboardForm
     {
         let title:String = NSLocalizedString("MOnboardForm_titleRegister", comment:"")
         let buttonMessage:String = NSLocalizedString("", comment:"")
+        
+        let itemEmail:MOnboardFormItemEmailRegister = MOnboardFormItemEmailRegister()
+        
         let items:[MOnboardFormItem] = [
+            itemEmail
         ]
         
         let model:MOnboardForm = MOnboardForm(
@@ -25,7 +29,11 @@ class MOnboardForm
     {
         let title:String = NSLocalizedString("MOnboardForm_titleSignin", comment:"")
         let buttonMessage:String = NSLocalizedString("", comment:"")
+        
+        let itemEmail:MOnboardFormItemEmailSignin = MOnboardFormItemEmailSignin()
+        
         let items:[MOnboardFormItem] = [
+            itemEmail
         ]
         
         let model:MOnboardForm = MOnboardForm(

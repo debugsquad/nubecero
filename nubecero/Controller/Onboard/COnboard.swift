@@ -4,7 +4,7 @@ class COnboard:CController
 {
     let model:MOnboard
     private weak var viewOnboard:VOnboard!
-    private let kSuccessAfter:TimeInterval = 1
+    private let kSuccessAfter:TimeInterval = 0.5
     
     init()
     {
@@ -30,9 +30,9 @@ class COnboard:CController
         parentController.statusBarDefault()
     }
     
-    override func viewDidDisappear(_ animated:Bool)
+    override func viewWillDisappear(_ animated:Bool)
     {
-        super.viewDidDisappear(animated)
+        super.viewWillDisappear(animated)
         parentController.statusBarLight()
     }
     

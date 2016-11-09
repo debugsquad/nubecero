@@ -3,7 +3,7 @@ import UIKit
 class MOnboardFormItemEmail:MOnboardFormItem
 {
     var email:String?
-    private let kCellHeight:CGFloat = 40
+    private let kCellHeight:CGFloat = 44
     
     override init()
     {

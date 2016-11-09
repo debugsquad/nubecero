@@ -86,9 +86,9 @@ class CParent:UIViewController
         
         controllers.append(controller)
         addChildViewController(controller)
-        controller.beginAppearanceTransition(true, animated:true)
+        controller.beginAppearanceTransition(true, animated:animate)
         
-        currentController?.beginAppearanceTransition(false, animated:true)
+        currentController?.beginAppearanceTransition(false, animated:animate)
         
         viewParent.over(controller:controller, underBar:underBar, animate:animate)
         {

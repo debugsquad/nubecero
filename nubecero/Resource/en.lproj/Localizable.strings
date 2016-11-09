@@ -18,6 +18,8 @@
 "VSettingsCellAbout_labelTitle"="nubecero";
 "VSettingsCellRate_label"="Review on the store";
 "VOnboard_labelDisclaimer"="Your account allows you to access the Cloud from everywhere";
+"VOnboardOptions_buttonRegister"="Register";
+"VOnboardOptions_buttonSignin"="Signin";
 
 "CHomeUpload_title"="Upload";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

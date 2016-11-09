@@ -3,8 +3,8 @@ import UIKit
 class VOnboardOptions:UIView
 {
     private weak var controller:COnboard!
+    private weak var baseButtons:UIView!
     private weak var layoutBaseButtonsLeft:NSLayoutConstraint!
-    private let kCornerRadius:CGFloat = 15
     private let kBaseButtonsWith:CGFloat = 280
     private let kButtonsHorizontalMargin:CGFloat = -10
     
@@ -23,16 +23,28 @@ class VOnboardOptions:UIView
         buttonRegister.translatesAutoresizingMaskIntoConstraints = false
         buttonRegister.clipsToBounds = true
         buttonRegister.backgroundColor = UIColor.main
+        buttonRegister.setTitleColor(UIColor.white, for:UIControlState.normal)
+        buttonRegister.setTitleColor(UIColor.black, for:UIControlState.highlighted)
+        buttonRegister.setTitle(
+            NSLocalizedString("VOnboardOptions_buttonRegister", comment:""),
+            for:UIControlState.normal)
+        buttonRegister.titleLabel!.font = UIFont.medium(size:13)
         
         let buttonSignin:UIButton = UIButton()
         buttonSignin.translatesAutoresizingMaskIntoConstraints = false
         buttonSignin.clipsToBounds = true
         buttonSignin.backgroundColor = UIColor.main
+        buttonSignin.setTitleColor(UIColor.white, for:UIControlState.normal)
+        buttonSignin.setTitleColor(UIColor.black, for:UIControlState.highlighted)
+        buttonSignin.setTitle(
+            NSLocalizedString("VOnboardOptions_buttonSignin", comment:""),
+            for:UIControlState.normal)
+        buttonSignin.titleLabel!.font = UIFont.medium(size:13)
         
         let baseButtons:UIView = UIView()
         baseButtons.translatesAutoresizingMaskIntoConstraints = false
         baseButtons.clipsToBounds = true
-        baseButtons.layer.cornerRadius = kCornerRadius
+        self.baseButtons = baseButtons
         
         baseButtons.addSubview(buttonRegister)
         baseButtons.addSubview(buttonSignin)
@@ -94,9 +106,12 @@ class VOnboardOptions:UIView
     override func layoutSubviews()
     {
         let width:CGFloat = bounds.maxX
+        let height:CGFloat = bounds.maxY
+        let height_2:CGFloat = height / 2.0
         let remain:CGFloat = width - kBaseButtonsWith
         let margin:CGFloat = remain / 2.0
         layoutBaseButtonsLeft.constant = margin
+        baseButtons.layer.cornerRadius = height_2
         
         super.layoutSubviews()
     }

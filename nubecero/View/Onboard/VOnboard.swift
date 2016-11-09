@@ -130,13 +130,8 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     
     func scrollViewDidScroll(_ scrollView:UIScrollView)
     {
-        let width:CGFloat = scrollView.bounds.maxX
-        let height:CGFloat = scrollView.bounds.maxY
-        let width_2:CGFloat = width / 2.0
-        let height_2:CGFloat = height / 2.0
         let offsetX:CGFloat = scrollView.contentOffset.x
-        let compoundPos:CGFloat = width_2 + offsetX
-        let point:CGPoint = CGPoint(x:offsetX, y:height_2)
+        let point:CGPoint = CGPoint(x:offsetX, y:1)
         
         guard
             

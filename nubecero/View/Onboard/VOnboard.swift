@@ -6,8 +6,10 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     private weak var controller:COnboard!
     private weak var collectionView:UICollectionView!
     private weak var labelDisclaimer:UILabel!
-    private let kOptionsHeight:CGFloat = 36
-    private let kDisclaimerHeight:CGFloat = 80
+    private weak var pageController:UIPageControl!
+    private let kOptionsHeight:CGFloat = 34
+    private let kDisclaimerHeight:CGFloat = 70
+    private let kPageControlHeight:CGFloat = 15
     
     convenience init(controller:COnboard)
     {
@@ -16,6 +18,15 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         translatesAutoresizingMaskIntoConstraints = false
         clipsToBounds = true
         self.controller = controller
+        
+        let pageControl:UIPageControl = UIPageControl()
+        pageControl.isUserInteractionEnabled = false
+        pageControl.currentPageIndicatorTintColor = UIColor.complement
+        pageControl.pageIndicatorTintColor = UIColor.complement.withAlphaComponent(0.2)
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        pageControl.numberOfPages = controller.model.items.count
+        pageControl.currentPage = 0
+        self.pageController = pageControl
         
         let viewOptions:VOnboardOptions = VOnboardOptions(controller:controller)
         self.viewOptions = viewOptions
@@ -48,7 +59,7 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         labelDisclaimer.isUserInteractionEnabled = false
         labelDisclaimer.translatesAutoresizingMaskIntoConstraints = false
         labelDisclaimer.backgroundColor = UIColor.clear
-        labelDisclaimer.font = UIFont.regular(size:16)
+        labelDisclaimer.font = UIFont.regular(size:13)
         labelDisclaimer.textColor = UIColor(white:0.3, alpha:1)
         labelDisclaimer.numberOfLines = 0
         labelDisclaimer.textAlignment = NSTextAlignment.center
@@ -58,15 +69,18 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         addSubview(collectionView)
         addSubview(labelDisclaimer)
         addSubview(viewOptions)
+        addSubview(pageControl)
         
         let views:[String:UIView] = [
             "collectionView":collectionView,
             "viewOptions":viewOptions,
-            "labelDisclaimer":labelDisclaimer]
+            "labelDisclaimer":labelDisclaimer,
+            "pageControl":pageControl]
         
         let metrics:[String:CGFloat] = [
             "optionsHeight":kOptionsHeight,
-            "disclaimerHeight":kDisclaimerHeight]
+            "disclaimerHeight":kDisclaimerHeight,
+            "pageControlHeight":kPageControlHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[collectionView]-0-|",
@@ -84,8 +98,13 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[pageControl]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:
-            "V:|-0-[collectionView]-0-[viewOptions(optionsHeight)]-0-[labelDisclaimer(disclaimerHeight)]-0-|",
+            "V:|-0-[collectionView]-0-[pageControl(pageControlHeight)]-5-[viewOptions(optionsHeight)]-0-[labelDisclaimer(disclaimerHeight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -108,6 +127,29 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     }
     
     //MARK: collectionView delegate
+    
+    func scrollViewDidScroll(_ scrollView:UIScrollView)
+    {
+        let width:CGFloat = scrollView.bounds.maxX
+        let height:CGFloat = scrollView.bounds.maxY
+        let width_2:CGFloat = width / 2.0
+        let height_2:CGFloat = height / 2.0
+        let offsetX:CGFloat = scrollView.contentOffset.x
+        let compoundPos:CGFloat = width_2 + offsetX
+        let point:CGPoint = CGPoint(x:offsetX, y:height_2)
+        
+        guard
+            
+            let indexPath:IndexPath = collectionView.indexPathForItem(at:point)
+        
+        else
+        {
+            return
+        }
+        
+        let itemPath:Int = indexPath.item
+        pageController.currentPage = itemPath
+    }
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {

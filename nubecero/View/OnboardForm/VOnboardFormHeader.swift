@@ -37,7 +37,7 @@ class VOnboardFormHeader:UICollectionReusableView
         labelTitle.isUserInteractionEnabled = false
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
-        labelTitle.font = UIFont.regular(size:16)
+        labelTitle.font = UIFont.regular(size:18)
         labelTitle.textColor = UIColor.black
         self.labelTitle = labelTitle
         
@@ -79,7 +79,7 @@ class VOnboardFormHeader:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[labelTitle(20)]-0-|",
+            withVisualFormat:"V:[labelTitle(20)]-10-|",
             options:[],
             metrics:metrics,
             views:views))

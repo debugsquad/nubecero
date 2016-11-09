@@ -188,6 +188,7 @@
 		DAF6F2A61DD378FF0053ED1B /* MOnboardFormItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2A51DD378FF0053ED1B /* MOnboardFormItem.swift */; };
 		DAF6F2A81DD381A50053ED1B /* VOnboardFormHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2A71DD381A50053ED1B /* VOnboardFormHeader.swift */; };
 		DAF6F2AC1DD381BA0053ED1B /* VOnboardFormCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2AB1DD381BA0053ED1B /* VOnboardFormCell.swift */; };
+		DAF6F2AE1DD3954E0053ED1B /* VOnboardFormCellEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2AD1DD3954E0053ED1B /* VOnboardFormCellEmail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -391,6 +392,7 @@
 		DAF6F2A51DD378FF0053ED1B /* MOnboardFormItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItem.swift; sourceTree = "<group>"; };
 		DAF6F2A71DD381A50053ED1B /* VOnboardFormHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardFormHeader.swift; sourceTree = "<group>"; };
 		DAF6F2AB1DD381BA0053ED1B /* VOnboardFormCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardFormCell.swift; sourceTree = "<group>"; };
+		DAF6F2AD1DD3954E0053ED1B /* VOnboardFormCellEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardFormCellEmail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1028,6 +1030,7 @@
 				DAF6F2A11DD378100053ED1B /* VOnboardForm.swift */,
 				DAF6F2A71DD381A50053ED1B /* VOnboardFormHeader.swift */,
 				DAF6F2AB1DD381BA0053ED1B /* VOnboardFormCell.swift */,
+				DAF6F2AD1DD3954E0053ED1B /* VOnboardFormCellEmail.swift */,
 			);
 			path = OnboardForm;
 			sourceTree = "<group>";
@@ -1265,6 +1268,7 @@
 				DA406BD31DCD02E90098D347 /* VSettingsCellSecurity.swift in Sources */,
 				DAD739821DD128A400FC3297 /* MLoginMode.swift in Sources */,
 				DA88F6721DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift in Sources */,
+				DAF6F2AE1DD3954E0053ED1B /* VOnboardFormCellEmail.swift in Sources */,
 				DAC55F201DD2592200213C27 /* MOnboardItem.swift in Sources */,
 				DACD1F991DC3F0E80067D26B /* MMainItemPictures.swift in Sources */,
 				DA2F668B1DC8FFB20078B466 /* MPictures.swift in Sources */,

@@ -197,6 +197,7 @@
 		DAF6F2BA1DD39BBB0053ED1B /* MOnboardFormItemPasswordRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2B91DD39BBB0053ED1B /* MOnboardFormItemPasswordRegister.swift */; };
 		DAF6F2BC1DD39BC50053ED1B /* MOnboardFormItemPasswordSignin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2BB1DD39BC50053ED1B /* MOnboardFormItemPasswordSignin.swift */; };
 		DAF6F2BE1DD3A2380053ED1B /* VOnboardFormSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2BD1DD3A2380053ED1B /* VOnboardFormSender.swift */; };
+		DAF6F2C01DD3B0610053ED1B /* MOnboardFormCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2BF1DD3B0610053ED1B /* MOnboardFormCredentials.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -409,6 +410,7 @@
 		DAF6F2B91DD39BBB0053ED1B /* MOnboardFormItemPasswordRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItemPasswordRegister.swift; sourceTree = "<group>"; };
 		DAF6F2BB1DD39BC50053ED1B /* MOnboardFormItemPasswordSignin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItemPasswordSignin.swift; sourceTree = "<group>"; };
 		DAF6F2BD1DD3A2380053ED1B /* VOnboardFormSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardFormSender.swift; sourceTree = "<group>"; };
+		DAF6F2BF1DD3B0610053ED1B /* MOnboardFormCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormCredentials.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1042,6 +1044,7 @@
 				DAF6F2B71DD39B5E0053ED1B /* MOnboardFormItemPassword.swift */,
 				DAF6F2B91DD39BBB0053ED1B /* MOnboardFormItemPasswordRegister.swift */,
 				DAF6F2BB1DD39BC50053ED1B /* MOnboardFormItemPasswordSignin.swift */,
+				DAF6F2BF1DD3B0610053ED1B /* MOnboardFormCredentials.swift */,
 			);
 			path = OnboardForm;
 			sourceTree = "<group>";
@@ -1424,6 +1427,7 @@
 				DA4EF9131DC395B300297C1D /* VBarCell.swift in Sources */,
 				DAE455581DCA611100948D70 /* MPicturesDetailInfoItemData.swift in Sources */,
 				DACD1FC91DC7C6C80067D26B /* FDatabaseModelPicture.swift in Sources */,
+				DAF6F2C01DD3B0610053ED1B /* MOnboardFormCredentials.swift in Sources */,
 				DA4EF9021DC395B300297C1D /* ExtensionUICollectionReusableView.swift in Sources */,
 				DAD739611DD11A4600FC3297 /* VLoginHeader.swift in Sources */,
 				DAE455521DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift in Sources */,

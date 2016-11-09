@@ -21,7 +21,8 @@
 "VOnboardOptions_buttonRegister"="Crear cuenta";
 "VOnboardOptions_buttonSignin"="Ingresar";
 "VOnboardFormHeader_buttonCancel"="Cancelar";
-"VOnboardFormCellEmail_placeholder"="Contraseña";
+"VOnboardFormCellEmail_placeholder"="Correo electrónico";
+"VOnboardFormCellPassword_placeholder"="Contresenna";
 
 "CHomeUpload_title"="Subir";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

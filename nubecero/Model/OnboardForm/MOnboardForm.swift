@@ -12,9 +12,11 @@ class MOnboardForm
         let buttonMessage:String = NSLocalizedString("", comment:"")
         
         let itemEmail:MOnboardFormItemEmailRegister = MOnboardFormItemEmailRegister()
+        let itemPassword:MOnboardFormItemPasswordRegister = MOnboardFormItemPasswordRegister()
         
         let items:[MOnboardFormItem] = [
-            itemEmail
+            itemEmail,
+            itemPassword
         ]
         
         let model:MOnboardForm = MOnboardForm(
@@ -31,9 +33,11 @@ class MOnboardForm
         let buttonMessage:String = NSLocalizedString("", comment:"")
         
         let itemEmail:MOnboardFormItemEmailSignin = MOnboardFormItemEmailSignin()
+        let itemPassword:MOnboardFormItemPasswordSignin = MOnboardFormItemPasswordSignin()
         
         let items:[MOnboardFormItem] = [
-            itemEmail
+            itemEmail,
+            itemPassword
         ]
         
         let model:MOnboardForm = MOnboardForm(

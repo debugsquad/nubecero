@@ -193,6 +193,9 @@
 		DAF6F2B21DD3971E0053ED1B /* MOnboardFormItemEmailRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2B11DD3971E0053ED1B /* MOnboardFormItemEmailRegister.swift */; };
 		DAF6F2B41DD397260053ED1B /* MOnboardFormItemEmailSignin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2B31DD397260053ED1B /* MOnboardFormItemEmailSignin.swift */; };
 		DAF6F2B61DD39A690053ED1B /* VOnboardFormCellPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2B51DD39A690053ED1B /* VOnboardFormCellPassword.swift */; };
+		DAF6F2B81DD39B5E0053ED1B /* MOnboardFormItemPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2B71DD39B5E0053ED1B /* MOnboardFormItemPassword.swift */; };
+		DAF6F2BA1DD39BBB0053ED1B /* MOnboardFormItemPasswordRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2B91DD39BBB0053ED1B /* MOnboardFormItemPasswordRegister.swift */; };
+		DAF6F2BC1DD39BC50053ED1B /* MOnboardFormItemPasswordSignin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2BB1DD39BC50053ED1B /* MOnboardFormItemPasswordSignin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -401,6 +404,9 @@
 		DAF6F2B11DD3971E0053ED1B /* MOnboardFormItemEmailRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItemEmailRegister.swift; sourceTree = "<group>"; };
 		DAF6F2B31DD397260053ED1B /* MOnboardFormItemEmailSignin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItemEmailSignin.swift; sourceTree = "<group>"; };
 		DAF6F2B51DD39A690053ED1B /* VOnboardFormCellPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardFormCellPassword.swift; sourceTree = "<group>"; };
+		DAF6F2B71DD39B5E0053ED1B /* MOnboardFormItemPassword.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItemPassword.swift; sourceTree = "<group>"; };
+		DAF6F2B91DD39BBB0053ED1B /* MOnboardFormItemPasswordRegister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItemPasswordRegister.swift; sourceTree = "<group>"; };
+		DAF6F2BB1DD39BC50053ED1B /* MOnboardFormItemPasswordSignin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItemPasswordSignin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1031,6 +1037,9 @@
 				DAF6F2AF1DD397150053ED1B /* MOnboardFormItemEmail.swift */,
 				DAF6F2B11DD3971E0053ED1B /* MOnboardFormItemEmailRegister.swift */,
 				DAF6F2B31DD397260053ED1B /* MOnboardFormItemEmailSignin.swift */,
+				DAF6F2B71DD39B5E0053ED1B /* MOnboardFormItemPassword.swift */,
+				DAF6F2B91DD39BBB0053ED1B /* MOnboardFormItemPasswordRegister.swift */,
+				DAF6F2BB1DD39BC50053ED1B /* MOnboardFormItemPasswordSignin.swift */,
 			);
 			path = OnboardForm;
 			sourceTree = "<group>";
@@ -1273,6 +1282,7 @@
 				DA2F66AE1DC942480078B466 /* VPicturesDetailCellImage.swift in Sources */,
 				DAE4555D1DCA765D00948D70 /* VPicturesData.swift in Sources */,
 				DA2F66A61DC92F720078B466 /* MPicturesDetailItemInfo.swift in Sources */,
+				DAF6F2BC1DD39BC50053ED1B /* MOnboardFormItemPasswordSignin.swift in Sources */,
 				DA2F66B31DC950850078B466 /* MPicturesItemStateNone.swift in Sources */,
 				DACD1FBD1DC589CD0067D26B /* VHomeUploadSyncBar.swift in Sources */,
 				DA406BC91DCCE8480098D347 /* VAuth.swift in Sources */,
@@ -1287,6 +1297,7 @@
 				DA2F668B1DC8FFB20078B466 /* MPictures.swift in Sources */,
 				DA3411791DCB92A3006E6D71 /* VHomeCellDiskCircle.swift in Sources */,
 				DAC55F321DD2BB3700213C27 /* VOnboardOptionsButton.swift in Sources */,
+				DAF6F2B81DD39B5E0053ED1B /* MOnboardFormItemPassword.swift in Sources */,
 				DA34118C1DCC037D006E6D71 /* VHomeCellSpace.swift in Sources */,
 				DA3411831DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift in Sources */,
 				DAD7398E1DD1597B00FC3297 /* MSettingsItemAbout.swift in Sources */,
@@ -1324,6 +1335,7 @@
 				DAF6F2A21DD378100053ED1B /* VOnboardForm.swift in Sources */,
 				DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */,
 				DA34117F1DCBC4A8006E6D71 /* MSessionServer.swift in Sources */,
+				DAF6F2BA1DD39BBB0053ED1B /* MOnboardFormItemPasswordRegister.swift in Sources */,
 				DAD739801DD11F3E00FC3297 /* VLoginCellDisclaimerSignin.swift in Sources */,
 				DAD739941DD16E9700FC3297 /* VSettingsCellShare.swift in Sources */,
 				DA2F66B11DC9506E0078B466 /* MPicturesItemState.swift in Sources */,

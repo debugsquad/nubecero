@@ -3,6 +3,11 @@ import Foundation
 class MPicturesDetailItemInfo:MPicturesDetailItem
 {
     private let kSizeWeight:Int = 1
+ 
+    override init(reusableIdentifier:String, sizeWeight:Int)
+    {
+        fatalError()
+    }
     
     override init()
     {

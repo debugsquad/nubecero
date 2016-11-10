@@ -2,11 +2,11 @@ import UIKit
 
 class MOnboardFormItemPassGenerator:MOnboardFormItem
 {
-    private let kCellHeight:CGFloat = 40
+    private let kCellHeight:CGFloat = 42
     
     override init()
     {
-        let reusableIdentifier:String = VOnboardFormCellRemember.reusableIdentifier
+        let reusableIdentifier:String = VOnboardFormCellPassGenerator.reusableIdentifier
         super.init(
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight)

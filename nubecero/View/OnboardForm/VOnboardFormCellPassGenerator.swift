@@ -4,7 +4,7 @@ class VOnboardFormCellPassGenerator:VOnboardFormCell
 {
     private weak var passwordField:UITextField?
     private let kCornerRadius:CGFloat = 4
-    private let kButtonWidth:CGFloat = 160
+    private let kButtonWidth:CGFloat = 165
     
     override init(frame:CGRect)
     {
@@ -34,7 +34,7 @@ class VOnboardFormCellPassGenerator:VOnboardFormCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-3-[button]-0-|",
+            withVisualFormat:"V:|-6-[button]-5-|",
             options:[],
             metrics:metrics,
             views:views))

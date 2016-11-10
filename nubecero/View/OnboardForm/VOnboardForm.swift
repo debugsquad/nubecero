@@ -63,6 +63,10 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             forCellWithReuseIdentifier:
             VOnboardFormCellRemember.reusableIdentifier)
         collectionView.register(
+            VOnboardFormCellPassGenerator.self,
+            forCellWithReuseIdentifier:
+            VOnboardFormCellPassGenerator.reusableIdentifier)
+        collectionView.register(
             VOnboardFormHeader.self,
             forSupplementaryViewOfKind:
             UICollectionElementKindSectionHeader,

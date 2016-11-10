@@ -4,6 +4,7 @@ class VOnboardFormCellPassGenerator:VOnboardFormCell
 {
     private weak var passwordField:UITextField?
     private let kCornerRadius:CGFloat = 4
+    private let kButtonWidth:CGFloat = 160
     
     override init(frame:CGRect)
     {
@@ -15,49 +16,25 @@ class VOnboardFormCellPassGenerator:VOnboardFormCell
         button.backgroundColor = UIColor.main
         button.setTitleColor(UIColor.white, for:UIControlState.normal)
         button.setTitleColor(UIColor(white:1, alpha:0.2), for:UIControlState.highlighted)
-        button.setTitle(NSLocalizedString("VOnboardFormCellPassGenerator", comment:""), for:UIControlState.normal)
+        button.setTitle(NSLocalizedString("VOnboardFormCellPassGenerator_buttonTitle", comment:""), for:UIControlState.normal)
         button.titleLabel!.font = UIFont.medium(size:13)
         button.layer.cornerRadius = kCornerRadius
-        
-        let check:UISwitch = UISwitch()
-        check.translatesAutoresizingMaskIntoConstraints = false
-        check.onTintColor = UIColor.main
-        check.addTarget(
-            self,
-            action:#selector(actionCheck(sender:)),
-            for:UIControlEvents.valueChanged)
-        self.check = check
-        
-        let label:UILabel = UILabel()
-        label.isUserInteractionEnabled = false
-        label.backgroundColor = UIColor.clear
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = NSTextAlignment.right
-        label.font = UIFont.regular(size:14)
-        label.textColor = UIColor.black
-        label.text = NSLocalizedString("VOnboardFormCellRemember_label", comment:"")
-        
-        addSubview(label)
-        addSubview(check)
+
+        addSubview(button)
         
         let views:[String:UIView] = [
-            "label":label,
-            "check":check]
+            "button":button]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "buttonWidth":kButtonWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[label(150)]-10-[check(71)]-0-|",
+            withVisualFormat:"H:|-20-[button(buttonWidth)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-20-[check]",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-20-[label(31)]",
+            withVisualFormat:"V:|-3-[button]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -73,5 +50,4 @@ class VOnboardFormCellPassGenerator:VOnboardFormCell
     }
     
     //MARK: actions
-
 }

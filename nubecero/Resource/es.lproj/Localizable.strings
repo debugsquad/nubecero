@@ -18,6 +18,7 @@
 "VOnboardFormHeader_buttonCancel"="Cancelar";
 "VOnboardFormCellEmail_placeholder"="Correo electrónico";
 "VOnboardFormCellPassword_placeholder"="Contresenna";
+"VOnboardFormCellPassGenerator_buttonTitle"="Generar contraseña";
 
 "CHomeUpload_title"="Subir";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

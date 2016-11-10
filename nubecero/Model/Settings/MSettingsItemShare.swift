@@ -5,6 +5,11 @@ class MSettingsItemShare:MSettingsItem
     private let kCellHeight:CGFloat = 40
     private let kSelectable:Bool = true
     
+    override init(reusableIdentifier:String, cellHeight:CGFloat, selectable:Bool)
+    {
+        fatalError()
+    }
+    
     override init()
     {
         let reusableIdentifier:String = VSettingsCellShare.reusableIdentifier

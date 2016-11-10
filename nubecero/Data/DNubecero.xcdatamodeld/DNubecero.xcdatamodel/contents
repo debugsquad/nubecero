@@ -3,9 +3,10 @@
     <entity name="DObjectSettings" representedClassName="DObjectSettings" syncable="YES" codeGenerationType="class">
         <attribute name="lastEmail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastPassword" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="rememberMe" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="security" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DObjectSettings" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="DObjectSettings" positionX="-54" positionY="-9" width="128" height="105"/>
     </elements>
 </model>

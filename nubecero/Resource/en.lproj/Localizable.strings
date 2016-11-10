@@ -10,11 +10,6 @@
 "VSettingsCellSecurity_label"="Require Passcode";
 "VSettingsCellLogout_label"="Log out";
 "VPicturesDetailHeader_label"="Your Cloud is empty";
-"VLoginCellDisclaimerSignin_label"="Use an existing account";
-"VLoginCellDisclaimerRegister_label"="Create a new account";
-"VLoginCellSend_label"="Send";
-"VLoginCellEmail_placeholder"="Email";
-"VLoginCellPassword_placeholder"="Password";
 "VSettingsCellAbout_labelTitle"="nubecero";
 "VSettingsCellRate_label"="Review on the store";
 "VOnboard_labelDisclaimer"="Your account allows you to access the Cloud from everywhere";
@@ -46,8 +41,6 @@
 "MHomeUploadItemStatusWaiting_error"="Error loading image, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";
 "MHomeUploadItemStatusReferenced_errorUser"="Error saving picture, try again";
-"MLoginModeRegister_name"="Register";
-"MLoginModeSignin_name"="Sign in";
 "MOnboardItemUpload_title"="Upload your pictures to the Cloud";
 "MOnboardItemAccess_title"="Access them any time";
 "MOnboardItemFree_title"="Free up space";

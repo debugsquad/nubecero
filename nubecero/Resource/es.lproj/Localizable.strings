@@ -10,11 +10,6 @@
 "VSettingsCellSecurity_label"="Pedir contraseña";
 "VSettingsCellLogout_label"="Salir";
 "VPicturesDetailHeader_label"="Tu Nube esta vacía";
-"VLoginCellDisclaimerSignin_label"="Ingresa si ya tienes cuenta";
-"VLoginCellDisclaimerRegister_label"="Crea una nueva cuenta";
-"VLoginCellSend_label"="Enviar";
-"VLoginCellEmail_placeholder"="Correo electrónico";
-"VLoginCellPassword_placeholder"="Contraseña";
 "VSettingsCellAbout_labelTitle"="nubecero";
 "VSettingsCellRate_label"="Calificar en la tienda";
 "VOnboard_labelDisclaimer"="Tu cuenta te permite entrar a la Nube desde cualquier lugar";
@@ -46,8 +41,6 @@
 "MHomeUploadItemStatusWaiting_error"="Error cargando imagen, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";
 "MHomeUploadItemStatusReferenced_errorUser"="Error guardando imagen, reintentalo";
-"MLoginModeRegister_name"="Registrate";
-"MLoginModeSignin_name"="Ingresa";
 "MOnboardItemUpload_title"="Sube tus fotos a la Nube";
 "MOnboardItemAccess_title"="Accede a ellas cuando quieras";
 "MOnboardItemFree_title"="Libera memoria";

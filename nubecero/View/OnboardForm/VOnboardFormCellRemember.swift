@@ -46,7 +46,7 @@ class VOnboardFormCellRemember:VOnboardFormCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-20-[label(34)]",
+            withVisualFormat:"V:|-20-[label(31)]",
             options:[],
             metrics:metrics,
             views:views))

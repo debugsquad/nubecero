@@ -9,4 +9,9 @@ class MHomeUploadItemStatusNone:MHomeUploadItemStatus
     {
         super.init(item:item, assetSync:kAssetSync, finished:kFinished)
     }
+    
+    override init(item:MHomeUploadItem?, assetSync:String, finished:Bool)
+    {
+        fatalError()
+    }
 }

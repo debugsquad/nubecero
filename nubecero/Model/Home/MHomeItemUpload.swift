@@ -14,6 +14,11 @@ class MHomeItemUpload:MHomeItem
             selectable:kSelectable)
     }
     
+    override init(reusableIdentifier:String, cellHeight:CGFloat, selectable:Bool)
+    {
+        fatalError()
+    }
+    
     override func selected(controller:CHome)
     {
         controller.uploadPictures()

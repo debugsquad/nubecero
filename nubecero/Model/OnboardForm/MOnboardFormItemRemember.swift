@@ -2,7 +2,7 @@ import UIKit
 
 class MOnboardFormItemRemember:MOnboardFormItem
 {
-    private let kCellHeight:CGFloat = 50
+    private let kCellHeight:CGFloat = 60
     
     override init()
     {

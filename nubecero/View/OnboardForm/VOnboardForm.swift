@@ -168,7 +168,6 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             return
         }
         
-        
         let keyRect:CGRect = keyboardFrameValue.cgRectValue
         let yOrigin = keyRect.origin.y
         let height:CGFloat = bounds.maxY

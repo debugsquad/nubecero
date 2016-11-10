@@ -12,13 +12,13 @@ class VOnboardFormSender:UIView
         self.init()
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor(white:1, alpha:0.9)
         self.controller = controller
         
         let border:UIView = UIView()
         border.isUserInteractionEnabled = false
         border.translatesAutoresizingMaskIntoConstraints = false
-        border.backgroundColor = UIColor(white:0, alpha:0.1)
+        border.backgroundColor = UIColor(white:0, alpha:0.05)
         
         let button:UIButton = UIButton()
         button.clipsToBounds = true
@@ -62,7 +62,7 @@ class VOnboardFormSender:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-5-[button]-5-|",
+            withVisualFormat:"V:|-6-[button]-5-|",
             options:[],
             metrics:metrics,
             views:views))

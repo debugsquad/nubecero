@@ -9,7 +9,7 @@ class VOnboardForm:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     private weak var layoutSenderBottom:NSLayoutConstraint!
     private let kHeaderHeight:CGFloat = 135
     private let kCollectionBottom:CGFloat = 50
-    private let kSenderViewHeight:CGFloat = 40
+    private let kSenderViewHeight:CGFloat = 42
     private let kAnimationDuration:TimeInterval = 0.3
     
     convenience init(controller:COnboardForm)

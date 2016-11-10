@@ -36,7 +36,7 @@ class VOnboardFormCellRemember:VOnboardFormCell
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[label(150)]-10-[check(72)]-0-|",
+            withVisualFormat:"H:[label(150)]-10-[check(71)]-0-|",
             options:[],
             metrics:metrics,
             views:views))

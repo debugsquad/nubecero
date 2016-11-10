@@ -4,7 +4,9 @@ class MOnboardFormItemEmailSignin:MOnboardFormItemEmail
 {
     override init()
     {
-        super.init(email:nil)
+        let rememberEmail:String? = MSession.sharedInstance.settings?.lastEmail
+        
+        super.init(email:rememberEmail)
     }
     
     override init(reusableIdentifier:String, cellHeight:CGFloat)

@@ -58,6 +58,31 @@ class COnboardForm:CController
         }
     }
     
+    private func rememberCredentials(credentials:MOnboardFormCredentials)
+    {
+        guard
+        
+            let remember:Bool = MSession.sharedInstance.settings?.rememberMe
+        
+        else
+        {
+            return
+        }
+        
+        if remember
+        {
+            MSession.sharedInstance.settings?.lastEmail = credentials.email
+            MSession.sharedInstance.settings?.lastPassword = credentials.password
+        }
+        else
+        {
+            MSession.sharedInstance.settings?.lastEmail = nil
+            MSession.sharedInstance.settings?.lastPassword = nil
+        }
+        
+        DManager.sharedInstance.save()
+    }
+    
     private func authenticateRegister(credentials:MOnboardFormCredentials)
     {
         FMain.sharedInstance.analytics?.tryRegister()
@@ -161,6 +186,8 @@ class COnboardForm:CController
                     
                     return
                 }
+                
+                self?.rememberCredentials(credentials:strongCredentials)
                 
                 switch method
                 {

@@ -52,6 +52,7 @@ class COnboard:CController
     func authSuccess()
     {
         let successAfter:TimeInterval = kSuccessAfter
+        viewOnboard.isUserInteractionEnabled = false
         parentController.dismiss()
         
         DispatchQueue.main.asyncAfter(

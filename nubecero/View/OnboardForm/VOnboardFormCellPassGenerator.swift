@@ -61,7 +61,7 @@ class VOnboardFormCellPassGenerator:VOnboardFormCell
     
     func actionGeneratePassword(sender button:UIButton)
     {
-        passwordField?.text = "ABsdsdaCC"
+        passwordField?.text = modelPassGenerator?.generatePassword()
         passwordField?.isSecureTextEntry = false
     }
 }

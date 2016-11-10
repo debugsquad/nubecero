@@ -336,6 +336,7 @@
 		DAD739911DD1643600FC3297 /* MSettingsItemRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemRate.swift; sourceTree = "<group>"; };
 		DAD739931DD16E9700FC3297 /* VSettingsCellShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellShare.swift; sourceTree = "<group>"; };
 		DAD739951DD170B000FC3297 /* MSettingsItemShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemShare.swift; sourceTree = "<group>"; };
+		DAE1CEC01DD4128E00B1FC6B /* nubecero.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nubecero.entitlements; sourceTree = "<group>"; };
 		DAE4554A1DCA4C2400948D70 /* Pictures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Pictures.xcassets; sourceTree = "<group>"; };
 		DAE4554D1DCA4C9F00948D70 /* MPicturesDetailInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfo.swift; sourceTree = "<group>"; };
 		DAE4554F1DCA4CB000948D70 /* MPicturesDetailInfoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPicturesDetailInfoItem.swift; sourceTree = "<group>"; };
@@ -437,6 +438,7 @@
 		DA1F0E241DC2C6480003AAB8 /* nubecero */ = {
 			isa = PBXGroup;
 			children = (
+				DAE1CEC01DD4128E00B1FC6B /* nubecero.entitlements */,
 				DA4EF8C41DC395B300297C1D /* Assets */,
 				DA4EF8C61DC395B300297C1D /* Controller */,
 				DA4EF8CC1DC395B300297C1D /* Data */,
@@ -1055,6 +1057,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 7AMWG3RLHN;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					DA1F0E351DC2C6480003AAB8 = {
 						CreatedOnToolsVersion = 8.0;
@@ -1504,6 +1511,7 @@
 			baseConfigurationReference = 99E57DB166C2B5C18C3EC3F9 /* Pods-nubecero.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = nubecero/nubecero.entitlements;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = nubecero/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1522,6 +1530,7 @@
 			baseConfigurationReference = 3DDB620E7687DA83BE47428E /* Pods-nubecero.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = nubecero/nubecero.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = nubecero/Info.plist;

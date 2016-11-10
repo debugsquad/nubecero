@@ -1,4 +1,5 @@
 import UIKit
+import UserNotifications
 
 class COnboard:CController
 {
@@ -22,6 +23,26 @@ class COnboard:CController
         let viewOnboard:VOnboard = VOnboard(controller:self)
         self.viewOnboard = viewOnboard
         view = viewOnboard
+    }
+    
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        
+        if #available(iOS 10.0, *)
+        {
+            let authOptions:UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+            
+        }
+        else
+        {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(settings)
+        }
     }
     
     override func viewDidAppear(_ animated:Bool)

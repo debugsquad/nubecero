@@ -4,7 +4,9 @@ class MOnboardFormItemPasswordSignin:MOnboardFormItemPassword
 {
     override init()
     {
-        super.init(password:nil)
+        let rememberPassword:String? = MSession.sharedInstance.settings?.lastPassword
+        
+        super.init(password:rememberPassword)
     }
     
     override init(reusableIdentifier:String, cellHeight:CGFloat)

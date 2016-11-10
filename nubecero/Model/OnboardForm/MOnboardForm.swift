@@ -25,10 +25,12 @@ class MOnboardForm
         
         let itemEmail:MOnboardFormItemEmailRegister = MOnboardFormItemEmailRegister()
         let itemPassword:MOnboardFormItemPasswordRegister = MOnboardFormItemPasswordRegister()
+        let itemRemember:MOnboardFormItemRemember = MOnboardFormItemRemember()
         
         let items:[MOnboardFormItem] = [
             itemEmail,
-            itemPassword
+            itemPassword,
+            itemRemember
         ]
         
         let model:MOnboardForm = MOnboardForm(
@@ -50,10 +52,12 @@ class MOnboardForm
         
         let itemEmail:MOnboardFormItemEmailSignin = MOnboardFormItemEmailSignin()
         let itemPassword:MOnboardFormItemPasswordSignin = MOnboardFormItemPasswordSignin()
+        let itemRemember:MOnboardFormItemRemember = MOnboardFormItemRemember()
         
         let items:[MOnboardFormItem] = [
             itemEmail,
-            itemPassword
+            itemPassword,
+            itemRemember
         ]
         
         let model:MOnboardForm = MOnboardForm(

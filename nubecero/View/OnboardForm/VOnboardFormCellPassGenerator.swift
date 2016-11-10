@@ -3,6 +3,7 @@ import UIKit
 class VOnboardFormCellPassGenerator:VOnboardFormCell
 {
     private weak var passwordField:UITextField?
+    private weak var modelPassGenerator:MOnboardFormItemPassGenerator?
     private let kCornerRadius:CGFloat = 4
     private let kButtonWidth:CGFloat = 165
     
@@ -19,6 +20,10 @@ class VOnboardFormCellPassGenerator:VOnboardFormCell
         button.setTitle(NSLocalizedString("VOnboardFormCellPassGenerator_buttonTitle", comment:""), for:UIControlState.normal)
         button.titleLabel!.font = UIFont.medium(size:13)
         button.layer.cornerRadius = kCornerRadius
+        button.addTarget(
+            self,
+            action:#selector(actionGeneratePassword(sender:)),
+            for:UIControlEvents.touchUpInside)
 
         addSubview(button)
         
@@ -49,11 +54,12 @@ class VOnboardFormCellPassGenerator:VOnboardFormCell
     {
         super.config(model:model, controller:controller)
         passwordField = controller.passwordField
+        modelPassGenerator = model as? MOnboardFormItemPassGenerator
     }
     
     //MARK: actions
     
-    func actionGeneratePassword()
+    func actionGeneratePassword(sender button:UIButton)
     {
         passwordField?.text = "ABsdsdaCC"
         passwordField?.isSecureTextEntry = false

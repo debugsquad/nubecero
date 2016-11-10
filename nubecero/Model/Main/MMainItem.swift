@@ -6,16 +6,16 @@ class MMainItem
     let iconImageOff:String
     let index:Int
     
-    init()
-    {
-        fatalError()
-    }
-    
     init(iconImage:String, index:Int)
     {
         self.index = index
         iconImageOn = String(format:"%@On", iconImage)
         iconImageOff = String(format:"%@Off", iconImage)
+    }
+    
+    init()
+    {
+        fatalError()
     }
     
     //MARK: public

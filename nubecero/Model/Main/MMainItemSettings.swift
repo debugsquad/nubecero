@@ -4,6 +4,11 @@ class MMainItemSettings:MMainItem
 {
     private let kIconImage:String = "assetGenericSettings"
     
+    init(index:Int)
+    {
+        super.init(iconImage:kIconImage, index:index)
+    }
+    
     override init()
     {
         fatalError()
@@ -12,11 +17,6 @@ class MMainItemSettings:MMainItem
     override init(iconImage:String, index:Int)
     {
         fatalError()
-    }
-    
-    init(index:Int)
-    {
-        super.init(iconImage:kIconImage, index:index)
     }
     
     override func controller() -> CController

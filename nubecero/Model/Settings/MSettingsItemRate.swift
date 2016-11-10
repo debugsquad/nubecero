@@ -5,11 +5,6 @@ class MSettingsItemRate:MSettingsItem
     private let kCellHeight:CGFloat = 60
     private let kSelectable:Bool = true
     
-    override init(reusableIdentifier:String, cellHeight:CGFloat, selectable:Bool)
-    {
-        fatalError()
-    }
-    
     override init()
     {
         let reusableIdentifier:String = VSettingsCellRate.reusableIdentifier
@@ -17,6 +12,11 @@ class MSettingsItemRate:MSettingsItem
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight,
             selectable:kSelectable)
+    }
+    
+    override init(reusableIdentifier:String, cellHeight:CGFloat, selectable:Bool)
+    {
+        fatalError()
     }
     
     override func selected(controller:CSettings)

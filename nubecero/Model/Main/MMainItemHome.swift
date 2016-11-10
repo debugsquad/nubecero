@@ -4,6 +4,11 @@ class MMainItemHome:MMainItem
 {
     private let kIconImage:String = "assetGenericHome"
     
+    init(index:Int)
+    {
+        super.init(iconImage:kIconImage, index:index)
+    }
+    
     override init()
     {
         fatalError()
@@ -12,11 +17,6 @@ class MMainItemHome:MMainItem
     override init(iconImage:String, index:Int)
     {
         fatalError()
-    }
-    
-    init(index:Int)
-    {
-        super.init(iconImage:kIconImage, index:index)
     }
     
     override func controller() -> CController

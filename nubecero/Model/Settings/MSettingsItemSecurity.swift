@@ -5,11 +5,6 @@ class MSettingsItemSecurity:MSettingsItem
     private let kCellHeight:CGFloat = 80
     private let kSelectable:Bool = false
     
-    override init(reusableIdentifier:String, cellHeight:CGFloat, selectable:Bool)
-    {
-        fatalError()
-    }
-    
     override init()
     {
         let reusableIdentifier:String = VSettingsCellSecurity.reusableIdentifier
@@ -17,5 +12,10 @@ class MSettingsItemSecurity:MSettingsItem
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight,
             selectable:kSelectable)
+    }
+    
+    override init(reusableIdentifier:String, cellHeight:CGFloat, selectable:Bool)
+    {
+        fatalError()
     }
 }

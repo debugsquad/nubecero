@@ -67,13 +67,6 @@ class MOnboardForm
         return model
     }
     
-    init()
-    {
-        fatalError()
-    }
-    
-    //MARK: private
-    
     private init(method:Method, items:[MOnboardFormItem], title:String, buttonMessage:String, itemEmail:MOnboardFormItemEmail, itemPassword:MOnboardFormItemPassword)
     {
         self.method = method
@@ -82,6 +75,11 @@ class MOnboardForm
         self.buttonMessage = buttonMessage
         self.itemEmail = itemEmail
         self.itemPassword = itemPassword
+    }
+    
+    init()
+    {
+        fatalError()
     }
     
     //MARK: public

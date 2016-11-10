@@ -84,14 +84,14 @@ class MLogin
         return model
     }
     
-    private init()
-    {
-        fatalError()
-    }
-    
     private init(items:[MLoginItem], mode:MLoginMode?)
     {
         self.items = items
         self.mode = mode
+    }
+    
+    private init()
+    {
+        fatalError()
     }
 }

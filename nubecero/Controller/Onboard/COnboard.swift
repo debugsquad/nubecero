@@ -32,10 +32,11 @@ class COnboard:CController
         if #available(iOS 10.0, *)
         {
             let authOptions:UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: {_, _ in })
             
+            UNUserNotificationCenter.current().requestAuthorization(
+                options:authOptions, completionHandler: { (done, error) in
+                    print("done: \(done) error:\(error)")
+            })
         }
         else
         {
@@ -43,6 +44,8 @@ class COnboard:CController
                 UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
             UIApplication.shared.registerUserNotificationSettings(settings)
         }
+        
+        UIApplication.shared.registerForRemoteNotifications()
     }
     
     override func viewDidAppear(_ animated:Bool)

@@ -1,4 +1,5 @@
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate:UIResponder, UIApplicationDelegate
@@ -44,5 +45,20 @@ class AppDelegate:UIResponder, UIApplicationDelegate
     func applicationWillEnterForeground(_ application:UIApplication)
     {
         parent.controllerAuth?.askAuth()
+    }
+    
+    func application(_ application:UIApplication, didReceiveRemoteNotification userInfo:[AnyHashable:Any],
+                     fetchCompletionHandler completionHandler:@escaping(UIBackgroundFetchResult) -> Void)
+    {
+        
+        completionHandler(UIBackgroundFetchResult.noData)
+    }
+    
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        FIRInstanceID.instanceID().setAPNSToken(deviceToken, type: FIRInstanceIDAPNSTokenType.unknown)
     }
 }

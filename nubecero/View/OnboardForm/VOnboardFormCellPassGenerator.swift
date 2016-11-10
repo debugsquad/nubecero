@@ -47,7 +47,15 @@ class VOnboardFormCellPassGenerator:VOnboardFormCell
     
     override func config(model:MOnboardFormItem, controller:COnboardForm)
     {
+        super.config(model:model, controller:controller)
+        passwordField = controller.passwordField
     }
     
     //MARK: actions
+    
+    func actionGeneratePassword()
+    {
+        passwordField?.text = "ABsdsdaCC"
+        passwordField?.isSecureTextEntry = false
+    }
 }

@@ -23,6 +23,7 @@
 "VOnboardFormHeader_buttonCancel"="Cancel";
 "VOnboardFormCellEmail_placeholder"="Email";
 "VOnboardFormCellPassword_placeholder"="Password";
+"VOnboardFormCellRemember_label"="Remember me";
 
 "CHomeUpload_title"="Upload";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

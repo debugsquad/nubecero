@@ -14,6 +14,11 @@ class MSettingsItemLogout:MSettingsItem
             selectable:kSelectable)
     }
     
+    override init(reusableIdentifier:String, cellHeight:CGFloat, selectable:Bool)
+    {
+        fatalError()
+    }
+    
     override func selected(controller:CSettings)
     {
         FMain.sharedInstance.analytics?.logout()

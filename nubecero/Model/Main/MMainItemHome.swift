@@ -9,6 +9,16 @@ class MMainItemHome:MMainItem
         super.init(iconImage:kIconImage, index:index)
     }
     
+    override init()
+    {
+        fatalError()
+    }
+    
+    override init(iconImage:String, index:Int)
+    {
+        fatalError()
+    }
+    
     override func controller() -> CController
     {
         let controller:CHome = CHome(askAuth:false)

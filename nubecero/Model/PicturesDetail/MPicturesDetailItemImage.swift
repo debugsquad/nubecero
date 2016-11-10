@@ -11,4 +11,9 @@ class MPicturesDetailItemImage:MPicturesDetailItem
             reusableIdentifier:reusableIdentifier,
             sizeWeight:kSizeWeight)
     }
+    
+    override init(reusableIdentifier:String, sizeWeight:Int)
+    {
+        fatalError()
+    }
 }

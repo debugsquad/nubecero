@@ -40,8 +40,8 @@ class CSettings:CController
         
         parentController.viewParent.bar.restart()
         
-        let controllerLogin:CLogin = CLogin(fetchCredentials:false)
-        parentController.over(controller:controllerLogin, pop:true, animate:true)
+        let controllerOnboard:COnboard = COnboard()
+        parentController.over(controller:controllerOnboard, pop:true, animate:true)
     }
     
     func rate()

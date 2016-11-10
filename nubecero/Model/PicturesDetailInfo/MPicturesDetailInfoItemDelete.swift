@@ -7,6 +7,11 @@ class MPicturesDetailInfoItemDelete:MPicturesDetailInfoItem
         super.init(image:#imageLiteral(resourceName: "assetPicturesDelete"))
     }
     
+    override init(image:UIImage)
+    {
+        fatalError()
+    }
+    
     override func selected(controller:CPictures?)
     {
         FMain.sharedInstance.analytics?.pictureDelete()

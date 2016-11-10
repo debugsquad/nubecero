@@ -10,13 +10,14 @@
 "VSettingsCellSecurity_label"="Pedir contraseña";
 "VSettingsCellLogout_label"="Salir";
 "VPicturesDetailHeader_label"="Tu Nube esta vacía";
-"VLoginCellDisclaimerSignin_label"="Ingresa si ya tienes cuenta";
-"VLoginCellDisclaimerRegister_label"="Crea una nueva cuenta";
-"VLoginCellSend_label"="Enviar";
-"VLoginCellEmail_placeholder"="Correo electrónico";
-"VLoginCellPassword_placeholder"="Contraseña";
 "VSettingsCellAbout_labelTitle"="nubecero";
 "VSettingsCellRate_label"="Calificar en la tienda";
+"VOnboard_labelDisclaimer"="Tu cuenta te permite entrar a la Nube desde cualquier lugar";
+"VOnboardOptions_buttonRegister"="Crear cuenta";
+"VOnboardOptions_buttonSignin"="Ingresar";
+"VOnboardFormHeader_buttonCancel"="Cancelar";
+"VOnboardFormCellEmail_placeholder"="Correo electrónico";
+"VOnboardFormCellPassword_placeholder"="Contresenna";
 
 "CHomeUpload_title"="Subir";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";
@@ -34,12 +35,21 @@
 "CAuth_reason"="Validate para ingresar a tu Nube";
 "CAuth_errorUnknown"="No se pudo validad, reintentalo";
 "CAuth_passCodeNotSet"="Define una contraseña en la configuración del dispositivo para asegurar tu Nube";
-"CLogin_invalidEmail"="Necesitas poner tu correo electrónico";
-"CLogin_invalidPassword"="Necesitas poner tu constraseña";
-"CLogin_errorUnknown"="Hubo un error, reintenta";
+"COnboardForm_errorUnknown"="Error inesperado, reintenta";
+"VOnboardFormCellRemember_label"="Recuerdame";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando imagen, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";
 "MHomeUploadItemStatusReferenced_errorUser"="Error guardando imagen, reintentalo";
-"MLoginModeRegister_name"="Registrate";
-"MLoginModeSignin_name"="Ingresa";
+"MOnboardItemUpload_title"="Sube tus fotos a la Nube";
+"MOnboardItemAccess_title"="Accede a ellas cuando quieras";
+"MOnboardItemFree_title"="Libera memoria";
+"MOnboardItemPrivacy_title"="Protege tus imagénes con contraseña";
+"MOnboardForm_titleRegister"="Crear una cuenta";
+"MOnboardForm_titleSignin"="Usar cuenta existente";
+"MOnboardForm_buttonRegister"="Registrate";
+"MOnboardForm_buttonSignin"="Ingresar";
+"MOnboardForm_errorEmail"="Ingresa tu Correo Electrónico";
+"MOnboardForm_errorEmailShort"="Correo Electrónico invalido";
+"MOnboardForm_errorPassword"="Ingresa tu Contraseña";
+"MOnboardForm_errorPasswordShort"="Contraseña demasiado corta";

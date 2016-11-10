@@ -13,4 +13,9 @@ class MHomeItemDisk:MHomeItem
             cellHeight:kCellHeight,
             selectable:kSelectable)
     }
+    
+    override init(reusableIdentifier:String, cellHeight:CGFloat, selectable:Bool)
+    {
+        fatalError()
+    }
 }

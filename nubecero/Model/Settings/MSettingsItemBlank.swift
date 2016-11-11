@@ -7,7 +7,7 @@ class MSettingsItemLogout:MSettingsItem
     
     override init()
     {
-        let reusableIdentifier:String = VSettingsCellLogout.reusableIdentifier
+        let reusableIdentifier:String = VSettingsCellBlank.reusableIdentifier
         super.init(
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight,

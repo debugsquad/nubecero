@@ -58,6 +58,10 @@ class VSettings:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             forCellWithReuseIdentifier:
             VSettingsCellShare.reusableIdentifier)
         collectionView.register(
+            VSettingsCellAccount.self,
+            forCellWithReuseIdentifier:
+            VSettingsCellAccount.reusableIdentifier)
+        collectionView.register(
             VSettingsCellBlank.self,
             forCellWithReuseIdentifier:
             VSettingsCellBlank.reusableIdentifier)

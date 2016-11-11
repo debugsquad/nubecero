@@ -88,6 +88,7 @@
 		DA7A79B31DD611FF001B5FA5 /* MSettingsItemBlank.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79B21DD611FF001B5FA5 /* MSettingsItemBlank.swift */; };
 		DA7A79B51DD61236001B5FA5 /* VSettingsCellBlank.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79B41DD61236001B5FA5 /* VSettingsCellBlank.swift */; };
 		DA7A79B71DD61A66001B5FA5 /* VSettingsCellAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79B61DD61A66001B5FA5 /* VSettingsCellAccount.swift */; };
+		DA7A79B91DD61B3F001B5FA5 /* MSettingsItemAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79B81DD61B3F001B5FA5 /* MSettingsItemAccount.swift */; };
 		DA88F6701DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */; };
 		DA88F6721DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */; };
 		DA88F6741DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F6731DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift */; };
@@ -289,6 +290,7 @@
 		DA7A79B21DD611FF001B5FA5 /* MSettingsItemBlank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemBlank.swift; sourceTree = "<group>"; };
 		DA7A79B41DD61236001B5FA5 /* VSettingsCellBlank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellBlank.swift; sourceTree = "<group>"; };
 		DA7A79B61DD61A66001B5FA5 /* VSettingsCellAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellAccount.swift; sourceTree = "<group>"; };
+		DA7A79B81DD61B3F001B5FA5 /* MSettingsItemAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemAccount.swift; sourceTree = "<group>"; };
 		DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatus.swift; sourceTree = "<group>"; };
 		DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusNone.swift; sourceTree = "<group>"; };
 		DA88F6731DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusWaiting.swift; sourceTree = "<group>"; };
@@ -574,6 +576,7 @@
 				DAD739911DD1643600FC3297 /* MSettingsItemRate.swift */,
 				DAD739951DD170B000FC3297 /* MSettingsItemShare.swift */,
 				DA7A79B21DD611FF001B5FA5 /* MSettingsItemBlank.swift */,
+				DA7A79B81DD61B3F001B5FA5 /* MSettingsItemAccount.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1364,6 +1367,7 @@
 				DA4EF8FB1DC395B300297C1D /* CParent.swift in Sources */,
 				DA4EF9151DC395B300297C1D /* VShadow.swift in Sources */,
 				DA88F6801DC80C62009F61B3 /* FStorage.swift in Sources */,
+				DA7A79B91DD61B3F001B5FA5 /* MSettingsItemAccount.swift in Sources */,
 				DA88F6761DC7EDF5009F61B3 /* MHomeUploadItemStatusLoaded.swift in Sources */,
 				DA406BCC1DCD01E30098D347 /* CSettings.swift in Sources */,
 				DA4EF90A1DC395B300297C1D /* MMainItem.swift in Sources */,

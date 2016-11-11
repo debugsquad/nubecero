@@ -25,11 +25,14 @@ class VHomeCellDisk:VHomeCell
         self.circle = circle
         let circleBackground:VHomeCellDiskCircleBackground = VHomeCellDiskCircleBackground(frame:circleFrame)
         self.circleBackground = circleBackground
+        let arrow:VHomeCellDiskArrow = VHomeCellDiskArrow(frame:circleFrame)
+        circle.arrow = arrow
         
         let gradient:VHomeCellDiskGradient = VHomeCellDiskGradient()
         gradient.mask = circle
         addSubview(circleBackground)
         addSubview(gradient)
+        addSubview(arrow)
         
         let views:[String:UIView] = [
             "gradient":gradient]

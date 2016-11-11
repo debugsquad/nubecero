@@ -4,9 +4,9 @@ class VHomeCellDiskArrow:UIView
 {
     var point:CGPoint?
     private let color:CGColor
-    private let kArrowRadius:CGFloat = 3
-    private let kArrowStartRadius:CGFloat = 0
-    private let kArrowEndRadius:CGFloat = -0.00001
+    private let kRadius:CGFloat = 4
+    private let kStartAngle:CGFloat = 0
+    private let kEndAngle:CGFloat = -0.00001
     
     override init(frame:CGRect)
     {
@@ -38,11 +38,10 @@ class VHomeCellDiskArrow:UIView
         context.setFillColor(color)
         context.addArc(
             center:point,
-            radius:0kCircleRadius,
-            startAngle:kCircleStartAngle,
-            endAngle:circleEndAngle,
+            radius:kRadius,
+            startAngle:kStartAngle,
+            endAngle:kEndAngle,
             clockwise:false)
-        let arrowPoint:CGPoint = context.currentPointOfPath
-        context.drawPath(using:CGPathDrawingMode.stroke)
+        context.drawPath(using:CGPathDrawingMode.fill)
     }
 }

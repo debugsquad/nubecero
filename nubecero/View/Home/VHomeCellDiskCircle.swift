@@ -2,6 +2,7 @@ import UIKit
 
 class VHomeCellDiskCircle:UIView
 {
+    weak var arrow:VHomeCellDiskArrow?
     var circleEndAngle:CGFloat
     let kCircleStartAngle:CGFloat = -CGFloat(M_PI_2)
     private let rectWidth:CGFloat
@@ -15,9 +16,8 @@ class VHomeCellDiskCircle:UIView
     private let kLineWidth:CGFloat = 22
     private let kArrowRadius:CGFloat = 3
     private let kCircleRadius:CGFloat = 40
-    private let showArrow:Bool
     
-    init(frame:CGRect, color:UIColor, showArrow:Bool)
+    init(frame:CGRect, color:UIColor)
     {
         rectWidth = frame.size.width
         rectHeight = frame.size.height
@@ -28,7 +28,6 @@ class VHomeCellDiskCircle:UIView
         arrowSize = CGSize(width:kArrowRadius, height:kArrowRadius)
         circleEndAngle = kCircleStartAngle
         self.color = color.cgColor
-        self.showArrow = showArrow
         
         super.init(frame:frame)
         clipsToBounds = true
@@ -61,16 +60,8 @@ class VHomeCellDiskCircle:UIView
             startAngle:kCircleStartAngle,
             endAngle:circleEndAngle,
             clockwise:false)
-        let arrowPoint:CGPoint = context.currentPointOfPath
+        arrow?.point = context.currentPointOfPath
+        arrow?.setNeedsDisplay()
         context.drawPath(using:CGPathDrawingMode.stroke)
-        
-        if showArrow
-        {
-            context.clear(CGRect(
-                origin:CGPoint(
-                    x:arrowPoint.x - arrowRadius_2,
-                    y:arrowPoint.y - arrowRadius_2),
-                size:arrowSize))
-        }
     }
 }

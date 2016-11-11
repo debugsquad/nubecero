@@ -6,16 +6,15 @@ class VHomeCellDiskCircleMemory:VHomeCellDiskCircle
     private var maxCircleEndAngle:CGFloat
     private let kTimeInterval:TimeInterval = 0.015
     private let kAngleDelta:CGFloat = 0.09
-    private let kShowArrow:Bool = true
     
     init(frame:CGRect)
     {
         maxCircleEndAngle = 0
         
-        super.init(frame:frame, color:UIColor.black, showArrow:kShowArrow)
+        super.init(frame:frame, color:UIColor.black)
     }
     
-    override init(frame:CGRect, color:UIColor, showArrow:Bool)
+    override init(frame:CGRect, color:UIColor)
     {
         fatalError()
     }

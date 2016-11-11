@@ -1257,7 +1257,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "GOOGLE_APP_ID=1:975411709195:ios:8b33fb3d5034d4c5\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"/nubecero/Firebase/Main/ServiceAccount.json\"";
+			shellScript = "# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:975411709195:ios:8b33fb3d5034d4c5\n\n# Replace the /Path/To/ServiceAccount.json with the path to the key you just downloaded\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"${SRCROOT}/nubecero/Firebase/Main/ServiceAccount.json\"";
 		};
 		E7F71B20A3CB2CED512BC037 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

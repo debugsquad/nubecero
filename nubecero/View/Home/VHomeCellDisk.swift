@@ -77,14 +77,14 @@ class VHomeCellDisk:VHomeCell
     {
         guard
             
-            let diskUsed:Int = controller.diskUsed,
-            let totalStorage:Int = MSession.sharedInstance.totalStorage()
+            let diskUsed:Int = controller.diskUsed
             
         else
         {
             return
         }
         
+        let totalStorage:Int = MSession.sharedInstance.totalStorage()
         let totalStorageFloat:CGFloat = CGFloat(totalStorage)
         let diskUsedFloat:CGFloat = CGFloat(diskUsed)
         var ratioDisk:CGFloat = diskUsedFloat / totalStorageFloat

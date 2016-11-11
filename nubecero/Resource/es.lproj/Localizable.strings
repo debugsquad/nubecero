@@ -55,8 +55,8 @@
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";
 "MHomeUploadItemStatusReferenced_errorUser"="Error guardando foto, reintentalo";
-"MOnboardItemUpload_title"="Sube tus fotos a la nube";
-"MOnboardItemAccess_title"="Accede a ellas cuando quieras";
+"MOnboardItemUpload_title"="Agrega tus fotos a la nube";
+"MOnboardItemAccess_title"="Listas en cualquier momento";
 "MOnboardItemFree_title"="Libera memoria";
 "MOnboardItemPrivacy_title"="Protección con Passcode";
 "MOnboardForm_titleRegister"="Crear una cuenta";

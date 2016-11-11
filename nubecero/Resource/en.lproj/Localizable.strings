@@ -55,9 +55,9 @@
 "MHomeUploadItemStatusWaiting_error"="Error loading photo, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";
 "MHomeUploadItemStatusReferenced_errorUser"="Error saving photo, try again";
-"MOnboardItemUpload_title"="Upload your photos to the cloud";
-"MOnboardItemAccess_title"="Access them any time";
-"MOnboardItemFree_title"="Free up space";
+"MOnboardItemUpload_title"="Add your photos to the cloud";
+"MOnboardItemAccess_title"="Get them ready any time";
+"MOnboardItemFree_title"="Clear space";
 "MOnboardItemPrivacy_title"="Passcode protection";
 "MOnboardForm_titleRegister"="New account";
 "MOnboardForm_titleSignin"="Existing account";

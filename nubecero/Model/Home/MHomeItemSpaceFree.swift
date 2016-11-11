@@ -1,6 +1,6 @@
 import UIKit
 
-class MHomeItemSpace:MHomeItem
+class MHomeItemSpaceFree:MHomeItem
 {
     private let kCellHeight:CGFloat = 50
     private let kSelectable:Bool = false

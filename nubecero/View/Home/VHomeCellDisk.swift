@@ -68,6 +68,7 @@ class VHomeCellDisk:VHomeCell
         let circleRect:CGRect = CGRect(origin:marginPoint, size:circleSize)
         circle.frame = circleRect
         circleBackground.frame = circleRect
+        circle.arrow?.frame = circleRect
         
         super.layoutSubviews()
     }

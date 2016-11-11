@@ -4,8 +4,8 @@ class VHomeCellDiskCircleMemory:VHomeCellDiskCircle
 {
     private weak var timer:Timer?
     private var maxCircleEndAngle:CGFloat
-    private let kTimeInterval:TimeInterval = 0.015
-    private let kAngleDelta:CGFloat = 0.09
+    private let kTimeInterval:TimeInterval = 0.01
+    private let kAngleDelta:CGFloat = 0.06
     
     init(frame:CGRect)
     {

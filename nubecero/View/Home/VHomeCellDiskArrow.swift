@@ -4,7 +4,7 @@ class VHomeCellDiskArrow:UIView
 {
     var point:CGPoint?
     private let color:CGColor
-    private let kRadius:CGFloat = 4
+    private let kRadius:CGFloat = 3
     private let kStartAngle:CGFloat = 0
     private let kEndAngle:CGFloat = -0.00001
     

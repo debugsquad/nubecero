@@ -101,7 +101,7 @@
 		DA7A79D11DD65CA6001B5FA5 /* VHomeCellSpaceUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79D01DD65CA6001B5FA5 /* VHomeCellSpaceUsed.swift */; };
 		DA7A79D31DD65E2E001B5FA5 /* VHomeCellSpaceTotal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79D21DD65E2E001B5FA5 /* VHomeCellSpaceTotal.swift */; };
 		DA7A79D51DD66059001B5FA5 /* VHomeCellPictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79D41DD66059001B5FA5 /* VHomeCellPictures.swift */; };
-		DA7A79D81DD67656001B5FA5 /* ServiceAccount.json in Resources */ = {isa = PBXBuildFile; fileRef = DA7A79D71DD67656001B5FA5 /* ServiceAccount.json */; };
+		DA7A79D81DD67656001B5FA5 /* FirebaseService.json in Resources */ = {isa = PBXBuildFile; fileRef = DA7A79D71DD67656001B5FA5 /* FirebaseService.json */; };
 		DA88F6701DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */; };
 		DA88F6721DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */; };
 		DA88F6741DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F6731DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift */; };
@@ -316,7 +316,7 @@
 		DA7A79D01DD65CA6001B5FA5 /* VHomeCellSpaceUsed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellSpaceUsed.swift; sourceTree = "<group>"; };
 		DA7A79D21DD65E2E001B5FA5 /* VHomeCellSpaceTotal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellSpaceTotal.swift; sourceTree = "<group>"; };
 		DA7A79D41DD66059001B5FA5 /* VHomeCellPictures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellPictures.swift; sourceTree = "<group>"; };
-		DA7A79D71DD67656001B5FA5 /* ServiceAccount.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ServiceAccount.json; sourceTree = "<group>"; };
+		DA7A79D71DD67656001B5FA5 /* FirebaseService.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FirebaseService.json; sourceTree = "<group>"; };
 		DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatus.swift; sourceTree = "<group>"; };
 		DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusNone.swift; sourceTree = "<group>"; };
 		DA88F6731DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusWaiting.swift; sourceTree = "<group>"; };
@@ -736,7 +736,7 @@
 		DA4EF8DC1DC395B300297C1D /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				DA7A79D71DD67656001B5FA5 /* ServiceAccount.json */,
+				DA7A79D71DD67656001B5FA5 /* FirebaseService.json */,
 				DA4EF8DD1DC395B300297C1D /* FMain.swift */,
 				DA4EF8DE1DC395B300297C1D /* GoogleService-Info.plist */,
 			);
@@ -1168,7 +1168,7 @@
 				DACD1FA61DC40DEF0067D26B /* Home.xcassets in Resources */,
 				DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */,
 				DAE4554B1DCA4C2400948D70 /* Pictures.xcassets in Resources */,
-				DA7A79D81DD67656001B5FA5 /* ServiceAccount.json in Resources */,
+				DA7A79D81DD67656001B5FA5 /* FirebaseService.json in Resources */,
 				DA4EF9101DC395B300297C1D /* Localizable.strings in Resources */,
 				DACD1FAD1DC418A20067D26B /* Loader.xcassets in Resources */,
 				DA4EF9071DC395B300297C1D /* GoogleService-Info.plist in Resources */,
@@ -1257,7 +1257,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:975411709195:ios:8b33fb3d5034d4c5\n\n# Replace the /Path/To/ServiceAccount.json with the path to the key you just downloaded\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"${SRCROOT}/nubecero/Firebase/Main/ServiceAccount.json\"";
+			shellScript = "# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:975411709195:ios:8b33fb3d5034d4c5\n\n# Insert this code BETWEEN the GOOGLE_APP_ID declaration and the\n# call to FirebaseCrash/upload-sym, to generate PLIST file if needed\n# Note the PLIST_FILE location is hard-coded in firebase script, do not change\nPLIST_FILE=\"${HOME}/Library/Preferences/com.google.SymbolUpload.plist\" # DO NOT CHANGE\nif [ ! -f \"${PLIST_FILE}\" ]; then\nJSON_FILE=\"${SRCROOT}/nubecero/Firebase/Main/FirebaseService.json\"  # Change to location of your file\ndefaults write com.google.SymbolUpload version -integer 1  # Required by script\nJSON=$(cat \"${JSON_FILE}\")\n/usr/bin/plutil -replace \"app_${GOOGLE_APP_ID//:/_}\" -json \"${JSON}\" \"${PLIST_FILE}\"\nfi\n\n# Instructions WRONG, don't pass any args, script hard-codes where it looks\n# for credentials, which is handled by the JSON conversion above\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym";
 		};
 		E7F71B20A3CB2CED512BC037 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

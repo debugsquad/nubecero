@@ -5,7 +5,7 @@ class MOnboardFormItemPassGenerator:MOnboardFormItem
     typealias Password = String
     private let kCellHeight:CGFloat = 42
     private let kPasswordMinLength:Int = 6
-    private let kPasswordExtensionLength:UInt32 = 5
+    private let kPasswordExtensionLength:UInt32 = 7
     private let kMinLowerCaseUnicode:Int = 65
     private let kLowerCaseUnicodeRange:UInt32 = 26
     private let kMinUpperCaseUnicode:Int = 97

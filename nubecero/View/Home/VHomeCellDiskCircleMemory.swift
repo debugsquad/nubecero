@@ -3,16 +3,16 @@ import UIKit
 class VHomeCellDiskCircleMemory:VHomeCellDiskCircle
 {
     private weak var timer:Timer?
-    private var maxCircleEndAngle:CGFloat = 0
+    private var maxCircleEndAngle:CGFloat
     private let kTimeInterval:TimeInterval = 0.015
     private let kAngleDelta:CGFloat = 0.09
     private let kShowArrow:Bool = true
     
     init(frame:CGRect)
     {
-        super.init(frame:frame, color:UIColor.black, showArrow:kShowArrow)
+        maxCircleEndAngle = 0
         
-        maxCircleEndAngle = kCircleStartAngle
+        super.init(frame:frame, color:UIColor.black, showArrow:kShowArrow)
     }
     
     override init(frame:CGRect, color:UIColor, showArrow:Bool)
@@ -44,7 +44,7 @@ class VHomeCellDiskCircleMemory:VHomeCellDiskCircle
     {
         timer?.invalidate()
         
-        self.maxCircleEndAngle = maxCircleEndAngle
+        self.maxCircleEndAngle = maxCircleEndAngle + kCircleStartAngle
         circleEndAngle = kCircleStartAngle
         timer = Timer.scheduledTimer(
             timeInterval:kTimeInterval,

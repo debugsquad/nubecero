@@ -3,7 +3,7 @@ import UIKit
 class VHomeCellDiskCircle:UIView
 {
     var circleEndAngle:CGFloat
-    let kCircleStartAngle:CGFloat = -CGFloat(M_PI)
+    let kCircleStartAngle:CGFloat = -CGFloat(M_PI_2)
     private let rectWidth:CGFloat
     private let rectHeight:CGFloat
     private let centerX:CGFloat
@@ -59,7 +59,7 @@ class VHomeCellDiskCircle:UIView
             center:centerPoint,
             radius:kCircleRadius,
             startAngle:kCircleStartAngle,
-            endAngle:circleEndAngle - kCircleStartAngle,
+            endAngle:circleEndAngle,
             clockwise:false)
         let arrowPoint:CGPoint = context.currentPointOfPath
         context.drawPath(using:CGPathDrawingMode.stroke)

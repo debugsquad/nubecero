@@ -1,4 +1,4 @@
-"VHomeCellUpload_label"="Upload pictures";
+"VHomeCellUpload_label"="Add photos";
 "VHomeUploadSyncBar_cancel"="Stop";
 "VHomeUploadSyncBar_tryAgain"="Resume";
 "VPicturesDataCellClose_buttonTitle"="Close";
@@ -10,10 +10,10 @@
 "VSettingsCellSecurity_label"="Passcode protection";
 "VSettingsCellSecurity_labelDescription"="Keep your photos private asking for Passcode/Touch ID on app start";
 "VSettingsCellLogout_label"="Log out";
-"VPicturesDetailHeader_label"="Your Cloud is empty";
+"VPicturesDetailHeader_label"="Your cloud is empty";
 "VSettingsCellAbout_labelTitle"="nubecero";
 "VSettingsCellRate_label"="Review on the store";
-"VOnboard_labelDisclaimer"="Your account allows you to access the Cloud from everywhere";
+"VOnboard_labelDisclaimer"="Your account allows you to access the cloud from everywhere";
 "VOnboardOptions_buttonRegister"="Register";
 "VOnboardOptions_buttonSignin"="Sign in";
 "VOnboardFormHeader_buttonCancel"="Cancel";
@@ -26,20 +26,20 @@
 
 "CHomeUpload_title"="Upload";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";
-"CHomeUpload_noCameraRoll"="Unable to load your pictures";
-"CHomeUploadSync_syncComplete"="Pictures uploaded";
-"CHomeUploadSync_diskFull"="Your Cloud is full, some pictures couldn't be uploaded";
-"CHomeUpload_uploadedTitle"="Remove uploaded pictures from this device?";
-"CHomeUpload_uploadedMessage"="You have them already on the Cloud";
+"CHomeUpload_noCameraRoll"="Unable to load your photos";
+"CHomeUploadSync_syncComplete"="Photos added";
+"CHomeUploadSync_diskFull"="Your cloud is full, some photos couldn't be uploaded";
+"CHomeUpload_uploadedTitle"="Remove these photos from local storage?";
+"CHomeUpload_uploadedMessage"="You have them already on the cloud";
 "CHomeUpload_uploadedDontRemove"="Keep them";
 "CHomeUpload_uploadedRemove"="Remove";
-"CPictures_deleteTitle"="Delete picture?";
+"CPictures_deleteTitle"="Delete photo?";
 "CPictures_deleteMessage"="Can't undo";
 "CPictures_deleteCancel"="Cancel";
 "CPictures_deleteDelete"="Delete";
-"CAuth_reason"="Authenticate to access your Cloud";
+"CAuth_reason"="Authenticate to access your cloud";
 "CAuth_errorUnknown"="Couldn't authenticate, try again";
-"CAuth_passCodeNotSet"="Set your password in the device Settings to secure your Cloud";
+"CAuth_passCodeNotSet"="Set your password in the device Settings to secure your cloud";
 "COnboardForm_errorUnknown"="Unexpected error, try again";
 "COnboardForm_forgotTitle"="You'll get an Email";
 "COnboardForm_forgotSubtitle"="To reset your password";
@@ -49,13 +49,13 @@
 "COnboardForm_forgotSuccess"="Check your Email inbox";
 "COnboardForm_forgotInvalidEmail"="Invalid Email";
 
-"MHomeUploadItemStatusWaiting_error"="Error loading image, try again";
+"MHomeUploadItemStatusWaiting_error"="Error loading photo, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";
-"MHomeUploadItemStatusReferenced_errorUser"="Error saving picture, try again";
-"MOnboardItemUpload_title"="Upload your pictures to the Cloud";
+"MHomeUploadItemStatusReferenced_errorUser"="Error saving photo, try again";
+"MOnboardItemUpload_title"="Upload your photos to the cloud";
 "MOnboardItemAccess_title"="Access them any time";
 "MOnboardItemFree_title"="Free up space";
-"MOnboardItemPrivacy_title"="Passcode protect your images";
+"MOnboardItemPrivacy_title"="Passcode protection";
 "MOnboardForm_titleRegister"="New account";
 "MOnboardForm_titleSignin"="Existing account";
 "MOnboardForm_buttonRegister"="Register";

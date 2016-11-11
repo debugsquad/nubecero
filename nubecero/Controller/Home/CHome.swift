@@ -7,7 +7,7 @@ class CHome:CController
     let model:MHome
     let askAuth:Bool
     var diskUsed:Int?
-    private let kAskNotifications:TimeInterval = 1
+    private let kAskNotifications:TimeInterval = 3
     
     init(askAuth:Bool)
     {
@@ -58,8 +58,7 @@ class CHome:CController
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kAskNotifications)
-        { [weak self] in
-            
+        {
             if #available(iOS 10.0, *)
             {
                 let authOptions:UNAuthorizationOptions = [

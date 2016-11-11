@@ -2,12 +2,12 @@ import UIKit
 
 class MHomeItemSpaceTotal:MHomeItem
 {
-    private let kCellHeight:CGFloat = 50
+    private let kCellHeight:CGFloat = 44
     private let kSelectable:Bool = false
     
     override init()
     {
-        let reusableIdentifier:String = VHomeCellSpaceFree.reusableIdentifier
+        let reusableIdentifier:String = VHomeCellSpaceTotal.reusableIdentifier
         super.init(
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight,

@@ -7,11 +7,13 @@ class MPictures
     static let sharedInstance:MPictures = MPictures()
     var references:[MPicturesItemReference]
     private var items:[PictureId:MPicturesItem]
+    private var deletable:[MPicturesItem]
     
     private init()
     {
         items = [:]
         references = []
+        deletable = []
     }
     
     //MARK: private
@@ -44,6 +46,7 @@ class MPictures
             {
                 self.items = [:]
                 self.references = []
+                self.deletable = []
                 self.picturesLoaded()
                 
                 return
@@ -92,6 +95,14 @@ class MPictures
                     created:pictureCreated)
                 
                 references.append(pictureReference)
+            }
+            else
+            {
+                let deletableItem:MPicturesItem = MPicturesItem(
+                    pictureId:pictureId,
+                    firebasePicture:firebasePicture)
+                
+                deletable.append(deletableItem)
             }
         }
         

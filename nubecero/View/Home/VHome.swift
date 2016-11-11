@@ -58,6 +58,10 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             forCellWithReuseIdentifier:
             VHomeCellSpaceFree.reusableIdentifier)
         collectionView.register(
+            VHomeCellSpaceUsed.self,
+            forCellWithReuseIdentifier:
+            VHomeCellSpaceUsed.reusableIdentifier)
+        collectionView.register(
             VHomeCellDisk.self,
             forCellWithReuseIdentifier:
             VHomeCellDisk.reusableIdentifier)

@@ -4,7 +4,7 @@ class VHomeCellSpaceUsed:VHomeCellSpace
 {
     override init(frame:CGRect)
     {
-        let color:UIColor = UIColor(white:0, alpha:0.1)
+        let color:UIColor = UIColor.main
         
         super.init(frame:frame, color:color)
     }

@@ -2,7 +2,7 @@ import UIKit
 
 class VHomeCellDisk:VHomeCell
 {
-    private weak var circle:VHomeCellDiskCircle!
+    private weak var circle:VHomeCellDiskCircleMemory!
     private let circleSize:CGSize
     private let circleSide:CGFloat
     private let kCircleRadians:CGFloat = 6.28319
@@ -19,15 +19,17 @@ class VHomeCellDisk:VHomeCell
         let circleFrame:CGRect = CGRect(
             origin:CGPoint(x:-circleSide, y:-circleSide),
             size:circleSize)
-        let circle:VHomeCellDiskCircle = VHomeCellDiskCircle(frame:circleFrame)
+        let circle:VHomeCellDiskCircleMemory = VHomeCellDiskCircleMemory(frame:circleFrame)
+        let circleBackground:VHomeCellDiskCircleBackground = VHomeCellDiskCircleBackground(frame:circleFrame)
         self.circle = circle
         
         let gradient:VHomeCellDiskGradient = VHomeCellDiskGradient()
         gradient.mask = circle
+        addSubview(circleBackground)
         addSubview(gradient)
         
         let views:[String:UIView] = [
-            "circle":circle,
+            "circleBackground":circleBackground,
             "gradient":gradient]
         
         let metrics:[String:CGFloat] = [:]
@@ -39,6 +41,16 @@ class VHomeCellDisk:VHomeCell
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[gradient]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[circleBackground]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[circleBackground]-0-|",
             options:[],
             metrics:metrics,
             views:views))

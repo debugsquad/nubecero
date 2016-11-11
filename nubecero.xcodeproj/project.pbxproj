@@ -91,6 +91,8 @@
 		DA7A79B91DD61B3F001B5FA5 /* MSettingsItemAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79B81DD61B3F001B5FA5 /* MSettingsItemAccount.swift */; };
 		DA7A79BB1DD6219A001B5FA5 /* VHomeCellBlank.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79BA1DD6219A001B5FA5 /* VHomeCellBlank.swift */; };
 		DA7A79BD1DD622B0001B5FA5 /* MHomeItemBlank.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79BC1DD622B0001B5FA5 /* MHomeItemBlank.swift */; };
+		DA7A79BF1DD63097001B5FA5 /* VHomeCellDiskCircleBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79BE1DD63097001B5FA5 /* VHomeCellDiskCircleBackground.swift */; };
+		DA7A79C11DD630A5001B5FA5 /* VHomeCellDiskCircleMemory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79C01DD630A5001B5FA5 /* VHomeCellDiskCircleMemory.swift */; };
 		DA88F6701DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */; };
 		DA88F6721DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */; };
 		DA88F6741DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F6731DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift */; };
@@ -295,6 +297,8 @@
 		DA7A79B81DD61B3F001B5FA5 /* MSettingsItemAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemAccount.swift; sourceTree = "<group>"; };
 		DA7A79BA1DD6219A001B5FA5 /* VHomeCellBlank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellBlank.swift; sourceTree = "<group>"; };
 		DA7A79BC1DD622B0001B5FA5 /* MHomeItemBlank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemBlank.swift; sourceTree = "<group>"; };
+		DA7A79BE1DD63097001B5FA5 /* VHomeCellDiskCircleBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellDiskCircleBackground.swift; sourceTree = "<group>"; };
+		DA7A79C01DD630A5001B5FA5 /* VHomeCellDiskCircleMemory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellDiskCircleMemory.swift; sourceTree = "<group>"; };
 		DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatus.swift; sourceTree = "<group>"; };
 		DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusNone.swift; sourceTree = "<group>"; };
 		DA88F6731DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusWaiting.swift; sourceTree = "<group>"; };
@@ -808,6 +812,8 @@
 				DA3411741DCB90D7006E6D71 /* VHomeCellDisk.swift */,
 				DA34118B1DCC037D006E6D71 /* VHomeCellSpace.swift */,
 				DA3411781DCB92A3006E6D71 /* VHomeCellDiskCircle.swift */,
+				DA7A79C01DD630A5001B5FA5 /* VHomeCellDiskCircleMemory.swift */,
+				DA7A79BE1DD63097001B5FA5 /* VHomeCellDiskCircleBackground.swift */,
 				DA34117A1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift */,
 			);
 			path = Home;
@@ -1312,6 +1318,8 @@
 				DAD739941DD16E9700FC3297 /* VSettingsCellShare.swift in Sources */,
 				DA2F66B11DC9506E0078B466 /* MPicturesItemState.swift in Sources */,
 				DAE455611DCA7FF200948D70 /* VPicturesDataCellClose.swift in Sources */,
+				DA7A79C11DD630A5001B5FA5 /* VHomeCellDiskCircleMemory.swift in Sources */,
+				DA7A79BF1DD63097001B5FA5 /* VHomeCellDiskCircleBackground.swift in Sources */,
 				DA2F66AD1DC942480078B466 /* VPicturesDetailCell.swift in Sources */,
 				DA4EF9051DC395B300297C1D /* FAnalytics.swift in Sources */,
 				DAF6F2BE1DD3A2380053ED1B /* VOnboardFormSender.swift in Sources */,

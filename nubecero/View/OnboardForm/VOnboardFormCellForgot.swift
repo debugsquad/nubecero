@@ -2,8 +2,9 @@ import UIKit
 
 class VOnboardFormCellForgot:VOnboardFormCell
 {
+    private weak var controller:COnboardForm?
     private weak var layoutButtonLeft:NSLayoutConstraint!
-    private let kButtonWidth:CGFloat = 120
+    private let kButtonWidth:CGFloat = 160
     
     override init(frame:CGRect)
     {
@@ -15,7 +16,7 @@ class VOnboardFormCellForgot:VOnboardFormCell
         button.setTitleColor(UIColor.main, for:UIControlState.normal)
         button.setTitleColor(UIColor.complement, for:UIControlState.highlighted)
         button.setTitle(NSLocalizedString("VOnboardFormCellForgot_buttonTitle", comment:""), for:UIControlState.normal)
-        button.titleLabel!.font = UIFont.regular(size:12)
+        button.titleLabel!.font = UIFont.medium(size:13)
         button.addTarget(
             self,
             action:#selector(actionForgot(sender:)),
@@ -67,9 +68,15 @@ class VOnboardFormCellForgot:VOnboardFormCell
         super.layoutSubviews()
     }
     
+    override func config(model:MOnboardFormItem, controller:COnboardForm)
+    {
+        self.controller = controller
+    }
+    
     //MARK: actions
     
     func actionForgot(sender button:UIButton)
     {
+        controller?.forgotPassword()
     }
 }

@@ -78,13 +78,15 @@ class CPictures:CController
                     dataLength:picture.size)
                 { [weak self] in
                     
-                    
+                    FMain.sharedInstance.analytics?.cleanPictureDeletableNoData()
                     
                     self?.asyncDeletablePictures()
                 }
             })
         { [weak self] in
          
+            FMain.sharedInstance.analytics?.cleanPictureDeletable()
+            
             self?.asyncDeletablePictures()
         }
     }
@@ -112,9 +114,7 @@ class CPictures:CController
     {
         guard
             
-            let userId:String = MSession.sharedInstance.userId,
-            let pictureId:MPictures.PictureId = viewPictures.currentItem?.pictureId,
-            let dataLength:Int = viewPictures.currentItem?.size
+            let userId:String = MSession.sharedInstance.userId
         
         else
         {

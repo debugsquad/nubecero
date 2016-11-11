@@ -215,22 +215,22 @@ class COnboardForm:CController
         
         let alert:UIAlertController = UIAlertController(
             title:
-            NSLocalizedString("Enter your Email address", comment:""),
+            NSLocalizedString("COnboardForm_forgotTitle", comment:""),
             message:
-            NSLocalizedString("Your password will be restarted", comment:""),
+            NSLocalizedString("COnboardForm_forgotSubtitle", comment:""),
             preferredStyle:UIAlertControllerStyle.alert)
         
         let actionCancel:UIAlertAction = UIAlertAction(
             title:
-            NSLocalizedString("Cancel", comment:""),
+            NSLocalizedString("COnboardForm_forgotCancel", comment:""),
             style:
             UIAlertActionStyle.cancel)
         
         let actionRestart:UIAlertAction = UIAlertAction(
             title:
-            NSLocalizedString("Restart", comment:""),
+            NSLocalizedString("COnboardForm_forgotRestart", comment:""),
             style:
-            UIAlertActionStyle.destructive)
+            UIAlertActionStyle.default)
         { (action) in
             
             guard
@@ -242,19 +242,28 @@ class COnboardForm:CController
                 return
             }
             
-            FIRAuth.auth()?.sendPasswordResetWithEmail(email) { error in
-                if let error = error {
-                    print("fucking error \(error.localizedDescription)")
-                } else {
-                    print("reseted!!!")
+            FIRAuth.auth()?.sendPasswordReset(withEmail:email)
+            { (error) in
+                
+                let message:String
+                
+                if let error:Error = error
+                {
+                    message = error.localizedDescription
                 }
+                else
+                {
+                    message = NSLocalizedString("COnboardForm_forgotSuccess", comment:"")
+                }
+                
+                VAlert.message(message:message)
             }
         }
         
         alert.addTextField
-        {
-            (textfield) in
+        { (textfield) in
             
+            textfield.placeholder = NSLocalizedString("COnboardForm_forgotPlaceholder", comment:"")
         }
         
         alert.addAction(actionCancel)

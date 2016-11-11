@@ -13,7 +13,7 @@ class VOnboardFormCellForgot:VOnboardFormCell
         let button:UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.clipsToBounds = true
-        button.setTitleColor(UIColor.main, for:UIControlState.normal)
+        button.setTitleColor(UIColor.black, for:UIControlState.normal)
         button.setTitleColor(UIColor.complement, for:UIControlState.highlighted)
         button.setTitle(NSLocalizedString("VOnboardFormCellForgot_buttonTitle", comment:""), for:UIControlState.normal)
         button.titleLabel!.font = UIFont.medium(size:13)

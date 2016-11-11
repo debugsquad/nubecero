@@ -39,6 +39,12 @@
 "CAuth_errorUnknown"="Couldn't authenticate, try again";
 "CAuth_passCodeNotSet"="Set your password in the device Settings to secure your Cloud";
 "COnboardForm_errorUnknown"="Unexpected error, try again";
+"COnboardForm_forgotTitle"="You'll get an Email";
+"COnboardForm_forgotSubtitle"="To reset your password";
+"COnboardForm_forgotReset"="Send";
+"COnboardForm_forgotCancel"="Cancel";
+"COnboardForm_forgotPlaceholder"="Email address";
+"COnboardForm_forgotSuccess"="Check your Email inbox";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading image, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

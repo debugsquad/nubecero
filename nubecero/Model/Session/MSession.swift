@@ -191,4 +191,22 @@ class MSession
             self.asyncLoadUser(userId:userId)
         }
     }
+    
+    func totalStorage() -> Int
+    {
+        var space:Int = 0
+        
+        guard
+        
+            let froobSpace:Int = server?.froobSpace
+        
+        else
+        {
+            return space
+        }
+        
+        space += froobSpace
+        
+        return space
+    }
 }

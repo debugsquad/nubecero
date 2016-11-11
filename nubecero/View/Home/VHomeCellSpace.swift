@@ -3,12 +3,12 @@ import UIKit
 class VHomeCellSpace:VHomeCell
 {
     weak var label:UILabel!
+    let numberFormatter:NumberFormatter
+    let kEmpty:String = ""
+    let kKilobytesPerMega:CGFloat = 1000
     private weak var layoutIndicatorTop:NSLayoutConstraint!
-    private let numberFormatter:NumberFormatter
-    private let kEmpty:String = ""
     private let kMaxFractions:Int = 1
     private let kIndicatorSize:CGFloat = 8
-    private let kKilobytesPerMega:CGFloat = 1000
     private let kCornerRadius:CGFloat = 4
     
     init(frame:CGRect, color:UIColor)

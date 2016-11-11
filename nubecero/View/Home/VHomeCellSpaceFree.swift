@@ -23,23 +23,20 @@ class VHomeCellSpaceFree:VHomeCellSpace
     {
         guard
             
-            let usedSpaceInt:Int = controller.diskUsed,
-            let totalSpaceInt:Int = MSession.sharedInstance.server?.froobSpace
+            let usedSpaceInt:Int = controller.diskUsed
             
-            else
+        else
         {
-            labelUsedSpace.text = kEmpty
-            labelTotalSpace.text = kEmpty
+            label.text = kEmpty
             
             return
         }
         
-        let usedSpace:NSNumber = (CGFloat(usedSpaceInt) / kKilobytesPerMega) as NSNumber
-        let totalSpace:NSNumber = (CGFloat(totalSpaceInt) / kKilobytesPerMega) as NSNumber
-        let usedSpaceString:String? = numberFormatter.string(from:usedSpace)
-        let totalSpaceString:String? =  numberFormatter.string(from:totalSpace)
-        labelUsedSpace.text = usedSpaceString
-        labelTotalSpace.text = totalSpaceString
+        let totalStorageInt:Int = MSession.sharedInstance.totalStorage()
+        let freeSpaceInt:Int = totalStorageInt - usedSpaceInt
+        let freeSpace:NSNumber = (CGFloat(freeSpaceInt) / kKilobytesPerMega) as NSNumber
+        let freeSpaceString:String? = numberFormatter.string(from:freeSpace)
+        label.text = freeSpaceString
     }
     
     /*

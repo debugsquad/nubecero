@@ -21,8 +21,8 @@ class VSettingsCellAccount:VSettingsCell
         let attrTitle:NSAttributedString = NSAttributedString(
             string:NSLocalizedString("VSettingsCellAccount_title", comment:""),
             attributes:[
-                NSFontAttributeName:UIFont.regular(size:14),
-                NSForegroundColorAttributeName:UIColor(white:0.3, alpha:1)
+                NSFontAttributeName:UIFont.regular(size:13),
+                NSForegroundColorAttributeName:UIColor.black
             ])
         let attrEmail:NSAttributedString = NSAttributedString(
             string:email,

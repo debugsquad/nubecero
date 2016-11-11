@@ -2,7 +2,7 @@ import UIKit
 
 class VHomeCell:UICollectionViewCell
 {
-    private let kAlphaSelected:CGFloat = 0.2
+    private let kAlphaSelected:CGFloat = 0.3
     private let kAlphaNotSelected:CGFloat = 1
     
     override init(frame:CGRect)
@@ -40,10 +40,12 @@ class VHomeCell:UICollectionViewCell
         if isSelected || isHighlighted
         {
             alpha = kAlphaSelected
+            backgroundColor = UIColor.clear
         }
         else
         {
             alpha = kAlphaNotSelected
+            backgroundColor = UIColor.white
         }
     }
     
@@ -51,6 +53,5 @@ class VHomeCell:UICollectionViewCell
     
     func config(controller:CHome, model:MHomeItem)
     {
-        
     }
 }

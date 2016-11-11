@@ -22,7 +22,7 @@
 "VOnboardFormCellPassGenerator_buttonTitle"="Generar contraseña";
 "VOnboardFormCellRemember_label"="Recuerdame";
 "VOnboardFormCellForgot_buttonTitle"="¿Olvidaste tu contraseña?";
-"VSettingsCellAccount_title"="Cuenta ";
+"VSettingsCellAccount_title"="Cuenta  ";
 
 "CHomeUpload_title"="Subir";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

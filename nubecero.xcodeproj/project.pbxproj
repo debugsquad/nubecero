@@ -83,6 +83,7 @@
 		DA5768731DCEB12F00590B5F /* TFDatabaseModelUserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5768721DCEB12F00590B5F /* TFDatabaseModelUserStatus.swift */; };
 		DA7367B41DD5228F0004B99C /* MOnboardFormItemPassGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7367B31DD5228F0004B99C /* MOnboardFormItemPassGenerator.swift */; };
 		DA7367B61DD523DB0004B99C /* VOnboardFormCellPassGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7367B51DD523DB0004B99C /* VOnboardFormCellPassGenerator.swift */; };
+		DA7367B81DD545DA0004B99C /* MOnboardFormItemForgot.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7367B71DD545DA0004B99C /* MOnboardFormItemForgot.swift */; };
 		DA88F6701DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */; };
 		DA88F6721DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */; };
 		DA88F6741DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F6731DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift */; };
@@ -279,6 +280,7 @@
 		DA5768721DCEB12F00590B5F /* TFDatabaseModelUserStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelUserStatus.swift; sourceTree = "<group>"; };
 		DA7367B31DD5228F0004B99C /* MOnboardFormItemPassGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItemPassGenerator.swift; sourceTree = "<group>"; };
 		DA7367B51DD523DB0004B99C /* VOnboardFormCellPassGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardFormCellPassGenerator.swift; sourceTree = "<group>"; };
+		DA7367B71DD545DA0004B99C /* MOnboardFormItemForgot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItemForgot.swift; sourceTree = "<group>"; };
 		DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatus.swift; sourceTree = "<group>"; };
 		DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusNone.swift; sourceTree = "<group>"; };
 		DA88F6731DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusWaiting.swift; sourceTree = "<group>"; };
@@ -985,6 +987,7 @@
 				DAF6F2BB1DD39BC50053ED1B /* MOnboardFormItemPasswordSignin.swift */,
 				DAF6F2C61DD3F9400053ED1B /* MOnboardFormItemRemember.swift */,
 				DA7367B31DD5228F0004B99C /* MOnboardFormItemPassGenerator.swift */,
+				DA7367B71DD545DA0004B99C /* MOnboardFormItemForgot.swift */,
 				DAF6F2BF1DD3B0610053ED1B /* MOnboardFormCredentials.swift */,
 			);
 			path = OnboardForm;
@@ -1321,6 +1324,7 @@
 				DACD1FB21DC540810067D26B /* MHomeUploadItem.swift in Sources */,
 				DA4EF8FE1DC395B300297C1D /* ExtensionFileManager.swift in Sources */,
 				DA88F67C1DC7EE1F009F61B3 /* MHomeUploadItemStatusUploaded.swift in Sources */,
+				DA7367B81DD545DA0004B99C /* MOnboardFormItemForgot.swift in Sources */,
 				DA4EF9001DC395B300297C1D /* ExtensionNotification.swift in Sources */,
 				DA4EF90B1DC395B300297C1D /* MMainItemHome.swift in Sources */,
 				DACD1F8F1DC3ADEB0067D26B /* VLogin.swift in Sources */,

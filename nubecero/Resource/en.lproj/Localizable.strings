@@ -22,6 +22,7 @@
 "VOnboardFormCellRemember_label"="Remember me";
 "VOnboardFormCellPassGenerator_buttonTitle"="Generate password";
 "VOnboardFormCellForgot_buttonTitle"="Forgot password?";
+"VSettingsCellAccount_title"="Account ";
 
 "CHomeUpload_title"="Upload";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

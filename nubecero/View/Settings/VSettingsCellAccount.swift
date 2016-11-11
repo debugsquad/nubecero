@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAuth
 
 class VSettingsCellAccount:VSettingsCell
 {
@@ -7,13 +8,37 @@ class VSettingsCellAccount:VSettingsCell
         super.init(frame:frame)
         isUserInteractionEnabled = false
         
+        guard
+            
+            let email:String = FIRAuth.auth()?.currentUser?.email
+        
+        else
+        {
+            return
+        }
+        
+        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
+        let attrTitle:NSAttributedString = NSAttributedString(
+            string:NSLocalizedString("VSettingsCellAccount_title", comment:""),
+            attributes:[
+                NSFontAttributeName:UIFont.regular(size:14),
+                NSForegroundColorAttributeName:UIColor(white:0.3, alpha:1)
+            ])
+        let attrEmail:NSAttributedString = NSAttributedString(
+            string:email,
+            attributes:[
+                NSFontAttributeName:UIFont.medium(size:14),
+                NSForegroundColorAttributeName:UIColor(white:0.6, alpha:1)
+            ])
+        
+        mutableString.append(attrTitle)
+        mutableString.append(attrEmail)
+        
         let labelEmail:UILabel = UILabel()
         labelEmail.isUserInteractionEnabled = false
         labelEmail.translatesAutoresizingMaskIntoConstraints = false
         labelEmail.backgroundColor = UIColor.clear
-        labelEmail.font = UIFont.medium(size:14)
-        labelEmail.textColor = UIColor(white:0.3, alpha:1)
-        labelEmail.text = ""
+        labelEmail.attributedText = mutableString
         
         addSubview(labelEmail)
         

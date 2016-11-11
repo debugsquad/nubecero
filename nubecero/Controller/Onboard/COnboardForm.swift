@@ -211,6 +211,8 @@ class COnboardForm:CController
     
     func forgotPassword()
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
         let alert:UIAlertController = UIAlertController(
             title:
             NSLocalizedString("Enter your Email address", comment:""),
@@ -220,17 +222,33 @@ class COnboardForm:CController
         
         let actionCancel:UIAlertAction = UIAlertAction(
             title:
-            NSLocalizedString("CHomeUpload_uploadedDontRemove", comment:""),
+            NSLocalizedString("Cancel", comment:""),
             style:
             UIAlertActionStyle.cancel)
         
         let actionRestart:UIAlertAction = UIAlertAction(
             title:
-            NSLocalizedString("CHomeUpload_uploadedRemove", comment:""),
+            NSLocalizedString("Restart", comment:""),
             style:
             UIAlertActionStyle.destructive)
         { (action) in
             
+            guard
+                
+                let email:String = alert.textFields?.first?.text
+            
+            else
+            {
+                return
+            }
+            
+            FIRAuth.auth()?.sendPasswordResetWithEmail(email) { error in
+                if let error = error {
+                    print("fucking error \(error.localizedDescription)")
+                } else {
+                    print("reseted!!!")
+                }
+            }
         }
         
         alert.addTextField
@@ -238,8 +256,10 @@ class COnboardForm:CController
             (textfield) in
             
         }
-        alert.addAction(actionRestart)
+        
         alert.addAction(actionCancel)
+        alert.addAction(actionRestart)
+        
         present(alert, animated:true, completion:nil)
     }
 }

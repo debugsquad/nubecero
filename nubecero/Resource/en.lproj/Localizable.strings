@@ -3,7 +3,7 @@
 "VHomeUploadSyncBar_tryAgain"="Resume";
 "VPicturesDataCellClose_buttonTitle"="Close";
 "VPicturesDataCellSize_labelTitle"="Megabytes";
-"VPicturesDataCellCreated_labelTitle"="Uploaded";
+"VPicturesDataCellCreated_labelTitle"="Added";
 "VBanned_disclaimer"="Your account is suspended\nContact support for further information";
 "VAuth_buttonTryAgain"="Try again";
 "VSettingsCellSecurity_label"="Passcode protection";
@@ -27,11 +27,11 @@
 "VHomeCellSpaceTotal_label"="Total  %@ MB";
 "VHomeCellPictures_label"="Photos  %@";
 
-"CHomeUpload_title"="Upload";
+"CHomeUpload_title"="Add";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";
 "CHomeUpload_noCameraRoll"="Unable to load your photos";
 "CHomeUploadSync_syncComplete"="Photos added";
-"CHomeUploadSync_diskFull"="Your cloud is full, some photos couldn't be uploaded";
+"CHomeUploadSync_diskFull"="Your cloud is full, some photos couldn't be added";
 "CHomeUpload_uploadedTitle"="Remove these photos from local storage?";
 "CHomeUpload_uploadedMessage"="You have them already on the cloud";
 "CHomeUpload_uploadedDontRemove"="Keep them";

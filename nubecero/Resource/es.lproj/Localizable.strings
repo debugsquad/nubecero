@@ -3,7 +3,7 @@
 "VHomeUploadSyncBar_tryAgain"="Reiniciar";
 "VPicturesDataCellClose_buttonTitle"="Cerrar sessión";
 "VPicturesDataCellSize_labelTitle"="Megabytes";
-"VPicturesDataCellCreated_labelTitle"="Subida";
+"VPicturesDataCellCreated_labelTitle"="Agregada";
 "VBanned_disclaimer"="Tu cuenta esta suspendida\nContacta soporte para mayor información";
 "VAuth_buttonTryAgain"="Reintentar";
 "VSettingsCellSecurity_label"="Proteger con Passcode";
@@ -27,11 +27,11 @@
 "VHomeCellSpaceTotal_label"="Total  %@ MB";
 "VHomeCellPictures_label"="Fotos  %@";
 
-"CHomeUpload_title"="Subir";
+"CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";
-"CHomeUpload_noCameraRoll"="No se pudieron subir tus fotos";
-"CHomeUploadSync_syncComplete"="Fotos subidas";
-"CHomeUploadSync_diskFull"="Tu nube esta llena, algunas fotos no se pudieron subir";
+"CHomeUpload_noCameraRoll"="No se pudieron agregar tus fotos";
+"CHomeUploadSync_syncComplete"="Fotos agregas";
+"CHomeUploadSync_diskFull"="Tu nube esta llena, algunas fotos no se pudieron agregar";
 "CHomeUpload_uploadedTitle"="¿Borras esas fotos de tu dispositivo?";
 "CHomeUpload_uploadedMessage"="Ya estan respaldadas en la nube";
 "CHomeUpload_uploadedDontRemove"="Mantenerlas";

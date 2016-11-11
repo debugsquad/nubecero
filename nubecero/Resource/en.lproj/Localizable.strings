@@ -7,7 +7,8 @@
 "VBanned_disclaimer"="Your account is suspended\nContact support for further information";
 "VHomeCellSpace_labelTitle"="Cloud Megabytes used";
 "VAuth_buttonTryAgain"="Try again";
-"VSettingsCellSecurity_label"="Require Passcode";
+"VSettingsCellSecurity_label"="Passcode protection";
+"VSettingsCellSecurity_labelDescription"="Keep your photos private asking for Passcode/Touch ID on app start";
 "VSettingsCellLogout_label"="Log out";
 "VPicturesDetailHeader_label"="Your Cloud is empty";
 "VSettingsCellAbout_labelTitle"="nubecero";

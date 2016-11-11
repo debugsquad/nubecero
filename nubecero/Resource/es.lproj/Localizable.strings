@@ -7,7 +7,8 @@
 "VBanned_disclaimer"="Tu cuenta esta suspendida\nContacta soporte para mayor información";
 "VHomeCellSpace_labelTitle"="Megabytes usados de tu Nube";
 "VAuth_buttonTryAgain"="Reintentar";
-"VSettingsCellSecurity_label"="Pedir contraseña";
+"VSettingsCellSecurity_label"="Proteger con Passcode";
+"VSettingsCellSecurity_labelDescription"="Manten tus fotos privadas pidiendo Passcode/Touch ID al iniciar";
 "VSettingsCellLogout_label"="Salir";
 "VPicturesDetailHeader_label"="Tu Nube esta vacía";
 "VSettingsCellAbout_labelTitle"="nubecero";

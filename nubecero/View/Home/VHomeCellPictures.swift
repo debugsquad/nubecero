@@ -45,4 +45,34 @@ class VHomeCellPictures:VHomeCell
     {
         fatalError()
     }
+    
+    override func config(controller:CHome, model:MHomeItem)
+    {
+        let totalPicturesInt:Int = MPictures.sharedInstance.references.count
+        
+        if totalPicturesInt > 0
+        {
+            let totalPictures:NSNumber = totalPicturesInt as NSNumber
+            
+            guard
+                
+                let totalPicturesString:String = numberFormatter.string(from:totalPictures)
+                
+            else
+            {
+                label.text = kEmpty
+                
+                return
+            }
+            
+            let compountString:String = String(
+                format:NSLocalizedString("VHomeCellPictures_label", comment:""),
+                totalPicturesString)
+            label.text = compountString
+        }
+        else
+        {
+            label.text = kEmpty
+        }
+    }
 }

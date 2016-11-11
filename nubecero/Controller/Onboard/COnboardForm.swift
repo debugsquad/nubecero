@@ -232,18 +232,19 @@ class COnboardForm:CController
             NSLocalizedString("COnboardForm_forgotSend", comment:""),
             style:
             UIAlertActionStyle.default)
-        { (action) in
+        { [weak self] (action) in
             
             guard
                 
-                let email:String = alert.textFields?.first?.text
+                let email:String = alert.textFields?.first?.text,
+                let minEmailLength:Int = self?.kMinEmailLength
             
             else
             {
                 return
             }
             
-            if email.characters.count > kMinEmailLength
+            if email.characters.count > minEmailLength
             {
                 FIRAuth.auth()?.sendPasswordReset(withEmail:email)
                 { (error) in
@@ -273,6 +274,7 @@ class COnboardForm:CController
         { (textfield) in
             
             textfield.placeholder = NSLocalizedString("COnboardForm_forgotPlaceholder", comment:"")
+            textfield.keyboardType = UIKeyboardType.emailAddress
         }
         
         alert.addAction(actionCancel)

@@ -52,28 +52,4 @@ class VHomeCellSpaceFree:VHomeCellSpace
             freeSpaceString)
         label.text = compountString
     }
-    
-    /*
-    override func config(controller:CHome, model:MHomeItem)
-    {
-        guard
-            
-            let usedSpaceInt:Int = controller.diskUsed,
-            let totalSpaceInt:Int = MSession.sharedInstance.server?.froobSpace
-            
-            else
-        {
-            labelUsedSpace.text = kEmpty
-            labelTotalSpace.text = kEmpty
-            
-            return
-        }
-        
-        let usedSpace:NSNumber = (CGFloat(usedSpaceInt) / kKilobytesPerMega) as NSNumber
-        let totalSpace:NSNumber = (CGFloat(totalSpaceInt) / kKilobytesPerMega) as NSNumber
-        let usedSpaceString:String? = numberFormatter.string(from:usedSpace)
-        let totalSpaceString:String? =  numberFormatter.string(from:totalSpace)
-        labelUsedSpace.text = usedSpaceString
-        labelTotalSpace.text = totalSpaceString
-    }*/
 }

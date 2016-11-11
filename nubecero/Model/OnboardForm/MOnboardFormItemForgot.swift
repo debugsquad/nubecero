@@ -6,7 +6,7 @@ class MOnboardFormItemForgot:MOnboardFormItem
     
     override init()
     {
-        let reusableIdentifier:String = VOnboardFormCellPassGenerator.reusableIdentifier
+        let reusableIdentifier:String = VOnboardFormCellForgot.reusableIdentifier
         super.init(
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight)

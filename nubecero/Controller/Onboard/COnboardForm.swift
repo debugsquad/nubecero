@@ -208,4 +208,38 @@ class COnboardForm:CController
             }
         }
     }
+    
+    func forgotPassword()
+    {
+        let alert:UIAlertController = UIAlertController(
+            title:
+            NSLocalizedString("Enter your Email address", comment:""),
+            message:
+            NSLocalizedString("Your password will be restarted", comment:""),
+            preferredStyle:UIAlertControllerStyle.alert)
+        
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CHomeUpload_uploadedDontRemove", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionRestart:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CHomeUpload_uploadedRemove", comment:""),
+            style:
+            UIAlertActionStyle.destructive)
+        { (action) in
+            
+        }
+        
+        alert.addTextField
+        {
+            (textfield) in
+            
+        }
+        alert.addAction(actionRestart)
+        alert.addAction(actionCancel)
+        present(alert, animated:true, completion:nil)
+    }
 }

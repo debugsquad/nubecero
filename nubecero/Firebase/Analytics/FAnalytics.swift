@@ -18,6 +18,9 @@ class FAnalytics
     private let kEventSessionTryRegister:NSString = "Try/Register"
     private let kEventSessionRegister:NSString = "Signin"
     private let kEventSessionSignin:NSString = "Register"
+    private let kEventClean:NSString = "Clean"
+    private let kEventCleanPictureDeletable:NSString = "Picture/Deletable"
+    private let kEventCleanPictureDeletableNoData:NSString = "Picture/Deletable/NoData"
     
     //MARK: private
     
@@ -103,5 +106,17 @@ class FAnalytics
     func pictureInfo()
     {
         trackSelectContent(contentType:kEventPicture, itemId:kEventPictureInfo)
+    }
+    
+    //MARK: clean
+    
+    func cleanPictureDeletable()
+    {
+        trackSelectContent(contentType:kEventClean, itemId:kEventCleanPictureDeletable)
+    }
+    
+    func cleanPictureDeletableNoData()
+    {
+        trackSelectContent(contentType:kEventClean, itemId:kEventCleanPictureDeletableNoData)
     }
 }

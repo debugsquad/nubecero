@@ -41,29 +41,52 @@ class CPictures:CController
         { [weak self] in
             
             self?.viewPictures.picturesLoaded()
-            
-            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            { [weak self] in
-                
-                self?.deletablePictures()
-            }
+            self?.asyncDeletablePictures()
         }
     }
     
     //MARK: private
     
+    private func asyncDeletablePictures()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.deletablePictures()
+        }
+    }
+    
     private func deletablePictures()
     {
         guard
         
-            let firebasePicture:FDatabaseModelPicture = MPictures.sharedInstance.deletable.first
+            let picture:MPicturesItem = MPictures.sharedInstance.deletable.popLast()
         
         else
         {
             return
         }
         
-        
+        deletePic(
+            pictureId:picture.pictureId,
+            dataLength:picture.size,
+            onError:
+            { [weak self] (error) in
+                
+                self?.picDeleted(
+                    pictureId:picture.pictureId,
+                    dataLength:picture.size)
+                { [weak self] in
+                    
+                    
+                    
+                    self?.asyncDeletablePictures()
+                }
+            })
+        { [weak self] in
+         
+            self?.asyncDeletablePictures()
+        }
     }
     
     private func confirmedDeletePicture(picture:MPicturesItem)
@@ -112,7 +135,6 @@ class CPictures:CController
             else
             {
                 self?.picDeleted(
-                    userId:userId,
                     pictureId:pictureId,
                     dataLength:dataLength,
                     onSuccess:onSuccess)
@@ -124,8 +146,17 @@ class CPictures:CController
         }
     }
     
-    private func picDeleted(userId:String, pictureId:MPictures.PictureId, dataLength:Int, onSuccess:(() -> ())?)
+    private func picDeleted(pictureId:MPictures.PictureId, dataLength:Int, onSuccess:(() -> ())?)
     {
+        guard
+            
+            let userId:String = MSession.sharedInstance.userId
+            
+        else
+        {
+            return
+        }
+        
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyPictures:String = FDatabaseModelUser.Property.pictures.rawValue
         let propertyDiskUsed:String = FDatabaseModelUser.Property.diskUsed.rawValue

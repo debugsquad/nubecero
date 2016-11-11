@@ -1,8 +1,8 @@
 import UIKit
 
-class MSettingsItemLogout:MSettingsItem
+class MSettingsItemBlank:MSettingsItem
 {
-    private let kCellHeight:CGFloat = 10
+    private let kCellHeight:CGFloat = 15
     private let kSelectable:Bool = false
     
     override init()

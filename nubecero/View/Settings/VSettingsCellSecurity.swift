@@ -4,7 +4,7 @@ class VSettingsCellSecurity:VSettingsCell
 {
     private weak var check:UISwitch!
     private let kCheckWidth:CGFloat = 72
-    private let kCheckTop:CGFloat = 23
+    private let kCheckTop:CGFloat = 20
     
     override init(frame:CGRect)
     {
@@ -51,7 +51,7 @@ class VSettingsCellSecurity:VSettingsCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[label]-0-|",
+            withVisualFormat:"V:|-(checkTop)-[label(30)]",
             options:[],
             metrics:metrics,
             views:views))

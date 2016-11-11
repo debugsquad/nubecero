@@ -56,10 +56,36 @@ class CPictures:CController
     {
         guard
         
-            let firebasePicture:FDatabaseModelPicture = mpich
+            let firebasePicture:FDatabaseModelPicture = MPictures.sharedInstance.deletable.first
+        
+        else
+        {
+            return
+        }
+        
+        
     }
     
-    private func confirmedDeletePicture()
+    private func confirmedDeletePicture(picture:MPicturesItem)
+    {
+        deletePic(
+            pictureId:picture.pictureId,
+            dataLength:picture.size,
+            onError:
+            { (error) in
+                
+                VAlert.message(message:error)
+            })
+        {
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.viewPictures.removeSelected()
+            }
+        }
+    }
+    
+    private func deletePic(pictureId:MPictures.PictureId, dataLength:Int, onError:((String) -> ())?, onSuccess:(() -> ())?)
     {
         guard
             
@@ -85,19 +111,20 @@ class CPictures:CController
             
             else
             {
-                self?.deleteCompleted(
+                self?.picDeleted(
                     userId:userId,
                     pictureId:pictureId,
-                    dataLength:dataLength)
+                    dataLength:dataLength,
+                    onSuccess:onSuccess)
                 
                 return
             }
             
-            VAlert.message(message:errorString)
+            onError?(errorString)
         }
     }
     
-    private func deleteCompleted(userId:String, pictureId:MPictures.PictureId, dataLength:Int)
+    private func picDeleted(userId:String, pictureId:MPictures.PictureId, dataLength:Int, onSuccess:(() -> ())?)
     {
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyPictures:String = FDatabaseModelUser.Property.pictures.rawValue
@@ -132,11 +159,7 @@ class CPictures:CController
         
         FMain.sharedInstance.database.removeChild(path:pathPicture)
         
-        DispatchQueue.main.async
-        { [weak self] in
-            
-            self?.viewPictures.removeSelected()
-        }
+        onSuccess?()
     }
     
     //MARK: public
@@ -188,7 +211,7 @@ class CPictures:CController
     {
         guard
             
-            let _:MPicturesItem = viewPictures.currentItem
+            let deletingPicture:MPicturesItem = viewPictures.currentItem
             
         else
         {
@@ -218,7 +241,7 @@ class CPictures:CController
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             { [weak self] in
                 
-                self?.confirmedDeletePicture()
+                self?.confirmedDeletePicture(picture:deletingPicture)
             }
         }
         

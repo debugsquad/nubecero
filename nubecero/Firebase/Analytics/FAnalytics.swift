@@ -86,7 +86,7 @@ class FAnalytics
     
     func upload(pictures:Int)
     {
-        let picturesObject:NSObject = pictures as NSObject
+        let picturesObject:NSObject = "\(pictures)" as NSObject
         trackSelectContent(contentType:kEventPictureUpload, itemId:picturesObject)
     }
     

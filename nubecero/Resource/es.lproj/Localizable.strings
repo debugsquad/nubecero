@@ -19,6 +19,7 @@
 "VOnboardFormCellEmail_placeholder"="Correo electrónico";
 "VOnboardFormCellPassword_placeholder"="Contresenna";
 "VOnboardFormCellPassGenerator_buttonTitle"="Generar contraseña";
+"VOnboardFormCellRemember_label"="Recuerdame";
 "VOnboardFormCellForgot_buttonTitle"="¿Olvidaste tu contraseña?";
 
 "CHomeUpload_title"="Subir";
@@ -38,7 +39,12 @@
 "CAuth_errorUnknown"="No se pudo validad, reintentalo";
 "CAuth_passCodeNotSet"="Define una contraseña en la configuración del dispositivo para asegurar tu Nube";
 "COnboardForm_errorUnknown"="Error inesperado, reintenta";
-"VOnboardFormCellRemember_label"="Recuerdame";
+"COnboardForm_forgotTitle"="Recibiras un correo electrónico";
+"COnboardForm_forgotSubtitle"="Para reiniciar tu contraseña";
+"COnboardForm_forgotReset"="Enviar";
+"COnboardForm_forgotCancel"="Cancelar";
+"COnboardForm_forgotPlaceholder"="Correo electrónico";
+"COnboardForm_forgotSuccess"="Revisa tu bandeja de entrada";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando imagen, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

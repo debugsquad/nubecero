@@ -7,7 +7,7 @@ class VHomeCellDiskCircleMemory:VHomeCellDiskCircle
     private let kTimeInterval:TimeInterval = 0.01
     private let kAngleDelta:CGFloat = 0.06
     
-    init(frame:CGRect)
+    override init(frame:CGRect)
     {
         maxCircleEndAngle = 0
         

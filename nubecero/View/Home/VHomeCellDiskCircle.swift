@@ -35,6 +35,11 @@ class VHomeCellDiskCircle:UIView
         isUserInteractionEnabled = false
     }
     
+    override init(frame:CGRect)
+    {
+        fatalError()
+    }
+    
     required init?(coder:NSCoder)
     {
         fatalError()

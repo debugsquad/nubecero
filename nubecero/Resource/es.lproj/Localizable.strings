@@ -5,7 +5,6 @@
 "VPicturesDataCellSize_labelTitle"="Megabytes";
 "VPicturesDataCellCreated_labelTitle"="Subida";
 "VBanned_disclaimer"="Tu cuenta esta suspendida\nContacta soporte para mayor información";
-"VHomeCellSpace_labelTitle"="Megabytes usados de tu nube";
 "VAuth_buttonTryAgain"="Reintentar";
 "VSettingsCellSecurity_label"="Proteger con Passcode";
 "VSettingsCellSecurity_labelDescription"="Manten tus fotos privadas pidiendo Passcode/Touch ID al iniciar";

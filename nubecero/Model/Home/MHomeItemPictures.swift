@@ -2,7 +2,7 @@ import UIKit
 
 class MHomeItemPictures:MHomeItem
 {
-    private let kCellHeight:CGFloat = 52
+    private let kCellHeight:CGFloat = 40
     private let kSelectable:Bool = false
     
     override init()

@@ -25,7 +25,7 @@
 "VHomeCellSpaceFree_label"="Disponible  %@ MB";
 "VHomeCellSpaceUsed_label"="Usado  %@ MB";
 "VHomeCellSpaceTotal_label"="Total  %@ MB";
-"VHomeCellPictures_label"="Fotos  ";
+"VHomeCellPictures_label"="Fotos  %@";
 
 "CHomeUpload_title"="Subir";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

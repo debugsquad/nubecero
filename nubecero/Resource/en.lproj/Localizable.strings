@@ -25,7 +25,7 @@
 "VHomeCellSpaceFree_label"="Available  %@ MB";
 "VHomeCellSpaceUsed_label"="Used  %@ MB";
 "VHomeCellSpaceTotal_label"="Total  %@ MB";
-"VHomeCellPictures_label"="Photos  ";
+"VHomeCellPictures_label"="Photos  %@";
 
 "CHomeUpload_title"="Upload";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

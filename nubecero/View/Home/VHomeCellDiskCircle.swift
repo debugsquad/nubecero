@@ -59,7 +59,7 @@ class VHomeCellDiskCircle:UIView
             center:centerPoint,
             radius:kCircleRadius,
             startAngle:kCircleStartAngle,
-            endAngle:circleEndAngle,
+            endAngle:circleEndAngle - kCircleStartAngle,
             clockwise:false)
         let arrowPoint:CGPoint = context.currentPointOfPath
         context.drawPath(using:CGPathDrawingMode.stroke)

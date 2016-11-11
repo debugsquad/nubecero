@@ -3,6 +3,7 @@ import UIKit
 class VHomeCellDisk:VHomeCell
 {
     private weak var circle:VHomeCellDiskCircleMemory!
+    private weak var circleBackground:VHomeCellDiskCircleBackground!
     private let circleSize:CGSize
     private let circleSide:CGFloat
     private let kCircleRadians:CGFloat = 6.28319
@@ -19,9 +20,11 @@ class VHomeCellDisk:VHomeCell
         let circleFrame:CGRect = CGRect(
             origin:CGPoint(x:-circleSide, y:-circleSide),
             size:circleSize)
+        
         let circle:VHomeCellDiskCircleMemory = VHomeCellDiskCircleMemory(frame:circleFrame)
-        let circleBackground:VHomeCellDiskCircleBackground = VHomeCellDiskCircleBackground(frame:circleFrame)
         self.circle = circle
+        let circleBackground:VHomeCellDiskCircleBackground = VHomeCellDiskCircleBackground(frame:circleFrame)
+        self.circleBackground = circleBackground
         
         let gradient:VHomeCellDiskGradient = VHomeCellDiskGradient()
         gradient.mask = circle
@@ -29,7 +32,6 @@ class VHomeCellDisk:VHomeCell
         addSubview(gradient)
         
         let views:[String:UIView] = [
-            "circleBackground":circleBackground,
             "gradient":gradient]
         
         let metrics:[String:CGFloat] = [:]
@@ -41,16 +43,6 @@ class VHomeCellDisk:VHomeCell
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[gradient]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[circleBackground]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[circleBackground]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -72,6 +64,7 @@ class VHomeCellDisk:VHomeCell
         let marginPoint:CGPoint = CGPoint(x:marginLeft, y:marginTop)
         let circleRect:CGRect = CGRect(origin:marginPoint, size:circleSize)
         circle.frame = circleRect
+        circleBackground.frame = circleRect
         
         super.layoutSubviews()
     }

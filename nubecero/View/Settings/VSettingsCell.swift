@@ -2,7 +2,7 @@ import UIKit
 
 class VSettingsCell:UICollectionViewCell
 {
-    private let kAlphaSelected:CGFloat = 0.2
+    private let kAlphaSelected:CGFloat = 0.3
     
     override init(frame: CGRect)
     {
@@ -39,10 +39,12 @@ class VSettingsCell:UICollectionViewCell
         if isSelected || isHighlighted
         {
             alpha = kAlphaSelected
+            backgroundColor = UIColor.clear
         }
         else
         {
             alpha = 1
+            backgroundColor = UIColor.white
         }
     }
     
@@ -50,6 +52,5 @@ class VSettingsCell:UICollectionViewCell
     
     func config(model:MSettingsItem)
     {
-        
     }
 }

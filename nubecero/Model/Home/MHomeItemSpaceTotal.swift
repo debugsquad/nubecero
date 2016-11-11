@@ -7,7 +7,7 @@ class MHomeItemSpaceTotal:MHomeItem
     
     override init()
     {
-        let reusableIdentifier:String = VHomeCellSpace.reusableIdentifier
+        let reusableIdentifier:String = VHomeCellSpaceFree.reusableIdentifier
         super.init(
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight,

@@ -22,6 +22,8 @@
 "VOnboardFormCellRemember_label"="Recuerdame";
 "VOnboardFormCellForgot_buttonTitle"="¿Olvidaste tu contraseña?";
 "VSettingsCellAccount_title"="Cuenta  ";
+"VHomeCellSpaceFree_label"="Disponible  %@ MB";
+"VHomeCellSpaceUsed_label"="Usado  %@ MB";
 
 "CHomeUpload_title"="Subir";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

@@ -35,8 +35,22 @@ class VHomeCellSpaceFree:VHomeCellSpace
         let totalStorageInt:Int = MSession.sharedInstance.totalStorage()
         let freeSpaceInt:Int = totalStorageInt - usedSpaceInt
         let freeSpace:NSNumber = (CGFloat(freeSpaceInt) / kKilobytesPerMega) as NSNumber
-        let freeSpaceString:String? = numberFormatter.string(from:freeSpace)
-        label.text = freeSpaceString
+        
+        guard
+            
+            let freeSpaceString:String = numberFormatter.string(from:freeSpace)
+        
+        else
+        {
+            label.text = kEmpty
+            
+            return
+        }
+        
+        let compountString:String = String(
+            format:NSLocalizedString("VHomeCellSpaceFree_label", comment:""),
+            freeSpaceString)
+        label.text = compountString
     }
     
     /*

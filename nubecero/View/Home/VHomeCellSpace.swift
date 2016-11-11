@@ -7,8 +7,8 @@ class VHomeCellSpace:VHomeCell
     let kEmpty:String = ""
     let kKilobytesPerMega:CGFloat = 1000
     private weak var layoutIndicatorTop:NSLayoutConstraint!
-    private let kMaxFractions:Int = 1
-    private let kIndicatorSize:CGFloat = 8
+    private let kMaxFractions:Int = 2
+    private let kIndicatorSize:CGFloat = 16
     private let kCornerRadius:CGFloat = 4
     
     init(frame:CGRect, color:UIColor)
@@ -30,9 +30,12 @@ class VHomeCellSpace:VHomeCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.regular(size:14)
+        label.font = UIFont.regular(size:13)
         label.textColor = UIColor.black
         self.label = label
+        
+        addSubview(indicator)
+        addSubview(label)
         
         let views:[String:UIView] = [
             "label":label,
@@ -42,12 +45,12 @@ class VHomeCellSpace:VHomeCell
             "indicatorSize":kIndicatorSize]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[indicator(indicatorSize)]-5-[label(280)]",
+            withVisualFormat:"H:|-10-[indicator(indicatorSize)]-8-[label(280)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[label]-0-|",
+            withVisualFormat:"V:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))

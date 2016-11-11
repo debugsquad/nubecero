@@ -41,7 +41,22 @@ class CPictures:CController
         { [weak self] in
             
             self?.viewPictures.picturesLoaded()
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.deletablePictures()
+            }
         }
+    }
+    
+    //MARK: private
+    
+    private func deletablePictures()
+    {
+        guard
+        
+            let firebasePicture:FDatabaseModelPicture = mpich
     }
     
     private func confirmedDeletePicture()

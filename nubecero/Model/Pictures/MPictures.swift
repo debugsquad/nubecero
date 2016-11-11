@@ -6,8 +6,8 @@ class MPictures
     
     static let sharedInstance:MPictures = MPictures()
     var references:[MPicturesItemReference]
+    var deletable:[FDatabaseModelPicture]
     private var items:[PictureId:MPicturesItem]
-    private var deletable:[MPicturesItem]
     
     private init()
     {
@@ -98,11 +98,7 @@ class MPictures
             }
             else
             {
-                let deletableItem:MPicturesItem = MPicturesItem(
-                    pictureId:pictureId,
-                    firebasePicture:firebasePicture)
-                
-                deletable.append(deletableItem)
+                deletable.append(firebasePicture)
             }
         }
         

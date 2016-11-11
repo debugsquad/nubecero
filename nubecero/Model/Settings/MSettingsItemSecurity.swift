@@ -2,7 +2,7 @@ import UIKit
 
 class MSettingsItemSecurity:MSettingsItem
 {
-    private let kCellHeight:CGFloat = 80
+    private let kCellHeight:CGFloat = 100
     private let kSelectable:Bool = false
     
     override init()

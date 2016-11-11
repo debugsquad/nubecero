@@ -5,6 +5,7 @@ class COnboardForm:CController
 {
     private weak var viewForm:VOnboardForm!
     private weak var onboard:COnboard?
+    private let kMinEmailLength:Int = 4
     let model:MOnboardForm
     weak var emailField:UITextField?
     weak var passwordField:UITextField?
@@ -226,9 +227,9 @@ class COnboardForm:CController
             style:
             UIAlertActionStyle.cancel)
         
-        let actionRestart:UIAlertAction = UIAlertAction(
+        let actionSend:UIAlertAction = UIAlertAction(
             title:
-            NSLocalizedString("COnboardForm_forgotRestart", comment:""),
+            NSLocalizedString("COnboardForm_forgotSend", comment:""),
             style:
             UIAlertActionStyle.default)
         { (action) in
@@ -242,20 +243,28 @@ class COnboardForm:CController
                 return
             }
             
-            FIRAuth.auth()?.sendPasswordReset(withEmail:email)
-            { (error) in
-                
-                let message:String
-                
-                if let error:Error = error
-                {
-                    message = error.localizedDescription
+            if email.characters.count > kMinEmailLength
+            {
+                FIRAuth.auth()?.sendPasswordReset(withEmail:email)
+                { (error) in
+                    
+                    let message:String
+                    
+                    if let error:Error = error
+                    {
+                        message = error.localizedDescription
+                    }
+                    else
+                    {
+                        message = NSLocalizedString("COnboardForm_forgotSuccess", comment:"")
+                    }
+                    
+                    VAlert.message(message:message)
                 }
-                else
-                {
-                    message = NSLocalizedString("COnboardForm_forgotSuccess", comment:"")
-                }
-                
+            }
+            else
+            {
+                let message:String = NSLocalizedString("COnboardForm_forgotInvalidEmail", comment:"")
                 VAlert.message(message:message)
             }
         }
@@ -267,7 +276,7 @@ class COnboardForm:CController
         }
         
         alert.addAction(actionCancel)
-        alert.addAction(actionRestart)
+        alert.addAction(actionSend)
         
         present(alert, animated:true, completion:nil)
     }

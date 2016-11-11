@@ -41,10 +41,11 @@
 "COnboardForm_errorUnknown"="Error inesperado, reintenta";
 "COnboardForm_forgotTitle"="Recibiras un correo electrónico";
 "COnboardForm_forgotSubtitle"="Para reiniciar tu contraseña";
-"COnboardForm_forgotReset"="Enviar";
+"COnboardForm_forgotSend"="Enviar";
 "COnboardForm_forgotCancel"="Cancelar";
 "COnboardForm_forgotPlaceholder"="Correo electrónico";
 "COnboardForm_forgotSuccess"="Revisa tu bandeja de entrada";
+"COnboardForm_forgotInvalidEmail"="Correo electrónico invalido";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando imagen, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

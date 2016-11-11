@@ -3,6 +3,7 @@ import UIKit
 class VSettingsCell:UICollectionViewCell
 {
     private let kAlphaSelected:CGFloat = 0.3
+    private let kAlphaNotSelected:CGFloat = 1
     
     override init(frame: CGRect)
     {
@@ -43,7 +44,7 @@ class VSettingsCell:UICollectionViewCell
         }
         else
         {
-            alpha = 1
+            alpha = kAlphaNotSelected
             backgroundColor = UIColor.white
         }
     }

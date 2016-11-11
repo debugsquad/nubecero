@@ -2,7 +2,7 @@ import UIKit
 
 class MHomeItemBlank:MHomeItem
 {
-    private let kCellHeight:CGFloat = 5
+    private let kCellHeight:CGFloat = 10
     private let kSelectable:Bool = false
     
     override init()

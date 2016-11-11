@@ -14,14 +14,14 @@ class VHomeCellDiskCircle:UIView
     private let arrowSize:CGSize
     private let colorMain:CGColor
     private let colorBackground:CGColor
-    private let kTimeInterval:TimeInterval = 0.025
-    private let kAngleDelta:CGFloat = 0.14
-    private let kLineWidth:CGFloat = 40
+    private let kTimeInterval:TimeInterval = 0.015
+    private let kAngleDelta:CGFloat = 0.09
+    private let kLineWidth:CGFloat = 22
     private let kArrowRadius:CGFloat = 3
-    private let kCircleRadius:CGFloat = 80
+    private let kCircleRadius:CGFloat = 40
     private let kCircleStartAngle:CGFloat = 0
     private let kCircleBackgroundEndAngle:CGFloat = -0.00001
-    private let kBackgroundAlpha:CGFloat = 0.2
+    private let kBackgroundAlpha:CGFloat = 0.4
     
     override init(frame:CGRect)
     {
@@ -58,7 +58,6 @@ class VHomeCellDiskCircle:UIView
         {
             return
         }
-        
         
         context.setLineWidth(kLineWidth)
         context.setLineCap(CGLineCap.round)

@@ -1,4 +1,4 @@
-"VHomeCellUpload_label"="Subir imágenes";
+"VHomeCellUpload_label"="Agregar fotos";
 "VHomeUploadSyncBar_cancel"="Detener";
 "VHomeUploadSyncBar_tryAgain"="Reiniciar";
 "VPicturesDataCellClose_buttonTitle"="Cerrar sessión";
@@ -26,10 +26,10 @@
 
 "CHomeUpload_title"="Subir";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";
-"CHomeUpload_noCameraRoll"="No se pudieron subir tus imágenes";
-"CHomeUploadSync_syncComplete"="Imágenes subidas";
-"CHomeUploadSync_diskFull"="Tu nube esta llena, algunas imágenes no se pudieron subir";
-"CHomeUpload_uploadedTitle"="¿Borras esas imágenes de tu dispositivo?";
+"CHomeUpload_noCameraRoll"="No se pudieron subir tus fotos";
+"CHomeUploadSync_syncComplete"="Fotos subidas";
+"CHomeUploadSync_diskFull"="Tu nube esta llena, algunas fotos no se pudieron subir";
+"CHomeUpload_uploadedTitle"="¿Borras esas fotos de tu dispositivo?";
 "CHomeUpload_uploadedMessage"="Ya estan respaldadas en la nube";
 "CHomeUpload_uploadedDontRemove"="Mantenerlas";
 "CHomeUpload_uploadedRemove"="Borrarlas";

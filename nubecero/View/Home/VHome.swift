@@ -6,6 +6,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     private weak var collectionView:UICollectionView!
     private weak var spinner:VSpinner?
     private let kInterLine:CGFloat = 1
+    private let kCollectionTop:CGFloat = 5
     private let kCollectionBottom:CGFloat = 20
     private let kDeselectTime:TimeInterval = 1
     
@@ -28,7 +29,11 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
-        flow.sectionInset = UIEdgeInsets(top:kInterLine, left:0, bottom:kCollectionBottom, right:0)
+        flow.sectionInset = UIEdgeInsets(
+            top:kCollectionTop,
+            left:0,
+            bottom:kCollectionBottom,
+            right:0)
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.isHidden = true

@@ -13,6 +13,13 @@ class MMain
         
         var items:[MMainItem] = []
         
+        #if DEBUG
+            
+            let itemAdmin:MMainItemAdmin = MMainItemAdmin(index:items.count)
+            items.append(itemAdmin)
+            
+        #endif
+        
         let itemSettings:MMainItemSettings = MMainItemSettings(index:items.count)
         items.append(itemSettings)
         

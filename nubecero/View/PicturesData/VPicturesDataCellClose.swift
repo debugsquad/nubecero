@@ -4,8 +4,7 @@ class VPicturesDataCellClose:VPicturesDataCell
 {
     private weak var layoutButtonLeft:NSLayoutConstraint!
     private let kCornerRadius:CGFloat = 4
-    private let kButtonWidth:CGFloat = 90
-    private let kButtonMarginVertical:CGFloat = 20
+    private let kButtonWidth:CGFloat = 125
     
     override init(frame:CGRect)
     {
@@ -37,8 +36,7 @@ class VPicturesDataCellClose:VPicturesDataCell
             "button":button]
         
         let metrics:[String:CGFloat] = [
-            "buttonWidth":kButtonWidth,
-            "buttonMarginVertical":kButtonMarginVertical]
+            "buttonWidth":kButtonWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:[button(buttonWidth)]",
@@ -46,7 +44,7 @@ class VPicturesDataCellClose:VPicturesDataCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(buttonMarginVertical)-[button]-(buttonMarginVertical)-|",
+            withVisualFormat:"V:|-(42)-[button]-(42)-|",
             options:[],
             metrics:metrics,
             views:views))

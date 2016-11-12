@@ -3,13 +3,6 @@ import UIKit
 class VPicturesDataCellCreated:VPicturesDataCell
 {
     private weak var labelDate:UILabel!
-    private let kDateFormat:String = "MM/dd/yy"
-    private let kFontLabelTitle:CGFloat = 13
-    private let kFontLabelDate:CGFloat = 19
-    private let kLabelTitleTop:CGFloat = 20
-    private let kLabelTitleHeight:CGFloat = 16
-    private let kLabelDateTop:CGFloat = 10
-    private let kLabelDateHeight:CGFloat = 24
     
     override init(frame:CGRect)
     {
@@ -21,7 +14,7 @@ class VPicturesDataCellCreated:VPicturesDataCell
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.textColor = UIColor.black
-        labelTitle.font = UIFont.medium(size:kFontLabelTitle)
+        labelTitle.font = UIFont.bold(size:14)
         labelTitle.text = NSLocalizedString("VPicturesDataCellCreated_labelTitle", comment:"")
         
         let labelDate:UILabel = UILabel()
@@ -29,8 +22,9 @@ class VPicturesDataCellCreated:VPicturesDataCell
         labelDate.translatesAutoresizingMaskIntoConstraints = false
         labelDate.backgroundColor = UIColor.clear
         labelDate.textAlignment = NSTextAlignment.center
-        labelDate.textColor = UIColor.complement
-        labelDate.font = UIFont.medium(size:kFontLabelDate)
+        labelDate.textColor = UIColor.main
+        labelDate.numberOfLines = 2
+        labelDate.font = UIFont.bold(size:16)
         self.labelDate = labelDate
         
         addSubview(labelTitle)
@@ -40,11 +34,7 @@ class VPicturesDataCellCreated:VPicturesDataCell
             "labelTitle":labelTitle,
             "labelDate":labelDate]
         
-        let metrics:[String:CGFloat] = [
-            "labelTitleTop":kLabelTitleTop,
-            "labelTitleHeight":kLabelTitleHeight,
-            "labelDateTop":kLabelDateTop,
-            "labelDateHeight":kLabelDateHeight]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[labelTitle]-0-|",
@@ -52,12 +42,12 @@ class VPicturesDataCellCreated:VPicturesDataCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[labelDate]-0-|",
+            withVisualFormat:"H:|-5-[labelDate]-5-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(labelTitleTop)-[labelTitle(labelTitleHeight)]-(labelDateTop)-[labelDate(labelDateHeight)]",
+            withVisualFormat:"V:|-0-[labelTitle(20)]-0-[labelDate(28)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -73,7 +63,7 @@ class VPicturesDataCellCreated:VPicturesDataCell
         let timestamp:TimeInterval = controller.model.created
         let dateCreated:Date = Date(timeIntervalSince1970:timestamp)
         let dateFormatter:DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = kDateFormat
+        dateFormatter.dateStyle = DateFormatter.Style.long
         
         let dateString:String = dateFormatter.string(from:dateCreated)
         labelDate.text = dateString

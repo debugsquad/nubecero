@@ -1,5 +1,6 @@
 import UIKit
 import Firebase
+import StoreKit
 
 @UIApplicationMain
 class AppDelegate:UIResponder, UIApplicationDelegate
@@ -21,6 +22,8 @@ class AppDelegate:UIResponder, UIApplicationDelegate
         
         window.rootViewController = parent
         self.window = window
+        
+        SKPaymentQueue.default().add(MStore.sharedInstance)
         
         return true
     }

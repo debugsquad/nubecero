@@ -85,6 +85,14 @@
 		DA4FA5961DD7C72800358ABE /* VStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5921DD7C72800358ABE /* VStoreCell.swift */; };
 		DA4FA5971DD7C72800358ABE /* VStoreFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5931DD7C72800358ABE /* VStoreFooter.swift */; };
 		DA4FA5981DD7C72800358ABE /* VStoreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5941DD7C72800358ABE /* VStoreHeader.swift */; };
+		DA4FA5A21DD7C7B300358ABE /* MStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA59A1DD7C7B300358ABE /* MStore.swift */; };
+		DA4FA5A31DD7C7B300358ABE /* MStorePurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA59B1DD7C7B300358ABE /* MStorePurchase.swift */; };
+		DA4FA5A41DD7C7B300358ABE /* MStorePurchaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA59C1DD7C7B300358ABE /* MStorePurchaseItem.swift */; };
+		DA4FA5A51DD7C7B300358ABE /* MStorePurchaseItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA59D1DD7C7B300358ABE /* MStorePurchaseItemStatus.swift */; };
+		DA4FA5A61DD7C7B300358ABE /* MStorePurchaseItemStatusDeferred.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA59E1DD7C7B300358ABE /* MStorePurchaseItemStatusDeferred.swift */; };
+		DA4FA5A71DD7C7B300358ABE /* MStorePurchaseItemStatusNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA59F1DD7C7B300358ABE /* MStorePurchaseItemStatusNew.swift */; };
+		DA4FA5A81DD7C7B300358ABE /* MStorePurchaseItemStatusPurchased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5A01DD7C7B300358ABE /* MStorePurchaseItemStatusPurchased.swift */; };
+		DA4FA5A91DD7C7B300358ABE /* MStorePurchaseItemStatusPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5A11DD7C7B300358ABE /* MStorePurchaseItemStatusPurchasing.swift */; };
 		DA5768731DCEB12F00590B5F /* TFDatabaseModelUserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5768721DCEB12F00590B5F /* TFDatabaseModelUserStatus.swift */; };
 		DA7367B41DD5228F0004B99C /* MOnboardFormItemPassGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7367B31DD5228F0004B99C /* MOnboardFormItemPassGenerator.swift */; };
 		DA7367B61DD523DB0004B99C /* VOnboardFormCellPassGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7367B51DD523DB0004B99C /* VOnboardFormCellPassGenerator.swift */; };
@@ -306,6 +314,14 @@
 		DA4FA5921DD7C72800358ABE /* VStoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCell.swift; sourceTree = "<group>"; };
 		DA4FA5931DD7C72800358ABE /* VStoreFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreFooter.swift; sourceTree = "<group>"; };
 		DA4FA5941DD7C72800358ABE /* VStoreHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreHeader.swift; sourceTree = "<group>"; };
+		DA4FA59A1DD7C7B300358ABE /* MStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStore.swift; sourceTree = "<group>"; };
+		DA4FA59B1DD7C7B300358ABE /* MStorePurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchase.swift; sourceTree = "<group>"; };
+		DA4FA59C1DD7C7B300358ABE /* MStorePurchaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItem.swift; sourceTree = "<group>"; };
+		DA4FA59D1DD7C7B300358ABE /* MStorePurchaseItemStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItemStatus.swift; sourceTree = "<group>"; };
+		DA4FA59E1DD7C7B300358ABE /* MStorePurchaseItemStatusDeferred.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItemStatusDeferred.swift; sourceTree = "<group>"; };
+		DA4FA59F1DD7C7B300358ABE /* MStorePurchaseItemStatusNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItemStatusNew.swift; sourceTree = "<group>"; };
+		DA4FA5A01DD7C7B300358ABE /* MStorePurchaseItemStatusPurchased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItemStatusPurchased.swift; sourceTree = "<group>"; };
+		DA4FA5A11DD7C7B300358ABE /* MStorePurchaseItemStatusPurchasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItemStatusPurchasing.swift; sourceTree = "<group>"; };
 		DA5768721DCEB12F00590B5F /* TFDatabaseModelUserStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelUserStatus.swift; sourceTree = "<group>"; };
 		DA7367B31DD5228F0004B99C /* MOnboardFormItemPassGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItemPassGenerator.swift; sourceTree = "<group>"; };
 		DA7367B51DD523DB0004B99C /* VOnboardFormCellPassGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardFormCellPassGenerator.swift; sourceTree = "<group>"; };
@@ -766,6 +782,7 @@
 		DA4EF8E11DC395B300297C1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA4FA5991DD7C7B300358ABE /* Store */,
 				DAF6F29D1DD376AE0053ED1B /* OnboardForm */,
 				DAC55F1C1DD258CC00213C27 /* Onboard */,
 				DA406BD41DCD03640098D347 /* Settings */,
@@ -902,6 +919,21 @@
 				DA4FA5921DD7C72800358ABE /* VStoreCell.swift */,
 				DA4FA5931DD7C72800358ABE /* VStoreFooter.swift */,
 				DA4FA5941DD7C72800358ABE /* VStoreHeader.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		DA4FA5991DD7C7B300358ABE /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				DA4FA59A1DD7C7B300358ABE /* MStore.swift */,
+				DA4FA59B1DD7C7B300358ABE /* MStorePurchase.swift */,
+				DA4FA59C1DD7C7B300358ABE /* MStorePurchaseItem.swift */,
+				DA4FA59D1DD7C7B300358ABE /* MStorePurchaseItemStatus.swift */,
+				DA4FA59E1DD7C7B300358ABE /* MStorePurchaseItemStatusDeferred.swift */,
+				DA4FA59F1DD7C7B300358ABE /* MStorePurchaseItemStatusNew.swift */,
+				DA4FA5A01DD7C7B300358ABE /* MStorePurchaseItemStatusPurchased.swift */,
+				DA4FA5A11DD7C7B300358ABE /* MStorePurchaseItemStatusPurchasing.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -1338,6 +1370,7 @@
 				DACD1FA21DC4025D0067D26B /* MHomeItemUpload.swift in Sources */,
 				DA7A79D31DD65E2E001B5FA5 /* VHomeCellSpaceTotal.swift in Sources */,
 				DACD1F871DC3A0020067D26B /* CHome.swift in Sources */,
+				DA4FA5A21DD7C7B300358ABE /* MStore.swift in Sources */,
 				DAF6F2B01DD397150053ED1B /* MOnboardFormItemEmail.swift in Sources */,
 				DAC55F2E1DD2829200213C27 /* MOnboardItemPrivacy.swift in Sources */,
 				DAF6F29F1DD376B90053ED1B /* COnboardForm.swift in Sources */,
@@ -1349,6 +1382,7 @@
 				DA2F66A61DC92F720078B466 /* MPicturesDetailItemInfo.swift in Sources */,
 				DAF6F2BC1DD39BC50053ED1B /* MOnboardFormItemPasswordSignin.swift in Sources */,
 				DA2F66B31DC950850078B466 /* MPicturesItemStateNone.swift in Sources */,
+				DA4FA5A91DD7C7B300358ABE /* MStorePurchaseItemStatusPurchasing.swift in Sources */,
 				DACD1FBD1DC589CD0067D26B /* VHomeUploadSyncBar.swift in Sources */,
 				DA406BC91DCCE8480098D347 /* VAuth.swift in Sources */,
 				DA34117D1DCBC1C0006E6D71 /* FDatabaseModelServer.swift in Sources */,
@@ -1356,6 +1390,7 @@
 				DA406BD31DCD02E90098D347 /* VSettingsCellSecurity.swift in Sources */,
 				DA88F6721DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift in Sources */,
 				DAF6F2AE1DD3954E0053ED1B /* VOnboardFormCellEmail.swift in Sources */,
+				DA4FA5A51DD7C7B300358ABE /* MStorePurchaseItemStatus.swift in Sources */,
 				DAC55F201DD2592200213C27 /* MOnboardItem.swift in Sources */,
 				DACD1F991DC3F0E80067D26B /* MMainItemPictures.swift in Sources */,
 				DA2F668B1DC8FFB20078B466 /* MPictures.swift in Sources */,
@@ -1368,6 +1403,7 @@
 				DA7A79C31DD63DCF001B5FA5 /* VHomeCellDiskArrow.swift in Sources */,
 				DACD1F951DC3DBDB0067D26B /* VAlert.swift in Sources */,
 				DACD1FC51DC7C6750067D26B /* FDatabaseModel.swift in Sources */,
+				DA4FA5A31DD7C7B300358ABE /* MStorePurchase.swift in Sources */,
 				DA2F66A01DC92F380078B466 /* MPicturesDetail.swift in Sources */,
 				DA406BDE1DCD1D240098D347 /* MSettingsItemLogout.swift in Sources */,
 				DA406BDA1DCD03820098D347 /* MSettingsItemSecurity.swift in Sources */,
@@ -1389,6 +1425,7 @@
 				DAE4556C1DCA994900948D70 /* MPicturesDataItemSize.swift in Sources */,
 				DAC55F281DD26B0000213C27 /* VOnboardOptions.swift in Sources */,
 				DAE455661DCA846000948D70 /* MPicturesDataItem.swift in Sources */,
+				DA4FA5A81DD7C7B300358ABE /* MStorePurchaseItemStatusPurchased.swift in Sources */,
 				DA7A79C71DD64A40001B5FA5 /* MHomeItemSpaceUsed.swift in Sources */,
 				DA7A79CD1DD64BFD001B5FA5 /* VHomeCellSpaceFree.swift in Sources */,
 				DAD7398C1DD1571700FC3297 /* VSettingsCellAbout.swift in Sources */,
@@ -1424,6 +1461,7 @@
 				DA2F66931DC91B780078B466 /* VPicturesCell.swift in Sources */,
 				DA406BD81DCD03760098D347 /* MSettingsItem.swift in Sources */,
 				DA2F66B51DC9508F0078B466 /* MPicturesItemStateLoading.swift in Sources */,
+				DA4FA5A41DD7C7B300358ABE /* MStorePurchaseItem.swift in Sources */,
 				DA3411851DCBEE57006E6D71 /* CBanned.swift in Sources */,
 				DA4EF9011DC395B300297C1D /* ExtensionNSManagedObject.swift in Sources */,
 				DAF6F2B41DD397260053ED1B /* MOnboardFormItemEmailSignin.swift in Sources */,
@@ -1480,6 +1518,7 @@
 				DA7367B61DD523DB0004B99C /* VOnboardFormCellPassGenerator.swift in Sources */,
 				DAC55F181DD23B0A00213C27 /* COnboard.swift in Sources */,
 				DA3411881DCBF016006E6D71 /* VBanned.swift in Sources */,
+				DA4FA5A71DD7C7B300358ABE /* MStorePurchaseItemStatusNew.swift in Sources */,
 				DAE455541DCA4DE400948D70 /* VPicturesDetailCellInfoCell.swift in Sources */,
 				DAF6F2B21DD3971E0053ED1B /* MOnboardFormItemEmailRegister.swift in Sources */,
 				DA2F66881DC8FE8B0078B466 /* VPictures.swift in Sources */,
@@ -1507,6 +1546,7 @@
 				DA4EF9061DC395B300297C1D /* FMain.swift in Sources */,
 				DA2F66851DC8FE5C0078B466 /* CPictures.swift in Sources */,
 				DACD1FB61DC56C250067D26B /* VHomeUploadBar.swift in Sources */,
+				DA4FA5A61DD7C7B300358ABE /* MStorePurchaseItemStatusDeferred.swift in Sources */,
 				DA7A79B51DD61236001B5FA5 /* VSettingsCellBlank.swift in Sources */,
 				DA4FA5951DD7C72800358ABE /* VStore.swift in Sources */,
 				DA406BD61DCD036C0098D347 /* MSettings.swift in Sources */,

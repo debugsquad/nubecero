@@ -21,7 +21,7 @@ class MMainItemAdmin:MMainItem
     
     override func controller() -> CController
     {
-        let controller:CStore = CStore()
+        let controller:CAdmin = CAdmin()
         
         return controller
     }

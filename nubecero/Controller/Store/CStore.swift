@@ -2,7 +2,7 @@ import UIKit
 
 class CStore:CController
 {
-    weak var viewStore:VStore!
+    private weak var viewStore:VStore!
     
     override func loadView()
     {

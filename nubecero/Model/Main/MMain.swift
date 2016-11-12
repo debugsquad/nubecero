@@ -13,6 +13,9 @@ class MMain
         
         var items:[MMainItem] = []
         
+        let itemStore:MMainItemStore = MMainItemStore(index:items.count)
+        items.append(itemStore)
+        
         let itemSettings:MMainItemSettings = MMainItemSettings(index:items.count)
         items.append(itemSettings)
         

@@ -6,6 +6,7 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     private weak var collectionView:UICollectionView!
     private weak var spinner:VSpinner?
     private let kInterLine:CGFloat = 1
+    private let kCollectionTop:CGFloat = 5
     private let kCollectionBottom:CGFloat = 20
     private let kDeselectTime:TimeInterval = 1
     
@@ -28,7 +29,11 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
-        flow.sectionInset = UIEdgeInsets(top:0, left:0, bottom:kCollectionBottom, right:0)
+        flow.sectionInset = UIEdgeInsets(
+            top:kCollectionTop,
+            left:0,
+            bottom:kCollectionBottom,
+            right:0)
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.isHidden = true
@@ -49,9 +54,29 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             forCellWithReuseIdentifier:
             VHomeCellSpace.reusableIdentifier)
         collectionView.register(
+            VHomeCellSpaceFree.self,
+            forCellWithReuseIdentifier:
+            VHomeCellSpaceFree.reusableIdentifier)
+        collectionView.register(
+            VHomeCellSpaceUsed.self,
+            forCellWithReuseIdentifier:
+            VHomeCellSpaceUsed.reusableIdentifier)
+        collectionView.register(
+            VHomeCellSpaceTotal.self,
+            forCellWithReuseIdentifier:
+            VHomeCellSpaceTotal.reusableIdentifier)
+        collectionView.register(
+            VHomeCellPictures.self,
+            forCellWithReuseIdentifier:
+            VHomeCellPictures.reusableIdentifier)
+        collectionView.register(
             VHomeCellDisk.self,
             forCellWithReuseIdentifier:
             VHomeCellDisk.reusableIdentifier)
+        collectionView.register(
+            VHomeCellBlank.self,
+            forCellWithReuseIdentifier:
+            VHomeCellBlank.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(collectionView)

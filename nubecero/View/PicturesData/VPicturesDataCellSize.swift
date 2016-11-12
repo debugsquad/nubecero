@@ -3,12 +3,6 @@ import UIKit
 class VPicturesDataCellSize:VPicturesDataCell
 {
     private weak var labelSize:UILabel!
-    private let kFontLabelTitle:CGFloat = 13
-    private let kFontLabelSize:CGFloat = 65
-    private let kLabelTitleTop:CGFloat = 20
-    private let kLabelTitleHeight:CGFloat = 16
-    private let kLabelSizeTop:CGFloat = 0
-    private let kLabelSizeHeight:CGFloat = 90
     private let kKbInMb:CGFloat = 1000
     private let kMaxFractionDigits:Int = 2
     
@@ -22,7 +16,7 @@ class VPicturesDataCellSize:VPicturesDataCell
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.textColor = UIColor.black
-        labelTitle.font = UIFont.medium(size:kFontLabelTitle)
+        labelTitle.font = UIFont.bold(size:14)
         labelTitle.text = NSLocalizedString("VPicturesDataCellSize_labelTitle", comment:"")
         
         let labelSize:UILabel = UILabel()
@@ -30,8 +24,6 @@ class VPicturesDataCellSize:VPicturesDataCell
         labelSize.translatesAutoresizingMaskIntoConstraints = false
         labelSize.backgroundColor = UIColor.clear
         labelSize.textAlignment = NSTextAlignment.center
-        labelSize.textColor = UIColor.main
-        labelSize.font = UIFont.numeric(size:kFontLabelSize)
         self.labelSize = labelSize
         
         addSubview(labelTitle)
@@ -41,11 +33,7 @@ class VPicturesDataCellSize:VPicturesDataCell
             "labelTitle":labelTitle,
             "labelSize":labelSize]
         
-        let metrics:[String:CGFloat] = [
-            "labelTitleTop":kLabelTitleTop,
-            "labelTitleHeight":kLabelTitleHeight,
-            "labelSizeTop":kLabelSizeTop,
-            "labelSizeHeight":kLabelSizeHeight]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[labelTitle]-0-|",
@@ -58,7 +46,7 @@ class VPicturesDataCellSize:VPicturesDataCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(labelTitleTop)-[labelTitle(labelTitleHeight)]-(labelSizeTop)-[labelSize(labelSizeHeight)]",
+            withVisualFormat:"V:|-(0)-[labelTitle(20)]-0-[labelSize(40)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -78,7 +66,33 @@ class VPicturesDataCellSize:VPicturesDataCell
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
         numberFormatter.maximumFractionDigits = kMaxFractionDigits
         
-        let sizeString:String? = numberFormatter.string(from:sizeNumber)
-        labelSize.text = sizeString
+        guard
+            
+            let sizeString:String = numberFormatter.string(from:sizeNumber)
+        
+        else
+        {
+            return
+        }
+        
+        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
+        
+        let attrSize:NSAttributedString = NSAttributedString(
+            string:sizeString,
+            attributes:[
+                NSFontAttributeName:UIFont.numeric(size:34),
+                NSForegroundColorAttributeName:UIColor.main
+            ])
+        
+        let attrUnit:NSAttributedString = NSAttributedString(
+            string:NSLocalizedString("VPicturesDataCellSize_labelMegabytes", comment:""),
+            attributes:[
+                NSFontAttributeName:UIFont.medium(size:18),
+                NSForegroundColorAttributeName:UIColor.complement
+            ])
+        
+        mutableString.append(attrSize)
+        mutableString.append(attrUnit)
+        labelSize.attributedText = mutableString
     }
 }

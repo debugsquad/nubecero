@@ -5,6 +5,7 @@ class COnboardForm:CController
 {
     private weak var viewForm:VOnboardForm!
     private weak var onboard:COnboard?
+    private let kMinEmailLength:Int = 4
     let model:MOnboardForm
     weak var emailField:UITextField?
     weak var passwordField:UITextField?
@@ -207,5 +208,78 @@ class COnboardForm:CController
                 }
             }
         }
+    }
+    
+    func forgotPassword()
+    {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
+        let alert:UIAlertController = UIAlertController(
+            title:
+            NSLocalizedString("COnboardForm_forgotTitle", comment:""),
+            message:
+            NSLocalizedString("COnboardForm_forgotSubtitle", comment:""),
+            preferredStyle:UIAlertControllerStyle.alert)
+        
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("COnboardForm_forgotCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionSend:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("COnboardForm_forgotSend", comment:""),
+            style:
+            UIAlertActionStyle.default)
+        { [weak self] (action) in
+            
+            guard
+                
+                let email:String = alert.textFields?.first?.text,
+                let minEmailLength:Int = self?.kMinEmailLength
+            
+            else
+            {
+                return
+            }
+            
+            if email.characters.count > minEmailLength
+            {
+                FIRAuth.auth()?.sendPasswordReset(withEmail:email)
+                { (error) in
+                    
+                    let message:String
+                    
+                    if let error:Error = error
+                    {
+                        message = error.localizedDescription
+                    }
+                    else
+                    {
+                        message = NSLocalizedString("COnboardForm_forgotSuccess", comment:"")
+                    }
+                    
+                    VAlert.message(message:message)
+                }
+            }
+            else
+            {
+                let message:String = NSLocalizedString("COnboardForm_forgotInvalidEmail", comment:"")
+                VAlert.message(message:message)
+            }
+        }
+        
+        alert.addTextField
+        { (textfield) in
+            
+            textfield.placeholder = NSLocalizedString("COnboardForm_forgotPlaceholder", comment:"")
+            textfield.keyboardType = UIKeyboardType.emailAddress
+        }
+        
+        alert.addAction(actionCancel)
+        alert.addAction(actionSend)
+        
+        present(alert, animated:true, completion:nil)
     }
 }

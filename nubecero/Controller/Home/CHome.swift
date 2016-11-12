@@ -1,4 +1,5 @@
 import UIKit
+import UserNotifications
 
 class CHome:CController
 {
@@ -6,6 +7,7 @@ class CHome:CController
     let model:MHome
     let askAuth:Bool
     var diskUsed:Int?
+    private let kAskNotifications:TimeInterval = 3
     
     init(askAuth:Bool)
     {
@@ -52,6 +54,35 @@ class CHome:CController
                 parentController.presentAuth()
                 parentController.controllerAuth?.askAuth()
             }
+        }
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kAskNotifications)
+        {
+            if #available(iOS 10.0, *)
+            {
+                let authOptions:UNAuthorizationOptions = [
+                    UNAuthorizationOptions.alert,
+                    UNAuthorizationOptions.badge,
+                    UNAuthorizationOptions.sound]
+                
+                UNUserNotificationCenter.current().requestAuthorization(options:authOptions)
+                { (_, _) in
+                }
+            }
+            else
+            {
+                let settings:UIUserNotificationSettings = UIUserNotificationSettings(
+                    types:[
+                        UIUserNotificationType.alert,
+                        UIUserNotificationType.badge,
+                        UIUserNotificationType.sound],
+                    categories:nil)
+                
+                UIApplication.shared.registerUserNotificationSettings(settings)
+            }
+            
+            UIApplication.shared.registerForRemoteNotifications()
         }
     }
     

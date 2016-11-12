@@ -10,7 +10,7 @@ class VSettingsCellRate:VSettingsCell
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:15)
+        label.font = UIFont.medium(size:14)
         label.textColor = UIColor.complement
         label.textAlignment = NSTextAlignment.center
         label.text = NSLocalizedString("VSettingsCellRate_label", comment:"")

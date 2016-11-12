@@ -41,16 +41,80 @@ class CPictures:CController
         { [weak self] in
             
             self?.viewPictures.picturesLoaded()
+            self?.asyncDeletablePictures()
         }
     }
     
-    private func confirmedDeletePicture()
+    //MARK: private
+    
+    private func asyncDeletablePictures()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.deletablePictures()
+        }
+    }
+    
+    private func deletablePictures()
+    {
+        guard
+        
+            let picture:MPicturesItem = MPictures.sharedInstance.deletable.popLast()
+        
+        else
+        {
+            return
+        }
+        
+        deletePic(
+            pictureId:picture.pictureId,
+            dataLength:picture.size,
+            onError:
+            { [weak self] (error) in
+                
+                self?.picDeleted(
+                    pictureId:picture.pictureId,
+                    dataLength:picture.size)
+                { [weak self] in
+                    
+                    FMain.sharedInstance.analytics?.cleanPictureDeletableNoData()
+                    
+                    self?.asyncDeletablePictures()
+                }
+            })
+        { [weak self] in
+         
+            FMain.sharedInstance.analytics?.cleanPictureDeletable()
+            
+            self?.asyncDeletablePictures()
+        }
+    }
+    
+    private func confirmedDeletePicture(picture:MPicturesItem)
+    {
+        deletePic(
+            pictureId:picture.pictureId,
+            dataLength:picture.size,
+            onError:
+            { (error) in
+                
+                VAlert.message(message:error)
+            })
+        {
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.viewPictures.removeSelected()
+            }
+        }
+    }
+    
+    private func deletePic(pictureId:MPictures.PictureId, dataLength:Int, onError:((String) -> ())?, onSuccess:(() -> ())?)
     {
         guard
             
-            let userId:String = MSession.sharedInstance.userId,
-            let pictureId:MPictures.PictureId = viewPictures.currentItem?.pictureId,
-            let dataLength:Int = viewPictures.currentItem?.size
+            let userId:String = MSession.sharedInstance.userId
         
         else
         {
@@ -70,20 +134,29 @@ class CPictures:CController
             
             else
             {
-                self?.deleteCompleted(
-                    userId:userId,
+                self?.picDeleted(
                     pictureId:pictureId,
-                    dataLength:dataLength)
+                    dataLength:dataLength,
+                    onSuccess:onSuccess)
                 
                 return
             }
             
-            VAlert.message(message:errorString)
+            onError?(errorString)
         }
     }
     
-    private func deleteCompleted(userId:String, pictureId:MPictures.PictureId, dataLength:Int)
+    private func picDeleted(pictureId:MPictures.PictureId, dataLength:Int, onSuccess:(() -> ())?)
     {
+        guard
+            
+            let userId:String = MSession.sharedInstance.userId
+            
+        else
+        {
+            return
+        }
+        
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyPictures:String = FDatabaseModelUser.Property.pictures.rawValue
         let propertyDiskUsed:String = FDatabaseModelUser.Property.diskUsed.rawValue
@@ -117,11 +190,7 @@ class CPictures:CController
         
         FMain.sharedInstance.database.removeChild(path:pathPicture)
         
-        DispatchQueue.main.async
-        { [weak self] in
-            
-            self?.viewPictures.removeSelected()
-        }
+        onSuccess?()
     }
     
     //MARK: public
@@ -173,7 +242,7 @@ class CPictures:CController
     {
         guard
             
-            let _:MPicturesItem = viewPictures.currentItem
+            let deletingPicture:MPicturesItem = viewPictures.currentItem
             
         else
         {
@@ -203,7 +272,7 @@ class CPictures:CController
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             { [weak self] in
                 
-                self?.confirmedDeletePicture()
+                self?.confirmedDeletePicture(picture:deletingPicture)
             }
         }
         

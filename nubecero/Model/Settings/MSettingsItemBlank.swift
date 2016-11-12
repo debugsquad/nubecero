@@ -1,13 +1,13 @@
 import UIKit
 
-class MHomeItemSpace:MHomeItem
+class MSettingsItemBlank:MSettingsItem
 {
-    private let kCellHeight:CGFloat = 200
+    private let kCellHeight:CGFloat = 15
     private let kSelectable:Bool = false
     
     override init()
     {
-        let reusableIdentifier:String = VHomeCellSpace.reusableIdentifier
+        let reusableIdentifier:String = VSettingsCellBlank.reusableIdentifier
         super.init(
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight,

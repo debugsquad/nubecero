@@ -24,8 +24,8 @@ class VHomeCellDiskGradient:UIView
         
         let yellowColor:UIColor = UIColor(
             red:0.980392156862745,
-            green:0.835294117647059,
-            blue:0.388235294117647,
+            green:0.735294117647059,
+            blue:0.288235294117647,
             alpha:1)
         
         let topColor:CGColor = yellowColor.cgColor

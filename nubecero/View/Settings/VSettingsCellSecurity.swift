@@ -3,8 +3,8 @@ import UIKit
 class VSettingsCellSecurity:VSettingsCell
 {
     private weak var check:UISwitch!
-    private let kCheckWidth:CGFloat = 72
-    private let kCheckTop:CGFloat = 23
+    private let kCheckWidth:CGFloat = 65
+    private let kCheckTop:CGFloat = 20
     
     override init(frame:CGRect)
     {
@@ -24,15 +24,24 @@ class VSettingsCellSecurity:VSettingsCell
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
         label.font = UIFont.medium(size:15)
-        label.textColor = UIColor(white:0.25, alpha:1)
-        label.numberOfLines = 0
-        label.textAlignment = NSTextAlignment.right
+        label.textColor = UIColor.black
         label.text = NSLocalizedString("VSettingsCellSecurity_label", comment:"")
         
+        let labelDescription:UILabel = UILabel()
+        labelDescription.isUserInteractionEnabled = false
+        labelDescription.translatesAutoresizingMaskIntoConstraints = false
+        labelDescription.backgroundColor = UIColor.clear
+        labelDescription.font = UIFont.regular(size:14)
+        labelDescription.textColor = UIColor(white:0.45, alpha:1)
+        labelDescription.numberOfLines =  0
+        labelDescription.text = NSLocalizedString("VSettingsCellSecurity_labelDescription", comment:"")
+        
+        addSubview(labelDescription)
         addSubview(label)
         addSubview(check)
         
         let views:[String:UIView] = [
+            "labelDescription":labelDescription,
             "check":check,
             "label":label]
         
@@ -41,7 +50,12 @@ class VSettingsCellSecurity:VSettingsCell
             "checkTop":kCheckTop]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[label]-10-[check(checkWidth)]-0-|",
+            withVisualFormat:"H:|-15-[check(checkWidth)]-0-[label(170)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-18-[labelDescription(290)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -51,7 +65,7 @@ class VSettingsCellSecurity:VSettingsCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[label]-0-|",
+            withVisualFormat:"V:|-(checkTop)-[label(32)]-5-[labelDescription(50)]",
             options:[],
             metrics:metrics,
             views:views))

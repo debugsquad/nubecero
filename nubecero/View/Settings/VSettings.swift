@@ -57,6 +57,14 @@ class VSettings:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             VSettingsCellShare.self,
             forCellWithReuseIdentifier:
             VSettingsCellShare.reusableIdentifier)
+        collectionView.register(
+            VSettingsCellAccount.self,
+            forCellWithReuseIdentifier:
+            VSettingsCellAccount.reusableIdentifier)
+        collectionView.register(
+            VSettingsCellBlank.self,
+            forCellWithReuseIdentifier:
+            VSettingsCellBlank.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(collectionView)

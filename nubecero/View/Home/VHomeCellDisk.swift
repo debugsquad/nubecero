@@ -2,7 +2,8 @@ import UIKit
 
 class VHomeCellDisk:VHomeCell
 {
-    private weak var circle:VHomeCellDiskCircle!
+    private weak var circle:VHomeCellDiskCircleMemory!
+    private weak var circleBackground:VHomeCellDiskCircleBackground!
     private let circleSize:CGSize
     private let circleSide:CGFloat
     private let kCircleRadians:CGFloat = 6.28319
@@ -19,15 +20,21 @@ class VHomeCellDisk:VHomeCell
         let circleFrame:CGRect = CGRect(
             origin:CGPoint(x:-circleSide, y:-circleSide),
             size:circleSize)
-        let circle:VHomeCellDiskCircle = VHomeCellDiskCircle(frame:circleFrame)
+        
+        let circle:VHomeCellDiskCircleMemory = VHomeCellDiskCircleMemory(frame:circleFrame)
         self.circle = circle
+        let circleBackground:VHomeCellDiskCircleBackground = VHomeCellDiskCircleBackground(frame:circleFrame)
+        self.circleBackground = circleBackground
+        let arrow:VHomeCellDiskArrow = VHomeCellDiskArrow(frame:circleFrame)
+        circle.arrow = arrow
         
         let gradient:VHomeCellDiskGradient = VHomeCellDiskGradient()
         gradient.mask = circle
+        addSubview(circleBackground)
         addSubview(gradient)
+        addSubview(arrow)
         
         let views:[String:UIView] = [
-            "circle":circle,
             "gradient":gradient]
         
         let metrics:[String:CGFloat] = [:]
@@ -60,6 +67,8 @@ class VHomeCellDisk:VHomeCell
         let marginPoint:CGPoint = CGPoint(x:marginLeft, y:marginTop)
         let circleRect:CGRect = CGRect(origin:marginPoint, size:circleSize)
         circle.frame = circleRect
+        circleBackground.frame = circleRect
+        circle.arrow?.frame = circleRect
         
         super.layoutSubviews()
     }
@@ -68,17 +77,17 @@ class VHomeCellDisk:VHomeCell
     {
         guard
             
-            let diskUsed:Int = controller.diskUsed,
-            let froobSpace:Int = MSession.sharedInstance.server?.froobSpace
+            let diskUsed:Int = controller.diskUsed
             
         else
         {
             return
         }
         
-        let froobSpaceFloat:CGFloat = CGFloat(froobSpace)
+        let totalStorage:Int = MSession.sharedInstance.totalStorage()
+        let totalStorageFloat:CGFloat = CGFloat(totalStorage)
         let diskUsedFloat:CGFloat = CGFloat(diskUsed)
-        var ratioDisk:CGFloat = diskUsedFloat / froobSpaceFloat
+        var ratioDisk:CGFloat = diskUsedFloat / totalStorageFloat
         
         if ratioDisk > 1
         {

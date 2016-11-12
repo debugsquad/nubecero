@@ -6,14 +6,22 @@ class MHome
     
     init()
     {
-        let itemDisk:MHomeItemDisk = MHomeItemDisk()
-        let itemSpace:MHomeItemSpace = MHomeItemSpace()
         let itemUpload:MHomeItemUpload = MHomeItemUpload()
+        let itemBlankTop:MHomeItemBlank = MHomeItemBlank()
+        let itemDisk:MHomeItemDisk = MHomeItemDisk()
+        let itemSpaceFree:MHomeItemSpaceFree = MHomeItemSpaceFree()
+        let itemSpaceUsed:MHomeItemSpaceUsed = MHomeItemSpaceUsed()
+        let itemSpaceTotal:MHomeItemSpaceTotal = MHomeItemSpaceTotal()
+        let itemPictures:MHomeItemPictures = MHomeItemPictures()
         
         items = [
             itemUpload,
+            itemBlankTop,
             itemDisk,
-            itemSpace
+            itemSpaceFree,
+            itemSpaceUsed,
+            itemSpaceTotal,
+            itemPictures
         ]
     }
 }

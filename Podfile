@@ -6,7 +6,7 @@ def podlist
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
-#  pod 'Firebase/Messaging'
+  pod 'Firebase/Messaging'
 end
 
 target 'nubecero' do

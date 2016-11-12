@@ -1075,7 +1075,6 @@
 				DA1F0E201DC2C6480003AAB8 /* Resources */,
 				AFDD13D49BF59FC832C128F9 /* [CP] Embed Pods Frameworks */,
 				E7F71B20A3CB2CED512BC037 /* [CP] Copy Pods Resources */,
-				DA7A79D61DD6758E001B5FA5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1245,19 +1244,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nubecero/Pods-nubecero-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		DA7A79D61DD6758E001B5FA5 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:975411709195:ios:8b33fb3d5034d4c5\n\n# Insert this code BETWEEN the GOOGLE_APP_ID declaration and the\n# call to FirebaseCrash/upload-sym, to generate PLIST file if needed\n# Note the PLIST_FILE location is hard-coded in firebase script, do not change\nPLIST_FILE=\"${HOME}/Library/Preferences/com.google.SymbolUpload.plist\" # DO NOT CHANGE\nif [ ! -f \"${PLIST_FILE}\" ]; then\nJSON_FILE=\"${SRCROOT}/nubecero/Firebase/Main/FirebaseService.json\"  # Change to location of your file\ndefaults write com.google.SymbolUpload version -integer 1  # Required by script\nJSON=$(cat \"${JSON_FILE}\")\n/usr/bin/plutil -replace \"app_${GOOGLE_APP_ID//:/_}\" -json \"${JSON}\" \"${PLIST_FILE}\"\nfi\n\n# Instructions WRONG, don't pass any args, script hard-codes where it looks\n# for credentials, which is handled by the JSON conversion above\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym";
 		};
 		E7F71B20A3CB2CED512BC037 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

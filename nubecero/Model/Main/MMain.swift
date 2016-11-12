@@ -13,9 +13,6 @@ class MMain
         
         var items:[MMainItem] = []
         
-        let itemStore:MMainItemStore = MMainItemStore(index:items.count)
-        items.append(itemStore)
-        
         let itemSettings:MMainItemSettings = MMainItemSettings(index:items.count)
         items.append(itemSettings)
         
@@ -25,6 +22,9 @@ class MMain
         
         let itemPictures:MMainItemPictures = MMainItemPictures(index:items.count)
         items.append(itemPictures)
+        
+        let itemStore:MMainItemStore = MMainItemStore(index:items.count)
+        items.append(itemStore)
         
         self.items = items
     }

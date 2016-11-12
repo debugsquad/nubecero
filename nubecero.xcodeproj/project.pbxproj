@@ -94,6 +94,7 @@
 		DA4FA5A81DD7C7B300358ABE /* MStorePurchaseItemStatusPurchased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5A01DD7C7B300358ABE /* MStorePurchaseItemStatusPurchased.swift */; };
 		DA4FA5A91DD7C7B300358ABE /* MStorePurchaseItemStatusPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5A11DD7C7B300358ABE /* MStorePurchaseItemStatusPurchasing.swift */; };
 		DA4FA5AB1DD7D19200358ABE /* MMainItemAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5AA1DD7D19200358ABE /* MMainItemAdmin.swift */; };
+		DA4FA5AE1DD7D59200358ABE /* CAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5AD1DD7D59200358ABE /* CAdmin.swift */; };
 		DA5768731DCEB12F00590B5F /* TFDatabaseModelUserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5768721DCEB12F00590B5F /* TFDatabaseModelUserStatus.swift */; };
 		DA7367B41DD5228F0004B99C /* MOnboardFormItemPassGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7367B31DD5228F0004B99C /* MOnboardFormItemPassGenerator.swift */; };
 		DA7367B61DD523DB0004B99C /* VOnboardFormCellPassGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7367B51DD523DB0004B99C /* VOnboardFormCellPassGenerator.swift */; };
@@ -324,6 +325,7 @@
 		DA4FA5A01DD7C7B300358ABE /* MStorePurchaseItemStatusPurchased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItemStatusPurchased.swift; sourceTree = "<group>"; };
 		DA4FA5A11DD7C7B300358ABE /* MStorePurchaseItemStatusPurchasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItemStatusPurchasing.swift; sourceTree = "<group>"; };
 		DA4FA5AA1DD7D19200358ABE /* MMainItemAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemAdmin.swift; sourceTree = "<group>"; };
+		DA4FA5AD1DD7D59200358ABE /* CAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAdmin.swift; sourceTree = "<group>"; };
 		DA5768721DCEB12F00590B5F /* TFDatabaseModelUserStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelUserStatus.swift; sourceTree = "<group>"; };
 		DA7367B31DD5228F0004B99C /* MOnboardFormItemPassGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItemPassGenerator.swift; sourceTree = "<group>"; };
 		DA7367B51DD523DB0004B99C /* VOnboardFormCellPassGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardFormCellPassGenerator.swift; sourceTree = "<group>"; };
@@ -683,6 +685,7 @@
 		DA4EF8C61DC395B300297C1D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DA4FA5AC1DD7D58400358ABE /* Admin */,
 				DA4FA58D1DD7C69600358ABE /* Store */,
 				DAC55F161DD2372D00213C27 /* Onboard */,
 				DA406BCA1DCD01D40098D347 /* Settings */,
@@ -939,6 +942,14 @@
 				DA4FA5A11DD7C7B300358ABE /* MStorePurchaseItemStatusPurchasing.swift */,
 			);
 			path = Store;
+			sourceTree = "<group>";
+		};
+		DA4FA5AC1DD7D58400358ABE /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				DA4FA5AD1DD7D59200358ABE /* CAdmin.swift */,
+			);
+			path = Admin;
 			sourceTree = "<group>";
 		};
 		DAC55F161DD2372D00213C27 /* Onboard */ = {
@@ -1392,6 +1403,7 @@
 				DA2F66911DC919570078B466 /* MPicturesItemReference.swift in Sources */,
 				DA406BD31DCD02E90098D347 /* VSettingsCellSecurity.swift in Sources */,
 				DA88F6721DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift in Sources */,
+				DA4FA5AE1DD7D59200358ABE /* CAdmin.swift in Sources */,
 				DAF6F2AE1DD3954E0053ED1B /* VOnboardFormCellEmail.swift in Sources */,
 				DA4FA5A51DD7C7B300358ABE /* MStorePurchaseItemStatus.swift in Sources */,
 				DAC55F201DD2592200213C27 /* MOnboardItem.swift in Sources */,

@@ -2,7 +2,7 @@ import Foundation
 import StoreKit
 
 class MStorePurchaseItem:NSObject
-{
+{/*
     private var dbFilter:DObjectPurchase!
     let title:String
     var price:String?
@@ -49,5 +49,5 @@ class MStorePurchaseItem:NSObject
         dbFilter.purchased = true
         
         DManager.sharedInstance.save()
-    }
+    }*/
 }

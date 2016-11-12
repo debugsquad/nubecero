@@ -92,12 +92,12 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             views:views))
         
         storeLoaded()
-        
+        /*
         NotificationCenter.default.addObserver(
             self,
             selector:#selector(notifiedStoreLoaded(sender:)),
             name:Notification.storeLoaded,
-            object:nil)
+            object:nil)*/
     }
     
     required init?(coder:NSCoder)

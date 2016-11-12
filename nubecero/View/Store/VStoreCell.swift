@@ -142,21 +142,21 @@ class VStoreCell:UICollectionViewCell
     //MARK: actions
     
     func actionPurchase(sender button:UIButton)
-    {
+    {/*
         MStore.sharedInstance.purchase(
-            skProduct:model.skProduct)
+            skProduct:model.skProduct)*/
     }
     
     //MARK: public
     
     func config(model:MStorePurchaseItem)
-    {
+    {/*
         self.model = model
         
         labelTitle.text = model.title
         labelPrice.text = model.price
         labelStatus.text = model.status.title
         imageView.image = UIImage(named:model.asset)
-        buttonPurchase.isHidden = !model.status.purchaseButton
+        buttonPurchase.isHidden = !model.status.purchaseButton*/
     }
 }

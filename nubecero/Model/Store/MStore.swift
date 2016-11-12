@@ -33,9 +33,10 @@ class MStore:NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver, 
     
     private func notifyStore()
     {
+        /*
         NotificationCenter.default.post(
             name:Notification.storeLoaded,
-            object:nil)
+            object:nil)*/
     }
     
     //MARK: public
@@ -53,11 +54,12 @@ class MStore:NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver, 
         }
         else
         {
+            /*
             NotificationCenter.default.addObserver(
                 self,
                 selector:#selector(notifiedPurchasesLoaded(sender:)),
                 name:Notification.purchasesLoaded,
-                object:nil)
+                object:nil)*/
             
             purchase.loadDb()
         }

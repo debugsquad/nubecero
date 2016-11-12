@@ -16,7 +16,7 @@ class MStorePurchase
     //MARK: private
     
     private func loadFromDb()
-    {
+    {/*
         DManager.sharedInstance.fetchManagedObjects(
             modelType:DObjectPurchase.self)
         { (objects) in
@@ -31,7 +31,7 @@ class MStorePurchase
             NotificationCenter.default.post(
                 name:Notification.purchasesLoaded,
                 object:nil)
-        }
+        }*/
     }
     
     //MARK: public
@@ -60,7 +60,7 @@ class MStorePurchase
     }
     
     func loadSkProduct(skProduct:SKProduct)
-    {
+    {/*
         let productId:String = skProduct.productIdentifier
         
         guard
@@ -77,11 +77,11 @@ class MStorePurchase
         
         let priceNumber:NSDecimalNumber = skProduct.price
         let priceString:String? = priceFormatter.string(from:priceNumber)
-        mappedItem.price = priceString
+        mappedItem.price = priceString*/
     }
     
     func updateTransactions(transactions:[SKPaymentTransaction])
-    {
+    {/*
         for skPaymentTransaction:SKPaymentTransaction in transactions
         {
             let productId:String = skPaymentTransaction.payment.productIdentifier
@@ -124,6 +124,6 @@ class MStorePurchase
                     
                     break
             }
-        }
+        }*/
     }
 }

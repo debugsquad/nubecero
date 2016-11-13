@@ -19,6 +19,22 @@ class VAdminCell:UICollectionViewCell
         self.label = label
         
         addSubview(label)
+        
+        let views:[String:UIView] = [
+            "label":label]
+        
+        let metrics:[String:CGFloat] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-10-[label]-10-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[label]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     required init?(coder:NSCoder)
@@ -30,6 +46,6 @@ class VAdminCell:UICollectionViewCell
     
     func config(model:MAdminItem)
     {
-        
+        label.text = model.title
     }
 }

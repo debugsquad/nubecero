@@ -15,7 +15,7 @@ class MAdminItemUsers:MAdminItem
     
     override func controller() -> CController
     {
-        let controller:CController = CController()
+        let controller:CAdminUsers = CAdminUsers()
         
         return controller
     }

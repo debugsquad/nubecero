@@ -6,6 +6,7 @@ class VAdmin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     private weak var collectionView:UICollectionView!
     private let kInterLine:CGFloat = 1
     private let kCollectionBottom:CGFloat = 20
+    private let kCellHeight:CGFloat = 55
     
     convenience init(controller:CAdmin)
     {
@@ -76,6 +77,14 @@ class VAdmin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
 
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int
     {

@@ -8,7 +8,7 @@ class CPicturesData:CController
     init(model:MPicturesItem)
     {
         self.model = model
-        super.init(nibName:nil, bundle:nil)
+        super.init()
     }
     
     required init?(coder:NSCoder)

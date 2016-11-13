@@ -9,11 +9,11 @@ class CHomeUpload:CController
     private let kBarWidth:CGFloat = 150
     private let kAlertAfter:TimeInterval = 1
     
-    init()
+    override init()
     {
         model = MHomeUpload()
         
-        super.init(nibName:nil, bundle:nil)
+        super.init()
     }
     
     required init?(coder:NSCoder)

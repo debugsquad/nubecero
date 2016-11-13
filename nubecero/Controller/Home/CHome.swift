@@ -14,7 +14,7 @@ class CHome:CController
         model = MHome()
         self.askAuth = askAuth
         
-        super.init(nibName:nil, bundle:nil)
+        super.init()
     }
     
     deinit

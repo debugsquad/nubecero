@@ -6,6 +6,16 @@ class CController:UIViewController
     weak var layoutRight:NSLayoutConstraint!
     weak var shadow:VShadow?
     
+    init()
+    {
+        super.init(nibName:nil, bundle:nil)
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+    
     open var name:NSString
     {
         get

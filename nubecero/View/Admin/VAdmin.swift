@@ -7,6 +7,7 @@ class VAdmin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     private let kInterLine:CGFloat = 1
     private let kCollectionBottom:CGFloat = 20
     private let kCellHeight:CGFloat = 55
+    private let kDeselectTime:TimeInterval = 1
     
     convenience init(controller:CAdmin)
     {
@@ -108,5 +109,21 @@ class VAdmin:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MAdminItem = modelAtIndex(index:indexPath)
+        controller.selected(item:item)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }

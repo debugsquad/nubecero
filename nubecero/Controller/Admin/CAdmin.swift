@@ -23,4 +23,12 @@ class CAdmin:CController
         self.viewAdmin = viewAdmin
         view = viewAdmin
     }
+    
+    //MARK: public
+    
+    func selected(item:MAdminItem)
+    {
+        let controller:CController = item.controller()
+        parentController.push(controller:controller)
+    }
 }

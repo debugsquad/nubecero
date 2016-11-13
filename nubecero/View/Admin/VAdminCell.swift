@@ -14,8 +14,8 @@ class VAdminCell:UICollectionViewCell
         let label:UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.medium(size:15)
-        label.textColor = UIColor.black
+        label.font = UIFont.medium(size:14)
+        label.textColor = UIColor(white:0.4, alpha:1)
         label.isUserInteractionEnabled = false
         self.label = label
         

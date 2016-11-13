@@ -2,6 +2,8 @@ import Foundation
 
 class MSession
 {
+    typealias UserId = String
+    
     static let sharedInstance:MSession = MSession()
     var server:MSessionServer?
     var userId:String?

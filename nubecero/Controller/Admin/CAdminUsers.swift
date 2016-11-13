@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAuth
 
 class CAdminUsers:CController
 {
@@ -8,6 +9,12 @@ class CAdminUsers:CController
     {
         super.viewDidLoad()
         title = NSLocalizedString("CAdminUsers_title", comment:"")
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.loadUsers()
+        }
     }
     
     override func loadView()
@@ -15,5 +22,19 @@ class CAdminUsers:CController
         let viewUsers:VAdminUsers = VAdminUsers(controller:self)
         self.viewUsers = viewUsers
         view = viewUsers
+    }
+    
+    //MARK: private
+    
+    private func loadUsers()
+    {
+        let path:String = "Users"
+        
+        FMain.sharedInstance.database.listenOnce(
+            path:path,
+            modelType:FDatabaseModelUser.self)
+        { (users) in
+            print("done")
+        }
     }
 }

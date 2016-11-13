@@ -56,6 +56,9 @@ class FDatabase
                 return
             }
             
+            print("snapshot")
+            print(json)
+            
             if let _:NSNull = json as? NSNull
             {
                 completion(nil)

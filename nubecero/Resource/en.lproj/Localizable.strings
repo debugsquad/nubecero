@@ -68,3 +68,7 @@
 "MOnboardForm_errorEmailShort"="Email seems wrong";
 "MOnboardForm_errorPassword"="Enter your Password";
 "MOnboardForm_errorPasswordShort"="Password seems too short";
+"MAdminItemServer_title"="Server";
+"MAdminItemPurchases_title"="Purchases";
+"MAdminItemUsers_title"="Users";
+"MAdminItemSubscriptions_title"="Subscriptions";

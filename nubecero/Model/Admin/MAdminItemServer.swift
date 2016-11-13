@@ -4,7 +4,7 @@ class MAdminItemServer:MAdminItem
 {
     override init()
     {
-        let title:String = NSLocalizedString("", comment:"")
+        let title:String = NSLocalizedString("MAdminItemServer_title", comment:"")
         super.init(title:title)
     }
     
@@ -17,6 +17,6 @@ class MAdminItemServer:MAdminItem
     {
         let controller:CController = CController()
         
-        return CController()
+        return controller
     }
 }

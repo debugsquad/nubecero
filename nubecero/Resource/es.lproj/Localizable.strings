@@ -68,3 +68,7 @@
 "MOnboardForm_errorEmailShort"="Correo Electrónico invalido";
 "MOnboardForm_errorPassword"="Ingresa tu Contraseña";
 "MOnboardForm_errorPasswordShort"="Contraseña demasiado corta";
+"MAdminItemServer_title"="Servidor";
+"MAdminItemPurchases_title"="Compras";
+"MAdminItemUsers_title"="Usuarios";
+"MAdminItemSubscriptions_title"="Subscripciones";

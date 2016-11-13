@@ -135,6 +135,8 @@
 		DAA779E21DD9035900A719AD /* MAdminItemSubscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779E11DD9035900A719AD /* MAdminItemSubscriptions.swift */; };
 		DAA779E41DD906D500A719AD /* VAdminCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779E31DD906D500A719AD /* VAdminCell.swift */; };
 		DAA779E61DD9133600A719AD /* CAdminUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779E51DD9133600A719AD /* CAdminUsers.swift */; };
+		DAA779E91DD9136D00A719AD /* VAdminUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779E81DD9136D00A719AD /* VAdminUsers.swift */; };
+		DAA779EB1DD9138500A719AD /* VAdminUsersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779EA1DD9138500A719AD /* VAdminUsersCell.swift */; };
 		DAC55F181DD23B0A00213C27 /* COnboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F171DD23B0A00213C27 /* COnboard.swift */; };
 		DAC55F1B1DD23C7900213C27 /* VOnboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F1A1DD23C7900213C27 /* VOnboard.swift */; };
 		DAC55F1E1DD258D800213C27 /* MOnboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F1D1DD258D800213C27 /* MOnboard.swift */; };
@@ -375,6 +377,8 @@
 		DAA779E11DD9035900A719AD /* MAdminItemSubscriptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminItemSubscriptions.swift; sourceTree = "<group>"; };
 		DAA779E31DD906D500A719AD /* VAdminCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminCell.swift; sourceTree = "<group>"; };
 		DAA779E51DD9133600A719AD /* CAdminUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAdminUsers.swift; sourceTree = "<group>"; };
+		DAA779E81DD9136D00A719AD /* VAdminUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminUsers.swift; sourceTree = "<group>"; };
+		DAA779EA1DD9138500A719AD /* VAdminUsersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminUsersCell.swift; sourceTree = "<group>"; };
 		DAC55F171DD23B0A00213C27 /* COnboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = COnboard.swift; sourceTree = "<group>"; };
 		DAC55F1A1DD23C7900213C27 /* VOnboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboard.swift; sourceTree = "<group>"; };
 		DAC55F1D1DD258D800213C27 /* MOnboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboard.swift; sourceTree = "<group>"; };
@@ -860,6 +864,7 @@
 		DA4EF8F01DC395B300297C1D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DAA779E71DD9136200A719AD /* AdminUsers */,
 				DA4FA5AF1DD7D5E000358ABE /* Admin */,
 				DA4FA5901DD7C72800358ABE /* Store */,
 				DAF6F2A01DD378100053ED1B /* OnboardForm */,
@@ -993,6 +998,15 @@
 				DAA779E11DD9035900A719AD /* MAdminItemSubscriptions.swift */,
 			);
 			path = Admin;
+			sourceTree = "<group>";
+		};
+		DAA779E71DD9136200A719AD /* AdminUsers */ = {
+			isa = PBXGroup;
+			children = (
+				DAA779E81DD9136D00A719AD /* VAdminUsers.swift */,
+				DAA779EA1DD9138500A719AD /* VAdminUsersCell.swift */,
+			);
+			path = AdminUsers;
 			sourceTree = "<group>";
 		};
 		DAC55F161DD2372D00213C27 /* Onboard */ = {
@@ -1529,6 +1543,7 @@
 				DA2F66B51DC9508F0078B466 /* MPicturesItemStateLoading.swift in Sources */,
 				DA4FA5A41DD7C7B300358ABE /* MStorePurchaseItem.swift in Sources */,
 				DA3411851DCBEE57006E6D71 /* CBanned.swift in Sources */,
+				DAA779EB1DD9138500A719AD /* VAdminUsersCell.swift in Sources */,
 				DA4FA5B11DD7D5EE00358ABE /* VAdmin.swift in Sources */,
 				DA4EF9011DC395B300297C1D /* ExtensionNSManagedObject.swift in Sources */,
 				DAF6F2B41DD397260053ED1B /* MOnboardFormItemEmailSignin.swift in Sources */,
@@ -1558,6 +1573,7 @@
 				DA4EF90D1DC395B300297C1D /* MMainState.swift in Sources */,
 				DA4EF9041DC395B300297C1D /* ExtensionUIFont.swift in Sources */,
 				DAF6F2C51DD3D8430053ED1B /* VOnboardFormCellRemember.swift in Sources */,
+				DAA779E91DD9136D00A719AD /* VAdminUsers.swift in Sources */,
 				DACD1FBF1DC6FCC00067D26B /* VHomeUploadSyncCell.swift in Sources */,
 				DA88F6701DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift in Sources */,
 				DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */,

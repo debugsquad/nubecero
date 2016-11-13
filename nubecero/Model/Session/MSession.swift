@@ -6,7 +6,7 @@ class MSession
     
     static let sharedInstance:MSession = MSession()
     var server:MSessionServer?
-    var userId:String?
+    var userId:UserId?
     var settings:DObjectSettings?
     private let kServerInitialFroobSize:Int = 15000
     

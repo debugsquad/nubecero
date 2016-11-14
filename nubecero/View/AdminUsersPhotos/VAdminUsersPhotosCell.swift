@@ -2,6 +2,8 @@ import UIKit
 
 class VAdminUsersPhotosCell:UICollectionViewCell
 {
+    private weak var imageView:UIImageView!
+    private weak var model:MAdminUsersPhotosItem?
     private let kAlphaSelected:CGFloat = 0.2
     private let kAlphaNotSelected:CGFloat = 1
     
@@ -9,6 +11,31 @@ class VAdminUsersPhotosCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
+        
+        let imageView:UIImageView = UIImageView()
+        imageView.isUserInteractionEnabled = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        self.imageView = imageView
+        
+        addSubview(imageView)
+        
+        let views:[String:UIView] = [
+            "imageView":imageView]
+        
+        let metrics:[String:CGFloat] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[imageView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[imageView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     required init?(coder:NSCoder)
@@ -52,6 +79,14 @@ class VAdminUsersPhotosCell:UICollectionViewCell
     
     func config(model:MAdminUsersPhotosItem)
     {
+        self.model = model
+        imageView.image = model.image
         hover()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            
+        }
     }
 }

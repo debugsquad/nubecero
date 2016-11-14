@@ -48,7 +48,7 @@ class COnboardForm:CController
         }
     }
     
-    private func authSuccess(userId:String)
+    private func authSuccess(userId:MSession.UserId)
     {
         MSession.sharedInstance.loadUser(userId:userId)
         

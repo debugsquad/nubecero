@@ -41,7 +41,7 @@ class CLogin:CController
             
             guard
                 
-                let userId:String = FIRAuth.auth()?.currentUser?.uid
+                let userId:MSession.UserId = FIRAuth.auth()?.currentUser?.uid
                 
             else
             {

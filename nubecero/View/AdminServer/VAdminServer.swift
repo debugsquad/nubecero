@@ -6,7 +6,7 @@ class VAdminServer:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     private weak var collectionView:UICollectionView!
     private weak var spinner:VSpinner!
     private let kInterLine:CGFloat = 3
-    private let kHeaderHeight:CGFloat = 50
+    private let kHeaderHeight:CGFloat = 60
     private let kCollectionBottom:CGFloat = 20
     
     convenience init(controller:CAdminServer)

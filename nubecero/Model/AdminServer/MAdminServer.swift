@@ -6,7 +6,10 @@ class MAdminServer
     
     init(server:FDatabaseModelServer)
     {
+        let itemFroob:MAdminServerItemFroob = MAdminServerItemFroob(space:server.froobSpace)
+        
         items = [
+            itemFroob
         ]
     }
 }

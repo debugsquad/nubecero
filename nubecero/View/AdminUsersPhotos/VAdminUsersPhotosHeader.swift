@@ -19,7 +19,7 @@ class VAdminUsersPhotosHeader:UICollectionReusableView
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.medium(size:15)
+        label.font = UIFont.medium(size:17)
         label.textColor = UIColor.complement
         self.label = label
         
@@ -53,14 +53,17 @@ class VAdminUsersPhotosHeader:UICollectionReusableView
     {
         guard
             
-            let count:Int = controller.pictures?.items.count
+            let count:Int = controller.pictures?.items.count,
+            let countString:String = numberFormatter.string(from:count as NSNumber)
         
         else
         {
             return
         }
         
-        let countString:String? = numberFormatter.string(from:count as NSNumber)
-        label.text = countString
+        let compositeString:String = String(
+            format:NSLocalizedString("VAdminUsersPhotosHeader_titleLabel", comment:""),
+            countString)
+        label.text = compositeString
     }
 }

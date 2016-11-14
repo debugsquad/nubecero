@@ -34,6 +34,7 @@
 "VAdminUsersCell_labelStatusUnknown"="Unknown";
 "VAdminUsersCell_labelStatusActive"="Active";
 "VAdminUsersCell_labelStatusBanned"="Banned";
+"VAdminUsersPhotosHeader_titleLabel"="%@ Photos";
 
 "CHomeUpload_title"="Add";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

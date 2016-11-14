@@ -61,6 +61,7 @@
 		DA465BF11DDA4C7E0042C8C7 /* MAdminUsersPhotosItemStatusError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BF01DDA4C7E0042C8C7 /* MAdminUsersPhotosItemStatusError.swift */; };
 		DA465BF31DDA56B10042C8C7 /* VAdminUsersPhotosHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BF21DDA56B10042C8C7 /* VAdminUsersPhotosHeader.swift */; };
 		DA465BF51DDA5C790042C8C7 /* CAdminServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BF41DDA5C790042C8C7 /* CAdminServer.swift */; };
+		DA465BF81DDA5CCA0042C8C7 /* VAdminServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BF71DDA5CCA0042C8C7 /* VAdminServer.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -316,6 +317,7 @@
 		DA465BF01DDA4C7E0042C8C7 /* MAdminUsersPhotosItemStatusError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminUsersPhotosItemStatusError.swift; sourceTree = "<group>"; };
 		DA465BF21DDA56B10042C8C7 /* VAdminUsersPhotosHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminUsersPhotosHeader.swift; sourceTree = "<group>"; };
 		DA465BF41DDA5C790042C8C7 /* CAdminServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAdminServer.swift; sourceTree = "<group>"; };
+		DA465BF71DDA5CCA0042C8C7 /* VAdminServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminServer.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -736,6 +738,14 @@
 			path = AdminUsersPhotos;
 			sourceTree = "<group>";
 		};
+		DA465BF61DDA5CC10042C8C7 /* AdminServer */ = {
+			isa = PBXGroup;
+			children = (
+				DA465BF71DDA5CCA0042C8C7 /* VAdminServer.swift */,
+			);
+			path = AdminServer;
+			sourceTree = "<group>";
+		};
 		DA4EF8C41DC395B300297C1D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -912,6 +922,7 @@
 		DA4EF8F01DC395B300297C1D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA465BF61DDA5CC10042C8C7 /* AdminServer */,
 				DAAAFFA91DDA398B00E8F839 /* AdminUsersPhotos */,
 				DAA779E71DD9136200A719AD /* AdminUsers */,
 				DA4FA5AF1DD7D5E000358ABE /* Admin */,
@@ -1551,6 +1562,7 @@
 				DAF6F2B81DD39B5E0053ED1B /* MOnboardFormItemPassword.swift in Sources */,
 				DAAAFFA21DDA152700E8F839 /* MAdminUsers.swift in Sources */,
 				DA3411831DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift in Sources */,
+				DA465BF81DDA5CCA0042C8C7 /* VAdminServer.swift in Sources */,
 				DAD7398E1DD1597B00FC3297 /* MSettingsItemAbout.swift in Sources */,
 				DAE4554E1DCA4C9F00948D70 /* MPicturesDetailInfo.swift in Sources */,
 				DA7A79C31DD63DCF001B5FA5 /* VHomeCellDiskArrow.swift in Sources */,

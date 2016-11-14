@@ -62,6 +62,8 @@
 		DA465BF31DDA56B10042C8C7 /* VAdminUsersPhotosHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BF21DDA56B10042C8C7 /* VAdminUsersPhotosHeader.swift */; };
 		DA465BF51DDA5C790042C8C7 /* CAdminServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BF41DDA5C790042C8C7 /* CAdminServer.swift */; };
 		DA465BF81DDA5CCA0042C8C7 /* VAdminServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BF71DDA5CCA0042C8C7 /* VAdminServer.swift */; };
+		DA465BFA1DDA61DA0042C8C7 /* VAdminServerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BF91DDA61DA0042C8C7 /* VAdminServerCell.swift */; };
+		DA465BFC1DDA61E30042C8C7 /* VAdminServerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BFB1DDA61E30042C8C7 /* VAdminServerHeader.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -318,6 +320,8 @@
 		DA465BF21DDA56B10042C8C7 /* VAdminUsersPhotosHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminUsersPhotosHeader.swift; sourceTree = "<group>"; };
 		DA465BF41DDA5C790042C8C7 /* CAdminServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAdminServer.swift; sourceTree = "<group>"; };
 		DA465BF71DDA5CCA0042C8C7 /* VAdminServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminServer.swift; sourceTree = "<group>"; };
+		DA465BF91DDA61DA0042C8C7 /* VAdminServerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminServerCell.swift; sourceTree = "<group>"; };
+		DA465BFB1DDA61E30042C8C7 /* VAdminServerHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminServerHeader.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -742,6 +746,8 @@
 			isa = PBXGroup;
 			children = (
 				DA465BF71DDA5CCA0042C8C7 /* VAdminServer.swift */,
+				DA465BFB1DDA61E30042C8C7 /* VAdminServerHeader.swift */,
+				DA465BF91DDA61DA0042C8C7 /* VAdminServerCell.swift */,
 			);
 			path = AdminServer;
 			sourceTree = "<group>";
@@ -1640,6 +1646,7 @@
 				DA4EF9011DC395B300297C1D /* ExtensionNSManagedObject.swift in Sources */,
 				DA465BEF1DDA4A210042C8C7 /* MAdminUsersPhotosItemStatusLoaded.swift in Sources */,
 				DAF6F2B41DD397260053ED1B /* MOnboardFormItemEmailSignin.swift in Sources */,
+				DA465BFA1DDA61DA0042C8C7 /* VAdminServerCell.swift in Sources */,
 				DAE4555A1DCA74B900948D70 /* CPicturesData.swift in Sources */,
 				DA2F668D1DC9002E0078B466 /* MPicturesItem.swift in Sources */,
 				DA7367B41DD5228F0004B99C /* MOnboardFormItemPassGenerator.swift in Sources */,
@@ -1711,6 +1718,7 @@
 				DA406BC61DCCE7BF0098D347 /* CAuth.swift in Sources */,
 				DACD1FC31DC7C66A0067D26B /* FDatabase.swift in Sources */,
 				DA4EF90F1DC395B300297C1D /* MMainStatePushed.swift in Sources */,
+				DA465BFC1DDA61E30042C8C7 /* VAdminServerHeader.swift in Sources */,
 				DA7A79D11DD65CA6001B5FA5 /* VHomeCellSpaceUsed.swift in Sources */,
 				DA4EF9131DC395B300297C1D /* VBarCell.swift in Sources */,
 				DAE455581DCA611100948D70 /* MPicturesDetailInfoItemData.swift in Sources */,

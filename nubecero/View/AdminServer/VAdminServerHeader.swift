@@ -8,14 +8,14 @@ class VAdminServerHeader:UICollectionReusableView
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.clear
         
         let button:UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.main, for:UIControlState.normal)
         button.setTitleColor(UIColor.complement, for:UIControlState.highlighted)
         button.setTitle(NSLocalizedString("VAdminServerHeader_button", comment:""), for:UIControlState.normal)
-        button.titleLabel!.font = UIFont.medium(size:14)
+        button.titleLabel!.font = UIFont.bold(size:16)
         button.addTarget(
             self,
             action:#selector(actionButton(sender:)),
@@ -29,7 +29,7 @@ class VAdminServerHeader:UICollectionReusableView
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[button(100)]-0-|",
+            withVisualFormat:"H:[button(95)]-0-|",
             options:[],
             metrics:metrics,
             views:views))

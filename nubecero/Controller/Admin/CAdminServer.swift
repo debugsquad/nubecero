@@ -100,6 +100,8 @@ class CAdminServer:CController
     
     func confirmSave()
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
         let alert:UIAlertController = UIAlertController(
             title:
             NSLocalizedString("CAdminServer_alertTitle", comment:""),
@@ -109,7 +111,7 @@ class CAdminServer:CController
         
         let actionCancel:UIAlertAction = UIAlertAction(
             title:
-            NSLocalizedString("CAdminServer_alerCancel", comment:""),
+            NSLocalizedString("CAdminServer_alertCancel", comment:""),
             style:
             UIAlertActionStyle.cancel)
         
@@ -117,7 +119,7 @@ class CAdminServer:CController
             title:
             NSLocalizedString("CAdminServer_alertSave", comment:""),
             style:
-            UIAlertActionStyle.destructive)
+            UIAlertActionStyle.default)
         { (action) in
             
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async

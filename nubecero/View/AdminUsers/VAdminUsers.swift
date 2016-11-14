@@ -63,8 +63,29 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
     
     //MARK: collectionView delegate
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int
+    func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        guard
+        
+            let count:Int = controller.model?.items.count
+        
+        else
+        {
+            return 0
+        }
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
+    {
+        let cell:VAdminUsers = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VAdminUsersce, for: <#T##IndexPath#>)
     }
 }

@@ -1,9 +1,23 @@
-//
-//  VAdminUsersCell.swift
-//  nubecero
-//
-//  Created by zero on 11/13/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class VAdminUsersCell:UICollectionViewCell
+{
+    override init(frame:CGRect)
+    {
+        super.init(frame:frame)
+        clipsToBounds = true
+        backgroundColor = UIColor.white
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+    
+    //MARK: public
+    
+    func config(model:MAdminUsersItem)
+    {
+        
+    }
+}

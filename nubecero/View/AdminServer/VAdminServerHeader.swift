@@ -15,7 +15,7 @@ class VAdminServerHeader:UICollectionReusableView
         button.setTitleColor(UIColor.main, for:UIControlState.normal)
         button.setTitleColor(UIColor.complement, for:UIControlState.highlighted)
         button.setTitle(NSLocalizedString("VAdminServerHeader_button", comment:""), for:UIControlState.normal)
-        button.titleLabel!.font = UIFont.bold(size:16)
+        button.titleLabel!.font = UIFont.bold(size:18)
         button.addTarget(
             self,
             action:#selector(actionButton(sender:)),

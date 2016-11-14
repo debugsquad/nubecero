@@ -90,17 +90,26 @@ class CHome:CController
     {
         super.viewDidAppear(animated)
         
-        if let _:MSessionServer = MSession.sharedInstance.server
-        {
-            loadUsedDisk()
-        }
-        else
-        {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+        
+            guard
+                
+                let welf:CHome = self
+            
+            else
+            {
+                return
+            }
+            
+            NotificationCenter.default.removeObserver(welf)
             NotificationCenter.default.addObserver(
-                self,
-                selector:#selector(notifiedSessionLoaded(sender:)),
+                welf,
+                selector:#selector(welf.notifiedSessionLoaded(sender:)),
                 name:Notification.sessionLoaded,
                 object:nil)
+            
+            MSession.sharedInstance.updateLastSession()
         }
     }
     

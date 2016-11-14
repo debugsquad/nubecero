@@ -32,7 +32,8 @@ class MSession
                 {
                     case FDatabaseModelUser.Status.active:
                     
-                        self.updateLastSession(userId:userId)
+                        self.userId = userId
+                        self.updateLastSession()
                         
                         break
                     
@@ -63,21 +64,6 @@ class MSession
         FMain.sharedInstance.database.updateChild(
             path:userPath,
             json:json)
-        
-        self.userId = userId
-        self.loadServer()
-    }
-    
-    private func updateLastSession(userId:UserId)
-    {
-        let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
-        let userPath:String = "\(parentUser)/\(userId)/\(propertyLastSession)"
-        let currentTime:TimeInterval = NSDate().timeIntervalSince1970
-        
-        FMain.sharedInstance.database.updateChild(
-            path:userPath,
-            json:currentTime)
         
         self.userId = userId
         self.loadServer()
@@ -189,5 +175,28 @@ class MSession
         space += froobSpace
         
         return space
+    }
+    
+    func updateLastSession()
+    {
+        guard
+            
+            let userId:UserId = self.userId
+        
+        else
+        {
+            return
+        }
+        
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let propertyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
+        let userPath:String = "\(parentUser)/\(userId)/\(propertyLastSession)"
+        let currentTime:TimeInterval = NSDate().timeIntervalSince1970
+        
+        FMain.sharedInstance.database.updateChild(
+            path:userPath,
+            json:currentTime)
+        
+        self.loadServer()
     }
 }

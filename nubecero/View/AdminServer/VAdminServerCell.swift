@@ -13,4 +13,10 @@ class VAdminServerCell:UICollectionViewCell
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(model:MAdminServerItem)
+    {
+    }
 }

@@ -30,4 +30,24 @@ class CAdminServer:CController
     {
         
     }
+    
+    private func loadingError(error:String)
+    {
+        VAlert.message(message:error)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewServer.loadError()
+        }
+    }
+    
+    private func loadCompleted()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewServer.loadCompleted()
+        }
+    }
 }

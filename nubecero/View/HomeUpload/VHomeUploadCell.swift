@@ -6,7 +6,7 @@ class VHomeUploadCell:UICollectionViewCell
     private weak var baseBlur:UIView!
     private weak var indicator:UIImageView!
     private let kBorderWidth:CGFloat = 1
-    private let kBlurAlpha:CGFloat = 0.98
+    private let kBlurAlpha:CGFloat = 0.99
     private let kIndicatorSize:CGFloat = 50
     
     override init(frame:CGRect)

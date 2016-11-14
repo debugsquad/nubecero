@@ -5,10 +5,11 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
     private weak var controller:CAdminUsers!
     private weak var collectionView:UICollectionView!
     private weak var spinner:VSpinner!
-    private let kHeaderHeight:CGFloat = 50
+    private let kHeaderHeight:CGFloat = 60
     private let kCellHeight:CGFloat = 100
-    private let kInterLine:CGFloat = 1
+    private let kInterLine:CGFloat = 3
     private let kCollectionBottom:CGFloat = 20
+    private let kDeselectTime:TimeInterval = 1
     
     convenience init(controller:CAdminUsers)
     {
@@ -29,7 +30,7 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
-        flow.sectionInset = UIEdgeInsets(top:kInterLine, left:0, bottom:kCollectionBottom, right:0)
+        flow.sectionInset = UIEdgeInsets(top:0, left:0, bottom:kCollectionBottom, right:0)
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.clipsToBounds = true
@@ -38,6 +39,8 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
         collectionView.register(
             VAdminUsersHeader.self,
             forSupplementaryViewOfKind:
@@ -67,6 +70,16 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-(barHeight)-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -125,6 +138,18 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
         return count
     }
     
+    func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
+    {
+        let reusable:VAdminUsersHeader = collectionView.dequeueReusableSupplementaryView(
+            ofKind:kind,
+            withReuseIdentifier:
+            VAdminUsersHeader.reusableIdentifier,
+            for:indexPath) as! VAdminUsersHeader
+        reusable.config(controller:controller)
+        
+        return reusable
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
         let item:MAdminUsersItem = modelAtIndex(index:indexPath)
@@ -135,5 +160,21 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MAdminUsersItem = modelAtIndex(index:indexPath)
+        controller.selected(item:item)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }

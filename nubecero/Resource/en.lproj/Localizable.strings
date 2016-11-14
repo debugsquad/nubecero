@@ -27,6 +27,7 @@
 "VHomeCellSpaceUsed_label"="Used  %@ MB";
 "VHomeCellSpaceTotal_label"="Total  %@ MB";
 "VHomeCellPictures_label"="Photos  %@";
+"VAdminUsersHeader_labelTitle"="Users";
 
 "CHomeUpload_title"="Add";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

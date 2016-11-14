@@ -72,4 +72,11 @@ class CAdminUsers:CController
             self?.viewUsers.loadingCompleted()
         }
     }
+    
+    //MARK: public
+    
+    func selected(item:MAdminUsersItem)
+    {
+        
+    }
 }

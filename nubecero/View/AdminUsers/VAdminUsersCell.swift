@@ -7,6 +7,7 @@ class VAdminUsersCell:UICollectionViewCell
     private weak var labelUserId:UILabel!
     private weak var labelCreated:UILabel!
     private weak var labelLastSession:UILabel!
+    private weak var labelStatus:UILabel!
     private weak var labelDiskUsed:UILabel!
     private let kAlphaSelected:CGFloat = 0.2
     private let kAlphaNotSelected:CGFloat = 1
@@ -54,19 +55,29 @@ class VAdminUsersCell:UICollectionViewCell
         labelDiskUsed.translatesAutoresizingMaskIntoConstraints = false
         labelDiskUsed.isUserInteractionEnabled = false
         labelDiskUsed.backgroundColor = UIColor.clear
-        labelDiskUsed.font = UIFont.numeric(size:14)
+        labelDiskUsed.font = UIFont.numeric(size:15)
         labelDiskUsed.textColor = UIColor.main
         self.labelDiskUsed = labelDiskUsed
+        
+        let labelStatus:UILabel = UILabel()
+        labelStatus.translatesAutoresizingMaskIntoConstraints = false
+        labelStatus.isUserInteractionEnabled = false
+        labelStatus.backgroundColor = UIColor.clear
+        labelStatus.font = UIFont.bold(size:14)
+        labelStatus.textColor = UIColor.complement
+        self.labelStatus = labelStatus
         
         addSubview(labelUserId)
         addSubview(labelCreated)
         addSubview(labelLastSession)
         addSubview(labelDiskUsed)
+        addSubview(labelStatus)
         
         let views:[String:UIView] = [
             "labelUserId":labelUserId,
             "labelCreated":labelCreated,
             "labelLastSession":labelLastSession,
+            "labelStatus":labelStatus,
             "labelDiskUsed":labelDiskUsed]
         
         let metrics:[String:CGFloat] = [:]
@@ -92,7 +103,12 @@ class VAdminUsersCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-10-[labelUserId(18)]-2-[labelCreated(17)]-0-[labelLastSession(17)]-10-[labelDiskUsed(18)]",
+            withVisualFormat:"H:|-10-[labelStatus]-10-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-10-[labelUserId(18)]-2-[labelCreated(17)]-0-[labelLastSession(17)]-10-[labelStatus(18)]-5-[labelDiskUsed(20)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -156,9 +172,32 @@ class VAdminUsersCell:UICollectionViewCell
         let diskUsedComposite:String = String(
             format:NSLocalizedString("VAdminUsersCell_labelDiskUsed", comment:""),
             stringDiskUsed)
+        let stringStatus:String
+        
+        switch model.status
+        {
+            case FDatabaseModelUser.Status.active:
+                
+                stringStatus = NSLocalizedString("VAdminUsersCell_labelStatusActive", comment:"")
+            
+                break
+            
+            case FDatabaseModelUser.Status.banned:
+                
+                stringStatus = NSLocalizedString("VAdminUsersCell_labelStatusBanned", comment:"")
+                
+                break
+                
+            case FDatabaseModelUser.Status.unknown:
+                
+                stringStatus = NSLocalizedString("VAdminUsersCell_labelStatusUnknown", comment:"")
+                
+                break
+        }
         
         labelCreated.text = createdComposite
         labelLastSession.text = lastSessionComposite
         labelDiskUsed.text = diskUsedComposite
+        labelStatus.text = stringStatus
     }
 }

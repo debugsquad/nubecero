@@ -31,6 +31,9 @@
 "VAdminUsersCell_labelCreated"="Created: %@";
 "VAdminUsersCell_labelLastSession"="Last session: %@";
 "VAdminUsersCell_labelDiskUsed"="%@ Mb";
+"VAdminUsersCell_labelStatusUnknown"="Unknown";
+"VAdminUsersCell_labelStatusActive"="Active";
+"VAdminUsersCell_labelStatusBanned"="Banned";
 
 "CHomeUpload_title"="Add";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

@@ -6,7 +6,7 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
     private weak var collectionView:UICollectionView!
     private weak var spinner:VSpinner!
     private let kHeaderHeight:CGFloat = 70
-    private let kCellHeight:CGFloat = 100
+    private let kCellHeight:CGFloat = 130
     private let kInterLine:CGFloat = 3
     private let kCollectionBottom:CGFloat = 20
     private let kDeselectTime:TimeInterval = 1

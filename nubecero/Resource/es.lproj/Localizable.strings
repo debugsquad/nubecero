@@ -31,6 +31,9 @@
 "VAdminUsersCell_labelCreated"="Creado: %@";
 "VAdminUsersCell_labelLastSession"="Última sesión: %@";
 "VAdminUsersCell_labelDiskUsed"="%@ Mb";
+"VAdminUsersCell_labelStatusUnknown"="Desconocido";
+"VAdminUsersCell_labelStatusActive"="Activo";
+"VAdminUsersCell_labelStatusBanned"="Bloqueado";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

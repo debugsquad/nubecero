@@ -22,7 +22,7 @@ class MPictures
     {
         guard
             
-            let userId:String = MSession.sharedInstance.userId
+            let userId:MSession.UserId = MSession.sharedInstance.userId
         
         else
         {

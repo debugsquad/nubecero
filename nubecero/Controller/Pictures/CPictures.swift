@@ -114,7 +114,7 @@ class CPictures:CController
     {
         guard
             
-            let userId:String = MSession.sharedInstance.userId
+            let userId:MSession.UserId = MSession.sharedInstance.userId
         
         else
         {
@@ -150,7 +150,7 @@ class CPictures:CController
     {
         guard
             
-            let userId:String = MSession.sharedInstance.userId
+            let userId:MSession.UserId = MSession.sharedInstance.userId
             
         else
         {

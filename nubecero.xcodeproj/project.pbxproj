@@ -139,6 +139,7 @@
 		DAA779EB1DD9138500A719AD /* VAdminUsersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779EA1DD9138500A719AD /* VAdminUsersCell.swift */; };
 		DAA779ED1DD91E8500A719AD /* FDatabaseModelUserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779EC1DD91E8500A719AD /* FDatabaseModelUserList.swift */; };
 		DAAAFFA21DDA152700E8F839 /* MAdminUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAFFA11DDA152700E8F839 /* MAdminUsers.swift */; };
+		DAAAFFA41DDA1CA800E8F839 /* MAdminUsersItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAFFA31DDA1CA800E8F839 /* MAdminUsersItem.swift */; };
 		DAC55F181DD23B0A00213C27 /* COnboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F171DD23B0A00213C27 /* COnboard.swift */; };
 		DAC55F1B1DD23C7900213C27 /* VOnboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F1A1DD23C7900213C27 /* VOnboard.swift */; };
 		DAC55F1E1DD258D800213C27 /* MOnboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F1D1DD258D800213C27 /* MOnboard.swift */; };
@@ -383,6 +384,7 @@
 		DAA779EA1DD9138500A719AD /* VAdminUsersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminUsersCell.swift; sourceTree = "<group>"; };
 		DAA779EC1DD91E8500A719AD /* FDatabaseModelUserList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserList.swift; sourceTree = "<group>"; };
 		DAAAFFA11DDA152700E8F839 /* MAdminUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminUsers.swift; sourceTree = "<group>"; };
+		DAAAFFA31DDA1CA800E8F839 /* MAdminUsersItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminUsersItem.swift; sourceTree = "<group>"; };
 		DAC55F171DD23B0A00213C27 /* COnboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = COnboard.swift; sourceTree = "<group>"; };
 		DAC55F1A1DD23C7900213C27 /* VOnboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboard.swift; sourceTree = "<group>"; };
 		DAC55F1D1DD258D800213C27 /* MOnboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboard.swift; sourceTree = "<group>"; };
@@ -1018,6 +1020,7 @@
 			isa = PBXGroup;
 			children = (
 				DAAAFFA11DDA152700E8F839 /* MAdminUsers.swift */,
+				DAAAFFA31DDA1CA800E8F839 /* MAdminUsersItem.swift */,
 			);
 			path = AdminUsers;
 			sourceTree = "<group>";
@@ -1604,6 +1607,7 @@
 				DAD739961DD170B000FC3297 /* MSettingsItemShare.swift in Sources */,
 				DA406BCF1DCD022F0098D347 /* VSettings.swift in Sources */,
 				DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */,
+				DAAAFFA41DDA1CA800E8F839 /* MAdminUsersItem.swift in Sources */,
 				DAF6F2C31DD3D2530053ED1B /* DNubecero.xcdatamodeld in Sources */,
 				DA4EF8FB1DC395B300297C1D /* CParent.swift in Sources */,
 				DA4EF9151DC395B300297C1D /* VShadow.swift in Sources */,

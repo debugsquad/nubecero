@@ -2,8 +2,7 @@ import Foundation
 
 class MAdminUsers
 {
-    let userList:FDatabaseModelUserList
-    var references:[MSession.UserId]
+    let items:[MAdminUsersItem]
     private let kDefaultOrder:Bool = false
     
     init(userList:FDatabaseModelUserList)
@@ -38,5 +37,7 @@ class MAdminUsers
             
             return before
         }
+        
+        references = allKeys
     }
 }

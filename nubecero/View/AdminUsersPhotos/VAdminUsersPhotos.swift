@@ -23,10 +23,35 @@ class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
         
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSize.zero
+        flow.footerReferenceSize = CGSize.zero
+        flow.minimumLineSpacing = kInterLine
+        flow.minimumInteritemSpacing = 0
+        flow.scrollDirection = UICollectionViewScrollDirection.vertical
+        flow.sectionInset = UIEdgeInsets(top:kInterLine, left:0, bottom:kCollectionBottom, right:0)
+        
+        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(
+            VAdminUsersPhotosCell.self,
+            forCellWithReuseIdentifier:
+            VAdminUsersPhotosCell.reusableIdentifier)
+        self.collectionView = collectionView
+        
         addSubview(spinner)
+        addSubview(collectionView)
         
         let views:[String:UIView] = [
-            "spinner":spinner]
+            "spinner":spinner,
+            "collectionView":collectionView]
         
         let metrics:[String:CGFloat] = [
             "barHeight":barHeight]
@@ -38,6 +63,16 @@ class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSo
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-(barHeight)-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(barHeight)-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -66,6 +101,19 @@ class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         let item:MAdminUsersPhotosItem = controller.pictures!.items[index.item]
         
         return item
+    }
+    
+    //MARK: public
+    
+    func loadingError()
+    {
+        spinner.removeFromSuperview()
+    }
+    
+    func loadingFinished()
+    {
+        spinner.removeFromSuperview()
+        collectionView.reloadData()
     }
     
     //MARK: collectionView delegate

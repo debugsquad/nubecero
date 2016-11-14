@@ -67,6 +67,7 @@
 		DA465BFF1DDA64A80042C8C7 /* MAdminServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BFE1DDA64A80042C8C7 /* MAdminServer.swift */; };
 		DA465C011DDA64B30042C8C7 /* MAdminServerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465C001DDA64B30042C8C7 /* MAdminServerItem.swift */; };
 		DA465C031DDA65530042C8C7 /* MAdminServerItemFroob.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465C021DDA65530042C8C7 /* MAdminServerItemFroob.swift */; };
+		DA465C051DDA66D80042C8C7 /* VAdminServerCellFroob.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465C041DDA66D80042C8C7 /* VAdminServerCellFroob.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -328,6 +329,7 @@
 		DA465BFE1DDA64A80042C8C7 /* MAdminServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminServer.swift; sourceTree = "<group>"; };
 		DA465C001DDA64B30042C8C7 /* MAdminServerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminServerItem.swift; sourceTree = "<group>"; };
 		DA465C021DDA65530042C8C7 /* MAdminServerItemFroob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminServerItemFroob.swift; sourceTree = "<group>"; };
+		DA465C041DDA66D80042C8C7 /* VAdminServerCellFroob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminServerCellFroob.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -754,6 +756,7 @@
 				DA465BF71DDA5CCA0042C8C7 /* VAdminServer.swift */,
 				DA465BFB1DDA61E30042C8C7 /* VAdminServerHeader.swift */,
 				DA465BF91DDA61DA0042C8C7 /* VAdminServerCell.swift */,
+				DA465C041DDA66D80042C8C7 /* VAdminServerCellFroob.swift */,
 			);
 			path = AdminServer;
 			sourceTree = "<group>";
@@ -1555,6 +1558,7 @@
 				DAF6F29F1DD376B90053ED1B /* COnboardForm.swift in Sources */,
 				DAAAFFA81DDA395800E8F839 /* CAdminUsersPhotos.swift in Sources */,
 				DA7A79D51DD66059001B5FA5 /* VHomeCellPictures.swift in Sources */,
+				DA465C051DDA66D80042C8C7 /* VAdminServerCellFroob.swift in Sources */,
 				DAE4556E1DCAA62800948D70 /* VPicturesDataCellCreated.swift in Sources */,
 				DA7A79CF1DD64F89001B5FA5 /* VHomeCellSpace.swift in Sources */,
 				DAAAFFAB1DDA399700E8F839 /* VAdminUsersPhotos.swift in Sources */,

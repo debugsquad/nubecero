@@ -40,9 +40,10 @@ class CAdminUsersPhotos:CController
     
     private func loadPictures()
     {
+        let userId:MSession.UserId = model.userId
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyPictures:String = FDatabaseModelUser.Property.pictures.rawValue
-        let pathPictures:String = "\(parentUser)/\(model.userId)/\(propertyPictures)"
+        let pathPictures:String = "\(parentUser)/\(userId)/\(propertyPictures)"
         
         FMain.sharedInstance.database.listenOnce(
             path:pathPictures,
@@ -61,7 +62,7 @@ class CAdminUsersPhotos:CController
                 return
             }
             
-            self?.pictures = MAdminUsersPhotos(userId:model.userId, pictureList:picturesStrong)
+            self?.pictures = MAdminUsersPhotos(userId:userId, pictureList:picturesStrong)
             self?.loadingCompleted()
         }
     }

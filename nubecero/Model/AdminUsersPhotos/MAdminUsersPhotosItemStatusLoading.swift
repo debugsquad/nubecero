@@ -29,6 +29,12 @@ class MAdminUsersPhotosItemStatusLoading:MAdminUsersPhotosItemStatus
         
         else
         {
+            let unknownError:String = NSLocalizedString(
+                "MAdminUsersPhotosItemStatusLoading_errorUnknown",
+                comment:"")
+            
+            model?.modeError(error:unknownError)
+            
             return
         }
         
@@ -48,7 +54,7 @@ class MAdminUsersPhotosItemStatusLoading:MAdminUsersPhotosItemStatus
             {
                 if let errorString:String = error?.localizedDescription
                 {
-                    model?.modeError(error:errorString)
+                    self?.model?.modeError(error:errorString)
                 }
                 else
                 {
@@ -56,13 +62,13 @@ class MAdminUsersPhotosItemStatusLoading:MAdminUsersPhotosItemStatus
                         "MAdminUsersPhotosItemStatusLoading_errorUnknown",
                         comment:"")
                     
-                    model?.modeError(error:unknownError)
+                    self?.model?.modeError(error:unknownError)
                 }
                 
                 return
             }
             
-            model?.modeLoaded(image:image)
+            self?.model?.modeLoaded(image:image)
         }
     }
 }

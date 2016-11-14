@@ -37,6 +37,11 @@ class VAdminUsersPhotosCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedUserPhotoLoaded(sender:)),
+            name:Notification.userPhotoLoaded,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
@@ -65,7 +70,35 @@ class VAdminUsersPhotosCell:UICollectionViewCell
         }
     }
     
+    //MARK: notified
+    
+    func notifiedUserPhotoLoaded(sender notification:Notification)
+    {
+        guard
+        
+            let notificationModel:MAdminUsersPhotosItem = notification.object as? MAdminUsersPhotosItem
+        
+        else
+        {
+            return
+        }
+        
+        DispatchQueue.main.async
+        { [weak self] in
+                
+            if notificationModel === self?.model
+            {
+                self?.showImage()
+            }
+        }
+    }
+    
     //MARK: private
+    
+    private func showImage()
+    {
+        imageView.image = model?.modelStatus?.loadImage()
+    }
     
     private func hover()
     {
@@ -86,7 +119,7 @@ class VAdminUsersPhotosCell:UICollectionViewCell
     func config(model:MAdminUsersPhotosItem)
     {
         self.model = model
-        imageView.image = model.modelStatus?.loadImage()
+        showImage()
         hover()
     }
 }

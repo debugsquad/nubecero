@@ -54,6 +54,10 @@
 		DA406BE01DCD28210098D347 /* VPicturesDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BDF1DCD28210098D347 /* VPicturesDetailHeader.swift */; };
 		DA465BE51DDA3E400042C8C7 /* MAdminUsersPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BE41DDA3E400042C8C7 /* MAdminUsersPhotos.swift */; };
 		DA465BE71DDA3E5C0042C8C7 /* MAdminUsersPhotosItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BE61DDA3E5C0042C8C7 /* MAdminUsersPhotosItem.swift */; };
+		DA465BE91DDA49E70042C8C7 /* MAdminUsersPhotosItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BE81DDA49E70042C8C7 /* MAdminUsersPhotosItemStatus.swift */; };
+		DA465BEB1DDA4A050042C8C7 /* MAdminUsersPhotosItemStatusStand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BEA1DDA4A050042C8C7 /* MAdminUsersPhotosItemStatusStand.swift */; };
+		DA465BED1DDA4A0D0042C8C7 /* MAdminUsersPhotosItemStatusLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BEC1DDA4A0D0042C8C7 /* MAdminUsersPhotosItemStatusLoading.swift */; };
+		DA465BEF1DDA4A210042C8C7 /* MAdminUsersPhotosItemStatusLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BEE1DDA4A210042C8C7 /* MAdminUsersPhotosItemStatusLoaded.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -302,6 +306,10 @@
 		DA406BDF1DCD28210098D347 /* VPicturesDetailHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPicturesDetailHeader.swift; sourceTree = "<group>"; };
 		DA465BE41DDA3E400042C8C7 /* MAdminUsersPhotos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminUsersPhotos.swift; sourceTree = "<group>"; };
 		DA465BE61DDA3E5C0042C8C7 /* MAdminUsersPhotosItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminUsersPhotosItem.swift; sourceTree = "<group>"; };
+		DA465BE81DDA49E70042C8C7 /* MAdminUsersPhotosItemStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminUsersPhotosItemStatus.swift; sourceTree = "<group>"; };
+		DA465BEA1DDA4A050042C8C7 /* MAdminUsersPhotosItemStatusStand.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminUsersPhotosItemStatusStand.swift; sourceTree = "<group>"; };
+		DA465BEC1DDA4A0D0042C8C7 /* MAdminUsersPhotosItemStatusLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminUsersPhotosItemStatusLoading.swift; sourceTree = "<group>"; };
+		DA465BEE1DDA4A210042C8C7 /* MAdminUsersPhotosItemStatusLoaded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminUsersPhotosItemStatusLoaded.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -713,6 +721,10 @@
 			children = (
 				DA465BE41DDA3E400042C8C7 /* MAdminUsersPhotos.swift */,
 				DA465BE61DDA3E5C0042C8C7 /* MAdminUsersPhotosItem.swift */,
+				DA465BE81DDA49E70042C8C7 /* MAdminUsersPhotosItemStatus.swift */,
+				DA465BEA1DDA4A050042C8C7 /* MAdminUsersPhotosItemStatusStand.swift */,
+				DA465BEC1DDA4A0D0042C8C7 /* MAdminUsersPhotosItemStatusLoading.swift */,
+				DA465BEE1DDA4A210042C8C7 /* MAdminUsersPhotosItemStatusLoaded.swift */,
 			);
 			path = AdminUsersPhotos;
 			sourceTree = "<group>";
@@ -1534,9 +1546,11 @@
 				DA7A79C31DD63DCF001B5FA5 /* VHomeCellDiskArrow.swift in Sources */,
 				DACD1F951DC3DBDB0067D26B /* VAlert.swift in Sources */,
 				DACD1FC51DC7C6750067D26B /* FDatabaseModel.swift in Sources */,
+				DA465BED1DDA4A0D0042C8C7 /* MAdminUsersPhotosItemStatusLoading.swift in Sources */,
 				DA4FA5A31DD7C7B300358ABE /* MStorePurchase.swift in Sources */,
 				DA2F66A01DC92F380078B466 /* MPicturesDetail.swift in Sources */,
 				DA406BDE1DCD1D240098D347 /* MSettingsItemLogout.swift in Sources */,
+				DA465BE91DDA49E70042C8C7 /* MAdminUsersPhotosItemStatus.swift in Sources */,
 				DA406BDA1DCD03820098D347 /* MSettingsItemSecurity.swift in Sources */,
 				DAF6F2A81DD381A50053ED1B /* VOnboardFormHeader.swift in Sources */,
 				DAC55F1E1DD258D800213C27 /* MOnboard.swift in Sources */,
@@ -1601,6 +1615,7 @@
 				DAA779EB1DD9138500A719AD /* VAdminUsersCell.swift in Sources */,
 				DA4FA5B11DD7D5EE00358ABE /* VAdmin.swift in Sources */,
 				DA4EF9011DC395B300297C1D /* ExtensionNSManagedObject.swift in Sources */,
+				DA465BEF1DDA4A210042C8C7 /* MAdminUsersPhotosItemStatusLoaded.swift in Sources */,
 				DAF6F2B41DD397260053ED1B /* MOnboardFormItemEmailSignin.swift in Sources */,
 				DAE4555A1DCA74B900948D70 /* CPicturesData.swift in Sources */,
 				DA2F668D1DC9002E0078B466 /* MPicturesItem.swift in Sources */,
@@ -1620,6 +1635,7 @@
 				DA7367B81DD545DA0004B99C /* MOnboardFormItemForgot.swift in Sources */,
 				DA4EF9001DC395B300297C1D /* ExtensionNotification.swift in Sources */,
 				DA4EF90B1DC395B300297C1D /* MMainItemHome.swift in Sources */,
+				DA465BEB1DDA4A050042C8C7 /* MAdminUsersPhotosItemStatusStand.swift in Sources */,
 				DACD1F8F1DC3ADEB0067D26B /* VLogin.swift in Sources */,
 				DA4EF8FC1DC395B300297C1D /* DManager.swift in Sources */,
 				DA3411771DCB9107006E6D71 /* MHomeItemDisk.swift in Sources */,

@@ -37,6 +37,7 @@
 "VAdminServerCellFroob_placeholder"="Ingresar espacio";
 "VAdminServerCellFroob_labelTitle"="Espacio Froob";
 "VAdminServerHeader_button"="Guardar";
+"VHomeUploadSyncBar_totalItems"="/%@";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

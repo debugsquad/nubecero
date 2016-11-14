@@ -8,16 +8,28 @@ class VHomeUploadSyncBar:UIView
     private weak var tryAgainButton:UIButton!
     private weak var layoutCancelButtonLeft:NSLayoutConstraint!
     private weak var layoutTryAgainButtonLeft:NSLayoutConstraint!
+    private let attributesUploaded:[String:Any]
+    private let attributesTotal:[String:Any]
     private let kSpinnerHeight:CGFloat = 80
     private let kCancelButtonWith:CGFloat = 90
     private let kTryAgainButtonWith:CGFloat = 140
     private let kButtonHeight:CGFloat = 34
-    private let kLabelCountWidth:CGFloat = 60
+    private let kLabelCountWidth:CGFloat = 70
     private let kCornerRadius:CGFloat = 4
     
-    convenience init(controller:CHomeUploadSync)
+    init(controller:CHomeUploadSync)
     {
-        self.init()
+        attributesUploaded = [
+            NSFontAttributeName:UIFont.medium(size:15),
+            NSForegroundColorAttributeName:UIColor.main
+        ]
+        
+        attributesTotal = [
+            NSFontAttributeName:UIFont.medium(size:13),
+            NSForegroundColorAttributeName:UIColor.black
+        ]
+        
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
@@ -72,8 +84,6 @@ class VHomeUploadSyncBar:UIView
         labelCount.isUserInteractionEnabled = false
         labelCount.translatesAutoresizingMaskIntoConstraints = false
         labelCount.backgroundColor = UIColor.clear
-        labelCount.font = UIFont.medium(size:13)
-        labelCount.textColor = UIColor.black
         labelCount.textAlignment = NSTextAlignment.right
         self.labelCount = labelCount
         
@@ -156,6 +166,11 @@ class VHomeUploadSyncBar:UIView
         update()
     }
     
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+    
     override func layoutSubviews()
     {
         let width:CGFloat = bounds.maxX
@@ -189,11 +204,25 @@ class VHomeUploadSyncBar:UIView
     
     func update()
     {
-        let totalItems:Int = controller.uploadItems.count
         let uploadedItems:Int = controller.uploadedItems()
-        let countText:String = "\(uploadedItems)/\(totalItems)"
+        let totalItems:Int = controller.uploadItems.count
+        let uploadedItemString:String = "\(uploadedItems)"
+        let totalItemsString:String = String(
+            format:NSLocalizedString("VHomeUploadSyncBar_totalItems", comment:""),
+            totalItems)
         
-        labelCount.text = countText
+        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
+        let attUploaded:NSAttributedString = NSAttributedString(
+            string:uploadedItemString,
+            attributes:attributesUploaded)
+        let attTotal:NSAttributedString = NSAttributedString(
+            string:totalItemsString,
+            attributes:attributesTotal)
+        
+        mutableString.append(attUploaded)
+        mutableString.append(attTotal)
+        
+        labelCount.attributedText = mutableString
     }
     
     func errorFound()

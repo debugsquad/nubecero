@@ -2,10 +2,12 @@ import UIKit
 
 class VAdminUsersPhotosCell:UICollectionViewCell
 {
+    private let kAlphaSelected:CGFloat = 0.2
+    private let kAlphaNotSelected:CGFloat = 1
+    
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        backgroundColor = UIColor.white
         clipsToBounds = true
     }
     
@@ -14,10 +16,42 @@ class VAdminUsersPhotosCell:UICollectionViewCell
         fatalError()
     }
     
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            alpha = kAlphaSelected
+            backgroundColor = UIColor.clear
+        }
+        else
+        {
+            alpha = kAlphaNotSelected
+            backgroundColor = UIColor.white
+        }
+    }
+    
     //MARK: public
     
     func config(model:MAdminUsersPhotosItem)
     {
-        
+        hover()
     }
 }

@@ -199,5 +199,7 @@ class VAdminUsersCell:UICollectionViewCell
         labelLastSession.text = lastSessionComposite
         labelDiskUsed.text = diskUsedComposite
         labelStatus.text = stringStatus
+        
+        hover()
     }
 }

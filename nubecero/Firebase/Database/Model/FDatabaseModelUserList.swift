@@ -2,19 +2,19 @@ import Foundation
 
 class FDatabaseModelUserList:FDatabaseModel
 {
-    let items:[MPictures.PictureId:FDatabaseModelPicture]
+    let items:[MSession.UserId:FDatabaseModelUser]
     
     required init(snapshot:Any)
     {
-        if let rawItems:[MPictures.PictureId:Any] = snapshot as? [MPictures.PictureId:Any]
+        if let rawItems:[MSession.UserId:Any] = snapshot as? [MSession.UserId:Any]
         {
-            var items:[MPictures.PictureId:FDatabaseModelPicture] = [:]
-            let keys:[MPictures.PictureId] = Array(rawItems.keys)
+            var items:[MSession.UserId:FDatabaseModelUser] = [:]
+            let keys:[MSession.UserId] = Array(rawItems.keys)
             
-            for rawKey:MPictures.PictureId in keys
+            for rawKey:MSession.UserId in keys
             {
                 let rawItem:Any = rawItems[rawKey]
-                let item:FDatabaseModelPicture = FDatabaseModelPicture(snapshot:rawItem)
+                let item:FDatabaseModelUser = FDatabaseModelUser(snapshot:rawItem)
                 items[rawKey] = item
             }
             

@@ -5,7 +5,10 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
     private weak var controller:CAdminUsers!
     private weak var collectionView:UICollectionView!
     private weak var spinner:VSpinner!
+    private let kHeaderHeight:CGFloat = 50
     private let kCellHeight:CGFloat = 100
+    private let kInterLine:CGFloat = 1
+    private let kCollectionBottom:CGFloat = 20
     
     convenience init(controller:CAdminUsers)
     {
@@ -19,6 +22,16 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
         
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
+        
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSize(width:0, height:barHeight + kHeaderHeight)
+        flow.footerReferenceSize = CGSize.zero
+        flow.minimumLineSpacing = kInterLine
+        flow.minimumInteritemSpacing = 0
+        flow.scrollDirection = UICollectionViewScrollDirection.vertical
+        flow.sectionInset = UIEdgeInsets(top:kInterLine, left:0, bottom:kCollectionBottom, right:0)
+        
+        
         
         addSubview(spinner)
         

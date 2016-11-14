@@ -3,7 +3,7 @@ import UIKit
 class MAdminUsersPhotosItem
 {
     var image:UIImage?
-    var imageStatus:MAdminUsersPhotosItemStatus
+    var modelStatus:MAdminUsersPhotosItemStatus
     let pictureId:MPictures.PictureId
     let created:TimeInterval
     let size:Int
@@ -15,6 +15,6 @@ class MAdminUsersPhotosItem
         created = firebasePicture.created
         size = firebasePicture.size
         status = firebasePicture.status
-        imageStatus = MAdminUsersPhotosItemStatusStand()
+        modelStatus = MAdminUsersPhotosItemStatusStand()
     }
 }

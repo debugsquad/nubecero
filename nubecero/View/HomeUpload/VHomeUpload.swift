@@ -5,7 +5,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     weak var collectionView:UICollectionView!
     private weak var controller:CHomeUpload!
     private weak var spinner:VSpinner!
-    private var imageSize:CGFloat!
+    private var imageSize:CGSize!
     private let kCollectionBottom:CGFloat = 20
     private let kInterLine:CGFloat = 1
     
@@ -77,8 +77,6 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
             options:[],
             metrics:metrics,
             views:views))
-        
-        computeImageSize()
     }
     
     override func layoutSubviews()
@@ -95,7 +93,8 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     {
         let width:CGFloat = bounds.maxX - kInterLine
         let proximate:CGFloat = floor(width / MHomeUpload.kImageMaxSize)
-        imageSize = (width / proximate) - kInterLine
+        let size:CGFloat = (width / proximate) - kInterLine
+        imageSize = CGSize(width:size, height:size)
     }
     
     private func modelAtIndex(index:IndexPath) -> MHomeUploadItem
@@ -165,9 +164,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
-        let size:CGSize = CGSize(width:imageSize, height:imageSize)
-        
-        return size
+        return imageSize
     }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int

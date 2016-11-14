@@ -1,6 +1,6 @@
 import UIKit
 
-class VAdminUserPhotosCell:UICollectionViewCell
+class VAdminUsersPhotosCell:UICollectionViewCell
 {
     override init(frame:CGRect)
     {

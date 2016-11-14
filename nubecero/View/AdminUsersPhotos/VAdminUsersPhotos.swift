@@ -5,6 +5,10 @@ class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     private weak var controller:CAdminUsersPhotos!
     private weak var collectionView:UICollectionView!
     private weak var spinner:VSpinner!
+    private var imageSize:CGSize!
+    private let kCollectionBottom:CGFloat = 20
+    private let kInterLine:CGFloat = 1
+    private let kImageMaxSize:CGFloat = 150
     
     convenience init(controller:CAdminUsersPhotos)
     {
@@ -39,7 +43,23 @@ class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSo
             views:views))
     }
     
+    override func layoutSubviews()
+    {
+        computeImageSize()
+        collectionView.collectionViewLayout.invalidateLayout()
+        
+        super.layoutSubviews()
+    }
+    
     //MARK: private
+    
+    private func computeImageSize()
+    {
+        let width:CGFloat = bounds.maxX - kInterLine
+        let proximate:CGFloat = floor(width / kImageMaxSize)
+        let size:CGFloat = (width / proximate) - kInterLine
+        imageSize = CGSize(width:size, height:size)
+    }
     
     private func modelAtIndex(index:IndexPath) -> MAdminUsersPhotosItem
     {
@@ -49,6 +69,11 @@ class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        return imageSize
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
@@ -74,6 +99,12 @@ class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
         let item:MAdminUsersPhotosItem = modelAtIndex(index:indexPath)
-        let cell:v
+        let cell:VAdminUsersPhotosCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VAdminUsersPhotosCell.reusableIdentifier,
+            for:indexPath) as! VAdminUsersPhotosCell
+        cell.config(model:item)
+        
+        return cell
     }
 }

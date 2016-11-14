@@ -16,7 +16,7 @@ class MSession
     
     //MARK: private
     
-    private func asyncLoadUser(userId:String)
+    private func asyncLoadUser(userId:UserId)
     {
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyStatus:String = FDatabaseModelUser.Property.status.rawValue
@@ -53,7 +53,7 @@ class MSession
         }
     }
     
-    private func createUser(userId:String)
+    private func createUser(userId:UserId)
     {
         let parentUser:String = FDatabase.Parent.user.rawValue
         let userPath:String = "\(parentUser)/\(userId)"
@@ -69,7 +69,7 @@ class MSession
         self.loadServer()
     }
     
-    private func updateLastSession(userId:String)
+    private func updateLastSession(userId:UserId)
     {
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
@@ -186,7 +186,7 @@ class MSession
         }
     }
     
-    func loadUser(userId:String)
+    func loadUser(userId:UserId)
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {

@@ -1,8 +1,9 @@
 import UIKit
 
-class VAdminUsers:UIView
+class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CAdminUsers!
+    private weak var collectionView:UICollectionView!
     private weak var spinner:VSpinner!
     
     convenience init(controller:CAdminUsers)
@@ -38,6 +39,15 @@ class VAdminUsers:UIView
             views:views))
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MAdminUsersItem
+    {
+        let item:MAdminUsersItem = controller.model!.items[index.item]
+        
+        return item
+    }
+    
     //MARK: public
     
     func loadingError()
@@ -48,5 +58,13 @@ class VAdminUsers:UIView
     func loadingCompleted()
     {
         spinner.removeFromSuperview()
+        collectionView.reloadData()
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int
+    {
+        return 1
     }
 }

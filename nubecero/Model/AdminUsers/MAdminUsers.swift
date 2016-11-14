@@ -2,13 +2,22 @@ import Foundation
 
 class MAdminUsers
 {
-    let items:[MAdminUsersItem]
+    var items:[MAdminUsersItem]
     private let kDefaultOrder:Bool = false
     
     init(userList:FDatabaseModelUserList)
     {
-        self.userList = userList
-        references = []
+        items = []
+        let allKeys:[MSession.UserId] = Array(userList.items.keys)
+        
+        for key:MSession.UserId in allKeys
+        {
+            let firebaseUser:FDatabaseModelUser = userList.items[key]!
+            let item:MAdminUsersItem = MAdminUsersItem(
+                userId:key,
+                firebaseUser:firebaseUser)
+            items.append(item)
+        }
         
         order(ascending:kDefaultOrder)
     }
@@ -17,15 +26,13 @@ class MAdminUsers
     
     private func order(ascending:Bool)
     {
-        var allKeys:[MSession.UserId] = Array(userList.items.keys)
+        var items:[MAdminUsersItem] = self.items
         
-        allKeys.sort
-        { (referenceA, referenceB) -> Bool in
+        items.sort
+        { (itemA, itemB) -> Bool in
             
-            let itemA:FDatabaseModelUser = userList.items[referenceA]!
-            let itemB:FDatabaseModelUser = userList.items[referenceB]!
             let before:Bool
-
+            
             if ascending
             {
                 before = itemA.created < itemB.created
@@ -38,6 +45,6 @@ class MAdminUsers
             return before
         }
         
-        references = allKeys
+        self.items = items
     }
 }

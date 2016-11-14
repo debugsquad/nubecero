@@ -5,6 +5,7 @@ class MAdminServerItemFroob:MAdminServerItem
     var space:Int
     private let kCellHeight:CGFloat = 70
     private let kSelectable:Bool = false
+    private let kServerMinimumFroobSize:Int = 15000
     
     init(space:Int)
     {

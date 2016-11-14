@@ -8,7 +8,6 @@ class MSession
     var server:MSessionServer?
     var userId:UserId?
     var settings:DObjectSettings?
-    private let kServerInitialFroobSize:Int = 15000
     
     private init()
     {
@@ -108,20 +107,6 @@ class MSession
                 name:Notification.sessionLoaded,
                 object:nil)
         }
-    }
-    
-    private func firstTimeServer()
-    {
-        let parentServer:String = FDatabase.Parent.server.rawValue
-        let firebaseServer:FDatabaseModelServer = FDatabaseModelServer(
-            froobSpace:kServerInitialFroobSize)
-        let firebaseServerJson:Any = firebaseServer.modelJson()
-        
-        FMain.sharedInstance.database.updateChild(
-            path:parentServer,
-            json:firebaseServerJson)
-        
-        loadServer()
     }
     
     private func settingsLoaded()

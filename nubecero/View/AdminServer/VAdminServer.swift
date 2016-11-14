@@ -8,6 +8,7 @@ class VAdminServer:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     private let kInterLine:CGFloat = 3
     private let kHeaderHeight:CGFloat = 60
     private let kCollectionBottom:CGFloat = 20
+    private let kDeselectTime:TimeInterval = 1
     
     convenience init(controller:CAdminServer)
     {
@@ -143,6 +144,18 @@ class VAdminServer:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         return count
     }
     
+    func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
+    {
+        let reusable:VAdminServerHeader = collectionView.dequeueReusableSupplementaryView(
+            ofKind:kind,
+            withReuseIdentifier:
+            VAdminServerHeader.reusableIdentifier,
+            for:indexPath) as! VAdminServerHeader
+        reusable.config(controller:controller)
+        
+        return reusable
+    }
+    
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
         let item:MAdminServerItem = modelAtIndex(index:indexPath)
@@ -167,5 +180,18 @@ class VAdminServer:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         let item:MAdminServerItem = modelAtIndex(index:indexPath)
         
         return item.selectable
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }

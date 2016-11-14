@@ -22,7 +22,7 @@ class VAdminServerCellFroob:VAdminServerCell, UITextFieldDelegate
         textField.clipsToBounds = true
         textField.backgroundColor = UIColor.clear
         textField.borderStyle = UITextBorderStyle.none
-        textField.font = UIFont.medium(size:15)
+        textField.font = UIFont.medium(size:19)
         textField.textColor = UIColor.black
         textField.tintColor = UIColor.black
         textField.delegate = self
@@ -46,7 +46,7 @@ class VAdminServerCellFroob:VAdminServerCell, UITextFieldDelegate
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[label(70)]-0-[textField]-5-|",
+            withVisualFormat:"H:|-10-[label(90)]-0-[textField]-5-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -100,6 +100,8 @@ class VAdminServerCellFroob:VAdminServerCell, UITextFieldDelegate
         
         else
         {
+            print()
+            
             return
         }
         

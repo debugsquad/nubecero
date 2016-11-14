@@ -3,7 +3,7 @@ import UIKit
 class MAdminServerItemFroob:MAdminServerItem
 {
     private(set) var space:Int
-    private let kCellHeight:CGFloat = 70
+    private let kCellHeight:CGFloat = 65
     private let kSelectable:Bool = false
     private let kServerMinimumFroobSize:Int = 15000
     

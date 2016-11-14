@@ -26,14 +26,6 @@ class CController:UIViewController
         }
     }
     
-    override var title:String?
-    {
-        didSet
-        {
-            parentController.viewParent.bar.label.text = title
-        }
-    }
-    
     var parentController:CParent
     {
         get
@@ -50,6 +42,12 @@ class CController:UIViewController
         edgesForExtendedLayout = UIRectEdge()
         extendedLayoutIncludesOpaqueBars = false
         automaticallyAdjustsScrollViewInsets = false
+    }
+    
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        parentController.viewParent.bar.label.text = title
     }
     
     override var preferredStatusBarStyle:UIStatusBarStyle

@@ -5,6 +5,9 @@ class VAdminServer:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     private weak var controller:CAdminServer!
     private weak var collectionView:UICollectionView!
     private weak var spinner:VSpinner!
+    private let kInterLine:CGFloat = 3
+    private let kHeaderHeight:CGFloat = 50
+    private let kCollectionBottom:CGFloat = 20
     
     convenience init(controller:CAdminServer)
     {
@@ -19,10 +22,41 @@ class VAdminServer:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
         
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
+        flow.footerReferenceSize = CGSize.zero
+        flow.minimumInteritemSpacing = 0
+        flow.minimumLineSpacing = kInterLine
+        flow.scrollDirection = UICollectionViewScrollDirection.vertical
+        flow.sectionInset = UIEdgeInsets(top:kInterLine, left:0, bottom:kCollectionBottom, right:0)
+        
+        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        collectionView.register(
+            VAdminServerHeader.self,
+            forSupplementaryViewOfKind:
+            UICollectionElementKindSectionHeader,
+            withReuseIdentifier:
+            VAdminServerHeader.reusableIdentifier)
+        collectionView.register(
+            VAdminServerCellFroob.self,
+            forCellWithReuseIdentifier:
+            VAdminServerCellFroob.reusableIdentifier)
+        self.collectionView = collectionView
+        
         addSubview(spinner)
+        addSubview(collectionView)
         
         let views:[String:UIView] = [
-            "spinner":spinner]
+            "spinner":spinner,
+            "collectionView":collectionView]
         
         let metrics:[String:CGFloat] = [
             "barHeight":barHeight]
@@ -49,6 +83,12 @@ class VAdminServer:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             views:views))
     }
     
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MAdminServerItem
@@ -72,6 +112,15 @@ class VAdminServer:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     }
     
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let item:MAdminServerItem = modelAtIndex(index:indexPath)
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:item.cellHeight)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {

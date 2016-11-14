@@ -6,7 +6,7 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
     private weak var collectionView:UICollectionView!
     private weak var spinner:VSpinner!
     private let kHeaderHeight:CGFloat = 70
-    private let kCellHeight:CGFloat = 100
+    private let kCellHeight:CGFloat = 140
     private let kInterLine:CGFloat = 3
     private let kCollectionBottom:CGFloat = 20
     private let kDeselectTime:TimeInterval = 1
@@ -83,6 +83,12 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
     }
     
     //MARK: private

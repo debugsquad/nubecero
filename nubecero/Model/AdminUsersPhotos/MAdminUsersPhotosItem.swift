@@ -10,6 +10,9 @@ class MAdminUsersPhotosItem
     
     init(pictureId:MPictures.PictureId, firebasePicture:FDatabaseModelPicture)
     {
-        
+        self.pictureId = pictureId
+        created = firebasePicture.created
+        size = firebasePicture.size
+        status = firebasePicture.status
     }
 }

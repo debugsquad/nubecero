@@ -53,6 +53,7 @@
 "COnboardForm_forgotSuccess"="Revisa tu bandeja de entrada";
 "COnboardForm_forgotInvalidEmail"="Correo electrónico invalido";
 "CAdminUsers_title"="Usuarios";
+"CAdminUsers_errorLoading"="Error cargando usuarios";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

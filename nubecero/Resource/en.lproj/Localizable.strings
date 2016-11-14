@@ -53,6 +53,7 @@
 "COnboardForm_forgotSuccess"="Check your Email inbox";
 "COnboardForm_forgotInvalidEmail"="Invalid Email";
 "CAdminUsers_title"="Users";
+"CAdminUsers_errorLoading"="Error loading users";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading photo, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

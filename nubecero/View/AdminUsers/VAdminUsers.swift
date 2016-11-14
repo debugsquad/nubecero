@@ -37,4 +37,11 @@ class VAdminUsers:UIView
             metrics:metrics,
             views:views))
     }
+    
+    //MARK: public
+    
+    func loadingError()
+    {
+        
+    }
 }

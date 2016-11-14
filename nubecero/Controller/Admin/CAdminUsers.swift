@@ -28,13 +28,37 @@ class CAdminUsers:CController
     
     private func loadUsers()
     {
-        let path:String = "Users"
+        let parentUser:String = FDatabase.Parent.user.rawValue
         
         FMain.sharedInstance.database.listenOnce(
-            path:path,
-            modelType:FDatabaseModelUser.self)
-        { (users) in
-            print("done")
+            path:parentUser,
+            modelType:FDatabaseModelUserList.self)
+        { [weak self] (users) in
+            
+            guard
+            
+                let usersStrong:FDatabaseModelUserList = users
+            
+            else
+            {
+                let errorString:String = NSLocalizedString("CAdminUsers_errorLoading", comment:"")
+                self?.loadingError(error:errorString)
+                
+                return
+            }
+            
+            
+        }
+    }
+    
+    private func loadingError(error:String)
+    {
+        VAlert.message(message:error)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+
+            self?.viewUsers.loadingError()
         }
     }
 }

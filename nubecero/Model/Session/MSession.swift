@@ -99,12 +99,6 @@ class MSession
             
             else
             {
-                #if DEBUG
-                    
-                    self.firstTimeServer()
-                    
-                #endif
-                
                 return
             }
             

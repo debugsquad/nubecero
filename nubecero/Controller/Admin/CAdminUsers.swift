@@ -77,6 +77,7 @@ class CAdminUsers:CController
     
     func selected(item:MAdminUsersItem)
     {
-        
+        let controller:CAdminUsersPhotos = CAdminUsersPhotos(model:item)
+        parentController.push(controller:controller)
     }
 }

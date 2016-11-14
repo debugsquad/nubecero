@@ -64,6 +64,8 @@
 		DA465BF81DDA5CCA0042C8C7 /* VAdminServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BF71DDA5CCA0042C8C7 /* VAdminServer.swift */; };
 		DA465BFA1DDA61DA0042C8C7 /* VAdminServerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BF91DDA61DA0042C8C7 /* VAdminServerCell.swift */; };
 		DA465BFC1DDA61E30042C8C7 /* VAdminServerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BFB1DDA61E30042C8C7 /* VAdminServerHeader.swift */; };
+		DA465BFF1DDA64A80042C8C7 /* MAdminServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BFE1DDA64A80042C8C7 /* MAdminServer.swift */; };
+		DA465C011DDA64B30042C8C7 /* MAdminServerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465C001DDA64B30042C8C7 /* MAdminServerItem.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -322,6 +324,8 @@
 		DA465BF71DDA5CCA0042C8C7 /* VAdminServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminServer.swift; sourceTree = "<group>"; };
 		DA465BF91DDA61DA0042C8C7 /* VAdminServerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminServerCell.swift; sourceTree = "<group>"; };
 		DA465BFB1DDA61E30042C8C7 /* VAdminServerHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminServerHeader.swift; sourceTree = "<group>"; };
+		DA465BFE1DDA64A80042C8C7 /* MAdminServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminServer.swift; sourceTree = "<group>"; };
+		DA465C001DDA64B30042C8C7 /* MAdminServerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminServerItem.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -752,6 +756,15 @@
 			path = AdminServer;
 			sourceTree = "<group>";
 		};
+		DA465BFD1DDA649E0042C8C7 /* AdminServer */ = {
+			isa = PBXGroup;
+			children = (
+				DA465BFE1DDA64A80042C8C7 /* MAdminServer.swift */,
+				DA465C001DDA64B30042C8C7 /* MAdminServerItem.swift */,
+			);
+			path = AdminServer;
+			sourceTree = "<group>";
+		};
 		DA4EF8C41DC395B300297C1D /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -871,6 +884,7 @@
 		DA4EF8E11DC395B300297C1D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA465BFD1DDA649E0042C8C7 /* AdminServer */,
 				DA465BE31DDA3E310042C8C7 /* AdminUsersPhotos */,
 				DAAAFFA01DDA151B00E8F839 /* AdminUsers */,
 				DA4FA5B21DD7D7F200358ABE /* Admin */,
@@ -1559,6 +1573,7 @@
 				DA4FA5AE1DD7D59200358ABE /* CAdmin.swift in Sources */,
 				DAF6F2AE1DD3954E0053ED1B /* VOnboardFormCellEmail.swift in Sources */,
 				DA4FA5A51DD7C7B300358ABE /* MStorePurchaseItemStatus.swift in Sources */,
+				DA465BFF1DDA64A80042C8C7 /* MAdminServer.swift in Sources */,
 				DAC55F201DD2592200213C27 /* MOnboardItem.swift in Sources */,
 				DACD1F991DC3F0E80067D26B /* MMainItemPictures.swift in Sources */,
 				DA2F668B1DC8FFB20078B466 /* MPictures.swift in Sources */,
@@ -1741,6 +1756,7 @@
 				DA4FA5A61DD7C7B300358ABE /* MStorePurchaseItemStatusDeferred.swift in Sources */,
 				DA7A79B51DD61236001B5FA5 /* VSettingsCellBlank.swift in Sources */,
 				DA4FA5951DD7C72800358ABE /* VStore.swift in Sources */,
+				DA465C011DDA64B30042C8C7 /* MAdminServerItem.swift in Sources */,
 				DA406BD61DCD036C0098D347 /* MSettings.swift in Sources */,
 				DA4EF9091DC395B300297C1D /* MMain.swift in Sources */,
 				DA7A79C91DD64A4D001B5FA5 /* MHomeItemSpaceTotal.swift in Sources */,

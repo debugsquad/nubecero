@@ -83,3 +83,4 @@
 "MAdminItemPurchases_title"="Compras";
 "MAdminItemUsers_title"="Usuarios";
 "MAdminItemSubscriptions_title"="Subscripciones";
+"MAdminUsersPhotosItemStatusLoading_errorUnknown"="Error al cargar imagen";

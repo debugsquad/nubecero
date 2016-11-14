@@ -36,11 +36,17 @@ class VAdminUsersPhotosCell:UICollectionViewCell
             options:[],
             metrics:metrics,
             views:views))
+        
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override var isSelected:Bool
@@ -80,13 +86,7 @@ class VAdminUsersPhotosCell:UICollectionViewCell
     func config(model:MAdminUsersPhotosItem)
     {
         self.model = model
-        imageView.image = model.image
+        imageView.image = model.modelStatus?.loadImage()
         hover()
-        
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            
-        }
     }
 }

@@ -61,7 +61,7 @@ class CAdminUsersPhotos:CController
                 return
             }
             
-            self?.pictures = MAdminUsersPhotos(pictureList:picturesStrong)
+            self?.pictures = MAdminUsersPhotos(userId:model.userId, pictureList:picturesStrong)
             self?.loadingCompleted()
         }
     }

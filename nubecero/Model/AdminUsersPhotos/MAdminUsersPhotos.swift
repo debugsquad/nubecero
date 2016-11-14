@@ -4,7 +4,7 @@ class MAdminUsersPhotos
 {
     let items:[MAdminUsersPhotosItem]
     
-    init(pictureList:FDatabaseModelPictureList)
+    init(userId:MSession.UserId, pictureList:FDatabaseModelPictureList)
     {
         var items:[MAdminUsersPhotosItem] = []
         let arrayIds:[MPictures.PictureId] = Array(pictureList.items.keys)
@@ -13,6 +13,7 @@ class MAdminUsersPhotos
         {
             let firebasePicture:FDatabaseModelPicture = pictureList.items[pictureId]!
             let item:MAdminUsersPhotosItem = MAdminUsersPhotosItem(
+                userId:userId,
                 pictureId:pictureId,
                 firebasePicture:firebasePicture)
             items.append(item)

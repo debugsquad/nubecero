@@ -1,8 +1,9 @@
 import UIKit
 
-class VAdminUsersPhotos:UIView
+class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CAdminUsersPhotos!
+    private weak var collectionView:UICollectionView!
     private weak var spinner:VSpinner!
     
     convenience init(controller:CAdminUsersPhotos)
@@ -36,5 +37,17 @@ class VAdminUsersPhotos:UIView
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        return
     }
 }

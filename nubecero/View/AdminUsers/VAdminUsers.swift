@@ -31,12 +31,31 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
         flow.sectionInset = UIEdgeInsets(top:kInterLine, left:0, bottom:kCollectionBottom, right:0)
         
-        
+        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
+        collectionView.register(
+            VAdminUsersHeader.self,
+            forSupplementaryViewOfKind:
+            UICollectionElementKindSectionHeader,
+            withReuseIdentifier:
+            VAdminUsersHeader.reusableIdentifier)
+        collectionView.register(
+            VAdminUsersCell.self,
+            forCellWithReuseIdentifier:
+            VAdminUsersCell.reusableIdentifier)
+        self.collectionView = collectionView
         
         addSubview(spinner)
+        addSubview(collectionView)
         
         let views:[String:UIView] = [
-            "spinner":spinner]
+            "spinner":spinner,
+            "collectionView":collectionView]
         
         let metrics:[String:CGFloat] = [
             "barHeight":barHeight]
@@ -87,19 +106,21 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
+        guard
+            
+            let _:MAdminUsers = controller.model
+            
+        else
+        {
+            return 0
+        }
+        
         return 1
     }
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        guard
-        
-            let count:Int = controller.model?.items.count
-        
-        else
-        {
-            return 0
-        }
+        let count:Int = controller.model!.items.count
         
         return count
     }

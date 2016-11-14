@@ -66,6 +66,8 @@
 "VAdminUsersPhotosHeader_titleLabel"="%@ Fotos";
 "CAdminServer_title"="Servidor";
 "CAdminServer_loadingError"="Error cargando servidor";
+"VAdminServerCellFroob_placeholder"="Ingresar espacio";
+"VAdminServerCellFroob_labelTitle"="Espacio Froob";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

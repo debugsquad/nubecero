@@ -35,6 +35,8 @@
 "VAdminUsersCell_labelStatusActive"="Active";
 "VAdminUsersCell_labelStatusBanned"="Banned";
 "VAdminUsersPhotosHeader_titleLabel"="%@ Photos";
+"VAdminServerCellFroob_placeholder"="Enter space";
+"VAdminServerCellFroob_labelTitle"="Froob Space";
 
 "CHomeUpload_title"="Add";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

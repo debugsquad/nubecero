@@ -72,18 +72,54 @@ class CAdminServer:CController
         }
     }
     
-    /*
- 
-     let parentServer:String = FDatabase.Parent.server.rawValue
-     let firebaseServer:FDatabaseModelServer = FDatabaseModelServer(
-     froobSpace:kServerInitialFroobSize)
-     let firebaseServerJson:Any = firebaseServer.modelJson()
-     
-     FMain.sharedInstance.database.updateChild(
-     path:parentServer,
-     json:firebaseServerJson)
-     
-     loadServer()
- 
- */
+    private func confirmedSave()
+    {
+        let parentServer:String = FDatabase.Parent.server.rawValue
+        let firebaseServer:FDatabaseModelServer = FDatabaseModelServer(
+            froobSpace:kServerInitialFroobSize)
+        let firebaseServerJson:Any = firebaseServer.modelJson()
+        
+        FMain.sharedInstance.database.updateChild(
+            path:parentServer,
+            json:firebaseServerJson)
+        
+        let doneMessage:String = NSLocalizedString("CAdminServer_alertDone", comment:"")
+        VAlert.message(message:doneMessage)
+    }
+    
+    //MARK: public
+    
+    func confirmSave()
+    {
+        let alert:UIAlertController = UIAlertController(
+            title:
+            NSLocalizedString("CAdminServer_alertTitle", comment:""),
+            message:
+            NSLocalizedString("CAdminServer_alertMessage", comment:""),
+            preferredStyle:UIAlertControllerStyle.actionSheet)
+        
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CAdminServer_alerCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionSave:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CAdminServer_alertSave", comment:""),
+            style:
+            UIAlertActionStyle.destructive)
+        { (action) in
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                    
+                self?.confirmedSave()
+            }
+        }
+        
+        alert.addAction(actionSave)
+        alert.addAction(actionCancel)
+        present(alert, animated:true, completion:nil)
+    }
 }

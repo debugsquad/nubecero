@@ -34,6 +34,9 @@
 "VAdminUsersCell_labelStatusUnknown"="Desconocido";
 "VAdminUsersCell_labelStatusActive"="Activo";
 "VAdminUsersCell_labelStatusBanned"="Bloqueado";
+"VAdminServerCellFroob_placeholder"="Ingresar espacio";
+"VAdminServerCellFroob_labelTitle"="Espacio Froob";
+"VAdminServerHeader_button"="Guardar";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";
@@ -66,9 +69,11 @@
 "VAdminUsersPhotosHeader_titleLabel"="%@ Fotos";
 "CAdminServer_title"="Servidor";
 "CAdminServer_loadingError"="Error cargando servidor";
-"VAdminServerCellFroob_placeholder"="Ingresar espacio";
-"VAdminServerCellFroob_labelTitle"="Espacio Froob";
-"VAdminServerHeader_button"="Guardar";
+"CAdminServer_alertSave"="Guardar";
+"CAdminServer_alertCancel"="Cancelar";
+"CAdminServer_alertTitle"="Guardando cambios";
+"CAdminServer_alertMessage"="¿Estas seguro?";
+"CAdminServer_alertDone"="Cambios guardados";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

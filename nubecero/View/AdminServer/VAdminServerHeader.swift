@@ -49,7 +49,7 @@ class VAdminServerHeader:UICollectionReusableView
     
     func actionButton(sender button:UIButton)
     {
-        
+        controller?.confirmSave()
     }
     
     //MARK: public

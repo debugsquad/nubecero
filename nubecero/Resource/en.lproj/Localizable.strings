@@ -69,6 +69,11 @@
 "CAdminUsersPhotos_errorLoading"="Error loading photos";
 "CAdminServer_title"="Server";
 "CAdminServer_loadingError"="Error loading server";
+"CAdminServer_alertSave"="Save";
+"CAdminServer_alertCancel"="Cancel";
+"CAdminServer_alertTitle"="Saving changes";
+"CAdminServer_alertMessage"="Are you sure?";
+"CAdminServer_alertDone"="Changes saved";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading photo, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

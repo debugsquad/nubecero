@@ -16,8 +16,8 @@ class VAdminUsersCell:UICollectionViewCell
         labelUserId.translatesAutoresizingMaskIntoConstraints = false
         labelUserId.isUserInteractionEnabled = false
         labelUserId.backgroundColor = UIColor.clear
-        labelUserId.font = UIFont.medium(size:14)
-        labelUserId.textColor = UIColor(white:0.3, alpha:1)
+        labelUserId.font = UIFont.medium(size:12)
+        labelUserId.textColor = UIColor.black
         self.labelUserId = labelUserId
         
         addSubview(labelUserId)
@@ -28,12 +28,12 @@ class VAdminUsersCell:UICollectionViewCell
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[labelUserId(150)]",
+            withVisualFormat:"H:|-10-[labelUserId(200)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-10-[labelUserId(18)]",
+            withVisualFormat:"V:|-10-[labelUserId(16)]",
             options:[],
             metrics:metrics,
             views:views))

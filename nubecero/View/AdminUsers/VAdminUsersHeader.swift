@@ -70,14 +70,14 @@ class VAdminUsersHeader:UICollectionReusableView
         
         guard
         
-            let count:NSNumber = controller.model?.items.count as? NSNumber
+            let count:Int = controller.model?.items.count
         
         else
         {
             return
         }
         
-        let stringCount:String? = numberFormatter.string(from:count)
+        let stringCount:String? = numberFormatter.string(from:count as NSNumber)
         labelUsers.text = stringCount
     }
 }

@@ -60,6 +60,7 @@
 		DA465BEF1DDA4A210042C8C7 /* MAdminUsersPhotosItemStatusLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BEE1DDA4A210042C8C7 /* MAdminUsersPhotosItemStatusLoaded.swift */; };
 		DA465BF11DDA4C7E0042C8C7 /* MAdminUsersPhotosItemStatusError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BF01DDA4C7E0042C8C7 /* MAdminUsersPhotosItemStatusError.swift */; };
 		DA465BF31DDA56B10042C8C7 /* VAdminUsersPhotosHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BF21DDA56B10042C8C7 /* VAdminUsersPhotosHeader.swift */; };
+		DA465BF51DDA5C790042C8C7 /* CAdminServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BF41DDA5C790042C8C7 /* CAdminServer.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -314,6 +315,7 @@
 		DA465BEE1DDA4A210042C8C7 /* MAdminUsersPhotosItemStatusLoaded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminUsersPhotosItemStatusLoaded.swift; sourceTree = "<group>"; };
 		DA465BF01DDA4C7E0042C8C7 /* MAdminUsersPhotosItemStatusError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminUsersPhotosItemStatusError.swift; sourceTree = "<group>"; };
 		DA465BF21DDA56B10042C8C7 /* VAdminUsersPhotosHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminUsersPhotosHeader.swift; sourceTree = "<group>"; };
+		DA465BF41DDA5C790042C8C7 /* CAdminServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAdminServer.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -1022,6 +1024,7 @@
 				DA4FA5AD1DD7D59200358ABE /* CAdmin.swift */,
 				DAA779E51DD9133600A719AD /* CAdminUsers.swift */,
 				DAAAFFA71DDA395800E8F839 /* CAdminUsersPhotos.swift */,
+				DA465BF41DDA5C790042C8C7 /* CAdminServer.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -1529,6 +1532,7 @@
 				DA4FA5A91DD7C7B300358ABE /* MStorePurchaseItemStatusPurchasing.swift in Sources */,
 				DACD1FBD1DC589CD0067D26B /* VHomeUploadSyncBar.swift in Sources */,
 				DA406BC91DCCE8480098D347 /* VAuth.swift in Sources */,
+				DA465BF51DDA5C790042C8C7 /* CAdminServer.swift in Sources */,
 				DA34117D1DCBC1C0006E6D71 /* FDatabaseModelServer.swift in Sources */,
 				DA2F66911DC919570078B466 /* MPicturesItemReference.swift in Sources */,
 				DA406BD31DCD02E90098D347 /* VSettingsCellSecurity.swift in Sources */,

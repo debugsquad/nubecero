@@ -75,13 +75,22 @@ class CAdminServer:CController
     private func confirmedSave()
     {
         let parentServer:String = FDatabase.Parent.server.rawValue
-        let firebaseServer:FDatabaseModelServer = FDatabaseModelServer(
-            froobSpace:kServerInitialFroobSize)
-        let firebaseServerJson:Any = firebaseServer.modelJson()
+        
+        guard
+            
+            let json:Any = model?.jsonForSave()
+        
+        else
+        {
+            let errorMessage:String = NSLocalizedString("CAdminServer_alertError", comment:"")
+            VAlert.message(message:errorMessage)
+            
+            return
+        }
         
         FMain.sharedInstance.database.updateChild(
             path:parentServer,
-            json:firebaseServerJson)
+            json:json)
         
         let doneMessage:String = NSLocalizedString("CAdminServer_alertDone", comment:"")
         VAlert.message(message:doneMessage)

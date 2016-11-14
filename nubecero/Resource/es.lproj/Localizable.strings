@@ -74,6 +74,7 @@
 "CAdminServer_alertTitle"="Guardando cambios";
 "CAdminServer_alertMessage"="¿Estas seguro?";
 "CAdminServer_alertDone"="Cambios guardados";
+"CAdminServer_alertError"="Error guardando";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

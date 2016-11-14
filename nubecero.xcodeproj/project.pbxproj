@@ -141,6 +141,7 @@
 		DAAAFFA21DDA152700E8F839 /* MAdminUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAFFA11DDA152700E8F839 /* MAdminUsers.swift */; };
 		DAAAFFA41DDA1CA800E8F839 /* MAdminUsersItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAFFA31DDA1CA800E8F839 /* MAdminUsersItem.swift */; };
 		DAAAFFA61DDA244400E8F839 /* VAdminUsersHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAFFA51DDA244400E8F839 /* VAdminUsersHeader.swift */; };
+		DAAAFFA81DDA395800E8F839 /* CAdminUsersPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAAAFFA71DDA395800E8F839 /* CAdminUsersPhotos.swift */; };
 		DAC55F181DD23B0A00213C27 /* COnboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F171DD23B0A00213C27 /* COnboard.swift */; };
 		DAC55F1B1DD23C7900213C27 /* VOnboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F1A1DD23C7900213C27 /* VOnboard.swift */; };
 		DAC55F1E1DD258D800213C27 /* MOnboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F1D1DD258D800213C27 /* MOnboard.swift */; };
@@ -387,6 +388,7 @@
 		DAAAFFA11DDA152700E8F839 /* MAdminUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminUsers.swift; sourceTree = "<group>"; };
 		DAAAFFA31DDA1CA800E8F839 /* MAdminUsersItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminUsersItem.swift; sourceTree = "<group>"; };
 		DAAAFFA51DDA244400E8F839 /* VAdminUsersHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminUsersHeader.swift; sourceTree = "<group>"; };
+		DAAAFFA71DDA395800E8F839 /* CAdminUsersPhotos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAdminUsersPhotos.swift; sourceTree = "<group>"; };
 		DAC55F171DD23B0A00213C27 /* COnboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = COnboard.swift; sourceTree = "<group>"; };
 		DAC55F1A1DD23C7900213C27 /* VOnboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboard.swift; sourceTree = "<group>"; };
 		DAC55F1D1DD258D800213C27 /* MOnboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboard.swift; sourceTree = "<group>"; };
@@ -983,6 +985,7 @@
 			children = (
 				DA4FA5AD1DD7D59200358ABE /* CAdmin.swift */,
 				DAA779E51DD9133600A719AD /* CAdminUsers.swift */,
+				DAAAFFA71DDA395800E8F839 /* CAdminUsersPhotos.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -1466,6 +1469,7 @@
 				DAA779E21DD9035900A719AD /* MAdminItemSubscriptions.swift in Sources */,
 				DAC55F2E1DD2829200213C27 /* MOnboardItemPrivacy.swift in Sources */,
 				DAF6F29F1DD376B90053ED1B /* COnboardForm.swift in Sources */,
+				DAAAFFA81DDA395800E8F839 /* CAdminUsersPhotos.swift in Sources */,
 				DA7A79D51DD66059001B5FA5 /* VHomeCellPictures.swift in Sources */,
 				DAE4556E1DCAA62800948D70 /* VPicturesDataCellCreated.swift in Sources */,
 				DA7A79CF1DD64F89001B5FA5 /* VHomeCellSpace.swift in Sources */,

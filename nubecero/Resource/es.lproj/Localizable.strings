@@ -65,6 +65,7 @@
 "CAdminUsersPhotos_errorLoading"="Error cargando fotos";
 "VAdminUsersPhotosHeader_titleLabel"="%@ Fotos";
 "CAdminServer_title"="Servidor";
+"CAdminServer_loadingError"="Error cargando servidor";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

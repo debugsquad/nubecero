@@ -65,6 +65,7 @@
 "CAdminUsersPhotos_title"="User photos";
 "CAdminUsersPhotos_errorLoading"="Error loading photos";
 "CAdminServer_title"="Server";
+"CAdminServer_loadingError"="Error loading server";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading photo, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

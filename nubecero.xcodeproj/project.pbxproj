@@ -66,6 +66,7 @@
 		DA465BFC1DDA61E30042C8C7 /* VAdminServerHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BFB1DDA61E30042C8C7 /* VAdminServerHeader.swift */; };
 		DA465BFF1DDA64A80042C8C7 /* MAdminServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465BFE1DDA64A80042C8C7 /* MAdminServer.swift */; };
 		DA465C011DDA64B30042C8C7 /* MAdminServerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465C001DDA64B30042C8C7 /* MAdminServerItem.swift */; };
+		DA465C031DDA65530042C8C7 /* MAdminServerItemFroob.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA465C021DDA65530042C8C7 /* MAdminServerItemFroob.swift */; };
 		DA4EF8F81DC395B300297C1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */; };
 		DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */; };
 		DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8CA1DC395B300297C1D /* CController.swift */; };
@@ -326,6 +327,7 @@
 		DA465BFB1DDA61E30042C8C7 /* VAdminServerHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminServerHeader.swift; sourceTree = "<group>"; };
 		DA465BFE1DDA64A80042C8C7 /* MAdminServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminServer.swift; sourceTree = "<group>"; };
 		DA465C001DDA64B30042C8C7 /* MAdminServerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminServerItem.swift; sourceTree = "<group>"; };
+		DA465C021DDA65530042C8C7 /* MAdminServerItemFroob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminServerItemFroob.swift; sourceTree = "<group>"; };
 		DA4EF8C51DC395B300297C1D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA4EF8C91DC395B300297C1D /* CAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAppDelegate.swift; sourceTree = "<group>"; };
 		DA4EF8CA1DC395B300297C1D /* CController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CController.swift; sourceTree = "<group>"; };
@@ -761,6 +763,7 @@
 			children = (
 				DA465BFE1DDA64A80042C8C7 /* MAdminServer.swift */,
 				DA465C001DDA64B30042C8C7 /* MAdminServerItem.swift */,
+				DA465C021DDA65530042C8C7 /* MAdminServerItemFroob.swift */,
 			);
 			path = AdminServer;
 			sourceTree = "<group>";
@@ -1547,6 +1550,7 @@
 				DA4FA5A21DD7C7B300358ABE /* MStore.swift in Sources */,
 				DAF6F2B01DD397150053ED1B /* MOnboardFormItemEmail.swift in Sources */,
 				DAA779E21DD9035900A719AD /* MAdminItemSubscriptions.swift in Sources */,
+				DA465C031DDA65530042C8C7 /* MAdminServerItemFroob.swift in Sources */,
 				DAC55F2E1DD2829200213C27 /* MOnboardItemPrivacy.swift in Sources */,
 				DAF6F29F1DD376B90053ED1B /* COnboardForm.swift in Sources */,
 				DAAAFFA81DDA395800E8F839 /* CAdminUsersPhotos.swift in Sources */,

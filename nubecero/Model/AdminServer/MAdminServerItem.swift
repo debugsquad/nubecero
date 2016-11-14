@@ -1,9 +1,20 @@
-//
-//  MAdminServerItem.swift
-//  nubecero
-//
-//  Created by zero on 11/14/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class MAdminServerItem
+{
+    let reusableIdentifier:String
+    let cellHeight:CGFloat
+    let selectable:Bool
+    
+    init(reusableIdentifier:String, cellHeight:CGFloat, selectable:Bool)
+    {
+        self.reusableIdentifier = reusableIdentifier
+        self.cellHeight = cellHeight
+        self.selectable = selectable
+    }
+    
+    init()
+    {
+        fatalError()
+    }
+}

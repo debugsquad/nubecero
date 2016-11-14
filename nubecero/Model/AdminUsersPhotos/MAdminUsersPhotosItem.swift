@@ -2,7 +2,6 @@ import UIKit
 
 class MAdminUsersPhotosItem
 {
-    var image:UIImage?
     var modelStatus:MAdminUsersPhotosItemStatus
     let pictureId:MPictures.PictureId
     let created:TimeInterval
@@ -16,5 +15,22 @@ class MAdminUsersPhotosItem
         size = firebasePicture.size
         status = firebasePicture.status
         modelStatus = MAdminUsersPhotosItemStatusStand()
+    }
+    
+    //MARK: public
+    
+    func modeLoading()
+    {
+        
+    }
+    
+    func modeLoaded()
+    {
+        
+    }
+    
+    func modeError()
+    {
+        
     }
 }

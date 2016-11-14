@@ -1,8 +1,17 @@
-import Foundation
+import UIKit
 
 class MAdminUsersPhotosItemStatus
 {
-    init()
+    weak var model:MAdminUsersPhotosItem?
+    
+    init(model:MAdminUsersPhotosItem)
+    {
+        self.model = model
+    }
+    
+    //MARK: public
+    
+    func loadImage() -> UIImage?
     {
         fatalError()
     }

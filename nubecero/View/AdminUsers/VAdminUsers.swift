@@ -5,6 +5,7 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
     private weak var controller:CAdminUsers!
     private weak var collectionView:UICollectionView!
     private weak var spinner:VSpinner!
+    private let kCellHeight:CGFloat = 100
     
     convenience init(controller:CAdminUsers)
     {
@@ -63,6 +64,14 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
     
     //MARK: collectionView delegate
     
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        
+        return size
+    }
+    
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
@@ -84,8 +93,13 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell
     {
-        let cell:VAdminUsers = collectionView.dequeueReusableCell(
+        let item:MAdminUsersItem = modelAtIndex(index:indexPath)
+        let cell:VAdminUsersCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
-            VAdminUsersce, for: <#T##IndexPath#>)
+            VAdminUsersCell.reusableIdentifier,
+            for:indexPath) as! VAdminUsersCell
+        cell.config(model:item)
+        
+        return cell
     }
 }

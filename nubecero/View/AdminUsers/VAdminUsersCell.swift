@@ -55,7 +55,7 @@ class VAdminUsersCell:UICollectionViewCell
         labelDiskUsed.translatesAutoresizingMaskIntoConstraints = false
         labelDiskUsed.isUserInteractionEnabled = false
         labelDiskUsed.backgroundColor = UIColor.clear
-        labelDiskUsed.font = UIFont.numeric(size:15)
+        labelDiskUsed.font = UIFont.medium(size:15)
         labelDiskUsed.textColor = UIColor.main
         self.labelDiskUsed = labelDiskUsed
         

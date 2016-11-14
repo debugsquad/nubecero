@@ -9,6 +9,7 @@ class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     private let kCollectionBottom:CGFloat = 20
     private let kInterLine:CGFloat = 1
     private let kImageMaxSize:CGFloat = 150
+    private let kHeaderHeight:CGFloat = 50
     
     convenience init(controller:CAdminUsersPhotos)
     {

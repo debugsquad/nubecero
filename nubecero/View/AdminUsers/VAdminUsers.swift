@@ -5,7 +5,7 @@ class VAdminUsers:UIView, UICollectionViewDataSource, UICollectionViewDelegate, 
     private weak var controller:CAdminUsers!
     private weak var collectionView:UICollectionView!
     private weak var spinner:VSpinner!
-    private let kHeaderHeight:CGFloat = 60
+    private let kHeaderHeight:CGFloat = 70
     private let kCellHeight:CGFloat = 100
     private let kInterLine:CGFloat = 3
     private let kCollectionBottom:CGFloat = 20

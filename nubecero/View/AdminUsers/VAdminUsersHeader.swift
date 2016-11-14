@@ -27,11 +27,12 @@ class VAdminUsersHeader:UICollectionReusableView
         labelUsers.translatesAutoresizingMaskIntoConstraints = false
         labelUsers.backgroundColor = UIColor.clear
         labelUsers.isUserInteractionEnabled = false
-        labelUsers.font = UIFont.medium(size:15)
-        labelUsers.textColor = UIColor(white:0.5, alpha:1)
+        labelUsers.font = UIFont.medium(size:16)
+        labelUsers.textColor = UIColor(white:0.3, alpha:1)
         self.labelUsers = labelUsers
         
         addSubview(labelTitle)
+        addSubview(labelUsers)
         
         let views:[String:UIView] = [
             "labelTitle":labelTitle,
@@ -40,17 +41,17 @@ class VAdminUsersHeader:UICollectionReusableView
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[labelTitle(70)]-0-[labelUsers(70)]",
+            withVisualFormat:"H:|-10-[labelTitle(60)]-0-[labelUsers(100)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[labelTitle(40)]-10-|",
+            withVisualFormat:"V:[labelTitle(40)]-15-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[labelUsers(40)]-10-|",
+            withVisualFormat:"V:[labelUsers(40)]-15-|",
             options:[],
             metrics:metrics,
             views:views))

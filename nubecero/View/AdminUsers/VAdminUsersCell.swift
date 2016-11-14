@@ -2,6 +2,7 @@ import UIKit
 
 class VAdminUsersCell:UICollectionViewCell
 {
+    private weak var labelUserId:UILabel!
     private let kAlphaSelected:CGFloat = 0.2
     private let kAlphaNotSelected:CGFloat = 1
     
@@ -10,6 +11,32 @@ class VAdminUsersCell:UICollectionViewCell
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.white
+        
+        let labelUserId:UILabel = UILabel()
+        labelUserId.translatesAutoresizingMaskIntoConstraints = false
+        labelUserId.isUserInteractionEnabled = false
+        labelUserId.backgroundColor = UIColor.clear
+        labelUserId.font = UIFont.medium(size:14)
+        labelUserId.textColor = UIColor(white:0.3, alpha:1)
+        self.labelUserId = labelUserId
+        
+        addSubview(labelUserId)
+        
+        let views:[String:UIView] = [
+            "labelUserId":labelUserId]
+        
+        let metrics:[String:CGFloat] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-10-[labelUserId(150)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-10-[labelUserId(18)]",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     required init?(coder:NSCoder)
@@ -53,6 +80,6 @@ class VAdminUsersCell:UICollectionViewCell
     
     func config(model:MAdminUsersItem)
     {
-        
+        labelUserId.text = model.userId
     }
 }

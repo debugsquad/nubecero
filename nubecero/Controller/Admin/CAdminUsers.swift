@@ -4,6 +4,7 @@ import FirebaseAuth
 class CAdminUsers:CController
 {
     private weak var viewUsers:VAdminUsers!
+    private(set) var model:MAdminUsers?
     
     override func viewDidLoad()
     {
@@ -47,7 +48,8 @@ class CAdminUsers:CController
                 return
             }
             
-            
+            self?.model = MAdminUsers(userList:usersStrong)
+            self?.loadingSucceded()
         }
     }
     
@@ -59,6 +61,15 @@ class CAdminUsers:CController
         { [weak self] in
 
             self?.viewUsers.loadingError()
+        }
+    }
+    
+    private func loadingSucceded()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewUsers.loadingCompleted()
         }
     }
 }

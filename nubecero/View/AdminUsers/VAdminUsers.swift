@@ -42,6 +42,11 @@ class VAdminUsers:UIView
     
     func loadingError()
     {
-        
+        spinner.removeFromSuperview()
+    }
+    
+    func loadingCompleted()
+    {
+        spinner.removeFromSuperview()
     }
 }

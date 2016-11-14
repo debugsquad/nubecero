@@ -39,15 +39,41 @@ class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSo
             views:views))
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MAdminUsersPhotosItem
+    {
+        let item:MAdminUsersPhotosItem = controller.pictures!.items[index.item]
+        
+        return item
+    }
+    
     //MARK: collectionView delegate
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int
+    func numberOfSections(in collectionView:UICollectionView) -> Int
     {
+        guard
+        
+            let _:MAdminUsersPhotos = controller.pictures
+        
+        else
+        {
+            return 0
+        }
+        
         return 1
     }
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        return
+        let count:Int = controller.pictures!.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MAdminUsersPhotosItem = modelAtIndex(index:indexPath)
+        let cell:v
     }
 }

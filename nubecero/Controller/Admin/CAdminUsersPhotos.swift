@@ -3,7 +3,8 @@ import UIKit
 class CAdminUsersPhotos:CController
 {
     private weak var viewPhotos:VAdminUsersPhotos!
-    let model:MAdminUsersItem
+    private let model:MAdminUsersItem
+    var pictures:MAdminUsersPhotos?
     
     init(model:MAdminUsersItem)
     {

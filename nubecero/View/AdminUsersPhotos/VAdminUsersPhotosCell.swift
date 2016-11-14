@@ -1,9 +1,23 @@
-//
-//  VAdminUsersPhotosCell.swift
-//  nubecero
-//
-//  Created by zero on 11/14/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class VAdminUserPhotosCell:UICollectionViewCell
+{
+    override init(frame:CGRect)
+    {
+        super.init(frame:frame)
+        backgroundColor = UIColor.white
+        clipsToBounds = true
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+    
+    //MARK: public
+    
+    func config(model:MAdminUsersPhotosItem)
+    {
+        
+    }
+}

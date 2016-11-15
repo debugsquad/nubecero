@@ -1,4 +1,5 @@
 import UIKit
+import StoreKit
 
 class CStore:CController
 {
@@ -16,5 +17,7 @@ class CStore:CController
         super.viewDidLoad()
         
         MStore.sharedInstance.checkAvailability()
+        
+        SKPaymentQueue.default().add(MStore.sharedInstance)
     }
 }

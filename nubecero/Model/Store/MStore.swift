@@ -7,6 +7,7 @@ class MStore
     
     var mapItems:[PurchaseId:MStoreItem]?
     var error:String?
+    private var itemsSet:Set<PurchaseId>?
     private let priceFormatter:NumberFormatter
     
     
@@ -66,6 +67,7 @@ class MStore
     private func listLoaded(purchaseList:FDatabaseModelPurchaseList)
     {
         var mapItems:[PurchaseId:MStoreItem] = [:]
+        var itemsSet:Set<String> = Set<String>()
         
         let itemKeys:[FDatabaseModelPurchase.PurchaseId] = Array(purchaseList.items.keys)
         
@@ -75,9 +77,11 @@ class MStore
             let item:MStoreItem = MStoreItem(
                 firebasePurchase:firebasePurchase)
             mapItems[itemKey] = item
+            itemsSet.insert(itemKey)
         }
         
         self.mapItems = mapItems
+        self.itemsSet = itemsSet
     }
     
     

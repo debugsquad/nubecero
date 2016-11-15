@@ -112,17 +112,6 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         super.layoutSubviews()
     }
     
-    //MARK: notified
-    
-    func notifiedStoreLoaded(sender notification:Notification)
-    {
-        DispatchQueue.main.async
-        { [weak self] in
-            
-            self?.storeLoaded()
-        }
-    }
-    
     //MARK: private
     
     private func storeLoaded()
@@ -156,6 +145,12 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     func showLoading()
     {
         viewSpinner.startAnimating()
+    }
+    
+    func refreshStore()
+    {
+        viewSpinner.stopAnimating()
+        collectionView.reloadData()
     }
     
     //MARK: collection delegate

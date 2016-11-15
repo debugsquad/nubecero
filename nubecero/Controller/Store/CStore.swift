@@ -4,6 +4,7 @@ import StoreKit
 class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestDelegate
 {
     private weak var viewStore:VStore!
+    var model:MStore?
     
     override func loadView()
     {
@@ -17,15 +18,15 @@ class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserve
         super.viewDidLoad()
         
         SKPaymentQueue.default().add(self)
-        MStore.sharedInstance.checkAvailability()
+        model = MStore()
     }
     
     //MARK: storeKit delegate
     
     func request(_ request:SKRequest, didFailWithError error:Error)
     {
-        self.error = error.localizedDescription
-        notifyStore()
+        model?.error = error.localizedDescription
+        viewStore.refreshStore()
     }
     
     func productsRequest(_ request:SKProductsRequest, didReceive response:SKProductsResponse)
@@ -37,29 +38,29 @@ class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserve
             purchase.loadSkProduct(skProduct:product)
         }
         
-        notifyStore()
+        viewStore.refreshStore()
     }
     
     func paymentQueue(_ queue:SKPaymentQueue, updatedTransactions transactions:[SKPaymentTransaction])
     {
         purchase.updateTransactions(transactions:transactions)
-        notifyStore()
+        viewStore.refreshStore()
     }
     
     func paymentQueue(_ queue:SKPaymentQueue, removedTransactions transactions:[SKPaymentTransaction])
     {
         purchase.updateTransactions(transactions:transactions)
-        notifyStore()
+        viewStore.refreshStore()
     }
     
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue:SKPaymentQueue)
     {
-        notifyStore()
+        viewStore.refreshStore()
     }
     
     func paymentQueue(_ queue:SKPaymentQueue, restoreCompletedTransactionsFailedWithError error:Error)
     {
         self.error = error.localizedDescription
-        notifyStore()
+        viewStore.refreshStore()
     }
 }

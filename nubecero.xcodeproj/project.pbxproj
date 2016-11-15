@@ -174,6 +174,8 @@
 		DAC55F321DD2BB3700213C27 /* VOnboardOptionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F311DD2BB3700213C27 /* VOnboardOptionsButton.swift */; };
 		DAC98D271DDB638A0074E16A /* CAdminPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D261DDB638A0074E16A /* CAdminPurchases.swift */; };
 		DAC98D2B1DDB674C0074E16A /* VAdminPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D2A1DDB674C0074E16A /* VAdminPurchases.swift */; };
+		DAC98D2D1DDB69310074E16A /* VAdminPurchasesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D2C1DDB69310074E16A /* VAdminPurchasesHeader.swift */; };
+		DAC98D311DDB69560074E16A /* VAdminPurchasesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D301DDB69560074E16A /* VAdminPurchasesCell.swift */; };
 		DACD1F871DC3A0020067D26B /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F861DC3A0020067D26B /* CHome.swift */; };
 		DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1F881DC3A09F0067D26B /* Generic.xcassets */; };
 		DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F8B1DC3AD480067D26B /* CLogin.swift */; };
@@ -441,6 +443,8 @@
 		DAC55F311DD2BB3700213C27 /* VOnboardOptionsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardOptionsButton.swift; sourceTree = "<group>"; };
 		DAC98D261DDB638A0074E16A /* CAdminPurchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAdminPurchases.swift; sourceTree = "<group>"; };
 		DAC98D2A1DDB674C0074E16A /* VAdminPurchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminPurchases.swift; sourceTree = "<group>"; };
+		DAC98D2C1DDB69310074E16A /* VAdminPurchasesHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminPurchasesHeader.swift; sourceTree = "<group>"; };
+		DAC98D301DDB69560074E16A /* VAdminPurchasesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminPurchasesCell.swift; sourceTree = "<group>"; };
 		DACD1F861DC3A0020067D26B /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DACD1F881DC3A09F0067D26B /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DACD1F8B1DC3AD480067D26B /* CLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLogin.swift; sourceTree = "<group>"; };
@@ -1161,6 +1165,8 @@
 			isa = PBXGroup;
 			children = (
 				DAC98D2A1DDB674C0074E16A /* VAdminPurchases.swift */,
+				DAC98D2C1DDB69310074E16A /* VAdminPurchasesHeader.swift */,
+				DAC98D301DDB69560074E16A /* VAdminPurchasesCell.swift */,
 			);
 			path = AdminPurchases;
 			sourceTree = "<group>";
@@ -1632,6 +1638,7 @@
 				DACD1FB01DC540750067D26B /* MHomeUpload.swift in Sources */,
 				DAC55F1B1DD23C7900213C27 /* VOnboard.swift in Sources */,
 				DA4FA5961DD7C72800358ABE /* VStoreCell.swift in Sources */,
+				DAC98D311DDB69560074E16A /* VAdminPurchasesCell.swift in Sources */,
 				DAE455561DCA52BB00948D70 /* MPicturesDetailInfoItemDelete.swift in Sources */,
 				DA4FA5BA1DD7DA4B00358ABE /* MAdminItemPurchases.swift in Sources */,
 				DA34117B1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift in Sources */,
@@ -1773,6 +1780,7 @@
 				DAAAFFAD1DDA39AD00E8F839 /* VAdminUsersPhotosCell.swift in Sources */,
 				DACD1FC91DC7C6C80067D26B /* FDatabaseModelPicture.swift in Sources */,
 				DAF6F2C01DD3B0610053ED1B /* MOnboardFormCredentials.swift in Sources */,
+				DAC98D2D1DDB69310074E16A /* VAdminPurchasesHeader.swift in Sources */,
 				DA7A79B71DD61A66001B5FA5 /* VSettingsCellAccount.swift in Sources */,
 				DA4EF9021DC395B300297C1D /* ExtensionUICollectionReusableView.swift in Sources */,
 				DAE455521DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift in Sources */,

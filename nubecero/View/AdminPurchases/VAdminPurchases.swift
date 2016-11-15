@@ -3,7 +3,7 @@ import UIKit
 class VAdminPurchases:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CAdminPurchases!
-    private weak var spinner:VSpinner!
+    private weak var spinner:VSpinner?
     private weak var collectionView:UICollectionView!
     private let kHeaderHeight:CGFloat = 70
     private let kInterLine:CGFloat = 1
@@ -105,13 +105,13 @@ class VAdminPurchases:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     func completedLoading()
     {
-        spinner.removeFromSuperview()
+        spinner?.removeFromSuperview()
         collectionView.reloadData()
     }
     
     func errorLoading()
     {
-        spinner.removeFromSuperview()
+        spinner?.removeFromSuperview()
     }
     
     //MARK: collectionView delegate
@@ -132,7 +132,7 @@ class VAdminPurchases:UIView, UICollectionViewDelegate, UICollectionViewDataSour
         
         else
         {
-            return 1
+            return 0
         }
         
         return 1

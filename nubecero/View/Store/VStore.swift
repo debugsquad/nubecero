@@ -3,14 +3,10 @@ import UIKit
 class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var controller:CStore!
-    weak var viewStore:VStore!
     weak var viewSpinner:VSpinner!
     weak var collectionView:UICollectionView!
-    private var arrayKeys:[String]
     private let kHeaderSize:CGFloat = 75
-    private let kFooterSize:CGFloat = 130
     private let kCollectionBottom:CGFloat = 20
-    private let kCellSize:CGFloat = 140
     private let kInterLine:CGFloat = 1
     
     init(controller:CStore)

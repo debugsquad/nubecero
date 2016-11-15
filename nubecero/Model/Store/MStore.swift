@@ -55,7 +55,7 @@ class MStore
     {
         var mapItems:[PurchaseId:MStoreItem] = [:]
         var itemsSet:Set<PurchaseId> = Set<PurchaseId>()
-        var listReferences:[PurchaseId]
+        var listReferences:[PurchaseId] = []
         
         let itemKeys:[FDatabaseModelPurchase.PurchaseId] = Array(purchaseList.items.keys)
         

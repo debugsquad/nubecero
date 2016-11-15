@@ -100,7 +100,6 @@
 		DA4FA5951DD7C72800358ABE /* VStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5911DD7C72800358ABE /* VStore.swift */; };
 		DA4FA5961DD7C72800358ABE /* VStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5921DD7C72800358ABE /* VStoreCell.swift */; };
 		DA4FA5971DD7C72800358ABE /* VStoreFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5931DD7C72800358ABE /* VStoreFooter.swift */; };
-		DA4FA5981DD7C72800358ABE /* VStoreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5941DD7C72800358ABE /* VStoreHeader.swift */; };
 		DA4FA5A21DD7C7B300358ABE /* MStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA59A1DD7C7B300358ABE /* MStore.swift */; };
 		DA4FA5AB1DD7D19200358ABE /* MMainItemAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5AA1DD7D19200358ABE /* MMainItemAdmin.swift */; };
 		DA4FA5AE1DD7D59200358ABE /* CAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5AD1DD7D59200358ABE /* CAdmin.swift */; };
@@ -372,7 +371,6 @@
 		DA4FA5911DD7C72800358ABE /* VStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStore.swift; sourceTree = "<group>"; };
 		DA4FA5921DD7C72800358ABE /* VStoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCell.swift; sourceTree = "<group>"; };
 		DA4FA5931DD7C72800358ABE /* VStoreFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreFooter.swift; sourceTree = "<group>"; };
-		DA4FA5941DD7C72800358ABE /* VStoreHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreHeader.swift; sourceTree = "<group>"; };
 		DA4FA59A1DD7C7B300358ABE /* MStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStore.swift; sourceTree = "<group>"; };
 		DA4FA5AA1DD7D19200358ABE /* MMainItemAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemAdmin.swift; sourceTree = "<group>"; };
 		DA4FA5AD1DD7D59200358ABE /* CAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAdmin.swift; sourceTree = "<group>"; };
@@ -1051,7 +1049,6 @@
 				DA4FA5911DD7C72800358ABE /* VStore.swift */,
 				DA4FA5921DD7C72800358ABE /* VStoreCell.swift */,
 				DA4FA5931DD7C72800358ABE /* VStoreFooter.swift */,
-				DA4FA5941DD7C72800358ABE /* VStoreHeader.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -1686,7 +1683,6 @@
 				DAF6F2BE1DD3A2380053ED1B /* VOnboardFormSender.swift in Sources */,
 				DA7367BA1DD547B00004B99C /* VOnboardFormCellForgot.swift in Sources */,
 				DACD1FA41DC402960067D26B /* VHomeCellUpload.swift in Sources */,
-				DA4FA5981DD7C72800358ABE /* VStoreHeader.swift in Sources */,
 				DA2F66AC1DC942480078B466 /* VPicturesDetail.swift in Sources */,
 				DA4EF9121DC395B300297C1D /* VBar.swift in Sources */,
 				DACD1FB41DC545F70067D26B /* VHomeUploadCell.swift in Sources */,

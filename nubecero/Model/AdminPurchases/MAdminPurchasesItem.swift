@@ -7,6 +7,7 @@ class MAdminPurchasesItem
     var status:FDatabaseModelPurchase.Status
     let firebasePurchaseId:FDatabaseModelPurchase.PurchaseId
     let created:TimeInterval
+    let originalStatus:FDatabaseModelPurchase.Status
     
     init(firebasePurchaseId:FDatabaseModelPurchase.PurchaseId, firebasePurchase:FDatabaseModelPurchase)
     {
@@ -15,5 +16,6 @@ class MAdminPurchasesItem
         name = firebasePurchase.name
         created = firebasePurchase.created
         status = firebasePurchase.status
+        originalStatus = status
     }
 }

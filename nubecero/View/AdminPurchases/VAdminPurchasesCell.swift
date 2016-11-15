@@ -79,7 +79,16 @@ class VAdminPurchasesCell:UICollectionViewCell
     
     func actionDelete(sender button:UIButton)
     {
+        guard
+            
+            let model:MAdminPurchasesItem = model
         
+        else
+        {
+            return
+        }
+        
+        controller?.deletePurchase(item:model)
     }
     
     //MARK: public

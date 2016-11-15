@@ -87,6 +87,11 @@
 "CAdminPurchases_alertSave"="Save";
 "CAdminPurchases_alertDone"="Purchases saved";
 "CAdminPurchases_purchaseAdded"="Purchase added";
+"CAdminPurchases_deleteTitle"="Deleting purchase";
+"CAdminPurchases_deleteMessage"="Are your sure?";
+"CAdminPurchases_deleteCancel"="Cancel";
+"CAdminPurchases_deleteDelete"="Delete";
+"CAdminPurchases_deleteDone"="Purchase deleted";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading photo, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

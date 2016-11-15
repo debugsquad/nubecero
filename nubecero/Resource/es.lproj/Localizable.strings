@@ -87,6 +87,11 @@
 "CAdminPurchases_alertSave"="Guardar";
 "CAdminPurchases_alertDone"="Compras guardadas";
 "CAdminPurchases_purchaseAdded"="Nueva compra";
+"CAdminPurchases_deleteTitle"="Borrand compra";
+"CAdminPurchases_deleteMessage"="¿Estas seguro?";
+"CAdminPurchases_deleteCancel"="Cancelar";
+"CAdminPurchases_deleteDelete"="Borrar";
+"CAdminPurchases_deleteDone"="Compra borrada";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

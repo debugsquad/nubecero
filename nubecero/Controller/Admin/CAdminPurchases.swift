@@ -94,10 +94,24 @@ class CAdminPurchases:CController
         loadPurchases()
     }
     
+    private func confirmDelete(item:MAdminPurchasesItem)
+    {
+        let parentPurchase:String = FDatabase.Parent.purchase.rawValue
+        let pathPurchase:String = "\(parentPurchase)/\(item.firebasePurchaseId)"
+        FMain.sharedInstance.database.removeChild(path:pathPurchase)
+        
+        let confirmMessage:String = NSLocalizedString("CAdminPurchases_deleteDone", comment:"")
+        VAlert.message(message:confirmMessage)
+        
+        loadPurchases()
+    }
+    
     //MARK: public
     
     func add()
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
@@ -137,6 +151,42 @@ class CAdminPurchases:CController
         }
         
         alert.addAction(actionSave)
+        alert.addAction(actionCancel)
+        present(alert, animated:true, completion:nil)
+    }
+    
+    func deletePurchase(item:MAdminPurchasesItem)
+    {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
+        let alert:UIAlertController = UIAlertController(
+            title:
+            NSLocalizedString("CAdminPurchases_deleteTitle", comment:""),
+            message:
+            NSLocalizedString("CAdminPurchases_deleteMessage", comment:""),
+            preferredStyle:UIAlertControllerStyle.actionSheet)
+        
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CAdminPurchases_deleteCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionDelete:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CAdminPurchases_deleteDelete", comment:""),
+            style:
+            UIAlertActionStyle.destructive)
+        { (action) in
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                    
+                self?.confirmDelete(item:item)
+            }
+        }
+        
+        alert.addAction(actionDelete)
         alert.addAction(actionCancel)
         present(alert, animated:true, completion:nil)
     }

@@ -7,6 +7,9 @@ class VAdminPurchasesCell:UICollectionViewCell
     private weak var labelId:UILabel!
     private weak var fieldName:UITextField!
     private weak var fieldPurchaseId:UITextField!
+    private weak var buttonDelete:UIButton!
+    private let kAlphaDeletable:CGFloat = 1
+    private let kAlphaNotDeletable:CGFloat = 0.3
     
     override init(frame:CGRect)
     {
@@ -30,6 +33,7 @@ class VAdminPurchasesCell:UICollectionViewCell
             self,
             action:#selector(actionDelete(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.buttonDelete = buttonDelete
         
         let labelId:UILabel = UILabel()
         labelId.isUserInteractionEnabled = false
@@ -91,6 +95,20 @@ class VAdminPurchasesCell:UICollectionViewCell
         controller?.deletePurchase(item:model)
     }
     
+    //MARK: private
+    
+    private func allowDeletion()
+    {
+        buttonDelete.isUserInteractionEnabled = true
+        buttonDelete.alpha = kAlphaDeletable
+    }
+    
+    private func preventDeletion()
+    {
+        buttonDelete.isUserInteractionEnabled = false
+        buttonDelete.alpha = kAlphaNotDeletable
+    }
+    
     //MARK: public
     
     func config(controller:CAdminPurchases, model:MAdminPurchasesItem)
@@ -98,5 +116,14 @@ class VAdminPurchasesCell:UICollectionViewCell
         self.controller = controller
         self.model = model
         labelId.text = model.firebasePurchaseId
+        
+        if model.originalStatus == FDatabaseModelPurchase.Status.active
+        {
+            preventDeletion()
+        }
+        else
+        {
+            allowDeletion()
+        }
     }
 }

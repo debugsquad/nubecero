@@ -25,6 +25,10 @@ class MAdminPurchases
     
     func savingJson() -> Any
     {
+        let purchaseList:FDatabaseModelPurchaseList = FDatabaseModelPurchaseList(
+            purchases:items)
+        let json:Any = purchaseList.modelJson()
         
+        return json
     }
 }

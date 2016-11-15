@@ -8,7 +8,7 @@ class MStoreItem
     let purchaseDescription:String
     var skProduct:SKProduct?
     var price:String?
-    var status:MStorePurchaseItemStatus
+    var status:MStoreItemStatus?
     
     init(firebasePurchase:FDatabaseModelPurchase)
     {
@@ -17,6 +17,28 @@ class MStoreItem
         let descriptionString:String = "\(purchaseId)_descr"
         purchaseTitle = NSLocalizedString(titleString, comment:"")
         purchaseDescription = NSLocalizedString(descriptionString, comment:"")
-        status = MStorePurchaseItemStatusNew()
+        statusNew()
+    }
+    
+    //MARK: public
+    
+    func statusNew()
+    {
+        status = MStoreItemStatusNew()
+    }
+    
+    func statusDeferred()
+    {
+        status = MStoreItemStatusDeferred()
+    }
+    
+    func statusPurchasing()
+    {
+        status = MStoreItemStatusPurchasing()
+    }
+    
+    func statusPurchased()
+    {
+        status = MStoreItemStatusPurchased()
     }
 }

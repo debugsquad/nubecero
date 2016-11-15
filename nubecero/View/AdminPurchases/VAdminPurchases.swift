@@ -5,9 +5,9 @@ class VAdminPurchases:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     private weak var controller:CAdminPurchases!
     private weak var spinner:VSpinner?
     private weak var collectionView:UICollectionView!
-    private let kHeaderHeight:CGFloat = 70
+    private let kHeaderHeight:CGFloat = 80
     private let kInterLine:CGFloat = 1
-    private let kCellHeight:CGFloat = 80
+    private let kCellHeight:CGFloat = 160
     private let kCollectionBottom:CGFloat = 20
     
     convenience init(controller:CAdminPurchases)
@@ -164,7 +164,7 @@ class VAdminPurchases:UIView, UICollectionViewDelegate, UICollectionViewDataSour
             withReuseIdentifier:
             VAdminPurchasesCell.reusableIdentifier,
             for:indexPath) as! VAdminPurchasesCell
-        cell.config(model:item)
+        cell.config(controller:controller, model:item)
         
         return cell
     }

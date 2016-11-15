@@ -21,7 +21,7 @@ class VAdminPurchasesHeader:UICollectionReusableView
         buttonSave.setTitle(
             NSLocalizedString("VAdminPurchasesHeader_buttonSave", comment:""),
             for:UIControlState.normal)
-        buttonSave.titleLabel!.font = UIFont.medium(size:15)
+        buttonSave.titleLabel!.font = UIFont.bold(size:14)
         buttonSave.addTarget(
             self,
             action:#selector(actionSave(sender:)),
@@ -38,7 +38,7 @@ class VAdminPurchasesHeader:UICollectionReusableView
         buttonAdd.setTitle(
             NSLocalizedString("VAdminPurchasesHeader_buttonAdd", comment:""),
             for:UIControlState.normal)
-        buttonAdd.titleLabel!.font = UIFont.medium(size:15)
+        buttonAdd.titleLabel!.font = UIFont.bold(size:14)
         buttonAdd.addTarget(
             self,
             action:#selector(actionAdd(sender:)),
@@ -54,22 +54,22 @@ class VAdminPurchasesHeader:UICollectionReusableView
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[buttonSave(100)]",
+            withVisualFormat:"H:|-0-[buttonSave(90)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[buttonAdd(140)]-0-|",
+            withVisualFormat:"H:[buttonAdd(135)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-15-[buttonSave]-15-|",
+            withVisualFormat:"V:|-15-[buttonSave]-25-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-15-[buttonAdd]-15-|",
+            withVisualFormat:"V:|-15-[buttonAdd]-25-|",
             options:[],
             metrics:metrics,
             views:views))

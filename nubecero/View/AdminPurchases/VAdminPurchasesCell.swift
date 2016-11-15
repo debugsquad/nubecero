@@ -2,11 +2,15 @@ import UIKit
 
 class VAdminPurchasesCell:UICollectionViewCell
 {
+    private weak var controller:CAdminPurchases?
+    
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.white
+        
+        
     }
     
     required init?(coder:NSCoder)
@@ -16,8 +20,8 @@ class VAdminPurchasesCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MAdminPurchasesItem)
+    func config(controller:CAdminPurchases, model:MAdminPurchasesItem)
     {
-        
+        self.controller = controller
     }
 }

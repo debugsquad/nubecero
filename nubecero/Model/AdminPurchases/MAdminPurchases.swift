@@ -7,13 +7,13 @@ class MAdminPurchases
     init(purchaseList:FDatabaseModelPurchaseList)
     {
         var items:[MAdminPurchasesItem] = []
-        let arrayKeys:[MStore.PurchaseId] = Array(purchaseList.items.keys)
+        let arrayKeys:[FDatabaseModelPurchase.PurchaseId] = Array(purchaseList.items.keys)
         
-        for key:MStore.PurchaseId in arrayKeys
+        for key:FDatabaseModelPurchase.PurchaseId in arrayKeys
         {
             let firebasePurchase:FDatabaseModelPurchase = purchaseList.items[key]!
             let item:MAdminPurchasesItem = MAdminPurchasesItem(
-                purchaseId:key,
+                firebasePurchaseId:key,
                 firebasePurchase:firebasePurchase)
             items.append(item)
         }

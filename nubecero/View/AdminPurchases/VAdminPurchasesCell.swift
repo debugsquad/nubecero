@@ -32,11 +32,33 @@ class VAdminPurchasesCell:UICollectionViewCell
         labelId.translatesAutoresizingMaskIntoConstraints = false
         labelId.backgroundColor = UIColor.clear
         labelId.font = UIFont.regular(size:14)
-        labelId.textColor = UIColor(white:0.5, alpha:1)
+        labelId.textColor = UIColor(white:0.6, alpha:1)
         self.labelId = labelId
         
         addSubview(labelId)
         addSubview(buttonDelete)
+        
+        let views:[String:UIView] = [
+            "labelId":labelId,
+            "buttonDelete":buttonDelete]
+        
+        let metrics:[String:CGFloat] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-10-[labelId(180)]-0-[buttonDelete(120)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[buttonDelete(40)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-10-[labelId(20)]",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     required init?(coder:NSCoder)
@@ -50,6 +72,6 @@ class VAdminPurchasesCell:UICollectionViewCell
     {
         self.controller = controller
         self.model = model
-        labelId.text = model.
+        labelId.text = model.firebasePurchaseId
     }
 }

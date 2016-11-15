@@ -77,6 +77,7 @@
 "CAdminServer_alertDone"="Changes saved";
 "CAdminServer_alertError"="Error saving";
 "CAdminPurchases_title"="Purchases";
+"CAdminPurchases_errorLoading"="Error loading purchases";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading photo, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

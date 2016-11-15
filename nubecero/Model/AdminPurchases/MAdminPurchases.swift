@@ -4,7 +4,7 @@ class MAdminPurchases
 {
     let items:[MAdminPurchasesItem]
     
-    init()
+    init(purchaseList:FDatabaseModelPurchaseList)
     {
         items = [
         ]

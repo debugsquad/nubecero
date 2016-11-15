@@ -77,6 +77,7 @@
 "CAdminServer_alertDone"="Cambios guardados";
 "CAdminServer_alertError"="Error guardando";
 "CAdminPurchases_title"="Compras";
+"CAdminPurchases_errorLoading"="Error cargando compras";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

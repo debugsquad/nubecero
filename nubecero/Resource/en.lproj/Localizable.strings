@@ -39,6 +39,8 @@
 "VAdminServerCellFroob_labelTitle"="Froob Space";
 "VAdminServerHeader_button"="Save";
 "VHomeUploadSyncBar_totalItems"=" /%@";
+"VAdminPurchasesHeader_buttonSave"="Save";
+"VAdminPurchasesHeader_buttonAdd"="New purchase";
 
 "CHomeUpload_title"="Add";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

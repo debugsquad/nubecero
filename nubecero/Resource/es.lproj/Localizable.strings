@@ -38,6 +38,8 @@
 "VAdminServerCellFroob_labelTitle"="Espacio Froob";
 "VAdminServerHeader_button"="Guardar";
 "VHomeUploadSyncBar_totalItems"=" /%@";
+"VAdminPurchasesHeader_buttonSave"="Guardar";
+"VAdminPurchasesHeader_buttonAdd"="Nueva compra";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

@@ -28,6 +28,24 @@ class FDatabaseModelPurchase:FDatabaseModel
     {
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
         
+        if let purchaseId:MStore.PurchaseId = snapshotDict?[Property.purchaseId.rawValue] as? MStore.PurchaseId
+        {
+            self.purchaseId = purchaseId
+        }
+        else
+        {
+            self.purchaseId = kEmpty
+        }
+        
+        if let name:String = snapshotDict?[Property.name.rawValue] as? String
+        {
+            self.name = name
+        }
+        else
+        {
+            self.name = kEmpty
+        }
+        
         if let created:TimeInterval = snapshotDict?[Property.created.rawValue] as? TimeInterval
         {
             self.created = created
@@ -35,31 +53,6 @@ class FDatabaseModelPurchase:FDatabaseModel
         else
         {
             self.created = kNoTime
-        }
-        
-        if let statusInt:Int = snapshotDict?[Property.status.rawValue] as? Int
-        {
-            if let status:Status = Status(rawValue:statusInt)
-            {
-                self.status = status
-            }
-            else
-            {
-                self.status = Status.waiting
-            }
-        }
-        else
-        {
-            self.status = Status.waiting
-        }
-        
-        if let size:Int = snapshotDict?[Property.size.rawValue] as? Int
-        {
-            self.size = size
-        }
-        else
-        {
-            self.size = 0
         }
         
         super.init()

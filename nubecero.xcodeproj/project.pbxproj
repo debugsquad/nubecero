@@ -172,6 +172,7 @@
 		DAC55F2C1DD2823600213C27 /* MOnboardItemFree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F2B1DD2823600213C27 /* MOnboardItemFree.swift */; };
 		DAC55F2E1DD2829200213C27 /* MOnboardItemPrivacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F2D1DD2829200213C27 /* MOnboardItemPrivacy.swift */; };
 		DAC55F321DD2BB3700213C27 /* VOnboardOptionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F311DD2BB3700213C27 /* VOnboardOptionsButton.swift */; };
+		DAC98D271DDB638A0074E16A /* CAdminPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D261DDB638A0074E16A /* CAdminPurchases.swift */; };
 		DACD1F871DC3A0020067D26B /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F861DC3A0020067D26B /* CHome.swift */; };
 		DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1F881DC3A09F0067D26B /* Generic.xcassets */; };
 		DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F8B1DC3AD480067D26B /* CLogin.swift */; };
@@ -437,6 +438,7 @@
 		DAC55F2B1DD2823600213C27 /* MOnboardItemFree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardItemFree.swift; sourceTree = "<group>"; };
 		DAC55F2D1DD2829200213C27 /* MOnboardItemPrivacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardItemPrivacy.swift; sourceTree = "<group>"; };
 		DAC55F311DD2BB3700213C27 /* VOnboardOptionsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardOptionsButton.swift; sourceTree = "<group>"; };
+		DAC98D261DDB638A0074E16A /* CAdminPurchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAdminPurchases.swift; sourceTree = "<group>"; };
 		DACD1F861DC3A0020067D26B /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DACD1F881DC3A09F0067D26B /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DACD1F8B1DC3AD480067D26B /* CLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLogin.swift; sourceTree = "<group>"; };
@@ -1062,6 +1064,7 @@
 				DAA779E51DD9133600A719AD /* CAdminUsers.swift */,
 				DAAAFFA71DDA395800E8F839 /* CAdminUsersPhotos.swift */,
 				DA465BF41DDA5C790042C8C7 /* CAdminServer.swift */,
+				DAC98D261DDB638A0074E16A /* CAdminPurchases.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -1669,6 +1672,7 @@
 				DA4EF9011DC395B300297C1D /* ExtensionNSManagedObject.swift in Sources */,
 				DA465BEF1DDA4A210042C8C7 /* MAdminUsersPhotosItemStatusLoaded.swift in Sources */,
 				DAF6F2B41DD397260053ED1B /* MOnboardFormItemEmailSignin.swift in Sources */,
+				DAC98D271DDB638A0074E16A /* CAdminPurchases.swift in Sources */,
 				DA465BFA1DDA61DA0042C8C7 /* VAdminServerCell.swift in Sources */,
 				DAE4555A1DCA74B900948D70 /* CPicturesData.swift in Sources */,
 				DA2F668D1DC9002E0078B466 /* MPicturesItem.swift in Sources */,

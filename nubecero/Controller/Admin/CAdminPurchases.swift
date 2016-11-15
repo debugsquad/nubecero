@@ -72,6 +72,11 @@ class CAdminPurchases:CController
         }
     }
     
+    private func confirmSave()
+    {
+        
+    }
+    
     //MARK: public
     
     func add()
@@ -81,6 +86,37 @@ class CAdminPurchases:CController
     
     func save()
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
         
+        let alert:UIAlertController = UIAlertController(
+            title:
+            NSLocalizedString("CAdminPurchases_alertTitle", comment:""),
+            message:
+            NSLocalizedString("CAdminPurchases_alertMessage", comment:""),
+            preferredStyle:UIAlertControllerStyle.actionSheet)
+        
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CAdminPurchases_alertCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionSave:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CAdminPurchases_alertSave", comment:""),
+            style:
+            UIAlertActionStyle.default)
+        { (action) in
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.confirmSave()
+            }
+        }
+        
+        alert.addAction(actionSave)
+        alert.addAction(actionCancel)
+        present(alert, animated:true, completion:nil)
     }
 }

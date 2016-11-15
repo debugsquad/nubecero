@@ -80,6 +80,11 @@
 "CAdminServer_alertError"="Error guardando";
 "CAdminPurchases_title"="Compras";
 "CAdminPurchases_errorLoading"="Error cargando compras";
+"CAdminPurchases_alertTitle"="Guardando compras";
+"CAdminPurchases_alertMessage"="¿Estás seguro?";
+"CAdminPurchases_alertCancel"="Cancelar";
+"CAdminPurchases_alertSave"="Guardar";
+"CAdminPurchases_alertDone"="Compras guardadas";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

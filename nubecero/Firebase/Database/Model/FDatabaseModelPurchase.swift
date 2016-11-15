@@ -26,7 +26,6 @@ class FDatabaseModelPurchase:FDatabaseModel
     init(purchase:MAdminPurchasesItem)
     {
         purchaseId = purchase.purchaseId
-        name = purchase.name
         created = purchase.created
         status = purchase.status
         
@@ -37,7 +36,6 @@ class FDatabaseModelPurchase:FDatabaseModel
     {
         created = NSDate().timeIntervalSince1970
         purchaseId = kEmpty
-        name = kEmpty
         status = Status.hidden
         
         super.init()
@@ -54,15 +52,6 @@ class FDatabaseModelPurchase:FDatabaseModel
         else
         {
             self.purchaseId = kEmpty
-        }
-        
-        if let name:String = snapshotDict?[Property.name.rawValue] as? String
-        {
-            self.name = name
-        }
-        else
-        {
-            self.name = kEmpty
         }
         
         if let created:TimeInterval = snapshotDict?[Property.created.rawValue] as? TimeInterval
@@ -97,7 +86,6 @@ class FDatabaseModelPurchase:FDatabaseModel
     {
         let json:[String:Any] = [
             Property.purchaseId.rawValue:purchaseId,
-            Property.name.rawValue:name,
             Property.created.rawValue:created,
             Property.status.rawValue:status.rawValue
         ]

@@ -3,7 +3,6 @@ import Foundation
 class MAdminPurchasesItem
 {
     var purchaseId:MStore.PurchaseId
-    var name:String
     var status:FDatabaseModelPurchase.Status
     let firebasePurchaseId:FDatabaseModelPurchase.PurchaseId
     let created:TimeInterval
@@ -13,7 +12,6 @@ class MAdminPurchasesItem
     {
         self.firebasePurchaseId = firebasePurchaseId
         purchaseId = firebasePurchase.purchaseId
-        name = firebasePurchase.name
         created = firebasePurchase.created
         status = firebasePurchase.status
         originalStatus = status

@@ -7,11 +7,19 @@ class FDatabaseModelPurchase:FDatabaseModel
         case purchaseId = "purchaseId"
         case name = "name"
         case created = "created"
+        case status = "status"
+    }
+    
+    enum Status:Int
+    {
+        case hidden
+        case active
     }
     
     let purchaseId:MStore.PurchaseId
     let name:String
     let created:TimeInterval
+    let status:Status
     private let kEmpty:String = ""
     private let kNoTime:TimeInterval = 0
     
@@ -20,6 +28,7 @@ class FDatabaseModelPurchase:FDatabaseModel
         created = NSDate().timeIntervalSince1970
         purchaseId = kEmpty
         name = kEmpty
+        status = Status.hidden
         
         super.init()
     }
@@ -55,6 +64,22 @@ class FDatabaseModelPurchase:FDatabaseModel
             self.created = kNoTime
         }
         
+        if let statusInt:Int = snapshotDict?[Property.status.rawValue] as? Int
+        {
+            if let status:Status = Status(rawValue:statusInt)
+            {
+                self.status = status
+            }
+            else
+            {
+                self.status = Status.hidden
+            }
+        }
+        else
+        {
+            self.status = Status.hidden
+        }
+        
         super.init()
     }
     
@@ -63,7 +88,8 @@ class FDatabaseModelPurchase:FDatabaseModel
         let json:[String:Any] = [
             Property.purchaseId.rawValue:purchaseId,
             Property.name.rawValue:name,
-            Property.created.rawValue:created
+            Property.created.rawValue:created,
+            Property.status.rawValue:status.rawValue
         ]
         
         return json

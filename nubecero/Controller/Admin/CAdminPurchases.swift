@@ -71,4 +71,16 @@ class CAdminPurchases:CController
             self?.viewPurchases.completedLoading()
         }
     }
+    
+    //MARK: public
+    
+    func add()
+    {
+        
+    }
+    
+    func save()
+    {
+        
+    }
 }

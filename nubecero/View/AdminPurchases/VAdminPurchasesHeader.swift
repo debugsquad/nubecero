@@ -2,6 +2,8 @@ import UIKit
 
 class VAdminPurchasesHeader:UICollectionReusableView
 {
+    private weak var controller:CAdminPurchases?
+    
     override init(frame:CGRect)
     {
         super.init(frame:frame)
@@ -82,11 +84,18 @@ class VAdminPurchasesHeader:UICollectionReusableView
     
     func actionAdd(sender button:UIButton)
     {
-        
+        controller?.add()
     }
     
     func actionSave(sender button:UIButton)
     {
-        
+        controller?.save()
+    }
+    
+    //MARK: public
+    
+    func config(controller:CAdminPurchases)
+    {
+        self.controller = controller
     }
 }

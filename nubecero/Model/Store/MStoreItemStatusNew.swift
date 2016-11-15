@@ -12,7 +12,7 @@ class MStoreItemStatusNew:MStoreItemStatus
             cellHeight:kCellHeight)
     }
     
-    override init(reusableIdentifier:String, selectable:Bool, cellHeight:CGFloat)
+    override init(reusableIdentifier:String, cellHeight:CGFloat)
     {
         fatalError()
     }

@@ -27,4 +27,9 @@ class FDatabaseModelUserList:FDatabaseModel
         
         super.init()
     }
+    
+    override init()
+    {
+        fatalError()
+    }
 }

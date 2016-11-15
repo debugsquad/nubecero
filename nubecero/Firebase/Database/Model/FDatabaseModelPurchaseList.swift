@@ -4,6 +4,20 @@ class FDatabaseModelPurchaseList:FDatabaseModel
 {
     let items:[FDatabaseModelPurchase.PurchaseId:FDatabaseModelPurchase]
     
+    init(purchases:[MAdminPurchasesItem])
+    {
+        var items:[FDatabaseModelPurchase.PurchaseId:FDatabaseModelPurchase] = [:]
+        
+        for purchase:MAdminPurchasesItem in purchases
+        {
+            
+        }
+        
+        self.items = items
+        
+        super.init()
+    }
+    
     required init(snapshot:Any)
     {
         if let rawItems:[FDatabaseModelPurchase.PurchaseId:Any] = snapshot as? [FDatabaseModelPurchase.PurchaseId:Any]
@@ -26,5 +40,10 @@ class FDatabaseModelPurchaseList:FDatabaseModel
         }
         
         super.init()
+    }
+    
+    override init()
+    {
+        fatalError()
     }
 }

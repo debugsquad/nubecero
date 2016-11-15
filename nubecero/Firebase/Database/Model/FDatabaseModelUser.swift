@@ -84,6 +84,11 @@ class FDatabaseModelUser:FDatabaseModel
         super.init()
     }
     
+    override init()
+    {
+        fatalError()
+    }
+    
     override func modelJson() -> Any
     {
         let json:[String:Any] = [

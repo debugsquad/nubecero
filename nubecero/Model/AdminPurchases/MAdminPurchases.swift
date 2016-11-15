@@ -20,4 +20,11 @@ class MAdminPurchases
         
         self.items = items
     }
+    
+    //MARK: public
+    
+    func savingJson() -> Any
+    {
+        
+    }
 }

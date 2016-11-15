@@ -25,6 +25,11 @@ class FDatabaseModelPurchase:FDatabaseModel
     private let kEmpty:String = ""
     private let kNoTime:TimeInterval = 0
     
+    init(purchase:MAdminPurchasesItem)
+    {
+        
+    }
+    
     override init()
     {
         created = NSDate().timeIntervalSince1970

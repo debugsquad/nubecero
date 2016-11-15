@@ -74,6 +74,8 @@ class CAdminPurchases:CController
     
     private func confirmSave()
     {
+        let moel
+        
         let confirmMessage:String = NSLocalizedString("CAdminPurchases_alertDone", comment:"")
         VAlert.message(message:confirmMessage)
     }

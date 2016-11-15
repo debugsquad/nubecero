@@ -78,11 +78,31 @@ class CAdminPurchases:CController
         VAlert.message(message:confirmMessage)
     }
     
+    private func confirmAdd()
+    {
+        let pathPurchases:String = FDatabase.Parent.purchase.rawValue
+        let newPurchase:FDatabaseModelPurchase = FDatabaseModelPurchase()
+        let jsonPurchase:Any = newPurchase.modelJson()
+        
+        let _:String = FMain.sharedInstance.database.createChild(
+            path:pathPurchases,
+            json:jsonPurchase)
+        
+        let confirmMessage:String = NSLocalizedString("CAdminPurchases_purchaseAdded", comment:"")
+        VAlert.message(message:confirmMessage)
+        
+        loadPurchases()
+    }
+    
     //MARK: public
     
     func add()
     {
-        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.confirmAdd()
+        }
     }
     
     func save()

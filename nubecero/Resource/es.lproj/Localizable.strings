@@ -85,6 +85,7 @@
 "CAdminPurchases_alertCancel"="Cancelar";
 "CAdminPurchases_alertSave"="Guardar";
 "CAdminPurchases_alertDone"="Compras guardadas";
+"CAdminPurchases_purchaseAdded"="Nueva compra";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

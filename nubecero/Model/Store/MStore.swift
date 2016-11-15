@@ -5,7 +5,7 @@ class MStore
 {
     typealias PurchaseId = String
     
-    var mapItems:[PurchaseId:MStorePurchaseItem]?
+    var mapItems:[PurchaseId:MStoreItem]?
     var error:String?
     private let priceFormatter:NumberFormatter
     
@@ -59,11 +59,26 @@ class MStore
                 return
             }
             
-            self?.model = MAdminPurchases(purchaseList:purchaseListStrong)
-            self?.loadingCompleted()
+            self?.listLoaded(purchaseList:purchaseListStrong)
         }
     }
     
+    private func listLoaded(purchaseList:FDatabaseModelPurchaseList)
+    {
+        var mapItems:[PurchaseId:MStoreItem] = [:]
+        
+        let itemKeys:[FDatabaseModelPurchase.PurchaseId] = Array(purchaseList.items.keys)
+        
+        for itemKey:FDatabaseModelPurchase.PurchaseId in itemKeys
+        {
+            let firebasePurchase:FDatabaseModelPurchase = purchaseList.items[itemKey]!
+            let item:MStoreItem = MStoreItem(
+                firebasePurchase:firebasePurchase)
+            mapItems[itemKey] = item
+        }
+        
+        self.mapItems = mapItems
+    }
     
     
     private func notifyStore()

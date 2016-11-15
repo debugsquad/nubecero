@@ -94,7 +94,12 @@ class VAdminPurchases:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     //MARK: private
     
-    
+    private func modelAtIndex(index:IndexPath) -> MAdminPurchasesItem
+    {
+        let item:MAdminPurchasesItem = controller.model!.items[index.item]
+        
+        return item
+    }
     
     //MARK: public
     
@@ -111,5 +116,44 @@ class VAdminPurchases:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     //MARK: collectionView delegate
     
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        
+        return size
+    }
     
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        guard
+        
+            let _:MAdminPurchases = controller.model
+        
+        else
+        {
+            return 0
+        }
+        
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.model!.items.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MAdminPurchasesItem = modelAtIndex(index:indexPath)
+        let cell:VAdminPurchasesCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VAdminPurchasesCell.reusableIdentifier,
+            for:indexPath) as! VAdminPurchasesCell
+        cell.config(model:item)
+        
+        return cell
+    }
 }

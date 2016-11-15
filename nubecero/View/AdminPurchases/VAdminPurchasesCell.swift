@@ -13,4 +13,11 @@ class VAdminPurchasesCell:UICollectionViewCell
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(model:MAdminPurchasesItem)
+    {
+        
+    }
 }

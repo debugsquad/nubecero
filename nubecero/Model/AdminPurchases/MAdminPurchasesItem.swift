@@ -5,11 +5,13 @@ class MAdminPurchasesItem
     var purchaseId:MStore.PurchaseId
     var name:String
     var status:FDatabaseModelPurchase.Status
+    let firebasePurchaseId:FDatabaseModelPurchase.PurchaseId
     let created:TimeInterval
     
-    init(purchaseId:MStore.PurchaseId, firebasePurchase:FDatabaseModelPurchase)
+    init(firebasePurchaseId:FDatabaseModelPurchase.PurchaseId, firebasePurchase:FDatabaseModelPurchase)
     {
-        self.purchaseId = purchaseId
+        self.firebasePurchaseId = firebasePurchaseId
+        purchaseId = firebasePurchase.purchaseId
         name = firebasePurchase.name
         created = firebasePurchase.created
         status = firebasePurchase.status

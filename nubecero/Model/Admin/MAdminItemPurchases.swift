@@ -15,7 +15,7 @@ class MAdminItemPurchases:MAdminItem
     
     override func controller() -> CController
     {
-        let controller:CController = CController()
+        let controller:CAdminPurchases = CAdminPurchases()
         
         return controller
     }

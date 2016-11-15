@@ -2,6 +2,8 @@ import Foundation
 
 class FDatabaseModelPurchase:FDatabaseModel
 {
+    typealias PurchaseId = String
+    
     enum Property:String
     {
         case purchaseId = "purchaseId"

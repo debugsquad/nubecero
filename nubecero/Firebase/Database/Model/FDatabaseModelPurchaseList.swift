@@ -2,16 +2,16 @@ import Foundation
 
 class FDatabaseModelPurchaseList:FDatabaseModel
 {
-    let items:[MStore.PurchaseId:FDatabaseModelPurchase]
+    let items:[FDatabaseModelPurchase.PurchaseId:FDatabaseModelPurchase]
     
     required init(snapshot:Any)
     {
-        if let rawItems:[MStore.PurchaseId:Any] = snapshot as? [MStore.PurchaseId:Any]
+        if let rawItems:[FDatabaseModelPurchase.PurchaseId:Any] = snapshot as? [FDatabaseModelPurchase.PurchaseId:Any]
         {
-            var items:[MStore.PurchaseId:FDatabaseModelPurchase] = [:]
-            let keys:[MStore.PurchaseId] = Array(rawItems.keys)
+            var items:[FDatabaseModelPurchase.PurchaseId:FDatabaseModelPurchase] = [:]
+            let keys:[FDatabaseModelPurchase.PurchaseId] = Array(rawItems.keys)
             
-            for rawKey:MStore.PurchaseId in keys
+            for rawKey:FDatabaseModelPurchase.PurchaseId in keys
             {
                 let rawItem:Any = rawItems[rawKey]
                 let item:FDatabaseModelPurchase = FDatabaseModelPurchase(snapshot:rawItem)

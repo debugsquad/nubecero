@@ -27,7 +27,12 @@ class FDatabaseModelPurchase:FDatabaseModel
     
     init(purchase:MAdminPurchasesItem)
     {
+        purchaseId = purchase.purchaseId
+        name = purchase.name
+        created = purchase.created
+        status = purchase.status
         
+        super.init()
     }
     
     override init()

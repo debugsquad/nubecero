@@ -10,7 +10,10 @@ class FDatabaseModelPurchaseList:FDatabaseModel
         
         for purchase:MAdminPurchasesItem in purchases
         {
-            
+            let purchaseId:FDatabaseModelPurchase.PurchaseId = purchase.firebasePurchaseId
+            let item:FDatabaseModelPurchase = FDatabaseModelPurchase(
+                purchase:purchase)
+            items[purchaseId] = item
         }
         
         self.items = items

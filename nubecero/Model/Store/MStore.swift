@@ -6,6 +6,7 @@ class MStore
     typealias PurchaseId = String
     
     var mapItems:[PurchaseId:MStoreItem]?
+    var listReferences:[PurchaseId]?
     var error:String?
     private weak var controller:CStore!
     private let priceFormatter:NumberFormatter
@@ -54,6 +55,7 @@ class MStore
     {
         var mapItems:[PurchaseId:MStoreItem] = [:]
         var itemsSet:Set<PurchaseId> = Set<PurchaseId>()
+        var listReferences:[PurchaseId]
         
         let itemKeys:[FDatabaseModelPurchase.PurchaseId] = Array(purchaseList.items.keys)
         
@@ -64,9 +66,11 @@ class MStore
                 firebasePurchase:firebasePurchase)
             mapItems[itemKey] = item
             itemsSet.insert(itemKey)
+            listReferences.append(itemKey)
         }
         
         self.mapItems = mapItems
+        self.listReferences = listReferences
         
         controller.checkAvailabilities(itemsSet:itemsSet)
     }

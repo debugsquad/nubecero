@@ -5,19 +5,17 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     weak var controller:CStore!
     weak var viewSpinner:VSpinner!
     weak var collectionView:UICollectionView!
-    private let kHeaderSize:CGFloat = 75
+    private let kHeaderHeight:CGFloat = 75
     private let kCollectionBottom:CGFloat = 20
     private let kInterLine:CGFloat = 1
     
-    init(controller:CStore)
+    convenience init(controller:CStore)
     {
-        arrayKeys = []
-        
-        super.init(frame:CGRect.zero)
-        self.controller = controller
+        self.init()
         clipsToBounds = true
         backgroundColor = UIColor.background
         translatesAutoresizingMaskIntoConstraints = false
+        self.controller = controller
         
         let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         
@@ -25,11 +23,12 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         self.viewSpinner = viewSpinner
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
         flow.footerReferenceSize = CGSize.zero
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
-        flow.sectionInset = UIEdgeInsets(top:0, left:0, bottom:kCollectionBottom, right:0)
+        flow.sectionInset = UIEdgeInsets(top:kInterLine, left:0, bottom:kCollectionBottom, right:0)
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.clipsToBounds = true
@@ -49,11 +48,6 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             forSupplementaryViewOfKind:UICollectionElementKindSectionHeader,
             withReuseIdentifier:
             VStoreHeader.reusableIdentifier)
-        collectionView.register(
-            VStoreFooter.self,
-            forSupplementaryViewOfKind:UICollectionElementKindSectionFooter,
-            withReuseIdentifier:
-            VStoreFooter.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(collectionView)
@@ -86,60 +80,29 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             options:[],
             metrics:metrics,
             views:views))
-        
-        storeLoaded()
-        /*
-        NotificationCenter.default.addObserver(
-            self,
-            selector:#selector(notifiedStoreLoaded(sender:)),
-            name:Notification.storeLoaded,
-            object:nil)*/
-    }
-    
-    required init?(coder:NSCoder)
-    {
-        fatalError()
     }
     
     override func layoutSubviews()
     {
         collectionView.collectionViewLayout.invalidateLayout()
-        
         super.layoutSubviews()
     }
     
     //MARK: private
     
-    private func storeLoaded()
+    private func modelAtIndex(index:IndexPath) -> MStoreItem
     {
-        collectionView.reloadData()
-        arrayKeys = Array(MStore.sharedInstance.purchase.mapItems.keys)
-        
-        if arrayKeys.count == 0 && MStore.sharedInstance.error == nil
-        {
-            collectionView.isHidden = true
-            viewSpinner.startAnimating()
-        }
-        else
-        {
-            collectionView.isHidden = false
-            viewSpinner.stopAnimating()
-        }
-    }
-    
-    private func modelAtIndex(index:IndexPath) -> MStorePurchaseItem
-    {
-        let itemKey:String = arrayKeys[index.item]
-        let item:MStorePurchaseItem = MStore.sharedInstance.purchase.mapItems[itemKey]!
+        let itemId:MStore.PurchaseId = controller.model!.listReferences![index.section]
+        let item:MStoreItem = controller.model!.mapItems![itemId]!
         
         return item
-        
     }
     
     //MARK: public
     
     func showLoading()
     {
+        collectionView.isHidden = true
         viewSpinner.startAnimating()
     }
     
@@ -147,105 +110,69 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     {
         viewSpinner.stopAnimating()
         collectionView.reloadData()
+        collectionView.isHidden = false
     }
     
     //MARK: collection delegate
     
-    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, referenceSizeForHeaderInSection section:Int) -> CGSize
-    {
-        let size:CGSize
-        
-        if arrayKeys.count > 0 && MStore.sharedInstance.error == nil
-        {
-            size = CGSize(width:0, height:kHeaderSize)
-        }
-        else
-        {
-            size = CGSize.zero
-        }
-        
-        return size
-    }
-    
-    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, referenceSizeForFooterInSection section:Int) -> CGSize
-    {
-        let size:CGSize
-        
-        if MStore.sharedInstance.error == nil
-        {
-            size = CGSize.zero
-        }
-        else
-        {
-            size = CGSize(width:0, height:kFooterSize)
-        }
-        
-        return size
-    }
-    
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
+        let item:MStoreItem = modelAtIndex(index:indexPath)
+        let cellHeight:CGFloat = item.status!.cellHeight
         let width:CGFloat = collectionView.bounds.maxX
-        let size:CGSize = CGSize(width:width, height:kCellSize)
+        let size:CGSize = CGSize(width:width, height:cellHeight)
         
         return size
     }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
-        return 1
+        guard
+        
+            let count:Int = controller.model?.listReferences?.count
+        
+        else
+        {
+            return 0
+        }
+        
+        return count
     }
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int
+        let indexPath:IndexPath = IndexPath(item:0, section:section)
+        let item:MStoreItem = modelAtIndex(index:indexPath)
         
-        if MStore.sharedInstance.error == nil
-        {
-            count = MStore.sharedInstance.purchase.mapItems.count
-        }
+        guard
+        
+            let _:MStoreItemStatus = item.status
+        
         else
         {
-            count = 0
+            return 0
         }
         
-        return count
+        return 1
     }
     
     func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
     {
         let reusableView:UICollectionReusableView
         
-        if kind == UICollectionElementKindSectionHeader
-        {
-            reusableView = collectionView.dequeueReusableSupplementaryView(
-                ofKind:kind,
-                withReuseIdentifier:VStoreHeader.reusableIdentifier,
-                for:indexPath)
-        }
-        else
-        {
-            let errorString:String? = MStore.sharedInstance.error
-            let footer:VStoreFooter = collectionView.dequeueReusableSupplementaryView(
-                ofKind:kind,
-                withReuseIdentifier:VStoreFooter.reusableIdentifier,
-                for:indexPath) as! VStoreFooter
-            footer.showError(errorString:errorString)
-            
-            reusableView = footer
-        }
-        
         return reusableView
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:MStorePurchaseItem = modelAtIndex(index:indexPath)
+        let item:MStoreItem = modelAtIndex(index:indexPath)
+        let reusableIdentifier:String = item.status!.reusableIdentifier
+        
         let cell:VStoreCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
-            VStoreCell.reusableIdentifier,
+            reusableIdentifier,
             for:indexPath) as! VStoreCell
-        cell.config(model:item)
+        cell.config(controller:controller, model:item)
         
         return cell
     }

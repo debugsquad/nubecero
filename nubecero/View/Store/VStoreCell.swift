@@ -149,7 +149,7 @@ class VStoreCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MStorePurchaseItem)
+    func config(controller:CStore, model:MStoreItem)
     {/*
         self.model = model
         

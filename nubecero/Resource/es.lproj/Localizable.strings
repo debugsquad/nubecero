@@ -41,6 +41,7 @@
 "VAdminPurchasesHeader_buttonSave"="Guardar";
 "VAdminPurchasesHeader_buttonAdd"="Nueva compra";
 "VAdminPurchasesCell_buttonDelete"="Borrar";
+"VAdminPurchasesCell_placeholder"="Identificador de compra";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

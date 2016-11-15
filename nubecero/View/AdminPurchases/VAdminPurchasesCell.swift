@@ -1,12 +1,11 @@
 import UIKit
 
-class VAdminPurchasesCell:UICollectionViewCell
+class VAdminPurchasesCell:UICollectionViewCell, UITextFieldDelegate
 {
     private weak var controller:CAdminPurchases?
     private weak var model:MAdminPurchasesItem?
     private weak var labelId:UILabel!
-    private weak var fieldName:UITextField!
-    private weak var fieldPurchaseId:UITextField!
+    private weak var textField:UITextField!
     private weak var buttonDelete:UIButton!
     private weak var check:UISwitch!
     private let kAlphaDeletable:CGFloat = 1
@@ -53,14 +52,42 @@ class VAdminPurchasesCell:UICollectionViewCell
             for:UIControlEvents.valueChanged)
         self.check = check
         
+        let textField:UITextField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.clipsToBounds = true
+        textField.backgroundColor = UIColor.clear
+        textField.borderStyle = UITextBorderStyle.none
+        textField.font = UIFont.bold(size:16)
+        textField.textColor = UIColor.black
+        textField.tintColor = UIColor.black
+        textField.delegate = self
+        textField.returnKeyType = UIReturnKeyType.done
+        textField.keyboardAppearance = UIKeyboardAppearance.light
+        textField.autocorrectionType = UITextAutocorrectionType.no
+        textField.spellCheckingType = UITextSpellCheckingType.no
+        textField.autocapitalizationType = UITextAutocapitalizationType.none
+        textField.clearButtonMode = UITextFieldViewMode.never
+        textField.keyboardType = UIKeyboardType.alphabet
+        textField.placeholder = NSLocalizedString("VAdminPurchasesCell_placeholder", comment:"")
+        self.textField = textField
+        
+        let border:UIView = UIView()
+        border.isUserInteractionEnabled = false
+        border.backgroundColor = UIColor(white:0.7, alpha:1)
+        border.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(border)
         addSubview(labelId)
         addSubview(buttonDelete)
         addSubview(check)
+        addSubview(textField)
         
         let views:[String:UIView] = [
             "labelId":labelId,
             "buttonDelete":buttonDelete,
-            "check":check]
+            "check":check,
+            "textField":textField,
+            "border":border]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -80,12 +107,27 @@ class VAdminPurchasesCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-15-[textField]-15-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-10-[border]-10-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-5-[buttonDelete(40)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-15-[labelId(20)]-5-[check]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[textField(40)]-0-[border(1)]-10-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -114,6 +156,8 @@ class VAdminPurchasesCell:UICollectionViewCell
     
     func actionCheck(sender check:UISwitch)
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
         if check.isOn
         {
             model?.status = FDatabaseModelPurchase.Status.active

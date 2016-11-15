@@ -8,6 +8,7 @@ class VAdminPurchasesCell:UICollectionViewCell
     private weak var fieldName:UITextField!
     private weak var fieldPurchaseId:UITextField!
     private weak var buttonDelete:UIButton!
+    private weak var check:UISwitch!
     private let kAlphaDeletable:CGFloat = 1
     private let kAlphaNotDeletable:CGFloat = 0.3
     
@@ -43,12 +44,23 @@ class VAdminPurchasesCell:UICollectionViewCell
         labelId.textColor = UIColor(white:0.3, alpha:1)
         self.labelId = labelId
         
+        let check:UISwitch = UISwitch()
+        check.translatesAutoresizingMaskIntoConstraints = false
+        check.onTintColor = UIColor.main
+        check.addTarget(
+            self,
+            action:#selector(actionCheck(sender:)),
+            for:UIControlEvents.valueChanged)
+        self.check = check
+        
         addSubview(labelId)
         addSubview(buttonDelete)
+        addSubview(check)
         
         let views:[String:UIView] = [
             "labelId":labelId,
-            "buttonDelete":buttonDelete]
+            "buttonDelete":buttonDelete,
+            "check":check]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -63,12 +75,17 @@ class VAdminPurchasesCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-10-[check]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-5-[buttonDelete(40)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-15-[labelId(20)]",
+            withVisualFormat:"V:|-15-[labelId(20)]-5-[check]",
             options:[],
             metrics:metrics,
             views:views))
@@ -93,6 +110,18 @@ class VAdminPurchasesCell:UICollectionViewCell
         }
         
         controller?.deletePurchase(item:model)
+    }
+    
+    func actionCheck(sender check:UISwitch)
+    {
+        if check.isOn
+        {
+            model?.status = FDatabaseModelPurchase.Status.active
+        }
+        else
+        {
+            model?.status = FDatabaseModelPurchase.Status.hidden
+        }
     }
     
     //MARK: private
@@ -124,6 +153,15 @@ class VAdminPurchasesCell:UICollectionViewCell
         else
         {
             allowDeletion()
+        }
+        
+        if model.status == FDatabaseModelPurchase.Status.active
+        {
+            check.isOn = true
+        }
+        else
+        {
+            check.isOn = false
         }
     }
 }

@@ -114,3 +114,4 @@
 "MAdminItemUsers_title"="Users";
 "MAdminItemSubscriptions_title"="Subscriptions";
 "MAdminUsersPhotosItemStatusLoading_errorUnknown"="Error loading image";
+"MStore_errorLoading"="Error loading purchases try again";

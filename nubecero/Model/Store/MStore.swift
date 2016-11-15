@@ -1,22 +1,28 @@
 import Foundation
 import StoreKit
 
-class MStore:NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestDelegate
+class MStore
 {
     typealias PurchaseId = String
     
-    static let sharedInstance:MStore = MStore()
-    let purchase:MStorePurchase
+    var mapItems:[PurchaseId:MStorePurchaseItem]?
     var error:String?
+    private let priceFormatter:NumberFormatter
     
-    override init()
-    {
-        purchase = MStorePurchase()
-    }
     
-    deinit
+    
+    let purchase:MStorePurchase
+    
+    init()
     {
-        NotificationCenter.default.removeObserver(self)
+        priceFormatter = NumberFormatter()
+        priceFormatter.numberStyle = NumberFormatter.Style.currencyISOCode
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.loadFirebasePurchases()
+        }
     }
     
     //MARK: notifications
@@ -32,6 +38,33 @@ class MStore:NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver, 
     }
     
     //MARK: private
+    
+    private func loadFirebasePurchases()
+    {
+        let pathPurchases:String = FDatabase.Parent.purchase.rawValue
+        
+        FMain.sharedInstance.database.listenOnce(
+            path:pathPurchases,
+            modelType:FDatabaseModelPurchaseList.self)
+        { [weak self] (purchaseList) in
+            
+            guard
+                
+                let purchaseListStrong:FDatabaseModelPurchaseList = purchaseList
+                
+            else
+            {
+                self?.error = NSLocalizedString("MStore_errorLoading", comment:"")
+                
+                return
+            }
+            
+            self?.model = MAdminPurchases(purchaseList:purchaseListStrong)
+            self?.loadingCompleted()
+        }
+    }
+    
+    
     
     private func notifyStore()
     {
@@ -87,46 +120,5 @@ class MStore:NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver, 
         SKPaymentQueue.default().add(skPayment)
     }
     
-    //MARK: store delegate
     
-    func request(_ request:SKRequest, didFailWithError error:Error)
-    {
-        self.error = error.localizedDescription
-        notifyStore()
-    }
-    
-    func productsRequest(_ request:SKProductsRequest, didReceive response:SKProductsResponse)
-    {
-        let products:[SKProduct] = response.products
-        
-        for product:SKProduct in products
-        {
-            purchase.loadSkProduct(skProduct:product)
-        }
-        
-        notifyStore()
-    }
-    
-    func paymentQueue(_ queue:SKPaymentQueue, updatedTransactions transactions:[SKPaymentTransaction])
-    {
-        purchase.updateTransactions(transactions:transactions)
-        notifyStore()
-    }
-    
-    func paymentQueue(_ queue:SKPaymentQueue, removedTransactions transactions:[SKPaymentTransaction])
-    {
-        purchase.updateTransactions(transactions:transactions)
-        notifyStore()
-    }
-    
-    func paymentQueueRestoreCompletedTransactionsFinished(_ queue:SKPaymentQueue)
-    {
-        notifyStore()
-    }
-    
-    func paymentQueue(_ queue:SKPaymentQueue, restoreCompletedTransactionsFailedWithError error:Error)
-    {
-        self.error = error.localizedDescription
-        notifyStore()
-    }
 }

@@ -189,6 +189,7 @@ class VAdminPurchasesCell:UICollectionViewCell, UITextFieldDelegate
         self.controller = controller
         self.model = model
         labelId.text = model.firebasePurchaseId
+        textField.text = model.purchaseId
         
         if model.originalStatus == FDatabaseModelPurchase.Status.active
         {
@@ -207,5 +208,28 @@ class VAdminPurchasesCell:UICollectionViewCell, UITextFieldDelegate
         {
             check.isOn = false
         }
+    }
+    
+    //MARK: textField delegate
+    
+    func textFieldDidEndEditing(_ textField:UITextField)
+    {
+        guard
+            
+            let editedText:String = textField.text
+            
+        else
+        {
+            return
+        }
+        
+        model?.purchaseId = editedText
+    }
+    
+    func textFieldShouldReturn(_ textField:UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        
+        return true
     }
 }

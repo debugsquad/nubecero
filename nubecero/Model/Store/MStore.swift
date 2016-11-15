@@ -3,6 +3,8 @@ import StoreKit
 
 class MStore:NSObject, SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestDelegate
 {
+    typealias PurchaseId = String
+    
     static let sharedInstance:MStore = MStore()
     let purchase:MStorePurchase
     var error:String?

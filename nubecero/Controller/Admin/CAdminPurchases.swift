@@ -17,4 +17,11 @@ class CAdminPurchases:CController
         self.viewPurchases = viewPurchases
         view = viewPurchases
     }
+    
+    //MARK: private
+    
+    private func loadPurchases()
+    {
+        
+    }
 }

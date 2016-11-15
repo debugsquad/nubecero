@@ -74,7 +74,12 @@ class CAdminPurchases:CController
     
     private func confirmSave()
     {
-        let moel
+        let json:Any = model?.savingJson()
+        let pathPurchases:String = FDatabase.Parent.purchase.rawValue
+        
+        FMain.sharedInstance.database.updateChild(
+            path:pathPurchases,
+            json:json)
         
         let confirmMessage:String = NSLocalizedString("CAdminPurchases_alertDone", comment:"")
         VAlert.message(message:confirmMessage)

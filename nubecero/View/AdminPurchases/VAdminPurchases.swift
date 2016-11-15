@@ -132,7 +132,7 @@ class VAdminPurchases:UIView, UICollectionViewDelegate, UICollectionViewDataSour
         
         else
         {
-            return 0
+            return 1
         }
         
         return 1
@@ -143,6 +143,18 @@ class VAdminPurchases:UIView, UICollectionViewDelegate, UICollectionViewDataSour
         let count:Int = controller.model!.items.count
         
         return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
+    {
+        let reusable:VAdminPurchasesHeader = collectionView.dequeueReusableSupplementaryView(
+            ofKind:kind,
+            withReuseIdentifier:
+            VAdminPurchasesHeader.reusableIdentifier,
+            for:indexPath) as! VAdminPurchasesHeader
+        reusable.config(controller:controller)
+        
+        return reusable
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell

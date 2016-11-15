@@ -102,11 +102,6 @@
 		DA4FA5971DD7C72800358ABE /* VStoreFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5931DD7C72800358ABE /* VStoreFooter.swift */; };
 		DA4FA5981DD7C72800358ABE /* VStoreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5941DD7C72800358ABE /* VStoreHeader.swift */; };
 		DA4FA5A21DD7C7B300358ABE /* MStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA59A1DD7C7B300358ABE /* MStore.swift */; };
-		DA4FA5A51DD7C7B300358ABE /* MStorePurchaseItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA59D1DD7C7B300358ABE /* MStorePurchaseItemStatus.swift */; };
-		DA4FA5A61DD7C7B300358ABE /* MStorePurchaseItemStatusDeferred.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA59E1DD7C7B300358ABE /* MStorePurchaseItemStatusDeferred.swift */; };
-		DA4FA5A71DD7C7B300358ABE /* MStorePurchaseItemStatusNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA59F1DD7C7B300358ABE /* MStorePurchaseItemStatusNew.swift */; };
-		DA4FA5A81DD7C7B300358ABE /* MStorePurchaseItemStatusPurchased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5A01DD7C7B300358ABE /* MStorePurchaseItemStatusPurchased.swift */; };
-		DA4FA5A91DD7C7B300358ABE /* MStorePurchaseItemStatusPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5A11DD7C7B300358ABE /* MStorePurchaseItemStatusPurchasing.swift */; };
 		DA4FA5AB1DD7D19200358ABE /* MMainItemAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5AA1DD7D19200358ABE /* MMainItemAdmin.swift */; };
 		DA4FA5AE1DD7D59200358ABE /* CAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5AD1DD7D59200358ABE /* CAdmin.swift */; };
 		DA4FA5B11DD7D5EE00358ABE /* VAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5B01DD7D5EE00358ABE /* VAdmin.swift */; };
@@ -379,11 +374,6 @@
 		DA4FA5931DD7C72800358ABE /* VStoreFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreFooter.swift; sourceTree = "<group>"; };
 		DA4FA5941DD7C72800358ABE /* VStoreHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreHeader.swift; sourceTree = "<group>"; };
 		DA4FA59A1DD7C7B300358ABE /* MStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStore.swift; sourceTree = "<group>"; };
-		DA4FA59D1DD7C7B300358ABE /* MStorePurchaseItemStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItemStatus.swift; sourceTree = "<group>"; };
-		DA4FA59E1DD7C7B300358ABE /* MStorePurchaseItemStatusDeferred.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItemStatusDeferred.swift; sourceTree = "<group>"; };
-		DA4FA59F1DD7C7B300358ABE /* MStorePurchaseItemStatusNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItemStatusNew.swift; sourceTree = "<group>"; };
-		DA4FA5A01DD7C7B300358ABE /* MStorePurchaseItemStatusPurchased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItemStatusPurchased.swift; sourceTree = "<group>"; };
-		DA4FA5A11DD7C7B300358ABE /* MStorePurchaseItemStatusPurchasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStorePurchaseItemStatusPurchasing.swift; sourceTree = "<group>"; };
 		DA4FA5AA1DD7D19200358ABE /* MMainItemAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemAdmin.swift; sourceTree = "<group>"; };
 		DA4FA5AD1DD7D59200358ABE /* CAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAdmin.swift; sourceTree = "<group>"; };
 		DA4FA5B01DD7D5EE00358ABE /* VAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdmin.swift; sourceTree = "<group>"; };
@@ -1071,11 +1061,6 @@
 			children = (
 				DA4FA59A1DD7C7B300358ABE /* MStore.swift */,
 				DAC98D3A1DDBB7B20074E16A /* MStoreItem.swift */,
-				DA4FA59D1DD7C7B300358ABE /* MStorePurchaseItemStatus.swift */,
-				DA4FA59E1DD7C7B300358ABE /* MStorePurchaseItemStatusDeferred.swift */,
-				DA4FA59F1DD7C7B300358ABE /* MStorePurchaseItemStatusNew.swift */,
-				DA4FA5A01DD7C7B300358ABE /* MStorePurchaseItemStatusPurchased.swift */,
-				DA4FA5A11DD7C7B300358ABE /* MStorePurchaseItemStatusPurchasing.swift */,
 				DAC98D3C1DDBC6DC0074E16A /* MStoreItemStatus.swift */,
 				DAC98D3E1DDBC6E40074E16A /* MStoreItemStatusDeferred.swift */,
 				DAC98D401DDBC6EE0074E16A /* MStoreItemStatusNew.swift */,
@@ -1621,7 +1606,6 @@
 				DA2F66A61DC92F720078B466 /* MPicturesDetailItemInfo.swift in Sources */,
 				DAF6F2BC1DD39BC50053ED1B /* MOnboardFormItemPasswordSignin.swift in Sources */,
 				DA2F66B31DC950850078B466 /* MPicturesItemStateNone.swift in Sources */,
-				DA4FA5A91DD7C7B300358ABE /* MStorePurchaseItemStatusPurchasing.swift in Sources */,
 				DACD1FBD1DC589CD0067D26B /* VHomeUploadSyncBar.swift in Sources */,
 				DA406BC91DCCE8480098D347 /* VAuth.swift in Sources */,
 				DA465BF51DDA5C790042C8C7 /* CAdminServer.swift in Sources */,
@@ -1633,7 +1617,6 @@
 				DA88F6721DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift in Sources */,
 				DA4FA5AE1DD7D59200358ABE /* CAdmin.swift in Sources */,
 				DAF6F2AE1DD3954E0053ED1B /* VOnboardFormCellEmail.swift in Sources */,
-				DA4FA5A51DD7C7B300358ABE /* MStorePurchaseItemStatus.swift in Sources */,
 				DA465BFF1DDA64A80042C8C7 /* MAdminServer.swift in Sources */,
 				DAC55F201DD2592200213C27 /* MOnboardItem.swift in Sources */,
 				DACD1F991DC3F0E80067D26B /* MMainItemPictures.swift in Sources */,
@@ -1678,7 +1661,6 @@
 				DAE4556C1DCA994900948D70 /* MPicturesDataItemSize.swift in Sources */,
 				DAC55F281DD26B0000213C27 /* VOnboardOptions.swift in Sources */,
 				DAE455661DCA846000948D70 /* MPicturesDataItem.swift in Sources */,
-				DA4FA5A81DD7C7B300358ABE /* MStorePurchaseItemStatusPurchased.swift in Sources */,
 				DA465BF31DDA56B10042C8C7 /* VAdminUsersPhotosHeader.swift in Sources */,
 				DA7A79C71DD64A40001B5FA5 /* MHomeItemSpaceUsed.swift in Sources */,
 				DAC98D411DDBC6EE0074E16A /* MStoreItemStatusNew.swift in Sources */,
@@ -1792,7 +1774,6 @@
 				DA7367B61DD523DB0004B99C /* VOnboardFormCellPassGenerator.swift in Sources */,
 				DAC55F181DD23B0A00213C27 /* COnboard.swift in Sources */,
 				DA3411881DCBF016006E6D71 /* VBanned.swift in Sources */,
-				DA4FA5A71DD7C7B300358ABE /* MStorePurchaseItemStatusNew.swift in Sources */,
 				DAE455541DCA4DE400948D70 /* VPicturesDetailCellInfoCell.swift in Sources */,
 				DAF6F2B21DD3971E0053ED1B /* MOnboardFormItemEmailRegister.swift in Sources */,
 				DAC98D3B1DDBB7B20074E16A /* MStoreItem.swift in Sources */,
@@ -1825,7 +1806,6 @@
 				DA4EF9061DC395B300297C1D /* FMain.swift in Sources */,
 				DA2F66851DC8FE5C0078B466 /* CPictures.swift in Sources */,
 				DACD1FB61DC56C250067D26B /* VHomeUploadBar.swift in Sources */,
-				DA4FA5A61DD7C7B300358ABE /* MStorePurchaseItemStatusDeferred.swift in Sources */,
 				DA7A79B51DD61236001B5FA5 /* VSettingsCellBlank.swift in Sources */,
 				DA4FA5951DD7C72800358ABE /* VStore.swift in Sources */,
 				DA465C011DDA64B30042C8C7 /* MAdminServerItem.swift in Sources */,

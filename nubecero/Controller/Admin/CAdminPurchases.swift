@@ -74,7 +74,15 @@ class CAdminPurchases:CController
     
     private func confirmSave()
     {
-        let json:Any = model?.savingJson()
+        guard
+            
+            let json:Any = model?.savingJson()
+        
+        else
+        {
+            return
+        }
+        
         let pathPurchases:String = FDatabase.Parent.purchase.rawValue
         
         FMain.sharedInstance.database.updateChild(
@@ -83,6 +91,8 @@ class CAdminPurchases:CController
         
         let confirmMessage:String = NSLocalizedString("CAdminPurchases_alertDone", comment:"")
         VAlert.message(message:confirmMessage)
+        
+        loadPurchases()
     }
     
     private func confirmAdd()

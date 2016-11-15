@@ -179,6 +179,7 @@
 		DAC98D331DDB70880074E16A /* MAdminPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D321DDB70880074E16A /* MAdminPurchases.swift */; };
 		DAC98D351DDB70CD0074E16A /* MAdminPurchasesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D341DDB70CD0074E16A /* MAdminPurchasesItem.swift */; };
 		DAC98D371DDB75E20074E16A /* FDatabaseModelPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D361DDB75E20074E16A /* FDatabaseModelPurchase.swift */; };
+		DAC98D391DDB79990074E16A /* FDatabaseModelPurchaseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D381DDB79990074E16A /* FDatabaseModelPurchaseList.swift */; };
 		DACD1F871DC3A0020067D26B /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F861DC3A0020067D26B /* CHome.swift */; };
 		DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1F881DC3A09F0067D26B /* Generic.xcassets */; };
 		DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F8B1DC3AD480067D26B /* CLogin.swift */; };
@@ -451,6 +452,7 @@
 		DAC98D321DDB70880074E16A /* MAdminPurchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminPurchases.swift; sourceTree = "<group>"; };
 		DAC98D341DDB70CD0074E16A /* MAdminPurchasesItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminPurchasesItem.swift; sourceTree = "<group>"; };
 		DAC98D361DDB75E20074E16A /* FDatabaseModelPurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelPurchase.swift; sourceTree = "<group>"; };
+		DAC98D381DDB79990074E16A /* FDatabaseModelPurchaseList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelPurchaseList.swift; sourceTree = "<group>"; };
 		DACD1F861DC3A0020067D26B /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DACD1F881DC3A09F0067D26B /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DACD1F8B1DC3AD480067D26B /* CLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLogin.swift; sourceTree = "<group>"; };
@@ -1277,6 +1279,7 @@
 				DA2F668E1DC90AF50078B466 /* FDatabaseModelPictureList.swift */,
 				DA34117C1DCBC1C0006E6D71 /* FDatabaseModelServer.swift */,
 				DAC98D361DDB75E20074E16A /* FDatabaseModelPurchase.swift */,
+				DAC98D381DDB79990074E16A /* FDatabaseModelPurchaseList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1699,6 +1702,7 @@
 				DA4FA58F1DD7C69F00358ABE /* CStore.swift in Sources */,
 				DA7A79BD1DD622B0001B5FA5 /* MHomeItemBlank.swift in Sources */,
 				DAC55F2A1DD27FB000213C27 /* MOnboardItemAccess.swift in Sources */,
+				DAC98D391DDB79990074E16A /* FDatabaseModelPurchaseList.swift in Sources */,
 				DA2F66931DC91B780078B466 /* VPicturesCell.swift in Sources */,
 				DA406BD81DCD03760098D347 /* MSettingsItem.swift in Sources */,
 				DA2F66B51DC9508F0078B466 /* MPicturesItemStateLoading.swift in Sources */,

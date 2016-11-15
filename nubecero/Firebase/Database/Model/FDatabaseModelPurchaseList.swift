@@ -49,4 +49,19 @@ class FDatabaseModelPurchaseList:FDatabaseModel
     {
         fatalError()
     }
+    
+    override func modelJson() -> Any
+    {
+        let itemsKeys:[FDatabaseModelPurchase.PurchaseId] = Array(items.keys)
+        var json:[String:Any] = [:]
+        
+        for itemKey:FDatabaseModelPurchase.PurchaseId in itemsKeys
+        {
+            let item:FDatabaseModelPurchase = items[itemKey]!
+            let jsonItem:Any = item.modelJson()
+            json[itemKey] = jsonItem
+        }
+        
+        return json
+    }
 }

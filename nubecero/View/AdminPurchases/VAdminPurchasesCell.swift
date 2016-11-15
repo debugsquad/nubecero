@@ -26,13 +26,17 @@ class VAdminPurchasesCell:UICollectionViewCell
             NSLocalizedString("VAdminPurchasesCell_buttonDelete", comment:""),
             for:UIControlState.normal)
         buttonDelete.titleLabel!.font = UIFont.bold(size:14)
+        buttonDelete.addTarget(
+            self,
+            action:#selector(actionDelete(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let labelId:UILabel = UILabel()
         labelId.isUserInteractionEnabled = false
         labelId.translatesAutoresizingMaskIntoConstraints = false
         labelId.backgroundColor = UIColor.clear
         labelId.font = UIFont.regular(size:14)
-        labelId.textColor = UIColor(white:0.6, alpha:1)
+        labelId.textColor = UIColor(white:0.3, alpha:1)
         self.labelId = labelId
         
         addSubview(labelId)
@@ -45,17 +49,22 @@ class VAdminPurchasesCell:UICollectionViewCell
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[labelId(180)]-0-[buttonDelete(120)]-0-|",
+            withVisualFormat:"H:|-10-[labelId(220)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[buttonDelete(40)]",
+            withVisualFormat:"H:[buttonDelete(100)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-10-[labelId(20)]",
+            withVisualFormat:"V:|-5-[buttonDelete(40)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-15-[labelId(20)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -64,6 +73,13 @@ class VAdminPurchasesCell:UICollectionViewCell
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: actions
+    
+    func actionDelete(sender button:UIButton)
+    {
+        
     }
     
     //MARK: public

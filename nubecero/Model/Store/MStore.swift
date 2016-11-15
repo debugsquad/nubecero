@@ -7,15 +7,12 @@ class MStore
     
     var mapItems:[PurchaseId:MStoreItem]?
     var error:String?
-    private var itemsSet:Set<PurchaseId>?
+    private weak var controller:CStore!
     private let priceFormatter:NumberFormatter
     
-    
-    
-    let purchase:MStorePurchase
-    
-    init()
+    init(controller:CStore)
     {
+        self.controller = controller
         priceFormatter = NumberFormatter()
         priceFormatter.numberStyle = NumberFormatter.Style.currencyISOCode
         
@@ -23,18 +20,6 @@ class MStore
         { [weak self] in
             
             self?.loadFirebasePurchases()
-        }
-    }
-    
-    //MARK: notifications
-    
-    func notifiedPurchasesLoaded(sender notification:Notification)
-    {
-        NotificationCenter.default.removeObserver(self)
-        
-        DispatchQueue.main.async
-        {
-            self.checkAvailability()
         }
     }
     
@@ -56,6 +41,7 @@ class MStore
             else
             {
                 self?.error = NSLocalizedString("MStore_errorLoading", comment:"")
+                self?.controller.noFirebasePurchases()
                 
                 return
             }
@@ -67,7 +53,7 @@ class MStore
     private func listLoaded(purchaseList:FDatabaseModelPurchaseList)
     {
         var mapItems:[PurchaseId:MStoreItem] = [:]
-        var itemsSet:Set<String> = Set<String>()
+        var itemsSet:Set<PurchaseId> = Set<PurchaseId>()
         
         let itemKeys:[FDatabaseModelPurchase.PurchaseId] = Array(purchaseList.items.keys)
         
@@ -81,63 +67,77 @@ class MStore
         }
         
         self.mapItems = mapItems
-        self.itemsSet = itemsSet
-    }
-    
-    
-    private func notifyStore()
-    {
-        /*
-        NotificationCenter.default.post(
-            name:Notification.storeLoaded,
-            object:nil)*/
+        
+        controller.checkAvailabilities(itemsSet:itemsSet)
     }
     
     //MARK: public
     
-    func checkAvailability()
-    {
-        error = nil
-        
-        if purchase.mapItems.count > 0
-        {
-            let itemsSet:Set<String> = purchase.makeSet()
-            let request:SKProductsRequest = SKProductsRequest(productIdentifiers:itemsSet)
-            request.delegate = self
-            request.start()
-        }
-        else
-        {
-            /*
-            NotificationCenter.default.addObserver(
-                self,
-                selector:#selector(notifiedPurchasesLoaded(sender:)),
-                name:Notification.purchasesLoaded,
-                object:nil)*/
-            
-            purchase.loadDb()
-        }
+    func loadSkProduct(skProduct:SKProduct)
+    {/*
+         let productId:String = skProduct.productIdentifier
+         
+         guard
+         
+         let mappedItem:MStorePurchaseItem = mapItems[productId]
+         
+         else
+         {
+         return
+         }
+         
+         mappedItem.skProduct = skProduct
+         priceFormatter.locale = skProduct.priceLocale
+         
+         let priceNumber:NSDecimalNumber = skProduct.price
+         let priceString:String? = priceFormatter.string(from:priceNumber)
+         mappedItem.price = priceString*/
     }
     
-    func restorePurchases()
-    {
-        SKPaymentQueue.default().restoreCompletedTransactions()
+    func updateTransactions(transactions:[SKPaymentTransaction])
+    {/*
+         for skPaymentTransaction:SKPaymentTransaction in transactions
+         {
+         let productId:String = skPaymentTransaction.payment.productIdentifier
+         
+         guard
+         
+         let mappedItem:MStorePurchaseItem = mapItems[productId]
+         
+         else
+         {
+         continue
+         }
+         
+         switch skPaymentTransaction.transactionState
+         {
+         case SKPaymentTransactionState.deferred:
+         
+         mappedItem.status = MStorePurchaseItemStatusDeferred()
+         
+         break
+         
+         case SKPaymentTransactionState.failed:
+         
+         mappedItem.status = MStorePurchaseItemStatusNew()
+         SKPaymentQueue.default().finishTransaction(skPaymentTransaction)
+         
+         break
+         
+         case SKPaymentTransactionState.purchased,
+         SKPaymentTransactionState.restored:
+         
+         mappedItem.purchased()
+         SKPaymentQueue.default().finishTransaction(skPaymentTransaction)
+         
+         break
+         
+         case SKPaymentTransactionState.purchasing:
+         
+         mappedItem.status = MStorePurchaseItemStatusPurchasing()
+         
+         break
+         }
+         }*/
     }
-    
-    func purchase(skProduct:SKProduct?)
-    {
-        guard
-            
-            let skProduct:SKProduct = skProduct
-        
-        else
-        {
-            return
-        }
-        
-        let skPayment:SKPayment = SKPayment(product:skProduct)
-        SKPaymentQueue.default().add(skPayment)
-    }
-    
-    
 }

@@ -1,13 +1,20 @@
-import Foundation
+import UIKit
 
 class MStorePurchaseItemStatus
 {
-    let title:String
-    let purchaseButton:Bool
+    let reusableIdentifier:String
+    let selectable:Bool
+    let cellHeight:CGFloat
     
-    init(title:String, purchaseButton:Bool)
+    init(reusableIdentifier:String, selectable:Bool, cellHeight:CGFloat)
     {
-        self.title = title
-        self.purchaseButton = purchaseButton
+        self.reusableIdentifier = reusableIdentifier
+        self.selectable = selectable
+        self.cellHeight = cellHeight
+    }
+    
+    init()
+    {
+        fatalError()
     }
 }

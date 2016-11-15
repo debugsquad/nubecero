@@ -1,6 +1,6 @@
 import UIKit
 
-class MStorePurchaseItemStatus
+class MStoreItemStatus
 {
     let reusableIdentifier:String
     let selectable:Bool

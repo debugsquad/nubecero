@@ -57,7 +57,7 @@ class VAdminPurchasesCell:UICollectionViewCell, UITextFieldDelegate
         textField.clipsToBounds = true
         textField.backgroundColor = UIColor.clear
         textField.borderStyle = UITextBorderStyle.none
-        textField.font = UIFont.bold(size:16)
+        textField.font = UIFont.bold(size:18)
         textField.textColor = UIColor.black
         textField.tintColor = UIColor.black
         textField.delegate = self
@@ -73,7 +73,7 @@ class VAdminPurchasesCell:UICollectionViewCell, UITextFieldDelegate
         
         let border:UIView = UIView()
         border.isUserInteractionEnabled = false
-        border.backgroundColor = UIColor(white:0.7, alpha:1)
+        border.backgroundColor = UIColor(white:0.95, alpha:1)
         border.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(border)
@@ -127,7 +127,7 @@ class VAdminPurchasesCell:UICollectionViewCell, UITextFieldDelegate
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[textField(40)]-0-[border(1)]-10-|",
+            withVisualFormat:"V:[textField(34)]-0-[border(1)]-25-|",
             options:[],
             metrics:metrics,
             views:views))

@@ -20,6 +20,10 @@ class VAdminPurchasesHeader:UICollectionReusableView
             NSLocalizedString("VAdminPurchasesHeader_buttonSave", comment:""),
             for:UIControlState.normal)
         buttonSave.titleLabel!.font = UIFont.medium(size:15)
+        buttonSave.addTarget(
+            self,
+            action:#selector(actionSave(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let buttonAdd:UIButton = UIButton()
         buttonAdd.translatesAutoresizingMaskIntoConstraints = false
@@ -33,6 +37,10 @@ class VAdminPurchasesHeader:UICollectionReusableView
             NSLocalizedString("VAdminPurchasesHeader_buttonAdd", comment:""),
             for:UIControlState.normal)
         buttonAdd.titleLabel!.font = UIFont.medium(size:15)
+        buttonAdd.addTarget(
+            self,
+            action:#selector(actionAdd(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(buttonSave)
         addSubview(buttonAdd)
@@ -68,5 +76,17 @@ class VAdminPurchasesHeader:UICollectionReusableView
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: actions
+    
+    func actionAdd(sender button:UIButton)
+    {
+        
+    }
+    
+    func actionSave(sender button:UIButton)
+    {
+        
     }
 }

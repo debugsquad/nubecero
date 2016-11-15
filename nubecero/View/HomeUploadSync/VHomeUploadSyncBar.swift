@@ -132,22 +132,22 @@ class VHomeUploadSyncBar:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-20-[spinner(spinnerHeight)]",
+            withVisualFormat:"V:|-15-[spinner(spinnerHeight)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-43-[cancelButton(34)]",
+            withVisualFormat:"V:|-39-[cancelButton(32)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[labelCount(55)]-0-|",
+            withVisualFormat:"V:[labelCount(40)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-43-[tryAgainButton(34)]",
+            withVisualFormat:"V:|-39-[tryAgainButton(32)]",
             options:[],
             metrics:metrics,
             views:views))

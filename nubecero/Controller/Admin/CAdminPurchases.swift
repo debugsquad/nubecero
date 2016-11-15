@@ -3,6 +3,7 @@ import UIKit
 class CAdminPurchases:CController
 {
     private weak var viewPurchases:VAdminPurchases!
+    var model:MAdminPurchases?
     
     override func viewDidLoad()
     {

@@ -177,6 +177,7 @@
 		DAC98D2D1DDB69310074E16A /* VAdminPurchasesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D2C1DDB69310074E16A /* VAdminPurchasesHeader.swift */; };
 		DAC98D311DDB69560074E16A /* VAdminPurchasesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D301DDB69560074E16A /* VAdminPurchasesCell.swift */; };
 		DAC98D331DDB70880074E16A /* MAdminPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D321DDB70880074E16A /* MAdminPurchases.swift */; };
+		DAC98D351DDB70CD0074E16A /* MAdminPurchasesItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D341DDB70CD0074E16A /* MAdminPurchasesItem.swift */; };
 		DACD1F871DC3A0020067D26B /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F861DC3A0020067D26B /* CHome.swift */; };
 		DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1F881DC3A09F0067D26B /* Generic.xcassets */; };
 		DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F8B1DC3AD480067D26B /* CLogin.swift */; };
@@ -447,6 +448,7 @@
 		DAC98D2C1DDB69310074E16A /* VAdminPurchasesHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminPurchasesHeader.swift; sourceTree = "<group>"; };
 		DAC98D301DDB69560074E16A /* VAdminPurchasesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminPurchasesCell.swift; sourceTree = "<group>"; };
 		DAC98D321DDB70880074E16A /* MAdminPurchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminPurchases.swift; sourceTree = "<group>"; };
+		DAC98D341DDB70CD0074E16A /* MAdminPurchasesItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminPurchasesItem.swift; sourceTree = "<group>"; };
 		DACD1F861DC3A0020067D26B /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DACD1F881DC3A09F0067D26B /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DACD1F8B1DC3AD480067D26B /* CLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLogin.swift; sourceTree = "<group>"; };
@@ -1177,6 +1179,7 @@
 			isa = PBXGroup;
 			children = (
 				DAC98D321DDB70880074E16A /* MAdminPurchases.swift */,
+				DAC98D341DDB70CD0074E16A /* MAdminPurchasesItem.swift */,
 			);
 			path = AdminPurchases;
 			sourceTree = "<group>";
@@ -1745,6 +1748,7 @@
 				DA2F66A21DC92F5F0078B466 /* MPicturesDetailItem.swift in Sources */,
 				DAC55F2C1DD2823600213C27 /* MOnboardItemFree.swift in Sources */,
 				DAF6F2AC1DD381BA0053ED1B /* VOnboardFormCell.swift in Sources */,
+				DAC98D351DDB70CD0074E16A /* MAdminPurchasesItem.swift in Sources */,
 				DAD739961DD170B000FC3297 /* MSettingsItemShare.swift in Sources */,
 				DA406BCF1DCD022F0098D347 /* VSettings.swift in Sources */,
 				DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */,

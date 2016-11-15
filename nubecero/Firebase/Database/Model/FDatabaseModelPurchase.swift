@@ -7,7 +7,6 @@ class FDatabaseModelPurchase:FDatabaseModel
     enum Property:String
     {
         case purchaseId = "purchaseId"
-        case name = "name"
         case created = "created"
         case status = "status"
     }
@@ -19,7 +18,6 @@ class FDatabaseModelPurchase:FDatabaseModel
     }
     
     let purchaseId:MStore.PurchaseId
-    let name:String
     let created:TimeInterval
     let status:Status
     private let kEmpty:String = ""

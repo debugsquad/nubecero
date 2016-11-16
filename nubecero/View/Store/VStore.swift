@@ -158,9 +158,15 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
     {
-        let reusableView:UICollectionReusableView
+        let item:MStoreItem = modelAtIndex(index:indexPath)
+        let header:VStoreHeader = collectionView.dequeueReusableSupplementaryView(
+            ofKind:kind,
+            withReuseIdentifier:
+            VStoreHeader.reusableIdentifier,
+            for:indexPath) as! VStoreHeader
+        header.config(model:item)
         
-        return reusableView
+        return header
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell

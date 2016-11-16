@@ -99,7 +99,6 @@
 		DA4FA58F1DD7C69F00358ABE /* CStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA58E1DD7C69F00358ABE /* CStore.swift */; };
 		DA4FA5951DD7C72800358ABE /* VStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5911DD7C72800358ABE /* VStore.swift */; };
 		DA4FA5961DD7C72800358ABE /* VStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5921DD7C72800358ABE /* VStoreCell.swift */; };
-		DA4FA5971DD7C72800358ABE /* VStoreFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5931DD7C72800358ABE /* VStoreFooter.swift */; };
 		DA4FA5A21DD7C7B300358ABE /* MStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA59A1DD7C7B300358ABE /* MStore.swift */; };
 		DA4FA5AB1DD7D19200358ABE /* MMainItemAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5AA1DD7D19200358ABE /* MMainItemAdmin.swift */; };
 		DA4FA5AE1DD7D59200358ABE /* CAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5AD1DD7D59200358ABE /* CAdmin.swift */; };
@@ -178,6 +177,7 @@
 		DAC98D411DDBC6EE0074E16A /* MStoreItemStatusNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D401DDBC6EE0074E16A /* MStoreItemStatusNew.swift */; };
 		DAC98D431DDBC6F70074E16A /* MStoreItemStatusPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D421DDBC6F70074E16A /* MStoreItemStatusPurchasing.swift */; };
 		DAC98D451DDBC7020074E16A /* MStoreItemStatusPurchased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D441DDBC7020074E16A /* MStoreItemStatusPurchased.swift */; };
+		DAC98D471DDBD7680074E16A /* VStoreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D461DDBD7680074E16A /* VStoreHeader.swift */; };
 		DACD1F871DC3A0020067D26B /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F861DC3A0020067D26B /* CHome.swift */; };
 		DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1F881DC3A09F0067D26B /* Generic.xcassets */; };
 		DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F8B1DC3AD480067D26B /* CLogin.swift */; };
@@ -370,7 +370,6 @@
 		DA4FA58E1DD7C69F00358ABE /* CStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStore.swift; sourceTree = "<group>"; };
 		DA4FA5911DD7C72800358ABE /* VStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStore.swift; sourceTree = "<group>"; };
 		DA4FA5921DD7C72800358ABE /* VStoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCell.swift; sourceTree = "<group>"; };
-		DA4FA5931DD7C72800358ABE /* VStoreFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreFooter.swift; sourceTree = "<group>"; };
 		DA4FA59A1DD7C7B300358ABE /* MStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStore.swift; sourceTree = "<group>"; };
 		DA4FA5AA1DD7D19200358ABE /* MMainItemAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemAdmin.swift; sourceTree = "<group>"; };
 		DA4FA5AD1DD7D59200358ABE /* CAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAdmin.swift; sourceTree = "<group>"; };
@@ -449,6 +448,7 @@
 		DAC98D401DDBC6EE0074E16A /* MStoreItemStatusNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusNew.swift; sourceTree = "<group>"; };
 		DAC98D421DDBC6F70074E16A /* MStoreItemStatusPurchasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusPurchasing.swift; sourceTree = "<group>"; };
 		DAC98D441DDBC7020074E16A /* MStoreItemStatusPurchased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusPurchased.swift; sourceTree = "<group>"; };
+		DAC98D461DDBD7680074E16A /* VStoreHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreHeader.swift; sourceTree = "<group>"; };
 		DACD1F861DC3A0020067D26B /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DACD1F881DC3A09F0067D26B /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DACD1F8B1DC3AD480067D26B /* CLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLogin.swift; sourceTree = "<group>"; };
@@ -1048,7 +1048,7 @@
 			children = (
 				DA4FA5911DD7C72800358ABE /* VStore.swift */,
 				DA4FA5921DD7C72800358ABE /* VStoreCell.swift */,
-				DA4FA5931DD7C72800358ABE /* VStoreFooter.swift */,
+				DAC98D461DDBD7680074E16A /* VStoreHeader.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -1644,6 +1644,7 @@
 				DA4FA5961DD7C72800358ABE /* VStoreCell.swift in Sources */,
 				DAC98D311DDB69560074E16A /* VAdminPurchasesCell.swift in Sources */,
 				DAE455561DCA52BB00948D70 /* MPicturesDetailInfoItemDelete.swift in Sources */,
+				DAC98D471DDBD7680074E16A /* VStoreHeader.swift in Sources */,
 				DA4FA5BA1DD7DA4B00358ABE /* MAdminItemPurchases.swift in Sources */,
 				DA34117B1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift in Sources */,
 				DACD1FAB1DC4124B0067D26B /* VHomeUpload.swift in Sources */,
@@ -1711,7 +1712,6 @@
 				DA2F668D1DC9002E0078B466 /* MPicturesItem.swift in Sources */,
 				DA7367B41DD5228F0004B99C /* MOnboardFormItemPassGenerator.swift in Sources */,
 				DACD1F931DC3DA4B0067D26B /* VHome.swift in Sources */,
-				DA4FA5971DD7C72800358ABE /* VStoreFooter.swift in Sources */,
 				DA88F6741DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift in Sources */,
 				DAE455641DCA844100948D70 /* MPicturesData.swift in Sources */,
 				DA2F668F1DC90AF50078B466 /* FDatabaseModelPictureList.swift in Sources */,

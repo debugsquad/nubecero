@@ -32,33 +32,21 @@ class VStoreCellNew:VStoreCell
         labelPrice.isUserInteractionEnabled = false
         labelPrice.translatesAutoresizingMaskIntoConstraints = false
         labelPrice.backgroundColor = UIColor.clear
-        labelPrice.font = UIFont.medium(size:15)
+        labelPrice.font = UIFont.medium(size:16)
         labelPrice.textColor = UIColor.black
         labelPrice.textAlignment = NSTextAlignment.right
         self.labelPrice = labelPrice
         
-        let labelDuration:UILabel = UILabel()
-        labelDuration.isUserInteractionEnabled = false
-        labelDuration.translatesAutoresizingMaskIntoConstraints = false
-        labelDuration.backgroundColor = UIColor.clear
-        labelDuration.font = UIFont.regular(size:14)
-        labelDuration.textColor = UIColor(white:0.3, alpha:1)
-        labelDuration.text = NSLocalizedString("VStoreCellNew_labelDuration", comment:"")
-        self.labelDuration = labelDuration
-        
         addSubview(buttonPurchase)
         addSubview(labelPrice)
-        addSubview(labelDuration)
         
         let views:[String:UIView] = [
             "buttonPurchase":buttonPurchase,
-            "labelPrice":labelPrice,
-            "labelDuration":labelDuration]
+            "labelPrice":labelPrice]
         
         let metrics:[String:CGFloat] = [
             "buttonPurchaseWidth":kButtonPurchaseWidth,
-            "labelPriceWidth":kLabelPriceWidth,
-            "labelDurationWidth":kLabelDurationWidth]
+            "labelPriceWidth":kLabelPriceWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:[labelPrice(labelPriceWidth)]-10-[buttonPurchase(buttonPurchaseWidth)]-0-|",

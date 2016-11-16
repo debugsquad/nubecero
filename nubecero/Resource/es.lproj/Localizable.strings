@@ -42,6 +42,7 @@
 "VAdminPurchasesHeader_buttonAdd"="Nueva compra";
 "VAdminPurchasesCell_buttonDelete"="Borrar";
 "VAdminPurchasesCell_placeholder"="Identificador de compra";
+"VStoreFooter_buttonRestore"="Restaurar compra";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

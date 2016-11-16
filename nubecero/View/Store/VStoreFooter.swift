@@ -13,15 +13,19 @@ class VStoreFooter:UICollectionReusableView
         let button:UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(
-            UIColor(white:0.5, alpha:1),
+            UIColor(white:0.4, alpha:1),
             for:UIControlState.normal)
         button.setTitleColor(
-            UIColor(white:0.85, alpha:1),
+            UIColor(white:0.9, alpha:1),
             for:UIControlState.highlighted)
         button.setTitle(
             NSLocalizedString("VStoreFooter_buttonRestore", comment:""),
             for:UIControlState.normal)
         button.titleLabel!.font = UIFont.medium(size:15)
+        button.addTarget(
+            self,
+            action:#selector(actionRestore(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(button)
         
@@ -36,7 +40,7 @@ class VStoreFooter:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[button(50)]",
+            withVisualFormat:"V:|-10-[button(40)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -45,6 +49,13 @@ class VStoreFooter:UICollectionReusableView
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    //MARK: actions
+    
+    func actionRestore(sender button:UIButton)
+    {
+        controller?.restorePurchases()
     }
     
     //MARK: public

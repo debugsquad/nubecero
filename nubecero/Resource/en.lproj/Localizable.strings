@@ -43,6 +43,7 @@
 "VAdminPurchasesHeader_buttonAdd"="New purchase";
 "VAdminPurchasesCell_buttonDelete"="Delete";
 "VAdminPurchasesCell_placeholder"="Purchase ID";
+"VStoreFooter_buttonRestore"="Restore purchase";
 
 "CHomeUpload_title"="Add";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

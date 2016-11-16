@@ -18,7 +18,7 @@ class MStoreItem
         let descriptionString:String = "\(purchaseId)_descr"
         purchaseTitle = NSLocalizedString(titleString, comment:"")
         purchaseDescription = NSLocalizedString(descriptionString, comment:"")
-        purchaseAsset = "assetPurchase\(purchaseId)"
+        purchaseAsset = "assetPurchase.\(purchaseId)"
         statusNew()
     }
     

@@ -21,6 +21,11 @@ class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserve
         model = MStore(controller:self)
     }
     
+    deinit
+    {
+        SKPaymentQueue.default().remove(self)
+    }
+    
     //MARK: public
     
     func noFirebasePurchases()

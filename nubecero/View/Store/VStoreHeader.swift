@@ -129,6 +129,7 @@ class VStoreHeader:UICollectionReusableView
         mutableString.append(stringDescr)
         
         label.attributedText = mutableString
+        imageView.image = UIImage(named:model.purchaseAsset)
         
         setNeedsLayout()
     }

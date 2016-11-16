@@ -36,6 +36,8 @@
 "VAdminUsersCell_labelStatusBanned"="Bloqueado";
 "VAdminServerCellFroob_placeholder"="Ingresar espacio";
 "VAdminServerCellFroob_labelTitle"="Espacio Froob";
+"VAdminServerCellPlus_placeholder"="Ingresar espacio";
+"VAdminServerCellPlus_labelTitle"="Espacio Plus";
 "VAdminServerHeader_button"="Guardar";
 "VHomeUploadSyncBar_totalItems"=" /%@";
 "VAdminPurchasesHeader_buttonSave"="Guardar";

@@ -79,7 +79,7 @@ class VAdminServerCellPlus:VAdminServerCell, UITextFieldDelegate
     {
         guard
             
-            let space:Int = modelFroob?.space
+            let space:Int = modelPlus?.space
             
         else
         {
@@ -105,7 +105,7 @@ class VAdminServerCellPlus:VAdminServerCell, UITextFieldDelegate
             return
         }
         
-        modelFroob?.newSpace(space:amountInt)
+        modelPlus?.newSpace(space:amountInt)
         print()
     }
     

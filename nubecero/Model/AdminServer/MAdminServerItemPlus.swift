@@ -11,7 +11,7 @@ class MAdminServerItemPlus:MAdminServerItem
     {
         self.space = space
         
-        let reusableIdentifier:String = VAdminServerCellFroob.reusableIdentifier
+        let reusableIdentifier:String = VAdminServerCellPlus.reusableIdentifier
         super.init(
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight,

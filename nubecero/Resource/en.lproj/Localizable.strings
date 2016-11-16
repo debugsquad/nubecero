@@ -37,6 +37,8 @@
 "VAdminUsersPhotosHeader_titleLabel"="%@ Photos";
 "VAdminServerCellFroob_placeholder"="Enter space";
 "VAdminServerCellFroob_labelTitle"="Froob Space";
+"VAdminServerCellPlus_placeholder"="Enter space";
+"VAdminServerCellPlus_labelTitle"="Plus Space";
 "VAdminServerHeader_button"="Save";
 "VHomeUploadSyncBar_totalItems"=" /%@";
 "VAdminPurchasesHeader_buttonSave"="Save";

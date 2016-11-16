@@ -178,6 +178,10 @@
 		DAC98D431DDBC6F70074E16A /* MStoreItemStatusPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D421DDBC6F70074E16A /* MStoreItemStatusPurchasing.swift */; };
 		DAC98D451DDBC7020074E16A /* MStoreItemStatusPurchased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D441DDBC7020074E16A /* MStoreItemStatusPurchased.swift */; };
 		DAC98D471DDBD7680074E16A /* VStoreHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D461DDBD7680074E16A /* VStoreHeader.swift */; };
+		DAC98D491DDBDDD50074E16A /* VStoreCellDeferred.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D481DDBDDD50074E16A /* VStoreCellDeferred.swift */; };
+		DAC98D4B1DDBDDF40074E16A /* VStoreCellNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D4A1DDBDDF40074E16A /* VStoreCellNew.swift */; };
+		DAC98D4D1DDBDDFF0074E16A /* VStoreCellPurchasing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D4C1DDBDDFF0074E16A /* VStoreCellPurchasing.swift */; };
+		DAC98D4F1DDBDE070074E16A /* VStoreCellPurchased.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D4E1DDBDE070074E16A /* VStoreCellPurchased.swift */; };
 		DACD1F871DC3A0020067D26B /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F861DC3A0020067D26B /* CHome.swift */; };
 		DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DACD1F881DC3A09F0067D26B /* Generic.xcassets */; };
 		DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1F8B1DC3AD480067D26B /* CLogin.swift */; };
@@ -449,6 +453,10 @@
 		DAC98D421DDBC6F70074E16A /* MStoreItemStatusPurchasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusPurchasing.swift; sourceTree = "<group>"; };
 		DAC98D441DDBC7020074E16A /* MStoreItemStatusPurchased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusPurchased.swift; sourceTree = "<group>"; };
 		DAC98D461DDBD7680074E16A /* VStoreHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreHeader.swift; sourceTree = "<group>"; };
+		DAC98D481DDBDDD50074E16A /* VStoreCellDeferred.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellDeferred.swift; sourceTree = "<group>"; };
+		DAC98D4A1DDBDDF40074E16A /* VStoreCellNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellNew.swift; sourceTree = "<group>"; };
+		DAC98D4C1DDBDDFF0074E16A /* VStoreCellPurchasing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellPurchasing.swift; sourceTree = "<group>"; };
+		DAC98D4E1DDBDE070074E16A /* VStoreCellPurchased.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreCellPurchased.swift; sourceTree = "<group>"; };
 		DACD1F861DC3A0020067D26B /* CHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DACD1F881DC3A09F0067D26B /* Generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Generic.xcassets; sourceTree = "<group>"; };
 		DACD1F8B1DC3AD480067D26B /* CLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLogin.swift; sourceTree = "<group>"; };
@@ -1047,8 +1055,12 @@
 			isa = PBXGroup;
 			children = (
 				DA4FA5911DD7C72800358ABE /* VStore.swift */,
-				DA4FA5921DD7C72800358ABE /* VStoreCell.swift */,
 				DAC98D461DDBD7680074E16A /* VStoreHeader.swift */,
+				DA4FA5921DD7C72800358ABE /* VStoreCell.swift */,
+				DAC98D481DDBDDD50074E16A /* VStoreCellDeferred.swift */,
+				DAC98D4A1DDBDDF40074E16A /* VStoreCellNew.swift */,
+				DAC98D4C1DDBDDFF0074E16A /* VStoreCellPurchasing.swift */,
+				DAC98D4E1DDBDE070074E16A /* VStoreCellPurchased.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -1608,6 +1620,7 @@
 				DA465BF51DDA5C790042C8C7 /* CAdminServer.swift in Sources */,
 				DA34117D1DCBC1C0006E6D71 /* FDatabaseModelServer.swift in Sources */,
 				DA2F66911DC919570078B466 /* MPicturesItemReference.swift in Sources */,
+				DAC98D491DDBDDD50074E16A /* VStoreCellDeferred.swift in Sources */,
 				DA406BD31DCD02E90098D347 /* VSettingsCellSecurity.swift in Sources */,
 				DAA779E41DD906D500A719AD /* VAdminCell.swift in Sources */,
 				DA4FA5B61DD7D80E00358ABE /* MAdminItem.swift in Sources */,
@@ -1696,6 +1709,7 @@
 				DA4FA58F1DD7C69F00358ABE /* CStore.swift in Sources */,
 				DA7A79BD1DD622B0001B5FA5 /* MHomeItemBlank.swift in Sources */,
 				DAC55F2A1DD27FB000213C27 /* MOnboardItemAccess.swift in Sources */,
+				DAC98D4B1DDBDDF40074E16A /* VStoreCellNew.swift in Sources */,
 				DAC98D391DDB79990074E16A /* FDatabaseModelPurchaseList.swift in Sources */,
 				DA2F66931DC91B780078B466 /* VPicturesCell.swift in Sources */,
 				DA406BD81DCD03760098D347 /* MSettingsItem.swift in Sources */,
@@ -1765,6 +1779,7 @@
 				DA406BCC1DCD01E30098D347 /* CSettings.swift in Sources */,
 				DA4EF90A1DC395B300297C1D /* MMainItem.swift in Sources */,
 				DA406BE01DCD28210098D347 /* VPicturesDetailHeader.swift in Sources */,
+				DAC98D4D1DDBDDFF0074E16A /* VStoreCellPurchasing.swift in Sources */,
 				DAD739921DD1643600FC3297 /* MSettingsItemRate.swift in Sources */,
 				DAF6F2C71DD3F9400053ED1B /* MOnboardFormItemRemember.swift in Sources */,
 				DA7367B61DD523DB0004B99C /* VOnboardFormCellPassGenerator.swift in Sources */,
@@ -1794,6 +1809,7 @@
 				DAE455521DCA4D4B00948D70 /* MPicturesDetailInfoItemShare.swift in Sources */,
 				DAC98D451DDBC7020074E16A /* MStoreItemStatusPurchased.swift in Sources */,
 				DA4EF9031DC395B300297C1D /* ExtensionUIColor.swift in Sources */,
+				DAC98D4F1DDBDE070074E16A /* VStoreCellPurchased.swift in Sources */,
 				DA34118A1DCBFCD1006E6D71 /* MHomeUploadItemStatusDiskFull.swift in Sources */,
 				DACD1F9C1DC400090067D26B /* MHome.swift in Sources */,
 				DAF6F2A41DD378B80053ED1B /* MOnboardForm.swift in Sources */,

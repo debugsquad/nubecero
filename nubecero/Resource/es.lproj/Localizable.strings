@@ -98,6 +98,7 @@
 "CAdminPurchases_deleteDelete"="Borrar";
 "CAdminPurchases_deleteDone"="Compra borrada";
 "VStoreCellPurchasing_label"="Comprando";
+"VStoreCellPurchased_label"="Comprado";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

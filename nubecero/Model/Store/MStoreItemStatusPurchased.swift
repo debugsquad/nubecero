@@ -2,7 +2,7 @@ import UIKit
 
 class MStoreItemStatusPurchased:MStoreItemStatus
 {
-    private let kCellHeight:CGFloat = 30
+    private let kCellHeight:CGFloat = 40
     
     override init()
     {

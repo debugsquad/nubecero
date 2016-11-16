@@ -56,7 +56,6 @@ class CHome:CController
             }
         }
         
-        loadRecipes()
         registerNotifications()
     }
     
@@ -168,67 +167,6 @@ class CHome:CController
             }
             
             UIApplication.shared.registerForRemoteNotifications()
-        }
-    }
-    
-    private func loadRecipes()
-    {
-        
-        
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            guard
-                
-                let receiptUrl:URL = Bundle.main.appStoreReceiptURL
-                
-            else
-            {
-                return
-            }
-            
-            print("recipe url")
-            print(receiptUrl)
-            let receiptData:Data?
-            
-            do
-            {
-                 try receiptData = Data(contentsOf:receiptUrl)
-            }
-            catch
-            {
-                receiptData = nil
-            }
-            
-            guard
-            
-                let receiptDataStrong:Data = receiptData
-            
-            else
-            {
-                return
-            }
-            
-            let json:Any?
-            
-            print("string")
-            print(String(data:receiptDataStrong, encoding: String.Encoding.utf8))
-            
-            do
-            {
-                try json = JSONSerialization.jsonObject(
-                    with:receiptDataStrong,
-                    options:JSONSerialization.ReadingOptions.allowFragments)
-            }
-            catch let error as Error
-            {
-                print("error \(error)")
-                
-                json = nil
-            }
-            
-            print("json")
-            print(json)
         }
     }
     

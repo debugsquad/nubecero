@@ -7,10 +7,12 @@ class MSession
     static let sharedInstance:MSession = MSession()
     var server:MSessionServer?
     var userId:UserId?
+    var plus:Bool
     var settings:DObjectSettings?
     
     private init()
     {
+        plus = false
     }
     
     //MARK: private
@@ -138,6 +140,29 @@ class MSession
         }
     }
     
+    private func updateLastSession()
+    {
+        guard
+            
+            let userId:UserId = self.userId
+            
+            else
+        {
+            return
+        }
+        
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let propertyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
+        let userPath:String = "\(parentUser)/\(userId)/\(propertyLastSession)"
+        let currentTime:TimeInterval = NSDate().timeIntervalSince1970
+        
+        FMain.sharedInstance.database.updateChild(
+            path:userPath,
+            json:currentTime)
+        
+        self.loadServer()
+    }
+    
     //MARK: public
     
     func loadSettings()
@@ -177,26 +202,5 @@ class MSession
         return space
     }
     
-    func updateLastSession()
-    {
-        guard
-            
-            let userId:UserId = self.userId
-        
-        else
-        {
-            return
-        }
-        
-        let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
-        let userPath:String = "\(parentUser)/\(userId)/\(propertyLastSession)"
-        let currentTime:TimeInterval = NSDate().timeIntervalSince1970
-        
-        FMain.sharedInstance.database.updateChild(
-            path:userPath,
-            json:currentTime)
-        
-        self.loadServer()
-    }
+    
 }

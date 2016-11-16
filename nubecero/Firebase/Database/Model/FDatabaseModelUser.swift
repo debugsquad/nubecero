@@ -9,6 +9,7 @@ class FDatabaseModelUser:FDatabaseModel
         case lastSession = "lastSession"
         case diskUsed = "diskUsed"
         case pictures = "pictures"
+        case plus = "plus"
     }
     
     enum Status:Int

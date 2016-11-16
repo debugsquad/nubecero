@@ -5,14 +5,17 @@ class FDatabaseModelServer:FDatabaseModel
     enum Property:String
     {
         case froobSpace = "froobSpace"
+        case plusSpace = "plusSpace"
     }
     
     let froobSpace:Int
+    let plusSpace:Int
     private let kNoSpace:Int = 0
     
-    init(froobSpace:Int)
+    init(froobSpace:Int, plusSpace:Int)
     {
         self.froobSpace = froobSpace
+        self.plusSpace = plusSpace
         
         super.init()
     }
@@ -30,6 +33,15 @@ class FDatabaseModelServer:FDatabaseModel
             self.froobSpace = kNoSpace
         }
         
+        if let plusSpace:Int = snapshotDict?[Property.plusSpace.rawValue] as? Int
+        {
+            self.plusSpace = plusSpace
+        }
+        else
+        {
+            self.plusSpace = kNoSpace
+        }
+        
         super.init()
     }
     
@@ -41,7 +53,8 @@ class FDatabaseModelServer:FDatabaseModel
     override func modelJson() -> Any
     {
         let json:[String:Any] = [
-            Property.froobSpace.rawValue:froobSpace
+            Property.froobSpace.rawValue:froobSpace,
+            Property.plusSpace.rawValue:plusSpace
         ]
         
         return json

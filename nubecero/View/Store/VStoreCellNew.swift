@@ -5,6 +5,7 @@ class VStoreCellNew:VStoreCell
     private weak var labelPrice:UILabel!
     private weak var labelDuration:UILabel!
     private let kButtonPurchaseWidth:CGFloat = 100
+    private let kLabelPriceWidth:CGFloat = 100
     
     override init(frame:CGRect)
     {
@@ -22,7 +23,7 @@ class VStoreCellNew:VStoreCell
         buttonPurchase.setTitle(
             NSLocalizedString("VStoreCellNew_buttonPurchase", comment:""),
             for:UIControlState.normal)
-        buttonPurchase.titleLabel!.font = UIFont.medium(size:14)
+        buttonPurchase.titleLabel!.font = UIFont.medium(size:15)
         
         let labelPrice:UILabel = UILabel()
         labelPrice.isUserInteractionEnabled = false
@@ -30,6 +31,7 @@ class VStoreCellNew:VStoreCell
         labelPrice.backgroundColor = UIColor.clear
         labelPrice.font = UIFont.medium(size:15)
         labelPrice.textColor = UIColor.black
+        labelPrice.textAlignment = NSTextAlignment.right
         self.labelPrice = labelPrice
         
         let labelDuration:UILabel = UILabel()
@@ -50,10 +52,11 @@ class VStoreCellNew:VStoreCell
             "labelDuration":labelDuration]
         
         let metrics:[String:CGFloat] = [
-            "buttonPurchaseWidth":kButtonPurchaseWidth]
+            "buttonPurchaseWidth":kButtonPurchaseWidth,
+            "labelPriceWidth":kLabelPriceWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[buttonPurchase(buttonPurchaseWidth)]-0-|",
+            withVisualFormat:"H:[labelPrice(labelPriceWidth)]-10-[buttonPurchase(buttonPurchaseWidth)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -62,10 +65,21 @@ class VStoreCellNew:VStoreCell
             options:[],
             metrics:metrics,
             views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[labelPrice]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func config(controller:CStore, model:MStoreItem)
+    {
+        super.config(controller:controller, model:model)
+        labelPrice.text = model.price
     }
 }

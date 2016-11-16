@@ -107,9 +107,6 @@ class MStore
     {
         for skPaymentTransaction:SKPaymentTransaction in transactions
         {
-            print("transaction :::::::::")
-            print(skPaymentTransaction)
-            
             let productId:String = skPaymentTransaction.payment.productIdentifier
             
             guard

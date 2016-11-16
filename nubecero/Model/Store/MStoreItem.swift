@@ -59,5 +59,17 @@ class MStoreItem
     func statusPurchased()
     {
         status = MStoreItemStatusPurchased()
+        
+        switch perk
+        {
+            case Perk.plus:
+            
+                MSession.sharedInstance.purchasePlus()
+                
+                break
+            
+            default:
+                break
+        }
     }
 }

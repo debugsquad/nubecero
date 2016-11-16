@@ -190,7 +190,8 @@ class MSession
         
         guard
         
-            let froobSpace:Int = server?.froobSpace
+            let froobSpace:Int = server?.froobSpace,
+            let plusSpace:Int = server?.plusSpace
         
         else
         {
@@ -198,6 +199,11 @@ class MSession
         }
         
         space += froobSpace
+        
+        if plus
+        {
+            space += plusSpace
+        }
         
         return space
     }

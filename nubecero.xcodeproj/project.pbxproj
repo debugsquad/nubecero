@@ -213,6 +213,7 @@
 		DACD1FC71DC7C6AE0067D26B /* FDatabaseModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FC61DC7C6AE0067D26B /* FDatabaseModelUser.swift */; };
 		DACD1FC91DC7C6C80067D26B /* FDatabaseModelPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FC81DC7C6C80067D26B /* FDatabaseModelPicture.swift */; };
 		DACD1FCC1DC7D0320067D26B /* MSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FCB1DC7D0320067D26B /* MSession.swift */; };
+		DAD237511DDCD90200BF52C3 /* Purchase.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD237501DDCD90200BF52C3 /* Purchase.xcassets */; };
 		DAD739591DD0E35700FC3297 /* TFDatabaseModelUserDiskUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739581DD0E35700FC3297 /* TFDatabaseModelUserDiskUsed.swift */; };
 		DAD7395B1DD0E47E00FC3297 /* TFDatabaseModelPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7395A1DD0E47E00FC3297 /* TFDatabaseModelPicture.swift */; };
 		DAD7395D1DD0EE9F00FC3297 /* TFDatabaseModelPictureList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7395C1DD0EE9F00FC3297 /* TFDatabaseModelPictureList.swift */; };
@@ -488,6 +489,7 @@
 		DACD1FC61DC7C6AE0067D26B /* FDatabaseModelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUser.swift; sourceTree = "<group>"; };
 		DACD1FC81DC7C6C80067D26B /* FDatabaseModelPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelPicture.swift; sourceTree = "<group>"; };
 		DACD1FCB1DC7D0320067D26B /* MSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSession.swift; sourceTree = "<group>"; };
+		DAD237501DDCD90200BF52C3 /* Purchase.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Purchase.xcassets; sourceTree = "<group>"; };
 		DAD739581DD0E35700FC3297 /* TFDatabaseModelUserDiskUsed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelUserDiskUsed.swift; sourceTree = "<group>"; };
 		DAD7395A1DD0E47E00FC3297 /* TFDatabaseModelPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelPicture.swift; sourceTree = "<group>"; };
 		DAD7395C1DD0EE9F00FC3297 /* TFDatabaseModelPictureList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelPictureList.swift; sourceTree = "<group>"; };
@@ -801,6 +803,7 @@
 				DACD1FAC1DC418A20067D26B /* Loader.xcassets */,
 				DAE4554A1DCA4C2400948D70 /* Pictures.xcassets */,
 				DAC55F231DD25A2C00213C27 /* Onboard.xcassets */,
+				DAD237501DDCD90200BF52C3 /* Purchase.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -1474,6 +1477,7 @@
 				DACD1F911DC3B75D0067D26B /* Brand.xcassets in Resources */,
 				DACD1FA61DC40DEF0067D26B /* Home.xcassets in Resources */,
 				DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */,
+				DAD237511DDCD90200BF52C3 /* Purchase.xcassets in Resources */,
 				DAE4554B1DCA4C2400948D70 /* Pictures.xcassets in Resources */,
 				DA4EF9101DC395B300297C1D /* Localizable.strings in Resources */,
 				DACD1FAD1DC418A20067D26B /* Loader.xcassets in Resources */,

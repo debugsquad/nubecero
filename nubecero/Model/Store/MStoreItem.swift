@@ -3,6 +3,11 @@ import StoreKit
 
 class MStoreItem
 {
+    enum Perk
+    {
+        case plus
+    }
+    
     let purchaseId:MStore.PurchaseId
     let purchaseTitle:String
     let purchaseDescription:String

@@ -25,6 +25,10 @@ class VStoreCellNew:VStoreCell
             NSLocalizedString("VStoreCellNew_buttonPurchase", comment:""),
             for:UIControlState.normal)
         buttonPurchase.titleLabel!.font = UIFont.medium(size:15)
+        buttonPurchase.addTarget(
+            self,
+            action:#selector(actionPurchase(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let labelPrice:UILabel = UILabel()
         labelPrice.isUserInteractionEnabled = false
@@ -89,5 +93,12 @@ class VStoreCellNew:VStoreCell
     {
         super.config(controller:controller, model:model)
         labelPrice.text = model.price
+    }
+    
+    //MARK: actions
+    
+    func actionPurchase(sender button:UIButton)
+    {
+        controller?.purchase(skProduct:model?.skProduct)
     }
 }

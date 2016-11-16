@@ -6,7 +6,7 @@ class MStoreItemStatusPurchased:MStoreItemStatus
     
     override init()
     {
-        let reusableIdentifier:String = ""
+        let reusableIdentifier:String = VStoreCellPurchased.reusableIdentifier
         super.init(
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight)

@@ -6,7 +6,7 @@ class MStoreItemStatusDeferred:MStoreItemStatus
     
     override init()
     {
-        let reusableIdentifier:String = ""
+        let reusableIdentifier:String = VStoreCellDeferred.reusableIdentifier
         super.init(
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight)

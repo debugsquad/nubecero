@@ -45,6 +45,7 @@
 "VStoreFooter_buttonRestore"="Restaurar compra";
 "VStoreCellNew_buttonPurchase"="Comprar";
 "VStoreCellNew_labelDuration"="/Por mes";
+"VStoreCellDeferred_label"="Purchase pospuesta";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";
@@ -96,6 +97,7 @@
 "CAdminPurchases_deleteCancel"="Cancelar";
 "CAdminPurchases_deleteDelete"="Borrar";
 "CAdminPurchases_deleteDone"="Compra borrada";
+"VStoreCellPurchasing_label"="Comprando";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

@@ -46,6 +46,8 @@
 "VStoreFooter_buttonRestore"="Restore purchase";
 "VStoreCellNew_buttonPurchase"="Purchase";
 "VStoreCellNew_labelDuration"="/Per month";
+"VStoreCellDeferred_label"="Purchase deferred";
+"VStoreCellPurchasing_label"="Purchasing";
 
 "CHomeUpload_title"="Add";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

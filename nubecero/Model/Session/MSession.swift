@@ -206,9 +206,9 @@ class MSession
     {
         guard
             
-        let userId:UserId = self.userId
+            let userId:UserId = self.userId
             
-            else
+        else
         {
             return
         }
@@ -232,6 +232,31 @@ class MSession
             }
             
             self.updateLastSession()
+        }
+    }
+    
+    func purchasePlus()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            guard
+                
+                let userId:UserId = self.userId
+                
+            else
+            {
+                return
+            }
+            
+            let parentUser:String = FDatabase.Parent.user.rawValue
+            let propertyPlus:String = FDatabaseModelUser.Property.plus.rawValue
+            let plusPath:String = "\(parentUser)/\(userId)/\(propertyPlus)"
+            let firebasePlus:FDatabaseModelUserPlus = FDatabaseModelUserPlus()
+            let plusJson:Any = firebasePlus.modelJson()
+            
+            FMain.sharedInstance.database.updateChild(
+                path:plusPath,
+                json:plusJson)
         }
     }
 }

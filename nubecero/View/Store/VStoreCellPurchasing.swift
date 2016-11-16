@@ -1,9 +1,14 @@
-//
-//  VStoreCellPurchasing.swift
-//  nubecero
-//
-//  Created by zero on 11/15/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class VStoreCellPurchasing:VStoreCell
+{
+    override init(frame:CGRect)
+    {
+        super.init(frame:frame)
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+}

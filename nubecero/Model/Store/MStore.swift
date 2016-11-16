@@ -63,8 +63,7 @@ class MStore
         {
             let firebasePurchase:FDatabaseModelPurchase = purchaseList.items[itemKey]!
             
-            //if firebasePurchase.status == FDatabaseModelPurchase.Status.active
-            if true
+            if firebasePurchase.status == FDatabaseModelPurchase.Status.active
             {
                 let purchaseId:MStore.PurchaseId = firebasePurchase.purchaseId
                 let item:MStoreItem = MStoreItem(

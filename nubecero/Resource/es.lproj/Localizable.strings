@@ -44,6 +44,7 @@
 "VAdminPurchasesCell_placeholder"="Identificador de compra";
 "VStoreFooter_buttonRestore"="Restaurar compra";
 "VStoreCellNew_buttonPurchase"="Comprar";
+"VStoreCellNew_labelDuration"="/Por mes";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

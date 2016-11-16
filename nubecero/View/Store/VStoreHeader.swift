@@ -6,8 +6,10 @@ class VStoreHeader:UICollectionReusableView
     private let attrDescr:[String:Any]
     private let labelMargins:CGFloat
     private weak var label:UILabel!
+    private weak var imageView:UIImageView!
     private weak var layoutLabelHeight:NSLayoutConstraint!
     private let kLabelMarginHorizontal:CGFloat = 10
+    private let kImageViewSize:CGFloat = 100
     
     override init(frame:CGRect)
     {
@@ -34,13 +36,23 @@ class VStoreHeader:UICollectionReusableView
         label.numberOfLines = 0
         self.label = label
         
+        let imageView:UIImageView = UIImageView()
+        imageView.isUserInteractionEnabled = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = UIViewContentMode.center
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        self.imageView = imageView
+        
         addSubview(label)
+        addSubview(imageView)
         
         let views:[String:UIView] = [
-            "label":label]
+            "label":label,
+            "imageView":imageView]
         
         let metrics:[String:CGFloat] = [
-            "labelMarginHorizontal":kLabelMarginHorizontal]
+            "labelMarginHorizontal":kLabelMarginHorizontal,
+            "imageViewSize":kImageViewSize]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-(labelMarginHorizontal)-[label]-(labelMarginHorizontal)-|",
@@ -48,7 +60,12 @@ class VStoreHeader:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-10-[label]",
+            withVisualFormat:"H:|-0-[imageView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-10-[label]-0-[imageView(imageViewSize)]",
             options:[],
             metrics:metrics,
             views:views))

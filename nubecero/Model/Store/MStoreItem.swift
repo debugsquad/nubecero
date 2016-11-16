@@ -6,6 +6,7 @@ class MStoreItem
     let purchaseId:MStore.PurchaseId
     let purchaseTitle:String
     let purchaseDescription:String
+    let purchaseAsset:String
     var skProduct:SKProduct?
     var price:String?
     var status:MStoreItemStatus?
@@ -17,6 +18,7 @@ class MStoreItem
         let descriptionString:String = "\(purchaseId)_descr"
         purchaseTitle = NSLocalizedString(titleString, comment:"")
         purchaseDescription = NSLocalizedString(descriptionString, comment:"")
+        purchaseAsset = "assetPurchase\(purchaseId)"
         statusNew()
     }
     

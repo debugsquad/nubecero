@@ -9,18 +9,18 @@ class VStoreHeader:UICollectionReusableView
     private weak var imageView:UIImageView!
     private weak var layoutLabelHeight:NSLayoutConstraint!
     private let kLabelMarginHorizontal:CGFloat = 10
-    private let kImageViewSize:CGFloat = 110
+    private let kImageViewSize:CGFloat = 100
     
     override init(frame:CGRect)
     {
         attrTitle = [
-            NSFontAttributeName:UIFont.bold(size:18),
+            NSFontAttributeName:UIFont.bold(size:17),
             NSForegroundColorAttributeName:UIColor.main
         ]
         
         attrDescr = [
-            NSFontAttributeName:UIFont.medium(size:15),
-            NSForegroundColorAttributeName:UIColor(white:0.2, alpha:1)
+            NSFontAttributeName:UIFont.regular(size:14),
+            NSForegroundColorAttributeName:UIColor.black
         ]
         
         labelMargins = kLabelMarginHorizontal + kImageViewSize
@@ -60,12 +60,12 @@ class VStoreHeader:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-10-[label]",
+            withVisualFormat:"V:|-20-[label]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[imageView(imageViewSize)]",
+            withVisualFormat:"V:|-12-[imageView(imageViewSize)]",
             options:[],
             metrics:metrics,
             views:views))

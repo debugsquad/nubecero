@@ -115,3 +115,6 @@
 "MAdminItemSubscriptions_title"="Subscriptions";
 "MAdminUsersPhotosItemStatusLoading_errorUnknown"="Error loading image";
 "MStore_errorLoading"="Error loading purchases try again";
+
+"iturbide.nubecero.plus_title"="nubecero plus";
+"iturbide.nubecero.plus_descr"="\nBoost your cloud\nYour total storage capacity will be 1,000 Megabytes";

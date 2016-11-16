@@ -9,21 +9,21 @@ class VStoreHeader:UICollectionReusableView
     private weak var imageView:UIImageView!
     private weak var layoutLabelHeight:NSLayoutConstraint!
     private let kLabelMarginHorizontal:CGFloat = 10
-    private let kImageViewSize:CGFloat = 100
+    private let kImageViewSize:CGFloat = 110
     
     override init(frame:CGRect)
     {
         attrTitle = [
-            NSFontAttributeName:UIFont.bold(size:17),
+            NSFontAttributeName:UIFont.bold(size:18),
             NSForegroundColorAttributeName:UIColor.main
         ]
         
         attrDescr = [
-            NSFontAttributeName:UIFont.medium(size:17),
-            NSForegroundColorAttributeName:UIColor(white:0.4, alpha:1)
+            NSFontAttributeName:UIFont.medium(size:15),
+            NSForegroundColorAttributeName:UIColor(white:0.2, alpha:1)
         ]
         
-        labelMargins = kLabelMarginHorizontal + kLabelMarginHorizontal
+        labelMargins = kLabelMarginHorizontal + kImageViewSize
         
         super.init(frame:frame)
         clipsToBounds = true
@@ -55,17 +55,17 @@ class VStoreHeader:UICollectionReusableView
             "imageViewSize":kImageViewSize]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-(labelMarginHorizontal)-[label]-(labelMarginHorizontal)-|",
+            withVisualFormat:"H:|-0-[imageView(imageViewSize)]-0-[label]-(labelMarginHorizontal)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[imageView]-0-|",
+            withVisualFormat:"V:|-10-[label]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-10-[label]-0-[imageView(imageViewSize)]",
+            withVisualFormat:"V:|-0-[imageView(imageViewSize)]",
             options:[],
             metrics:metrics,
             views:views))

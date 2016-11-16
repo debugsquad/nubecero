@@ -50,6 +50,10 @@ class VAdminServer:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             VAdminServerCellFroob.self,
             forCellWithReuseIdentifier:
             VAdminServerCellFroob.reusableIdentifier)
+        collectionView.register(
+            VAdminServerCellPlus.self,
+            forCellWithReuseIdentifier:
+            VAdminServerCellPlus.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(spinner)

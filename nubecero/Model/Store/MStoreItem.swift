@@ -19,7 +19,7 @@ class MStoreItem
         purchaseTitle = NSLocalizedString(titleString, comment:"")
         purchaseDescription = NSLocalizedString(descriptionString, comment:"")
         purchaseAsset = "assetPurchase.\(purchaseId)"
-        statusNew()
+        statusDeferred()
     }
     
     //MARK: public

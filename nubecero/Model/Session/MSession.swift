@@ -35,7 +35,7 @@ class MSession
                     case FDatabaseModelUser.Status.active:
                     
                         self.userId = userId
-                        self.updateLastSession()
+                        self.loadPerks()
                         
                         break
                     
@@ -146,18 +146,18 @@ class MSession
             
             let userId:UserId = self.userId
             
-            else
+        else
         {
             return
         }
         
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
-        let userPath:String = "\(parentUser)/\(userId)/\(propertyLastSession)"
+        let lastSessionPath:String = "\(parentUser)/\(userId)/\(propertyLastSession)"
         let currentTime:TimeInterval = NSDate().timeIntervalSince1970
         
         FMain.sharedInstance.database.updateChild(
-            path:userPath,
+            path:lastSessionPath,
             json:currentTime)
         
         self.loadServer()
@@ -204,6 +204,34 @@ class MSession
     
     func loadPerks()
     {
+        guard
+            
+        let userId:UserId = self.userId
+            
+            else
+        {
+            return
+        }
         
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let propertyPlus:String = FDatabaseModelUser.Property.plus.rawValue
+        let plusPath:String = "\(parentUser)/\(userId)/\(propertyPlus)"
+        
+        FMain.sharedInstance.database.listenOnce(
+            path:plusPath,
+            modelType:FDatabaseModelUserPlus.self)
+        { (plus) in
+            
+            if let plusStrong:FDatabaseModelUserPlus = plus
+            {
+                self.plus = plusStrong.plus
+            }
+            else
+            {
+                self.plus = false
+            }
+            
+            self.updateLastSession()
+        }
     }
 }

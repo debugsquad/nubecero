@@ -3,10 +3,8 @@ import UIKit
 class VStoreCellNew:VStoreCell
 {
     private weak var labelPrice:UILabel!
-    private weak var labelDuration:UILabel!
     private let kButtonPurchaseWidth:CGFloat = 100
     private let kLabelPriceWidth:CGFloat = 200
-    private let kLabelDurationWidth:CGFloat = 95
     
     override init(frame:CGRect)
     {
@@ -63,17 +61,12 @@ class VStoreCellNew:VStoreCell
             "labelDurationWidth":kLabelDurationWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[labelPrice(labelPriceWidth)]-0-[labelDuration(labelDurationWidth)]-0-[buttonPurchase(buttonPurchaseWidth)]-0-|",
+            withVisualFormat:"H:[labelPrice(labelPriceWidth)]-10-[buttonPurchase(buttonPurchaseWidth)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[buttonPurchase]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[labelDuration]-0-|",
             options:[],
             metrics:metrics,
             views:views))

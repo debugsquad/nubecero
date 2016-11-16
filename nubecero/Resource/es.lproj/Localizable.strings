@@ -44,7 +44,6 @@
 "VAdminPurchasesCell_placeholder"="Identificador de compra";
 "VStoreFooter_buttonRestore"="Restaurar compra";
 "VStoreCellNew_buttonPurchase"="Comprar";
-"VStoreCellNew_labelDuration"="/Por mes";
 "VStoreCellDeferred_label"="Purchase pospuesta";
 
 "CHomeUpload_title"="Agregar";

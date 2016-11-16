@@ -56,34 +56,8 @@ class CHome:CController
             }
         }
         
-        DispatchQueue.main.asyncAfter(
-            deadline:DispatchTime.now() + kAskNotifications)
-        {
-            if #available(iOS 10.0, *)
-            {
-                let authOptions:UNAuthorizationOptions = [
-                    UNAuthorizationOptions.alert,
-                    UNAuthorizationOptions.badge,
-                    UNAuthorizationOptions.sound]
-                
-                UNUserNotificationCenter.current().requestAuthorization(options:authOptions)
-                { (_, _) in
-                }
-            }
-            else
-            {
-                let settings:UIUserNotificationSettings = UIUserNotificationSettings(
-                    types:[
-                        UIUserNotificationType.alert,
-                        UIUserNotificationType.badge,
-                        UIUserNotificationType.sound],
-                    categories:nil)
-                
-                UIApplication.shared.registerUserNotificationSettings(settings)
-            }
-            
-            UIApplication.shared.registerForRemoteNotifications()
-        }
+        loadRecipes()
+        registerNotifications()
     }
     
     override func viewDidAppear(_ animated:Bool)
@@ -162,6 +136,99 @@ class CHome:CController
                     self?.viewHome.sessionLoaded()
                 }
             }
+        }
+    }
+    
+    private func registerNotifications()
+    {
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kAskNotifications)
+        {
+            if #available(iOS 10.0, *)
+            {
+                let authOptions:UNAuthorizationOptions = [
+                    UNAuthorizationOptions.alert,
+                    UNAuthorizationOptions.badge,
+                    UNAuthorizationOptions.sound]
+                
+                UNUserNotificationCenter.current().requestAuthorization(options:authOptions)
+                { (_, _) in
+                }
+            }
+            else
+            {
+                let settings:UIUserNotificationSettings = UIUserNotificationSettings(
+                    types:[
+                        UIUserNotificationType.alert,
+                        UIUserNotificationType.badge,
+                        UIUserNotificationType.sound],
+                    categories:nil)
+                
+                UIApplication.shared.registerUserNotificationSettings(settings)
+            }
+            
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+    }
+    
+    private func loadRecipes()
+    {
+        
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            guard
+                
+                let receiptUrl:URL = Bundle.main.appStoreReceiptURL
+                
+            else
+            {
+                return
+            }
+            
+            print("recipe url")
+            print(receiptUrl)
+            let receiptData:Data?
+            
+            do
+            {
+                 try receiptData = Data(contentsOf:receiptUrl)
+            }
+            catch
+            {
+                receiptData = nil
+            }
+            
+            guard
+            
+                let receiptDataStrong:Data = receiptData
+            
+            else
+            {
+                return
+            }
+            
+            let json:Any?
+            
+            print("string")
+            print(String(data:receiptDataStrong, encoding: String.Encoding.utf8))
+            
+            do
+            {
+                try json = JSONSerialization.jsonObject(
+                    with:receiptDataStrong,
+                    options:JSONSerialization.ReadingOptions.allowFragments)
+            }
+            catch let error as Error
+            {
+                print("error \(error)")
+                
+                json = nil
+            }
+            
+            print("json")
+            print(json)
         }
     }
     

@@ -45,7 +45,6 @@
 "VAdminPurchasesCell_placeholder"="Purchase ID";
 "VStoreFooter_buttonRestore"="Restore purchase";
 "VStoreCellNew_buttonPurchase"="Purchase";
-"VStoreCellNew_labelDuration"="/Per month";
 "VStoreCellDeferred_label"="Purchase deferred";
 "VStoreCellPurchasing_label"="Purchasing";
 "VStoreCellPurchased_label"="Purchased";

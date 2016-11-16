@@ -3,15 +3,17 @@ import StoreKit
 
 class MStoreItem
 {
-    enum Perk
+    enum Perk:String
     {
-        case plus
+        case unknown
+        case plus = "iturbide.nubecero.nubeceroplus"
     }
     
     let purchaseId:MStore.PurchaseId
     let purchaseTitle:String
     let purchaseDescription:String
     let purchaseAsset:String
+    let perk:Perk
     var skProduct:SKProduct?
     var price:String?
     var status:MStoreItemStatus?
@@ -24,6 +26,16 @@ class MStoreItem
         purchaseTitle = NSLocalizedString(titleString, comment:"")
         purchaseDescription = NSLocalizedString(descriptionString, comment:"")
         purchaseAsset = "assetPurchase.\(purchaseId)"
+        
+        if let perk:Perk = Perk(rawValue:purchaseId)
+        {
+            self.perk = perk
+        }
+        else
+        {
+            self.perk = Perk.unknown
+        }
+        
         statusNew()
     }
     

@@ -43,12 +43,12 @@ class VStoreHeader:UICollectionReusableView
             "labelMarginHorizontal":kLabelMarginHorizontal]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-(labelMargin)-[label]-(labelMargin)-|",
+            withVisualFormat:"H:|-(labelMarginHorizontal)-[label]-(labelMarginHorizontal)-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(labelMargin)-[label]",
+            withVisualFormat:"V:|-10-[label]",
             options:[],
             metrics:metrics,
             views:views))
@@ -92,7 +92,7 @@ class VStoreHeader:UICollectionReusableView
                 NSStringDrawingOptions.usesFontLeading
                 ]),
             context:nil)
-        layoutLabelHeight.constant = boundingRect.size.height
+        layoutLabelHeight.constant = ceil(boundingRect.size.height)
         
         super.layoutSubviews()
     }

@@ -66,11 +66,12 @@ class MStore
             //if firebasePurchase.status == FDatabaseModelPurchase.Status.active
             if true
             {
+                let purchaseId:MStore.PurchaseId = firebasePurchase.purchaseId
                 let item:MStoreItem = MStoreItem(
                     firebasePurchase:firebasePurchase)
-                mapItems[itemKey] = item
-                itemsSet.insert(itemKey)
-                listReferences.append(itemKey)
+                mapItems[purchaseId] = item
+                itemsSet.insert(purchaseId)
+                listReferences.append(purchaseId)
             }
         }
         

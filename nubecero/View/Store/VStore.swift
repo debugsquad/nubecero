@@ -6,7 +6,7 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     weak var viewSpinner:VSpinner!
     weak var collectionView:UICollectionView!
     private let kHeaderHeight:CGFloat = 130
-    private let kCollectionBottom:CGFloat = 20
+    private let kFooterHeight:CGFloat = 90
     private let kInterLine:CGFloat = 1
     
     convenience init(controller:CStore)
@@ -24,11 +24,11 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
-        flow.footerReferenceSize = CGSize.zero
+        flow.footerReferenceSize = CGSize(width:0, height:kFooterHeight)
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
-        flow.sectionInset = UIEdgeInsets(top:kInterLine, left:0, bottom:kCollectionBottom, right:0)
+        flow.sectionInset = UIEdgeInsets.zero
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
         collectionView.clipsToBounds = true
@@ -60,6 +60,11 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
             forSupplementaryViewOfKind:UICollectionElementKindSectionHeader,
             withReuseIdentifier:
             VStoreHeader.reusableIdentifier)
+        collectionView.register(
+            VStoreFooter.self,
+            forSupplementaryViewOfKind:UICollectionElementKindSectionFooter,
+            withReuseIdentifier:
+            VStoreFooter.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(collectionView)
@@ -170,15 +175,32 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
     {
-        let item:MStoreItem = modelAtIndex(index:indexPath)
-        let header:VStoreHeader = collectionView.dequeueReusableSupplementaryView(
-            ofKind:kind,
-            withReuseIdentifier:
-            VStoreHeader.reusableIdentifier,
-            for:indexPath) as! VStoreHeader
-        header.config(model:item)
+        let reusable:UICollectionReusableView
         
-        return header
+        if kind == UICollectionElementKindSectionHeader
+        {
+            let item:MStoreItem = modelAtIndex(index:indexPath)
+            let header:VStoreHeader = collectionView.dequeueReusableSupplementaryView(
+                ofKind:kind,
+                withReuseIdentifier:
+                VStoreHeader.reusableIdentifier,
+                for:indexPath) as! VStoreHeader
+            header.config(model:item)
+            reusable = header
+        }
+        else
+        {
+            let footer:VStoreFooter = collectionView.dequeueReusableSupplementaryView(
+                ofKind:kind,
+                withReuseIdentifier:
+                VStoreFooter.reusableIdentifier,
+                for:indexPath) as! VStoreFooter
+            footer.config(controller:controller)
+            
+            reusable = footer
+        }
+        
+        return reusable
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell

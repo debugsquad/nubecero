@@ -1060,8 +1060,8 @@
 			isa = PBXGroup;
 			children = (
 				DA4FA5911DD7C72800358ABE /* VStore.swift */,
-				DAD237521DDCE82800BF52C3 /* VStoreFooter.swift */,
 				DAC98D461DDBD7680074E16A /* VStoreHeader.swift */,
+				DAD237521DDCE82800BF52C3 /* VStoreFooter.swift */,
 				DA4FA5921DD7C72800358ABE /* VStoreCell.swift */,
 				DAC98D481DDBDDD50074E16A /* VStoreCellDeferred.swift */,
 				DAC98D4A1DDBDDF40074E16A /* VStoreCellNew.swift */,

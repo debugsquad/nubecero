@@ -202,5 +202,8 @@ class MSession
         return space
     }
     
-    
+    func loadPerks()
+    {
+        
+    }
 }

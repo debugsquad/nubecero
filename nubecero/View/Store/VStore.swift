@@ -40,9 +40,21 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(
-            VStoreCell.self,
+            VStoreCellDeferred.self,
             forCellWithReuseIdentifier:
-            VStoreCell.reusableIdentifier)
+            VStoreCellDeferred.reusableIdentifier)
+        collectionView.register(
+            VStoreCellNew.self,
+            forCellWithReuseIdentifier:
+            VStoreCellNew.reusableIdentifier)
+        collectionView.register(
+            VStoreCellPurchased.self,
+            forCellWithReuseIdentifier:
+            VStoreCellPurchased.reusableIdentifier)
+        collectionView.register(
+            VStoreCellPurchasing.self,
+            forCellWithReuseIdentifier:
+            VStoreCellPurchasing.reusableIdentifier)
         collectionView.register(
             VStoreHeader.self,
             forSupplementaryViewOfKind:UICollectionElementKindSectionHeader,

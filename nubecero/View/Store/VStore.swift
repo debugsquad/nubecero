@@ -41,6 +41,10 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(
+            VStoreCellNotAvailable.self,
+            forCellWithReuseIdentifier:
+            VStoreCellNotAvailable.reusableIdentifier)
+        collectionView.register(
             VStoreCellDeferred.self,
             forCellWithReuseIdentifier:
             VStoreCellDeferred.reusableIdentifier)

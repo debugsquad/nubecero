@@ -8,7 +8,7 @@ class MStoreItem
     let descr:String
     let image:UIImage
     var skProduct:SKProduct?
-    var price:String?
+    private(set) var price:String?
     private(set) var status:MStoreItemStatus?
     
     init(purchaseId:MStore.PurchaseId, title:String, descr:String, image:UIImage)
@@ -17,8 +17,7 @@ class MStoreItem
         self.title = title
         self.descr = descr
         self.image = image
-        
-        statusNew()
+        status = MStoreItemStatusNotAvailable()
     }
     
     init()
@@ -27,6 +26,11 @@ class MStoreItem
     }
     
     //MARK: public
+    
+    func foundPurchase(price:String)
+    {
+        self.price = price
+    }
     
     func statusNew()
     {

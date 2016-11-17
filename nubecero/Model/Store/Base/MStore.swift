@@ -45,8 +45,17 @@ class MStore
         priceFormatter.locale = skProduct.priceLocale
         
         let priceNumber:NSDecimalNumber = skProduct.price
-        let priceString:String? = priceFormatter.string(from:priceNumber)
-        mappedItem.price = priceString
+        
+        guard
+            
+            let priceString:String = priceFormatter.string(from:priceNumber)
+        
+        else
+        {
+            return
+        }
+        
+        mappedItem.foundPurchase(price:priceString)
     }
     
     func updateTransactions(transactions:[SKPaymentTransaction])

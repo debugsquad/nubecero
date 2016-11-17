@@ -42,6 +42,12 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
             VPhotosCell.self,
             forCellWithReuseIdentifier:
             VPhotosCell.reusableIdentifier)
+        collectionView.register(
+            VPhotosHeader.self,
+            forSupplementaryViewOfKind:
+            UICollectionElementKindSectionHeader,
+            withReuseIdentifier:
+            VPhotosHeader.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(collectionView)
@@ -93,6 +99,18 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         let count:Int = MPhotos.sharedInstance.items.count
         
         return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
+    {
+        let header:VPhotosHeader = collectionView.dequeueReusableSupplementaryView(
+            ofKind:kind,
+            withReuseIdentifier:
+            VPhotosHeader.reusableIdentifier,
+            for:indexPath) as! VPhotosHeader
+        header.config(controller:controller)
+        
+        return header
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell

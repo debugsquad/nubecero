@@ -103,6 +103,5 @@
 "MAdminItemUsers_title"="Usuarios";
 "MAdminUsersPhotosItemStatusLoading_errorUnknown"="Error al cargar imagen";
 "MStore_errorLoading"="Error cargando compras, reintenta";
-
-"iturbide.nubecero.nubeceroplus_title"="nubecero plus";
-"iturbide.nubecero.nubeceroplus_descr"="\nAumenta tu nube\nAgrega 1,000 Megabytes a tu capacidad en la nube";
+"MStoreItemAlbums_title"="Albums admin";
+"MStoreItemAlbums_descr"="Crea los albums que quieras para organizar tus fotos";

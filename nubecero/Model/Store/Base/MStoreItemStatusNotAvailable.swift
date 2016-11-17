@@ -2,7 +2,7 @@ import UIKit
 
 class MStoreItemStatusNotAvailable:MStoreItemStatus
 {
-    private let kCellHeight:CGFloat = 40
+    private let kCellHeight:CGFloat = 50
     private let kRestorable:Bool = false
     
     override init()
@@ -14,7 +14,7 @@ class MStoreItemStatusNotAvailable:MStoreItemStatus
             restorable:kRestorable)
     }
     
-    override init(reusableIdentifier:String, cellHeight:CGFloat)
+    override init(reusableIdentifier:String, cellHeight:CGFloat, restorable:Bool)
     {
         fatalError()
     }

@@ -14,7 +14,7 @@ class MStoreItemStatusPurchasing:MStoreItemStatus
             restorable:kRestorable)
     }
     
-    override init(reusableIdentifier:String, cellHeight:CGFloat)
+    override init(reusableIdentifier:String, cellHeight:CGFloat, restorable:Bool)
     {
         fatalError()
     }

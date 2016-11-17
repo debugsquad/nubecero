@@ -5,7 +5,7 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     private weak var controller:CStore!
     private weak var viewSpinner:VSpinner?
     private weak var collectionView:UICollectionView!
-    private let kHeaderHeight:CGFloat = 130
+    private let kHeaderHeight:CGFloat = 150
     private let kFooterHeight:CGFloat = 100
     private let kInterLine:CGFloat = 1
     
@@ -149,7 +149,18 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     {
         let indexPath:IndexPath = IndexPath(item:0, section:section)
         let item:MStoreItem = modelAtIndex(index:indexPath)
-        let size:CGSize = CGSize(width:0, height: <#T##CGFloat#>)
+        let size:CGSize
+        
+        if item.status?.restorable == true
+        {
+            size = CGSize(width:0, height:kFooterHeight)
+        }
+        else
+        {
+            size = CGSize.zero
+        }
+        
+        return size
     }
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize

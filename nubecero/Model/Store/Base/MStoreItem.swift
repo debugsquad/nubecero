@@ -1,42 +1,29 @@
-import Foundation
+import UIKit
 import StoreKit
 
 class MStoreItem
 {
-    enum Perk:String
-    {
-        case unknown
-        case plus = "iturbide.nubecero.nubeceroplus"
-    }
-    
     let purchaseId:MStore.PurchaseId
-    let purchaseTitle:String
-    let purchaseDescription:String
-    let purchaseAsset:String
-    let perk:Perk
+    let title:String
+    let descr:String
+    let image:UIImage
     var skProduct:SKProduct?
     var price:String?
-    var status:MStoreItemStatus?
+    private(set) var status:MStoreItemStatus?
     
-    init(firebasePurchase:FDatabaseModelPurchase)
+    init(purchaseId:MStore.PurchaseId, title:String, descr:String, image:UIImage)
     {
-        purchaseId = firebasePurchase.purchaseId
-        let titleString:String = "\(purchaseId)_title"
-        let descriptionString:String = "\(purchaseId)_descr"
-        purchaseTitle = NSLocalizedString(titleString, comment:"")
-        purchaseDescription = NSLocalizedString(descriptionString, comment:"")
-        purchaseAsset = "assetPurchase.\(purchaseId)"
-        
-        if let perk:Perk = Perk(rawValue:purchaseId)
-        {
-            self.perk = perk
-        }
-        else
-        {
-            self.perk = Perk.unknown
-        }
+        self.purchaseId = purchaseId
+        self.title = title
+        self.descr = descr
+        self.image = image
         
         statusNew()
+    }
+    
+    init()
+    {
+        fatalError()
     }
     
     //MARK: public
@@ -59,17 +46,5 @@ class MStoreItem
     func statusPurchased()
     {
         status = MStoreItemStatusPurchased()
-        
-        switch perk
-        {
-            case Perk.plus:
-            
-                MSession.sharedInstance.purchasePlus()
-                
-                break
-            
-            default:
-                break
-        }
     }
 }

@@ -43,15 +43,15 @@ class CController:UIViewController
         edgesForExtendedLayout = UIRectEdge()
         extendedLayoutIncludesOpaqueBars = false
         automaticallyAdjustsScrollViewInsets = false
-        
-        let screen:String = NSStringFromClass(object_getClass(self))
-        FIRAnalytics.setScreenName(screen, screenClass:screen)
     }
     
     override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
         parentController.viewParent.bar.label.text = title
+        
+        let screen:String = NSStringFromClass(object_getClass(self))
+        FIRAnalytics.setScreenName(screen, screenClass:screen)
     }
     
     override var preferredStatusBarStyle:UIStatusBarStyle

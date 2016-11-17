@@ -18,6 +18,8 @@ class FAnalytics
     private let kEventSessionTryRegister:NSString = "Try/Register"
     private let kEventSessionRegister:NSString = "Signin"
     private let kEventSessionSignin:NSString = "Register"
+    private let kEventSessionPasswordGenerate:NSString = "Password/Generate"
+    private let kEventSessionPasswordReset:NSString = "Pasword/Reset"
     private let kEventClean:NSString = "Clean"
     private let kEventCleanPictureDeletable:NSString = "Picture/Deletable"
     private let kEventCleanPictureDeletableNoData:NSString = "Picture/Deletable/NoData"
@@ -71,6 +73,16 @@ class FAnalytics
     func register()
     {
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionRegister)
+    }
+    
+    func passwordReset()
+    {
+        trackSelectContent(contentType:kEventSession, itemId:kEventSessionPasswordReset)
+    }
+    
+    func passwordGenerate()
+    {
+        trackSelectContent(contentType:kEventSession, itemId:kEventSessionPasswordGenerate)
     }
     
     //MARK: actions

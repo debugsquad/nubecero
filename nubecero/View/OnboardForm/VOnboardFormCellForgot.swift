@@ -77,6 +77,7 @@ class VOnboardFormCellForgot:VOnboardFormCell
     
     func actionForgot(sender button:UIButton)
     {
+        FMain.sharedInstance.analytics?.passwordReset()
         controller?.forgotPassword()
     }
 }

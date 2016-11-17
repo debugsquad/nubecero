@@ -7,6 +7,9 @@ class FAnalytics
     private let kEventAction:NSString = "Action"
     private let kEventActionRate:NSString = "Rate"
     private let kEventActionShare:NSString = "Share"
+    private let kEventPurchase:NSString = "Buy"
+    private let kEventPurchaseBuy:NSString = "Buy"
+    private let kEventPurchaseRestore:NSString = "Restore"
     private let kEventPicture:NSString = "Picture"
     private let kEventPictureShare:NSString = "Share"
     private let kEventPictureDelete:NSString = "Delete"
@@ -130,5 +133,17 @@ class FAnalytics
     func cleanPictureDeletableNoData()
     {
         trackSelectContent(contentType:kEventClean, itemId:kEventCleanPictureDeletableNoData)
+    }
+    
+    //MARK: purchase
+    
+    func purchaseBuy()
+    {
+        trackSelectContent(contentType:kEventPurchase, itemId:kEventPurchaseBuy)
+    }
+    
+    func purchaseRestore()
+    {
+        trackSelectContent(contentType:kEventPurchase, itemId:kEventPurchaseRestore)
     }
 }

@@ -9,6 +9,7 @@ class FDatabaseModelUser:FDatabaseModel
         case lastSession = "lastSession"
         case diskUsed = "diskUsed"
         case pictures = "pictures"
+        case plus = "plus"
     }
     
     enum Status:Int
@@ -82,6 +83,11 @@ class FDatabaseModelUser:FDatabaseModel
         }
         
         super.init()
+    }
+    
+    override init()
+    {
+        fatalError()
     }
     
     override func modelJson() -> Any

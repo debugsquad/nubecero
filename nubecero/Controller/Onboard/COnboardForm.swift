@@ -14,7 +14,7 @@ class COnboardForm:CController
     {
         self.model = model
         self.onboard = onboard
-        super.init(nibName:nil, bundle:nil)
+        super.init()
     }
     
     required init?(coder:NSCoder)
@@ -48,7 +48,7 @@ class COnboardForm:CController
         }
     }
     
-    private func authSuccess(userId:String)
+    private func authSuccess(userId:MSession.UserId)
     {
         MSession.sharedInstance.loadUser(userId:userId)
         

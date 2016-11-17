@@ -7,6 +7,7 @@ class FDatabase
     {
         case server = "server"
         case user = "user"
+        case purchase = "purchase"
     }
     
     private let reference:FIRDatabaseReference

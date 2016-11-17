@@ -42,7 +42,7 @@ class VHomeUploadBar:UIView
         amountLabel.isUserInteractionEnabled = false
         amountLabel.translatesAutoresizingMaskIntoConstraints = false
         amountLabel.backgroundColor = UIColor.clear
-        amountLabel.font = UIFont.regular(size:16)
+        amountLabel.font = UIFont.medium(size:16)
         amountLabel.textColor = UIColor.white
         amountLabel.textAlignment = NSTextAlignment.right
         self.amountLabel = amountLabel

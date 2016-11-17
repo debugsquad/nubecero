@@ -6,10 +6,10 @@ class COnboard:CController
     private weak var viewOnboard:VOnboard!
     private let kSuccessAfter:TimeInterval = 0.5
     
-    init()
+    override init()
     {
         model = MOnboard()
-        super.init(nibName:nil, bundle:nil)
+        super.init()
     }
     
     required init?(coder:NSCoder)

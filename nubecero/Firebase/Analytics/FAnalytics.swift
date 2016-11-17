@@ -7,6 +7,9 @@ class FAnalytics
     private let kEventAction:NSString = "Action"
     private let kEventActionRate:NSString = "Rate"
     private let kEventActionShare:NSString = "Share"
+    private let kEventPurchase:NSString = "Buy"
+    private let kEventPurchaseBuy:NSString = "Buy"
+    private let kEventPurchaseRestore:NSString = "Restore"
     private let kEventPicture:NSString = "Picture"
     private let kEventPictureShare:NSString = "Share"
     private let kEventPictureDelete:NSString = "Delete"
@@ -18,6 +21,8 @@ class FAnalytics
     private let kEventSessionTryRegister:NSString = "Try/Register"
     private let kEventSessionRegister:NSString = "Signin"
     private let kEventSessionSignin:NSString = "Register"
+    private let kEventSessionPasswordGenerate:NSString = "Password/Generate"
+    private let kEventSessionPasswordReset:NSString = "Pasword/Reset"
     private let kEventClean:NSString = "Clean"
     private let kEventCleanPictureDeletable:NSString = "Picture/Deletable"
     private let kEventCleanPictureDeletableNoData:NSString = "Picture/Deletable/NoData"
@@ -73,6 +78,16 @@ class FAnalytics
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionRegister)
     }
     
+    func passwordReset()
+    {
+        trackSelectContent(contentType:kEventSession, itemId:kEventSessionPasswordReset)
+    }
+    
+    func passwordGenerate()
+    {
+        trackSelectContent(contentType:kEventSession, itemId:kEventSessionPasswordGenerate)
+    }
+    
     //MARK: actions
     
     func rate()
@@ -118,5 +133,17 @@ class FAnalytics
     func cleanPictureDeletableNoData()
     {
         trackSelectContent(contentType:kEventClean, itemId:kEventCleanPictureDeletableNoData)
+    }
+    
+    //MARK: purchase
+    
+    func purchaseBuy()
+    {
+        trackSelectContent(contentType:kEventPurchase, itemId:kEventPurchaseBuy)
+    }
+    
+    func purchaseRestore()
+    {
+        trackSelectContent(contentType:kEventPurchase, itemId:kEventPurchaseRestore)
     }
 }

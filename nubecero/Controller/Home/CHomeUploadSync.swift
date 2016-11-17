@@ -14,7 +14,7 @@ class CHomeUploadSync:CController
         syncStarted = false
         self.uploadItems = uploadItems
         self.controllerUpload = controllerUpload
-        super.init(nibName:nil, bundle:nil)
+        super.init()
     }
     
     required init?(coder:NSCoder)

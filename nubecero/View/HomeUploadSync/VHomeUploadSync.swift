@@ -5,7 +5,7 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     private weak var viewBar:VHomeUploadSyncBar!
     private weak var collectionView:UICollectionView!
     private weak var controller:CHomeUploadSync!
-    private let kBarHeight:CGFloat = 160
+    private let kBarHeight:CGFloat = 120
     private let kCellHeight:CGFloat = 50
     private let kCollectionBottom:CGFloat = 20
     private let kInterLineSpace:CGFloat = 1

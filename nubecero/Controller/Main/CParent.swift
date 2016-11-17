@@ -148,7 +148,7 @@ class CParent:UIViewController
         mainController(controller:controller, underBar:false, pop:pop, animate:animate)
     }
     
-    func pop(popBar:Bool)
+    func pop()
     {
         guard
             
@@ -158,6 +158,18 @@ class CParent:UIViewController
         else
         {
             return
+        }
+        
+        let popBar:Bool
+        let countController:Int = controllers.count
+        
+        if countController > 1
+        {
+            popBar = false
+        }
+        else
+        {
+            popBar = true
         }
         
         previousController.beginAppearanceTransition(true, animated:true)

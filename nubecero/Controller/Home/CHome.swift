@@ -14,7 +14,7 @@ class CHome:CController
         model = MHome()
         self.askAuth = askAuth
         
-        super.init(nibName:nil, bundle:nil)
+        super.init()
     }
     
     deinit
@@ -56,51 +56,33 @@ class CHome:CController
             }
         }
         
-        DispatchQueue.main.asyncAfter(
-            deadline:DispatchTime.now() + kAskNotifications)
-        {
-            if #available(iOS 10.0, *)
-            {
-                let authOptions:UNAuthorizationOptions = [
-                    UNAuthorizationOptions.alert,
-                    UNAuthorizationOptions.badge,
-                    UNAuthorizationOptions.sound]
-                
-                UNUserNotificationCenter.current().requestAuthorization(options:authOptions)
-                { (_, _) in
-                }
-            }
-            else
-            {
-                let settings:UIUserNotificationSettings = UIUserNotificationSettings(
-                    types:[
-                        UIUserNotificationType.alert,
-                        UIUserNotificationType.badge,
-                        UIUserNotificationType.sound],
-                    categories:nil)
-                
-                UIApplication.shared.registerUserNotificationSettings(settings)
-            }
-            
-            UIApplication.shared.registerForRemoteNotifications()
-        }
+        registerNotifications()
     }
     
     override func viewDidAppear(_ animated:Bool)
     {
         super.viewDidAppear(animated)
         
-        if let _:MSessionServer = MSession.sharedInstance.server
-        {
-            loadUsedDisk()
-        }
-        else
-        {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+        
+            guard
+                
+                let welf:CHome = self
+            
+            else
+            {
+                return
+            }
+            
+            NotificationCenter.default.removeObserver(welf)
             NotificationCenter.default.addObserver(
-                self,
-                selector:#selector(notifiedSessionLoaded(sender:)),
+                welf,
+                selector:#selector(welf.notifiedSessionLoaded(sender:)),
                 name:Notification.sessionLoaded,
                 object:nil)
+            
+            MSession.sharedInstance.loadPerks()
         }
     }
     
@@ -120,7 +102,7 @@ class CHome:CController
         {
             guard
                 
-                let userId:String = MSession.sharedInstance.userId
+                let userId:MSession.UserId = MSession.sharedInstance.userId
             
             else
             {
@@ -153,6 +135,38 @@ class CHome:CController
                     self?.viewHome.sessionLoaded()
                 }
             }
+        }
+    }
+    
+    private func registerNotifications()
+    {
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kAskNotifications)
+        {
+            if #available(iOS 10.0, *)
+            {
+                let authOptions:UNAuthorizationOptions = [
+                    UNAuthorizationOptions.alert,
+                    UNAuthorizationOptions.badge,
+                    UNAuthorizationOptions.sound]
+                
+                UNUserNotificationCenter.current().requestAuthorization(options:authOptions)
+                { (_, _) in
+                }
+            }
+            else
+            {
+                let settings:UIUserNotificationSettings = UIUserNotificationSettings(
+                    types:[
+                        UIUserNotificationType.alert,
+                        UIUserNotificationType.badge,
+                        UIUserNotificationType.sound],
+                    categories:nil)
+                
+                UIApplication.shared.registerUserNotificationSettings(settings)
+            }
+            
+            UIApplication.shared.registerForRemoteNotifications()
         }
     }
     

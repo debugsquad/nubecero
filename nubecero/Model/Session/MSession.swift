@@ -2,19 +2,22 @@ import Foundation
 
 class MSession
 {
+    typealias UserId = String
+    
     static let sharedInstance:MSession = MSession()
     var server:MSessionServer?
-    var userId:String?
+    var userId:UserId?
+    var plus:Bool
     var settings:DObjectSettings?
-    private let kServerInitialFroobSize:Int = 15000
     
     private init()
     {
+        plus = false
     }
     
     //MARK: private
     
-    private func asyncLoadUser(userId:String)
+    private func asyncLoadUser(userId:UserId)
     {
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyStatus:String = FDatabaseModelUser.Property.status.rawValue
@@ -31,7 +34,8 @@ class MSession
                 {
                     case FDatabaseModelUser.Status.active:
                     
-                        self.updateLastSession(userId:userId)
+                        self.userId = userId
+                        self.loadPerks()
                         
                         break
                     
@@ -51,7 +55,7 @@ class MSession
         }
     }
     
-    private func createUser(userId:String)
+    private func createUser(userId:UserId)
     {
         let parentUser:String = FDatabase.Parent.user.rawValue
         let userPath:String = "\(parentUser)/\(userId)"
@@ -62,21 +66,6 @@ class MSession
         FMain.sharedInstance.database.updateChild(
             path:userPath,
             json:json)
-        
-        self.userId = userId
-        self.loadServer()
-    }
-    
-    private func updateLastSession(userId:String)
-    {
-        let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
-        let userPath:String = "\(parentUser)/\(userId)/\(propertyLastSession)"
-        let currentTime:TimeInterval = NSDate().timeIntervalSince1970
-        
-        FMain.sharedInstance.database.updateChild(
-            path:userPath,
-            json:currentTime)
         
         self.userId = userId
         self.loadServer()
@@ -97,12 +86,6 @@ class MSession
             
             else
             {
-                #if DEBUG
-                    
-                    self.firstTimeServer()
-                    
-                #endif
-                
                 return
             }
             
@@ -112,20 +95,6 @@ class MSession
                 name:Notification.sessionLoaded,
                 object:nil)
         }
-    }
-    
-    private func firstTimeServer()
-    {
-        let parentServer:String = FDatabase.Parent.server.rawValue
-        let firebaseServer:FDatabaseModelServer = FDatabaseModelServer(
-            froobSpace:kServerInitialFroobSize)
-        let firebaseServerJson:Any = firebaseServer.modelJson()
-        
-        FMain.sharedInstance.database.updateChild(
-            path:parentServer,
-            json:firebaseServerJson)
-        
-        loadServer()
     }
     
     private func settingsLoaded()
@@ -171,6 +140,29 @@ class MSession
         }
     }
     
+    private func updateLastSession()
+    {
+        guard
+            
+            let userId:UserId = self.userId
+            
+        else
+        {
+            return
+        }
+        
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let propertyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
+        let lastSessionPath:String = "\(parentUser)/\(userId)/\(propertyLastSession)"
+        let currentTime:TimeInterval = NSDate().timeIntervalSince1970
+        
+        FMain.sharedInstance.database.updateChild(
+            path:lastSessionPath,
+            json:currentTime)
+        
+        self.loadServer()
+    }
+    
     //MARK: public
     
     func loadSettings()
@@ -184,7 +176,7 @@ class MSession
         }
     }
     
-    func loadUser(userId:String)
+    func loadUser(userId:UserId)
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
@@ -198,7 +190,8 @@ class MSession
         
         guard
         
-            let froobSpace:Int = server?.froobSpace
+            let froobSpace:Int = server?.froobSpace,
+            let plusSpace:Int = server?.plusSpace
         
         else
         {
@@ -207,6 +200,69 @@ class MSession
         
         space += froobSpace
         
+        if plus
+        {
+            space += plusSpace
+        }
+        
         return space
+    }
+    
+    func loadPerks()
+    {
+        guard
+            
+            let userId:UserId = self.userId
+            
+        else
+        {
+            return
+        }
+        
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let propertyPlus:String = FDatabaseModelUser.Property.plus.rawValue
+        let plusPath:String = "\(parentUser)/\(userId)/\(propertyPlus)"
+        
+        FMain.sharedInstance.database.listenOnce(
+            path:plusPath,
+            modelType:FDatabaseModelUserPlus.self)
+        { (plus) in
+            
+            if let plusStrong:FDatabaseModelUserPlus = plus
+            {
+                self.plus = plusStrong.plus
+            }
+            else
+            {
+                self.plus = false
+            }
+            
+            self.updateLastSession()
+        }
+    }
+    
+    func purchasePlus()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            guard
+                
+                let userId:UserId = self.userId
+                
+            else
+            {
+                return
+            }
+            
+            let parentUser:String = FDatabase.Parent.user.rawValue
+            let propertyPlus:String = FDatabaseModelUser.Property.plus.rawValue
+            let plusPath:String = "\(parentUser)/\(userId)/\(propertyPlus)"
+            let firebasePlus:FDatabaseModelUserPlus = FDatabaseModelUserPlus()
+            let plusJson:Any = firebasePlus.modelJson()
+            
+            FMain.sharedInstance.database.updateChild(
+                path:plusPath,
+                json:plusJson)
+        }
     }
 }

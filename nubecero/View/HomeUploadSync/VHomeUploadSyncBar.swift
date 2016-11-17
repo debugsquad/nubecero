@@ -6,18 +6,26 @@ class VHomeUploadSyncBar:UIView
     private weak var spinner:VSpinner!
     private weak var labelCount:UILabel!
     private weak var tryAgainButton:UIButton!
-    private weak var layoutCancelButtonLeft:NSLayoutConstraint!
-    private weak var layoutTryAgainButtonLeft:NSLayoutConstraint!
+    private let attributesUploaded:[String:Any]
+    private let attributesTotal:[String:Any]
     private let kSpinnerHeight:CGFloat = 80
-    private let kCancelButtonWith:CGFloat = 90
-    private let kTryAgainButtonWith:CGFloat = 140
-    private let kButtonHeight:CGFloat = 34
-    private let kLabelCountWidth:CGFloat = 60
+    private let kCancelButtonWith:CGFloat = 80
+    private let kTryAgainButtonWith:CGFloat = 150
     private let kCornerRadius:CGFloat = 4
     
-    convenience init(controller:CHomeUploadSync)
+    init(controller:CHomeUploadSync)
     {
-        self.init()
+        attributesUploaded = [
+            NSFontAttributeName:UIFont.medium(size:26),
+            NSForegroundColorAttributeName:UIColor.black
+        ]
+        
+        attributesTotal = [
+            NSFontAttributeName:UIFont.medium(size:15),
+            NSForegroundColorAttributeName:UIColor.black
+        ]
+        
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
@@ -72,9 +80,7 @@ class VHomeUploadSyncBar:UIView
         labelCount.isUserInteractionEnabled = false
         labelCount.translatesAutoresizingMaskIntoConstraints = false
         labelCount.backgroundColor = UIColor.clear
-        labelCount.font = UIFont.medium(size:13)
-        labelCount.textColor = UIColor.black
-        labelCount.textAlignment = NSTextAlignment.right
+        labelCount.textAlignment = NSTextAlignment.center
         self.labelCount = labelCount
         
         addSubview(border)
@@ -93,9 +99,7 @@ class VHomeUploadSyncBar:UIView
         let metrics:[String:CGFloat] = [
             "spinnerHeight":kSpinnerHeight,
             "cancelButtonWidth":kCancelButtonWith,
-            "tryAgainButtonWidth":kTryAgainButtonWith,
-            "buttonHeight":kButtonHeight,
-            "labelCountWidth":kLabelCountWidth]
+            "tryAgainButtonWidth":kTryAgainButtonWith]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[border]-0-|",
@@ -108,67 +112,52 @@ class VHomeUploadSyncBar:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[cancelButton(cancelButtonWidth)]-0-[labelCount(labelCountWidth)]",
+            withVisualFormat:"H:|-10-[cancelButton(cancelButtonWidth)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[tryAgainButton(tryAgainButtonWidth)]",
+            withVisualFormat:"H:|-0-[labelCount]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[cancelButton(buttonHeight)]-10-[spinner(spinnerHeight)]-0-[border(1)]-0-|",
+            withVisualFormat:"H:|-10-[tryAgainButton(tryAgainButtonWidth)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[labelCount(buttonHeight)]-10-[spinner]",
+            withVisualFormat:"V:[border(1)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[tryAgainButton(buttonHeight)]-10-[border(1)]-0-|",
+            withVisualFormat:"V:|-15-[spinner(spinnerHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-39-[cancelButton(32)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[labelCount(40)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-39-[tryAgainButton(32)]",
             options:[],
             metrics:metrics,
             views:views))
         
-        layoutCancelButtonLeft = NSLayoutConstraint(
-            item:cancelButton,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        
-        layoutTryAgainButtonLeft = NSLayoutConstraint(
-            item:tryAgainButton,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        
-        addConstraint(layoutCancelButtonLeft)
-        addConstraint(layoutTryAgainButtonLeft)
         update()
     }
     
-    override func layoutSubviews()
+    required init?(coder:NSCoder)
     {
-        let width:CGFloat = bounds.maxX
-        let cancelButtonLabelWidth:CGFloat = kCancelButtonWith + kLabelCountWidth
-        let remainCancelButton:CGFloat = width - cancelButtonLabelWidth
-        let marginCancelButton:CGFloat = remainCancelButton / 2.0
-        let remainTryAgainButton:CGFloat = width - kTryAgainButtonWith
-        let marginTryAgainButton:CGFloat = remainTryAgainButton / 2.0
-        
-        layoutCancelButtonLeft.constant = marginCancelButton
-        layoutTryAgainButtonLeft.constant = marginTryAgainButton
-        
-        super.layoutSubviews()
+        fatalError()
     }
     
     //MARK: actions
@@ -189,11 +178,26 @@ class VHomeUploadSyncBar:UIView
     
     func update()
     {
-        let totalItems:Int = controller.uploadItems.count
         let uploadedItems:Int = controller.uploadedItems()
-        let countText:String = "\(uploadedItems)/\(totalItems)"
+        let totalItems:Int = controller.uploadItems.count
+        let totalItemsString:String = "\(totalItems)"
+        let uploadedItemString:String = "\(uploadedItems)"
+        let totalItemsStringComposite:String = String(
+            format:NSLocalizedString("VHomeUploadSyncBar_totalItems", comment:""),
+            totalItemsString)
         
-        labelCount.text = countText
+        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
+        let attUploaded:NSAttributedString = NSAttributedString(
+            string:uploadedItemString,
+            attributes:attributesUploaded)
+        let attTotal:NSAttributedString = NSAttributedString(
+            string:totalItemsStringComposite,
+            attributes:attributesTotal)
+        
+        mutableString.append(attUploaded)
+        mutableString.append(attTotal)
+        
+        labelCount.attributedText = mutableString
     }
     
     func errorFound()

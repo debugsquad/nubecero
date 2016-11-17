@@ -8,10 +8,10 @@ class CSettings:CController
     private weak var viewSettings:VSettings!
     let model:MSettings
     
-    init()
+    override init()
     {
         model = MSettings()
-        super.init(nibName:nil, bundle:nil)
+        super.init()
     }
     
     required init?(coder:NSCoder)

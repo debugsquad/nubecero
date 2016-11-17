@@ -5,12 +5,14 @@ class VPicturesCell:UICollectionViewCell
     private weak var blurView:UIView!
     private weak var imageView:UIImageView!
     private weak var model:MPicturesItem?
-    private let kBlurAlpha:CGFloat = 0.98
-    private let kBorderWidth:CGFloat = 1
+    private let kBlurAlpha:CGFloat = 0.99
+    private let kBorderWidth:CGFloat = 2
+    private let kAnimationDuration:TimeInterval = 1.3
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
+        backgroundColor = UIColor(red:0.97, green:0.98, blue:0.995, alpha:1)
         clipsToBounds = true
         
         let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
@@ -128,7 +130,7 @@ class VPicturesCell:UICollectionViewCell
             
             if picture === self?.model
             {
-                self?.config(model:picture)
+                self?.animateLoadThumb()
             }
         }
     }
@@ -149,12 +151,35 @@ class VPicturesCell:UICollectionViewCell
         }
     }
     
+    private func animateLoadThumb()
+    {
+        guard
+            
+            let image:UIImage = model?.state.loadThumbnail()
+        
+        else
+        {
+            imageView.image = nil
+            
+            return
+        }
+        
+        imageView.alpha = 0
+        imageView.image = image
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.imageView.alpha = 1
+        }
+    }
+    
     //MARK: public
     
     func config(model:MPicturesItem)
     {
         self.model = model
-        imageView.image = model.state.loadThumbnail()
+        animateLoadThumb()
         hover()
     }
 }

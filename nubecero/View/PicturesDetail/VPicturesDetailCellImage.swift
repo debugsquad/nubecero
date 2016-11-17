@@ -4,10 +4,12 @@ class VPicturesDetailCellImage:VPicturesDetailCell
 {
     private weak var imageView:UIImageView!
     private weak var model:MPicturesItem?
+    private let kAnimationDuration:TimeInterval = 0.5
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
+        backgroundColor = UIColor(red:0.97, green:0.98, blue:0.995, alpha:1)
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -54,7 +56,7 @@ class VPicturesDetailCellImage:VPicturesDetailCell
     override func config(controller:CPictures)
     {
         model = controller.viewPictures.currentItem
-        imageView.image = model?.state.loadImage()
+        animateLoadImage()
     }
     
     //MARK: notified
@@ -76,8 +78,33 @@ class VPicturesDetailCellImage:VPicturesDetailCell
             if picture === self?.model
             {
                 picture.becameActive()
-                self?.imageView.image = picture.image
+                self?.animateLoadImage()
             }
+        }
+    }
+    
+    //MARK: private
+    
+    private func animateLoadImage()
+    {
+        guard
+            
+            let image:UIImage = model?.image
+            
+        else
+        {
+            imageView.image = model?.state.loadImage()
+            
+            return
+        }
+        
+        imageView.alpha = 0
+        imageView.image = image
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.imageView.alpha = 1
         }
     }
 }

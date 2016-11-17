@@ -6,6 +6,16 @@ class CController:UIViewController
     weak var layoutRight:NSLayoutConstraint!
     weak var shadow:VShadow?
     
+    init()
+    {
+        super.init(nibName:nil, bundle:nil)
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+    
     open var name:NSString
     {
         get
@@ -13,14 +23,6 @@ class CController:UIViewController
             let classType:AnyClass = object_getClass(self)
             
             return NSStringFromClass(classType) as NSString
-        }
-    }
-    
-    override var title:String?
-    {
-        didSet
-        {
-            parentController.viewParent.bar.label.text = title
         }
     }
     
@@ -40,6 +42,12 @@ class CController:UIViewController
         edgesForExtendedLayout = UIRectEdge()
         extendedLayoutIncludesOpaqueBars = false
         automaticallyAdjustsScrollViewInsets = false
+    }
+    
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        parentController.viewParent.bar.label.text = title
     }
     
     override var preferredStatusBarStyle:UIStatusBarStyle

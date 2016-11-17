@@ -17,4 +17,9 @@ class FDatabaseModelUserDiskUsed:FDatabaseModel
         
         super.init()
     }
+    
+    override init()
+    {
+        fatalError()
+    }
 }

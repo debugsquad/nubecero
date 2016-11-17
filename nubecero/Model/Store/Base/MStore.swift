@@ -34,7 +34,7 @@ class MStore
         
         guard
             
-            let mappedItem:MStoreItem = mapItems?[productId]
+            let mappedItem:MStoreItem = mapItems[productId]
             
         else
         {
@@ -57,7 +57,7 @@ class MStore
             
             guard
                 
-                let mappedItem:MStoreItem = mapItems?[productId]
+                let mappedItem:MStoreItem = mapItems[productId]
                 
             else
             {

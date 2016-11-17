@@ -3,19 +3,20 @@ import UIKit
 class VPhotosCell:UICollectionViewCell
 {
     private weak var labelName:UILabel!
+    private let kAlphaSelected:CGFloat = 0.2
+    private let kAlphaNotSelected:CGFloat = 1
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.white
         
         let labelName:UILabel = UILabel()
         labelName.isUserInteractionEnabled = false
         labelName.translatesAutoresizingMaskIntoConstraints = false
         labelName.backgroundColor = UIColor.clear
-        labelName.font = UIFont.regular(size:17)
-        labelName.textColor = UIColor(white:0.6, alpha:1)
+        labelName.font = UIFont.regular(size:19)
+        labelName.textColor = UIColor(white:0.4, alpha:1)
         self.labelName = labelName
         
         addSubview(labelName)
@@ -42,10 +43,43 @@ class VPhotosCell:UICollectionViewCell
         fatalError()
     }
     
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            backgroundColor = UIColor.clear
+            alpha = kAlphaSelected
+        }
+        else
+        {
+            backgroundColor = UIColor.white
+            alpha = kAlphaNotSelected
+        }
+    }
+    
     //MARK: public
     
     func config(model:MPhotosItem)
     {
         labelName.text = model.name
+        hover()
     }
 }

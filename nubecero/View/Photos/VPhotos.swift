@@ -16,6 +16,8 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
+        let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
+        
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize.zero
         flow.footerReferenceSize = CGSize.zero
@@ -43,7 +45,22 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         
         addSubview(collectionView)
         
+        let views:[String:UIView] = [
+            "collectionView":collectionView]
         
+        let metrics:[String:CGFloat] = [
+            "barHeight":barHeight]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(barHeight)-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     //MARK: private
@@ -56,6 +73,14 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     }
     
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {

@@ -12,4 +12,11 @@ class VPhotosCell:UICollectionViewCell
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(model:MPhotosItem)
+    {
+        
+    }
 }

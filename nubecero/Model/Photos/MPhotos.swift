@@ -2,6 +2,7 @@ import Foundation
 
 class MPhotos
 {
+    static let sharedInstance:MPhotos = MPhotos()
     let items:[MPhotosItem]
     
     init()

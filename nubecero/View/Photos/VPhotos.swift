@@ -8,6 +8,7 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     private let kCollectionBottom:CGFloat = 20
     private let kCellHeight:CGFloat = 70
     private let kHeaderHeight:CGFloat = 100
+    private let kDeselectTime:TimeInterval = 1
     
     convenience init(controller:CPhotos)
     {
@@ -129,5 +130,20 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MPhotosItem = modelAtIndex(index:indexPath)
+        controller.selected(item:item)
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }

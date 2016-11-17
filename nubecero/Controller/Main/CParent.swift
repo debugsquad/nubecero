@@ -213,7 +213,7 @@ class CParent:UIViewController
         }
     }
     
-    func scrollLeft(controller:CController)
+    func scrollLeft(controller:CController, underBar:Bool)
     {
         guard
             
@@ -230,7 +230,7 @@ class CParent:UIViewController
         
         currentController.beginAppearanceTransition(false, animated:true)
         
-        viewParent.fromLeft(controller:controller, currentController:currentController)
+        viewParent.fromLeft(controller:controller, currentController:currentController, underBar:underBar)
         {
             controller.endAppearanceTransition()
             
@@ -240,13 +240,13 @@ class CParent:UIViewController
         }
     }
     
-    func scrollRight(controller:CController)
+    func scrollRight(controller:CController, underBar:Bool)
     {
         guard
             
             let currentController:CController = controllers.popLast()
             
-            else
+        else
         {
             return
         }
@@ -257,7 +257,7 @@ class CParent:UIViewController
         
         currentController.beginAppearanceTransition(false, animated:true)
         
-        viewParent.fromRight(controller:controller, currentController:currentController)
+        viewParent.fromRight(controller:controller, currentController:currentController, underBar:underBar)
         {
             controller.endAppearanceTransition()
             

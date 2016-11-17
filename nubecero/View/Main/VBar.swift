@@ -192,11 +192,11 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         if item.index < model.current.index
         {
-            parent.scrollLeft(controller:controller)
+            parent.scrollLeft(controller:controller, underBar:true)
         }
         else
         {
-            parent.scrollRight(controller:controller)
+            parent.scrollRight(controller:controller, underBar:true)
         }
         
         model.current = item

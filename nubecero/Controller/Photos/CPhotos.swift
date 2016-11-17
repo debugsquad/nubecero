@@ -10,4 +10,12 @@ class CPhotos:CController
         self.viewPhotos = viewPhotos
         view = viewPhotos
     }
+    
+    //MARK: public
+    
+    func selected(item:MPhotosItem)
+    {
+        let albumController:CPhotosAlbum = CPhotosAlbum()
+        parentController.scrollRight(controller:albumController, underBar:false)
+    }
 }

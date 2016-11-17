@@ -49,9 +49,21 @@ class VParent:UIView
     
     //MARK: private
     
-    private func scroll(controller:CController, currentController:CController, delta:CGFloat, completion:@escaping(() -> ()))
+    private func scroll(
+        controller:CController,
+        currentController:CController,
+        delta:CGFloat,
+        underBar:Bool,
+        completion:@escaping(() -> ()))
     {
-        insertSubview(controller.view, belowSubview:bar)
+        if underBar
+        {
+            insertSubview(controller.view, belowSubview:bar)
+        }
+        else
+        {
+            addSubview(controller.view)
+        }
         
         let views:[String:UIView] = [
             "view":controller.view]
@@ -103,7 +115,11 @@ class VParent:UIView
     
     //MARK: public
     
-    func over(controller:CController, underBar:Bool, animate:Bool, completion:@escaping(() -> ()))
+    func over(
+        controller:CController,
+        underBar:Bool,
+        animate:Bool,
+        completion:@escaping(() -> ()))
     {
         if underBar
         {
@@ -164,19 +180,40 @@ class VParent:UIView
         }
     }
     
-    func fromLeft(controller:CController, currentController:CController, completion:@escaping(() -> ()))
+    func fromLeft(
+        controller:CController,
+        currentController:CController,
+        underBar:Bool,
+        completion:@escaping(() -> ()))
     {
         let width:CGFloat = bounds.maxX
-        scroll(controller:controller, currentController:currentController, delta:width, completion:completion)
+        scroll(
+            controller:controller,
+            currentController:currentController,
+            delta:width,
+            underBar:underBar,
+            completion:completion)
     }
     
-    func fromRight(controller:CController, currentController:CController, completion:@escaping(() -> ()))
+    func fromRight(
+        controller:CController,
+        currentController:CController,
+        underBar:Bool,
+        completion:@escaping(() -> ()))
     {
         let width:CGFloat = -bounds.maxX
-        scroll(controller:controller, currentController:currentController, delta:width, completion:completion)
+        scroll(
+            controller:controller,
+            currentController:currentController,
+            delta:width,
+            underBar:underBar,
+            completion:completion)
     }
     
-    func push(controller:CController, currentController:CController, completion:@escaping(() -> ()))
+    func push(
+        controller:CController,
+        currentController:CController,
+        completion:@escaping(() -> ()))
     {
         let width:CGFloat = bounds.maxX
         let width_2:CGFloat = width / 2.0
@@ -234,7 +271,11 @@ class VParent:UIView
         }
     }
     
-    func pop(currentController:CController, previousController:CController, popBar:Bool, completion:@escaping(() -> ()))
+    func pop(
+        currentController:CController,
+        previousController:CController,
+        popBar:Bool,
+        completion:@escaping(() -> ()))
     {
         let width:CGFloat = bounds.maxX
         currentController.layoutRight.constant = width
@@ -259,7 +300,9 @@ class VParent:UIView
         }
     }
     
-    func dismiss(currentController:CController, completion:@escaping(() -> ()))
+    func dismiss(
+        currentController:CController,
+        completion:@escaping(() -> ()))
     {
         UIView.animate(withDuration:kAnimationDuration, animations:
         {

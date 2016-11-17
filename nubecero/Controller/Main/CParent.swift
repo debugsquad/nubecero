@@ -35,7 +35,11 @@ class CParent:UIViewController
             object:nil)
         
         let login:CLogin = CLogin()
-        over(controller:login, pop:false, animate:false)
+        
+        over(
+            controller:login,
+            pop:false,
+            animate:false)
     }
     
     override func loadView()
@@ -71,7 +75,11 @@ class CParent:UIViewController
     
     //MARK: private
     
-    private func mainController(controller:CController, underBar:Bool, pop:Bool, animate:Bool)
+    private func mainController(
+        controller:CController,
+        underBar:Bool,
+        pop:Bool,
+        animate:Bool)
     {
         let currentController:CController?
         
@@ -90,7 +98,10 @@ class CParent:UIViewController
         
         currentController?.beginAppearanceTransition(false, animated:animate)
         
-        viewParent.over(controller:controller, underBar:underBar, animate:animate)
+        viewParent.over(
+            controller:controller,
+            underBar:underBar,
+            animate:animate)
         {
             controller.endAppearanceTransition()
             
@@ -131,21 +142,37 @@ class CParent:UIViewController
         
         currentController.beginAppearanceTransition(false, animated:true)
         
-        viewParent.push(controller:controller, currentController:currentController)
+        viewParent.push(
+            controller:controller,
+            currentController:currentController)
         {
             controller.endAppearanceTransition()
             currentController.endAppearanceTransition()
         }
     }
     
-    func center(controller:CController, pop:Bool, animate:Bool)
+    func center(
+        controller:CController,
+        pop:Bool,
+        animate:Bool)
     {
-        mainController(controller:controller, underBar:true, pop:pop, animate:animate)
+        mainController(
+            controller:controller,
+            underBar:true,
+            pop:pop,
+            animate:animate)
     }
     
-    func over(controller:CController, pop:Bool, animate:Bool)
+    func over(
+        controller:CController,
+        pop:Bool,
+        animate:Bool)
     {
-        mainController(controller:controller, underBar:false, pop:pop, animate:animate)
+        mainController(
+            controller:controller,
+            underBar:false,
+            pop:pop,
+            animate:animate)
     }
     
     func pop()
@@ -230,7 +257,10 @@ class CParent:UIViewController
         
         currentController.beginAppearanceTransition(false, animated:true)
         
-        viewParent.fromLeft(controller:controller, currentController:currentController, underBar:underBar)
+        viewParent.fromLeft(
+            controller:controller,
+            currentController:currentController,
+            underBar:underBar)
         {
             controller.endAppearanceTransition()
             
@@ -257,7 +287,10 @@ class CParent:UIViewController
         
         currentController.beginAppearanceTransition(false, animated:true)
         
-        viewParent.fromRight(controller:controller, currentController:currentController, underBar:underBar)
+        viewParent.fromRight(
+            controller:controller,
+            currentController:currentController,
+            underBar:underBar)
         {
             controller.endAppearanceTransition()
             
@@ -273,7 +306,11 @@ class CParent:UIViewController
         {
             let controllerAuth:CAuth = CAuth()
             self.controllerAuth = controllerAuth
-            over(controller:controllerAuth, pop:false, animate:false)
+            
+            over(
+                controller:controllerAuth,
+                pop:false,
+                animate:false)
         }
     }
 }

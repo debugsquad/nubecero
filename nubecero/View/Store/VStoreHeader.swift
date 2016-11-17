@@ -117,7 +117,7 @@ class VStoreHeader:UICollectionReusableView
     //MARK: public
     
     func config(model:MStoreItem)
-    {
+    {/*
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
         let stringTitle:NSAttributedString = NSAttributedString(
             string:model.purchaseTitle,
@@ -131,6 +131,6 @@ class VStoreHeader:UICollectionReusableView
         label.attributedText = mutableString
         imageView.image = UIImage(named:model.purchaseAsset)
         
-        setNeedsLayout()
+        setNeedsLayout()*/
     }
 }

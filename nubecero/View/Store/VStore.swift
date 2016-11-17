@@ -3,7 +3,7 @@ import UIKit
 class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CStore!
-    private weak var viewSpinner:VSpinner!
+    private weak var viewSpinner:VSpinner?
     private weak var collectionView:UICollectionView!
     private let kHeaderHeight:CGFloat = 130
     private let kFooterHeight:CGFloat = 100
@@ -31,6 +31,7 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         flow.sectionInset = UIEdgeInsets(top:kInterLine, left:0, bottom:kInterLine, right:0)
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.isHidden = true
         collectionView.clipsToBounds = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = UIColor.clear
@@ -109,25 +110,34 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     private func modelAtIndex(index:IndexPath) -> MStoreItem
     {
-        let itemId:MStore.PurchaseId = controller.model!.listReferences![index.section]
-        let item:MStoreItem = controller.model!.mapItems![itemId]!
+        let itemId:MStore.PurchaseId = controller.model.references[index.section]
+        let item:MStoreItem = controller.model.mapItems[itemId]!
         
         return item
     }
     
     //MARK: public
     
-    func showLoading()
-    {
-        collectionView.isHidden = true
-        viewSpinner.startAnimating()
-    }
-    
     func refreshStore()
     {
-        viewSpinner.stopAnimating()
-        collectionView.reloadData()
-        collectionView.isHidden = false
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewSpinner?.removeFromSuperview()
+            self?.collectionView.reloadData()
+            self?.collectionView.isHidden = false
+            
+            guard
+            
+                let errorMessage:String = self?.controller.model.error
+            
+            else
+            {
+                return
+            }
+            
+            VAlert.message(message:errorMessage)
+        }
     }
     
     //MARK: collection delegate
@@ -144,14 +154,7 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
-        guard
-        
-            let count:Int = controller.model?.listReferences?.count
-        
-        else
-        {
-            return 0
-        }
+        let count:Int = controller.model.references.count
         
         return count
     }

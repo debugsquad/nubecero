@@ -7,6 +7,7 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     private let kInterLine:CGFloat = 1
     private let kCollectionBottom:CGFloat = 20
     private let kCellHeight:CGFloat = 70
+    private let kHeaderHeight:CGFloat = 80
     
     convenience init(controller:CPhotos)
     {
@@ -19,7 +20,7 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSize.zero
+        flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
         flow.footerReferenceSize = CGSize.zero
         flow.minimumInteritemSpacing = 0
         flow.minimumLineSpacing = kInterLine

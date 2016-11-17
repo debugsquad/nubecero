@@ -4,6 +4,7 @@ import StoreKit
 class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestDelegate
 {
     private weak var viewStore:VStore!
+    private weak var request:SKProductsRequest?
     var model:MStore?
     
     override func loadView()
@@ -23,6 +24,7 @@ class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserve
     
     deinit
     {
+        request?.cancel()
         SKPaymentQueue.default().remove(self)
     }
     
@@ -36,6 +38,7 @@ class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserve
     func checkAvailabilities(itemsSet:Set<MStore.PurchaseId>)
     {
         let request:SKProductsRequest = SKProductsRequest(productIdentifiers:itemsSet)
+        self.request = request
         request.delegate = self
         request.start()
     }

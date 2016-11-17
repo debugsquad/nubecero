@@ -2,9 +2,9 @@ import UIKit
 
 class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    weak var controller:CStore!
-    weak var viewSpinner:VSpinner!
-    weak var collectionView:UICollectionView!
+    private weak var controller:CStore!
+    private weak var viewSpinner:VSpinner!
+    private weak var collectionView:UICollectionView!
     private let kHeaderHeight:CGFloat = 130
     private let kFooterHeight:CGFloat = 100
     private let kInterLine:CGFloat = 1

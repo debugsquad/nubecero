@@ -6,7 +6,7 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     private weak var collectionView:UICollectionView!
     private let kInterLine:CGFloat = 1
     private let kCollectionBottom:CGFloat = 20
-    private let kCellHeight:CGFloat = 90
+    private let kCellHeight:CGFloat = 70
     
     convenience init(controller:CPhotos)
     {

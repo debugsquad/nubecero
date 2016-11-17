@@ -16,7 +16,7 @@ class MStoreItemAlbums:MStoreItem
             image:image)
     }
     
-    init(purchaseId:MStore.PurchaseId, title:String, descr:String, image:UIImage)
+    override init(purchaseId:MStore.PurchaseId, title:String, descr:String, image:UIImage)
     {
         fatalError()
     }

@@ -5,9 +5,9 @@ class MStore
 {
     typealias PurchaseId = String
     
-    var mapItems:[PurchaseId:MStoreItem]?
-    var listReferences:[PurchaseId]?
-    var error:String?
+    let mapItems:[PurchaseId:MStoreItem]
+    private(set) var listReferences:[PurchaseId]
+    private(set) var error:String?
     private weak var controller:CStore!
     private let priceFormatter:NumberFormatter
     
@@ -16,68 +16,13 @@ class MStore
         self.controller = controller
         priceFormatter = NumberFormatter()
         priceFormatter.numberStyle = NumberFormatter.Style.currencyISOCode
+        listReferences = []
         
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            self?.loadFirebasePurchases()
-        }
-    }
-    
-    //MARK: private
-    
-    private func loadFirebasePurchases()
-    {
-        let pathPurchases:String = FDatabase.Parent.purchase.rawValue
+        let itemAlbums:MStoreItemAlbums = MStoreItemAlbums()
         
-        FMain.sharedInstance.database.listenOnce(
-            path:pathPurchases,
-            modelType:FDatabaseModelPurchaseList.self)
-        { [weak self] (purchaseList) in
-            
-            guard
-                
-                let purchaseListStrong:FDatabaseModelPurchaseList = purchaseList
-                
-            else
-            {
-                self?.error = NSLocalizedString("MStore_errorLoading", comment:"")
-                self?.controller.noFirebasePurchases()
-                
-                return
-            }
-            
-            self?.listLoaded(purchaseList:purchaseListStrong)
-        }
-    }
-    
-    private func listLoaded(purchaseList:FDatabaseModelPurchaseList)
-    {
-        var mapItems:[PurchaseId:MStoreItem] = [:]
-        var itemsSet:Set<PurchaseId> = Set<PurchaseId>()
-        var listReferences:[PurchaseId] = []
-        
-        let itemKeys:[FDatabaseModelPurchase.PurchaseId] = Array(purchaseList.items.keys)
-        
-        for itemKey:FDatabaseModelPurchase.PurchaseId in itemKeys
-        {
-            let firebasePurchase:FDatabaseModelPurchase = purchaseList.items[itemKey]!
-            
-            if firebasePurchase.status == FDatabaseModelPurchase.Status.active
-            {
-                let purchaseId:MStore.PurchaseId = firebasePurchase.purchaseId
-                let item:MStoreItem = MStoreItem(
-                    firebasePurchase:firebasePurchase)
-                mapItems[purchaseId] = item
-                itemsSet.insert(purchaseId)
-                listReferences.append(purchaseId)
-            }
-        }
-        
-        self.mapItems = mapItems
-        self.listReferences = listReferences
-        
-        controller.checkAvailabilities(itemsSet:itemsSet)
+        mapItems = [
+            itemAlbums.purchaseId:itemAlbums
+        ]
     }
     
     //MARK: public

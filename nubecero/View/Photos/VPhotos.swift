@@ -1,6 +1,6 @@
 import UIKit
 
-class VPhotos:UIView
+class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CPhotos!
     
@@ -12,4 +12,8 @@ class VPhotos:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
     }
+    
+    //MARK: collectionView delegate
+    
+    
 }

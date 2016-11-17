@@ -55,6 +55,7 @@ class VStoreFooter:UICollectionReusableView
     
     func actionRestore(sender button:UIButton)
     {
+        FMain.sharedInstance.analytics?.purchaseRestore()
         controller?.restorePurchases()
     }
     

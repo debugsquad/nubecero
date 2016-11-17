@@ -80,6 +80,7 @@ class VStoreCellNew:VStoreCell
     
     func actionPurchase(sender button:UIButton)
     {
+        FMain.sharedInstance.analytics?.purchaseBuy()
         controller?.purchase(skProduct:model?.skProduct)
     }
 }

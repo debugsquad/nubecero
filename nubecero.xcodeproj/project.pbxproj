@@ -106,7 +106,6 @@
 		DA4FA5B41DD7D7FE00358ABE /* MAdmin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5B31DD7D7FE00358ABE /* MAdmin.swift */; };
 		DA4FA5B61DD7D80E00358ABE /* MAdminItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5B51DD7D80E00358ABE /* MAdminItem.swift */; };
 		DA4FA5B81DD7DA1300358ABE /* MAdminItemServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5B71DD7DA1300358ABE /* MAdminItemServer.swift */; };
-		DA4FA5BA1DD7DA4B00358ABE /* MAdminItemPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5B91DD7DA4B00358ABE /* MAdminItemPurchases.swift */; };
 		DA4FA5BC1DD7DA7700358ABE /* MAdminItemUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5BB1DD7DA7700358ABE /* MAdminItemUsers.swift */; };
 		DA5768731DCEB12F00590B5F /* TFDatabaseModelUserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5768721DCEB12F00590B5F /* TFDatabaseModelUserStatus.swift */; };
 		DA7367B41DD5228F0004B99C /* MOnboardFormItemPassGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7367B31DD5228F0004B99C /* MOnboardFormItemPassGenerator.swift */; };
@@ -139,7 +138,6 @@
 		DA88F67C1DC7EE1F009F61B3 /* MHomeUploadItemStatusUploaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F67B1DC7EE1F009F61B3 /* MHomeUploadItemStatusUploaded.swift */; };
 		DA88F67E1DC7EE28009F61B3 /* MHomeUploadItemStatusSynced.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F67D1DC7EE28009F61B3 /* MHomeUploadItemStatusSynced.swift */; };
 		DA88F6801DC80C62009F61B3 /* FStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F67F1DC80C62009F61B3 /* FStorage.swift */; };
-		DAA779E21DD9035900A719AD /* MAdminItemSubscriptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779E11DD9035900A719AD /* MAdminItemSubscriptions.swift */; };
 		DAA779E41DD906D500A719AD /* VAdminCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779E31DD906D500A719AD /* VAdminCell.swift */; };
 		DAA779E61DD9133600A719AD /* CAdminUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779E51DD9133600A719AD /* CAdminUsers.swift */; };
 		DAA779E91DD9136D00A719AD /* VAdminUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779E81DD9136D00A719AD /* VAdminUsers.swift */; };
@@ -163,12 +161,9 @@
 		DAC55F2C1DD2823600213C27 /* MOnboardItemFree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F2B1DD2823600213C27 /* MOnboardItemFree.swift */; };
 		DAC55F2E1DD2829200213C27 /* MOnboardItemPrivacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F2D1DD2829200213C27 /* MOnboardItemPrivacy.swift */; };
 		DAC55F321DD2BB3700213C27 /* VOnboardOptionsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC55F311DD2BB3700213C27 /* VOnboardOptionsButton.swift */; };
-		DAC98D271DDB638A0074E16A /* CAdminPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D261DDB638A0074E16A /* CAdminPurchases.swift */; };
 		DAC98D2B1DDB674C0074E16A /* VAdminPurchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D2A1DDB674C0074E16A /* VAdminPurchases.swift */; };
 		DAC98D2D1DDB69310074E16A /* VAdminPurchasesHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D2C1DDB69310074E16A /* VAdminPurchasesHeader.swift */; };
 		DAC98D311DDB69560074E16A /* VAdminPurchasesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D301DDB69560074E16A /* VAdminPurchasesCell.swift */; };
-		DAC98D371DDB75E20074E16A /* FDatabaseModelPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D361DDB75E20074E16A /* FDatabaseModelPurchase.swift */; };
-		DAC98D391DDB79990074E16A /* FDatabaseModelPurchaseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D381DDB79990074E16A /* FDatabaseModelPurchaseList.swift */; };
 		DAC98D3B1DDBB7B20074E16A /* MStoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D3A1DDBB7B20074E16A /* MStoreItem.swift */; };
 		DAC98D3D1DDBC6DC0074E16A /* MStoreItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D3C1DDBC6DC0074E16A /* MStoreItemStatus.swift */; };
 		DAC98D3F1DDBC6E40074E16A /* MStoreItemStatusDeferred.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC98D3E1DDBC6E40074E16A /* MStoreItemStatusDeferred.swift */; };
@@ -384,7 +379,6 @@
 		DA4FA5B31DD7D7FE00358ABE /* MAdmin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdmin.swift; sourceTree = "<group>"; };
 		DA4FA5B51DD7D80E00358ABE /* MAdminItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminItem.swift; sourceTree = "<group>"; };
 		DA4FA5B71DD7DA1300358ABE /* MAdminItemServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminItemServer.swift; sourceTree = "<group>"; };
-		DA4FA5B91DD7DA4B00358ABE /* MAdminItemPurchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminItemPurchases.swift; sourceTree = "<group>"; };
 		DA4FA5BB1DD7DA7700358ABE /* MAdminItemUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminItemUsers.swift; sourceTree = "<group>"; };
 		DA5768721DCEB12F00590B5F /* TFDatabaseModelUserStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelUserStatus.swift; sourceTree = "<group>"; };
 		DA7367B31DD5228F0004B99C /* MOnboardFormItemPassGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardFormItemPassGenerator.swift; sourceTree = "<group>"; };
@@ -417,7 +411,6 @@
 		DA88F67B1DC7EE1F009F61B3 /* MHomeUploadItemStatusUploaded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusUploaded.swift; sourceTree = "<group>"; };
 		DA88F67D1DC7EE28009F61B3 /* MHomeUploadItemStatusSynced.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusSynced.swift; sourceTree = "<group>"; };
 		DA88F67F1DC80C62009F61B3 /* FStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FStorage.swift; sourceTree = "<group>"; };
-		DAA779E11DD9035900A719AD /* MAdminItemSubscriptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminItemSubscriptions.swift; sourceTree = "<group>"; };
 		DAA779E31DD906D500A719AD /* VAdminCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminCell.swift; sourceTree = "<group>"; };
 		DAA779E51DD9133600A719AD /* CAdminUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAdminUsers.swift; sourceTree = "<group>"; };
 		DAA779E81DD9136D00A719AD /* VAdminUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminUsers.swift; sourceTree = "<group>"; };
@@ -441,12 +434,9 @@
 		DAC55F2B1DD2823600213C27 /* MOnboardItemFree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardItemFree.swift; sourceTree = "<group>"; };
 		DAC55F2D1DD2829200213C27 /* MOnboardItemPrivacy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardItemPrivacy.swift; sourceTree = "<group>"; };
 		DAC55F311DD2BB3700213C27 /* VOnboardOptionsButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardOptionsButton.swift; sourceTree = "<group>"; };
-		DAC98D261DDB638A0074E16A /* CAdminPurchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAdminPurchases.swift; sourceTree = "<group>"; };
 		DAC98D2A1DDB674C0074E16A /* VAdminPurchases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminPurchases.swift; sourceTree = "<group>"; };
 		DAC98D2C1DDB69310074E16A /* VAdminPurchasesHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminPurchasesHeader.swift; sourceTree = "<group>"; };
 		DAC98D301DDB69560074E16A /* VAdminPurchasesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminPurchasesCell.swift; sourceTree = "<group>"; };
-		DAC98D361DDB75E20074E16A /* FDatabaseModelPurchase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelPurchase.swift; sourceTree = "<group>"; };
-		DAC98D381DDB79990074E16A /* FDatabaseModelPurchaseList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelPurchaseList.swift; sourceTree = "<group>"; };
 		DAC98D3A1DDBB7B20074E16A /* MStoreItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItem.swift; sourceTree = "<group>"; };
 		DAC98D3C1DDBC6DC0074E16A /* MStoreItemStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatus.swift; sourceTree = "<group>"; };
 		DAC98D3E1DDBC6E40074E16A /* MStoreItemStatusDeferred.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemStatusDeferred.swift; sourceTree = "<group>"; };
@@ -1095,7 +1085,6 @@
 				DAA779E51DD9133600A719AD /* CAdminUsers.swift */,
 				DAAAFFA71DDA395800E8F839 /* CAdminUsersPhotos.swift */,
 				DA465BF41DDA5C790042C8C7 /* CAdminServer.swift */,
-				DAC98D261DDB638A0074E16A /* CAdminPurchases.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -1115,9 +1104,7 @@
 				DA4FA5B31DD7D7FE00358ABE /* MAdmin.swift */,
 				DA4FA5B51DD7D80E00358ABE /* MAdminItem.swift */,
 				DA4FA5B71DD7DA1300358ABE /* MAdminItemServer.swift */,
-				DA4FA5B91DD7DA4B00358ABE /* MAdminItemPurchases.swift */,
 				DA4FA5BB1DD7DA7700358ABE /* MAdminItemUsers.swift */,
-				DAA779E11DD9035900A719AD /* MAdminItemSubscriptions.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -1285,8 +1272,6 @@
 				DACD1FC81DC7C6C80067D26B /* FDatabaseModelPicture.swift */,
 				DA2F668E1DC90AF50078B466 /* FDatabaseModelPictureList.swift */,
 				DA34117C1DCBC1C0006E6D71 /* FDatabaseModelServer.swift */,
-				DAC98D361DDB75E20074E16A /* FDatabaseModelPurchase.swift */,
-				DAC98D381DDB79990074E16A /* FDatabaseModelPurchaseList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1600,7 +1585,6 @@
 				DACD1F871DC3A0020067D26B /* CHome.swift in Sources */,
 				DA4FA5A21DD7C7B300358ABE /* MStore.swift in Sources */,
 				DAF6F2B01DD397150053ED1B /* MOnboardFormItemEmail.swift in Sources */,
-				DAA779E21DD9035900A719AD /* MAdminItemSubscriptions.swift in Sources */,
 				DA465C031DDA65530042C8C7 /* MAdminServerItemFroob.swift in Sources */,
 				DAC55F2E1DD2829200213C27 /* MOnboardItemPrivacy.swift in Sources */,
 				DAF6F29F1DD376B90053ED1B /* COnboardForm.swift in Sources */,
@@ -1661,7 +1645,6 @@
 				DAC98D311DDB69560074E16A /* VAdminPurchasesCell.swift in Sources */,
 				DAE455561DCA52BB00948D70 /* MPicturesDetailInfoItemDelete.swift in Sources */,
 				DAC98D471DDBD7680074E16A /* VStoreHeader.swift in Sources */,
-				DA4FA5BA1DD7DA4B00358ABE /* MAdminItemPurchases.swift in Sources */,
 				DA34117B1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift in Sources */,
 				DACD1FAB1DC4124B0067D26B /* VHomeUpload.swift in Sources */,
 				DA7A79CB1DD64A63001B5FA5 /* MHomeItemPictures.swift in Sources */,
@@ -1713,7 +1696,6 @@
 				DA7A79BD1DD622B0001B5FA5 /* MHomeItemBlank.swift in Sources */,
 				DAC55F2A1DD27FB000213C27 /* MOnboardItemAccess.swift in Sources */,
 				DAC98D4B1DDBDDF40074E16A /* VStoreCellNew.swift in Sources */,
-				DAC98D391DDB79990074E16A /* FDatabaseModelPurchaseList.swift in Sources */,
 				DA2F66931DC91B780078B466 /* VPicturesCell.swift in Sources */,
 				DA406BD81DCD03760098D347 /* MSettingsItem.swift in Sources */,
 				DA2F66B51DC9508F0078B466 /* MPicturesItemStateLoading.swift in Sources */,
@@ -1723,7 +1705,6 @@
 				DA4EF9011DC395B300297C1D /* ExtensionNSManagedObject.swift in Sources */,
 				DA465BEF1DDA4A210042C8C7 /* MAdminUsersPhotosItemStatusLoaded.swift in Sources */,
 				DAF6F2B41DD397260053ED1B /* MOnboardFormItemEmailSignin.swift in Sources */,
-				DAC98D271DDB638A0074E16A /* CAdminPurchases.swift in Sources */,
 				DA465BFA1DDA61DA0042C8C7 /* VAdminServerCell.swift in Sources */,
 				DAE4555A1DCA74B900948D70 /* CPicturesData.swift in Sources */,
 				DA2F668D1DC9002E0078B466 /* MPicturesItem.swift in Sources */,
@@ -1751,7 +1732,6 @@
 				DA4EF90D1DC395B300297C1D /* MMainState.swift in Sources */,
 				DA4EF9041DC395B300297C1D /* ExtensionUIFont.swift in Sources */,
 				DAF6F2C51DD3D8430053ED1B /* VOnboardFormCellRemember.swift in Sources */,
-				DAC98D371DDB75E20074E16A /* FDatabaseModelPurchase.swift in Sources */,
 				DAA779E91DD9136D00A719AD /* VAdminUsers.swift in Sources */,
 				DACD1FBF1DC6FCC00067D26B /* VHomeUploadSyncCell.swift in Sources */,
 				DA88F6701DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift in Sources */,

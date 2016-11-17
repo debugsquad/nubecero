@@ -41,10 +41,6 @@
 "VAdminServerCellPlus_labelTitle"="Plus Space";
 "VAdminServerHeader_button"="Save";
 "VHomeUploadSyncBar_totalItems"=" /%@";
-"VAdminPurchasesHeader_buttonSave"="Save";
-"VAdminPurchasesHeader_buttonAdd"="New purchase";
-"VAdminPurchasesCell_buttonDelete"="Delete";
-"VAdminPurchasesCell_placeholder"="Purchase ID";
 "VStoreFooter_buttonRestore"="Restore purchase";
 "VStoreCellNew_buttonPurchase"="Purchase";
 "VStoreCellDeferred_label"="Purchase deferred";
@@ -87,19 +83,6 @@
 "CAdminServer_alertMessage"="Are you sure?";
 "CAdminServer_alertDone"="Changes saved";
 "CAdminServer_alertError"="Error saving";
-"CAdminPurchases_title"="Purchases";
-"CAdminPurchases_errorLoading"="Error loading purchases";
-"CAdminPurchases_alertTitle"="Saving purchases";
-"CAdminPurchases_alertMessage"="Are your sure?";
-"CAdminPurchases_alertCancel"="Cancel";
-"CAdminPurchases_alertSave"="Save";
-"CAdminPurchases_alertDone"="Purchases saved";
-"CAdminPurchases_purchaseAdded"="Purchase added";
-"CAdminPurchases_deleteTitle"="Deleting purchase";
-"CAdminPurchases_deleteMessage"="Are your sure?";
-"CAdminPurchases_deleteCancel"="Cancel";
-"CAdminPurchases_deleteDelete"="Delete";
-"CAdminPurchases_deleteDone"="Purchase deleted";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading photo, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";
@@ -117,9 +100,7 @@
 "MOnboardForm_errorPassword"="Enter your Password";
 "MOnboardForm_errorPasswordShort"="Password seems too short";
 "MAdminItemServer_title"="Server";
-"MAdminItemPurchases_title"="Purchases";
 "MAdminItemUsers_title"="Users";
-"MAdminItemSubscriptions_title"="Subscriptions";
 "MAdminUsersPhotosItemStatusLoading_errorUnknown"="Error loading image";
 "MStore_errorLoading"="Error loading purchases try again";
 

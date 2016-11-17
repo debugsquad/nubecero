@@ -40,10 +40,6 @@
 "VAdminServerCellPlus_labelTitle"="Espacio Plus";
 "VAdminServerHeader_button"="Guardar";
 "VHomeUploadSyncBar_totalItems"=" /%@";
-"VAdminPurchasesHeader_buttonSave"="Guardar";
-"VAdminPurchasesHeader_buttonAdd"="Nueva compra";
-"VAdminPurchasesCell_buttonDelete"="Borrar";
-"VAdminPurchasesCell_placeholder"="Identificador de compra";
 "VStoreFooter_buttonRestore"="Restaurar compra";
 "VStoreCellNew_buttonPurchase"="Comprar";
 "VStoreCellDeferred_label"="Purchase pospuesta";
@@ -85,19 +81,6 @@
 "CAdminServer_alertMessage"="¿Estas seguro?";
 "CAdminServer_alertDone"="Cambios guardados";
 "CAdminServer_alertError"="Error guardando";
-"CAdminPurchases_title"="Compras";
-"CAdminPurchases_errorLoading"="Error cargando compras";
-"CAdminPurchases_alertTitle"="Guardando compras";
-"CAdminPurchases_alertMessage"="¿Estás seguro?";
-"CAdminPurchases_alertCancel"="Cancelar";
-"CAdminPurchases_alertSave"="Guardar";
-"CAdminPurchases_alertDone"="Compras guardadas";
-"CAdminPurchases_purchaseAdded"="Nueva compra";
-"CAdminPurchases_deleteTitle"="Borrand compra";
-"CAdminPurchases_deleteMessage"="¿Estas seguro?";
-"CAdminPurchases_deleteCancel"="Cancelar";
-"CAdminPurchases_deleteDelete"="Borrar";
-"CAdminPurchases_deleteDone"="Compra borrada";
 "VStoreCellPurchasing_label"="Comprando";
 "VStoreCellPurchased_label"="Comprado";
 
@@ -117,9 +100,7 @@
 "MOnboardForm_errorPassword"="Ingresa tu Contraseña";
 "MOnboardForm_errorPasswordShort"="Contraseña demasiado corta";
 "MAdminItemServer_title"="Servidor";
-"MAdminItemPurchases_title"="Compras";
 "MAdminItemUsers_title"="Usuarios";
-"MAdminItemSubscriptions_title"="Subscripciones";
 "MAdminUsersPhotosItemStatusLoading_errorUnknown"="Error al cargar imagen";
 "MStore_errorLoading"="Error cargando compras, reintenta";
 

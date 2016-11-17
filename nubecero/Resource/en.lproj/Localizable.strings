@@ -3,7 +3,7 @@
 "VHomeUploadSyncBar_tryAgain"="Resume";
 "VPicturesDataCellClose_buttonTitle"="Done";
 "VPicturesDataCellSize_labelTitle"="Size";
-"VPicturesDataCellSize_labelMegabytes"=" MB";
+"VPicturesDataCellSize_labelMegabytes"=" Mb";
 "VPicturesDataCellCreated_labelTitle"="Added";
 "VBanned_disclaimer"="Your account is suspended\nContact support for further information";
 "VAuth_buttonTryAgain"="Try again";

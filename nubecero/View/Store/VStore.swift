@@ -24,7 +24,6 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
-        flow.footerReferenceSize = CGSize(width:0, height:kFooterHeight)
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
@@ -145,6 +144,13 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     }
     
     //MARK: collection delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, referenceSizeForFooterInSection section:Int) -> CGSize
+    {
+        let indexPath:IndexPath = IndexPath(item:0, section:section)
+        let item:MStoreItem = modelAtIndex(index:indexPath)
+        let size:CGSize = CGSize(width:0, height: <#T##CGFloat#>)
+    }
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {

@@ -30,6 +30,7 @@ class MStoreItem
     func foundPurchase(price:String)
     {
         self.price = price
+        statusNew()
     }
     
     func statusNew()

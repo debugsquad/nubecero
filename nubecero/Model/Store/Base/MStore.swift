@@ -6,22 +6,23 @@ class MStore
     typealias PurchaseId = String
     
     let mapItems:[PurchaseId:MStoreItem]
-    private(set) var listReferences:[PurchaseId]
-    private(set) var error:String?
-    private weak var controller:CStore!
+    let references:[PurchaseId]
+    var error:String?
     private let priceFormatter:NumberFormatter
     
-    init(controller:CStore)
+    init()
     {
-        self.controller = controller
         priceFormatter = NumberFormatter()
         priceFormatter.numberStyle = NumberFormatter.Style.currencyISOCode
-        listReferences = []
         
         let itemAlbums:MStoreItemAlbums = MStoreItemAlbums()
         
         mapItems = [
             itemAlbums.purchaseId:itemAlbums
+        ]
+        
+        references = [
+            itemAlbums.purchaseId
         ]
     }
     

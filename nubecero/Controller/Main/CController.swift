@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseAnalytics
 
 class CController:UIViewController
 {
@@ -42,6 +43,9 @@ class CController:UIViewController
         edgesForExtendedLayout = UIRectEdge()
         extendedLayoutIncludesOpaqueBars = false
         automaticallyAdjustsScrollViewInsets = false
+        
+        let screen:String = NSStringFromClass(object_getClass(self))
+        FIRAnalytics.setScreenName(screen, screenClass:screen)
     }
     
     override func viewDidAppear(_ animated:Bool)

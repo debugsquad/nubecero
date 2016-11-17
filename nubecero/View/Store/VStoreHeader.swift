@@ -9,7 +9,7 @@ class VStoreHeader:UICollectionReusableView
     private weak var imageView:UIImageView!
     private weak var layoutLabelHeight:NSLayoutConstraint!
     private let kLabelMarginHorizontal:CGFloat = 10
-    private let kImageViewSize:CGFloat = 100
+    private let kImageViewSize:CGFloat = 80
     
     override init(frame:CGRect)
     {
@@ -19,7 +19,7 @@ class VStoreHeader:UICollectionReusableView
         ]
         
         attrDescr = [
-            NSFontAttributeName:UIFont.regular(size:14),
+            NSFontAttributeName:UIFont.regular(size:16),
             NSForegroundColorAttributeName:UIColor.black
         ]
         
@@ -55,7 +55,7 @@ class VStoreHeader:UICollectionReusableView
             "imageViewSize":kImageViewSize]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[imageView(imageViewSize)]-0-[label]-(labelMarginHorizontal)-|",
+            withVisualFormat:"H:|-10-[imageView(imageViewSize)]-0-[label]-(labelMarginHorizontal)-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -65,7 +65,7 @@ class VStoreHeader:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-12-[imageView(imageViewSize)]",
+            withVisualFormat:"V:|-20-[imageView(imageViewSize)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -117,20 +117,20 @@ class VStoreHeader:UICollectionReusableView
     //MARK: public
     
     func config(model:MStoreItem)
-    {/*
+    {
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
         let stringTitle:NSAttributedString = NSAttributedString(
-            string:model.purchaseTitle,
+            string:model.title,
             attributes:attrTitle)
         let stringDescr:NSAttributedString = NSAttributedString(
-            string:model.purchaseDescription,
+            string:model.descr,
             attributes:attrDescr)
         mutableString.append(stringTitle)
         mutableString.append(stringDescr)
         
         label.attributedText = mutableString
-        imageView.image = UIImage(named:model.purchaseAsset)
+        imageView.image = model.image
         
-        setNeedsLayout()*/
+        setNeedsLayout()
     }
 }

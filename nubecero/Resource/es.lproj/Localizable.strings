@@ -102,5 +102,5 @@
 "MAdminItemServer_title"="Servidor";
 "MAdminItemUsers_title"="Usuarios";
 "MAdminUsersPhotosItemStatusLoading_errorUnknown"="Error al cargar imagen";
-"MStoreItemAlbums_title"="Albums admin";
-"MStoreItemAlbums_descr"="Crea los albums que quieras para organizar tus fotos";
+"MStoreItemAlbums_title"="Album admin";
+"MStoreItemAlbums_descr"="Administra tus fotos creando albums";

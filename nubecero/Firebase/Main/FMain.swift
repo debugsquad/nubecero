@@ -14,7 +14,6 @@ class FMain
         
         #if DEBUG
             
-            print("Dry run analytics")
             analytics = nil
             
         #else

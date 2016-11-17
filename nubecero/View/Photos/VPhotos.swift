@@ -3,6 +3,10 @@ import UIKit
 class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CPhotos!
+    private weak var collectionView:UICollectionView!
+    private let kInterLine:CGFloat = 1
+    private let kCollectionBottom:CGFloat = 20
+    private let kCellHeight:CGFloat = 100
     
     convenience init(controller:CPhotos)
     {
@@ -11,6 +15,35 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         backgroundColor = UIColor.background
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSize.zero
+        flow.footerReferenceSize = CGSize.zero
+        flow.minimumInteritemSpacing = 0
+        flow.minimumLineSpacing = kInterLine
+        flow.scrollDirection = UICollectionViewScrollDirection.vertical
+        flow.sectionInset = UIEdgeInsets(top:0, left:0, bottom:kCollectionBottom, right:0)
+        
+        let collectionView:UICollectionView = UICollectionView(
+            frame:CGRect.zero,
+            collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(
+            VPhotosCell.self,
+            forCellWithReuseIdentifier:
+            VPhotosCell.reusableIdentifier)
+        self.collectionView = collectionView
+        
+        addSubview(collectionView)
+        
+        
     }
     
     //MARK: private

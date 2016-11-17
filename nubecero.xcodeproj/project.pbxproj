@@ -154,6 +154,7 @@
 		DAA336801DDE4DE300AA2D12 /* MPhotosItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA3367F1DDE4DE300AA2D12 /* MPhotosItem.swift */; };
 		DAA336821DDE544800AA2D12 /* Photos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAA336811DDE544800AA2D12 /* Photos.xcassets */; };
 		DAA336841DDE60D200AA2D12 /* VPhotosHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA336831DDE60D200AA2D12 /* VPhotosHeader.swift */; };
+		DAA336861DDE6AA000AA2D12 /* CPhotosAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA336851DDE6AA000AA2D12 /* CPhotosAlbum.swift */; };
 		DAA779E41DD906D500A719AD /* VAdminCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779E31DD906D500A719AD /* VAdminCell.swift */; };
 		DAA779E61DD9133600A719AD /* CAdminUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779E51DD9133600A719AD /* CAdminUsers.swift */; };
 		DAA779E91DD9136D00A719AD /* VAdminUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779E81DD9136D00A719AD /* VAdminUsers.swift */; };
@@ -434,6 +435,7 @@
 		DAA3367F1DDE4DE300AA2D12 /* MPhotosItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosItem.swift; sourceTree = "<group>"; };
 		DAA336811DDE544800AA2D12 /* Photos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Photos.xcassets; sourceTree = "<group>"; };
 		DAA336831DDE60D200AA2D12 /* VPhotosHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosHeader.swift; sourceTree = "<group>"; };
+		DAA336851DDE6AA000AA2D12 /* CPhotosAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPhotosAlbum.swift; sourceTree = "<group>"; };
 		DAA779E31DD906D500A719AD /* VAdminCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminCell.swift; sourceTree = "<group>"; };
 		DAA779E51DD9133600A719AD /* CAdminUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAdminUsers.swift; sourceTree = "<group>"; };
 		DAA779E81DD9136D00A719AD /* VAdminUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminUsers.swift; sourceTree = "<group>"; };
@@ -1149,6 +1151,7 @@
 			isa = PBXGroup;
 			children = (
 				DAA336751DDE466D00AA2D12 /* CPhotos.swift */,
+				DAA336851DDE6AA000AA2D12 /* CPhotosAlbum.swift */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
@@ -1693,6 +1696,7 @@
 				DA406BDA1DCD03820098D347 /* MSettingsItemSecurity.swift in Sources */,
 				DAF6F2A81DD381A50053ED1B /* VOnboardFormHeader.swift in Sources */,
 				DAC55F1E1DD258D800213C27 /* MOnboard.swift in Sources */,
+				DAA336861DDE6AA000AA2D12 /* CPhotosAlbum.swift in Sources */,
 				DA4EF9141DC395B300297C1D /* VParent.swift in Sources */,
 				DACD1FB01DC540750067D26B /* MHomeUpload.swift in Sources */,
 				DAC55F1B1DD23C7900213C27 /* VOnboard.swift in Sources */,

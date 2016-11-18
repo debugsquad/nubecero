@@ -23,12 +23,19 @@ class VPhotosAlbumTitle:UIView
         labelName.textColor = UIColor(white:0.2, alpha:1)
         labelName.text = controller.model.name
         
-        let imagePictures
+        let imagePictures:UIImageView = UIImageView()
+        imagePictures.isUserInteractionEnabled = false
+        imagePictures.translatesAutoresizingMaskIntoConstraints = false
+        imagePictures.clipsToBounds = true
+        imagePictures.contentMode = UIViewContentMode.center
+        imagePictures.image = #imageLiteral(resourceName: "assetPhotosAlbumPhotos")
         
         addSubview(labelName)
+        addSubview(imagePictures)
         
         let views:[String:UIView] = [
-            "labelName":labelName]
+            "labelName":labelName,
+            "imagePictures":imagePictures]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -38,7 +45,12 @@ class VPhotosAlbumTitle:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[labelName(30)]-30-|",
+            withVisualFormat:"H:|-5-[imagePictures(30)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[labelName(30)]-0-[imagePictures(30)]-0-|",
             options:[],
             metrics:metrics,
             views:views))

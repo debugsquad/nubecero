@@ -22,4 +22,11 @@ class CPhotosAlbum:CController
         self.viewAlbum = viewAlbum
         view = viewAlbum
     }
+    
+    //MARK: public
+    
+    func back()
+    {
+        parentController.pop()
+    }
 }

@@ -23,6 +23,10 @@ class VPhotosAlbum:UIView
         backButton.imageView!.clipsToBounds = true
         backButton.imageView!.contentMode = UIViewContentMode.center
         backButton.imageView!.tintColor = UIColor.black
+        backButton.addTarget(
+            self,
+            action:#selector(actionBack(sender:)),
+            for:UIControlEvents.touchUpInside)
         self.backButton = backButton
         
         addSubview(backButton)
@@ -38,7 +42,7 @@ class VPhotosAlbum:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[backButton(44)]-",
+            withVisualFormat:"V:[backButton(44)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -53,5 +57,12 @@ class VPhotosAlbum:UIView
             constant:20)
         
         addConstraint(layoutBackButtonTop)
+    }
+    
+    //MARK: actions
+    
+    func actionBack(sender button:UIButton)
+    {
+        controller.back()
     }
 }

@@ -3,6 +3,18 @@ import UIKit
 class CPhotosAlbum:CController
 {
     private weak var viewAlbum:VPhotosAlbum!
+    let model:MPhotosItem
+    
+    override init(model:MPhotosItem)
+    {
+        self.model = model
+        super.init()
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
     
     override func viewWillAppear(_ animated:Bool)
     {

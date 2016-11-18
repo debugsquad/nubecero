@@ -1,6 +1,6 @@
 import Foundation
 
-class FDatabaseModelPicture:FDatabaseModel
+class FDatabaseModelPhoto:FDatabaseModel
 {
     enum Property:String
     {

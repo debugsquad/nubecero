@@ -1,6 +1,6 @@
 import Foundation
 
-class FDatabaseModelPictureList:FDatabaseModel
+class FDatabaseModelPhotoList:FDatabaseModel
 {
     let items:[MPictures.PictureId:FDatabaseModelPicture]
     

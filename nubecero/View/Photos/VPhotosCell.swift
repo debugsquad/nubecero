@@ -5,7 +5,7 @@ class VPhotosCell:UICollectionViewCell
     private weak var labelName:UILabel!
     private weak var labelCount:UILabel!
     private let numberFormatter:NumberFormatter
-    private let kAlphaSelected:CGFloat = 0.4
+    private let kAlphaSelected:CGFloat = 0.6
     private let kAlphaNotSelected:CGFloat = 1
     private let kKiloBytesPerMega:CGFloat = 1000
     
@@ -28,7 +28,7 @@ class VPhotosCell:UICollectionViewCell
         labelName.isUserInteractionEnabled = false
         labelName.translatesAutoresizingMaskIntoConstraints = false
         labelName.backgroundColor = UIColor.clear
-        labelName.font = UIFont.regular(size:18)
+        labelName.font = UIFont.regular(size:16)
         labelName.textColor = UIColor(white:0.4, alpha:1)
         self.labelName = labelName
         
@@ -36,8 +36,8 @@ class VPhotosCell:UICollectionViewCell
         labelCount.isUserInteractionEnabled = false
         labelCount.translatesAutoresizingMaskIntoConstraints = false
         labelCount.backgroundColor = UIColor.clear
-        labelCount.font = UIFont.regular(size:13)
-        labelCount.textColor = UIColor(white:0.6, alpha:1)
+        labelCount.font = UIFont.regular(size:12)
+        labelCount.textColor = UIColor(white:0.65, alpha:1)
         self.labelCount = labelCount
         
         addSubview(labelName)
@@ -52,17 +52,17 @@ class VPhotosCell:UICollectionViewCell
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[icon(44)]-3-[labelName]-10-|",
+            withVisualFormat:"H:|-0-[icon(50)]-0-[labelName]-10-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[icon]-3-[labelCount(260)]",
+            withVisualFormat:"H:[icon]-0-[labelCount(260)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-5-[labelName(40)]",
+            withVisualFormat:"V:|-6-[labelName(40)]",
             options:[],
             metrics:metrics,
             views:views))

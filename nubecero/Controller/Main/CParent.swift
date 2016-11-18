@@ -111,6 +111,65 @@ class CParent:UIViewController
         }
     }
     
+    private func scroll(
+        controller:CController,
+        underBar:Bool,
+        pop:Bool,
+        delta:CGFloat)
+    {
+        let currentController:CController
+        
+        if pop
+        {
+            guard
+                
+                let popedController:CController = controllers.popLast()
+                
+            else
+            {
+                return
+            }
+            
+            currentController = popedController
+        }
+        else
+        {
+            guard
+                
+                let stackedController:CController = controllers.last
+                
+            else
+            {
+                return
+            }
+            
+            currentController = stackedController
+        }
+        
+        controllers.append(controller)
+        addChildViewController(controller)
+        controller.beginAppearanceTransition(true, animated:true)
+        
+        currentController.beginAppearanceTransition(false, animated:true)
+        
+        viewParent.scroll(
+            controller:controller,
+            currentController:currentController,
+            delta:delta,
+            underBar:underBar)
+        {
+            controller.endAppearanceTransition()
+            
+            if pop
+            {
+                currentController.view.removeFromSuperview()
+                currentController.removeFromParentViewController()
+            }
+            
+            currentController.endAppearanceTransition()
+        }
+    }
+    
     //MARK: public
     
     func statusBarLight()
@@ -240,64 +299,32 @@ class CParent:UIViewController
         }
     }
     
-    func scrollLeft(controller:CController, underBar:Bool)
+    func scrollLeft(
+        controller:CController,
+        underBar:Bool,
+        pop:Bool)
     {
-        guard
-            
-            let currentController:CController = controllers.popLast()
+        let delta:CGFloat = viewParent.bounds.maxX
         
-        else
-        {
-            return
-        }
-        
-        controllers.append(controller)
-        addChildViewController(controller)
-        controller.beginAppearanceTransition(true, animated:true)
-        
-        currentController.beginAppearanceTransition(false, animated:true)
-        
-        viewParent.fromLeft(
+        scroll(
             controller:controller,
-            currentController:currentController,
-            underBar:underBar)
-        {
-            controller.endAppearanceTransition()
-            
-            currentController.view.removeFromSuperview()
-            currentController.removeFromParentViewController()
-            currentController.endAppearanceTransition()
-        }
+            underBar:underBar,
+            pop:pop,
+            delta:delta)
     }
     
-    func scrollRight(controller:CController, underBar:Bool)
+    func scrollRight(
+        controller:CController,
+        underBar:Bool,
+        pop:Bool)
     {
-        guard
-            
-            let currentController:CController = controllers.popLast()
-            
-        else
-        {
-            return
-        }
+        let delta:CGFloat = -viewParent.bounds.maxX
         
-        controllers.append(controller)
-        addChildViewController(controller)
-        controller.beginAppearanceTransition(true, animated:true)
-        
-        currentController.beginAppearanceTransition(false, animated:true)
-        
-        viewParent.fromRight(
+        scroll(
             controller:controller,
-            currentController:currentController,
-            underBar:underBar)
-        {
-            controller.endAppearanceTransition()
-            
-            currentController.view.removeFromSuperview()
-            currentController.removeFromParentViewController()
-            currentController.endAppearanceTransition()
-        }
+            underBar:underBar,
+            pop:pop,
+            delta:delta)
     }
     
     func presentAuth()

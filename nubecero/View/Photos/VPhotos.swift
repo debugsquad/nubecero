@@ -137,7 +137,8 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         let item:MPhotosItem = modelAtIndex(index:indexPath)
         controller.selected(item:item)
         
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
         { [weak collectionView] in
             
             collectionView?.selectItem(

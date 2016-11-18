@@ -15,6 +15,11 @@ class VPhotosAlbum:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
+        let leftBorder:UIView = UIView()
+        leftBorder.isUserInteractionEnabled = false
+        leftBorder.translatesAutoresizingMaskIntoConstraints = false
+        leftBorder.backgroundColor = UIColor.black
+        
         let backButton:UIButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.setImage(
@@ -23,16 +28,19 @@ class VPhotosAlbum:UIView
         backButton.imageView!.clipsToBounds = true
         backButton.imageView!.contentMode = UIViewContentMode.center
         backButton.imageView!.tintColor = UIColor.black
+        backButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 25)
         backButton.addTarget(
             self,
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         self.backButton = backButton
         
+        addSubview(leftBorder)
         addSubview(backButton)
         
         let views:[String:UIView] = [
-            "backButton":backButton]
+            "backButton":backButton,
+            "leftBorder":leftBorder]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -42,7 +50,17 @@ class VPhotosAlbum:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[leftBorder(1)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[backButton(44)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[leftBorder]-0-|",
             options:[],
             metrics:metrics,
             views:views))

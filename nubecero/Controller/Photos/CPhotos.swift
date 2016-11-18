@@ -16,6 +16,9 @@ class CPhotos:CController
     func selected(item:MPhotosItem)
     {
         let albumController:CPhotosAlbum = CPhotosAlbum()
-        parentController.scrollRight(controller:albumController, underBar:false)
+        parentController.scrollRight(
+            controller:albumController,
+            underBar:false,
+            pop:false)
     }
 }

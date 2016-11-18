@@ -47,9 +47,9 @@ class VParent:UIView
         addConstraint(layoutBarHeight)
     }
     
-    //MARK: private
+    //MARK: public
     
-    private func scroll(
+    func scroll(
         controller:CController,
         currentController:CController,
         delta:CGFloat,
@@ -112,8 +112,6 @@ class VParent:UIView
             completion()
         }
     }
-    
-    //MARK: public
     
     func over(
         controller:CController,
@@ -178,36 +176,6 @@ class VParent:UIView
         {
             completion()
         }
-    }
-    
-    func fromLeft(
-        controller:CController,
-        currentController:CController,
-        underBar:Bool,
-        completion:@escaping(() -> ()))
-    {
-        let width:CGFloat = bounds.maxX
-        scroll(
-            controller:controller,
-            currentController:currentController,
-            delta:width,
-            underBar:underBar,
-            completion:completion)
-    }
-    
-    func fromRight(
-        controller:CController,
-        currentController:CController,
-        underBar:Bool,
-        completion:@escaping(() -> ()))
-    {
-        let width:CGFloat = -bounds.maxX
-        scroll(
-            controller:controller,
-            currentController:currentController,
-            delta:width,
-            underBar:underBar,
-            completion:completion)
     }
     
     func push(

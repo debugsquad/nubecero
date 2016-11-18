@@ -22,6 +22,7 @@ class FDatabaseModelUser:FDatabaseModel
     }
     
     let email:String
+    let token:String
     let created:TimeInterval
     let lastSession:TimeInterval
     let status:Status
@@ -33,6 +34,7 @@ class FDatabaseModelUser:FDatabaseModel
     {
         self.email = email
         self.status = status
+        token = kEmpty
         created = NSDate().timeIntervalSince1970
         lastSession = created
         diskUsed = 0
@@ -51,6 +53,15 @@ class FDatabaseModelUser:FDatabaseModel
         else
         {
             self.email = kEmpty
+        }
+        
+        if let token:String = snapshotDict?[Property.token.rawValue] as? String
+        {
+            self.token = token
+        }
+        else
+        {
+            self.token = kEmpty
         }
         
         if let statusInt:Int = snapshotDict?[Property.status.rawValue] as? Int
@@ -108,6 +119,7 @@ class FDatabaseModelUser:FDatabaseModel
     {
         let json:[String:Any] = [
             Property.email.rawValue:email,
+            Property.token.rawValue:token,
             Property.status.rawValue:status.rawValue,
             Property.created.rawValue:created,
             Property.lastSession.rawValue:lastSession,

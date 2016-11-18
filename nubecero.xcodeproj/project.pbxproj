@@ -156,6 +156,7 @@
 		DAA336841DDE60D200AA2D12 /* VPhotosHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA336831DDE60D200AA2D12 /* VPhotosHeader.swift */; };
 		DAA336861DDE6AA000AA2D12 /* CPhotosAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA336851DDE6AA000AA2D12 /* CPhotosAlbum.swift */; };
 		DAA336891DDE6B3000AA2D12 /* VPhotosAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA336881DDE6B3000AA2D12 /* VPhotosAlbum.swift */; };
+		DAA3368D1DDE945000AA2D12 /* VPhotosAlbumTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA3368C1DDE945000AA2D12 /* VPhotosAlbumTitle.swift */; };
 		DAA779E41DD906D500A719AD /* VAdminCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779E31DD906D500A719AD /* VAdminCell.swift */; };
 		DAA779E61DD9133600A719AD /* CAdminUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779E51DD9133600A719AD /* CAdminUsers.swift */; };
 		DAA779E91DD9136D00A719AD /* VAdminUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA779E81DD9136D00A719AD /* VAdminUsers.swift */; };
@@ -438,6 +439,7 @@
 		DAA336831DDE60D200AA2D12 /* VPhotosHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosHeader.swift; sourceTree = "<group>"; };
 		DAA336851DDE6AA000AA2D12 /* CPhotosAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPhotosAlbum.swift; sourceTree = "<group>"; };
 		DAA336881DDE6B3000AA2D12 /* VPhotosAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosAlbum.swift; sourceTree = "<group>"; };
+		DAA3368C1DDE945000AA2D12 /* VPhotosAlbumTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosAlbumTitle.swift; sourceTree = "<group>"; };
 		DAA779E31DD906D500A719AD /* VAdminCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminCell.swift; sourceTree = "<group>"; };
 		DAA779E51DD9133600A719AD /* CAdminUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAdminUsers.swift; sourceTree = "<group>"; };
 		DAA779E81DD9136D00A719AD /* VAdminUsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminUsers.swift; sourceTree = "<group>"; };
@@ -1182,6 +1184,7 @@
 			isa = PBXGroup;
 			children = (
 				DAA336881DDE6B3000AA2D12 /* VPhotosAlbum.swift */,
+				DAA3368C1DDE945000AA2D12 /* VPhotosAlbumTitle.swift */,
 			);
 			path = PhotosAlbum;
 			sourceTree = "<group>";
@@ -1702,6 +1705,7 @@
 				DACD1FC51DC7C6750067D26B /* FDatabaseModel.swift in Sources */,
 				DA465BED1DDA4A0D0042C8C7 /* MAdminUsersPhotosItemStatusLoading.swift in Sources */,
 				DA2F66A01DC92F380078B466 /* MPicturesDetail.swift in Sources */,
+				DAA3368D1DDE945000AA2D12 /* VPhotosAlbumTitle.swift in Sources */,
 				DA406BDE1DCD1D240098D347 /* MSettingsItemLogout.swift in Sources */,
 				DA465BE91DDA49E70042C8C7 /* MAdminUsersPhotosItemStatus.swift in Sources */,
 				DA406BDA1DCD03820098D347 /* MSettingsItemSecurity.swift in Sources */,

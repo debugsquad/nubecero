@@ -2,19 +2,19 @@ import Foundation
 
 class FDatabaseModelAlbumList:FDatabaseModel
 {
-    let items:[MPhotos.PictureId:FDatabaseModelPicture]
+    let items:[MPhotos.AlbumId:FDatabaseModelAlbum]
     
     required init(snapshot:Any)
     {
-        if let rawItems:[MPictures.PictureId:Any] = snapshot as? [MPictures.PictureId:Any]
+        if let rawItems:[MPhotos.AlbumId:Any] = snapshot as? [MPhotos.AlbumId:Any]
         {
-            var items:[MPictures.PictureId:FDatabaseModelPicture] = [:]
-            let keys:[MPictures.PictureId] = Array(rawItems.keys)
+            var items:[MPhotos.AlbumId:FDatabaseModelAlbum] = [:]
+            let keys:[MPhotos.AlbumId] = Array(rawItems.keys)
             
-            for rawKey:MPictures.PictureId in keys
+            for rawKey:MPhotos.AlbumId in keys
             {
                 let rawItem:Any = rawItems[rawKey]
-                let item:FDatabaseModelPicture = FDatabaseModelPicture(snapshot:rawItem)
+                let item:FDatabaseModelAlbum = FDatabaseModelAlbum(snapshot:rawItem)
                 items[rawKey] = item
             }
             

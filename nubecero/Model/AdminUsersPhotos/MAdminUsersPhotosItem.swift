@@ -6,18 +6,18 @@ class MAdminUsersPhotosItem
     var image:UIImage?
     var error:String?
     let userId:MSession.UserId
-    let pictureId:MPictures.PictureId
+    let photoId:MPhotos.PhotoId
     let created:TimeInterval
     let size:Int
-    let status:FDatabaseModelPicture.Status
+    let status:FDatabaseModelPhoto.Status
     
-    init(userId:MSession.UserId, pictureId:MPictures.PictureId, firebasePicture:FDatabaseModelPicture)
+    init(userId:MSession.UserId, photoId:MPhotos.PhotoId, firebasePhoto:FDatabaseModelPhoto)
     {
         self.userId = userId
-        self.pictureId = pictureId
-        created = firebasePicture.created
-        size = firebasePicture.size
-        status = firebasePicture.status
+        self.photoId = photoId
+        created = firebasePhoto.created
+        size = firebasePhoto.size
+        status = firebasePhoto.status
         modelStatus = MAdminUsersPhotosItemStatusStand(model:self)
     }
     

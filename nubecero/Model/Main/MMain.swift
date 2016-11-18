@@ -27,8 +27,8 @@ class MMain
         home = itemHome
         items.append(itemHome)
         
-        let itemPictures:MMainItemPictures = MMainItemPictures(index:items.count)
-        items.append(itemPictures)
+        let itemPhotos:MMainItemPhotos = MMainItemPhotos(index:items.count)
+        items.append(itemPhotos)
         
         let itemStore:MMainItemStore = MMainItemStore(index:items.count)
         items.append(itemStore)

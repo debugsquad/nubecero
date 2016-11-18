@@ -8,13 +8,13 @@ class FDatabaseModelPhotoList:FDatabaseModel
     {
         if let rawItems:[MPhotos.PhotoId:Any] = snapshot as? [MPhotos.PhotoId:Any]
         {
-            var items:[MPictures.PictureId:FDatabaseModelPicture] = [:]
-            let keys:[MPictures.PictureId] = Array(rawItems.keys)
+            var items:[MPhotos.PhotoId:FDatabaseModelPhoto] = [:]
+            let keys:[MPhotos.PhotoId] = Array(rawItems.keys)
             
-            for rawKey:MPictures.PictureId in keys
+            for rawKey:MPhotos.PhotoId in keys
             {
                 let rawItem:Any = rawItems[rawKey]
-                let item:FDatabaseModelPicture = FDatabaseModelPicture(snapshot:rawItem)
+                let item:FDatabaseModelPhoto = FDatabaseModelPhoto(snapshot:rawItem)
                 items[rawKey] = item
             }
             

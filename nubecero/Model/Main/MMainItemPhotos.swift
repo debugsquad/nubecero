@@ -1,8 +1,8 @@
 import UIKit
 
-class MMainItemPictures:MMainItem
+class MMainItemPhotos:MMainItem
 {
-    private let kIconImage:String = "assetGenericPictures"
+    private let kIconImage:String = "assetGenericPhotos"
     
     init(index:Int)
     {

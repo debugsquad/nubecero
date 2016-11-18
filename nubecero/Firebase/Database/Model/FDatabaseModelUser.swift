@@ -8,8 +8,8 @@ class FDatabaseModelUser:FDatabaseModel
         case created = "created"
         case lastSession = "lastSession"
         case diskUsed = "diskUsed"
-        case pictures = "pictures"
-        case plus = "plus"
+        case photos = "photos"
+        case albums = "albums"
     }
     
     enum Status:Int

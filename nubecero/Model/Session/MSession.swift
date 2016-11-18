@@ -7,13 +7,7 @@ class MSession
     static let sharedInstance:MSession = MSession()
     var server:MSessionServer?
     var userId:UserId?
-    var plus:Bool
     var settings:DObjectSettings?
-    
-    private init()
-    {
-        plus = false
-    }
     
     //MARK: private
     

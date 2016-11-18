@@ -25,7 +25,7 @@ class MAdminUsersPhotosItemStatusLoading:MAdminUsersPhotosItemStatus
         guard
         
             let userId:MSession.UserId = model?.userId,
-            let pictureId:MPictures.PictureId = model?.pictureId
+            let pictureId:MPhotos.PhotoId = model?.photoId
         
         else
         {

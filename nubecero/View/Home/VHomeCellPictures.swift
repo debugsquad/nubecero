@@ -47,7 +47,7 @@ class VHomeCellPictures:VHomeCell
     }
     
     override func config(controller:CHome, model:MHomeItem)
-    {
+    {/*
         let totalPicturesInt:Int = MPictures.sharedInstance.references.count
         
         if totalPicturesInt > 0
@@ -73,6 +73,6 @@ class VHomeCellPictures:VHomeCell
         else
         {
             label.text = kEmpty
-        }
+        }*/
     }
 }

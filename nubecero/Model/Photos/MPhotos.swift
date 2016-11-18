@@ -6,6 +6,8 @@ class MPhotos
     
     static let sharedInstance:MPhotos = MPhotos()
     let items:[MPhotosItem]
+    var deletable:[MPicturesItem]
+    private var items:[PictureId:MPicturesItem]
     
     init()
     {

@@ -35,8 +35,8 @@ class VPhotosAlbumTitle:UIView
         labelInfo.isUserInteractionEnabled = false
         labelInfo.translatesAutoresizingMaskIntoConstraints = false
         labelInfo.backgroundColor = UIColor.clear
-        labelInfo.font = UIFont.regular(size:13)
-        labelInfo.textColor = UIColor(white:0.5, alpha:1)
+        labelInfo.font = UIFont.regular(size:12)
+        labelInfo.textColor = UIColor(white:0.55, alpha:1)
         self.labelInfo = labelInfo
         
         addSubview(labelName)
@@ -63,6 +63,8 @@ class VPhotosAlbumTitle:UIView
             options:[],
             metrics:metrics,
             views:views))
+        
+        print()
     }
     
     required init?(coder:NSCoder)

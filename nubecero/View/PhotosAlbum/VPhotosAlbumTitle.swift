@@ -3,7 +3,7 @@ import UIKit
 class VPhotosAlbumTitle:UIView
 {
     private weak var controller:CPhotosAlbum!
-    private let kContentWidth:CGFloat = 300
+    private let kContentWidth:CGFloat = 310
     private let kContentHeight:CGFloat = 70
     
     convenience init(controller:CPhotosAlbum)
@@ -19,11 +19,27 @@ class VPhotosAlbumTitle:UIView
         labelName.isUserInteractionEnabled = false
         labelName.translatesAutoresizingMaskIntoConstraints = false
         labelName.backgroundColor = UIColor.clear
-        labelName.font = UIFont.regular(size:20)
+        labelName.font = UIFont.regular(size:22)
         labelName.textColor = UIColor(white:0.2, alpha:1)
-
+        labelName.text = controller.model.name
         
         addSubview(labelName)
+        
+        let views:[String:UIView] = [
+            "labelName":labelName]
+        
+        let metrics:[String:CGFloat] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-10-[labelName]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[labelName(30)]-30-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     override var intrinsicContentSize:CGSize

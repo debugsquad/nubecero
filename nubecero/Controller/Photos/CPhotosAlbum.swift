@@ -5,7 +5,7 @@ class CPhotosAlbum:CController
     private weak var viewAlbum:VPhotosAlbum!
     let model:MPhotosItem
     
-    override init(model:MPhotosItem)
+    init(model:MPhotosItem)
     {
         self.model = model
         super.init()

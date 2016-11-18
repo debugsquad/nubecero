@@ -35,12 +35,16 @@ class VPhotosAlbum:UIView
             for:UIControlEvents.touchUpInside)
         self.backButton = backButton
         
+        let albumTitle:VPhotosAlbumTitle = VPhotosAlbumTitle(controller:controller)
+        
         addSubview(leftBorder)
+        addSubview(albumTitle)
         addSubview(backButton)
         
         let views:[String:UIView] = [
             "backButton":backButton,
-            "leftBorder":leftBorder]
+            "leftBorder":leftBorder,
+            "albumTitle":albumTitle]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -55,7 +59,12 @@ class VPhotosAlbum:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[backButton(44)]",
+            withVisualFormat:"H:|-0-[albumTitle]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[backButton(44)]-0-[albumTitle]",
             options:[],
             metrics:metrics,
             views:views))

@@ -23,6 +23,8 @@ class VPhotosAlbumTitle:UIView
         labelName.textColor = UIColor(white:0.2, alpha:1)
         labelName.text = controller.model.name
         
+        let imagePictures
+        
         addSubview(labelName)
         
         let views:[String:UIView] = [

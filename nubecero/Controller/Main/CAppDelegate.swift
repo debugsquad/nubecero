@@ -47,7 +47,7 @@ class AppDelegate:UIResponder, UIApplicationDelegate
         parent.controllerAuth?.askAuth()
     }
     
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+    func application(_ application:UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken:Data)
     {
         FIRInstanceID.instanceID().setAPNSToken(
             deviceToken,

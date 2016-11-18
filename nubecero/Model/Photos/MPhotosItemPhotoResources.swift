@@ -43,12 +43,12 @@ class MPhotosItemPhotoResources
             object:self)
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            { [weak self] in
+        { [weak self] in
                 
-                if self?.thumbnail == nil
-                {
-                    self?.generateThumbnail()
-                }
+            if self?.thumbnail == nil
+            {
+                self?.generateThumbnail()
+            }
         }
     }
     
@@ -58,9 +58,9 @@ class MPhotosItemPhotoResources
             
             let originalImage:UIImage = image
             
-            else
+        else
         {
-            stateClear()
+            item?.stateClear()
             
             return
         }
@@ -79,7 +79,7 @@ class MPhotosItemPhotoResources
         thumbnail = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        stateLoaded()
+        item?.stateLoaded()
         
         NotificationCenter.default.post(
             name:Notification.thumbnailReady,
@@ -107,15 +107,16 @@ class MPhotosItemPhotoResources
     {
         guard
             
-            let userId:MSession.UserId = MSession.sharedInstance.userId
+            let userId:MSession.UserId = MSession.sharedInstance.userId,
+            let photoId:MPhotos.PhotoId = item?.photoId
             
-            else
+        else
         {
             return
         }
         
         let parentUser:String = FStorage.Parent.user.rawValue
-        let imagePath:String = "\(parentUser)/\(userId)/\(pictureId)"
+        let imagePath:String = "\(parentUser)/\(userId)/\(photoId)"
         
         FMain.sharedInstance.storage.loadData(
             path:imagePath)
@@ -125,17 +126,17 @@ class MPhotosItemPhotoResources
                 
                 let dataStrong:Data = data
                 
-                else
+            else
             {
-                self?.stateClear()
+                self?.item?.stateClear()
                 
                 return
             }
             
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-                { [weak self] in
-                    
-                    self?.imageDataReceived(data:dataStrong)
+            { [weak self] in
+                
+                self?.imageDataReceived(data:dataStrong)
             }
         }
     }
@@ -150,9 +151,9 @@ class MPhotosItemPhotoResources
         timer?.invalidate()
         
         DispatchQueue.main.async
-            { [weak self] in
+        { [weak self] in
                 
-                self?.asyncCountDown()
+            self?.asyncCountDown()
         }
     }
 }

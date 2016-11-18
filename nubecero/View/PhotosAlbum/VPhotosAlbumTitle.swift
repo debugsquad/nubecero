@@ -3,6 +3,7 @@ import UIKit
 class VPhotosAlbumTitle:UIView
 {
     private weak var controller:CPhotosAlbum!
+    private weak var labelInfo:UILabel!
     private let kContentWidth:CGFloat = 310
     private let kContentHeight:CGFloat = 70
     
@@ -23,19 +24,20 @@ class VPhotosAlbumTitle:UIView
         labelName.textColor = UIColor(white:0.2, alpha:1)
         labelName.text = controller.model.name
         
-        let imagePictures:UIImageView = UIImageView()
-        imagePictures.isUserInteractionEnabled = false
-        imagePictures.translatesAutoresizingMaskIntoConstraints = false
-        imagePictures.clipsToBounds = true
-        imagePictures.contentMode = UIViewContentMode.center
-        imagePictures.image = #imageLiteral(resourceName: "assetPhotosAlbumPhotos")
+        let labelInfo:UILabel = UILabel()
+        labelInfo.isUserInteractionEnabled = false
+        labelInfo.translatesAutoresizingMaskIntoConstraints = false
+        labelInfo.backgroundColor = UIColor.clear
+        labelInfo.font = UIFont.regular(size:13)
+        labelInfo.textColor = UIColor(white:0.5, alpha:1)
+        self.labelInfo = labelInfo
         
         addSubview(labelName)
-        addSubview(imagePictures)
+        addSubview(labelInfo)
         
         let views:[String:UIView] = [
             "labelName":labelName,
-            "imagePictures":imagePictures]
+            "labelInfo":labelInfo]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -45,12 +47,12 @@ class VPhotosAlbumTitle:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-5-[imagePictures(30)]",
+            withVisualFormat:"H:|-10-[labelInfo]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[labelName(30)]-0-[imagePictures(30)]-0-|",
+            withVisualFormat:"V:[labelName(30)]-0-[labelInfo(20)]-10-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -64,5 +66,12 @@ class VPhotosAlbumTitle:UIView
             
             return size
         }
+    }
+    
+    //MARK: public
+    
+    func print()
+    {
+        
     }
 }

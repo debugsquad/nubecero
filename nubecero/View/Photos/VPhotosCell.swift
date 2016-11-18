@@ -137,7 +137,7 @@ class VPhotosCell:UICollectionViewCell
         }
         
         let compositeString:String = String(
-            format:"%@ Photos  %@ Mb",
+            format:"%@ Photos  ■  %@ Mb",
             countString,
             megaBytesString)
         

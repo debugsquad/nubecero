@@ -57,12 +57,6 @@ class CHome:CController
             }
         }
         
-        NotificationCenter.default.addObserver(
-            self,
-            selector:#selector(notifiedTokenLoaded(sender:)),
-            name:NSNotification.Name.firInstanceIDTokenRefresh,
-            object:nil)
-        
         registerNotifications()
     }
     
@@ -95,41 +89,9 @@ class CHome:CController
     
     //MARK: notified
     
-    func notifiedTokenLoaded(sender notification:Notification)
-    {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        {
-            guard
-                
-                let userId:MSession.UserId = MSession.sharedInstance.userId,
-                let token:String = FIRInstanceID.instanceID().token()
-            
-            else
-            {
-                return
-            }
-            
-            let parentUser:String = FDatabase.Parent.user.rawValue
-            let propertyToken:String = FDatabaseModelUser.Property.token.rawValue
-            let pathToken:String = "\(parentUser)/\(userId)/\(propertyToken)"
-            let modelToken:FDatabaseModelToken = FDatabaseModelToken(token:token)
-            let tokenJson:Any = modelToken.modelJson()
-            
-            print("token json: \(tokenJson)")
-            
-            FMain.sharedInstance.database.updateChild(
-                path:pathToken,
-                json:tokenJson)
-        }
-    }
-    
     func notifiedSessionLoaded(sender notification:Notification)
     {
-        NotificationCenter.default.removeObserver(
-            self,
-            name:Notification.sessionLoaded,
-            object:nil)
-        
+        NotificationCenter.default.removeObserver(self)
         loadUsedDisk()
     }
     
@@ -181,7 +143,8 @@ class CHome:CController
     {
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kAskNotifications)
-        {
+        { [weak self] in
+            
             if #available(iOS 10.0, *)
             {
                 let authOptions:UNAuthorizationOptions = [
@@ -206,6 +169,7 @@ class CHome:CController
             }
             
             UIApplication.shared.registerForRemoteNotifications()
+            MSession.sharedInstance.updateUserToken()
         }
     }
     

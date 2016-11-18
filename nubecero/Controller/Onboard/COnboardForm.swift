@@ -48,9 +48,22 @@ class COnboardForm:CController
         }
     }
     
-    private func authSuccess(userId:MSession.UserId)
+    private func signInSuccess(userId:MSession.UserId)
     {
         MSession.sharedInstance.loadUser(userId:userId)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.onboard?.authSuccess()
+        }
+    }
+    
+    private func registerSuccess(email:String, userId:MSession.UserId)
+    {
+        MSession.sharedInstance.createUser(
+            email:email,
+            userId:userId)
         
         DispatchQueue.main.async
         { [weak self] in
@@ -116,7 +129,12 @@ class COnboardForm:CController
             }
             
             FMain.sharedInstance.analytics?.register()
-            self?.authSuccess(userId:firUser.uid)
+            let email:String = credentials.email
+            let userId:MSession.UserId = firUser.uid
+            
+            self?.registerSuccess(
+                email:email,
+                userId:userId)
         }
     }
     
@@ -150,7 +168,9 @@ class COnboardForm:CController
             }
             
             FMain.sharedInstance.analytics?.signin()
-            self?.authSuccess(userId:firUser.uid)
+            let userId:MSession.UserId = firUser.uid
+            
+            self?.signInSuccess(userId:userId)
         }
     }
     

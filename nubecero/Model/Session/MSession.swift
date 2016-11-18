@@ -11,6 +11,23 @@ class MSession
     
     //MARK: private
     
+    private func asyncCreateUser(email:String, userId:String)
+    {
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let userPath:String = "\(parentUser)/\(userId)"
+        let modelUser:FDatabaseModelUser = FDatabaseModelUser(
+            email:email,
+            status:FDatabaseModelUser.Status.active)
+        let json:Any = modelUser.modelJson()
+        
+        FMain.sharedInstance.database.updateChild(
+            path:userPath,
+            json:json)
+        
+        self.userId = userId
+        self.loadServer()
+    }
+    
     private func asyncLoadUser(userId:UserId)
     {
         let parentUser:String = FDatabase.Parent.user.rawValue
@@ -44,25 +61,11 @@ class MSession
             }
             else
             {
-                self.createUser(userId:userId)
+                NotificationCenter.default.post(
+                    name:Notification.userBanned,
+                    object:nil)
             }
         }
-    }
-    
-    private func createUser(userId:UserId)
-    {
-        let parentUser:String = FDatabase.Parent.user.rawValue
-        let userPath:String = "\(parentUser)/\(userId)"
-        let modelUser:FDatabaseModelUser = FDatabaseModelUser(
-            status:FDatabaseModelUser.Status.active)
-        let json:Any = modelUser.modelJson()
-        
-        FMain.sharedInstance.database.updateChild(
-            path:userPath,
-            json:json)
-        
-        self.userId = userId
-        self.loadServer()
     }
     
     private func loadServer()
@@ -144,6 +147,14 @@ class MSession
             {
                 self.asyncLoadSettings()
             }
+        }
+    }
+    
+    func createUser(email:String, userId:UserId)
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            self.asyncCreateUser(email:email, userId:userId)
         }
     }
     

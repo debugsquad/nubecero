@@ -27,7 +27,7 @@ class CHomeUploadSync:CController
         super.viewDidLoad()
         
         let uploadTotal:Int = uploadItems.count
-        FMain.sharedInstance.analytics?.upload(pictures:uploadTotal)
+        FMain.sharedInstance.analytics?.upload(photos:uploadTotal)
     }
     
     override func viewDidAppear(_ animated:Bool)

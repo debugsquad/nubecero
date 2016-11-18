@@ -194,9 +194,12 @@ class MSession
         
         space += froobSpace
         
-        if plus
+        if let nubeceroPlus:Bool = settings?.nubeceroPlus
         {
-            space += plusSpace
+            if nubeceroPlus
+            {
+                space += plusSpace
+            }
         }
         
         return space

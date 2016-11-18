@@ -21,7 +21,7 @@
 "VHomeCellSpaceFree_label"="Disponible  %@ Mb";
 "VHomeCellSpaceUsed_label"="Usado  %@ Mb";
 "VHomeCellSpaceTotal_label"="Total  %@ Mb";
-"VHomeCellPictures_label"="Fotos  %@";
+"VHomeCellPhotos_label"="Fotos  %@";
 "VAdminUsersHeader_labelTitle"="Usuarios";
 "VAdminUsersCell_labelCreated"="Creado: %@";
 "VAdminUsersCell_labelLastSession"="Última sesión: %@";

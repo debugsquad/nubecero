@@ -4,6 +4,8 @@ class FDatabaseModelUser:FDatabaseModel
 {
     enum Property:String
     {
+        case email = "email"
+        case token = "token"
         case status = "status"
         case created = "created"
         case lastSession = "lastSession"
@@ -19,14 +21,17 @@ class FDatabaseModelUser:FDatabaseModel
         case banned
     }
     
+    let email:String
     let created:TimeInterval
     let lastSession:TimeInterval
     let status:Status
     let diskUsed:Int
     private let kNoTime:TimeInterval = 0
+    private let kEmpty:String = ""
     
-    init(status:Status)
+    init(email:String, status:Status)
     {
+        self.email = email
         self.status = status
         created = NSDate().timeIntervalSince1970
         lastSession = created
@@ -38,6 +43,15 @@ class FDatabaseModelUser:FDatabaseModel
     required init(snapshot:Any)
     {
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
+        
+        if let email:String = snapshotDict?[Property.email.rawValue] as? String
+        {
+            self.email = email
+        }
+        else
+        {
+            self.email = kEmpty
+        }
         
         if let statusInt:Int = snapshotDict?[Property.status.rawValue] as? Int
         {
@@ -93,6 +107,7 @@ class FDatabaseModelUser:FDatabaseModel
     override func modelJson() -> Any
     {
         let json:[String:Any] = [
+            Property.email.rawValue:email,
             Property.status.rawValue:status.rawValue,
             Property.created.rawValue:created,
             Property.lastSession.rawValue:lastSession,

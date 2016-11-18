@@ -10,7 +10,8 @@ class FAnalytics
     private let kEventPurchase:NSString = "Buy"
     private let kEventPurchaseBuy:NSString = "Buy"
     private let kEventPurchaseRestore:NSString = "Restore"
-    private let kEventPhoto:NSString = "Picture"
+    private let kEventPhoto:NSString = "Photo"
+    private let kEventPhotoStopUpload:NSString = "Upload/Stop"
     private let kEventPhotoShare:NSString = "Share"
     private let kEventPhotoDelete:NSString = "Delete"
     private let kEventPhotoInfo:NSString = "Info"
@@ -102,23 +103,28 @@ class FAnalytics
     
     //MARK: photos
     
-    func upload(photos:Int)
+    func photoUpload(photos:Int)
     {
         let photosObject:NSObject = "\(photos)" as NSObject
         trackSelectContent(contentType:kEventPhotoUpload, itemId:photosObject)
     }
     
-    func photosShare()
+    func photoStopUpload()
+    {
+        trackSelectContent(contentType:kEventPhoto, itemId:kEventPhotoStopUpload)
+    }
+    
+    func photoShare()
     {
         trackSelectContent(contentType:kEventPhoto, itemId:kEventPhotoShare)
     }
     
-    func pictureDelete()
+    func photoDelete()
     {
         trackSelectContent(contentType:kEventPhoto, itemId:kEventPhotoDelete)
     }
     
-    func pictureInfo()
+    func photoInfo()
     {
         trackSelectContent(contentType:kEventPhoto, itemId:kEventPhotoInfo)
     }

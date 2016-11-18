@@ -34,7 +34,7 @@ class MHomeUploadItemStatusReferenced:MHomeUploadItemStatus
         }
         
         let parentUser:String = FStorage.Parent.user.rawValue
-        let pathPhotos:String = "\(parentUser)/\(userId)/\(photosId)"
+        let pathPhotos:String = "\(parentUser)/\(userId)/\(photoId)"
         
         FMain.sharedInstance.storage.saveData(
             path:pathPhotos,

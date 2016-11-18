@@ -104,12 +104,12 @@
 		DA7A79C51DD64A35001B5FA5 /* MHomeItemSpaceFree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79C41DD64A35001B5FA5 /* MHomeItemSpaceFree.swift */; };
 		DA7A79C71DD64A40001B5FA5 /* MHomeItemSpaceUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79C61DD64A40001B5FA5 /* MHomeItemSpaceUsed.swift */; };
 		DA7A79C91DD64A4D001B5FA5 /* MHomeItemSpaceTotal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79C81DD64A4D001B5FA5 /* MHomeItemSpaceTotal.swift */; };
-		DA7A79CB1DD64A63001B5FA5 /* MHomeItemPictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79CA1DD64A63001B5FA5 /* MHomeItemPictures.swift */; };
+		DA7A79CB1DD64A63001B5FA5 /* MHomeItemPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79CA1DD64A63001B5FA5 /* MHomeItemPhotos.swift */; };
 		DA7A79CD1DD64BFD001B5FA5 /* VHomeCellSpaceFree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79CC1DD64BFD001B5FA5 /* VHomeCellSpaceFree.swift */; };
 		DA7A79CF1DD64F89001B5FA5 /* VHomeCellSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79CE1DD64F89001B5FA5 /* VHomeCellSpace.swift */; };
 		DA7A79D11DD65CA6001B5FA5 /* VHomeCellSpaceUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79D01DD65CA6001B5FA5 /* VHomeCellSpaceUsed.swift */; };
 		DA7A79D31DD65E2E001B5FA5 /* VHomeCellSpaceTotal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79D21DD65E2E001B5FA5 /* VHomeCellSpaceTotal.swift */; };
-		DA7A79D51DD66059001B5FA5 /* VHomeCellPictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79D41DD66059001B5FA5 /* VHomeCellPictures.swift */; };
+		DA7A79D51DD66059001B5FA5 /* VHomeCellPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A79D41DD66059001B5FA5 /* VHomeCellPhotos.swift */; };
 		DA88F6701DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */; };
 		DA88F6721DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */; };
 		DA88F6741DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F6731DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift */; };
@@ -211,7 +211,6 @@
 		DAD739921DD1643600FC3297 /* MSettingsItemRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739911DD1643600FC3297 /* MSettingsItemRate.swift */; };
 		DAD739941DD16E9700FC3297 /* VSettingsCellShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739931DD16E9700FC3297 /* VSettingsCellShare.swift */; };
 		DAD739961DD170B000FC3297 /* MSettingsItemShare.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739951DD170B000FC3297 /* MSettingsItemShare.swift */; };
-		DAE4554B1DCA4C2400948D70 /* Pictures.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAE4554A1DCA4C2400948D70 /* Pictures.xcassets */; };
 		DAEC5CB51DDF5C8A00DF52A9 /* MPhotosItemPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CB41DDF5C8A00DF52A9 /* MPhotosItemPhoto.swift */; };
 		DAEC5CB71DDF5D0300DF52A9 /* MPhotosItemPhotoResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CB61DDF5D0300DF52A9 /* MPhotosItemPhotoResources.swift */; };
 		DAEC5CB91DDF5D1200DF52A9 /* MPhotosItemPhotoState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CB81DDF5D1200DF52A9 /* MPhotosItemPhotoState.swift */; };
@@ -358,12 +357,12 @@
 		DA7A79C41DD64A35001B5FA5 /* MHomeItemSpaceFree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemSpaceFree.swift; sourceTree = "<group>"; };
 		DA7A79C61DD64A40001B5FA5 /* MHomeItemSpaceUsed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemSpaceUsed.swift; sourceTree = "<group>"; };
 		DA7A79C81DD64A4D001B5FA5 /* MHomeItemSpaceTotal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemSpaceTotal.swift; sourceTree = "<group>"; };
-		DA7A79CA1DD64A63001B5FA5 /* MHomeItemPictures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemPictures.swift; sourceTree = "<group>"; };
+		DA7A79CA1DD64A63001B5FA5 /* MHomeItemPhotos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeItemPhotos.swift; sourceTree = "<group>"; };
 		DA7A79CC1DD64BFD001B5FA5 /* VHomeCellSpaceFree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellSpaceFree.swift; sourceTree = "<group>"; };
 		DA7A79CE1DD64F89001B5FA5 /* VHomeCellSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellSpace.swift; sourceTree = "<group>"; };
 		DA7A79D01DD65CA6001B5FA5 /* VHomeCellSpaceUsed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellSpaceUsed.swift; sourceTree = "<group>"; };
 		DA7A79D21DD65E2E001B5FA5 /* VHomeCellSpaceTotal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellSpaceTotal.swift; sourceTree = "<group>"; };
-		DA7A79D41DD66059001B5FA5 /* VHomeCellPictures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellPictures.swift; sourceTree = "<group>"; };
+		DA7A79D41DD66059001B5FA5 /* VHomeCellPhotos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellPhotos.swift; sourceTree = "<group>"; };
 		DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatus.swift; sourceTree = "<group>"; };
 		DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusNone.swift; sourceTree = "<group>"; };
 		DA88F6731DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusWaiting.swift; sourceTree = "<group>"; };
@@ -466,7 +465,6 @@
 		DAD739931DD16E9700FC3297 /* VSettingsCellShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellShare.swift; sourceTree = "<group>"; };
 		DAD739951DD170B000FC3297 /* MSettingsItemShare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemShare.swift; sourceTree = "<group>"; };
 		DAE1CEC01DD4128E00B1FC6B /* nubecero.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nubecero.entitlements; sourceTree = "<group>"; };
-		DAE4554A1DCA4C2400948D70 /* Pictures.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Pictures.xcassets; sourceTree = "<group>"; };
 		DAEC5CB41DDF5C8A00DF52A9 /* MPhotosItemPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosItemPhoto.swift; sourceTree = "<group>"; };
 		DAEC5CB61DDF5D0300DF52A9 /* MPhotosItemPhotoResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosItemPhotoResources.swift; sourceTree = "<group>"; };
 		DAEC5CB81DDF5D1200DF52A9 /* MPhotosItemPhotoState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosItemPhotoState.swift; sourceTree = "<group>"; };
@@ -703,7 +701,6 @@
 				DACD1F901DC3B75D0067D26B /* Brand.xcassets */,
 				DACD1FA51DC40DEF0067D26B /* Home.xcassets */,
 				DACD1FAC1DC418A20067D26B /* Loader.xcassets */,
-				DAE4554A1DCA4C2400948D70 /* Pictures.xcassets */,
 				DAC55F231DD25A2C00213C27 /* Onboard.xcassets */,
 				DAD237501DDCD90200BF52C3 /* Purchase.xcassets */,
 				DAA336811DDE544800AA2D12 /* Photos.xcassets */,
@@ -909,7 +906,7 @@
 				DA7A79CC1DD64BFD001B5FA5 /* VHomeCellSpaceFree.swift */,
 				DA7A79D01DD65CA6001B5FA5 /* VHomeCellSpaceUsed.swift */,
 				DA7A79D21DD65E2E001B5FA5 /* VHomeCellSpaceTotal.swift */,
-				DA7A79D41DD66059001B5FA5 /* VHomeCellPictures.swift */,
+				DA7A79D41DD66059001B5FA5 /* VHomeCellPhotos.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1164,7 +1161,7 @@
 				DA7A79C41DD64A35001B5FA5 /* MHomeItemSpaceFree.swift */,
 				DA7A79C61DD64A40001B5FA5 /* MHomeItemSpaceUsed.swift */,
 				DA7A79C81DD64A4D001B5FA5 /* MHomeItemSpaceTotal.swift */,
-				DA7A79CA1DD64A63001B5FA5 /* MHomeItemPictures.swift */,
+				DA7A79CA1DD64A63001B5FA5 /* MHomeItemPhotos.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1381,7 +1378,6 @@
 				DACD1FA61DC40DEF0067D26B /* Home.xcassets in Resources */,
 				DACD1F891DC3A09F0067D26B /* Generic.xcassets in Resources */,
 				DAD237511DDCD90200BF52C3 /* Purchase.xcassets in Resources */,
-				DAE4554B1DCA4C2400948D70 /* Pictures.xcassets in Resources */,
 				DA4EF9101DC395B300297C1D /* Localizable.strings in Resources */,
 				DACD1FAD1DC418A20067D26B /* Loader.xcassets in Resources */,
 				DA4EF9071DC395B300297C1D /* GoogleService-Info.plist in Resources */,
@@ -1510,7 +1506,7 @@
 				DAEC5CBB1DDF62DD00DF52A9 /* MPhotosItemPhotoStateNone.swift in Sources */,
 				DAF6F29F1DD376B90053ED1B /* COnboardForm.swift in Sources */,
 				DAAAFFA81DDA395800E8F839 /* CAdminUsersPhotos.swift in Sources */,
-				DA7A79D51DD66059001B5FA5 /* VHomeCellPictures.swift in Sources */,
+				DA7A79D51DD66059001B5FA5 /* VHomeCellPhotos.swift in Sources */,
 				DA465C051DDA66D80042C8C7 /* VAdminServerCellFroob.swift in Sources */,
 				DA7A79CF1DD64F89001B5FA5 /* VHomeCellSpace.swift in Sources */,
 				DAAAFFAB1DDA399700E8F839 /* VAdminUsersPhotos.swift in Sources */,
@@ -1561,7 +1557,7 @@
 				DAC98D471DDBD7680074E16A /* VStoreHeader.swift in Sources */,
 				DA34117B1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift in Sources */,
 				DACD1FAB1DC4124B0067D26B /* VHomeUpload.swift in Sources */,
-				DA7A79CB1DD64A63001B5FA5 /* MHomeItemPictures.swift in Sources */,
+				DA7A79CB1DD64A63001B5FA5 /* MHomeItemPhotos.swift in Sources */,
 				DA4FA5B81DD7DA1300358ABE /* MAdminItemServer.swift in Sources */,
 				DA3411751DCB90D7006E6D71 /* VHomeCellDisk.swift in Sources */,
 				DA406BD11DCD02DB0098D347 /* VSettingsCell.swift in Sources */,

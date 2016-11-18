@@ -1,6 +1,6 @@
 import UIKit
 
-class VHomeCellPictures:VHomeCell
+class VHomeCellPhotos:VHomeCell
 {
     private weak var label:UILabel!
     private let numberFormatter:NumberFormatter
@@ -66,7 +66,7 @@ class VHomeCellPictures:VHomeCell
             }
             
             let compountString:String = String(
-                format:NSLocalizedString("VHomeCellPictures_label", comment:""),
+                format:NSLocalizedString("VHomeCellPhotos_label", comment:""),
                 totalPicturesString)
             label.text = compountString
         }

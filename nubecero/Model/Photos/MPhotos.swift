@@ -12,7 +12,9 @@ class MPhotos
     
     private init()
     {
-        
+        items = []
+        deletable = []
+        photos = [:]
     }
     
     //MARK: private

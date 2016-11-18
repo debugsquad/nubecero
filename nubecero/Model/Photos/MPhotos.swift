@@ -2,6 +2,7 @@ import Foundation
 
 class MPhotos
 {
+    typealias AlbumId = String
     typealias PhotoId = String
     
     static let sharedInstance:MPhotos = MPhotos()

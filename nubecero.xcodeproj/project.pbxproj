@@ -199,7 +199,6 @@
 		DACD1FCC1DC7D0320067D26B /* MSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACD1FCB1DC7D0320067D26B /* MSession.swift */; };
 		DAD237511DDCD90200BF52C3 /* Purchase.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAD237501DDCD90200BF52C3 /* Purchase.xcassets */; };
 		DAD237531DDCE82800BF52C3 /* VStoreFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD237521DDCE82800BF52C3 /* VStoreFooter.swift */; };
-		DAD237551DDD1B0F00BF52C3 /* FDatabaseModelUserPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD237541DDD1B0F00BF52C3 /* FDatabaseModelUserPlus.swift */; };
 		DAD237571DDD1CAE00BF52C3 /* MAdminServerItemPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD237561DDD1CAE00BF52C3 /* MAdminServerItemPlus.swift */; };
 		DAD237591DDD1D7F00BF52C3 /* VAdminServerCellPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD237581DDD1D7F00BF52C3 /* VAdminServerCellPlus.swift */; };
 		DAD739591DD0E35700FC3297 /* TFDatabaseModelUserDiskUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739581DD0E35700FC3297 /* TFDatabaseModelUserDiskUsed.swift */; };
@@ -454,7 +453,6 @@
 		DACD1FCB1DC7D0320067D26B /* MSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSession.swift; sourceTree = "<group>"; };
 		DAD237501DDCD90200BF52C3 /* Purchase.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Purchase.xcassets; sourceTree = "<group>"; };
 		DAD237521DDCE82800BF52C3 /* VStoreFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VStoreFooter.swift; sourceTree = "<group>"; };
-		DAD237541DDD1B0F00BF52C3 /* FDatabaseModelUserPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserPlus.swift; sourceTree = "<group>"; };
 		DAD237561DDD1CAE00BF52C3 /* MAdminServerItemPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminServerItemPlus.swift; sourceTree = "<group>"; };
 		DAD237581DDD1D7F00BF52C3 /* VAdminServerCellPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminServerCellPlus.swift; sourceTree = "<group>"; };
 		DAD739581DD0E35700FC3297 /* TFDatabaseModelUserDiskUsed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelUserDiskUsed.swift; sourceTree = "<group>"; };
@@ -1224,7 +1222,6 @@
 				DACD1FC61DC7C6AE0067D26B /* FDatabaseModelUser.swift */,
 				DA3411801DCBE893006E6D71 /* FDatabaseModelUserStatus.swift */,
 				DA3411821DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift */,
-				DAD237541DDD1B0F00BF52C3 /* FDatabaseModelUserPlus.swift */,
 				DACD1FC81DC7C6C80067D26B /* FDatabaseModelPhoto.swift */,
 				DA2F668E1DC90AF50078B466 /* FDatabaseModelPhotoList.swift */,
 				DA34117C1DCBC1C0006E6D71 /* FDatabaseModelServer.swift */,
@@ -1709,7 +1706,6 @@
 				DAEC5CBF1DDF62F800DF52A9 /* MPhotosItemPhotoStateLoaded.swift in Sources */,
 				DA465C011DDA64B30042C8C7 /* MAdminServerItem.swift in Sources */,
 				DA406BD61DCD036C0098D347 /* MSettings.swift in Sources */,
-				DAD237551DDD1B0F00BF52C3 /* FDatabaseModelUserPlus.swift in Sources */,
 				DA4EF9091DC395B300297C1D /* MMain.swift in Sources */,
 				DA7A79C91DD64A4D001B5FA5 /* MHomeItemSpaceTotal.swift in Sources */,
 			);

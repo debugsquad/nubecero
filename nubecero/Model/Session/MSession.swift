@@ -29,7 +29,7 @@ class MSession
                     case FDatabaseModelUser.Status.active:
                     
                         self.userId = userId
-                        self.loadPerks()
+                        self.updateLastSession()
                         
                         break
                     
@@ -134,29 +134,6 @@ class MSession
         }
     }
     
-    private func updateLastSession()
-    {
-        guard
-            
-            let userId:UserId = self.userId
-            
-        else
-        {
-            return
-        }
-        
-        let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
-        let lastSessionPath:String = "\(parentUser)/\(userId)/\(propertyLastSession)"
-        let currentTime:TimeInterval = NSDate().timeIntervalSince1970
-        
-        FMain.sharedInstance.database.updateChild(
-            path:lastSessionPath,
-            json:currentTime)
-        
-        self.loadServer()
-    }
-    
     //MARK: public
     
     func loadSettings()
@@ -205,7 +182,7 @@ class MSession
         return space
     }
     
-    func loadPerks()
+    func updateLastSession()
     {
         guard
             
@@ -217,49 +194,14 @@ class MSession
         }
         
         let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyPlus:String = FDatabaseModelUser.Property.plus.rawValue
-        let plusPath:String = "\(parentUser)/\(userId)/\(propertyPlus)"
+        let propertyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
+        let lastSessionPath:String = "\(parentUser)/\(userId)/\(propertyLastSession)"
+        let currentTime:TimeInterval = NSDate().timeIntervalSince1970
         
-        FMain.sharedInstance.database.listenOnce(
-            path:plusPath,
-            modelType:FDatabaseModelUserPlus.self)
-        { (plus) in
-            
-            if let plusStrong:FDatabaseModelUserPlus = plus
-            {
-                self.plus = plusStrong.plus
-            }
-            else
-            {
-                self.plus = false
-            }
-            
-            self.updateLastSession()
-        }
-    }
-    
-    func purchasePlus()
-    {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        {
-            guard
-                
-                let userId:UserId = self.userId
-                
-            else
-            {
-                return
-            }
-            
-            let parentUser:String = FDatabase.Parent.user.rawValue
-            let propertyPlus:String = FDatabaseModelUser.Property.plus.rawValue
-            let plusPath:String = "\(parentUser)/\(userId)/\(propertyPlus)"
-            let firebasePlus:FDatabaseModelUserPlus = FDatabaseModelUserPlus()
-            let plusJson:Any = firebasePlus.modelJson()
-            
-            FMain.sharedInstance.database.updateChild(
-                path:plusPath,
-                json:plusJson)
-        }
+        FMain.sharedInstance.database.updateChild(
+            path:lastSessionPath,
+            json:currentTime)
+        
+        self.loadServer()
     }
 }

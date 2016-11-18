@@ -53,7 +53,7 @@ class VAdminUsersPhotosHeader:UICollectionReusableView
     {
         guard
             
-            let count:Int = controller.pictures?.items.count,
+            let count:Int = controller.photos?.items.count,
             let countString:String = numberFormatter.string(from:count as NSNumber)
         
         else

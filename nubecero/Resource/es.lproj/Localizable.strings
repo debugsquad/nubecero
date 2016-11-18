@@ -1,16 +1,11 @@
 "VHomeCellUpload_label"="Agregar fotos";
 "VHomeUploadSyncBar_cancel"="Detener";
 "VHomeUploadSyncBar_tryAgain"="Reiniciar";
-"VPicturesDataCellClose_buttonTitle"="Listo";
-"VPicturesDataCellSize_labelTitle"="Size";
-"VPicturesDataCellSize_labelMegabytes"=" Mb";
-"VPicturesDataCellCreated_labelTitle"="Agregada";
 "VBanned_disclaimer"="Tu cuenta esta suspendida\nContacta soporte para mayor información";
 "VAuth_buttonTryAgain"="Reintentar";
 "VSettingsCellSecurity_label"="Proteger con Passcode";
 "VSettingsCellSecurity_labelDescription"="Manten tus fotos privadas pidiendo Passcode/Touch ID al iniciar";
 "VSettingsCellLogout_label"="Cerrar sessión";
-"VPicturesDetailHeader_label"="Tu nube esta vacía";
 "VSettingsCellAbout_labelTitle"="nubecero";
 "VSettingsCellRate_label"="Calificar en la App Store";
 "VOnboard_labelDisclaimer"="Tu cuenta te permite entrar a la nube desde cualquier lugar";
@@ -53,10 +48,6 @@
 "CHomeUpload_uploadedMessage"="Ya estan respaldadas en la nube";
 "CHomeUpload_uploadedDontRemove"="Mantenerlas";
 "CHomeUpload_uploadedRemove"="Borrarlas";
-"CPictures_deleteTitle"="¿Borrar foto?";
-"CPictures_deleteMessage"="No podras recuperarla";
-"CPictures_deleteCancel"="Cancelar";
-"CPictures_deleteDelete"="Borrarla";
 "CAuth_reason"="Validate para ingresar a tu nube";
 "CAuth_errorUnknown"="No se pudo validad, reintentalo";
 "CAuth_passCodeNotSet"="Define una contraseña en la configuración del dispositivo para asegurar tu nube";

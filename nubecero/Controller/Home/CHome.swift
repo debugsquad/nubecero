@@ -82,7 +82,7 @@ class CHome:CController
                 name:Notification.sessionLoaded,
                 object:nil)
             
-            MSession.sharedInstance.loadPerks()
+            MSession.sharedInstance.updateLastSession()
         }
     }
     

@@ -5,7 +5,7 @@ class MHomeUploadItem
 {
     var image:UIImage?
     var imageData:Data?
-    var pictureId:String?
+    var photoId:String?
     let asset:PHAsset
     private(set) var status:MHomeUploadItemStatus
     private var requestId:PHImageRequestID?

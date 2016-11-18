@@ -22,7 +22,7 @@ class MHomeUploadItemStatusReferenced:MHomeUploadItemStatus
         guard
             
             let userId:MSession.UserId = MSession.sharedInstance.userId,
-            let pictureId:String = item?.pictureId,
+            let photoId:String = item?.photoId,
             let imageData:Data = item?.imageData
             
         else
@@ -34,10 +34,10 @@ class MHomeUploadItemStatusReferenced:MHomeUploadItemStatus
         }
         
         let parentUser:String = FStorage.Parent.user.rawValue
-        let pathPicture:String = "\(parentUser)/\(userId)/\(pictureId)"
+        let pathPhotos:String = "\(parentUser)/\(userId)/\(photosId)"
         
         FMain.sharedInstance.storage.saveData(
-            path:pathPicture,
+            path:pathPhotos,
             data:imageData)
         { [weak self, weak controller] (error) in
             

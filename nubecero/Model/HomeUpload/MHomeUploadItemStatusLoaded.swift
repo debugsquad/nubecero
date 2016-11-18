@@ -36,13 +36,13 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
         
         let totalStorage:Int = MSession.sharedInstance.totalStorage()
         let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyPictures:String = FDatabaseModelUser.Property.pictures.rawValue
+        let propertyPhotos:String = FDatabaseModelUser.Property.photos.rawValue
         let propertyDiskUsed:String = FDatabaseModelUser.Property.diskUsed.rawValue
-        let pathPicture:String = "\(parentUser)/\(userId)/\(propertyPictures)"
+        let pathPhotos:String = "\(parentUser)/\(userId)/\(propertyPhotos)"
         let pathDiskUsed:String = "\(parentUser)/\(userId)/\(propertyDiskUsed)"
         let dataLength:Int = imageData.count / kKilobytePerByte
-        let modelPicture:FDatabaseModelPicture = FDatabaseModelPicture(size:dataLength)
-        let pictureJson:Any = modelPicture.modelJson()
+        let modelPhoto:FDatabaseModelPhoto = FDatabaseModelPhoto(size:dataLength)
+        let photoJson:Any = modelPhoto.modelJson()
         
         FMain.sharedInstance.database.listenOnce(
             path:pathDiskUsed,
@@ -65,9 +65,9 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
             
             if remainDisk > dataLength
             {
-                self?.item?.pictureId = FMain.sharedInstance.database.createChild(
-                    path:pathPicture,
-                    json:pictureJson)
+                self?.item?.photoId = FMain.sharedInstance.database.createChild(
+                    path:pathPhotos,
+                    json:photoJson)
                 
                 FMain.sharedInstance.database.transaction(
                     path:pathDiskUsed)

@@ -22,7 +22,7 @@ class MHomeUploadItemStatusUploaded:MHomeUploadItemStatus
         guard
             
             let userId:MSession.UserId = MSession.sharedInstance.userId,
-            let pictureId:String = item?.pictureId
+            let photoId:String = item?.photoId
             
         else
         {
@@ -33,10 +33,10 @@ class MHomeUploadItemStatusUploaded:MHomeUploadItemStatus
         }
         
         let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyPictures:String = FDatabaseModelUser.Property.pictures.rawValue
-        let propertyStatus:String = FDatabaseModelPicture.Property.status.rawValue
-        let pathStatus:String = "\(parentUser)/\(userId)/\(propertyPictures)/\(pictureId)/\(propertyStatus)"
-        let status:Int = FDatabaseModelPicture.Status.synced.rawValue
+        let propertyPhotos:String = FDatabaseModelUser.Property.photos.rawValue
+        let propertyStatus:String = FDatabaseModelPhoto.Property.status.rawValue
+        let pathStatus:String = "\(parentUser)/\(userId)/\(propertyPhotos)/\(photoId)/\(propertyStatus)"
+        let status:Int = FDatabaseModelPhoto.Status.synced.rawValue
         
         FMain.sharedInstance.database.updateChild(
             path:pathStatus,

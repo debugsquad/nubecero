@@ -252,6 +252,9 @@
 		DAEC5CB51DDF5C8A00DF52A9 /* MPhotosItemPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CB41DDF5C8A00DF52A9 /* MPhotosItemPhoto.swift */; };
 		DAEC5CB71DDF5D0300DF52A9 /* MPhotosItemPhotoResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CB61DDF5D0300DF52A9 /* MPhotosItemPhotoResources.swift */; };
 		DAEC5CB91DDF5D1200DF52A9 /* MPhotosItemPhotoState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CB81DDF5D1200DF52A9 /* MPhotosItemPhotoState.swift */; };
+		DAEC5CBB1DDF62DD00DF52A9 /* MPhotosItemPhotoStateNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CBA1DDF62DD00DF52A9 /* MPhotosItemPhotoStateNone.swift */; };
+		DAEC5CBD1DDF62E800DF52A9 /* MPhotosItemPhotoStateLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CBC1DDF62E800DF52A9 /* MPhotosItemPhotoStateLoading.swift */; };
+		DAEC5CBF1DDF62F800DF52A9 /* MPhotosItemPhotoStateLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CBE1DDF62F800DF52A9 /* MPhotosItemPhotoStateLoaded.swift */; };
 		DAF6F29F1DD376B90053ED1B /* COnboardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F29E1DD376B90053ED1B /* COnboardForm.swift */; };
 		DAF6F2A21DD378100053ED1B /* VOnboardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2A11DD378100053ED1B /* VOnboardForm.swift */; };
 		DAF6F2A41DD378B80053ED1B /* MOnboardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2A31DD378B80053ED1B /* MOnboardForm.swift */; };
@@ -539,6 +542,9 @@
 		DAEC5CB41DDF5C8A00DF52A9 /* MPhotosItemPhoto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosItemPhoto.swift; sourceTree = "<group>"; };
 		DAEC5CB61DDF5D0300DF52A9 /* MPhotosItemPhotoResources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosItemPhotoResources.swift; sourceTree = "<group>"; };
 		DAEC5CB81DDF5D1200DF52A9 /* MPhotosItemPhotoState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosItemPhotoState.swift; sourceTree = "<group>"; };
+		DAEC5CBA1DDF62DD00DF52A9 /* MPhotosItemPhotoStateNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosItemPhotoStateNone.swift; sourceTree = "<group>"; };
+		DAEC5CBC1DDF62E800DF52A9 /* MPhotosItemPhotoStateLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosItemPhotoStateLoading.swift; sourceTree = "<group>"; };
+		DAEC5CBE1DDF62F800DF52A9 /* MPhotosItemPhotoStateLoaded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosItemPhotoStateLoaded.swift; sourceTree = "<group>"; };
 		DAF6F29E1DD376B90053ED1B /* COnboardForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = COnboardForm.swift; sourceTree = "<group>"; };
 		DAF6F2A11DD378100053ED1B /* VOnboardForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardForm.swift; sourceTree = "<group>"; };
 		DAF6F2A31DD378B80053ED1B /* MOnboardForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardForm.swift; sourceTree = "<group>"; };
@@ -1185,6 +1191,9 @@
 				DAEC5CB41DDF5C8A00DF52A9 /* MPhotosItemPhoto.swift */,
 				DAEC5CB61DDF5D0300DF52A9 /* MPhotosItemPhotoResources.swift */,
 				DAEC5CB81DDF5D1200DF52A9 /* MPhotosItemPhotoState.swift */,
+				DAEC5CBA1DDF62DD00DF52A9 /* MPhotosItemPhotoStateNone.swift */,
+				DAEC5CBC1DDF62E800DF52A9 /* MPhotosItemPhotoStateLoading.swift */,
+				DAEC5CBE1DDF62F800DF52A9 /* MPhotosItemPhotoStateLoaded.swift */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
@@ -1667,6 +1676,7 @@
 				DA465C031DDA65530042C8C7 /* MAdminServerItemFroob.swift in Sources */,
 				DAC55F2E1DD2829200213C27 /* MOnboardItemPrivacy.swift in Sources */,
 				DAA336841DDE60D200AA2D12 /* VPhotosHeader.swift in Sources */,
+				DAEC5CBB1DDF62DD00DF52A9 /* MPhotosItemPhotoStateNone.swift in Sources */,
 				DAF6F29F1DD376B90053ED1B /* COnboardForm.swift in Sources */,
 				DAAAFFA81DDA395800E8F839 /* CAdminUsersPhotos.swift in Sources */,
 				DA7A79D51DD66059001B5FA5 /* VHomeCellPictures.swift in Sources */,
@@ -1852,6 +1862,7 @@
 				DA4EF90A1DC395B300297C1D /* MMainItem.swift in Sources */,
 				DA406BE01DCD28210098D347 /* VPicturesDetailHeader.swift in Sources */,
 				DAC98D4D1DDBDDFF0074E16A /* VStoreCellPurchasing.swift in Sources */,
+				DAEC5CBD1DDF62E800DF52A9 /* MPhotosItemPhotoStateLoading.swift in Sources */,
 				DAD739921DD1643600FC3297 /* MSettingsItemRate.swift in Sources */,
 				DAF6F2C71DD3F9400053ED1B /* MOnboardFormItemRemember.swift in Sources */,
 				DA7367B61DD523DB0004B99C /* VOnboardFormCellPassGenerator.swift in Sources */,
@@ -1895,6 +1906,7 @@
 				DA7A79B51DD61236001B5FA5 /* VSettingsCellBlank.swift in Sources */,
 				DA4FA5951DD7C72800358ABE /* VStore.swift in Sources */,
 				DAA336691DDE10F600AA2D12 /* MStoreItemStatus.swift in Sources */,
+				DAEC5CBF1DDF62F800DF52A9 /* MPhotosItemPhotoStateLoaded.swift in Sources */,
 				DA465C011DDA64B30042C8C7 /* MAdminServerItem.swift in Sources */,
 				DA406BD61DCD036C0098D347 /* MSettings.swift in Sources */,
 				DAD237551DDD1B0F00BF52C3 /* FDatabaseModelUserPlus.swift in Sources */,

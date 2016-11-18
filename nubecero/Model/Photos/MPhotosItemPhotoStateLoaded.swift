@@ -4,22 +4,22 @@ class MPhotosItemPhotoStateLoaded:MPhotosItemPhotoState
 {
     override func loadThumbnail() -> UIImage?
     {
-        return item?.thumbnail
+        return item?.resources.thumbnail
     }
     
     override func loadImage() -> UIImage?
     {
-        item?.becameActive()
+        item?.resources.becameActive()
         
-        if item?.image == nil
+        if item?.resources.image == nil
         {
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-                { [weak self] in
-                    
-                    self?.item?.loadImageData()
+            { [weak self] in
+                
+                self?.item?.resources.loadImageData()
             }
         }
         
-        return item?.image
+        return item?.resources.image
     }
 }

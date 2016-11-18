@@ -42,17 +42,17 @@ class CAdminUsersPhotos:CController
     {
         let userId:MSession.UserId = model.userId
         let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyPictures:String = FDatabaseModelUser.Property.pictures.rawValue
+        let propertyPictures:String = FDatabaseModelUser.Property.photos.rawValue
         let pathPictures:String = "\(parentUser)/\(userId)/\(propertyPictures)"
         
         FMain.sharedInstance.database.listenOnce(
             path:pathPictures,
-            modelType:FDatabaseModelPictureList.self)
+            modelType:FDatabaseModelPhotoList.self)
         { [weak self] (pictures) in
             
             guard
             
-                let picturesStrong:FDatabaseModelPictureList = pictures
+                let picturesStrong:FDatabaseModelPhotoList = pictures
             
             else
             {

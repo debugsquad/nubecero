@@ -8,7 +8,7 @@ class MPhotosItemPhoto
     var resources:MPhotosItemPhotoResources!
     private(set) var state:MPhotosItemPhotoState?
     
-    init(photoId:MPhotos.PhotoId, firebasePicture:FDatabaseModelPicture)
+    init(photoId:MPhotos.PhotoId, firebasePicture:FDatabaseModelPhoto)
     {
         self.photoId = photoId
         created = firebasePicture.created

@@ -56,8 +56,8 @@ class MPictures
         }
     }
     
-    private func comparePictures(picturesMap:[PictureId:FDatabaseModelPicture])
-    {
+    private func comparePictures(picturesMap:[PictureId:FDatabaseModelPhoto])
+    {/*
         var items:[PictureId:MPicturesItem] = [:]
         var references:[MPicturesItemReference] = []
         let picturesIds:[PictureId] = Array(picturesMap.keys)
@@ -116,7 +116,7 @@ class MPictures
         
         self.items = items
         self.references = references
-        picturesLoaded()
+        picturesLoaded()*/
     }
     
     private func picturesLoaded()

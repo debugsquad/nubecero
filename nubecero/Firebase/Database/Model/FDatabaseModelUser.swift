@@ -6,36 +6,26 @@ class FDatabaseModelUser:FDatabaseModel
     {
         case session = "session"
         case email = "email"
-        case status = "status"
         case created = "created"
         case diskUsed = "diskUsed"
         case photos = "photos"
         case albums = "albums"
     }
     
-    enum Status:Int
-    {
-        case unknown
-        case active
-        case banned
-    }
-    
     let session:FDatabaseModelUserSession
     let email:String
     let created:TimeInterval
-    let status:Status
     let diskUsed:Int
     private let kEmpty:String = ""
     private let kNoTime:TimeInterval = 0
     
-    init(email:String, status:Status, token:String?, version:String)
+    init(email:String, token:String?, version:String)
     {
         self.session = FDatabaseModelUserSession(
             token:token,
             version:version,
             ttl:nil)
         self.email = email
-        self.status = status
         created = NSDate().timeIntervalSince1970
         diskUsed = 0
         
@@ -62,22 +52,6 @@ class FDatabaseModelUser:FDatabaseModel
         else
         {
             self.email = kEmpty
-        }
-        
-        if let statusInt:Int = snapshotDict?[Property.status.rawValue] as? Int
-        {
-            if let status:Status = Status(rawValue:statusInt)
-            {
-                self.status = status
-            }
-            else
-            {
-                self.status = Status.unknown
-            }
-        }
-        else
-        {
-            self.status = Status.unknown
         }
         
         if let created:TimeInterval = snapshotDict?[Property.created.rawValue] as? TimeInterval
@@ -113,7 +87,6 @@ class FDatabaseModelUser:FDatabaseModel
         let json:[String:Any] = [
             Property.session.rawValue:sessionJson,
             Property.email.rawValue:email,
-            Property.status.rawValue:status.rawValue,
             Property.created.rawValue:created,
             Property.diskUsed.rawValue:diskUsed
         ]

@@ -18,7 +18,7 @@ class MPhotos
     }
     
     //MARK: private
-    
+    /*
     private func asyncLoadPhotos()
     {
         guard
@@ -168,5 +168,5 @@ class MPhotos
         let reference:MPicturesItemReference = references.remove(at:index)
         let pictureId:PictureId = reference.pictureId
         items.removeValue(forKey:pictureId)
-    }
+    }*/
 }

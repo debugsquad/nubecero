@@ -11,7 +11,7 @@ class FDatabaseModelUserSession:FDatabaseModel
         case ttl = "ttl"
     }
     
-    let status:
+    let status:MSession.Status
     let token:String
     let version:String
     let timestamp:TimeInterval
@@ -41,6 +41,7 @@ class FDatabaseModelUserSession:FDatabaseModel
         }
         
         self.version = version
+        status = MSession.Status.active
         timestamp = NSDate().timeIntervalSince1970
         
         super.init()
@@ -49,6 +50,22 @@ class FDatabaseModelUserSession:FDatabaseModel
     required init(snapshot:Any)
     {
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
+        
+        if let statusInt:Int = snapshotDict?[Property.status.rawValue] as? Int
+        {
+            if let status:MSession.Status = MSession.Status(rawValue:statusInt)
+            {
+                self.status = status
+            }
+            else
+            {
+                self.status = MSession.Status.unknown
+            }
+        }
+        else
+        {
+            self.status = MSession.Status.unknown
+        }
         
         if let token:String = snapshotDict?[Property.token.rawValue] as? String
         {
@@ -97,6 +114,7 @@ class FDatabaseModelUserSession:FDatabaseModel
     override func modelJson() -> Any
     {
         let json:[String:Any] = [
+            Property.status.rawValue:status,
             Property.token.rawValue:token,
             Property.version.rawValue:version,
             Property.timestamp.rawValue:timestamp,

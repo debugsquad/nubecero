@@ -17,7 +17,6 @@
 		DA34117B1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34117A1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift */; };
 		DA34117D1DCBC1C0006E6D71 /* FDatabaseModelServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34117C1DCBC1C0006E6D71 /* FDatabaseModelServer.swift */; };
 		DA34117F1DCBC4A8006E6D71 /* MSessionServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA34117E1DCBC4A8006E6D71 /* MSessionServer.swift */; };
-		DA3411811DCBE893006E6D71 /* FDatabaseModelUserStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411801DCBE893006E6D71 /* FDatabaseModelUserStatus.swift */; };
 		DA3411831DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411821DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift */; };
 		DA3411851DCBEE57006E6D71 /* CBanned.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411841DCBEE57006E6D71 /* CBanned.swift */; };
 		DA3411881DCBF016006E6D71 /* VBanned.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411871DCBF016006E6D71 /* VBanned.swift */; };
@@ -219,7 +218,6 @@
 		DAEC5CBF1DDF62F800DF52A9 /* MPhotosItemPhotoStateLoaded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CBE1DDF62F800DF52A9 /* MPhotosItemPhotoStateLoaded.swift */; };
 		DAEC5CC11DDF734700DF52A9 /* FDatabaseModelAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CC01DDF734700DF52A9 /* FDatabaseModelAlbum.swift */; };
 		DAEC5CC31DDF735000DF52A9 /* FDatabaseModelAlbumList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CC21DDF735000DF52A9 /* FDatabaseModelAlbumList.swift */; };
-		DAEC5CC51DDFBCA900DF52A9 /* FDatabaseModelUserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CC41DDFBCA900DF52A9 /* FDatabaseModelUserToken.swift */; };
 		DAEC5CC71DDFEE8200DF52A9 /* MPhotosItemPhotoReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CC61DDFEE8200DF52A9 /* MPhotosItemPhotoReference.swift */; };
 		DAEC5CC91DE0A3FF00DF52A9 /* FDatabaseModelUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CC81DE0A3FF00DF52A9 /* FDatabaseModelUserSession.swift */; };
 		DAEC5CCB1DE0B9E400DF52A9 /* MSessionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CCA1DE0B9E400DF52A9 /* MSessionUser.swift */; };
@@ -273,7 +271,6 @@
 		DA34117A1DCB9C53006E6D71 /* VHomeCellDiskGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeCellDiskGradient.swift; sourceTree = "<group>"; };
 		DA34117C1DCBC1C0006E6D71 /* FDatabaseModelServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelServer.swift; sourceTree = "<group>"; };
 		DA34117E1DCBC4A8006E6D71 /* MSessionServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionServer.swift; sourceTree = "<group>"; };
-		DA3411801DCBE893006E6D71 /* FDatabaseModelUserStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserStatus.swift; sourceTree = "<group>"; };
 		DA3411821DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserDiskUsed.swift; sourceTree = "<group>"; };
 		DA3411841DCBEE57006E6D71 /* CBanned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBanned.swift; sourceTree = "<group>"; };
 		DA3411871DCBF016006E6D71 /* VBanned.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBanned.swift; sourceTree = "<group>"; };
@@ -479,7 +476,6 @@
 		DAEC5CBE1DDF62F800DF52A9 /* MPhotosItemPhotoStateLoaded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosItemPhotoStateLoaded.swift; sourceTree = "<group>"; };
 		DAEC5CC01DDF734700DF52A9 /* FDatabaseModelAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelAlbum.swift; sourceTree = "<group>"; };
 		DAEC5CC21DDF735000DF52A9 /* FDatabaseModelAlbumList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelAlbumList.swift; sourceTree = "<group>"; };
-		DAEC5CC41DDFBCA900DF52A9 /* FDatabaseModelUserToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserToken.swift; sourceTree = "<group>"; };
 		DAEC5CC61DDFEE8200DF52A9 /* MPhotosItemPhotoReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosItemPhotoReference.swift; sourceTree = "<group>"; };
 		DAEC5CC81DE0A3FF00DF52A9 /* FDatabaseModelUserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserSession.swift; sourceTree = "<group>"; };
 		DAEC5CCA1DE0B9E400DF52A9 /* MSessionUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionUser.swift; sourceTree = "<group>"; };
@@ -1231,9 +1227,7 @@
 				DAA779EC1DD91E8500A719AD /* FDatabaseModelUserList.swift */,
 				DACD1FC61DC7C6AE0067D26B /* FDatabaseModelUser.swift */,
 				DAEC5CC81DE0A3FF00DF52A9 /* FDatabaseModelUserSession.swift */,
-				DA3411801DCBE893006E6D71 /* FDatabaseModelUserStatus.swift */,
 				DA3411821DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift */,
-				DAEC5CC41DDFBCA900DF52A9 /* FDatabaseModelUserToken.swift */,
 				DACD1FC81DC7C6C80067D26B /* FDatabaseModelPhoto.swift */,
 				DA2F668E1DC90AF50078B466 /* FDatabaseModelPhotoList.swift */,
 				DA34117C1DCBC1C0006E6D71 /* FDatabaseModelServer.swift */,
@@ -1589,10 +1583,8 @@
 				DA7A79C71DD64A40001B5FA5 /* MHomeItemSpaceUsed.swift in Sources */,
 				DA7A79CD1DD64BFD001B5FA5 /* VHomeCellSpaceFree.swift in Sources */,
 				DAEC5CC71DDFEE8200DF52A9 /* MPhotosItemPhotoReference.swift in Sources */,
-				DAEC5CC51DDFBCA900DF52A9 /* FDatabaseModelUserToken.swift in Sources */,
 				DAD7398C1DD1571700FC3297 /* VSettingsCellAbout.swift in Sources */,
 				DACD1FB81DC57F560067D26B /* CHomeUploadSync.swift in Sources */,
-				DA3411811DCBE893006E6D71 /* FDatabaseModelUserStatus.swift in Sources */,
 				DAF6F2A21DD378100053ED1B /* VOnboardForm.swift in Sources */,
 				DAA336761DDE466D00AA2D12 /* CPhotos.swift in Sources */,
 				DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */,

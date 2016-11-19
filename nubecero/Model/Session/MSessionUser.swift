@@ -39,10 +39,10 @@ class MSessionUser
     {
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertySession:String = FDatabaseModelUser.Property.session.rawValue
-        let userStatusPath:String = "\(parentUser)/\(userId)/\(propertySession)"
+        let userSessionPath:String = "\(parentUser)/\(userId)/\(propertySession)"
         
         FMain.sharedInstance.database.listenOnce(
-            path:userStatusPath,
+            path:userSessionPath,
             modelType:FDatabaseModelUserSession.self)
         { (session) in
             
@@ -54,12 +54,6 @@ class MSessionUser
                         
                         self.status = receivedSession.status
                         self.ttl = receivedSession.ttl
-                        
-                        if !receivedSession.token.isEmpty
-                        {
-                            self.token = receivedSession.token
-                        }
-                        
                         self.sendUpdate()
                         
                         break
@@ -92,17 +86,21 @@ class MSessionUser
         
         ttl += 1
         
-        
+        let version:String = MSession.sharedInstance.version
         let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
-        let lastSessionPath:String = "\(parentUser)/\(userId)/\(propertyLastSession)"
-        let currentTime:TimeInterval = NSDate().timeIntervalSince1970
+        let propertySession:String = FDatabaseModelUser.Property.session.rawValue
+        let userSessionPath:String = "\(parentUser)/\(userId)/\(propertySession)"
+        let modelSession:FDatabaseModelUserSession = FDatabaseModelUserSession(
+            token:token,
+            version:version,
+            ttl:ttl)
+        let modelJson:Any = modelSession.modelJson()
         
         FMain.sharedInstance.database.updateChild(
-            path:lastSessionPath,
-            json:currentTime)
+            path:userSessionPath,
+            json:modelJson)
         
-        self.loadServer()
+        MSession.sharedInstance.server.loadServer()
     }
     
     private func banned()

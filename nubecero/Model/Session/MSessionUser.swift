@@ -1,4 +1,5 @@
 import Foundation
+import Firebase
 
 class MSessionUser
 {
@@ -85,6 +86,14 @@ class MSessionUser
         }
         
         ttl += 1
+        
+        if token == nil
+        {
+            if let token:String = FIRInstanceID.instanceID().token()
+            {
+                self.token = token
+            }
+        }
         
         let version:String = MSession.sharedInstance.version
         let parentUser:String = FDatabase.Parent.user.rawValue

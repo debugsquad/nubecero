@@ -79,36 +79,4 @@ class MSession
         
         return space
     }
-    
-    
-    
-    func updateUserToken()
-    {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        {
-            if self.userToken == nil
-            {
-                guard
-                    
-                    let userId:MSession.UserId = self.userId,
-                    let token:String = FIRInstanceID.instanceID().token()
-                    
-                else
-                {
-                    return
-                }
-                
-                self.userToken = token
-                let parentUser:String = FDatabase.Parent.user.rawValue
-                let propertyToken:String = FDatabaseModelUser.Property.token.rawValue
-                let pathToken:String = "\(parentUser)/\(userId)/\(propertyToken)"
-                let modelToken:FDatabaseModelToken = FDatabaseModelToken(token:token)
-                let tokenJson:Any = modelToken.modelJson()
-                
-                FMain.sharedInstance.database.updateChild(
-                    path:pathToken,
-                    json:tokenJson)
-            }
-        }
-    }
 }

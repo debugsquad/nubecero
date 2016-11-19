@@ -114,7 +114,7 @@ class FDatabaseModelUserSession:FDatabaseModel
     override func modelJson() -> Any
     {
         let json:[String:Any] = [
-            Property.status.rawValue:status,
+            Property.status.rawValue:status.rawValue,
             Property.token.rawValue:token,
             Property.version.rawValue:version,
             Property.timestamp.rawValue:timestamp,

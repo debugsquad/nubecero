@@ -29,6 +29,8 @@ class MSessionUser
         
         let userJson:Any = modelUser.modelJson()
         
+        print(userJson)
+        
         FMain.sharedInstance.database.updateChild(
             path:userPath,
             json:userJson)

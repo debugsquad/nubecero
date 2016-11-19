@@ -12,8 +12,8 @@ class MAdminUsersItem
     {
         self.userId = userId
         created = firebaseUser.created
-        lastSession = firebaseUser.lastSession
+        lastSession = firebaseUser.session.timestamp
         diskUsed = firebaseUser.diskUsed
-        status = firebaseUser.status
+        status = firebaseUser.session.status
     }
 }

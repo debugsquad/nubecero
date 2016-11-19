@@ -21,7 +21,7 @@ class MSettingsItemRate:MSettingsItem
     
     override func selected(controller:CSettings)
     {
-        FMain.sharedInstance.analytics?.rate()
+        FMain.sharedInstance.analytics?.actionRate()
         
         controller.rate()
     }

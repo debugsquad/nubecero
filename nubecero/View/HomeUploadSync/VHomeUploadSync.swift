@@ -5,10 +5,11 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     private weak var viewBar:VHomeUploadSyncBar!
     private weak var collectionView:UICollectionView!
     private weak var controller:CHomeUploadSync!
+    private var cellSize:CGSize!
     private let kBarHeight:CGFloat = 120
-    private let kCellHeight:CGFloat = 50
     private let kCollectionBottom:CGFloat = 20
     private let kInterLineSpace:CGFloat = 1
+    private let kCellMaxSize:CGFloat = 75
     
     convenience init(controller:CHomeUploadSync)
     {
@@ -18,7 +19,7 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
         backgroundColor = UIColor.clear
         self.controller = controller
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
         let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
         visualEffect.translatesAutoresizingMaskIntoConstraints = false
         visualEffect.clipsToBounds = true
@@ -33,9 +34,15 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
         flow.minimumInteritemSpacing = 0
         flow.minimumLineSpacing = kInterLineSpace
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
-        flow.sectionInset = UIEdgeInsetsMake(kInterLineSpace, 0, kCollectionBottom, 0)
+        flow.sectionInset = UIEdgeInsetsMake(
+            kInterLineSpace,
+            kInterLineSpace,
+            kCollectionBottom,
+            kInterLineSpace)
         
-        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        let collectionView:UICollectionView = UICollectionView(
+            frame:CGRect.zero,
+            collectionViewLayout:flow)
         collectionView.clipsToBounds = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = UIColor.clear
@@ -91,11 +98,21 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     override func layoutSubviews()
     {
+        computeImageSize()
         collectionView.collectionViewLayout.invalidateLayout()
+        
         super.layoutSubviews()
     }
     
     //MARK: private
+    
+    private func computeCellSize()
+    {
+        let width:CGFloat = bounds.maxX - kInterLineSpace
+        let proximate:CGFloat = floor(width / kCellMaxSize)
+        let size:CGFloat = (width / proximate) - kInterLineSpace
+        cellSize = CGSize(width:size, height:size)
+    }
     
     private func modelAtIndex(index:IndexPath) -> MHomeUploadItem
     {
@@ -123,10 +140,7 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
-        let width:CGFloat = collectionView.bounds.maxX
-        let size:CGSize = CGSize(width:width, height:kCellHeight)
-        
-        return size
+        return cellSize
     }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int

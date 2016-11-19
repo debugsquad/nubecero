@@ -43,7 +43,10 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
         let pathPhotos:String = "\(parentUser)/\(userId)/\(propertyPhotos)"
         let pathDiskUsed:String = "\(parentUser)/\(userId)/\(propertyDiskUsed)"
         let dataLength:Int = imageData.count / kKilobytePerByte
-        let modelPhoto:FDatabaseModelPhoto = FDatabaseModelPhoto(size:dataLength)
+        let modelPhoto:FDatabaseModelPhoto = FDatabaseModelPhoto(
+            size:dataLength,
+            pixelWidth:pixelWidth,
+            pixelHeight:pixelHeight)
         let photoJson:Any = modelPhoto.modelJson()
         
         FMain.sharedInstance.database.listenOnce(

@@ -107,7 +107,7 @@ class MPhotosItemPhotoResources
     {
         guard
             
-            let userId:MSession.UserId = MSession.sharedInstance.userId,
+            let userId:MSession.UserId = MSession.sharedInstance.user.userId,
             let photoId:MPhotos.PhotoId = item?.photoId
             
         else

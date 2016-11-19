@@ -42,7 +42,7 @@ class CHome:CController
         {
             guard
             
-                let shouldAuth:Bool = MSession.sharedInstance.settings?.security
+                let shouldAuth:Bool = MSession.sharedInstance.settings.current?.security
             
             else
             {
@@ -81,8 +81,6 @@ class CHome:CController
                 selector:#selector(welf.notifiedSessionLoaded(sender:)),
                 name:Notification.sessionLoaded,
                 object:nil)
-            
-            MSession.sharedInstance.updateLastSession()
         }
     }
     
@@ -102,7 +100,7 @@ class CHome:CController
         {
             guard
                 
-                let userId:MSession.UserId = MSession.sharedInstance.userId
+                let userId:MSession.UserId = MSession.sharedInstance.user.userId
             
             else
             {
@@ -168,7 +166,7 @@ class CHome:CController
             }
             
             UIApplication.shared.registerForRemoteNotifications()
-            MSession.sharedInstance.updateUserToken()
+            MSession.sharedInstance.user.sendUpdate()
         }
     }
     

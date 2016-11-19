@@ -50,7 +50,7 @@ class COnboardForm:CController
     
     private func signInSuccess(userId:MSession.UserId)
     {
-        MSession.sharedInstance.loadUser(userId:userId)
+        MSession.sharedInstance.user.loadUser(userId:userId)
         
         DispatchQueue.main.async
         { [weak self] in
@@ -61,7 +61,7 @@ class COnboardForm:CController
     
     private func registerSuccess(email:String, userId:MSession.UserId)
     {
-        MSession.sharedInstance.createUser(
+        MSession.sharedInstance.user.createUser(
             email:email,
             userId:userId)
         
@@ -76,7 +76,7 @@ class COnboardForm:CController
     {
         guard
         
-            let remember:Bool = MSession.sharedInstance.settings?.rememberMe
+            let remember:Bool = MSession.sharedInstance.settings.current?.rememberMe
         
         else
         {
@@ -85,13 +85,13 @@ class COnboardForm:CController
         
         if remember
         {
-            MSession.sharedInstance.settings?.lastEmail = credentials.email
-            MSession.sharedInstance.settings?.lastPassword = credentials.password
+            MSession.sharedInstance.settings.current?.lastEmail = credentials.email
+            MSession.sharedInstance.settings.current?.lastPassword = credentials.password
         }
         else
         {
-            MSession.sharedInstance.settings?.lastEmail = nil
-            MSession.sharedInstance.settings?.lastPassword = nil
+            MSession.sharedInstance.settings.current?.lastEmail = nil
+            MSession.sharedInstance.settings.current?.lastPassword = nil
         }
         
         DManager.sharedInstance.save()
@@ -99,7 +99,7 @@ class COnboardForm:CController
     
     private func authenticateRegister(credentials:MOnboardFormCredentials)
     {
-        FMain.sharedInstance.analytics?.tryRegister()
+        FMain.sharedInstance.analytics?.sessionTryRegister()
         
         FIRAuth.auth()?.createUser(
             withEmail:credentials.email,
@@ -128,7 +128,7 @@ class COnboardForm:CController
                 return
             }
             
-            FMain.sharedInstance.analytics?.register()
+            FMain.sharedInstance.analytics?.sessionRegister()
             let email:String = credentials.email
             let userId:MSession.UserId = firUser.uid
             
@@ -167,7 +167,7 @@ class COnboardForm:CController
                 return
             }
             
-            FMain.sharedInstance.analytics?.signin()
+            FMain.sharedInstance.analytics?.sessionSignin()
             let userId:MSession.UserId = firUser.uid
             
             self?.signInSuccess(userId:userId)

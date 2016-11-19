@@ -84,7 +84,7 @@ class VHomeCellDisk:VHomeCell
             return
         }
         
-        let totalStorage:Int = MSession.sharedInstance.totalStorage()
+        let totalStorage:Int = MSession.sharedInstance.server.totalStorage()
         let totalStorageFloat:CGFloat = CGFloat(totalStorage)
         let diskUsedFloat:CGFloat = CGFloat(diskUsed)
         var ratioDisk:CGFloat = diskUsedFloat / totalStorageFloat

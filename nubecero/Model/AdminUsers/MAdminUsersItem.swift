@@ -6,7 +6,7 @@ class MAdminUsersItem
     let created:TimeInterval
     let lastSession:TimeInterval
     let diskUsed:Int
-    let status:FDatabaseModelUser.Status
+    let status:MSession.Status
     
     init(userId:MSession.UserId, firebaseUser:FDatabaseModelUser)
     {

@@ -80,7 +80,7 @@ class VSettingsCellSecurity:VSettingsCell
     {
         guard
         
-            let securityOn:Bool = MSession.sharedInstance.settings?.security
+            let securityOn:Bool = MSession.sharedInstance.settings.current?.security
         
         else
         {
@@ -95,7 +95,7 @@ class VSettingsCellSecurity:VSettingsCell
     func actionCheck(sender check:UISwitch)
     {
         let securityOn:Bool = check.isOn
-        MSession.sharedInstance.settings?.security = securityOn
+        MSession.sharedInstance.settings.current?.security = securityOn
         
         DManager.sharedInstance.save()
     }

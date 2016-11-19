@@ -27,7 +27,7 @@ class VHomeUploadSyncBar:UIView
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor(white:1, alpha:0.4)
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         

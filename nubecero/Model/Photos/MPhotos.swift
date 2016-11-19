@@ -18,7 +18,7 @@ class MPhotos
     }
     
     //MARK: private
-    /*
+    
     private func asyncLoadPhotos()
     {
         guard
@@ -139,11 +139,11 @@ class MPhotos
     
     //MARK: public
     
-    func loadPictures()
+    func loadPhotos()
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            {
-                self.asyncLoadPictures()
+        {
+            self.asyncLoadPhotos()
         }
     }
     
@@ -158,8 +158,8 @@ class MPhotos
     func cleanResources()
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            {
-                self.asyncCleanResources()
+        {
+            self.asyncCleanResources()
         }
     }
     
@@ -168,5 +168,5 @@ class MPhotos
         let reference:MPicturesItemReference = references.remove(at:index)
         let pictureId:PictureId = reference.pictureId
         items.removeValue(forKey:pictureId)
-    }*/
+    }
 }

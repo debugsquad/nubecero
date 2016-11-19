@@ -8,7 +8,7 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     private var cellSize:CGSize!
     private let kBarHeight:CGFloat = 120
     private let kCollectionBottom:CGFloat = 20
-    private let kInterLineSpace:CGFloat = 1
+    private let kInterLineSpace:CGFloat = 2
     private let kCellMaxSize:CGFloat = 75
     
     convenience init(controller:CHomeUploadSync)
@@ -98,7 +98,7 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     
     override func layoutSubviews()
     {
-        computeImageSize()
+        computeCellSize()
         collectionView.collectionViewLayout.invalidateLayout()
         
         super.layoutSubviews()

@@ -1,5 +1,4 @@
 import UIKit
-import FirebaseAnalytics
 
 class CController:UIViewController
 {
@@ -39,7 +38,7 @@ class CController:UIViewController
     {
         super.viewDidLoad()
         
-        FMain.sharedInstance.analytics?.screen(controller:self)
+        FMain.sharedInstance.analytics?.screenView(controller:self)
         edgesForExtendedLayout = UIRectEdge()
         extendedLayoutIncludesOpaqueBars = false
         automaticallyAdjustsScrollViewInsets = false
@@ -49,9 +48,6 @@ class CController:UIViewController
     {
         super.viewDidAppear(animated)
         parentController.viewParent.bar.label.text = title
-        
-        let screen:String = NSStringFromClass(object_getClass(self))
-        FIRAnalytics.setScreenName(screen, screenClass:screen)
     }
     
     override var preferredStatusBarStyle:UIStatusBarStyle

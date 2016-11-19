@@ -5,13 +5,11 @@ class MSessionUser
     var status:MSession.Status
     var userId:MSession.UserId?
     var token:String?
-    var ttl:Int
-    private let kZero:Int = 0
+    var ttl:Int?
     
     init()
     {
         status = MSession.Status.unknown
-        ttl = kZero
     }
     
     //MARK: private
@@ -52,29 +50,68 @@ class MSessionUser
             {
                 switch receivedSession.status
                 {
-                    case FDatabaseModelUser.Status.active:
+                    case MSession.Status.active:
                         
-                        self.userId = userId
-                        self.updateLastSession()
+                        self.status = receivedSession.status
+                        self.ttl = receivedSession.ttl
+                        
+                        if !receivedSession.token.isEmpty
+                        {
+                            self.token = receivedSession.token
+                        }
+                        
+                        self.sendUpdate()
                         
                         break
                         
                     default:
                         
-                        NotificationCenter.default.post(
-                            name:Notification.userBanned,
-                            object:nil)
+                        self.banned()
                         
                         break
                 }
             }
             else
             {
-                NotificationCenter.default.post(
-                    name:Notification.userBanned,
-                    object:nil)
+                self.banned()
             }
         }
+    }
+    
+    private func asyncSendUpdate()
+    {
+        guard
+            
+            let userId:MSession.UserId = self.userId,
+            var ttl:Int = self.ttl
+            
+        else
+        {
+            return
+        }
+        
+        ttl += 1
+        
+        
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let propertyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
+        let lastSessionPath:String = "\(parentUser)/\(userId)/\(propertyLastSession)"
+        let currentTime:TimeInterval = NSDate().timeIntervalSince1970
+        
+        FMain.sharedInstance.database.updateChild(
+            path:lastSessionPath,
+            json:currentTime)
+        
+        self.loadServer()
+    }
+    
+    private func banned()
+    {
+        FMain.sharedInstance.analytics?.sessionBanned()
+        
+        NotificationCenter.default.post(
+            name:Notification.userBanned,
+            object:nil)
     }
     
     //MARK: public
@@ -94,6 +131,14 @@ class MSessionUser
         {
             self.userId = userId
             self.asyncLoadUser()
+        }
+    }
+    
+    func sendUpdate()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            self.asyncSendUpdate()
         }
     }
 }

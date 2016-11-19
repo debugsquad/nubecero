@@ -1,5 +1,4 @@
 import Foundation
-import Firebase
 
 class MSession
 {
@@ -81,28 +80,7 @@ class MSession
         return space
     }
     
-    func updateLastSession()
-    {
-        guard
-            
-            let userId:UserId = self.userId
-            
-        else
-        {
-            return
-        }
-        
-        let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
-        let lastSessionPath:String = "\(parentUser)/\(userId)/\(propertyLastSession)"
-        let currentTime:TimeInterval = NSDate().timeIntervalSince1970
-        
-        FMain.sharedInstance.database.updateChild(
-            path:lastSessionPath,
-            json:currentTime)
-        
-        self.loadServer()
-    }
+    
     
     func updateUserToken()
     {

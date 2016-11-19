@@ -42,31 +42,7 @@ class MSession
     
     
     
-    private func loadServer()
-    {
-        let parentServer:String = FDatabase.Parent.server.rawValue
-        
-        FMain.sharedInstance.database.listenOnce(
-            path:parentServer,
-            modelType:FDatabaseModelServer.self)
-        { (modelServer) in
-            
-            guard
-            
-                let firebaseServer:FDatabaseModelServer = modelServer
-            
-            else
-            {
-                return
-            }
-            
-            self.server = MSessionServer(firebaseServer:firebaseServer)
-            
-            NotificationCenter.default.post(
-                name:Notification.sessionLoaded,
-                object:nil)
-        }
-    }
+    
     
     
     

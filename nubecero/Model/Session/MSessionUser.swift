@@ -3,30 +3,31 @@ import Foundation
 class MSessionUser
 {
     var userId:MSession.UserId?
+    var token:String?
     
     //MARK: private
     
-    private func asyncCreateUser(email:String, userId:MSession.UserId)
+    private func asyncCreateUser(email:String)
     {
         let parentUser:String = FDatabase.Parent.user.rawValue
         let userPath:String = "\(parentUser)/\(userId)"
+        let version:String = MSession.sharedInstance.version
         
         let modelUser:FDatabaseModelUser = FDatabaseModelUser(
             email:email,
-            token: <#T##String?#>,
-            version: <#T##String#>)
+            token:token,
+            version:version)
         
-        let json:Any = modelUser.modelJson()
+        let userJson:Any = modelUser.modelJson()
         
         FMain.sharedInstance.database.updateChild(
             path:userPath,
-            json:json)
+            json:userJson)
         
-        self.userId = userId
-        self.loadServer()
+        MSession.sharedInstance.server.loadServer()
     }
     
-    private func asyncLoadUser(userId:MSession.UserId)
+    private func asyncLoadUser()
     {
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyStatus:String = FDatabaseModelUser.Property.status.rawValue
@@ -72,7 +73,8 @@ class MSessionUser
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
-            self.asyncCreateUser(email:email, userId:userId)
+            self.userId = userId
+            self.asyncCreateUser(email:email)
         }
     }
     
@@ -80,7 +82,8 @@ class MSessionUser
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
-            self.asyncLoadUser(userId:userId)
+            self.userId = userId
+            self.asyncLoadUser()
         }
     }
 }

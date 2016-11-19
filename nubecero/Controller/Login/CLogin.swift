@@ -28,7 +28,7 @@ class CLogin:CController
             name:Notification.settingsLoaded,
             object:nil)
         
-        MSession.sharedInstance.loadSettings()
+        MSession.sharedInstance.settings.loadSettings()
     }
     
     //MARK: notified
@@ -51,7 +51,7 @@ class CLogin:CController
                 return
             }
             
-            MSession.sharedInstance.loadUser(userId:userId)
+            MSession.sharedInstance.user.loadUser(userId:userId)
             
             DispatchQueue.main.async
             { [weak self] in

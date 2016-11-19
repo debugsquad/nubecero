@@ -21,7 +21,7 @@ class MHomeUploadItemStatusUploaded:MHomeUploadItemStatus
         
         guard
             
-            let userId:MSession.UserId = MSession.sharedInstance.userId,
+            let userId:MSession.UserId = MSession.sharedInstance.user.userId,
             let photoId:String = item?.photoId
             
         else

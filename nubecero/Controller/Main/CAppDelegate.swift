@@ -29,7 +29,7 @@ class AppDelegate:UIResponder, UIApplicationDelegate
     {
         guard
             
-            let askAuth:Bool = MSession.sharedInstance.settings?.security
+            let askAuth:Bool = MSession.sharedInstance.settings.current?.security
             
         else
         {

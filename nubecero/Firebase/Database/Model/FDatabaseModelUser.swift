@@ -4,11 +4,10 @@ class FDatabaseModelUser:FDatabaseModel
 {
     enum Property:String
     {
+        case session = "session"
         case email = "email"
-        case token = "token"
         case status = "status"
         case created = "created"
-        case lastSession = "lastSession"
         case diskUsed = "diskUsed"
         case photos = "photos"
         case albums = "albums"
@@ -21,22 +20,20 @@ class FDatabaseModelUser:FDatabaseModel
         case banned
     }
     
+    let session:FDatabaseModelUserSession
     let email:String
-    let token:String
     let created:TimeInterval
-    let lastSession:TimeInterval
     let status:Status
     let diskUsed:Int
-    private let kNoTime:TimeInterval = 0
     private let kEmpty:String = ""
+    private let kNoTime:TimeInterval = 0
     
-    init(email:String, status:Status)
+    init(email:String, status:Status, token:String?, version:String)
     {
+        self.session = 
         self.email = email
         self.status = status
-        token = kEmpty
         created = NSDate().timeIntervalSince1970
-        lastSession = created
         diskUsed = 0
         
         super.init()
@@ -117,12 +114,13 @@ class FDatabaseModelUser:FDatabaseModel
     
     override func modelJson() -> Any
     {
+        let sessionJson:Any = session.modelJson()
+        
         let json:[String:Any] = [
+            Property.session.rawValue:sessionJson,
             Property.email.rawValue:email,
-            Property.token.rawValue:token,
             Property.status.rawValue:status.rawValue,
             Property.created.rawValue:created,
-            Property.lastSession.rawValue:lastSession,
             Property.diskUsed.rawValue:diskUsed
         ]
         

@@ -18,7 +18,7 @@ class FDatabaseModelUserSession:FDatabaseModel
     private let kNoTime:TimeInterval = 0
     private let kFirstTtl = 0
     
-    init(token:String?, version:String, ttl:Int)
+    init(token:String?, version:String, ttl:Int?)
     {
         if let receivedToken:String = token
         {
@@ -29,8 +29,16 @@ class FDatabaseModelUserSession:FDatabaseModel
             self.token = kEmpty
         }
         
+        if let receivedTtl:Int = ttl
+        {
+            self.ttl = receivedTtl
+        }
+        else
+        {
+            self.ttl = kFirstTtl
+        }
+        
         self.version = version
-        self.ttl = ttl
         timestamp = NSDate().timeIntervalSince1970
         
         super.init()

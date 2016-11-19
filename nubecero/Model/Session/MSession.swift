@@ -13,7 +13,6 @@ class MSession
     
     static let sharedInstance:MSession = MSession()
     let user:MSessionUser
-    let storage:MSessionStorage
     let settings:MSessionSettings
     let server:MSessionServer
     let version:String
@@ -23,7 +22,6 @@ class MSession
     private init()
     {
         user = MSessionUser()
-        storage = MSessionStorage()
         settings = MSessionSettings()
         server = MSessionServer()
         
@@ -35,48 +33,5 @@ class MSession
         {
             self.version = kEmpty
         }
-    }
-    
-    //MARK: private
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    //MARK: public
-    
-    
-    
-    
-    
-    func totalStorage() -> Int
-    {
-        var space:Int = 0
-        
-        guard
-        
-            let froobSpace:Int = server?.froobSpace,
-            let plusSpace:Int = server?.plusSpace
-        
-        else
-        {
-            return space
-        }
-        
-        space += froobSpace
-        
-        if let nubeceroPlus:Bool = settings?.nubeceroPlus
-        {
-            if nubeceroPlus
-            {
-                space += plusSpace
-            }
-        }
-        
-        return space
     }
 }

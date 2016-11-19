@@ -50,4 +50,19 @@ class MSessionServer
             self.asyncLoadServer()
         }
     }
+    
+    func totalStorage() -> Int
+    {
+        var space:Int = froobSpace
+        
+        if let nubeceroPlus:Bool = MSession.sharedInstance.settings.current?.nubeceroPlus
+        {
+            if nubeceroPlus
+            {
+                space += plusSpace
+            }
+        }
+        
+        return space
+    }
 }

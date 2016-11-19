@@ -221,7 +221,6 @@
 		DAEC5CC71DDFEE8200DF52A9 /* MPhotosItemPhotoReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CC61DDFEE8200DF52A9 /* MPhotosItemPhotoReference.swift */; };
 		DAEC5CC91DE0A3FF00DF52A9 /* FDatabaseModelUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CC81DE0A3FF00DF52A9 /* FDatabaseModelUserSession.swift */; };
 		DAEC5CCB1DE0B9E400DF52A9 /* MSessionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CCA1DE0B9E400DF52A9 /* MSessionUser.swift */; };
-		DAEC5CCD1DE0BAAA00DF52A9 /* MSessionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CCC1DE0BAAA00DF52A9 /* MSessionStorage.swift */; };
 		DAEC5CCF1DE0BB3900DF52A9 /* MSessionSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CCE1DE0BB3900DF52A9 /* MSessionSettings.swift */; };
 		DAF6F29F1DD376B90053ED1B /* COnboardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F29E1DD376B90053ED1B /* COnboardForm.swift */; };
 		DAF6F2A21DD378100053ED1B /* VOnboardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2A11DD378100053ED1B /* VOnboardForm.swift */; };
@@ -479,7 +478,6 @@
 		DAEC5CC61DDFEE8200DF52A9 /* MPhotosItemPhotoReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosItemPhotoReference.swift; sourceTree = "<group>"; };
 		DAEC5CC81DE0A3FF00DF52A9 /* FDatabaseModelUserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserSession.swift; sourceTree = "<group>"; };
 		DAEC5CCA1DE0B9E400DF52A9 /* MSessionUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionUser.swift; sourceTree = "<group>"; };
-		DAEC5CCC1DE0BAAA00DF52A9 /* MSessionStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionStorage.swift; sourceTree = "<group>"; };
 		DAEC5CCE1DE0BB3900DF52A9 /* MSessionSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionSettings.swift; sourceTree = "<group>"; };
 		DAF6F29E1DD376B90053ED1B /* COnboardForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = COnboardForm.swift; sourceTree = "<group>"; };
 		DAF6F2A11DD378100053ED1B /* VOnboardForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardForm.swift; sourceTree = "<group>"; };
@@ -1243,7 +1241,6 @@
 				DACD1FCB1DC7D0320067D26B /* MSession.swift */,
 				DA34117E1DCBC4A8006E6D71 /* MSessionServer.swift */,
 				DAEC5CCA1DE0B9E400DF52A9 /* MSessionUser.swift */,
-				DAEC5CCC1DE0BAAA00DF52A9 /* MSessionStorage.swift */,
 				DAEC5CCE1DE0BB3900DF52A9 /* MSessionSettings.swift */,
 			);
 			path = Session;
@@ -1648,7 +1645,6 @@
 				DAA779E91DD9136D00A719AD /* VAdminUsers.swift in Sources */,
 				DACD1FBF1DC6FCC00067D26B /* VHomeUploadSyncCell.swift in Sources */,
 				DA88F6701DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift in Sources */,
-				DAEC5CCD1DE0BAAA00DF52A9 /* MSessionStorage.swift in Sources */,
 				DA4EF8F91DC395B300297C1D /* CAppDelegate.swift in Sources */,
 				DAC55F261DD25ED200213C27 /* VOnboardCell.swift in Sources */,
 				DAA3367E1DDE4DB700AA2D12 /* MPhotos.swift in Sources */,

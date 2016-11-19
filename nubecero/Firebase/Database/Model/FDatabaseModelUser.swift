@@ -30,7 +30,10 @@ class FDatabaseModelUser:FDatabaseModel
     
     init(email:String, status:Status, token:String?, version:String)
     {
-        self.session = 
+        self.session = FDatabaseModelUserSession(
+            token:token,
+            version:version,
+            ttl:nil)
         self.email = email
         self.status = status
         created = NSDate().timeIntervalSince1970
@@ -43,6 +46,15 @@ class FDatabaseModelUser:FDatabaseModel
     {
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
         
+        if let sessionSnapshot:[String:Any] = snapshotDict?[Property.session.rawValue] as? [String:Any]
+        {
+            self.session = FDatabaseModelUserSession(snapshot:sessionSnapshot)
+        }
+        else
+        {
+            self.session = FDatabaseModelUserSession(snapshot:[])
+        }
+        
         if let email:String = snapshotDict?[Property.email.rawValue] as? String
         {
             self.email = email
@@ -50,15 +62,6 @@ class FDatabaseModelUser:FDatabaseModel
         else
         {
             self.email = kEmpty
-        }
-        
-        if let token:String = snapshotDict?[Property.token.rawValue] as? String
-        {
-            self.token = token
-        }
-        else
-        {
-            self.token = kEmpty
         }
         
         if let statusInt:Int = snapshotDict?[Property.status.rawValue] as? Int
@@ -84,15 +87,6 @@ class FDatabaseModelUser:FDatabaseModel
         else
         {
             self.created = kNoTime
-        }
-        
-        if let lastSession:TimeInterval = snapshotDict?[Property.lastSession.rawValue] as? TimeInterval
-        {
-            self.lastSession = lastSession
-        }
-        else
-        {
-            self.lastSession = kNoTime
         }
         
         if let diskUsed:Int = snapshotDict?[Property.diskUsed.rawValue] as? Int

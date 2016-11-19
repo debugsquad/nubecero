@@ -3,6 +3,13 @@ import Firebase
 
 class MSession
 {
+    enum Status:Int
+    {
+        case unknown
+        case active
+        case banned
+    }
+    
     typealias UserId = String
     
     static let sharedInstance:MSession = MSession()

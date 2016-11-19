@@ -4,12 +4,14 @@ class FDatabaseModelUserSession:FDatabaseModel
 {
     enum Property:String
     {
+        case status = "status"
         case token = "token"
         case version = "version"
         case timestamp = "timestamp"
         case ttl = "ttl"
     }
     
+    let status:
     let token:String
     let version:String
     let timestamp:TimeInterval

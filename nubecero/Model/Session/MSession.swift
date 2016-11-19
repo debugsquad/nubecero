@@ -16,7 +16,6 @@ class MSession
     var server:MSessionServer?
     var userId:UserId?
     var settings:DObjectSettings?
-    private var userToken:String?
     
     //MARK: private
     

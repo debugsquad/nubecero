@@ -222,6 +222,7 @@
 		DAEC5CC51DDFBCA900DF52A9 /* FDatabaseModelUserToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CC41DDFBCA900DF52A9 /* FDatabaseModelUserToken.swift */; };
 		DAEC5CC71DDFEE8200DF52A9 /* MPhotosItemPhotoReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CC61DDFEE8200DF52A9 /* MPhotosItemPhotoReference.swift */; };
 		DAEC5CC91DE0A3FF00DF52A9 /* FDatabaseModelUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CC81DE0A3FF00DF52A9 /* FDatabaseModelUserSession.swift */; };
+		DAEC5CCB1DE0B9E400DF52A9 /* MSessionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEC5CCA1DE0B9E400DF52A9 /* MSessionUser.swift */; };
 		DAF6F29F1DD376B90053ED1B /* COnboardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F29E1DD376B90053ED1B /* COnboardForm.swift */; };
 		DAF6F2A21DD378100053ED1B /* VOnboardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2A11DD378100053ED1B /* VOnboardForm.swift */; };
 		DAF6F2A41DD378B80053ED1B /* MOnboardForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF6F2A31DD378B80053ED1B /* MOnboardForm.swift */; };
@@ -479,6 +480,7 @@
 		DAEC5CC41DDFBCA900DF52A9 /* FDatabaseModelUserToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserToken.swift; sourceTree = "<group>"; };
 		DAEC5CC61DDFEE8200DF52A9 /* MPhotosItemPhotoReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosItemPhotoReference.swift; sourceTree = "<group>"; };
 		DAEC5CC81DE0A3FF00DF52A9 /* FDatabaseModelUserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FDatabaseModelUserSession.swift; sourceTree = "<group>"; };
+		DAEC5CCA1DE0B9E400DF52A9 /* MSessionUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSessionUser.swift; sourceTree = "<group>"; };
 		DAF6F29E1DD376B90053ED1B /* COnboardForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = COnboardForm.swift; sourceTree = "<group>"; };
 		DAF6F2A11DD378100053ED1B /* VOnboardForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VOnboardForm.swift; sourceTree = "<group>"; };
 		DAF6F2A31DD378B80053ED1B /* MOnboardForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MOnboardForm.swift; sourceTree = "<group>"; };
@@ -1242,6 +1244,7 @@
 			children = (
 				DACD1FCB1DC7D0320067D26B /* MSession.swift */,
 				DA34117E1DCBC4A8006E6D71 /* MSessionServer.swift */,
+				DAEC5CCA1DE0B9E400DF52A9 /* MSessionUser.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -1506,6 +1509,7 @@
 				DA88F67E1DC7EE28009F61B3 /* MHomeUploadItemStatusSynced.swift in Sources */,
 				DACD1FBB1DC582AB0067D26B /* VHomeUploadSync.swift in Sources */,
 				DACD1FA21DC4025D0067D26B /* MHomeItemUpload.swift in Sources */,
+				DAEC5CCB1DE0B9E400DF52A9 /* MSessionUser.swift in Sources */,
 				DA7A79D31DD65E2E001B5FA5 /* VHomeCellSpaceTotal.swift in Sources */,
 				DACD1F871DC3A0020067D26B /* CHome.swift in Sources */,
 				DAF6F2B01DD397150053ED1B /* MOnboardFormItemEmail.swift in Sources */,

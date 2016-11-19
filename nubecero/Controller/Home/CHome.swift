@@ -140,8 +140,7 @@ class CHome:CController
     {
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kAskNotifications)
-        { [weak self] in
-            
+        {   
             if #available(iOS 10.0, *)
             {
                 let authOptions:UNAuthorizationOptions = [

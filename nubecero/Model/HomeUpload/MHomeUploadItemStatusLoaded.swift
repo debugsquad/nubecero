@@ -23,7 +23,7 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
         
         guard
             
-            let userId:MSession.UserId = MSession.sharedInstance.userId,
+            let userId:MSession.UserId = MSession.sharedInstance.user.userId,
             let imageData:Data = item?.imageData,
             let pixelWidth:Int = item?.pixelWidth,
             let pixelHeight:Int = item?.pixelHeight
@@ -36,7 +36,7 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
             return
         }
         
-        let totalStorage:Int = MSession.sharedInstance.totalStorage()
+        let totalStorage:Int = MSession.sharedInstance.server.totalStorage()
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyPhotos:String = FDatabaseModelUser.Property.photos.rawValue
         let propertyDiskUsed:String = FDatabaseModelUser.Property.diskUsed.rawValue

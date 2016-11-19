@@ -15,14 +15,15 @@ class MSession
     static let sharedInstance:MSession = MSession()
     let user:MSessionUser
     let storage:MSessionStorage
-    var server:MSessionServer?
-    var userId:UserId?
-    var settings:DObjectSettings?
+    let settings:MSessionSettings
+    let server:MSessionServer
     
     private init()
     {
         user = MSessionUser()
         storage = MSessionStorage()
+        settings = MSessionSettings()
+        server = MSessionServer()
     }
     
     //MARK: private
@@ -110,61 +111,13 @@ class MSession
         }
     }
     
-    private func settingsLoaded()
-    {
-        NotificationCenter.default.post(
-            name:Notification.settingsLoaded,
-            object:nil)
-    }
     
-    private func createSettings()
-    {
-        DManager.sharedInstance.createManagedObject(
-            modelType:DObjectSettings.self)
-        { (settings) in
-            
-            self.settings = settings
-            
-            DManager.sharedInstance.save()
-            self.settingsLoaded()
-        }
-    }
     
-    private func asyncLoadSettings()
-    {
-        DManager.sharedInstance.fetchManagedObjects(
-            modelType:DObjectSettings.self,
-            limit:1)
-        { (objects) in
-            
-            guard
-            
-                let settings:DObjectSettings = objects?.first
-            
-            else
-            {
-                self.createSettings()
-                
-                return
-            }
-            
-            self.settings = settings
-            self.settingsLoaded()
-        }
-    }
+    
     
     //MARK: public
     
-    func loadSettings()
-    {
-        if settings == nil
-        {
-            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            {
-                self.asyncLoadSettings()
-            }
-        }
-    }
+    
     
     func createUser(email:String, userId:UserId)
     {

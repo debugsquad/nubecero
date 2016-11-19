@@ -2,8 +2,17 @@ import Foundation
 
 class MSessionUser
 {
+    var status:MSession.Status
     var userId:MSession.UserId?
     var token:String?
+    var ttl:Int
+    private let kZero:Int = 0
+    
+    init()
+    {
+        status = MSession.Status.unknown
+        ttl = kZero
+    }
     
     //MARK: private
     
@@ -17,6 +26,7 @@ class MSessionUser
             email:email,
             token:token,
             version:version)
+        ttl = modelUser.session.ttl
         
         let userJson:Any = modelUser.modelJson()
         
@@ -30,32 +40,32 @@ class MSessionUser
     private func asyncLoadUser()
     {
         let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyStatus:String = FDatabaseModelUser.Property.status.rawValue
-        let userStatusPath:String = "\(parentUser)/\(userId)/\(propertyStatus)"
+        let propertySession:String = FDatabaseModelUser.Property.session.rawValue
+        let userStatusPath:String = "\(parentUser)/\(userId)/\(propertySession)"
         
         FMain.sharedInstance.database.listenOnce(
             path:userStatusPath,
-            modelType:FDatabaseModelUserStatus.self)
-        { (status) in
+            modelType:FDatabaseModelUserSession.self)
+        { (session) in
             
-            if let statusStrong:FDatabaseModelUserStatus = status
+            if let receivedSession:FDatabaseModelUserSession = session
             {
-                switch statusStrong.status
+                switch receivedSession.status
                 {
-                case FDatabaseModelUser.Status.active:
-                    
-                    self.userId = userId
-                    self.updateLastSession()
-                    
-                    break
-                    
-                default:
-                    
-                    NotificationCenter.default.post(
-                        name:Notification.userBanned,
-                        object:nil)
-                    
-                    break
+                    case FDatabaseModelUser.Status.active:
+                        
+                        self.userId = userId
+                        self.updateLastSession()
+                        
+                        break
+                        
+                    default:
+                        
+                        NotificationCenter.default.post(
+                            name:Notification.userBanned,
+                            object:nil)
+                        
+                        break
                 }
             }
             else

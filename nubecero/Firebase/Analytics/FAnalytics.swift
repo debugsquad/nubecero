@@ -17,6 +17,7 @@ class FAnalytics
     private let kEventPhotoInfo:NSString = "Info"
     private let kEventPhotoUpload:NSString = "Photo/Upload"
     private let kEventSession:NSString = "Session"
+    private let kEventSessionBanned:NSString = "Banned"
     private let kEventSessionLogout:NSString = "Logout"
     private let kEventSessionTrySignin:NSString = "Try/Signin"
     private let kEventSessionTryRegister:NSString = "Try/Register"
@@ -47,56 +48,61 @@ class FAnalytics
     
     //MARK: public
     
-    func screen(controller:CController)
+    func screenView(controller:CController)
     {
         trackSelectContent(contentType:kEventScreen, itemId:controller.name)
     }
     
     //MARK: session
     
-    func logout()
+    func sessionBanned()
+    {
+        trackSelectContent(contentType:kEventSession, itemId:kEventSessionBanned)
+    }
+    
+    func sessionLogout()
     {
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionLogout)
     }
     
-    func trySignin()
+    func sessionTrySignin()
     {
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionTrySignin)
     }
     
-    func tryRegister()
+    func sessionTryRegister()
     {
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionTryRegister)
     }
     
-    func signin()
+    func sessionSignin()
     {
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionSignin)
     }
     
-    func register()
+    func sessionRegister()
     {
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionRegister)
     }
     
-    func passwordReset()
+    func sessionPasswordReset()
     {
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionPasswordReset)
     }
     
-    func passwordGenerate()
+    func sessionPasswordGenerate()
     {
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionPasswordGenerate)
     }
     
     //MARK: actions
     
-    func rate()
+    func actionRate()
     {
         trackSelectContent(contentType:kEventAction, itemId:kEventActionRate)
     }
     
-    func share()
+    func actionShare()
     {
         trackSelectContent(contentType:kEventAction, itemId:kEventActionShare)
     }

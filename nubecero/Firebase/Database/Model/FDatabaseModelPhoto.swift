@@ -8,6 +8,8 @@ class FDatabaseModelPhoto:FDatabaseModel
         case created = "created"
         case status = "status"
         case size = "size"
+        case pixelWidth = "pixelWidth"
+        case pixelHeight = "pixelHeight"
     }
     
     enum Status:Int
@@ -20,12 +22,17 @@ class FDatabaseModelPhoto:FDatabaseModel
     let created:TimeInterval
     let status:Status
     let size:Int
+    let pixelWidth:Int
+    let pixelHeight:Int
     private let kEmpty:String = ""
     private let kNoTime:TimeInterval = 0
+    private let kZero:Int = 0
     
-    init(size:Int)
+    init(size:Int, pixelWidth:Int, pixelHeight:Int)
     {
         self.size = size
+        self.pixelWidth = pixelWidth
+        self.pixelHeight = pixelHeight
         album = kEmpty
         created = NSDate().timeIntervalSince1970
         status = Status.waiting
@@ -80,6 +87,24 @@ class FDatabaseModelPhoto:FDatabaseModel
             self.size = 0
         }
         
+        if let pixelWidth:Int = snapshotDict?[Property.pixelWidth.rawValue] as? Int
+        {
+            self.pixelWidth = pixelWidth
+        }
+        else
+        {
+            self.pixelWidth = 0
+        }
+        
+        if let pixelHeight:Int = snapshotDict?[Property.pixelHeight.rawValue] as? Int
+        {
+            self.pixelHeight = pixelHeight
+        }
+        else
+        {
+            self.pixelHeight = 0
+        }
+        
         super.init()
     }
     
@@ -94,7 +119,9 @@ class FDatabaseModelPhoto:FDatabaseModel
             Property.album.rawValue:album,
             Property.created.rawValue:created,
             Property.status.rawValue:status.rawValue,
-            Property.size.rawValue:size
+            Property.size.rawValue:size,
+            Property.pixelWidth.rawValue:pixelWidth,
+            Property.pixelHeight.rawValue:pixelHeight
         ]
         
         return json

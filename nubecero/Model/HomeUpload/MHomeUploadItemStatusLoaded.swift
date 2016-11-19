@@ -24,8 +24,10 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
         guard
             
             let userId:MSession.UserId = MSession.sharedInstance.userId,
-            let imageData:Data = item?.imageData
-            
+            let imageData:Data = item?.imageData,
+            let pixelWidth:Int = item?.pixelWidth,
+            let pixelHeight:Int = item?.pixelHeight
+        
         else
         {
             let errorString:String = NSLocalizedString("MHomeUploadItemStatusLoaded_errorUser", comment:"")

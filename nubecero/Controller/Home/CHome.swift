@@ -1,6 +1,5 @@
 import UIKit
 import UserNotifications
-import Firebase
 
 class CHome:CController
 {

@@ -13,9 +13,17 @@ class MSession
     typealias UserId = String
     
     static let sharedInstance:MSession = MSession()
+    let user:MSessionUser
+    let storage:MSessionStorage
     var server:MSessionServer?
     var userId:UserId?
     var settings:DObjectSettings?
+    
+    private init()
+    {
+        user = MSessionUser()
+        storage = MSessionStorage()
+    }
     
     //MARK: private
     

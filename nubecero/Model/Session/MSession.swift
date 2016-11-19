@@ -17,6 +17,9 @@ class MSession
     let storage:MSessionStorage
     let settings:MSessionSettings
     let server:MSessionServer
+    let version:String
+    private let kVersionKey:String = "CFBundleVersion"
+    private let kEmpty:String = ""
     
     private init()
     {
@@ -24,66 +27,20 @@ class MSession
         storage = MSessionStorage()
         settings = MSessionSettings()
         server = MSessionServer()
+        
+        if let version:String = Bundle.main.infoDictionary?[kVersionKey] as? String
+        {
+            self.version = version
+        }
+        else
+        {
+            self.version = kEmpty
+        }
     }
     
     //MARK: private
     
-    private func asyncCreateUser(email:String, userId:String)
-    {
-        let parentUser:String = FDatabase.Parent.user.rawValue
-        let userPath:String = "\(parentUser)/\(userId)"
-        let modelUser:FDatabaseModelUser = FDatabaseModelUser(
-            email:email,
-            status:FDatabaseModelUser.Status.active)
-        let json:Any = modelUser.modelJson()
-        
-        FMain.sharedInstance.database.updateChild(
-            path:userPath,
-            json:json)
-        
-        self.userId = userId
-        self.loadServer()
-    }
     
-    private func asyncLoadUser(userId:UserId)
-    {
-        let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyStatus:String = FDatabaseModelUser.Property.status.rawValue
-        let userStatusPath:String = "\(parentUser)/\(userId)/\(propertyStatus)"
-        
-        FMain.sharedInstance.database.listenOnce(
-            path:userStatusPath,
-            modelType:FDatabaseModelUserStatus.self)
-        { (status) in
-            
-            if let statusStrong:FDatabaseModelUserStatus = status
-            {
-                switch statusStrong.status
-                {
-                    case FDatabaseModelUser.Status.active:
-                    
-                        self.userId = userId
-                        self.updateLastSession()
-                        
-                        break
-                    
-                    default:
-                    
-                        NotificationCenter.default.post(
-                            name:Notification.userBanned,
-                            object:nil)
-                        
-                        break
-                }
-            }
-            else
-            {
-                NotificationCenter.default.post(
-                    name:Notification.userBanned,
-                    object:nil)
-            }
-        }
-    }
     
     private func loadServer()
     {
@@ -119,21 +76,7 @@ class MSession
     
     
     
-    func createUser(email:String, userId:UserId)
-    {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        {
-            self.asyncCreateUser(email:email, userId:userId)
-        }
-    }
     
-    func loadUser(userId:UserId)
-    {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-        {
-            self.asyncLoadUser(userId:userId)
-        }
-    }
     
     func totalStorage() -> Int
     {

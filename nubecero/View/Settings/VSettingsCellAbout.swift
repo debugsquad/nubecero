@@ -2,14 +2,10 @@ import UIKit
 
 class VSettingsCellAbout:VSettingsCell
 {
-    private let kBuildKey:String = "CFBundleVersion"
-    
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         isUserInteractionEnabled = false
-        
-        let buildVersion:String? = Bundle.main.infoDictionary?[kBuildKey] as? String
         
         let labelVersion:UILabel = UILabel()
         labelVersion.isUserInteractionEnabled = false
@@ -18,7 +14,7 @@ class VSettingsCellAbout:VSettingsCell
         labelVersion.font = UIFont.numeric(size:12)
         labelVersion.textColor = UIColor.black
         labelVersion.textAlignment = NSTextAlignment.center
-        labelVersion.text = buildVersion
+        //labelVersion.text = buildVersion
         
         let labelTitle:UILabel = UILabel()
         labelTitle.isUserInteractionEnabled = false

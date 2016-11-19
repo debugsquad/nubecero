@@ -17,6 +17,15 @@ class MSessionUser
     
     private func asyncCreateUser(email:String)
     {
+        guard
+            
+            let userId:MSession.UserId = self.userId
+        
+        else
+        {
+            return
+        }
+        
         let parentUser:String = FDatabase.Parent.user.rawValue
         let userPath:String = "\(parentUser)/\(userId)"
         let version:String = MSession.sharedInstance.version
@@ -40,6 +49,15 @@ class MSessionUser
     
     private func asyncLoadUser()
     {
+        guard
+            
+            let userId:MSession.UserId = self.userId
+            
+        else
+        {
+            return
+        }
+        
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertySession:String = FDatabaseModelUser.Property.session.rawValue
         let userSessionPath:String = "\(parentUser)/\(userId)/\(propertySession)"

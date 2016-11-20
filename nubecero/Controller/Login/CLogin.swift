@@ -1,10 +1,12 @@
 import UIKit
+import UserNotifications
 import Firebase
 import FirebaseAuth
 
 class CLogin:CController
 {
     private weak var viewLogin:VLogin!
+    private let kAskNotifications:TimeInterval = 4
     
     deinit
     {
@@ -29,6 +31,7 @@ class CLogin:CController
             object:nil)
         
         MSession.sharedInstance.settings.loadSettings()
+        registerNotifications()
     }
     
     //MARK: notified
@@ -77,6 +80,38 @@ class CLogin:CController
                 controller:controllerOnboard,
                 pop:true,
                 animate:true)
+        }
+    }
+    
+    private func registerNotifications()
+    {
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kAskNotifications)
+        {
+            if #available(iOS 10.0, *)
+            {
+                let authOptions:UNAuthorizationOptions = [
+                    UNAuthorizationOptions.alert,
+                    UNAuthorizationOptions.badge,
+                    UNAuthorizationOptions.sound]
+                
+                UNUserNotificationCenter.current().requestAuthorization(options:authOptions)
+                { (_, _) in
+                }
+            }
+            else
+            {
+                let settings:UIUserNotificationSettings = UIUserNotificationSettings(
+                    types:[
+                        UIUserNotificationType.alert,
+                        UIUserNotificationType.badge,
+                        UIUserNotificationType.sound],
+                    categories:nil)
+                
+                UIApplication.shared.registerUserNotificationSettings(settings)
+            }
+            
+            UIApplication.shared.registerForRemoteNotifications()
         }
     }
 }

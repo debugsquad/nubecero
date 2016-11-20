@@ -4,7 +4,6 @@ class VHomeUploadSyncCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private weak var imageStatus:UIImageView!
-    private let kStatusSize:CGFloat = 50
     
     override init(frame:CGRect)
     {
@@ -27,19 +26,26 @@ class VHomeUploadSyncCell:UICollectionViewCell
         imageStatus.contentMode = UIViewContentMode.center
         self.imageStatus = imageStatus
         
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
+        let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
+        visualEffect.translatesAutoresizingMaskIntoConstraints = false
+        visualEffect.clipsToBounds = true
+        visualEffect.isUserInteractionEnabled = false
+        
         addSubview(imageView)
         addSubview(imageStatus)
+        addSubview(visualEffect)
         
         let views:[String:UIView] = [
             "imageView":imageView,
-            "imageStatus":imageStatus]
+            "imageStatus":imageStatus,
+            "blur":visualEffect]
         
-        let metrics:[String:CGFloat] = [
-            "statusSize":kStatusSize]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:
-            "H:[imageStatus(statusSize)]-0-|",
+            "H:|-0-[imageStatus]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -56,7 +62,17 @@ class VHomeUploadSyncCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[imageStatus(statusSize)]-0-|",
+            withVisualFormat:"H:|-0-[blur]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-30-[blur]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[imageStatus]-0-|",
             options:[],
             metrics:metrics,
             views:views))

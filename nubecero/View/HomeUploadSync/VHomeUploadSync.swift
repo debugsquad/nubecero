@@ -9,7 +9,6 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     private let kBarHeight:CGFloat = 82
     private let kCollectionBottom:CGFloat = 20
     private let kInterLineSpace:CGFloat = 1
-    private let kCellMaxSize:CGFloat = 150
     
     convenience init(controller:CHomeUploadSync)
     {
@@ -109,7 +108,7 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     private func computeCellSize()
     {
         let width:CGFloat = bounds.maxX - kInterLineSpace
-        let proximate:CGFloat = floor(width / kCellMaxSize)
+        let proximate:CGFloat = floor(width / MHomeUpload.kImageMaxSize)
         let size:CGFloat = (width / proximate) - kInterLineSpace
         cellSize = CGSize(width:size, height:size)
     }

@@ -40,7 +40,7 @@ class VHomeUploadSyncBar:UIView
         border.translatesAutoresizingMaskIntoConstraints = false
         
         let cancelButton:UIButton = UIButton()
-        cancelButton.backgroundColor = UIColor.main
+        cancelButton.backgroundColor = UIColor.complement
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.setTitleColor(
             UIColor.white,
@@ -51,7 +51,7 @@ class VHomeUploadSyncBar:UIView
         cancelButton.setTitle(
             NSLocalizedString("VHomeUploadSyncBar_cancel", comment:""),
             for:UIControlState.normal)
-        cancelButton.titleLabel!.font = UIFont.medium(size:13)
+        cancelButton.titleLabel!.font = UIFont.bold(size:13)
         cancelButton.layer.cornerRadius = kCornerRadius
         cancelButton.addTarget(
             self,

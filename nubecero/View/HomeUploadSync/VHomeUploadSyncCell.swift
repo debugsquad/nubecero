@@ -26,20 +26,20 @@ class VHomeUploadSyncCell:UICollectionViewCell
         imageStatus.contentMode = UIViewContentMode.center
         self.imageStatus = imageStatus
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
-        let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
-        visualEffect.translatesAutoresizingMaskIntoConstraints = false
-        visualEffect.clipsToBounds = true
-        visualEffect.isUserInteractionEnabled = false
+        let shade:UIView = UIView()
+        shade.isUserInteractionEnabled = false
+        shade.clipsToBounds = true
+        shade.backgroundColor = UIColor(white:1, alpha:0.8)
+        shade.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(imageView)
+        addSubview(shade)
         addSubview(imageStatus)
-        addSubview(visualEffect)
         
         let views:[String:UIView] = [
             "imageView":imageView,
             "imageStatus":imageStatus,
-            "blur":visualEffect]
+            "shade":shade]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -62,12 +62,12 @@ class VHomeUploadSyncCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[blur]-0-|",
+            withVisualFormat:"H:|-3-[shade]-3-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-30-[blur]-0-|",
+            withVisualFormat:"V:|-3-[shade]-3-|",
             options:[],
             metrics:metrics,
             views:views))

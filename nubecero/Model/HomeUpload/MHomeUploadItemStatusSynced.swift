@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class MHomeUploadItemStatusSynced:MHomeUploadItemStatus
 {
@@ -7,10 +7,19 @@ class MHomeUploadItemStatusSynced:MHomeUploadItemStatus
     
     init(item:MHomeUploadItem?)
     {
-        super.init(item:item, assetSync:kAssetSync, finished:kFinished)
+        let color:UIColor = UIColor.complement
+        super.init(
+            item:item,
+            assetSync:kAssetSync,
+            finished:kFinished,
+            color:color)
     }
     
-    override init(item:MHomeUploadItem?, assetSync:String, finished:Bool)
+    override init(
+        item:MHomeUploadItem?,
+        assetSync:String,
+        finished:Bool,
+        color:UIColor)
     {
         fatalError()
     }

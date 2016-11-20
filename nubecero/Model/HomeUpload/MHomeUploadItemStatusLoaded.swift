@@ -4,7 +4,7 @@ import FirebaseDatabase
 class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
 {
     private let kKilobytePerByte:Int = 1000
-    private let kAssetSync:String = "assetHomeSyncWait"
+    private let kAssetSync:String = "assetHomeSyncUploading"
     private let kFinished:Bool = false
     
     init(item:MHomeUploadItem?)

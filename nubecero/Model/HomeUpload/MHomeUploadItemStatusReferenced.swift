@@ -2,7 +2,7 @@ import UIKit
 
 class MHomeUploadItemStatusReferenced:MHomeUploadItemStatus
 {
-    private let kAssetSync:String = "assetHomeSyncWait"
+    private let kAssetSync:String = "assetHomeSyncUploading"
     private let kFinished:Bool = false
     
     init(item:MHomeUploadItem?)

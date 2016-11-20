@@ -36,16 +36,19 @@ class FDatabaseModelUser:FDatabaseModel
     {
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
         
-        if let sessionSnapshot:[String:Any] = snapshotDict?[Property.session.rawValue] as? [String:Any]
+        if let sessionSnapshot:[String:Any] = snapshotDict?[
+            Property.session.rawValue] as? [String:Any]
         {
-            self.session = FDatabaseModelUserSession(snapshot:sessionSnapshot)
+            self.session = FDatabaseModelUserSession(
+                snapshot:sessionSnapshot)
         }
         else
         {
             self.session = FDatabaseModelUserSession(snapshot:[])
         }
         
-        if let email:String = snapshotDict?[Property.email.rawValue] as? String
+        if let email:String = snapshotDict?[
+            Property.email.rawValue] as? String
         {
             self.email = email
         }
@@ -54,7 +57,8 @@ class FDatabaseModelUser:FDatabaseModel
             self.email = kEmpty
         }
         
-        if let created:TimeInterval = snapshotDict?[Property.created.rawValue] as? TimeInterval
+        if let created:TimeInterval = snapshotDict?[
+            Property.created.rawValue] as? TimeInterval
         {
             self.created = created
         }
@@ -63,7 +67,8 @@ class FDatabaseModelUser:FDatabaseModel
             self.created = kNoTime
         }
         
-        if let diskUsed:Int = snapshotDict?[Property.diskUsed.rawValue] as? Int
+        if let diskUsed:Int = snapshotDict?[
+            Property.diskUsed.rawValue] as? Int
         {
             self.diskUsed = diskUsed
         }

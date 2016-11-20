@@ -123,6 +123,8 @@ class MSessionUser
             token:token,
             version:version,
             ttl:ttl)
+        self.ttl = modelSession.ttl
+        
         let modelJson:Any = modelSession.modelJson()
         
         FMain.sharedInstance.database.updateChild(

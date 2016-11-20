@@ -53,8 +53,6 @@ class CHome:CController
                 parentController.controllerAuth?.askAuth()
             }
         }
-        
-        MSession.sharedInstance.user.sendUpdate()
     }
     
     override func viewDidAppear(_ animated:Bool)
@@ -79,6 +77,8 @@ class CHome:CController
                 selector:#selector(welf.notifiedSessionLoaded(sender:)),
                 name:Notification.sessionLoaded,
                 object:nil)
+            
+            MSession.sharedInstance.user.sendUpdate()
         }
     }
     

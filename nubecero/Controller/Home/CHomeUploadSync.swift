@@ -39,7 +39,7 @@ class CHomeUploadSync:CController
         if !syncStarted
         {
             syncStarted = true
-//            keepSyncing()
+            keepSyncing()
         }
     }
     

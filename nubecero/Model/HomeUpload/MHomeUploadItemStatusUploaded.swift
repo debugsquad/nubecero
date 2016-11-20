@@ -7,7 +7,7 @@ class MHomeUploadItemStatusUploaded:MHomeUploadItemStatus
     
     init(item:MHomeUploadItem?)
     {
-        let color:UIColor = UIColor.white
+        let color:UIColor = UIColor.black
         super.init(
             item:item,
             assetSync:kAssetSync,

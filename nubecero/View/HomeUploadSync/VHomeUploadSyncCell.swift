@@ -4,6 +4,8 @@ class VHomeUploadSyncCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private weak var imageStatus:UIImageView!
+    private weak var shade:UIView!
+    private let kShadeAlpha:CGFloat = 0.6
     
     override init(frame:CGRect)
     {
@@ -29,8 +31,9 @@ class VHomeUploadSyncCell:UICollectionViewCell
         let shade:UIView = UIView()
         shade.isUserInteractionEnabled = false
         shade.clipsToBounds = true
-        shade.backgroundColor = UIColor(white:1, alpha:0.8)
         shade.translatesAutoresizingMaskIntoConstraints = false
+        shade.alpha = kShadeAlpha
+        self.shade = shade
         
         addSubview(imageView)
         addSubview(shade)
@@ -62,12 +65,12 @@ class VHomeUploadSyncCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-3-[shade]-3-|",
+            withVisualFormat:"H:|-0-[shade]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-3-[shade]-3-|",
+            withVisualFormat:"V:|-0-[shade]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -87,6 +90,7 @@ class VHomeUploadSyncCell:UICollectionViewCell
     
     func config(model:MHomeUploadItem)
     {
+        shade.backgroundColor = model.status.color
         imageView.image = model.image
         imageStatus.image = UIImage(
             named:model.status.assetSync)

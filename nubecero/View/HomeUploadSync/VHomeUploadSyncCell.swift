@@ -6,7 +6,6 @@ class VHomeUploadSyncCell:UICollectionViewCell
     private weak var imageStatus:UIImageView!
     private let kStatusSize:CGFloat = 50
     private let kCornerRadius:CGFloat = 5
-    private let kImageAlpha:CGFloat = 0.3
     
     override init(frame:CGRect)
     {
@@ -20,7 +19,6 @@ class VHomeUploadSyncCell:UICollectionViewCell
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        imageView.alpha = kImageAlpha
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         self.imageView = imageView
         

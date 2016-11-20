@@ -27,7 +27,7 @@ class VHomeUploadSyncBar:UIView
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor(white:1, alpha:0.4)
+        backgroundColor = UIColor(white:1, alpha:0.5)
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
@@ -80,7 +80,7 @@ class VHomeUploadSyncBar:UIView
         labelCount.isUserInteractionEnabled = false
         labelCount.translatesAutoresizingMaskIntoConstraints = false
         labelCount.backgroundColor = UIColor.clear
-        labelCount.textAlignment = NSTextAlignment.center
+        labelCount.textAlignment = NSTextAlignment.right
         self.labelCount = labelCount
         
         addSubview(border)
@@ -117,7 +117,7 @@ class VHomeUploadSyncBar:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[labelCount]-0-|",
+            withVisualFormat:"H:[labelCount(180)]-10-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -142,7 +142,7 @@ class VHomeUploadSyncBar:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[labelCount(40)]-0-|",
+            withVisualFormat:"V:|-35-[labelCount(40)]",
             options:[],
             metrics:metrics,
             views:views))

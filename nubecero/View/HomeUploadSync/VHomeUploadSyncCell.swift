@@ -5,7 +5,6 @@ class VHomeUploadSyncCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private weak var imageStatus:UIImageView!
     private let kStatusSize:CGFloat = 50
-    private let kCornerRadius:CGFloat = 5
     
     override init(frame:CGRect)
     {
@@ -13,7 +12,6 @@ class VHomeUploadSyncCell:UICollectionViewCell
         clipsToBounds = true
         backgroundColor = UIColor.clear
         isUserInteractionEnabled = false
-        layer.cornerRadius = kCornerRadius
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false

@@ -27,7 +27,7 @@ class VHomeUploadSyncBar:UIView
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor(white:1, alpha:0.5)
+        backgroundColor = UIColor(white:1, alpha:0.7)
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
@@ -117,7 +117,7 @@ class VHomeUploadSyncBar:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[labelCount(180)]-10-|",
+            withVisualFormat:"H:[labelCount(150)]-10-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -132,22 +132,22 @@ class VHomeUploadSyncBar:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-15-[spinner(spinnerHeight)]",
+            withVisualFormat:"V:|-10-[spinner(spinnerHeight)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-39-[cancelButton(32)]",
+            withVisualFormat:"V:|-34-[cancelButton(32)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-35-[labelCount(40)]",
+            withVisualFormat:"V:|-30-[labelCount(40)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-39-[tryAgainButton(32)]",
+            withVisualFormat:"V:|-34-[tryAgainButton(32)]",
             options:[],
             metrics:metrics,
             views:views))

@@ -6,10 +6,10 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     private weak var collectionView:UICollectionView!
     private weak var controller:CHomeUploadSync!
     private var cellSize:CGSize!
-    private let kBarHeight:CGFloat = 120
+    private let kBarHeight:CGFloat = 82
     private let kCollectionBottom:CGFloat = 20
-    private let kInterLineSpace:CGFloat = 2
-    private let kCellMaxSize:CGFloat = 75
+    private let kInterLineSpace:CGFloat = 1
+    private let kCellMaxSize:CGFloat = 150
     
     convenience init(controller:CHomeUploadSync)
     {

@@ -10,11 +10,8 @@ class VPhotosHeader:UICollectionReusableView
         clipsToBounds = true
         backgroundColor = UIColor.clear
         
-        let buttonAdd:UIButton = UIButton()
-        buttonAdd.translatesAutoresizingMaskIntoConstraints = false
-        buttonAdd.setImage(#imageLiteral(resourceName: "assetPhotosAlbumAdd"), for:UIControlState.normal)
-        buttonAdd.imageView!.clipsToBounds = true
-        buttonAdd.imageView!.contentMode = UIViewContentMode.center
+        let buttonAdd:VPhotosHeaderAdd = VPhotosHeaderAdd(header:self)
+        
         addSubview(buttonAdd)
         
         let views:[String:UIView] = [
@@ -23,12 +20,12 @@ class VPhotosHeader:UICollectionReusableView
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[buttonAdd(70)]",
+            withVisualFormat:"H:|-0-[buttonAdd(200)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[buttonAdd]-0-|",
+            withVisualFormat:"V:|-15-[buttonAdd]-5-|",
             options:[],
             metrics:metrics,
             views:views))

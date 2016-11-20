@@ -2,10 +2,11 @@ import UIKit
 
 class VPhotosCell:UICollectionViewCell
 {
-    private weak var labelName:UILabel!
-    private weak var labelCount:UILabel!
+    private weak var label:UILabel!
+    private let attributesName:[String:AnyObject]
+    private let attributesCount:[String:AnyObject]
     private let numberFormatter:NumberFormatter
-    private let kAlphaSelected:CGFloat = 0.6
+    private let kAlphaSelected:CGFloat = 0.3
     private let kAlphaNotSelected:CGFloat = 1
     private let kKiloBytesPerMega:CGFloat = 1000
     
@@ -14,65 +15,40 @@ class VPhotosCell:UICollectionViewCell
         numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
         
+        attributesName = [
+            NSFontAttributeName:UIFont.regular(size:16),
+            NSForegroundColorAttributeName:UIColor(white:0.4, alpha:1)
+        ]
+        
+        attributesCount = [
+            NSFontAttributeName:UIFont.regular(size:12),
+            NSForegroundColorAttributeName:UIColor(white:0.65, alpha:1)
+        ]
+        
         super.init(frame:frame)
         clipsToBounds = true
         
-        let icon:UIImageView = UIImageView()
-        icon.isUserInteractionEnabled = false
-        icon.translatesAutoresizingMaskIntoConstraints = false
-        icon.clipsToBounds = true
-        icon.contentMode = UIViewContentMode.center
-        icon.image = #imageLiteral(resourceName: "assetPhotosAlbum")
+        let label:UILabel = UILabel()
+        label.isUserInteractionEnabled = false
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor.clear
+        label.numberOfLines = 0
+        self.label = label
         
-        let labelName:UILabel = UILabel()
-        labelName.isUserInteractionEnabled = false
-        labelName.translatesAutoresizingMaskIntoConstraints = false
-        labelName.backgroundColor = UIColor.clear
-        labelName.font = UIFont.regular(size:16)
-        labelName.textColor = UIColor(white:0.4, alpha:1)
-        self.labelName = labelName
-        
-        let labelCount:UILabel = UILabel()
-        labelCount.isUserInteractionEnabled = false
-        labelCount.translatesAutoresizingMaskIntoConstraints = false
-        labelCount.backgroundColor = UIColor.clear
-        labelCount.font = UIFont.regular(size:12)
-        labelCount.textColor = UIColor(white:0.65, alpha:1)
-        self.labelCount = labelCount
-        
-        addSubview(labelName)
-        addSubview(labelCount)
-        addSubview(icon)
+        addSubview(label)
         
         let views:[String:UIView] = [
-            "labelName":labelName,
-            "labelCount":labelCount,
-            "icon":icon]
+            "label":label]
         
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[icon(50)]-0-[labelName]-10-|",
+            withVisualFormat:"H:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[icon]-0-[labelCount(260)]",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-6-[labelName(40)]",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[icon]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[labelCount(18)]-14-|",
+            withVisualFormat:"V:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -119,7 +95,6 @@ class VPhotosCell:UICollectionViewCell
     
     func config(model:MPhotosItem)
     {
-        labelName.text = model.name
         hover()
         
         let count:NSNumber = model.references.count as NSNumber
@@ -137,10 +112,20 @@ class VPhotosCell:UICollectionViewCell
         }
         
         let compositeString:String = String(
-            format:"%@ Photos  ■  %@ Mb",
+            format:"\n%@ Photos  ■  %@ Mb",
             countString,
             megaBytesString)
         
-        labelCount.text = compositeString
+        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
+        let stringName:NSAttributedString = NSAttributedString(
+            string:model.name,
+            attributes:attributesName)
+        let stringCount:NSAttributedString = NSAttributedString(
+            string:compositeString,
+            attributes:attributesCount)
+        mutableString.append(stringName)
+        mutableString.append(stringCount)
+        
+        label.attributedText = mutableString
     }
 }

@@ -8,7 +8,7 @@ class MPhotos
     static let sharedInstance:MPhotos = MPhotos()
     var albumItems:[AlbumId:MPhotosItem]
     var photoDeletables:[MPhotosItemPhoto]
-    var albumReferences:[AlbumId]
+    var albumReferences:[MPhotosItemReference]
     private var photos:[PhotoId:MPhotosItemPhoto]
     private var loading:Bool
     
@@ -63,50 +63,39 @@ class MPhotos
     private func compareAlbums(albumsMap:[AlbumId:FDatabaseModelAlbum])
     {
         var items:[AlbumId:MPhotosItem] = [:]
-        var references:[MPicturesItemReference] = []
-        let picturesIds:[PictureId] = Array(picturesMap.keys)
+        var references:[MPhotosItemReference] = []
+        let albumsIds:[AlbumId] = Array(albumsMap.keys)
         
-        for pictureId:PictureId in picturesIds
+        for albumId:AlbumId in albumsIds
         {
             guard
                 
-                let firebasePicture:FDatabaseModelPicture = picturesMap[pictureId]
+                let firebaseAlbum:FDatabaseModelAlbum = albumsMap[albumId]
                 
-                else
+            else
             {
                 continue
             }
             
-            let pictureStatus:FDatabaseModelPicture.Status = firebasePicture.status
-            let pictureCreated:TimeInterval = firebasePicture.created
+            let albumName:String = firebaseAlbum.name
             
-            if pictureStatus == FDatabaseModelPicture.Status.synced
+            if let loadedItem:MPhotosItem = self.albumItems[albumId]
             {
-                if let loadedItem:MPicturesItem = self.items[pictureId]
-                {
-                    items[pictureId] = loadedItem
-                }
-                else
-                {
-                    let newItem:MPicturesItem = MPicturesItem(
-                        pictureId:pictureId,
-                        firebasePicture:firebasePicture)
-                    items[pictureId] = newItem
-                }
-                
-                let pictureReference:MPicturesItemReference = MPicturesItemReference(
-                    pictureId:pictureId,
-                    created:pictureCreated)
-                
-                references.append(pictureReference)
+                items[albumId] = loadedItem
             }
             else
             {
-                let deleteItem:MPicturesItem = MPicturesItem(
+                let newItem:MPhotosItem = MPicturesItem(
                     pictureId:pictureId,
                     firebasePicture:firebasePicture)
-                deletable.append(deleteItem)
+                items[pictureId] = newItem
             }
+            
+            let pictureReference:MPicturesItemReference = MPicturesItemReference(
+                pictureId:pictureId,
+                created:pictureCreated)
+            
+            references.append(pictureReference)
         }
         
         references.sort

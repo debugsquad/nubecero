@@ -3,11 +3,11 @@ import Foundation
 class MPhotosItemReference
 {
     let albumId:MPhotos.AlbumId
-    let created:TimeInterval
+    let name:String
     
-    init(albumId:MPhotos.AlbumId, created:TimeInterval)
+    init(albumId:MPhotos.AlbumId, name:String)
     {
         self.albumId = albumId
-        self.created = created
+        self.name = name
     }
 }

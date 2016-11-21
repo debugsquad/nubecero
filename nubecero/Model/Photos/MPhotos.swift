@@ -9,9 +9,11 @@ class MPhotos
     let items:[MPhotosItem]
     var deletable:[MPhotosItemPhoto]
     private var photos:[PhotoId:MPhotosItemPhoto]
+    private var loading:Bool
     
     private init()
     {
+        loading = false
         items = []
         deletable = []
         photos = [:]
@@ -25,7 +27,7 @@ class MPhotos
     {
         guard
             
-            let userId:MSession.UserId = MSession.sharedInstance.userId
+            let userId:MSession.UserId = MSession.sharedInstance.user.userId
             
         else
         {
@@ -38,7 +40,7 @@ class MPhotos
         
         FMain.sharedInstance.database.listenOnce(
             path:path,
-            modelType:FDatabaseModelPictureList.self)
+            modelType:FDatabaseModelPhotoList.self)
         { (pictureList) in
             
             guard
@@ -145,7 +147,11 @@ class MPhotos
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
-            self.asyncLoadPhotos()
+            if !self.loading
+            {
+                self.loading = true
+                self.asyncLoadPhotos()
+            }
         }
     }
     

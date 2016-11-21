@@ -9,7 +9,7 @@ class MAdminUsersPhotosItem
     let photoId:MPhotos.PhotoId
     let created:TimeInterval
     let size:Int
-    let status:FDatabaseModelPhoto.Status
+    let status:MPhotos.Status
     
     init(userId:MSession.UserId, photoId:MPhotos.PhotoId, firebasePhoto:FDatabaseModelPhoto)
     {

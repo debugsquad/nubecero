@@ -45,7 +45,7 @@ class MHomeUploadItemStatusUploaded:MHomeUploadItemStatus
         let propertyPhotos:String = FDatabaseModelUser.Property.photos.rawValue
         let propertyStatus:String = FDatabaseModelPhoto.Property.status.rawValue
         let pathStatus:String = "\(parentUser)/\(userId)/\(propertyPhotos)/\(photoId)/\(propertyStatus)"
-        let status:Int = FDatabaseModelPhoto.Status.synced.rawValue
+        let status:Int = MPhotos.Status.synced.rawValue
         
         FMain.sharedInstance.database.updateChild(
             path:pathStatus,

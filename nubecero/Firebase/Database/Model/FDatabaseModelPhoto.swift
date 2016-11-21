@@ -110,7 +110,7 @@ class FDatabaseModelPhoto:FDatabaseModel
     override func modelJson() -> Any
     {
         let json:[String:Any] = [
-            Property.album.rawValue:albumId,
+            Property.albumId.rawValue:albumId,
             Property.created.rawValue:created,
             Property.status.rawValue:status.rawValue,
             Property.size.rawValue:size,

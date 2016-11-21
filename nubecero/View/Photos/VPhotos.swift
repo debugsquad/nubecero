@@ -21,7 +21,6 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
         flow.footerReferenceSize = CGSize.zero
         flow.minimumInteritemSpacing = 0
         flow.minimumLineSpacing = kInterLine
@@ -81,12 +80,40 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     private func modelAtIndex(index:IndexPath) -> MPhotosItem
     {
-        let item:MPhotosItem = MPhotos.sharedInstance.items[index.item]
+        let model:MPhotosItem
+        let section:Int = index.section
+        let item:Int = index.item
         
-        return item
+        if section == 0
+        {
+            model = MPhotos.sharedInstance.defaultAlbum
+        }
+        else
+        {
+            let reference:MPhotosItemReference = MPhotos.sharedInstance.albumReferences[item]
+            model = MPhotos.sharedInstance.albumItems[reference.albumId]!
+        }
+        
+        return model
     }
     
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, referenceSizeForHeaderInSection section:Int) -> CGSize
+    {
+        let size:CGSize
+        
+        if section == 0
+        {
+            size = CGSize(width:0, height:kHeaderHeight)
+        }
+        else
+        {
+            size = CGSize.zero
+        }
+        
+        return size
+    }
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
@@ -98,12 +125,21 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
-        return 1
+        return 2
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = MPhotos.sharedInstance.items.count
+        let count:Int
+        
+        if section == 0
+        {
+            count = 1
+        }
+        else
+        {
+            count = MPhotos.sharedInstance.albumItems.count
+        }
         
         return count
     }

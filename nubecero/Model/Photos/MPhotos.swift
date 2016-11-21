@@ -268,26 +268,11 @@ class MPhotos
         }
     }
     
-    func pictureAtIndex(index:Int) -> MPicturesItem
-    {
-        let reference:MPicturesItemReference = references[index]
-        let picture:MPicturesItem = items[reference.pictureId]!
-        
-        return picture
-    }
-    
     func cleanResources()
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
             self.asyncCleanResources()
         }
-    }
-    
-    func removeItem(index:Int)
-    {
-        let reference:MPicturesItemReference = references.remove(at:index)
-        let pictureId:PictureId = reference.pictureId
-        items.removeValue(forKey:pictureId)
     }
 }

@@ -4,7 +4,7 @@ class FDatabaseModelPhoto:FDatabaseModel
 {
     enum Property:String
     {
-        case album = "album"
+        case albumId = "albumId"
         case created = "created"
         case status = "status"
         case size = "size"
@@ -12,7 +12,7 @@ class FDatabaseModelPhoto:FDatabaseModel
         case pixelHeight = "pixelHeight"
     }
     
-    let album:MPhotos.AlbumId
+    let albumId:MPhotos.AlbumId
     let created:TimeInterval
     let status:MPhotos.Status
     let size:Int
@@ -27,7 +27,7 @@ class FDatabaseModelPhoto:FDatabaseModel
         self.size = size
         self.pixelWidth = pixelWidth
         self.pixelHeight = pixelHeight
-        album = kEmpty
+        albumId = kEmpty
         created = NSDate().timeIntervalSince1970
         status = MPhotos.Status.waiting
         
@@ -38,13 +38,13 @@ class FDatabaseModelPhoto:FDatabaseModel
     {
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
         
-        if let album:MPhotos.AlbumId = snapshotDict?[Property.album.rawValue] as? MPhotos.AlbumId
+        if let albumId:MPhotos.AlbumId = snapshotDict?[Property.albumId.rawValue] as? MPhotos.AlbumId
         {
-            self.album = album
+            self.albumId = albumId
         }
         else
         {
-            self.album = kEmpty
+            self.albumId = kEmpty
         }
         
         if let created:TimeInterval = snapshotDict?[Property.created.rawValue] as? TimeInterval
@@ -58,7 +58,7 @@ class FDatabaseModelPhoto:FDatabaseModel
         
         if let statusInt:Int = snapshotDict?[Property.status.rawValue] as? Int
         {
-            if let status:MPhotos.Status = Status(rawValue:statusInt)
+            if let status:MPhotos.Status = MPhotos.Status(rawValue:statusInt)
             {
                 self.status = status
             }
@@ -110,7 +110,7 @@ class FDatabaseModelPhoto:FDatabaseModel
     override func modelJson() -> Any
     {
         let json:[String:Any] = [
-            Property.album.rawValue:album,
+            Property.album.rawValue:albumId,
             Property.created.rawValue:created,
             Property.status.rawValue:status.rawValue,
             Property.size.rawValue:size,

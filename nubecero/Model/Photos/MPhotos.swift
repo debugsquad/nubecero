@@ -12,7 +12,8 @@ class MPhotos
     }
     
     static let sharedInstance:MPhotos = MPhotos()
-    var albumItems:[AlbumId:MPhotosItem]
+    let defaultAlbum:MPhotosItemDefault
+    var albumItems:[AlbumId:MPhotosItemUser]
     var photoDeletables:[MPhotosItemPhoto]
     var albumReferences:[MPhotosItemReference]
     private var photos:[PhotoId:MPhotosItemPhoto]
@@ -21,6 +22,7 @@ class MPhotos
     private init()
     {
         loading = false
+        defaultAlbum = MPhotosItemDefault()
         albumItems = [:]
         photoDeletables = []
         albumReferences = []
@@ -71,9 +73,10 @@ class MPhotos
     
     private func compareAlbums(albumsMap:[AlbumId:FDatabaseModelAlbum])
     {
-        var items:[AlbumId:MPhotosItem] = [:]
+        var items:[AlbumId:MPhotosItemUser] = [:]
         var references:[MPhotosItemReference] = []
         let albumsIds:[AlbumId] = Array(albumsMap.keys)
+        defaultAlbum.references = []
         
         for albumId:AlbumId in albumsIds
         {
@@ -87,7 +90,7 @@ class MPhotos
             }
             
             let albumName:String = firebaseAlbum.name
-            let newItem:MPhotosItem = MPhotosItem(
+            let newItem:MPhotosItemUser = MPhotosItemUser(
                 albumId:albumId,
                 firebaseAlbum:firebaseAlbum)
             let albumReference:MPhotosItemReference = MPhotosItemReference(
@@ -186,7 +189,7 @@ class MPhotos
             
             let photoStatus:MPhotos.Status = firebasePhoto.status
             let photoCreated:TimeInterval = firebasePhoto.created
-            let album:AlbumId = firebasePhoto.album
+            let albumId:AlbumId = firebasePhoto.album
             
             if photoStatus == Status.synced
             {

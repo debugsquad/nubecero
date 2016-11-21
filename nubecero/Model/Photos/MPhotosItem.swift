@@ -2,14 +2,17 @@ import Foundation
 
 class MPhotosItem
 {
+    let albumId:MPhotos.AlbumId
     let name:String
     let references:[MPhotos.PhotoId]
     var kiloBytes:Int
+    private let kZero:Int = 0
     
-    init(name:String, references:[MPhotos.PhotoId])
+    init(albumId:MPhotos.AlbumId, firebaseAlbum:FDatabaseModelAlbum)
     {
-        self.name = name
-        self.references = references
-        kiloBytes = 123456789
+        self.albumId = albumId
+        name = firebaseAlbum.name
+        references = []
+        kiloBytes = kZero
     }
 }

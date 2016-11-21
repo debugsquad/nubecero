@@ -45,18 +45,21 @@ class MPhotos
             modelType:FDatabaseModelAlbumList.self)
         { (albumList) in
             
-            guard
-                
-                let albumsMap:[AlbumId:FDatabaseModelAlbum] = albumList?.items
-                
-            else
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             {
-                self.asyncLoadPhotos()
+                guard
+                    
+                    let albumsMap:[AlbumId:FDatabaseModelAlbum] = albumList?.items
+                    
+                else
+                {
+                    self.asyncLoadPhotos()
+                    
+                    return
+                }
                 
-                return
+                self.compareAlbums(albumsMap:albumsMap)
             }
-            
-            self.compareAlbums(albumsMap:albumsMap)
         }
     }
     
@@ -85,31 +88,50 @@ class MPhotos
             }
             else
             {
-                let newItem:MPhotosItem = MPicturesItem(
-                    pictureId:pictureId,
-                    firebasePicture:firebasePicture)
-                items[pictureId] = newItem
+                let newItem:MPhotosItem = MPhotosItem(
+                    albumId:albumId,
+                    firebaseAlbum:firebaseAlbum)
+                
+                items[albumId] = newItem
             }
             
-            let pictureReference:MPicturesItemReference = MPicturesItemReference(
-                pictureId:pictureId,
-                created:pictureCreated)
+            let albumReference:MPhotosItemReference = MPhotosItemReference(
+                albumId:albumId,
+                name:albumName)
             
-            references.append(pictureReference)
+            references.append(albumReference)
         }
         
         references.sort
-            { (referenceA, referenceB) -> Bool in
+        { (referenceA, referenceB) -> Bool in
+            
+            let before:Bool
+            let nameA:String = referenceA.name
+            let nameB:String = referenceB.name
+            let comparison:ComparisonResult = nameA.compare(nameB)
+            
+            switch comparison
+            {
+                case ComparisonResult.orderedDescending:
                 
-                let createdA:TimeInterval = referenceA.created
-                let createdB:TimeInterval = referenceB.created
+                    before = false
+                    
+                    break
                 
-                return createdA > createdB
+                default:
+                
+                    before = true
+                    
+                    break
+            }
+            
+            return before
         }
         
-        self.items = items
-        self.references = references
-        picturesLoaded()
+        self.albumItems = items
+        self.albumReferences = references
+        
+        asyncLoadPhotos()
     }
     
     private func asyncLoadPhotos()

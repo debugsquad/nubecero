@@ -27,7 +27,100 @@ class MPhotos
     
     private func asyncLoadAlbums()
     {
+        guard
+            
+            let userId:MSession.UserId = MSession.sharedInstance.user.userId
+            
+        else
+        {
+            return
+        }
         
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let propertyAlbums:String = FDatabaseModelUser.Property.albums.rawValue
+        let path:String = "\(parentUser)/\(userId)/\(propertyAlbums)"
+        
+        FMain.sharedInstance.database.listenOnce(
+            path:path,
+            modelType:FDatabaseModelAlbumList.self)
+        { (albumList) in
+            
+            guard
+                
+                let albumsMap:[AlbumId:FDatabaseModelAlbum] = albumList?.items
+                
+            else
+            {
+                self.asyncLoadPhotos()
+                
+                return
+            }
+            
+            self.compareAlbums(albumsMap:albumsMap)
+        }
+    }
+    
+    private func compareAlbums(albumsMap:[AlbumId:FDatabaseModelAlbum])
+    {
+        var items:[AlbumId:MPhotosItem] = [:]
+        var references:[MPicturesItemReference] = []
+        let picturesIds:[PictureId] = Array(picturesMap.keys)
+        
+        for pictureId:PictureId in picturesIds
+        {
+            guard
+                
+                let firebasePicture:FDatabaseModelPicture = picturesMap[pictureId]
+                
+                else
+            {
+                continue
+            }
+            
+            let pictureStatus:FDatabaseModelPicture.Status = firebasePicture.status
+            let pictureCreated:TimeInterval = firebasePicture.created
+            
+            if pictureStatus == FDatabaseModelPicture.Status.synced
+            {
+                if let loadedItem:MPicturesItem = self.items[pictureId]
+                {
+                    items[pictureId] = loadedItem
+                }
+                else
+                {
+                    let newItem:MPicturesItem = MPicturesItem(
+                        pictureId:pictureId,
+                        firebasePicture:firebasePicture)
+                    items[pictureId] = newItem
+                }
+                
+                let pictureReference:MPicturesItemReference = MPicturesItemReference(
+                    pictureId:pictureId,
+                    created:pictureCreated)
+                
+                references.append(pictureReference)
+            }
+            else
+            {
+                let deleteItem:MPicturesItem = MPicturesItem(
+                    pictureId:pictureId,
+                    firebasePicture:firebasePicture)
+                deletable.append(deleteItem)
+            }
+        }
+        
+        references.sort
+            { (referenceA, referenceB) -> Bool in
+                
+                let createdA:TimeInterval = referenceA.created
+                let createdB:TimeInterval = referenceB.created
+                
+                return createdA > createdB
+        }
+        
+        self.items = items
+        self.references = references
+        picturesLoaded()
     }
     
     private func asyncLoadPhotos()

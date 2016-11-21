@@ -6,7 +6,7 @@ class MPhotos
     typealias PhotoId = String
     
     static let sharedInstance:MPhotos = MPhotos()
-    let items:[MPhotosItem]
+    var items:[MPhotosItem]
     var deletable:[MPhotosItemPhoto]
     private var photos:[PhotoId:MPhotosItemPhoto]
     private var loading:Bool
@@ -41,17 +41,17 @@ class MPhotos
         FMain.sharedInstance.database.listenOnce(
             path:path,
             modelType:FDatabaseModelPhotoList.self)
-        { (pictureList) in
+        { (photoList) in
             
             guard
                 
-                let picturesMap:[PictureId:FDatabaseModelPicture] = pictureList?.items
+                let photosMap:[PhotoId:FDatabaseModelPhoto] = photoList?.items
                 
-                else
+            else
             {
-                self.items = [:]
-                self.references = []
+                self.items = []
                 self.deletable = []
+                self.photos = [:]
                 self.picturesLoaded()
                 
                 return
@@ -61,7 +61,7 @@ class MPhotos
         }
     }
     
-    private func comparePictures(picturesMap:[PictureId:FDatabaseModelPicture])
+    private func comparePhotos(photos:[PhotoId:FDatabaseModelPhoto])
     {
         var items:[PictureId:MPicturesItem] = [:]
         var references:[MPicturesItemReference] = []

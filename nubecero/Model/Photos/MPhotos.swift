@@ -6,16 +6,18 @@ class MPhotos
     typealias PhotoId = String
     
     static let sharedInstance:MPhotos = MPhotos()
-    var items:[MPhotosItem]
-    var deletable:[MPhotosItemPhoto]
+    var albumItems:[AlbumId:MPhotosItem]
+    var photoDeletables:[MPhotosItemPhoto]
+    var albumReferences:[AlbumId]
     private var photos:[PhotoId:MPhotosItemPhoto]
     private var loading:Bool
     
     private init()
     {
         loading = false
-        items = []
-        deletable = []
+        albumItems = [:]
+        photoDeletables = []
+        albumReferences = []
         photos = [:]
         
         loadPhotos()
@@ -57,11 +59,11 @@ class MPhotos
                 return
             }
             
-            self.comparePictures(picturesMap:picturesMap)
+            self.comparePhotos(photosMap:photosMap)
         }
     }
     
-    private func comparePhotos(photos:[PhotoId:FDatabaseModelPhoto])
+    private func comparePhotos(photosMap:[PhotoId:FDatabaseModelPhoto])
     {
         var items:[PictureId:MPicturesItem] = [:]
         var references:[MPicturesItemReference] = []

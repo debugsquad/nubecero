@@ -189,11 +189,20 @@ class MPhotos
             
             let photoStatus:MPhotos.Status = firebasePhoto.status
             let photoCreated:TimeInterval = firebasePhoto.created
-            let albumId:AlbumId = firebasePhoto.album
+            let albumId:AlbumId = firebasePhoto.albumId
+            let album:MPhotosItem?
+            
+            if albumId.isEmpty
+            {
+                album = defaultAlbum
+            }
+            else
+            {
+                album = albumItems[albumId]
+            }
             
             if photoStatus == Status.synced
             {
-                
                 if let loadedItem:MPhotosItemPhoto = self.photos[photoId]
                 {
                     items[photoId] = loadedItem
@@ -210,7 +219,7 @@ class MPhotos
                     photoId:photoId,
                     created:photoCreated)
                 
-                references.append(photoReference)
+                album?.references.append(photoReference)
             }
             else
             {
@@ -236,11 +245,12 @@ class MPhotos
     
     private func asyncCleanResources()
     {
-        for reference:MPicturesItemReference in references
+        let allPhotos:[PhotoId] = Array(photos.keys)
+        
+        for photoId:PhotoId in allPhotos
         {
-            let pictureId:PictureId = reference.pictureId
-            let item:MPicturesItem? = items[pictureId]
-            item?.cleanResources()
+            let photo:MPhotosItemPhoto? = photos[photoId]
+            photo?.resources.cleanResources()
         }
     }
     

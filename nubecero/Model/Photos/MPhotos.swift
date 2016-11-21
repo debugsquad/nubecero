@@ -25,6 +25,11 @@ class MPhotos
     
     //MARK: private
     
+    private func asyncLoadAlbums()
+    {
+        
+    }
+    
     private func asyncLoadPhotos()
     {
         guard
@@ -51,8 +56,9 @@ class MPhotos
                 
             else
             {
-                self.items = []
-                self.deletable = []
+                self.albumItems = [:]
+                self.photoDeletables = []
+                self.albumReferences = []
                 self.photos = [:]
                 self.picturesLoaded()
                 

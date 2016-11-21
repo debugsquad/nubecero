@@ -5,6 +5,12 @@ class MPhotos
     typealias AlbumId = String
     typealias PhotoId = String
     
+    enum Status:Int
+    {
+        case waiting
+        case synced
+    }
+    
     static let sharedInstance:MPhotos = MPhotos()
     var albumItems:[AlbumId:MPhotosItem]
     var photoDeletables:[MPhotosItemPhoto]
@@ -160,11 +166,9 @@ class MPhotos
                 
             else
             {
-                self.albumItems = [:]
                 self.photoDeletables = []
                 self.albumReferences = []
-                self.photos = [:]
-                self.picturesLoaded()
+                self.photosLoaded()
                 
                 return
             }
@@ -175,22 +179,22 @@ class MPhotos
     
     private func comparePhotos(photosMap:[PhotoId:FDatabaseModelPhoto])
     {
-        var items:[PictureId:MPicturesItem] = [:]
-        var references:[MPicturesItemReference] = []
-        let picturesIds:[PictureId] = Array(picturesMap.keys)
+        var items:[PhotoId:MPhotosItemPhoto] = [:]
+        var references:[MPhotosItemPhotoReference] = []
+        let photosIds:[PhotoId] = Array(photosMap.keys)
         
-        for pictureId:PictureId in picturesIds
+        for photoId:PhotoId in photosIds
         {
             guard
                 
-                let firebasePicture:FDatabaseModelPicture = picturesMap[pictureId]
+                let firebasePhoto:FDatabaseModelPhoto = photosMap[photoId]
                 
-                else
+            else
             {
                 continue
             }
             
-            let pictureStatus:FDatabaseModelPicture.Status = firebasePicture.status
+            let photoStatus:MPhotos.Status = firebasePicture.status
             let pictureCreated:TimeInterval = firebasePicture.created
             
             if pictureStatus == FDatabaseModelPicture.Status.synced
@@ -236,10 +240,10 @@ class MPhotos
         picturesLoaded()
     }
     
-    private func picturesLoaded()
+    private func photosLoaded()
     {
         NotificationCenter.default.post(
-            name:Notification.picturesLoaded,
+            name:Notification.photosLoaded,
             object:nil)
     }
     

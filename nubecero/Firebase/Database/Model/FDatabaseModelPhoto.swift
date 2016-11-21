@@ -12,15 +12,9 @@ class FDatabaseModelPhoto:FDatabaseModel
         case pixelHeight = "pixelHeight"
     }
     
-    enum Status:Int
-    {
-        case waiting
-        case synced
-    }
-    
     let album:MPhotos.AlbumId
     let created:TimeInterval
-    let status:Status
+    let status:MPhotos.Status
     let size:Int
     let pixelWidth:Int
     let pixelHeight:Int
@@ -35,7 +29,7 @@ class FDatabaseModelPhoto:FDatabaseModel
         self.pixelHeight = pixelHeight
         album = kEmpty
         created = NSDate().timeIntervalSince1970
-        status = Status.waiting
+        status = MPhotos.Status.waiting
         
         super.init()
     }
@@ -64,18 +58,18 @@ class FDatabaseModelPhoto:FDatabaseModel
         
         if let statusInt:Int = snapshotDict?[Property.status.rawValue] as? Int
         {
-            if let status:Status = Status(rawValue:statusInt)
+            if let status:MPhotos.Status = Status(rawValue:statusInt)
             {
                 self.status = status
             }
             else
             {
-                self.status = Status.waiting
+                self.status = MPhotos.Status.waiting
             }
         }
         else
         {
-            self.status = Status.waiting
+            self.status = MPhotos.Status.waiting
         }
         
         if let size:Int = snapshotDict?[Property.size.rawValue] as? Int

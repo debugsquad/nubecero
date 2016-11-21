@@ -97,3 +97,4 @@
 "MAdminUsersPhotosItemStatusLoading_errorUnknown"="Error al cargar imagen";
 "MStoreItemAlbums_title"="Album admin";
 "MStoreItemAlbums_descr"="Administra tus fotos creando albums";
+"MPhotosItemDefault_name"="Default";

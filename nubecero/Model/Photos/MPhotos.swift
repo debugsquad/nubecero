@@ -87,24 +87,14 @@ class MPhotos
             }
             
             let albumName:String = firebaseAlbum.name
-            
-            if let loadedItem:MPhotosItem = self.albumItems[albumId]
-            {
-                items[albumId] = loadedItem
-            }
-            else
-            {
-                let newItem:MPhotosItem = MPhotosItem(
-                    albumId:albumId,
-                    firebaseAlbum:firebaseAlbum)
-                
-                items[albumId] = newItem
-            }
-            
+            let newItem:MPhotosItem = MPhotosItem(
+                albumId:albumId,
+                firebaseAlbum:firebaseAlbum)
             let albumReference:MPhotosItemReference = MPhotosItemReference(
                 albumId:albumId,
                 name:albumName)
             
+            items[albumId] = newItem
             references.append(albumReference)
         }
         
@@ -180,7 +170,7 @@ class MPhotos
     private func comparePhotos(photosMap:[PhotoId:FDatabaseModelPhoto])
     {
         var items:[PhotoId:MPhotosItemPhoto] = [:]
-        var references:[MPhotosItemPhotoReference] = []
+        var deletables:[MPhotosItemPhoto] = []
         let photosIds:[PhotoId] = Array(photosMap.keys)
         
         for photoId:PhotoId in photosIds
@@ -194,50 +184,44 @@ class MPhotos
                 continue
             }
             
-            let photoStatus:MPhotos.Status = firebasePicture.status
-            let pictureCreated:TimeInterval = firebasePicture.created
+            let photoStatus:MPhotos.Status = firebasePhoto.status
+            let photoCreated:TimeInterval = firebasePhoto.created
+            let album:AlbumId = firebasePhoto.album
             
-            if pictureStatus == FDatabaseModelPicture.Status.synced
+            if photoStatus == Status.synced
             {
-                if let loadedItem:MPicturesItem = self.items[pictureId]
+                
+                if let loadedItem:MPhotosItemPhoto = self.photos[photoId]
                 {
-                    items[pictureId] = loadedItem
+                    items[photoId] = loadedItem
                 }
                 else
                 {
-                    let newItem:MPicturesItem = MPicturesItem(
-                        pictureId:pictureId,
-                        firebasePicture:firebasePicture)
-                    items[pictureId] = newItem
+                    let newItem:MPhotosItemPhoto = MPhotosItemPhoto(
+                        photoId:photoId,
+                        firebasePicture:firebasePhoto)
+                    items[photoId] = newItem
                 }
                 
-                let pictureReference:MPicturesItemReference = MPicturesItemReference(
-                    pictureId:pictureId,
-                    created:pictureCreated)
+                let photoReference:MPhotosItemPhotoReference = MPhotosItemPhotoReference(
+                    photoId:photoId,
+                    created:photoCreated)
                 
-                references.append(pictureReference)
+                references.append(photoReference)
             }
             else
             {
-                let deleteItem:MPicturesItem = MPicturesItem(
-                    pictureId:pictureId,
-                    firebasePicture:firebasePicture)
-                deletable.append(deleteItem)
+                let deleteItem:MPhotosItemPhoto = MPhotosItemPhoto(
+                    photoId:photoId,
+                    firebasePicture:firebasePhoto)
+                deletables.append(deleteItem)
             }
         }
         
-        references.sort
-            { (referenceA, referenceB) -> Bool in
-                
-                let createdA:TimeInterval = referenceA.created
-                let createdB:TimeInterval = referenceB.created
-                
-                return createdA > createdB
-        }
+        self.photos = items
+        self.photoDeletables = deletables
         
-        self.items = items
-        self.references = references
-        picturesLoaded()
+        photosLoaded()
     }
     
     private func photosLoaded()

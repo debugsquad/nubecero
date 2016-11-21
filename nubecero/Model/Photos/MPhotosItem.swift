@@ -2,17 +2,29 @@ import Foundation
 
 class MPhotosItem
 {
-    let albumId:MPhotos.AlbumId
     let name:String
-    let references:[MPhotos.PhotoId]
+    var references:[MPhotosItemPhotoReference]
     var kiloBytes:Int
     private let kZero:Int = 0
     
-    init(albumId:MPhotos.AlbumId, firebaseAlbum:FDatabaseModelAlbum)
+    init(name:String)
     {
-        self.albumId = albumId
-        name = firebaseAlbum.name
+        self.name = name
         references = []
         kiloBytes = kZero
+    }
+    
+    //MARK: public
+    
+    func sortPhotos()
+    {
+        references.sort
+        { (referenceA, referenceB) -> Bool in
+            
+            let createdA:TimeInterval = referenceA.created
+            let createdB:TimeInterval = referenceB.created
+            
+            return createdA > createdB
+        }
     }
 }

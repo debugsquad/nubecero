@@ -97,3 +97,4 @@
 "MAdminUsersPhotosItemStatusLoading_errorUnknown"="Error loading image";
 "MStoreItemAlbums_title"="Album manager";
 "MStoreItemAlbums_descr"="\nCreate albums to organize your photos";
+"MPhotosItemDefault_name"="Default";

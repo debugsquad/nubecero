@@ -3,21 +3,18 @@ import UIKit
 class VPhotosHeaderAdd:UIButton
 {
     private weak var header:VPhotosHeader!
-    private let kCornerRadius:CGFloat = 4
     
     convenience init(header:VPhotosHeader)
     {
         self.init()
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
-        layer.cornerRadius = kCornerRadius
         self.header = header
         
         let image:UIImageView = UIImageView()
         image.clipsToBounds = true
         image.contentMode = UIViewContentMode.center
-        image.image = #imageLiteral(resourceName: "assetPhotosAlbumAdd").withRenderingMode(
-            UIImageRenderingMode.alwaysTemplate)
+        image.image = #imageLiteral(resourceName: "assetPhotosAlbumAdd")
         image.translatesAutoresizingMaskIntoConstraints = false
         image.isUserInteractionEnabled = false
         
@@ -42,6 +39,15 @@ class VPhotosHeaderAdd:UIButton
         hover()
     }
     
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let radius:CGFloat = width / 2.0
+        layer.cornerRadius = radius
+        
+        super.layoutSubviews()
+    }
+    
     override var isSelected:Bool
     {
         didSet
@@ -64,7 +70,7 @@ class VPhotosHeaderAdd:UIButton
     {
         if isSelected || isHighlighted
         {
-            backgroundColor = UIColor(white:0, alpha:0.2)
+            backgroundColor = UIColor(white:0, alpha:0.05)
         }
         else
         {

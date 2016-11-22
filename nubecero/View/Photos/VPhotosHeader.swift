@@ -3,6 +3,7 @@ import UIKit
 class VPhotosHeader:UICollectionReusableView
 {
     private weak var controller:CPhotos?
+    private let kAddSize:CGFloat = 55
     
     override init(frame:CGRect)
     {
@@ -17,15 +18,16 @@ class VPhotosHeader:UICollectionReusableView
         let views:[String:UIView] = [
             "buttonAdd":buttonAdd]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "addSize":kAddSize]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[buttonAdd(55)]",
+            withVisualFormat:"H:|-10-[buttonAdd(addSize)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-25-[buttonAdd]-10-|",
+            withVisualFormat:"V:[buttonAdd(addSize)]-10-|",
             options:[],
             metrics:metrics,
             views:views))

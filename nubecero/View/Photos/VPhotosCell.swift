@@ -16,12 +16,12 @@ class VPhotosCell:UICollectionViewCell
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
         
         attributesName = [
-            NSFontAttributeName:UIFont.regular(size:16),
+            NSFontAttributeName:UIFont.regular(size:17),
             NSForegroundColorAttributeName:UIColor(white:0.3, alpha:1)
         ]
         
         attributesCount = [
-            NSFontAttributeName:UIFont.regular(size:12),
+            NSFontAttributeName:UIFont.regular(size:13),
             NSForegroundColorAttributeName:UIColor(white:0.6, alpha:1)
         ]
         

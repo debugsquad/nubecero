@@ -30,7 +30,7 @@ class VHomeUploadSyncBar:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
         let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
         visualEffect.translatesAutoresizingMaskIntoConstraints = false
         visualEffect.clipsToBounds = true

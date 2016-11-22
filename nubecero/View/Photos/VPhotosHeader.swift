@@ -25,7 +25,7 @@ class VPhotosHeader:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-15-[buttonAdd]-5-|",
+            withVisualFormat:"V:|-20-[buttonAdd]-0-|",
             options:[],
             metrics:metrics,
             views:views))

@@ -20,12 +20,12 @@ class VPhotosHeader:UICollectionReusableView
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[buttonAdd(60)]",
+            withVisualFormat:"H:|-10-[buttonAdd(55)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-20-[buttonAdd]-10-|",
+            withVisualFormat:"V:|-25-[buttonAdd]-10-|",
             options:[],
             metrics:metrics,
             views:views))

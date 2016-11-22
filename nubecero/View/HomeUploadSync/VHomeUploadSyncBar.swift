@@ -149,7 +149,7 @@ class VHomeUploadSyncBar:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-34-[cancelButton(32)]",
+            withVisualFormat:"V:|-35-[cancelButton(30)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -159,7 +159,7 @@ class VHomeUploadSyncBar:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-34-[tryAgainButton(32)]",
+            withVisualFormat:"V:|-35-[tryAgainButton(30)]",
             options:[],
             metrics:metrics,
             views:views))

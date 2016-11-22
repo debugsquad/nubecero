@@ -9,6 +9,7 @@ class VPhotosHeaderAdd:UIButton
         self.init()
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
+        layer.borderColor = UIColor(white:0, alpha:0.2).cgColor
         self.header = header
         
         let image:UIImageView = UIImageView()
@@ -70,11 +71,13 @@ class VPhotosHeaderAdd:UIButton
     {
         if isSelected || isHighlighted
         {
-            backgroundColor = UIColor(white:0, alpha:0.05)
+            backgroundColor = UIColor(white:0, alpha:0.1)
+            layer.borderWidth = 1
         }
         else
         {
             backgroundColor = UIColor.complement
+            layer.borderWidth = 0
         }
     }
 }

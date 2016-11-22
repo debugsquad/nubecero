@@ -27,6 +27,7 @@ class VPhotosCell:UICollectionViewCell
         
         super.init(frame:frame)
         clipsToBounds = true
+        backgroundColor = UIColor.clear
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
@@ -35,28 +36,46 @@ class VPhotosCell:UICollectionViewCell
         label.numberOfLines = 0
         self.label = label
         
+        let leftView:UIView = UIView()
+        leftView.isUserInteractionEnabled = false
+        leftView.translatesAutoresizingMaskIntoConstraints = false
+        leftView.clipsToBounds = true
+        leftView.backgroundColor = UIColor.white
+        
         let rightView:UIView = UIView()
         rightView.isUserInteractionEnabled = false
         rightView.translatesAutoresizingMaskIntoConstraints = false
         rightView.clipsToBounds = true
-        rightView.backgroundColor = UIColor.complement
+        rightView.backgroundColor = UIColor(white:0, alpha:0.07)
         
-        addSubview(label)
+        leftView.addSubview(label)
         addSubview(rightView)
+        addSubview(leftView)
         
         let views:[String:UIView] = [
             "label":label,
-            "rightView":rightView]
+            "rightView":rightView,
+            "leftView":leftView]
         
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[label]-1-[rightView(80)]-0-|",
+            withVisualFormat:"H:|-10-[label]-2-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[leftView]-0-[rightView(120)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[label]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[leftView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -94,12 +113,10 @@ class VPhotosCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
-            backgroundColor = UIColor.clear
             alpha = kAlphaSelected
         }
         else
         {
-            backgroundColor = UIColor.white
             alpha = kAlphaNotSelected
         }
     }
@@ -125,9 +142,8 @@ class VPhotosCell:UICollectionViewCell
         }
         
         let compositeString:String = String(
-            format:"\n%@ Photos  ■  %@ Mb",
-            countString,
-            megaBytesString)
+            format:NSLocalizedString("VPhotosCell_labelPhotos", comment:""),
+            countString)
         
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
         let stringName:NSAttributedString = NSAttributedString(

@@ -42,6 +42,8 @@
 "VStoreCellPurchasing_label"="Purchasing";
 "VStoreCellPurchased_label"="Purchased";
 "VStoreCellNotAvailable_label"="Not available";
+"VPhotosCell_labelPhotos"="\n%@ Photos";
+"VPhotosCell_labelSize"="%@\nMegabytes";
 
 "CHomeUpload_title"="Add";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

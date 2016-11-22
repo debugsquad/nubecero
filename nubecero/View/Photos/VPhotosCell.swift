@@ -41,9 +41,8 @@ class VPhotosCell:UICollectionViewCell
         labelSize.isUserInteractionEnabled = false
         labelSize.translatesAutoresizingMaskIntoConstraints = false
         labelSize.backgroundColor = UIColor.clear
-        labelSize.font = UIFont.regular(size:13)
+        labelSize.font = UIFont.regular(size:15)
         labelSize.textColor = UIColor.complement
-        labelSize.numberOfLines = 2
         self.labelSize = labelSize
         
         let leftView:UIView = UIView()
@@ -77,7 +76,7 @@ class VPhotosCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[labelSize]-5-|",
+            withVisualFormat:"H:|-10-[labelSize]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -87,7 +86,7 @@ class VPhotosCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-6-[label]-0-|",
+            withVisualFormat:"V:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -150,9 +149,6 @@ class VPhotosCell:UICollectionViewCell
         hover()
         
         let count:NSNumber = model.references.count as NSNumber
-        
-        print("count \(count)")
-        
         let megaBytesFloat:CGFloat = CGFloat(model.kiloBytes) / kKiloBytesPerMega
         let megaBytes:NSNumber = megaBytesFloat as NSNumber
         

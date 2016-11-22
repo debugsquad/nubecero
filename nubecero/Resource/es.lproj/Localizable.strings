@@ -39,7 +39,7 @@
 "VStoreCellNew_buttonPurchase"="Comprar";
 "VStoreCellDeferred_label"="Compra pospuesta";
 "VPhotosCell_labelPhotos"="\n%@ Fotos";
-"VPhotosCell_labelSize"="%@\nMegabytes";
+"VPhotosCell_labelSize"="%@ Mb";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

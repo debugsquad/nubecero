@@ -114,6 +114,15 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         return model
     }
     
+    //MARK: public
+    
+    func photosLoaded()
+    {
+        spinner?.removeFromSuperview()
+        collectionView.isHidden = false
+        collectionView.reloadData()
+    }
+    
     //MARK: collectionView delegate
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, referenceSizeForHeaderInSection section:Int) -> CGSize

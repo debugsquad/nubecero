@@ -18,6 +18,8 @@ class CPhotos:CController
             selector:#selector(notifiedPhotosLoaded(sender:)),
             name:Notification.photosLoaded,
             object:nil)
+        
+        MPhotos.sharedInstance.loadPhotos()
     }
     
     override func loadView()
@@ -31,7 +33,11 @@ class CPhotos:CController
     
     func notifiedPhotosLoaded(sender notification:Notification)
     {
-        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewPhotos.photosLoaded()
+        }
     }
     
     //MARK: public

@@ -47,6 +47,7 @@ class MPhotos
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyAlbums:String = FDatabaseModelUser.Property.albums.rawValue
         let path:String = "\(parentUser)/\(userId)/\(propertyAlbums)"
+        defaultAlbum.clearReferences()
         
         FMain.sharedInstance.database.listenOnce(
             path:path,
@@ -76,7 +77,6 @@ class MPhotos
         var items:[AlbumId:MPhotosItemUser] = [:]
         var references:[MPhotosItemReference] = []
         let albumsIds:[AlbumId] = Array(albumsMap.keys)
-        defaultAlbum.clearReferences()
         
         for albumId:AlbumId in albumsIds
         {

@@ -44,6 +44,7 @@
 "VStoreCellNotAvailable_label"="Not available";
 "VPhotosCell_labelPhotos"="\n%@ Photos";
 "VPhotosCell_labelSize"="%@ Mb";
+"VPhotosAlbumTitle_labelInfo"="%@ Photos";
 
 "CHomeUpload_title"="Add";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

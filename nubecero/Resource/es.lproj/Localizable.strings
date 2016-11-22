@@ -40,6 +40,7 @@
 "VStoreCellDeferred_label"="Compra pospuesta";
 "VPhotosCell_labelPhotos"="\n%@ Fotos";
 "VPhotosCell_labelSize"="%@ Mb";
+"VPhotosAlbumTitle_labelInfo"="%@ Fotos";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

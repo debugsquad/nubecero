@@ -7,14 +7,11 @@ class VPhotosAlbumTitle:UIView
     private let numberFormatter:NumberFormatter
     private let kContentWidth:CGFloat = 310
     private let kContentHeight:CGFloat = 70
-    private let kKiloBytesPerMega:CGFloat = 1000
-    private let kMaxFractionDigits:Int = 3
     
     init(controller:CPhotosAlbum)
     {
         numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
-        numberFormatter.maximumFractionDigits = kMaxFractionDigits
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
@@ -28,15 +25,15 @@ class VPhotosAlbumTitle:UIView
         labelName.translatesAutoresizingMaskIntoConstraints = false
         labelName.backgroundColor = UIColor.clear
         labelName.font = UIFont.regular(size:22)
-        labelName.textColor = UIColor(white:0.2, alpha:1)
+        labelName.textColor = UIColor.black
         labelName.text = controller.model.name
         
         let labelInfo:UILabel = UILabel()
         labelInfo.isUserInteractionEnabled = false
         labelInfo.translatesAutoresizingMaskIntoConstraints = false
         labelInfo.backgroundColor = UIColor.clear
-        labelInfo.font = UIFont.regular(size:12)
-        labelInfo.textColor = UIColor(white:0.55, alpha:1)
+        labelInfo.font = UIFont.regular(size:13)
+        labelInfo.textColor = UIColor(white:0.3, alpha:1)
         self.labelInfo = labelInfo
         
         addSubview(labelName)
@@ -87,14 +84,10 @@ class VPhotosAlbumTitle:UIView
     func print()
     {
         let countNumber:NSNumber = controller.model.references.count as NSNumber
-        let megaBytesInt:Int = controller.model.kiloBytes
-        let megaBytesFloat:CGFloat = CGFloat(megaBytesInt) / kKiloBytesPerMega
-        let megaBytesNumber:NSNumber = megaBytesFloat as NSNumber
         
         guard
         
-            let countString:String = numberFormatter.string(from:countNumber),
-            let megaBytesString:String = numberFormatter.string(from:megaBytesNumber)
+            let countString:String = numberFormatter.string(from:countNumber)
         
         else
         {
@@ -102,9 +95,9 @@ class VPhotosAlbumTitle:UIView
         }
         
         let compositeString:String = String(
-            format:"%@ Photos  ■  %@ Mb",
-            countString,
-            megaBytesString)
+            format:NSLocalizedString("VPhotosAlbumTitle_labelInfo", comment:""),
+            countString)
+        
         labelInfo.text = compositeString
     }
 }

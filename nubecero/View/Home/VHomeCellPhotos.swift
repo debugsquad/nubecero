@@ -46,17 +46,41 @@ class VHomeCellPhotos:VHomeCell
         fatalError()
     }
     
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func config(controller:CHome, model:MHomeItem)
-    {/*
-        let totalPicturesInt:Int = MPictures.sharedInstance.references.count
+    {
+        print()
+    }
+    
+    //MARK: notified
+    
+    func notifiedPhotosLoaded(sender notification:Notification)
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.print()
+        }
+    }
+    
+    //MARK: private
+    
+    private func print()
+    {
+        let arrayPhotosIds:[MPhotos.PhotoId] = Array(MPhotos.sharedInstance.photos.keys)
+        let totalPhotosInt:Int = arrayPhotosIds.count
         
-        if totalPicturesInt > 0
+        if totalPhotosInt > 0
         {
-            let totalPictures:NSNumber = totalPicturesInt as NSNumber
+            let totalPhotos:NSNumber = totalPhotosInt as NSNumber
             
             guard
                 
-                let totalPicturesString:String = numberFormatter.string(from:totalPictures)
+                let totalPhotosString:String = numberFormatter.string(from:totalPhotos)
                 
             else
             {
@@ -67,12 +91,12 @@ class VHomeCellPhotos:VHomeCell
             
             let compountString:String = String(
                 format:NSLocalizedString("VHomeCellPhotos_label", comment:""),
-                totalPicturesString)
+                totalPhotosString)
             label.text = compountString
         }
         else
         {
             label.text = kEmpty
-        }*/
+        }
     }
 }

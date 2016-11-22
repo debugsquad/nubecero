@@ -13,10 +13,10 @@ class MPhotos
     
     static let sharedInstance:MPhotos = MPhotos()
     let defaultAlbum:MPhotosItemDefault
-    var albumItems:[AlbumId:MPhotosItemUser]
-    var photoDeletables:[MPhotosItemPhoto]
-    var albumReferences:[MPhotosItemReference]
-    private var photos:[PhotoId:MPhotosItemPhoto]
+    private(set) var albumItems:[AlbumId:MPhotosItemUser]
+    private(set) var photoDeletables:[MPhotosItemPhoto]
+    private(set) var albumReferences:[MPhotosItemReference]
+    private(set) var photos:[PhotoId:MPhotosItemPhoto]
     private var loading:Bool
     
     private init()
@@ -241,6 +241,7 @@ class MPhotos
     
     private func photosLoaded()
     {
+        loading = false
         NotificationCenter.default.post(
             name:Notification.photosLoaded,
             object:nil)

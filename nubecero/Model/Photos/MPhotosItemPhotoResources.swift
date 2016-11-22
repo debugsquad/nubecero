@@ -66,8 +66,8 @@ class MPhotosItemPhotoResources
         
         let imageOriginalWidth:CGFloat = originalImage.size.width
         let imageOriginalHeight:CGFloat = originalImage.size.height
-        let deltaWidth:CGFloat = imageOriginalWidth / kThumbnailSize
-        let deltaHeight:CGFloat = imageOriginalHeight / kThumbnailSize
+        let deltaWidth:CGFloat = imageOriginalWidth / MPhotos.kThumbnailSize
+        let deltaHeight:CGFloat = imageOriginalHeight / MPhotos.kThumbnailSize
         let maxDelta:CGFloat = max(deltaWidth, deltaHeight)
         let scaledWidth:CGFloat = floor(imageOriginalWidth / maxDelta)
         let scaledHeight:CGFloat = floor(imageOriginalHeight / maxDelta)

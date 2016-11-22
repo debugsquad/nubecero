@@ -20,8 +20,8 @@ class MHomeUploadItem
         self.asset = asset
         
         let imageSize:CGSize = CGSize(
-            width:MHomeUpload.kImageMaxSize,
-            height:MHomeUpload.kImageMaxSize)
+            width:MPhotos.kThumbnailSize,
+            height:MPhotos.kThumbnailSize)
         
         let requestOptions:PHImageRequestOptions = PHImageRequestOptions()
         requestOptions.resizeMode = PHImageRequestOptionsResizeMode.fast

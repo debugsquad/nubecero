@@ -92,7 +92,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     private func computeImageSize()
     {
         let width:CGFloat = bounds.maxX - kInterLine
-        let proximate:CGFloat = floor(width / MHomeUpload.kImageMaxSize)
+        let proximate:CGFloat = floor(width / MPhotos.kThumbnailSize)
         let size:CGFloat = (width / proximate) - kInterLine
         imageSize = CGSize(width:size, height:size)
     }

@@ -113,7 +113,7 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
     private func computeCellSize()
     {
         let width:CGFloat = bounds.maxX - kInterLineSpace
-        let proximate:CGFloat = floor(width / MHomeUpload.kImageMaxSize)
+        let proximate:CGFloat = floor(width / MPhotos.kThumbnailSize)
         let size:CGFloat = (width / proximate) - kInterLineSpace
         cellSize = CGSize(width:size, height:size)
     }

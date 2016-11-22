@@ -6,7 +6,6 @@ class MPhotosItemPhotoResources
     private weak var timer:Timer?
     private(set) var thumbnail:UIImage?
     private(set) var image:UIImage?
-    private let kThumbnailSize:CGFloat = 128
     private let kPictureTimeout:TimeInterval = 15
     
     init(item:MPhotosItemPhoto?)

@@ -8,7 +8,7 @@ class VPhotosAlbum:UIView
     private weak var layoutBackgroundTop:NSLayoutConstraint!
     private weak var layoutBackButtonTop:NSLayoutConstraint!
     private let kLineSpacing:CGFloat = 1
-    private let kCollectionTop:CGFloat = 180
+    private let kCollectionTop:CGFloat = 130
     private let kCollectionBottom:CGFloat = 20
     
     convenience init(controller:CPhotosAlbum)

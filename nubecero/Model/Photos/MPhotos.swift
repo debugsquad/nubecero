@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 class MPhotos
 {
@@ -12,6 +12,7 @@ class MPhotos
     }
     
     static let sharedInstance:MPhotos = MPhotos()
+    static let kThumbnailSize:CGFloat = 100
     let defaultAlbum:MPhotosItemDefault
     private(set) var albumItems:[AlbumId:MPhotosItemUser]
     private(set) var photoDeletables:[MPhotosItemPhoto]

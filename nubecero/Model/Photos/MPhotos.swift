@@ -267,7 +267,7 @@ class MPhotos
             if !self.loading
             {
                 self.loading = true
-                self.asyncLoadPhotos()
+                self.asyncLoadAlbums()
             }
         }
     }

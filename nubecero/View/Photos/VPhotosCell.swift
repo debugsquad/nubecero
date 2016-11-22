@@ -3,6 +3,7 @@ import UIKit
 class VPhotosCell:UICollectionViewCell
 {
     private weak var label:UILabel!
+    private weak var labelSize:UILabel!
     private let attributesName:[String:AnyObject]
     private let attributesCount:[String:AnyObject]
     private let numberFormatter:NumberFormatter
@@ -22,7 +23,7 @@ class VPhotosCell:UICollectionViewCell
         
         attributesCount = [
             NSFontAttributeName:UIFont.regular(size:12),
-            NSForegroundColorAttributeName:UIColor(white:0.5, alpha:1)
+            NSForegroundColorAttributeName:UIColor(white:0.45, alpha:1)
         ]
         
         super.init(frame:frame)
@@ -36,6 +37,15 @@ class VPhotosCell:UICollectionViewCell
         label.numberOfLines = 0
         self.label = label
         
+        let labelSize:UILabel = UILabel()
+        labelSize.isUserInteractionEnabled = false
+        labelSize.translatesAutoresizingMaskIntoConstraints = false
+        labelSize.backgroundColor = UIColor.clear
+        labelSize.font = UIFont.regular(size:13)
+        labelSize.textColor = UIColor.complement
+        labelSize.numberOfLines = 2
+        self.labelSize = labelSize
+        
         let leftView:UIView = UIView()
         leftView.isUserInteractionEnabled = false
         leftView.translatesAutoresizingMaskIntoConstraints = false
@@ -46,8 +56,9 @@ class VPhotosCell:UICollectionViewCell
         rightView.isUserInteractionEnabled = false
         rightView.translatesAutoresizingMaskIntoConstraints = false
         rightView.clipsToBounds = true
-        rightView.backgroundColor = UIColor(white:0, alpha:0.07)
+        rightView.backgroundColor = UIColor(red:0.92, green:0.95, blue:0.97, alpha:1)
         
+        rightView.addSubview(labelSize)
         leftView.addSubview(label)
         addSubview(rightView)
         addSubview(leftView)
@@ -55,7 +66,8 @@ class VPhotosCell:UICollectionViewCell
         let views:[String:UIView] = [
             "label":label,
             "rightView":rightView,
-            "leftView":leftView]
+            "leftView":leftView,
+            "labelSize":labelSize]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -65,12 +77,17 @@ class VPhotosCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-10-[labelSize]-5-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[leftView]-0-[rightView(120)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[label]-0-|",
+            withVisualFormat:"V:|-6-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -81,6 +98,11 @@ class VPhotosCell:UICollectionViewCell
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[rightView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[labelSize]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -128,6 +150,9 @@ class VPhotosCell:UICollectionViewCell
         hover()
         
         let count:NSNumber = model.references.count as NSNumber
+        
+        print("count \(count)")
+        
         let megaBytesFloat:CGFloat = CGFloat(model.kiloBytes) / kKiloBytesPerMega
         let megaBytes:NSNumber = megaBytesFloat as NSNumber
         
@@ -144,6 +169,9 @@ class VPhotosCell:UICollectionViewCell
         let compositeString:String = String(
             format:NSLocalizedString("VPhotosCell_labelPhotos", comment:""),
             countString)
+        let compositeStringSize:String = String(
+            format:NSLocalizedString("VPhotosCell_labelSize", comment:""),
+            megaBytesString)
         
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
         let stringName:NSAttributedString = NSAttributedString(
@@ -156,5 +184,6 @@ class VPhotosCell:UICollectionViewCell
         mutableString.append(stringCount)
         
         label.attributedText = mutableString
+        labelSize.text = compositeStringSize
     }
 }

@@ -34,7 +34,7 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
         flow.minimumLineSpacing = kInterLineSpace
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
         flow.sectionInset = UIEdgeInsetsMake(
-            kInterLineSpace,
+            kInterLineSpace + kBarHeight,
             kInterLineSpace,
             kCollectionBottom,
             kInterLineSpace)
@@ -89,7 +89,12 @@ class VHomeUploadSync:UIView, UICollectionViewDelegate, UICollectionViewDataSour
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[viewBar(barHeight)]-0-[collectionView]-0-|",
+            withVisualFormat:"V:|-0-[viewBar(barHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))

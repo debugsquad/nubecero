@@ -27,9 +27,14 @@ class VHomeUploadSyncBar:UIView
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor(white:1, alpha:0.7)
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
+        let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
+        visualEffect.translatesAutoresizingMaskIntoConstraints = false
+        visualEffect.clipsToBounds = true
+        visualEffect.isUserInteractionEnabled = false
         
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
@@ -83,6 +88,7 @@ class VHomeUploadSyncBar:UIView
         labelCount.textAlignment = NSTextAlignment.right
         self.labelCount = labelCount
         
+        addSubview(visualEffect)
         addSubview(border)
         addSubview(cancelButton)
         addSubview(spinner)
@@ -90,6 +96,7 @@ class VHomeUploadSyncBar:UIView
         addSubview(tryAgainButton)
         
         let views:[String:UIView] = [
+            "visualEffect":visualEffect,
             "border":border,
             "cancelButton":cancelButton,
             "spinner":spinner,
@@ -101,6 +108,11 @@ class VHomeUploadSyncBar:UIView
             "cancelButtonWidth":kCancelButtonWith,
             "tryAgainButtonWidth":kTryAgainButtonWith]
         
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[visualEffect]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[border]-0-|",
             options:[],
@@ -148,6 +160,11 @@ class VHomeUploadSyncBar:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-34-[tryAgainButton(32)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[visualEffect]-0-|",
             options:[],
             metrics:metrics,
             views:views))

@@ -17,12 +17,12 @@ class VPhotosCell:UICollectionViewCell
         
         attributesName = [
             NSFontAttributeName:UIFont.regular(size:16),
-            NSForegroundColorAttributeName:UIColor(white:0.4, alpha:1)
+            NSForegroundColorAttributeName:UIColor(white:0.3, alpha:1)
         ]
         
         attributesCount = [
             NSFontAttributeName:UIFont.regular(size:12),
-            NSForegroundColorAttributeName:UIColor(white:0.65, alpha:1)
+            NSForegroundColorAttributeName:UIColor(white:0.6, alpha:1)
         ]
         
         super.init(frame:frame)
@@ -43,7 +43,7 @@ class VPhotosCell:UICollectionViewCell
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[label]-0-|",
+            withVisualFormat:"H:|-10-[label]-10-|",
             options:[],
             metrics:metrics,
             views:views))

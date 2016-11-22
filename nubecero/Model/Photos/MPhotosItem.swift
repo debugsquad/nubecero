@@ -3,8 +3,8 @@ import Foundation
 class MPhotosItem
 {
     let name:String
-    var references:[MPhotosItemPhotoReference]
-    var kiloBytes:Int
+    private(set) var references:[MPhotosItemPhotoReference]
+    private(set) var kiloBytes:Int
     private let kZero:Int = 0
     
     init(name:String)
@@ -15,6 +15,18 @@ class MPhotosItem
     }
     
     //MARK: public
+    
+    func clearReferences()
+    {
+        kiloBytes = kZero
+        references = []
+    }
+    
+    func addReference(reference:MPhotosItemPhotoReference, kiloBytes:Int)
+    {
+        references.append(reference)
+        self.kiloBytes += kiloBytes
+    }
     
     func sortPhotos()
     {

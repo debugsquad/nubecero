@@ -76,7 +76,7 @@ class MPhotos
         var items:[AlbumId:MPhotosItemUser] = [:]
         var references:[MPhotosItemReference] = []
         let albumsIds:[AlbumId] = Array(albumsMap.keys)
-        defaultAlbum.references = []
+        defaultAlbum.clearReferences()
         
         for albumId:AlbumId in albumsIds
         {
@@ -189,6 +189,7 @@ class MPhotos
             
             let photoStatus:MPhotos.Status = firebasePhoto.status
             let photoCreated:TimeInterval = firebasePhoto.created
+            let kiloBytes:Int = firebasePhoto.size
             let albumId:AlbumId = firebasePhoto.albumId
             let album:MPhotosItem?
             
@@ -219,7 +220,9 @@ class MPhotos
                     photoId:photoId,
                     created:photoCreated)
                 
-                album?.references.append(photoReference)
+                album?.addReference(
+                    reference:photoReference,
+                    kiloBytes:kiloBytes)
             }
             else
             {

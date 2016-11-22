@@ -2,7 +2,7 @@ import UIKit
 
 class VSpinner:UIImageView
 {
-    private let kAnimationDuration:TimeInterval = 1.2
+    private let kAnimationDuration:TimeInterval = 1.5
     
     init()
     {
@@ -15,6 +15,10 @@ class VSpinner:UIImageView
             #imageLiteral(resourceName: "assetLoader3"),
             #imageLiteral(resourceName: "assetLoader4"),
             #imageLiteral(resourceName: "assetLoader5"),
+            #imageLiteral(resourceName: "assetLoader6"),
+            #imageLiteral(resourceName: "assetLoader7"),
+            #imageLiteral(resourceName: "assetLoader8"),
+            #imageLiteral(resourceName: "assetLoader9"),
             #imageLiteral(resourceName: "assetLoader0")
         ]
         

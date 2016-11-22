@@ -2,6 +2,7 @@ import UIKit
 
 class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    private weak var spinner:VSpinner?
     private weak var controller:CPhotos!
     private weak var collectionView:UICollectionView!
     private let kInterLine:CGFloat = 1
@@ -20,6 +21,9 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         
         let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         
+        let spinner:VSpinner = VSpinner()
+        self.spinner = spinner
+        
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.footerReferenceSize = CGSize.zero
         flow.minimumInteritemSpacing = 0
@@ -30,6 +34,7 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         let collectionView:UICollectionView = UICollectionView(
             frame:CGRect.zero,
             collectionViewLayout:flow)
+        collectionView.isHidden = true
         collectionView.clipsToBounds = true
         collectionView.backgroundColor = UIColor.clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -51,9 +56,11 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         self.collectionView = collectionView
         
         addSubview(collectionView)
+        addSubview(spinner)
         
         let views:[String:UIView] = [
-            "collectionView":collectionView]
+            "collectionView":collectionView,
+            "spinner":spinner]
         
         let metrics:[String:CGFloat] = [
             "barHeight":barHeight]
@@ -65,6 +72,16 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-(barHeight)-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(barHeight)-[spinner]-0-|",
             options:[],
             metrics:metrics,
             views:views))

@@ -38,7 +38,6 @@
 "VStoreFooter_buttonRestore"="Restaurar compra";
 "VStoreCellNew_buttonPurchase"="Comprar";
 "VStoreCellDeferred_label"="Compra pospuesta";
-"VPhotosHeaderAdd_label"="Nuevo album";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

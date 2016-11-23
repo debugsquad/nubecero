@@ -55,7 +55,7 @@ class MPhotos
         FMain.sharedInstance.database.listenOnce(
             path:path,
             modelType:FDatabaseModelAlbumList.self)
-        { (albumList) in
+        { (albumList:FDatabaseModelAlbumList?) in
             
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             {
@@ -105,7 +105,7 @@ class MPhotos
         }
         
         references.sort
-        { (referenceA, referenceB) -> Bool in
+        { (referenceA:MPhotosItemReference, referenceB:MPhotosItemReference) -> Bool in
             
             let before:Bool
             let nameA:String = referenceA.name
@@ -154,7 +154,7 @@ class MPhotos
         FMain.sharedInstance.database.listenOnce(
             path:path,
             modelType:FDatabaseModelPhotoList.self)
-        { (photoList) in
+        { (photoList:FDatabaseModelPhotoList?) in
             
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             {

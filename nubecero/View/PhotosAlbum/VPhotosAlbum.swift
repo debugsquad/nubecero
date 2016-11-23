@@ -12,6 +12,7 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     private let kInterLine:CGFloat = 1
     private let kCollectionTop:CGFloat = 130
     private let kBackButtonTop:CGFloat = 20
+    private let kDeselectTime:TimeInterval = 1
     
     convenience init(controller:CPhotosAlbum)
     {
@@ -260,5 +261,20 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MPhotosItemPhoto = modelAtIndex(index:indexPath)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }

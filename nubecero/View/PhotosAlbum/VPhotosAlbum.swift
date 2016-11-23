@@ -206,13 +206,22 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         if yOffset > 0
         {
             let halfOffset:CGFloat = yOffset / 2.0
+            var backButtonAlpha:CGFloat = 1 - (yOffset / 50.0)
+            
+            if backButtonAlpha < 0
+            {
+                backButtonAlpha = 0
+            }
+            
             layoutBackButtonTop.constant = kBackButtonTop - halfOffset
             layoutTitleBottom.constant = halfOffset
+            backButton.alpha = backButtonAlpha
         }
         else
         {
             layoutBackButtonTop.constant = kBackButtonTop
             layoutTitleBottom.constant = 0
+            backButton.alpha = 1
         }
     }
     

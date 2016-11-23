@@ -34,7 +34,7 @@ class MHomeUploadItem
             targetSize:imageSize,
             contentMode:PHImageContentMode.aspectFill,
             options:requestOptions)
-        { [weak self] (image, info) in
+        { [weak self] (image:UIImage?, info:[AnyHashable:Any]?) in
             
             self?.requestId = nil
             self?.image = image

@@ -51,7 +51,11 @@ class MHomeUploadItemStatusWaiting:MHomeUploadItemStatus
             PHImageManager.default().requestImageData(
                 for:asset,
                 options:requestOptions)
-            { [weak self, weak controller] (data, dataUTI, orientation, info) in
+            { [weak self, weak controller] (
+                data:Data?,
+                dataUTI:String?,
+                orientation:UIImageOrientation,
+                info:[AnyHashable:Any]?) in
                 
                 guard
                     

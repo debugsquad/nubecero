@@ -43,7 +43,7 @@ class MAdminUsersPhotosItemStatusLoading:MAdminUsersPhotosItemStatus
         
         FMain.sharedInstance.storage.loadData(
             path:pathImage)
-        { [weak self] (data, error) in
+        { [weak self] (data:Data?, error:Error?) in
             
             guard
             

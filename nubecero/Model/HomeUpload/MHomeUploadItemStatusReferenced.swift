@@ -48,7 +48,7 @@ class MHomeUploadItemStatusReferenced:MHomeUploadItemStatus
         FMain.sharedInstance.storage.saveData(
             path:pathPhotos,
             data:imageData)
-        { [weak self, weak controller] (error) in
+        { [weak self, weak controller] (error:String?) in
             
             if let errorStrong:String = error
             {

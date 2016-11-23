@@ -143,7 +143,7 @@ class COnboardForm:CController
         FIRAuth.auth()?.signIn(
             withEmail:credentials.email,
             password:credentials.password)
-        { [weak self] (user, error) in
+        { [weak self] (user:FIRUser?, error:Error?) in
             
             guard
                 
@@ -191,7 +191,7 @@ class COnboardForm:CController
         { [weak self] in
 
             self?.model.createCredentials
-            { [weak self] (credentials, errorString) in
+            { [weak self] (credentials:MOnboardFormCredentials?, errorString:String?) in
                 
                 guard
                 
@@ -252,7 +252,7 @@ class COnboardForm:CController
             NSLocalizedString("COnboardForm_forgotSend", comment:""),
             style:
             UIAlertActionStyle.default)
-        { [weak self] (action) in
+        { [weak self] (action:UIAlertAction) in
             
             guard
                 

@@ -21,7 +21,7 @@ class MSessionServer
         FMain.sharedInstance.database.listenOnce(
             path:parentServer,
             modelType:FDatabaseModelServer.self)
-        { (modelServer) in
+        { (modelServer:FDatabaseModelServer?) in
             
             guard
                 

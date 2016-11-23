@@ -31,7 +31,7 @@ class MPhotosItem
     func sortPhotos()
     {
         references.sort
-        { (referenceA, referenceB) -> Bool in
+        { (referenceA:MPhotosItemPhotoReference, referenceB:MPhotosItemPhotoReference) -> Bool in
             
             let createdA:TimeInterval = referenceA.created
             let createdB:TimeInterval = referenceB.created

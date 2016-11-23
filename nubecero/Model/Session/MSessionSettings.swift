@@ -11,7 +11,7 @@ class MSessionSettings
         DManager.sharedInstance.fetchManagedObjects(
             modelType:DObjectSettings.self,
             limit:1)
-        { (objects) in
+        { (objects:[DObjectSettings]?) in
             
             guard
                 
@@ -40,7 +40,7 @@ class MSessionSettings
     {
         DManager.sharedInstance.createManagedObject(
             modelType:DObjectSettings.self)
-        { (settings) in
+        { (settings:DObjectSettings) in
             
             self.current = settings
             

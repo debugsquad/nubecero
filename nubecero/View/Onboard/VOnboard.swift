@@ -6,7 +6,7 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
     private weak var controller:COnboard!
     private weak var collectionView:UICollectionView!
     private weak var labelDisclaimer:UILabel!
-    private weak var pageController:UIPageControl!
+    private weak var pageControl:UIPageControl!
     private weak var layoutCollectionTop:NSLayoutConstraint!
     private weak var layoutCollectionBottom:NSLayoutConstraint!
     private let kOptionsHeight:CGFloat = 34
@@ -32,7 +32,7 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.numberOfPages = controller.model.items.count
         pageControl.currentPage = 0
-        self.pageController = pageControl
+        self.pageControl = pageControl
         
         let viewOptions:VOnboardOptions = VOnboardOptions(controller:controller)
         self.viewOptions = viewOptions
@@ -45,7 +45,9 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         flow.sectionInset = UIEdgeInsets.zero
         
-        let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        let collectionView:UICollectionView = UICollectionView(
+            frame:CGRect.zero,
+            collectionViewLayout:flow)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = UIColor.clear
         collectionView.clipsToBounds = true
@@ -195,7 +197,7 @@ class VOnboard:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIC
         }
         
         let itemPath:Int = indexPath.item
-        pageController.currentPage = itemPath
+        pageControl.currentPage = itemPath
     }
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize

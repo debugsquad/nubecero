@@ -154,20 +154,23 @@ class MPhotos
             modelType:FDatabaseModelPhotoList.self)
         { (photoList) in
             
-            guard
-                
-                let photosMap:[PhotoId:FDatabaseModelPhoto] = photoList?.items
-                
-            else
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             {
-                self.photoDeletables = []
-                self.albumReferences = []
-                self.photosLoaded()
+                guard
+                    
+                    let photosMap:[PhotoId:FDatabaseModelPhoto] = photoList?.items
+                    
+                else
+                {
+                    self.photoDeletables = []
+                    self.albumReferences = []
+                    self.photosLoaded()
+                    
+                    return
+                }
                 
-                return
+                self.comparePhotos(photosMap:photosMap)
             }
-            
-            self.comparePhotos(photosMap:photosMap)
         }
     }
     

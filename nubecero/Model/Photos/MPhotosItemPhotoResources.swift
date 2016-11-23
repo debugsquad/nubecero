@@ -39,7 +39,7 @@ class MPhotosItemPhotoResources
         
         NotificationCenter.default.post(
             name:Notification.imageDataLoaded,
-            object:self)
+            object:item)
         
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
@@ -82,7 +82,7 @@ class MPhotosItemPhotoResources
         
         NotificationCenter.default.post(
             name:Notification.thumbnailReady,
-            object:self)
+            object:item)
     }
     
     private func asyncCountDown()

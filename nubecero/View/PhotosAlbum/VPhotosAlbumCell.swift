@@ -4,7 +4,7 @@ class VPhotosAlbumCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private weak var model:MPhotosItemPhoto?
-    private let kAnimationDuration:TimeInterval = 1
+    private let kAnimationDuration:TimeInterval = 1.5
     
     override init(frame:CGRect)
     {
@@ -41,6 +41,12 @@ class VPhotosAlbumCell:UICollectionViewCell
             options:[],
             metrics:metrics,
             views:views))
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedThumbnailReady(sender:)),
+            name:Notification.thumbnailReady,
+            object:nil)
     }
     
     required init?(coder:NSCoder)

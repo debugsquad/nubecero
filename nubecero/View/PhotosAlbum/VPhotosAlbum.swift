@@ -199,7 +199,7 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     private func modelAtIndex(index:IndexPath) -> MPhotosItemPhoto
     {
         let reference:MPhotosItemPhotoReference = controller.model.references[index.item]
-        let item:MPhotosItemPhoto = MPhotos.sharedInstance.photos[reference]!
+        let item:MPhotosItemPhoto = MPhotos.sharedInstance.photos[reference.photoId]!
         
         return item
     }

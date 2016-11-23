@@ -237,6 +237,25 @@ class MPhotos
         self.photos = items
         self.photoDeletables = deletables
         
+        sortAlbums()
+    }
+    
+    private func sortAlbums()
+    {
+        for albumReference:MPhotosItemReference in albumReferences
+        {
+            guard
+            
+                let album:MPhotosItem = albumItems[albumReference.albumId]
+            
+            else
+            {
+                continue
+            }
+            
+            album.sortPhotos()
+        }
+        
         photosLoaded()
     }
     

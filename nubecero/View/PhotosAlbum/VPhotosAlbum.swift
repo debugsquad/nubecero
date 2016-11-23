@@ -187,6 +187,12 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     
     //MARK: collectionView delegate
     
+    func scrollViewDidScroll(_ scrollView:UIScrollView)
+    {
+        let yOffset:CGFloat = scrollView.contentOffset.y
+        layoutBackgroundTop.constant = kCollectionTop - yOffset
+    }
+    
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
         return cellSize

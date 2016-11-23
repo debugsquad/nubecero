@@ -7,6 +7,7 @@ class CPhotos:CController
     deinit
     {
         NotificationCenter.default.removeObserver(self)
+        MPhotos.sharedInstance.cleanResources()
     }
     
     override func viewDidLoad()

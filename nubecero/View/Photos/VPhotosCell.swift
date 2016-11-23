@@ -11,10 +11,11 @@ class VPhotosCell:UICollectionViewCell
     private let boundingRect:CGSize
     private let drawingOptions:NSStringDrawingOptions
     private let numberFormatter:NumberFormatter
-    private let kAnimationDuration:TimeInterval = 2
+    private let kAnimateAfter:TimeInterval = 0.05
+    private let kAnimationDuration:TimeInterval = 0.3
     private let kBoundingRectWidth:CGFloat = 500
     private let kLabelSizeLeft:CGFloat = 10
-    private let kLabelSizeRight:CGFloat = 15
+    private let kLabelSizeRight:CGFloat = 30
     private let kAlphaSelected:CGFloat = 0.3
     private let kAlphaNotSelected:CGFloat = 1
     private let kKiloBytesPerMega:CGFloat = 1000
@@ -220,12 +221,28 @@ class VPhotosCell:UICollectionViewCell
             options:drawingOptions,
             context:nil).width)
         let labelMarginWidth:CGFloat = labelWidth + kLabelSizeLeft + kLabelSizeRight
-        layoutRightWidth.constant = labelMarginWidth
+        layoutRightWidth.constant = 0
         
-        UIView.animate(withDuration:kAnimationDuration)
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kAnimateAfter)
         { [weak self] in
             
-            self?.layoutIfNeeded()
+            guard
+                
+                let animationDuration:TimeInterval = self?.kAnimationDuration
+            
+            else
+            {
+                return
+            }
+            
+            self?.layoutRightWidth.constant = labelMarginWidth
+            
+            UIView.animate(withDuration:animationDuration)
+            { [weak self] in
+                
+                self?.layoutIfNeeded()
+            }
         }
     }
 }

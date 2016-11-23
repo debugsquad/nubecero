@@ -14,8 +14,8 @@ class MPhotos
     static let sharedInstance:MPhotos = MPhotos()
     static let kThumbnailSize:CGFloat = 100
     let defaultAlbum:MPhotosItemDefault
+    private var photoDeletables:[MPhotosItemPhoto]
     private(set) var albumItems:[AlbumId:MPhotosItemUser]
-    private(set) var photoDeletables:[MPhotosItemPhoto]
     private(set) var albumReferences:[MPhotosItemReference]
     private(set) var photos:[PhotoId:MPhotosItemPhoto]
     private var loading:Bool

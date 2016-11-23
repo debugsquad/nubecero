@@ -56,7 +56,7 @@ class VPhotosAlbumTitle:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[labelName(30)]-0-[labelInfo(20)]-10-|",
+            withVisualFormat:"V:[labelName(26)]-0-[labelInfo(16)]-4-|",
             options:[],
             metrics:metrics,
             views:views))

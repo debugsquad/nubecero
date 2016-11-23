@@ -7,10 +7,12 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     private weak var collectionView:UICollectionView!
     private weak var layoutBackgroundTop:NSLayoutConstraint!
     private weak var layoutBackButtonTop:NSLayoutConstraint!
+    private weak var layoutTitleBottom:NSLayoutConstraint!
     private var cellSize:CGSize!
     private let kInterLine:CGFloat = 1
     private let kCollectionTop:CGFloat = 130
-    private let kCollectionBottom:CGFloat = 20
+    private let kCollectionBottom:CGFloat = 5
+    private let kBackButtonTop:CGFloat = 20
     
     convenience init(controller:CPhotosAlbum)
     {
@@ -77,11 +79,11 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             VPhotosAlbumCell.reusableIdentifier)
         self.collectionView = collectionView
         
-        addSubview(background)
-        addSubview(leftBorder)
-        addSubview(collectionView)
         addSubview(albumTitle)
+        addSubview(background)
+        addSubview(collectionView)
         addSubview(backButton)
+        addSubview(leftBorder)
         
         let views:[String:UIView] = [
             "background":background,
@@ -118,7 +120,7 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[backButton(44)]-0-[albumTitle]",
+            withVisualFormat:"V:[backButton(44)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -145,7 +147,7 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             toItem:self,
             attribute:NSLayoutAttribute.top,
             multiplier:1,
-            constant:20)
+            constant:kBackButtonTop)
         
         layoutBackgroundTop = NSLayoutConstraint(
             item:background,
@@ -156,8 +158,18 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             multiplier:1,
             constant:kCollectionTop)
         
+        layoutTitleBottom = NSLayoutConstraint(
+            item:albumTitle,
+            attribute:NSLayoutAttribute.bottom,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:background,
+            attribute:NSLayoutAttribute.top,
+            multiplier:1,
+            constant:0)
+        
         addConstraint(layoutBackButtonTop)
         addConstraint(layoutBackgroundTop)
+        addConstraint(layoutTitleBottom)
     }
     
     override func layoutSubviews()
@@ -191,6 +203,18 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     {
         let yOffset:CGFloat = scrollView.contentOffset.y
         layoutBackgroundTop.constant = kCollectionTop - yOffset
+        
+        if yOffset > 0
+        {
+            let halfOffset:CGFloat = yOffset / -2.0
+            layoutBackButtonTop.constant = kBackButtonTop + halfOffset
+            layoutTitleBottom.constant = halfOffset
+        }
+        else
+        {
+            layoutBackButtonTop.constant = kBackButtonTop
+            layoutTitleBottom.constant = 0
+        }
     }
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize

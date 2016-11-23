@@ -7,7 +7,8 @@ class VPhotosAlbum:UIView
     private weak var collectionView:UICollectionView!
     private weak var layoutBackgroundTop:NSLayoutConstraint!
     private weak var layoutBackButtonTop:NSLayoutConstraint!
-    private let kLineSpacing:CGFloat = 1
+    private var cellSize:CGSize!
+    private let kInterLine:CGFloat = 1
     private let kCollectionTop:CGFloat = 130
     private let kCollectionBottom:CGFloat = 20
     
@@ -51,7 +52,7 @@ class VPhotosAlbum:UIView
         flow.headerReferenceSize = CGSize.zero
         flow.footerReferenceSize = CGSize.zero
         flow.minimumInteritemSpacing = 0
-        flow.minimumLineSpacing = kLineSpacing
+        flow.minimumLineSpacing = kInterLine
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
         flow.sectionInset = UIEdgeInsets(
             top:kCollectionTop,
@@ -130,10 +131,28 @@ class VPhotosAlbum:UIView
         addConstraint(layoutBackgroundTop)
     }
     
+    override func layoutSubviews()
+    {
+        computeCellSize()
+        collectionView.collectionViewLayout.invalidateLayout()
+        
+        super.layoutSubviews()
+    }
+    
     //MARK: actions
     
     func actionBack(sender button:UIButton)
     {
         controller.back()
+    }
+    
+    //MARK: private
+    
+    private func computeCellSize()
+    {
+        let width:CGFloat = bounds.maxX - kInterLine
+        let proximate:CGFloat = floor(width / MPhotos.kThumbnailSize)
+        let size:CGFloat = (width / proximate) - kInterLine
+        cellSize = CGSize(width:size, height:size)
     }
 }

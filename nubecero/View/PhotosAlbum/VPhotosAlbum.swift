@@ -265,8 +265,6 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
-        let item:MPhotosItemPhoto = modelAtIndex(index:indexPath)
-        
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)
         { [weak collectionView] in
@@ -276,5 +274,28 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
                 animated:false,
                 scrollPosition:UICollectionViewScrollPosition())
         }
+        
+        let item:MPhotosItemPhoto = modelAtIndex(index:indexPath)
+        
+        guard
+            
+            let cell:UICollectionViewCell = collectionView.cellForItem(at:indexPath)
+        
+        else
+        {
+            return
+        }
+        
+        let cellFrame:CGRect = cell.frame
+        let offsetY:CGFloat = collectionView.contentOffset.y
+        let cellLocation:CGRect = CGRect(
+            x:cellFrame.origin.x,
+            y:cellFrame.origin.y - offsetY,
+            width:cellFrame.size.width,
+            height:cellFrame.size.height)
+        
+        controller.selectPhoto(
+            item:item,
+            inRect:cellLocation)
     }
 }

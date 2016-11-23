@@ -5,7 +5,7 @@ class CPhotosAlbumPhoto:CController
     private weak var viewPhoto:VPhotosAlbumPhoto!
     weak var model:MPhotosItemPhoto!
     
-    init(model:MPhotosItemPhoto, frame:CGRect)
+    init(model:MPhotosItemPhoto, inRect:CGRect)
     {
         self.model = model
         super.init()

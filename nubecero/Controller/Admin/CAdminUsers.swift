@@ -34,7 +34,7 @@ class CAdminUsers:CController
         FMain.sharedInstance.database.listenOnce(
             path:parentUser,
             modelType:FDatabaseModelUserList.self)
-        { [weak self] (users) in
+        { [weak self] (users:FDatabaseModelUserList?) in
             
             guard
             

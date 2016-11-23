@@ -167,7 +167,7 @@ class VParent:UIView
             {
                 controller.view.alpha = 1
             })
-            { (done) in
+            { (done:Bool) in
                 
                 completion()
             }

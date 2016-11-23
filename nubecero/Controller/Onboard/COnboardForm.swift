@@ -104,7 +104,7 @@ class COnboardForm:CController
         FIRAuth.auth()?.createUser(
             withEmail:credentials.email,
             password:credentials.password)
-        { [weak self] (user, error) in
+        { [weak self] (user:FIRUser?, error:Error?) in
             
             guard
                 

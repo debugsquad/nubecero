@@ -33,7 +33,7 @@ class CAdminServer:CController
         FMain.sharedInstance.database.listenOnce(
             path:parentServer,
             modelType:FDatabaseModelServer.self)
-        { [weak self] (modelServer) in
+        { [weak self] (modelServer:FDatabaseModelServer?) in
             
             guard
                 

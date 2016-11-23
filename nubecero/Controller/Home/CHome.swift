@@ -112,7 +112,7 @@ class CHome:CController
             FMain.sharedInstance.database.listenOnce(
                 path:pathDiskUsed,
                 modelType:FDatabaseModelUserDiskUsed.self)
-            { [weak self] (diskUsed) in
+            { [weak self] (diskUsed:FDatabaseModelUserDiskUsed?) in
                 
                 guard
                 

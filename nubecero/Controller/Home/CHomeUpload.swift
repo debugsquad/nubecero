@@ -45,7 +45,7 @@ class CHomeUpload:CController
             case PHAuthorizationStatus.notDetermined:
                 
                 PHPhotoLibrary.requestAuthorization()
-                { [weak self] (status) in
+                { [weak self] (status:PHAuthorizationStatus) in
                     
                     if status == PHAuthorizationStatus.authorized
                     {
@@ -249,7 +249,7 @@ class CHomeUpload:CController
         {
             PHAssetChangeRequest.deleteAssets(deletableEnumeration)
         })
-        { [weak self] (done, error) in
+        { [weak self] (done:Bool, error:Error?) in
             
             if let errorStrong:Error = error
             {

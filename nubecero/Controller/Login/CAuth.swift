@@ -42,8 +42,9 @@ class CAuth:CController
         
         laContext.evaluatePolicy(
             LAPolicy.deviceOwnerAuthentication,
-            localizedReason:NSLocalizedString("CAuth_reason", comment:""))
-        { [weak self] (success, error) in
+            localizedReason:
+            NSLocalizedString("CAuth_reason", comment:""))
+        { [weak self] (success:Bool, error:Error?) in
             
             if success
             {

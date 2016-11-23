@@ -48,7 +48,7 @@ class CAdminUsersPhotos:CController
         FMain.sharedInstance.database.listenOnce(
             path:pathPhotos,
             modelType:FDatabaseModelPhotoList.self)
-        { [weak self] (photos) in
+        { [weak self] (photos:FDatabaseModelPhotoList?) in
             
             guard
             

@@ -65,7 +65,7 @@ class MSessionUser
         FMain.sharedInstance.database.listenOnce(
             path:userSessionPath,
             modelType:FDatabaseModelUserSession.self)
-        { (session) in
+        { (session:FDatabaseModelUserSession?) in
             
             if let receivedSession:FDatabaseModelUserSession = session
             {

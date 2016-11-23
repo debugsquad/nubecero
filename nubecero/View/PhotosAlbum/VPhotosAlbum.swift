@@ -56,9 +56,9 @@ class VPhotosAlbum:UIView
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
         flow.sectionInset = UIEdgeInsets(
             top:kCollectionTop,
-            left:0,
+            left:kInterLine,
             bottom:kCollectionBottom,
-            right:0)
+            right:kInterLine)
         
         addSubview(background)
         addSubview(leftBorder)

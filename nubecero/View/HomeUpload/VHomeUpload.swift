@@ -27,7 +27,11 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         flow.footerReferenceSize = CGSize.zero
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
-        flow.sectionInset = UIEdgeInsets(top:kInterLine, left:0, bottom:kCollectionBottom, right:0)
+        flow.sectionInset = UIEdgeInsets(
+            top:kInterLine,
+            left:kInterLine,
+            bottom:kCollectionBottom,
+            right:kInterLine)
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)

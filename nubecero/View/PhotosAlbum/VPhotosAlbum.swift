@@ -184,4 +184,30 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         let size:CGFloat = (width / proximate) - kInterLine
         cellSize = CGSize(width:size, height:size)
     }
+    
+    //MARK: collectionView delegate
+    
+    
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.model.references.count
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let cell:VPhotosAlbumCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VPhotosAlbumCell.reusableIdentifier,
+            for:indexPath) as! VPhotosAlbumCell
+        
+        return cell
+    }
 }

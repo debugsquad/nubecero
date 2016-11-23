@@ -6,7 +6,7 @@ class VPhotosAlbumCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.background
+        backgroundColor = UIColor(red:0.88, green:0.91, blue:0.93, alpha:1)
     }
     
     required init?(coder:NSCoder)

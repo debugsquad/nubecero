@@ -187,7 +187,10 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     
     //MARK: collectionView delegate
     
-    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        return cellSize
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {

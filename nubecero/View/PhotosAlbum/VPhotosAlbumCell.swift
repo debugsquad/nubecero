@@ -5,7 +5,7 @@ class VPhotosAlbumCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private weak var model:MPhotosItemPhoto?
     private let kAnimationDuration:TimeInterval = 1.5
-    private let kAlphaSelected:CGFloat = 0.15
+    private let kAlphaSelected:CGFloat = 0.3
     private let kAlphaNotSelected:CGFloat = 1
     
     override init(frame:CGRect)

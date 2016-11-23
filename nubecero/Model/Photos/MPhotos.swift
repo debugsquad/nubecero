@@ -1,4 +1,5 @@
 import UIKit
+import FirebaseDatabase
 
 class MPhotos
 {
@@ -19,6 +20,7 @@ class MPhotos
     private(set) var albumReferences:[MPhotosItemReference]
     private(set) var photos:[PhotoId:MPhotosItemPhoto]
     private var loading:Bool
+    private let kZero:Int = 0
     
     private init()
     {
@@ -270,6 +272,8 @@ class MPhotos
         NotificationCenter.default.post(
             name:Notification.photosLoaded,
             object:nil)
+        
+        deletePictures()
     }
     
     private func asyncCleanResources()
@@ -281,6 +285,116 @@ class MPhotos
             let photo:MPhotosItemPhoto? = photos[photoId]
             photo?.resources.cleanResources()
         }
+    }
+    
+    private func deletePictures()
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            self.asyncDeletePictures()
+        }
+    }
+    
+    private func asyncDeletePictures()
+    {
+        if !loading
+        {
+            guard
+                
+                let photo:MPhotosItemPhoto = photoDeletables.popLast()
+                
+            else
+            {
+                return
+            }
+            
+            removeFromStorage(photo:photo)
+        }
+    }
+    
+    private func removeFromStorage(photo:MPhotosItemPhoto)
+    {
+        guard
+        
+            let userId:MSession.UserId = MSession.sharedInstance.user.userId
+        
+        else
+        {
+            return
+        }
+        
+        let photoId:PhotoId = photo.photoId
+        let parentUser:String = FStorage.Parent.user.rawValue
+        let photoPath:String = "\(parentUser)/\(userId)/\(photoId)"
+        
+        FMain.sharedInstance.storage.deleteData(
+            path:photoPath)
+        { (error:Error?) in
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            {
+                if error == nil
+                {
+                    FMain.sharedInstance.analytics?.cleanPhotoDeletable()
+                }
+                else
+                {
+                    FMain.sharedInstance.analytics?.cleanPhotoDeletableNoData()
+                }
+                
+                self.removeFromDatabase(photo:photo)
+            }
+        }
+    }
+    
+    private func removeFromDatabase(photo:MPhotosItemPhoto)
+    {
+        guard
+            
+            let userId:MSession.UserId = MSession.sharedInstance.user.userId
+            
+        else
+        {
+            return
+        }
+        
+        let photoId:PhotoId = photo.photoId
+        let photoSize:Int = photo.size
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let propertyPhotos:String = FDatabaseModelUser.Property.photos.rawValue
+        let propertyDiskUsed:String = FDatabaseModelUser.Property.diskUsed.rawValue
+        let photoPath:String = "\(parentUser)/\(userId)/\(propertyPhotos)/\(photoId)"
+        let diskUsedPath:String = "\(parentUser)/\(userId)/\(propertyDiskUsed)"
+        
+        FMain.sharedInstance.database.transaction(
+            path:diskUsedPath)
+        { (mutableData:FIRMutableData) -> (FIRTransactionResult) in
+            
+            if let currentDiskUsed:Int = mutableData.value as? Int
+            {
+                var newDataLength:Int = currentDiskUsed - photoSize
+                
+                if newDataLength < self.kZero
+                {
+                    newDataLength = self.kZero
+                }
+                
+                mutableData.value = newDataLength
+            }
+            else
+            {
+                mutableData.value = self.kZero
+            }
+            
+            let transactionResult:FIRTransactionResult = FIRTransactionResult.success(
+                withValue:mutableData)
+            
+            return transactionResult
+        }
+        
+        FMain.sharedInstance.database.removeChild(path:photoPath)
+        
+        deletePictures()
     }
     
     //MARK: public

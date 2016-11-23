@@ -4,9 +4,17 @@ class VPhotosCell:UICollectionViewCell
 {
     private weak var label:UILabel!
     private weak var labelSize:UILabel!
+    private weak var layoutRightWidth:NSLayoutConstraint!
     private let attributesName:[String:AnyObject]
     private let attributesCount:[String:AnyObject]
+    private let attributesSize:[String:AnyObject]
+    private let boundingRect:CGSize
+    private let drawingOptions:NSStringDrawingOptions
     private let numberFormatter:NumberFormatter
+    private let kAnimationDuration:TimeInterval = 2
+    private let kBoundingRectWidth:CGFloat = 500
+    private let kLabelSizeLeft:CGFloat = 10
+    private let kLabelSizeRight:CGFloat = 15
     private let kAlphaSelected:CGFloat = 0.3
     private let kAlphaNotSelected:CGFloat = 1
     private let kKiloBytesPerMega:CGFloat = 1000
@@ -26,6 +34,16 @@ class VPhotosCell:UICollectionViewCell
             NSForegroundColorAttributeName:UIColor(white:0.45, alpha:1)
         ]
         
+        attributesSize = [
+            NSFontAttributeName:UIFont.medium(size:13)
+        ]
+        
+        boundingRect = CGSize(width:kBoundingRectWidth, height:frame.size.height)
+        drawingOptions = NSStringDrawingOptions([
+                NSStringDrawingOptions.usesFontLeading,
+                NSStringDrawingOptions.usesLineFragmentOrigin
+            ])
+        
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
@@ -41,8 +59,7 @@ class VPhotosCell:UICollectionViewCell
         labelSize.isUserInteractionEnabled = false
         labelSize.translatesAutoresizingMaskIntoConstraints = false
         labelSize.backgroundColor = UIColor.clear
-        labelSize.font = UIFont.regular(size:15)
-        labelSize.textColor = UIColor.complement
+        labelSize.textColor = UIColor.white
         self.labelSize = labelSize
         
         let leftView:UIView = UIView()
@@ -55,7 +72,7 @@ class VPhotosCell:UICollectionViewCell
         rightView.isUserInteractionEnabled = false
         rightView.translatesAutoresizingMaskIntoConstraints = false
         rightView.clipsToBounds = true
-        rightView.backgroundColor = UIColor(red:0.92, green:0.95, blue:0.97, alpha:1)
+        rightView.backgroundColor = UIColor.complement
         
         rightView.addSubview(labelSize)
         leftView.addSubview(label)
@@ -68,7 +85,8 @@ class VPhotosCell:UICollectionViewCell
             "leftView":leftView,
             "labelSize":labelSize]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "labelSizeLeft":kLabelSizeLeft]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-10-[label]-2-|",
@@ -76,12 +94,12 @@ class VPhotosCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[labelSize]-0-|",
+            withVisualFormat:"H:|-10-[labelSize(150)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[leftView]-0-[rightView(120)]-0-|",
+            withVisualFormat:"H:|-0-[leftView]-0-[rightView]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -105,6 +123,17 @@ class VPhotosCell:UICollectionViewCell
             options:[],
             metrics:metrics,
             views:views))
+        
+        layoutRightWidth = NSLayoutConstraint(
+            item:rightView,
+            attribute:NSLayoutAttribute.width,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.notAnAttribute,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutRightWidth)
     }
     
     required init?(coder:NSCoder)
@@ -179,7 +208,24 @@ class VPhotosCell:UICollectionViewCell
         mutableString.append(stringName)
         mutableString.append(stringCount)
         
+        let attrCompositeSize:NSAttributedString = NSAttributedString(
+            string:compositeStringSize,
+            attributes:attributesSize)
+        
         label.attributedText = mutableString
-        labelSize.text = compositeStringSize
+        labelSize.attributedText = attrCompositeSize
+        
+        let labelWidth:CGFloat = ceil(attrCompositeSize.boundingRect(
+            with:boundingRect,
+            options:drawingOptions,
+            context:nil).width)
+        let labelMarginWidth:CGFloat = labelWidth + kLabelSizeLeft + kLabelSizeRight
+        layoutRightWidth.constant = labelMarginWidth
+        
+        UIView.animate(withDuration:kAnimationDuration)
+        { [weak self] in
+            
+            self?.layoutIfNeeded()
+        }
     }
 }

@@ -96,7 +96,7 @@ class CLogin:CController
                     UNAuthorizationOptions.sound]
                 
                 UNUserNotificationCenter.current().requestAuthorization(options:authOptions)
-                { (_, _) in
+                { (done:Bool, error:Error?) in
                 }
             }
             else

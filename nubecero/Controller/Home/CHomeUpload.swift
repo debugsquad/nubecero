@@ -208,7 +208,7 @@ class CHomeUpload:CController
             NSLocalizedString("CHomeUpload_uploadedRemove", comment:""),
             style:
             UIAlertActionStyle.destructive)
-        { (action) in
+        { (action:UIAlertAction) in
             
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             { [weak self] in

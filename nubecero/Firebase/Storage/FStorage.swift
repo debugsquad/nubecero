@@ -24,7 +24,7 @@ class FStorage
         childReference.put(
             data,
             metadata:nil)
-        { (metaData, error) in
+        { (metaData:FIRStorageMetadata?, error:Error?) in
             
             let errorString:String? = error?.localizedDescription
             completionHandler(errorString)

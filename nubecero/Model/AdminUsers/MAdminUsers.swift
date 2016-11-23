@@ -29,7 +29,7 @@ class MAdminUsers
         var items:[MAdminUsersItem] = self.items
         
         items.sort
-        { (itemA, itemB) -> Bool in
+            { (itemA:MAdminUsersItem, itemB:MAdminUsersItem) -> Bool in
             
             let before:Bool
             

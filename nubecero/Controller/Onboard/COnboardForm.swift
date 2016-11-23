@@ -267,7 +267,7 @@ class COnboardForm:CController
             if email.characters.count > minEmailLength
             {
                 FIRAuth.auth()?.sendPasswordReset(withEmail:email)
-                { (error) in
+                { (error:Error?) in
                     
                     let message:String
                     
@@ -291,7 +291,7 @@ class COnboardForm:CController
         }
         
         alert.addTextField
-        { (textfield) in
+            { (textfield:UITextField) in
             
             textfield.placeholder = NSLocalizedString("COnboardForm_forgotPlaceholder", comment:"")
             textfield.keyboardType = UIKeyboardType.emailAddress

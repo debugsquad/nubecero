@@ -20,7 +20,7 @@ class MAdminUsersPhotos
         }
         
         items.sort
-        { (itemA, itemB) -> Bool in
+        { (itemA:MAdminUsersPhotosItem, itemB:MAdminUsersPhotosItem) -> Bool in
             
             return itemA.created < itemB.created
         }

@@ -61,7 +61,8 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
         FMain.sharedInstance.database.listenOnce(
             path:pathDiskUsed,
             modelType:FDatabaseModelUserDiskUsed.self)
-        { [weak self, weak controller] (diskUsed:FDatabaseModelUserDiskUsed?) in
+        { [weak self, weak controller] (
+            diskUsed:FDatabaseModelUserDiskUsed?) in
             
             guard
             

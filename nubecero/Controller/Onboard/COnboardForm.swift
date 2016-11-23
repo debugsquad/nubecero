@@ -191,7 +191,9 @@ class COnboardForm:CController
         { [weak self] in
 
             self?.model.createCredentials
-            { [weak self] (credentials:MOnboardFormCredentials?, errorString:String?) in
+            { [weak self] (
+                credentials:MOnboardFormCredentials?,
+                errorString:String?) in
                 
                 guard
                 

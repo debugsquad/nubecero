@@ -245,6 +245,8 @@ class MPhotos
     
     private func sortAlbums()
     {
+        defaultAlbum.sortPhotos()
+        
         for albumReference:MPhotosItemReference in albumReferences
         {
             guard

@@ -119,7 +119,7 @@ class MPhotosItemPhotoResources
         
         FMain.sharedInstance.storage.loadData(
             path:imagePath)
-        { [weak self] (data, error) in
+        { [weak self] (data:Data?, error:Error?) in
             
             guard
                 

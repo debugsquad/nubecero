@@ -181,7 +181,7 @@ class VAlert:UIView
             self?.superview?.layoutIfNeeded()
             
         })
-        { [weak self] (done) in
+        { [weak self] (done:Bool) in
         
             if open
             {

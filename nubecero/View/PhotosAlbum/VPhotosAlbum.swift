@@ -11,7 +11,6 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     private var cellSize:CGSize!
     private let kInterLine:CGFloat = 1
     private let kCollectionTop:CGFloat = 130
-    private let kCollectionBottom:CGFloat = 5
     private let kBackButtonTop:CGFloat = 20
     
     convenience init(controller:CPhotosAlbum)
@@ -59,7 +58,7 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         flow.sectionInset = UIEdgeInsets(
             top:kCollectionTop + kInterLine,
             left:kInterLine,
-            bottom:kCollectionBottom,
+            bottom:kInterLine,
             right:kInterLine)
         
         let collectionView:UICollectionView = UICollectionView(

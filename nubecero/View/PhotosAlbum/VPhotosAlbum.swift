@@ -1,6 +1,6 @@
 import UIKit
 
-class VPhotosAlbum:UIView
+class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CPhotosAlbum!
     private weak var backButton:UIButton!
@@ -55,13 +55,31 @@ class VPhotosAlbum:UIView
         flow.minimumLineSpacing = kInterLine
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
         flow.sectionInset = UIEdgeInsets(
-            top:kCollectionTop,
+            top:kCollectionTop + kInterLine,
             left:kInterLine,
             bottom:kCollectionBottom,
             right:kInterLine)
         
+        let collectionView:UICollectionView = UICollectionView(
+            frame:CGRect.zero,
+            collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(
+            VPhotosAlbumCell.self,
+            forCellWithReuseIdentifier:
+            VPhotosAlbumCell.reusableIdentifier)
+        self.collectionView = collectionView
+        
         addSubview(background)
         addSubview(leftBorder)
+        addSubview(collectionView)
         addSubview(albumTitle)
         addSubview(backButton)
         
@@ -69,7 +87,8 @@ class VPhotosAlbum:UIView
             "background":background,
             "backButton":backButton,
             "leftBorder":leftBorder,
-            "albumTitle":albumTitle]
+            "albumTitle":albumTitle,
+            "collectionView":collectionView]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -94,6 +113,11 @@ class VPhotosAlbum:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[backButton(44)]-0-[albumTitle]",
             options:[],
             metrics:metrics,
@@ -105,6 +129,11 @@ class VPhotosAlbum:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[background]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))

@@ -20,6 +20,18 @@ class VPhotosAlbumPhotoList:UIView, UICollectionViewDelegate, UICollectionViewDa
         super.layoutSubviews()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MPhotosItemPhoto
+    {
+        let reference:MPhotosItemPhotoReference = controller.model.references[
+            index.item]
+        let item:MPhotosItemPhoto = MPhotos.sharedInstance.photos[
+            reference.photoId]!
+        
+        return item
+    }
+    
     //MARK: collectionView delegate
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
@@ -41,10 +53,12 @@ class VPhotosAlbumPhotoList:UIView, UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MPhotosItemPhoto = modelAtIndex(index:indexPath)
         let cell:VPhotosAlbumPhotoListCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
             VPhotosAlbumPhotoListCell.reusableIdentifier,
             for:indexPath) as! VPhotosAlbumPhotoListCell
+        cell.config(model:item)
         
         return cell
     }

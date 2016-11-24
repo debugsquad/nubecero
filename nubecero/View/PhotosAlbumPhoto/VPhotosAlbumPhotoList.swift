@@ -13,13 +13,7 @@ class VPhotosAlbumPhotoList:UIView, UICollectionViewDelegate, UICollectionViewDa
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSize.zero
-        flow.footerReferenceSize = CGSize.zero
-        flow.minimumLineSpacing = 0
-        flow.minimumInteritemSpacing = 0
-        flow.scrollDirection = UICollectionViewScrollDirection.horizontal
-        flow.sectionInset = UIEdgeInsets.zero
+        let flow:VPhotosAlbumPhotoListFlow = VPhotosAlbumPhotoListFlow()
         
         let collectionView:UICollectionView = UICollectionView(
             frame:CGRect.zero,

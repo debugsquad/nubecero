@@ -4,14 +4,7 @@ class VPhotosAlbumPhoto:UIView
 {
     private weak var controller:CPhotosAlbumPhoto!
     private weak var viewList:VPhotosAlbumPhotoList!
-    private weak var layoutBarTop:NSLayoutConstraint!
-    private weak var layoutListTop:NSLayoutConstraint!
-    private weak var layoutListBottom:NSLayoutConstraint!
-    private weak var layoutListRight:NSLayoutConstraint!
-    private weak var layoutListLeft:NSLayoutConstraint!
     private let kBackgroundAnimationDuration:TimeInterval = 0.05
-    private let kListAnimationDuration:TimeInterval = 0.3
-    private let kBarAnimationDuration:TimeInterval = 0.3
     
     convenience init(controller:CPhotosAlbumPhoto)
     {
@@ -57,7 +50,8 @@ class VPhotosAlbumPhoto:UIView
         let views:[String:UIView] = [
             "background":background,
             "visualEffect":visualEffect,
-            "bar":bar]
+            "bar":bar,
+            "viewList":viewList]
         
         let metrics:[String:CGFloat] = [
             "barHeight":barHeight]
@@ -78,6 +72,11 @@ class VPhotosAlbumPhoto:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[viewList]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[background]-0-|",
             options:[],
             metrics:metrics,
@@ -88,100 +87,15 @@ class VPhotosAlbumPhoto:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[bar(barHeight)]",
+            withVisualFormat:"V:|-0-[bar(barHeight)]-0-[viewList]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         
-        layoutBarTop = NSLayoutConstraint(
-            item:bar,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
-            constant:-barHeight)
-        
-        layoutListTop = NSLayoutConstraint(
-            item:viewList,
-            attribute:NSLayoutAttribute.top,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.top,
-            multiplier:1,
-            constant:imageTop)
-        
-        layoutListBottom = NSLayoutConstraint(
-            item:viewList,
-            attribute:NSLayoutAttribute.bottom,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.bottom,
-            multiplier:1,
-            constant:imageBottom)
-        
-        layoutListRight = NSLayoutConstraint(
-            item:viewList,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:imageRight)
-        
-        layoutListLeft = NSLayoutConstraint(
-            item:viewList,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:imageLeft)
-        
-        addConstraint(layoutBarTop)
-        addConstraint(layoutListTop)
-        addConstraint(layoutListBottom)
-        addConstraint(layoutListRight)
-        addConstraint(layoutListLeft)
-        
-        let listAnimationDuration:TimeInterval = kListAnimationDuration
-        let barAnimationDuration:TimeInterval = kBarAnimationDuration
-        
         UIView.animate(
-            withDuration:kBackgroundAnimationDuration,
-            animations:
-            {
-                background.alpha = 1
-            })
-        { [weak self] (done:Bool) in
-            
-            self?.layoutListTop.constant = 0
-            self?.layoutListBottom.constant = 0
-            self?.layoutListRight.constant = 0
-            self?.layoutListLeft.constant = 0
-            
-            UIView.animate(
-                withDuration:
-                listAnimationDuration,
-                animations:
-                { [weak self] in
-                    
-                    self?.layoutIfNeeded()
-                    
-                })
-            { [weak self] (done:Bool) in
-                
-                self?.layoutBarTop.constant = 0
-                self?.layoutListTop.constant = barHeight
-                
-                UIView.animate(
-                    withDuration:
-                    barAnimationDuration)
-                    { [weak self] in
-                        
-                        self?.layoutIfNeeded()
-                    }
-            }
+            withDuration:kBackgroundAnimationDuration)
+        {
+            background.alpha = 1
         }
     }
 }

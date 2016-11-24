@@ -24,6 +24,37 @@ class VPhotosAlbumPhotoList:UIView, UICollectionViewDelegate, UICollectionViewDa
         let collectionView:UICollectionView = UICollectionView(
             frame:CGRect.zero,
             collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceHorizontal = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(
+            VPhotosAlbumPhotoListCell.self,
+            forCellWithReuseIdentifier:
+            VPhotosAlbumPhotoListCell.reusableIdentifier)
+        self.collectionView = collectionView
+        
+        addSubview(collectionView)
+        
+        let views:[String:UIView] = [
+            "collectionView":collectionView]
+        
+        let metrics:[String:CGFloat] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     override func layoutSubviews()

@@ -3,10 +3,16 @@ import UIKit
 class VPhotosAlbumPhotoListCell:UICollectionViewCell
 {
     private weak var controller:CPhotosAlbumPhoto?
+    private weak var scrollView:UIScrollView!
     private weak var model:MPhotosItemPhoto?
     
     override init(frame:CGRect)
     {
+        super.init(frame:frame)
+        clipsToBounds = true
+        backgroundColor = UIColor.clear
+        isUserInteractionEnabled = false
+        
         NotificationCenter.default.addObserver(
             self,
             selector:#selector(notifiedImageLoaded(sender:)),
@@ -35,12 +41,12 @@ class VPhotosAlbumPhotoListCell:UICollectionViewCell
                 
                 let picture:MPhotosItemPhoto = notification.object as? MPhotosItemPhoto
                 
-                else
+            else
             {
                 return
             }
             
-            if picture === self?.controller.model
+            if picture === self?.model
             {
                 self?.imageView.image = picture.resources.image
             }

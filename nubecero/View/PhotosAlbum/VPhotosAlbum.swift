@@ -275,8 +275,6 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
                 scrollPosition:UICollectionViewScrollPosition())
         }
         
-        let item:MPhotosItemPhoto = modelAtIndex(index:indexPath)
-        
         guard
             
             let cell:UICollectionViewCell = collectionView.cellForItem(at:indexPath)
@@ -295,7 +293,7 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             height:cellFrame.size.height)
         
         controller.selectPhoto(
-            item:item,
+            item:indexPath.item,
             inRect:cellLocation)
     }
 }

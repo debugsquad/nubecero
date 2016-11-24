@@ -3,14 +3,14 @@ import UIKit
 class VPhotosAlbumPhoto:UIView
 {
     private weak var controller:CPhotosAlbumPhoto!
-    private weak var imageView:UIImageView!
+    private weak var viewList:VPhotosAlbumPhotoList!
     private weak var layoutBarTop:NSLayoutConstraint!
-    private weak var layoutImageTop:NSLayoutConstraint!
-    private weak var layoutImageBottom:NSLayoutConstraint!
-    private weak var layoutImageRight:NSLayoutConstraint!
-    private weak var layoutImageLeft:NSLayoutConstraint!
+    private weak var layoutListTop:NSLayoutConstraint!
+    private weak var layoutListBottom:NSLayoutConstraint!
+    private weak var layoutListRight:NSLayoutConstraint!
+    private weak var layoutListLeft:NSLayoutConstraint!
     private let kBackgroundAnimationDuration:TimeInterval = 0.05
-    private let kImageAnimationDuration:TimeInterval = 0.3
+    private let kListAnimationDuration:TimeInterval = 0.3
     private let kBarAnimationDuration:TimeInterval = 0.3
     
     convenience init(controller:CPhotosAlbumPhoto)
@@ -30,14 +30,6 @@ class VPhotosAlbumPhoto:UIView
         let imageBottom:CGFloat = controller.inRect.maxY - screenHeight
         let imageRight:CGFloat = controller.inRect.maxX - screenWidth
         
-        let imageView:UIImageView = UIImageView()
-        imageView.isUserInteractionEnabled = false
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
-        imageView.image = controller.model.state?.loadImage()
-        self.imageView = imageView
-        
         let background:UIView = UIView()
         background.isUserInteractionEnabled = false
         background.translatesAutoresizingMaskIntoConstraints = false
@@ -50,11 +42,16 @@ class VPhotosAlbumPhoto:UIView
         visualEffect.translatesAutoresizingMaskIntoConstraints = false
         visualEffect.clipsToBounds = true
         
-        let bar:VPhotosAlbumPhotoBar = VPhotosAlbumPhotoBar(controller:controller)
+        let bar:VPhotosAlbumPhotoBar = VPhotosAlbumPhotoBar(
+            controller:controller)
+        
+        let viewList:VPhotosAlbumPhotoList = VPhotosAlbumPhotoList(
+            controller:controller)
+        self.viewList = viewList
         
         background.addSubview(visualEffect)
         addSubview(background)
-        addSubview(imageView)
+        addSubview(viewList)
         addSubview(bar)
         
         let views:[String:UIView] = [
@@ -105,8 +102,8 @@ class VPhotosAlbumPhoto:UIView
             multiplier:1,
             constant:-barHeight)
         
-        layoutImageTop = NSLayoutConstraint(
-            item:imageView,
+        layoutListTop = NSLayoutConstraint(
+            item:viewList,
             attribute:NSLayoutAttribute.top,
             relatedBy:NSLayoutRelation.equal,
             toItem:self,
@@ -114,8 +111,8 @@ class VPhotosAlbumPhoto:UIView
             multiplier:1,
             constant:imageTop)
         
-        layoutImageBottom = NSLayoutConstraint(
-            item:imageView,
+        layoutListBottom = NSLayoutConstraint(
+            item:viewList,
             attribute:NSLayoutAttribute.bottom,
             relatedBy:NSLayoutRelation.equal,
             toItem:self,
@@ -123,8 +120,8 @@ class VPhotosAlbumPhoto:UIView
             multiplier:1,
             constant:imageBottom)
         
-        layoutImageRight = NSLayoutConstraint(
-            item:imageView,
+        layoutListRight = NSLayoutConstraint(
+            item:viewList,
             attribute:NSLayoutAttribute.right,
             relatedBy:NSLayoutRelation.equal,
             toItem:self,
@@ -132,8 +129,8 @@ class VPhotosAlbumPhoto:UIView
             multiplier:1,
             constant:imageRight)
         
-        layoutImageLeft = NSLayoutConstraint(
-            item:imageView,
+        layoutListLeft = NSLayoutConstraint(
+            item:viewList,
             attribute:NSLayoutAttribute.left,
             relatedBy:NSLayoutRelation.equal,
             toItem:self,
@@ -142,12 +139,12 @@ class VPhotosAlbumPhoto:UIView
             constant:imageLeft)
         
         addConstraint(layoutBarTop)
-        addConstraint(layoutImageTop)
-        addConstraint(layoutImageBottom)
-        addConstraint(layoutImageRight)
-        addConstraint(layoutImageLeft)
+        addConstraint(layoutListTop)
+        addConstraint(layoutListBottom)
+        addConstraint(layoutListRight)
+        addConstraint(layoutListLeft)
         
-        let imageAnimationDuration:TimeInterval = kImageAnimationDuration
+        let listAnimationDuration:TimeInterval = kListAnimationDuration
         let barAnimationDuration:TimeInterval = kBarAnimationDuration
         
         UIView.animate(
@@ -158,14 +155,14 @@ class VPhotosAlbumPhoto:UIView
             })
         { [weak self] (done:Bool) in
             
-            self?.layoutImageTop.constant = 0
-            self?.layoutImageBottom.constant = 0
-            self?.layoutImageRight.constant = 0
-            self?.layoutImageLeft.constant = 0
+            self?.layoutListTop.constant = 0
+            self?.layoutListBottom.constant = 0
+            self?.layoutListRight.constant = 0
+            self?.layoutListLeft.constant = 0
             
             UIView.animate(
                 withDuration:
-                imageAnimationDuration,
+                listAnimationDuration,
                 animations:
                 { [weak self] in
                     
@@ -175,7 +172,7 @@ class VPhotosAlbumPhoto:UIView
             { [weak self] (done:Bool) in
                 
                 self?.layoutBarTop.constant = 0
-                self?.layoutImageTop.constant = barHeight
+                self?.layoutListTop.constant = barHeight
                 
                 UIView.animate(
                     withDuration:
@@ -184,40 +181,6 @@ class VPhotosAlbumPhoto:UIView
                         
                         self?.layoutIfNeeded()
                     }
-            }
-        }
-        
-        NotificationCenter.default.addObserver(
-            self,
-            selector:#selector(notifiedImageLoaded(sender:)),
-            name:Notification.imageDataLoaded,
-            object:nil)
-    }
-    
-    deinit
-    {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    //MARK: notified
-    
-    func notifiedImageLoaded(sender notification:Notification)
-    {
-        DispatchQueue.main.async
-            { [weak self] in
-                
-            guard
-                
-                let picture:MPhotosItemPhoto = notification.object as? MPhotosItemPhoto
-                
-            else
-            {
-                return
-            }
-            
-            if picture === self?.controller.model
-            {
-                self?.imageView.image = picture.resources.image
             }
         }
     }

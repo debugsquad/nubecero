@@ -42,11 +42,13 @@ class CPhotosAlbum:CController
         parentController.pop()
     }
     
-    func selectPhoto(item:MPhotosItemPhoto, inRect:CGRect)
+    func selectPhoto(item:Int, inRect:CGRect)
     {
         let controller:CPhotosAlbumPhoto = CPhotosAlbumPhoto(
-            model:item,
+            model:model,
+            selected:item,
             inRect:inRect)
+        
         parentController.over(
             controller:controller,
             pop:false,

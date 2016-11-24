@@ -2,51 +2,37 @@ import UIKit
 
 class VPhotosAlbumPhotoListCellImage:UIScrollView
 {
-    private weak var controller:CPhotosAlbumPhoto!
-    private weak var scrollView:UIScrollView!
     weak var imageView:UIImageView!
-    private let kAnimationDuration:TimeInterval = 0.3
+    private weak var scrollView:UIScrollView!
     
-    convenience init(controller:CPhotosAlbumPhoto)
+    init()
     {
-        self.init()
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.clear
-        self.controller = controller
         
         let scrollView:UIScrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.clipsToBounds = true
         scrollView.backgroundColor = UIColor.clear
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
+        scrollView.maximumZoomScale = 10
         self.scrollView = scrollView
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
         imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.center
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
         self.imageView = imageView
         
         scrollView.addSubview(imageView)
         addSubview(scrollView)
-        
-        let views:[String:UIView] = [
-            "scrollView":scrollView]
-        
-        let metrics:[String:CGFloat] = [:]
-        
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[scrollView]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[scrollView]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
     }
     
     override func layoutSubviews()
@@ -63,6 +49,7 @@ class VPhotosAlbumPhotoListCellImage:UIScrollView
                 return
             }
             
+            self?.scrollView.frame = bounds
             self?.imageView.frame = bounds
         }
         

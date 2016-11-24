@@ -30,6 +30,7 @@ class VPhotosAlbumPhotoList:UIView, UICollectionViewDelegate, UICollectionViewDa
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.alwaysBounceHorizontal = true
+        collectionView.isPagingEnabled = true
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(
@@ -60,6 +61,16 @@ class VPhotosAlbumPhotoList:UIView, UICollectionViewDelegate, UICollectionViewDa
     override func layoutSubviews()
     {
         collectionView.collectionViewLayout.invalidateLayout()
+        
+        let indexPath:IndexPath = IndexPath(
+            item:controller.selected,
+            section:0)
+        
+        collectionView.scrollToItem(
+            at:indexPath,
+            at:UICollectionViewScrollPosition.centeredHorizontally,
+            animated:false)
+        
         super.layoutSubviews()
     }
     

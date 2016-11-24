@@ -3,7 +3,7 @@ import UIKit
 class VPhotosAlbumPhotoListCell:UICollectionViewCell
 {
     private weak var controller:CPhotosAlbumPhoto?
-    private weak var scrollView:UIScrollView!
+    private weak var image:VPhotosAlbumPhotoListCellImage!
     private weak var model:MPhotosItemPhoto?
     
     override init(frame:CGRect)
@@ -11,6 +11,27 @@ class VPhotosAlbumPhotoListCell:UICollectionViewCell
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
+        
+        let image:VPhotosAlbumPhotoListCellImage = VPhotosAlbumPhotoListCellImage()
+        self.image = image
+
+        addSubview(image)
+        
+        let views:[String:UIView] = [
+            "image":image]
+        
+        let metrics:[String:CGFloat] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[image]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[image]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
         
         NotificationCenter.default.addObserver(
             self,
@@ -47,9 +68,16 @@ class VPhotosAlbumPhotoListCell:UICollectionViewCell
             
             if picture === self?.model
             {
-                self?.imageView.image = picture.resources.image
+                self?.placeImage()
             }
         }
+    }
+    
+    //MARK: private
+    
+    private func placeImage()
+    {
+        image.imageView.image = model?.state?.loadImage()
     }
     
     //MARK: public
@@ -58,15 +86,6 @@ class VPhotosAlbumPhotoListCell:UICollectionViewCell
     {
         self.controller = controller
         self.model = model
-        /*
- 
-         let imageView:UIImageView = UIImageView()
-         imageView.isUserInteractionEnabled = false
-         imageView.translatesAutoresizingMaskIntoConstraints = false
-         imageView.clipsToBounds = true
-         imageView.contentMode = UIViewContentMode.scaleAspectFill
-         imageView.image = controller.model.state?.loadImage()
-         self.imageView = imageView
- */
+        placeImage()
     }
 }

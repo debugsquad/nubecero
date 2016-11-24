@@ -3,6 +3,7 @@ import UIKit
 class VPhotosAlbumPhotoListCell:UICollectionViewCell
 {
     private weak var controller:CPhotosAlbumPhoto?
+    private weak var model:MPhotosItemPhoto?
     
     override init(frame:CGRect)
     {
@@ -48,8 +49,10 @@ class VPhotosAlbumPhotoListCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MPhotosItemPhoto)
+    func config(controller:CPhotosAlbumPhoto, model:MPhotosItemPhoto)
     {
+        self.controller = controller
+        self.model = model
         /*
  
          let imageView:UIImageView = UIImageView()

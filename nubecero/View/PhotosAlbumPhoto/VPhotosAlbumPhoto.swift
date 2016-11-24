@@ -9,8 +9,8 @@ class VPhotosAlbumPhoto:UIView
     private weak var layoutImageBottom:NSLayoutConstraint!
     private weak var layoutImageRight:NSLayoutConstraint!
     private weak var layoutImageLeft:NSLayoutConstraint!
-    private let kBackgroundAnimationDuration:TimeInterval = 0.2
-    private let kImageAnimationDuration:TimeInterval = 0.4
+    private let kBackgroundAnimationDuration:TimeInterval = 0.05
+    private let kImageAnimationDuration:TimeInterval = 0.3
     private let kBarAnimationDuration:TimeInterval = 0.3
     
     convenience init(controller:CPhotosAlbumPhoto)
@@ -35,6 +35,7 @@ class VPhotosAlbumPhoto:UIView
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.image = controller.model.resources.thumbnail
         self.imageView = imageView
         
         let background:UIView = UIView()
@@ -43,7 +44,7 @@ class VPhotosAlbumPhoto:UIView
         background.clipsToBounds = true
         background.alpha = 0
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.dark)
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
         let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
         visualEffect.isUserInteractionEnabled = false
         visualEffect.translatesAutoresizingMaskIntoConstraints = false
@@ -174,6 +175,7 @@ class VPhotosAlbumPhoto:UIView
             { [weak self] (done:Bool) in
                 
                 self?.layoutBarTop.constant = 0
+                self?.layoutImageTop.constant = barHeight
                 
                 UIView.animate(
                     withDuration:

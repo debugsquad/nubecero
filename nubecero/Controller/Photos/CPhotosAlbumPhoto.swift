@@ -24,4 +24,11 @@ class CPhotosAlbumPhoto:CController
         self.viewPhoto = viewPhoto
         view = viewPhoto
     }
+    
+    //MARK: public
+    
+    func back()
+    {
+        parentController.dismiss()
+    }
 }

@@ -17,4 +17,22 @@ class VPhotosAlbumPhotoListFlow:UICollectionViewFlowLayout
     {
         fatalError()
     }
+    
+    override func initialLayoutAttributesForAppearingItem(at itemIndexPath:IndexPath) -> UICollectionViewLayoutAttributes?
+    {
+        let attributes:UICollectionViewLayoutAttributes? = layoutAttributesForItem(
+            at:itemIndexPath)
+        attributes?.alpha = 1
+        
+        return attributes
+    }
+    
+    override func finalLayoutAttributesForDisappearingItem(at itemIndexPath:IndexPath) -> UICollectionViewLayoutAttributes?
+    {
+        let attributes:UICollectionViewLayoutAttributes? = layoutAttributesForItem(
+            at:itemIndexPath)
+        attributes?.alpha = 1
+        
+        return attributes
+    }
 }

@@ -4,10 +4,12 @@ class CPhotosAlbumPhoto:CController
 {
     private weak var viewPhoto:VPhotosAlbumPhoto!
     weak var model:MPhotosItemPhoto!
+    let inRect:CGRect
     
     init(model:MPhotosItemPhoto, inRect:CGRect)
     {
         self.model = model
+        self.inRect = inRect
         super.init()
     }
     

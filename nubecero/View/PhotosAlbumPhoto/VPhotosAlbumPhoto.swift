@@ -4,6 +4,14 @@ class VPhotosAlbumPhoto:UIView
 {
     private weak var controller:CPhotosAlbumPhoto!
     private weak var imageView:UIImageView!
+    private weak var layoutBarTop:NSLayoutConstraint!
+    private weak var layoutImageTop:NSLayoutConstraint!
+    private weak var layoutImageBottom:NSLayoutConstraint!
+    private weak var layoutImageRight:NSLayoutConstraint!
+    private weak var layoutImageLeft:NSLayoutConstraint!
+    private let kBackgroundAnimationDuration:TimeInterval = 0.2
+    private let kImageAnimationDuration:TimeInterval = 0.4
+    private let kBarAnimationDuration:TimeInterval = 0.3
     
     convenience init(controller:CPhotosAlbumPhoto)
     {
@@ -13,7 +21,14 @@ class VPhotosAlbumPhoto:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
+        let screenSize:CGSize = UIScreen.main.bounds.size
+        let screenWidth:CGFloat = screenSize.width
+        let screenHeight:CGFloat = screenSize.height
         let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
+        let imageTop:CGFloat = controller.inRect.origin.y
+        let imageLeft:CGFloat = controller.inRect.origin.x
+        let imageBottom:CGFloat = controller.inRect.maxY - screenHeight
+        let imageRight:CGFloat = controller.inRect.maxX - screenWidth
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -43,7 +58,8 @@ class VPhotosAlbumPhoto:UIView
         
         let views:[String:UIView] = [
             "background":background,
-            "visualEffect":visualEffect]
+            "visualEffect":visualEffect,
+            "bar":bar]
         
         let metrics:[String:CGFloat] = [
             "barHeight":barHeight]
@@ -74,9 +90,105 @@ class VPhotosAlbumPhoto:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[bar(barHeight)]",
+            withVisualFormat:"V:[bar(barHeight)]",
             options:[],
             metrics:metrics,
             views:views))
+        
+        layoutBarTop = NSLayoutConstraint(
+            item:bar,
+            attribute:NSLayoutAttribute.top,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.top,
+            multiplier:1,
+            constant:-barHeight)
+        
+        layoutImageTop = NSLayoutConstraint(
+            item:imageView,
+            attribute:NSLayoutAttribute.top,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.top,
+            multiplier:1,
+            constant:imageTop)
+        
+        layoutImageBottom = NSLayoutConstraint(
+            item:imageView,
+            attribute:NSLayoutAttribute.bottom,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.bottom,
+            multiplier:1,
+            constant:imageBottom)
+        
+        layoutImageRight = NSLayoutConstraint(
+            item:imageView,
+            attribute:NSLayoutAttribute.right,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.right,
+            multiplier:1,
+            constant:imageRight)
+        
+        layoutImageLeft = NSLayoutConstraint(
+            item:imageView,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.left,
+            multiplier:1,
+            constant:imageLeft)
+        
+        addConstraint(layoutBarTop)
+        addConstraint(layoutImageTop)
+        addConstraint(layoutImageBottom)
+        addConstraint(layoutImageRight)
+        addConstraint(layoutImageLeft)
+        
+        let imageAnimationDuration:TimeInterval = kImageAnimationDuration
+        let barAnimationDuration:TimeInterval = kBarAnimationDuration
+        
+        UIView.animate(
+            withDuration:kBackgroundAnimationDuration,
+            animations:
+            {
+                background.alpha = 1
+            })
+        { [weak self] (done:Bool) in
+            
+            self?.layoutImageTop.constant = 0
+            self?.layoutImageBottom.constant = 0
+            self?.layoutImageRight.constant = 0
+            self?.layoutImageLeft.constant = 0
+            
+            UIView.animate(
+                withDuration:
+                imageAnimationDuration,
+                animations:
+                { [weak self] in
+                    
+                    self?.layoutIfNeeded()
+                    
+                })
+            { [weak self] (done:Bool) in
+                
+                self?.layoutBarTop.constant = 0
+                
+                UIView.animate(
+                    withDuration:
+                    barAnimationDuration,
+                    animations:
+                    { [weak self] in
+                        
+                        self?.layoutIfNeeded()
+                        
+                    })
+                { (done:Bool) in
+                 
+                    
+                }
+            }
+        }
     }
 }

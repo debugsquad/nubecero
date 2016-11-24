@@ -1,9 +1,11 @@
 import UIKit
 
-class VPhotosAlbumPhotoListCellImage:UIScrollView
+class VPhotosAlbumPhotoListCellImage:UIScrollView, UIScrollViewDelegate
 {
     weak var imageView:UIImageView!
     private weak var scrollView:UIScrollView!
+    private let kMinZoomScale:CGFloat = 1
+    private let kMaxZoomScale:CGFloat = 10
     
     init()
     {
@@ -17,7 +19,11 @@ class VPhotosAlbumPhotoListCellImage:UIScrollView
         scrollView.backgroundColor = UIColor.clear
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
-        scrollView.maximumZoomScale = 10
+        scrollView.zoomScale = kMinZoomScale
+        scrollView.maximumZoomScale = kMaxZoomScale
+        scrollView.minimumZoomScale = kMinZoomScale
+        scrollView.bounces = true
+        scrollView.delegate = self
         self.scrollView = scrollView
         
         let imageView:UIImageView = UIImageView()
@@ -54,5 +60,10 @@ class VPhotosAlbumPhotoListCellImage:UIScrollView
         }
         
         super.layoutSubviews()
+    }
+    
+    func viewForZooming(in scrollView:UIScrollView) -> UIView?
+    {
+        return imageView
     }
 }

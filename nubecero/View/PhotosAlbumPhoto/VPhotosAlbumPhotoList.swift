@@ -66,10 +66,14 @@ class VPhotosAlbumPhotoList:UIView, UICollectionViewDelegate, UICollectionViewDa
             item:controller.selected,
             section:0)
         
-        collectionView.scrollToItem(
-            at:indexPath,
-            at:UICollectionViewScrollPosition.centeredHorizontally,
-            animated:false)
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.collectionView.scrollToItem(
+                at:indexPath,
+                at:UICollectionViewScrollPosition.centeredHorizontally,
+                animated:false)
+        }
         
         super.layoutSubviews()
     }

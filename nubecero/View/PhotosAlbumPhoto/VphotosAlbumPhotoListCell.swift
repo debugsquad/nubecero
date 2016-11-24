@@ -11,7 +11,6 @@ class VPhotosAlbumPhotoListCell:UICollectionViewCell
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
-        isUserInteractionEnabled = false
         
         NotificationCenter.default.addObserver(
             self,

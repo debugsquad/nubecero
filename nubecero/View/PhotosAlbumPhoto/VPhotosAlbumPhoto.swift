@@ -5,6 +5,8 @@ class VPhotosAlbumPhoto:UIView
     private weak var controller:CPhotosAlbumPhoto!
     private weak var viewList:VPhotosAlbumPhotoList!
     private let kBackgroundAnimationDuration:TimeInterval = 0.05
+    private let kBarAnimationDuration:TimeInterval = 0.3
+    private let kAfterBarAppear:TimeInterval = 1
     
     convenience init(controller:CPhotosAlbumPhoto)
     {
@@ -13,15 +15,8 @@ class VPhotosAlbumPhoto:UIView
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
-        
-        let screenSize:CGSize = UIScreen.main.bounds.size
-        let screenWidth:CGFloat = screenSize.width
-        let screenHeight:CGFloat = screenSize.height
+    
         let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
-        let imageTop:CGFloat = controller.inRect.origin.y
-        let imageLeft:CGFloat = controller.inRect.origin.x
-        let imageBottom:CGFloat = controller.inRect.maxY - screenHeight
-        let imageRight:CGFloat = controller.inRect.maxX - screenWidth
         
         let background:UIView = UIView()
         background.isUserInteractionEnabled = false
@@ -87,15 +82,40 @@ class VPhotosAlbumPhoto:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[bar(barHeight)]-0-[viewList]-0-|",
+            withVisualFormat:"V:[bar(barHeight)]-0-[viewList]-0-|",
             options:[],
             metrics:metrics,
             views:views))
+        
+        let layoutBarTop:NSLayoutConstraint = NSLayoutConstraint(
+            item:bar,
+            attribute:NSLayoutAttribute.top,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.top,
+            multiplier:1,
+            constant:-barHeight)
+        
+        addConstraint(layoutBarTop)
+        
+        let barAnimationDuration:TimeInterval = kBarAnimationDuration
         
         UIView.animate(
             withDuration:kBackgroundAnimationDuration)
         {
             background.alpha = 1
+        }
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kAfterBarAppear)
+        {
+            layoutBarTop.constant = 0
+            
+            UIView.animate(withDuration:barAnimationDuration)
+            { [weak self] in
+                
+                self?.layoutIfNeeded()
+            }
         }
     }
 }

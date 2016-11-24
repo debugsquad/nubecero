@@ -3,16 +3,22 @@ import UIKit
 class VPhotosAlbumPhotoListCellImage:UIScrollView, UIScrollViewDelegate
 {
     weak var imageView:UIImageView!
+    private weak var controller:CPhotosAlbumPhoto!
     private weak var scrollView:UIScrollView!
     private let kMinZoomScale:CGFloat = 1
     private let kMaxZoomScale:CGFloat = 10
+    private let kAnimationDuration:TimeInterval = 0.3
+    private var animationFinished:Bool
     
-    init()
+    init(controller:CPhotosAlbumPhoto)
     {
+        animationFinished = false
+        
         super.init(frame:CGRect.zero)
         clipsToBounds = true
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = UIColor.clear
+        self.controller = controller
         
         let scrollView:UIScrollView = UIScrollView()
         scrollView.clipsToBounds = true
@@ -26,7 +32,8 @@ class VPhotosAlbumPhotoListCellImage:UIScrollView, UIScrollViewDelegate
         scrollView.delegate = self
         self.scrollView = scrollView
         
-        let imageView:UIImageView = UIImageView()
+        let imageView:UIImageView = UIImageView(
+            frame:controller.inRect)
         imageView.isUserInteractionEnabled = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFill
@@ -34,6 +41,17 @@ class VPhotosAlbumPhotoListCellImage:UIScrollView, UIScrollViewDelegate
         
         scrollView.addSubview(imageView)
         addSubview(scrollView)
+        
+        UIView.animate(
+            withDuration:kAnimationDuration,
+            animations:
+            {
+                imageView.frame = controller.view.bounds
+            })
+        { [weak self] (done:Bool) in
+            
+            self?.animationFinished = true
+        }
     }
     
     required init?(coder:NSCoder)
@@ -48,7 +66,8 @@ class VPhotosAlbumPhotoListCellImage:UIScrollView, UIScrollViewDelegate
             
             guard
             
-                let bounds:CGRect = self?.bounds
+                let bounds:CGRect = self?.bounds,
+                let animationFinished:Bool = self?.animationFinished
             
             else
             {
@@ -56,7 +75,11 @@ class VPhotosAlbumPhotoListCellImage:UIScrollView, UIScrollViewDelegate
             }
             
             self?.scrollView.frame = bounds
-            self?.imageView.frame = bounds
+            
+            if animationFinished
+            {
+                self?.imageView.frame = bounds
+            }
         }
         
         super.layoutSubviews()

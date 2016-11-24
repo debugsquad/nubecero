@@ -2,8 +2,8 @@ import UIKit
 
 class VPhotosAlbumPhotoListCell:UICollectionViewCell
 {
-    private weak var controller:CPhotosAlbumPhoto?
-    private weak var image:VPhotosAlbumPhotoListCellImage!
+    private weak var controller:CPhotosAlbumPhoto!
+    private weak var scroll:VPhotosAlbumPhotoListCellImage?
     private weak var model:MPhotosItemPhoto?
     
     override init(frame:CGRect)
@@ -12,26 +12,7 @@ class VPhotosAlbumPhotoListCell:UICollectionViewCell
         clipsToBounds = true
         backgroundColor = UIColor.clear
         
-        let image:VPhotosAlbumPhotoListCellImage = VPhotosAlbumPhotoListCellImage()
-        self.image = image
-
-        addSubview(image)
         
-        let views:[String:UIView] = [
-            "image":image]
-        
-        let metrics:[String:CGFloat] = [:]
-        
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[image]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[image]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
         
         NotificationCenter.default.addObserver(
             self,
@@ -75,9 +56,37 @@ class VPhotosAlbumPhotoListCell:UICollectionViewCell
     
     //MARK: private
     
+    private func checkScroll()
+    {
+        if scroll == nil
+        {
+            let scroll:VPhotosAlbumPhotoListCellImage = VPhotosAlbumPhotoListCellImage(
+                controller:controller)
+            self.scroll = scroll
+            
+            addSubview(scroll)
+            
+            let views:[String:UIView] = [
+                "scroll":scroll]
+            
+            let metrics:[String:CGFloat] = [:]
+            
+            addConstraints(NSLayoutConstraint.constraints(
+                withVisualFormat:"H:|-0-[scroll]-0-|",
+                options:[],
+                metrics:metrics,
+                views:views))
+            addConstraints(NSLayoutConstraint.constraints(
+                withVisualFormat:"V:|-0-[scroll]-0-|",
+                options:[],
+                metrics:metrics,
+                views:views))
+        }
+    }
+    
     private func placeImage()
     {
-        image.imageView.image = model?.state?.loadImage()
+        scroll?.imageView.image = model?.state?.loadImage()
     }
     
     //MARK: public
@@ -86,6 +95,8 @@ class VPhotosAlbumPhotoListCell:UICollectionViewCell
     {
         self.controller = controller
         self.model = model
+        
+        checkScroll()
         placeImage()
     }
 }

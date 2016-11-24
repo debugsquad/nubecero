@@ -8,7 +8,7 @@ class VPhotosAlbumPhotoBar:UIView
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor(white:1, alpha:0.4)
+        backgroundColor = UIColor(white:1, alpha:0.2)
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         

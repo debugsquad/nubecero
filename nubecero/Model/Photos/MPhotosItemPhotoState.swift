@@ -22,11 +22,6 @@ class MPhotosItemPhotoState
         return nil
     }
     
-    func loadBest() -> UIImage?
-    {
-        return nil
-    }
-    
     func preparations()
     {
     }

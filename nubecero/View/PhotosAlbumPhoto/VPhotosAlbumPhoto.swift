@@ -35,7 +35,7 @@ class VPhotosAlbumPhoto:UIView
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFill
-        imageView.image = controller.model.resources.thumbnail
+        imageView.image = controller.model.state?.loadImage()
         self.imageView = imageView
         
         let background:UIView = UIView()
@@ -179,17 +179,45 @@ class VPhotosAlbumPhoto:UIView
                 
                 UIView.animate(
                     withDuration:
-                    barAnimationDuration,
-                    animations:
+                    barAnimationDuration)
                     { [weak self] in
                         
                         self?.layoutIfNeeded()
-                        
-                    })
-                { (done:Bool) in
-                 
-                    
-                }
+                    }
+            }
+        }
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedImageLoaded(sender:)),
+            name:Notification.imageDataLoaded,
+            object:nil)
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    //MARK: notified
+    
+    func notifiedImageLoaded(sender notification:Notification)
+    {
+        DispatchQueue.main.async
+            { [weak self] in
+                
+            guard
+                
+                let picture:MPhotosItemPhoto = notification.object as? MPhotosItemPhoto
+                
+            else
+            {
+                return
+            }
+            
+            if picture === self?.controller.model
+            {
+                self?.imageView.image = picture.resources.image
             }
         }
     }

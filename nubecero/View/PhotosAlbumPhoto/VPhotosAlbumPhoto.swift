@@ -6,7 +6,7 @@ class VPhotosAlbumPhoto:UIView
     private weak var viewList:VPhotosAlbumPhotoList!
     private let kBackgroundAnimationDuration:TimeInterval = 0.05
     private let kBarAnimationDuration:TimeInterval = 0.3
-    private let kAfterBarAppear:TimeInterval = 1
+    private let kAfterBarAppear:TimeInterval = 0.5
     
     convenience init(controller:CPhotosAlbumPhoto)
     {

@@ -42,14 +42,39 @@ class VPhotosAlbumPhotoListCellImage:UIScrollView, UIScrollViewDelegate
         scrollView.addSubview(imageView)
         addSubview(scrollView)
         
+        let indexSelected:Int = controller.selected
+        let photoReference:MPhotosItemPhotoReference = controller.model.references[indexSelected]
+        let photo:MPhotosItemPhoto = MPhotos.sharedInstance.photos[photoReference.photoId]!
+        let finalSize:CGSize = controller.view.bounds.size
+        let maxWidth:CGFloat = finalSize.width
+        let maxHeight:CGFloat = finalSize.height
+        let imageWidth:CGFloat = CGFloat(photo.width)
+        let imageHeight:CGFloat = CGFloat(photo.height)
+        let deltaWidth:CGFloat = imageWidth / maxWidth
+        let deltaHeight:CGFloat = imageHeight / maxHeight
+        let maxDelta:CGFloat = max(deltaWidth, deltaHeight)
+        let viewWidth:CGFloat = imageWidth / maxDelta
+        let viewHeight:CGFloat = imageHeight / maxDelta
+        let remainTop:CGFloat = maxHeight - viewHeight
+        let remainLeft:CGFloat = maxWidth - viewWidth
+        let marginTop:CGFloat = remainTop / 2.0
+        let marginLeft:CGFloat = remainLeft / 2.0
+        let viewRect:CGRect = CGRect(
+            x:marginLeft,
+            y:marginTop,
+            width:viewWidth,
+            height:viewHeight)
+        
         UIView.animate(
             withDuration:kAnimationDuration,
             animations:
             {
-                imageView.frame = controller.view.bounds
+                imageView.frame = viewRect
             })
         { [weak self] (done:Bool) in
             
+            imageView.frame = controller.view.bounds
+            imageView.contentMode = UIViewContentMode.scaleAspectFit
             self?.animationFinished = true
         }
     }

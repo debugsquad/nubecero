@@ -5,6 +5,8 @@ class MPhotosItemPhoto
     let photoId:MPhotos.PhotoId
     let created:TimeInterval
     let size:Int
+    let width:Int
+    let height:Int
     var resources:MPhotosItemPhotoResources!
     private(set) var state:MPhotosItemPhotoState?
     
@@ -13,6 +15,8 @@ class MPhotosItemPhoto
         self.photoId = photoId
         created = firebasePicture.created
         size = firebasePicture.size
+        width = firebasePicture.pixelWidth
+        height = firebasePicture.pixelHeight
         stateClear()
         initResources()
     }

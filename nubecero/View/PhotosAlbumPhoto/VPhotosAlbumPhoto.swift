@@ -56,7 +56,7 @@ class VPhotosAlbumPhoto:UIView
             withVisualFormat:"V:|-0-[background]-0-|",
             options:[],
             metrics:metrics,
-            views:views))x
+            views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[visualEffect]-0-|",
             options:[],

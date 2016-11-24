@@ -82,6 +82,7 @@
 		DA4EF9141DC395B300297C1D /* VParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8F51DC395B300297C1D /* VParent.swift */; };
 		DA4EF9151DC395B300297C1D /* VShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8F61DC395B300297C1D /* VShadow.swift */; };
 		DA4EF9161DC395B300297C1D /* VSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4EF8F71DC395B300297C1D /* VSpinner.swift */; };
+		DA4F98DF1DE7ABFB00C0AC07 /* VPhotosAlbumPhotoListFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F98DE1DE7ABFB00C0AC07 /* VPhotosAlbumPhotoListFlow.swift */; };
 		DA4FA58A1DD7A4CE00358ABE /* TOnboardFormItemPassGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA5891DD7A4CE00358ABE /* TOnboardFormItemPassGenerator.swift */; };
 		DA4FA58C1DD7B89900358ABE /* MMainItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA58B1DD7B89900358ABE /* MMainItemStore.swift */; };
 		DA4FA58F1DD7C69F00358ABE /* CStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4FA58E1DD7C69F00358ABE /* CStore.swift */; };
@@ -349,6 +350,7 @@
 		DA4EF8F51DC395B300297C1D /* VParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VParent.swift; sourceTree = "<group>"; };
 		DA4EF8F61DC395B300297C1D /* VShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VShadow.swift; sourceTree = "<group>"; };
 		DA4EF8F71DC395B300297C1D /* VSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSpinner.swift; sourceTree = "<group>"; };
+		DA4F98DE1DE7ABFB00C0AC07 /* VPhotosAlbumPhotoListFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosAlbumPhotoListFlow.swift; sourceTree = "<group>"; };
 		DA4FA5891DD7A4CE00358ABE /* TOnboardFormItemPassGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TOnboardFormItemPassGenerator.swift; sourceTree = "<group>"; };
 		DA4FA58B1DD7B89900358ABE /* MMainItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMainItemStore.swift; sourceTree = "<group>"; };
 		DA4FA58E1DD7C69F00358ABE /* CStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CStore.swift; sourceTree = "<group>"; };
@@ -613,6 +615,7 @@
 				DA3609AA1DE639E900A75B63 /* VPhotosAlbumPhoto.swift */,
 				DA36AAE81DE6644C00781C4C /* VPhotosAlbumPhotoBar.swift */,
 				DA91A50B1DE746CA005644D4 /* VPhotosAlbumPhotoList.swift */,
+				DA4F98DE1DE7ABFB00C0AC07 /* VPhotosAlbumPhotoListFlow.swift */,
 				DA91A50D1DE746DB005644D4 /* VPhotosAlbumPhotoListCell.swift */,
 				DA923BC81DE7881E00AF18EA /* VPhotosAlbumPhotoListCellImage.swift */,
 			);
@@ -1561,6 +1564,7 @@
 				DAAAFFA81DDA395800E8F839 /* CAdminUsersPhotos.swift in Sources */,
 				DA7A79D51DD66059001B5FA5 /* VHomeCellPhotos.swift in Sources */,
 				DA465C051DDA66D80042C8C7 /* VAdminServerCellFroob.swift in Sources */,
+				DA4F98DF1DE7ABFB00C0AC07 /* VPhotosAlbumPhotoListFlow.swift in Sources */,
 				DA7A79CF1DD64F89001B5FA5 /* VHomeCellSpace.swift in Sources */,
 				DAAAFFAB1DDA399700E8F839 /* VAdminUsersPhotos.swift in Sources */,
 				DA4FA5B41DD7D7FE00358ABE /* MAdmin.swift in Sources */,

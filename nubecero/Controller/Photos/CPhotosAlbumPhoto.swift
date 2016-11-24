@@ -3,12 +3,14 @@ import UIKit
 class CPhotosAlbumPhoto:CController
 {
     private weak var viewPhoto:VPhotosAlbumPhoto!
-    weak var model:MPhotosItemPhoto!
+    var selected:Int
+    let model:MPhotosItem
     let inRect:CGRect
     
-    init(model:MPhotosItemPhoto, inRect:CGRect)
+    init(model:MPhotosItem, selected:Int, inRect:CGRect)
     {
         self.model = model
+        self.selected = selected
         self.inRect = inRect
         super.init()
     }

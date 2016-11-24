@@ -13,6 +13,8 @@ class VPhotosAlbumPhoto:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
+        let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
+        
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -32,15 +34,19 @@ class VPhotosAlbumPhoto:UIView
         visualEffect.translatesAutoresizingMaskIntoConstraints = false
         visualEffect.clipsToBounds = true
         
+        let bar:VPhotosAlbumPhotoBar = VPhotosAlbumPhotoBar(controller:controller)
+        
         background.addSubview(visualEffect)
         addSubview(background)
         addSubview(imageView)
+        addSubview(bar)
         
         let views:[String:UIView] = [
             "background":background,
             "visualEffect":visualEffect]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "barHeight":barHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[background]-0-|",
@@ -53,12 +59,22 @@ class VPhotosAlbumPhoto:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[bar]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[background]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[visualEffect]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[bar(barHeight)]",
             options:[],
             metrics:metrics,
             views:views))

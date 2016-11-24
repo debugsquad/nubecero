@@ -12,6 +12,18 @@ class VPhotosAlbumPhotoList:UIView, UICollectionViewDelegate, UICollectionViewDa
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        
+        let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSize.zero
+        flow.footerReferenceSize = CGSize.zero
+        flow.minimumLineSpacing = 0
+        flow.minimumInteritemSpacing = 0
+        flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+        flow.sectionInset = UIEdgeInsets.zero
+        
+        let collectionView:UICollectionView = UICollectionView(
+            frame:CGRect.zero,
+            collectionViewLayout:flow)
     }
     
     override func layoutSubviews()
@@ -58,7 +70,8 @@ class VPhotosAlbumPhotoList:UIView, UICollectionViewDelegate, UICollectionViewDa
             withReuseIdentifier:
             VPhotosAlbumPhotoListCell.reusableIdentifier,
             for:indexPath) as! VPhotosAlbumPhotoListCell
-        cell.config(model:item)
+        
+        cell.config(controller:controller, model:item)
         
         return cell
     }

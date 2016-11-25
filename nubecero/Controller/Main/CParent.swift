@@ -239,7 +239,7 @@ class CParent:UIViewController
             animate:animate)
     }
     
-    func pop()
+    func pop(completion:(() -> ())?)
     {
         guard
             
@@ -276,6 +276,8 @@ class CParent:UIViewController
             currentController.view.removeFromSuperview()
             currentController.removeFromParentViewController()
             currentController.endAppearanceTransition()
+            
+            completion?()
         }
     }
     

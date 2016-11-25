@@ -84,10 +84,7 @@ class VPhotosAlbumPhotoList:UIView, UICollectionViewDelegate, UICollectionViewDa
     
     private func modelAtIndex(index:IndexPath) -> MPhotosItemPhoto
     {
-        let reference:MPhotosItemPhotoReference = controller.model.references[
-            index.item]
-        let item:MPhotosItemPhoto = MPhotos.sharedInstance.photos[
-            reference.photoId]!
+        let item:MPhotosItemPhoto = controller.selectedPhoto()!
         
         return item
     }
@@ -131,7 +128,7 @@ class VPhotosAlbumPhotoList:UIView, UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = controller.model.references.count
+        let count:Int = controller.albumController.model.references.count
         
         return count
     }

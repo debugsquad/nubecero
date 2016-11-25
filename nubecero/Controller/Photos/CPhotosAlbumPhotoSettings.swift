@@ -40,15 +40,14 @@ class CPhotosAlbumPhotoSettings:CController
         
         MPhotos.sharedInstance.markForDeletion(
             item:model)
-        
-        
+        back()
     }
     
     //MARK: public
     
     func back()
     {
-        parentController.pop()
+        parentController.pop(completion:nil)
     }
     
     func deletePhoto()

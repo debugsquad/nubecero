@@ -40,7 +40,7 @@ class CPhotosAlbum:CController
     
     func back()
     {
-        parentController.pop()
+        parentController.pop(completion:nil)
     }
     
     func selectPhoto(item:Int, inRect:CGRect)

@@ -71,6 +71,20 @@ class CPhotosAlbumPhoto:CController
     
     func settings()
     {
+        let reference:MPhotosItemPhotoReference = model.references[selected]
         
+        guard
+            
+            let photo:MPhotosItemPhoto = MPhotos.sharedInstance.photos[
+                reference.photoId]
+        
+        else
+        {
+            return
+        }
+        
+        let controllerSettings:CPhotosAlbumPhotoSettings = CPhotosAlbumPhotoSettings(
+            model:photo)
+        parentController.push(controller:controllerSettings)
     }
 }

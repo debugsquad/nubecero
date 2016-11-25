@@ -1,9 +1,54 @@
-//
-//  VPhotosAlbumPhotoSettingsBar.swift
-//  nubecero
-//
-//  Created by zero on 11/25/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class VPhotosAlbumPhotoSettingsBar:UIView
+{
+    private weak var controller:CPhotosAlbumPhotoSettings!
+    
+    convenience init(controller:CPhotosAlbumPhotoSettings)
+    {
+        self.init()
+        clipsToBounds = true
+        backgroundColor = UIColor.clear
+        translatesAutoresizingMaskIntoConstraints = false
+        self.controller = controller
+        
+        let backButton:UIButton = UIButton()
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.setImage(
+            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.normal)
+        backButton.imageView!.clipsToBounds = true
+        backButton.imageView!.contentMode = UIViewContentMode.center
+        backButton.imageView!.tintColor = UIColor.black
+        backButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 25)
+        backButton.addTarget(
+            self,
+            action:#selector(actionBack(sender:)),
+            for:UIControlEvents.touchUpInside)
+        
+        addSubview(backButton)
+        
+        let views:[String:UIView] = [
+            "backButton":backButton]
+        
+        let metrics:[String:CGFloat] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-20-[backButton]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[backButton(60)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+    }
+    
+    //MARK: actions
+    
+    func actionBack(sender button:UIButton)
+    {
+        controller.back()
+    }
+}

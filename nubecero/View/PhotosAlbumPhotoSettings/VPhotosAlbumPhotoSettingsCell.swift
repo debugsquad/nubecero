@@ -1,9 +1,16 @@
-//
-//  VPhotosAlbumPhotoSettingsCell.swift
-//  nubecero
-//
-//  Created by zero on 11/25/16.
-//  Copyright © 2016 iturbide. All rights reserved.
-//
+import UIKit
 
-import Foundation
+class VPhotosAlbumPhotoSettingsCell:UICollectionViewCell
+{
+    override init(frame:CGRect)
+    {
+        super.init(frame:frame)
+        clipsToBounds = true
+        backgroundColor = UIColor.white
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
+}

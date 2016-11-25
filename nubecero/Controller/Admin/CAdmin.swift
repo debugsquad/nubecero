@@ -29,6 +29,8 @@ class CAdmin:CController
     func selected(item:MAdminItem)
     {
         let controller:CController = item.controller()
-        parentController.push(controller:controller)
+        parentController.push(
+            controller:controller,
+            underBar:true)
     }
 }

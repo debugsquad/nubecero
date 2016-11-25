@@ -32,7 +32,7 @@ class VPhotosAlbumPhotoSettingsBar:UIView
             for:UIControlState.normal)
         deleteButton.imageView!.clipsToBounds = true
         deleteButton.imageView!.contentMode = UIViewContentMode.center
-        deleteButton.imageEdgeInsets = UIEdgeInsetsMake(0, 25, 0, 0)
+        deleteButton.imageEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0)
         deleteButton.addTarget(
             self,
             action:#selector(actionBack(sender:)),

@@ -7,7 +7,7 @@ class VPhotosAlbumPhotoListCellImage:UIScrollView, UIScrollViewDelegate
     private weak var scrollView:UIScrollView!
     private let kMinZoomScale:CGFloat = 1
     private let kMaxZoomScale:CGFloat = 10
-    private let kAnimationDuration:TimeInterval = 0.3
+    private let kAnimationDuration:TimeInterval = 5
     private var animationFinished:Bool
     
     init(controller:CPhotosAlbumPhoto)
@@ -25,9 +25,9 @@ class VPhotosAlbumPhotoListCellImage:UIScrollView, UIScrollViewDelegate
         scrollView.backgroundColor = UIColor.clear
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
-        scrollView.zoomScale = kMinZoomScale
         scrollView.maximumZoomScale = kMaxZoomScale
         scrollView.minimumZoomScale = kMinZoomScale
+        scrollView.zoomScale = kMinZoomScale
         scrollView.bounces = true
         scrollView.delegate = self
         self.scrollView = scrollView
@@ -74,27 +74,32 @@ class VPhotosAlbumPhotoListCellImage:UIScrollView, UIScrollViewDelegate
             imageView.contentMode = UIViewContentMode.scaleAspectFill
             imageView.frame = initialRect
             
-            UIView.animate(
-                withDuration:kAnimationDuration,
-                animations:
-                {
-                    imageView.frame = viewRect
-                })
-            { [weak self] (done:Bool) in
-                
-                guard
+            let animationDuration:TimeInterval = kAnimationDuration
+            
+            DispatchQueue.main.async
+            {
+                UIView.animate(
+                    withDuration:animationDuration,
+                    animations:
+                    {
+                        imageView.frame = viewRect
+                    })
+                { [weak self] (done:Bool) in
                     
-                    let bounds:CGRect = self?.bounds
+                    guard
+                        
+                        let bounds:CGRect = self?.bounds
+                        
+                    else
+                    {
+                        return
+                    }
                     
-                else
-                {
-                    return
+                    controller.viewPhoto.viewList.animate = false
+                    imageView.contentMode = UIViewContentMode.scaleAspectFit
+                    imageView.frame = bounds
+                    self?.animationFinished = true
                 }
-                
-                controller.viewPhoto.viewList.animate = false
-                imageView.frame = bounds
-                imageView.contentMode = UIViewContentMode.scaleAspectFit
-                self?.animationFinished = true
             }
         }
         else

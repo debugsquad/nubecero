@@ -9,7 +9,7 @@ class VPhotosAlbumPhotoSettings:UIView
     {
         self.init()
         clipsToBounds = true
-        backgroundColor = UIColor.red
+        backgroundColor = UIColor.background
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         

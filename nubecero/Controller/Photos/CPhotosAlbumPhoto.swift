@@ -99,6 +99,7 @@ class CPhotosAlbumPhoto:CController
     {
         MPhotos.sharedInstance.markForDeletion(
             item:photo)
+        albumController.removeFromList(photo:photo)
         
         parentController.dismiss()
     }

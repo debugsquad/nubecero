@@ -58,9 +58,18 @@ class CPhotosAlbum:CController
             animate:false)
     }
     
-    func removeFromList(selected:Int)
+    func removeFromList(photo:MPhotosItemPhoto)
     {
-        let photoId:MPhotos.PhotoId
-        model.references.remove(at:selected)
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.model.removePhoto(item:photo)
+            
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.viewAlbum.collectionView.reloadData()
+            }
+        }
     }
 }

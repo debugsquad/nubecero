@@ -74,11 +74,7 @@ class CPhotosAlbumPhotoSettings:CController
             UIAlertActionStyle.destructive)
         { (action:UIAlertAction) in
             
-            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            { [weak self] in
-                
-                self?.confirmedDelete()
-            }
+            confirmedDelete()
         }
         
         alert.addAction(actionDelete)

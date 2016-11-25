@@ -72,9 +72,9 @@ class CPhotosAlbumPhotoSettings:CController
             NSLocalizedString("CPhotosAlbumPhotoSettings_deleteDo", comment:""),
             style:
             UIAlertActionStyle.destructive)
-        { (action:UIAlertAction) in
+        { [weak self] (action:UIAlertAction) in
             
-            confirmedDelete()
+            self?.confirmedDelete()
         }
         
         alert.addAction(actionDelete)

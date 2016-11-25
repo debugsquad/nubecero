@@ -9,4 +9,5 @@ extension Notification
     static let imageDataLoaded:Notification.Name = Notification.Name("imageDataLoaded")
     static let thumbnailReady:Notification.Name = Notification.Name("thumbnailReady")
     static let userPhotoLoaded:Notification.Name = Notification.Name("userPhotoLoaded")
+    static let albumRefreshed:Notification.Name = Notification.Name("albumRefreshed")
 }

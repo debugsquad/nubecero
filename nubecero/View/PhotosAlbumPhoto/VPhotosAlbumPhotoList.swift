@@ -94,6 +94,30 @@ class VPhotosAlbumPhotoList:UIView, UICollectionViewDelegate, UICollectionViewDa
     
     //MARK: collectionView delegate
     
+    func scrollViewDidScroll(_ scrollView:UIScrollView)
+    {
+        let width:CGFloat = scrollView.bounds.maxX
+        let height:CGFloat = scrollView.bounds.maxY
+        let width_2:CGFloat = width / 2.0
+        let height_2:CGFloat = height / 2.0
+        let xOffset:CGFloat = scrollView.contentOffset.x
+        let point:CGPoint = CGPoint(
+            x:width_2 + xOffset,
+            y:height_2)
+        
+        guard
+        
+            let indexPath:IndexPath = collectionView.indexPathForItem(
+                at:point)
+        
+        else
+        {
+            return
+        }
+        
+        controller.selected = indexPath.item
+    }
+    
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
         return collectionView.bounds.size

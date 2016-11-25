@@ -3,10 +3,13 @@ import UIKit
 class VPhotosAlbumPhotoBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CPhotosAlbumPhoto!
+    private let model:MPhotosAlbumPhoto
     
-    convenience init(controller:CPhotosAlbumPhoto)
+    init(controller:CPhotosAlbumPhoto)
     {
-        self.init()
+        model = MPhotosAlbumPhoto()
+        
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor(white:1, alpha:0.2)
         translatesAutoresizingMaskIntoConstraints = false
@@ -61,6 +64,11 @@ class VPhotosAlbumPhotoBar:UIView, UICollectionViewDelegate, UICollectionViewDat
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
     }
     
     //MARK: actions

@@ -4,7 +4,7 @@ class MPhotosAlbumPhotoItemSettings:MPhotosAlbumPhotoItem
 {
     override init()
     {
-        super.init(image:)
+        super.init(image:#imageLiteral(resourceName: "assetPhotoSettings"))
     }
     
     override init(image:UIImage)

@@ -32,26 +32,38 @@ class VPhotosAlbumPhotoSettingsBar:UIView
             for:UIControlState.normal)
         deleteButton.imageView!.clipsToBounds = true
         deleteButton.imageView!.contentMode = UIViewContentMode.center
-        deleteButton.imageView!.tintColor = UIColor.black
+        deleteButton.imageEdgeInsets = UIEdgeInsetsMake(0, 25, 0, 0)
         deleteButton.addTarget(
             self,
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        addSubview(deleteButton)
         addSubview(backButton)
         
         let views:[String:UIView] = [
-            "backButton":backButton]
+            "backButton":backButton,
+            "deleteButton":deleteButton]
         
         let metrics:[String:CGFloat] = [:]
         
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[backButton(60)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[deleteButton(60)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-20-[backButton]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[backButton(60)]",
+            withVisualFormat:"V:|-20-[deleteButton]-0-|",
             options:[],
             metrics:metrics,
             views:views))

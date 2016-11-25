@@ -174,7 +174,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func actionBack(sender button:UIButton)
     {
-        parent.pop(completion:completion:nil)
+        parent.pop(completion:nil)
     }
     
     //MARK: private

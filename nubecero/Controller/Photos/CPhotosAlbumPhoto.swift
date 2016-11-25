@@ -94,4 +94,12 @@ class CPhotosAlbumPhoto:CController
             controller:controllerSettings,
             underBar:false)
     }
+    
+    func deletePhoto(photo:MPhotosItemPhoto)
+    {
+        MPhotos.sharedInstance.markForDeletion(
+            item:photo)
+        
+        parentController.dismiss()
+    }
 }

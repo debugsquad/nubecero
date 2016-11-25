@@ -57,4 +57,10 @@ class CPhotosAlbum:CController
             pop:false,
             animate:false)
     }
+    
+    func removeFromList(selected:Int)
+    {
+        let photoId:MPhotos.PhotoId
+        model.references.remove(at:selected)
+    }
 }

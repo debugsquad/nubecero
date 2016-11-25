@@ -38,9 +38,11 @@ class CPhotosAlbumPhotoSettings:CController
             return
         }
         
-        MPhotos.sharedInstance.markForDeletion(
-            item:model)
-        back()
+        parentController.pop
+        { [weak photoController] in
+            
+            photoController?.deletePhoto(photo:model)
+        }
     }
     
     //MARK: public

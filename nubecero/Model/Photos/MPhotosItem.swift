@@ -39,4 +39,34 @@ class MPhotosItem
             return createdA > createdB
         }
     }
+    
+    func removePhoto(item:MPhotosItemPhoto)
+    {
+        let countReferences:Int = references.count
+        var index:Int? = nil
+        
+        for indexReference:Int in 0 ..< countReferences
+        {
+            let reference:MPhotosItemPhotoReference = references[indexReference]
+            
+            if reference.photoId == item.photoId
+            {
+                index = indexReference
+                
+                break
+            }
+        }
+        
+        guard
+        
+            let indexFound:Int = index
+        
+        else
+        {
+            return
+        }
+        
+        kiloBytes -= item.size
+        references.remove(at:indexFound)
+    }
 }

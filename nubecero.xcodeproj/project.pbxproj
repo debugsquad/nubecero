@@ -125,6 +125,8 @@
 		DA88C9211DE8991D00FB9A96 /* VPhotosAlbumPhotoBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88C9201DE8991D00FB9A96 /* VPhotosAlbumPhotoBarCell.swift */; };
 		DA88C9231DE8AFD300FB9A96 /* CPhotosAlbumPhotoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88C9221DE8AFD300FB9A96 /* CPhotosAlbumPhotoSettings.swift */; };
 		DA88C9261DE8B55500FB9A96 /* VPhotosAlbumPhotoSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88C9251DE8B55500FB9A96 /* VPhotosAlbumPhotoSettings.swift */; };
+		DA88C9281DE8B70700FB9A96 /* VPhotosAlbumPhotoSettingsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88C9271DE8B70700FB9A96 /* VPhotosAlbumPhotoSettingsBar.swift */; };
+		DA88C92A1DE8B71200FB9A96 /* VPhotosAlbumPhotoSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88C9291DE8B71200FB9A96 /* VPhotosAlbumPhotoSettingsCell.swift */; };
 		DA88F6701DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */; };
 		DA88F6721DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */; };
 		DA88F6741DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA88F6731DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift */; };
@@ -400,6 +402,8 @@
 		DA88C9201DE8991D00FB9A96 /* VPhotosAlbumPhotoBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosAlbumPhotoBarCell.swift; sourceTree = "<group>"; };
 		DA88C9221DE8AFD300FB9A96 /* CPhotosAlbumPhotoSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPhotosAlbumPhotoSettings.swift; sourceTree = "<group>"; };
 		DA88C9251DE8B55500FB9A96 /* VPhotosAlbumPhotoSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosAlbumPhotoSettings.swift; sourceTree = "<group>"; };
+		DA88C9271DE8B70700FB9A96 /* VPhotosAlbumPhotoSettingsBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosAlbumPhotoSettingsBar.swift; sourceTree = "<group>"; };
+		DA88C9291DE8B71200FB9A96 /* VPhotosAlbumPhotoSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosAlbumPhotoSettingsCell.swift; sourceTree = "<group>"; };
 		DA88F66F1DC7ECFB009F61B3 /* MHomeUploadItemStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatus.swift; sourceTree = "<group>"; };
 		DA88F6711DC7ED83009F61B3 /* MHomeUploadItemStatusNone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusNone.swift; sourceTree = "<group>"; };
 		DA88F6731DC7EDE7009F61B3 /* MHomeUploadItemStatusWaiting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusWaiting.swift; sourceTree = "<group>"; };
@@ -1080,6 +1084,8 @@
 			isa = PBXGroup;
 			children = (
 				DA88C9251DE8B55500FB9A96 /* VPhotosAlbumPhotoSettings.swift */,
+				DA88C9271DE8B70700FB9A96 /* VPhotosAlbumPhotoSettingsBar.swift */,
+				DA88C9291DE8B71200FB9A96 /* VPhotosAlbumPhotoSettingsCell.swift */,
 			);
 			path = PhotosAlbumPhotoSettings;
 			sourceTree = "<group>";
@@ -1710,6 +1716,7 @@
 				DA4EF9011DC395B300297C1D /* ExtensionNSManagedObject.swift in Sources */,
 				DA465BEF1DDA4A210042C8C7 /* MAdminUsersPhotosItemStatusLoaded.swift in Sources */,
 				DAF6F2B41DD397260053ED1B /* MOnboardFormItemEmailSignin.swift in Sources */,
+				DA88C9281DE8B70700FB9A96 /* VPhotosAlbumPhotoSettingsBar.swift in Sources */,
 				DA465BFA1DDA61DA0042C8C7 /* VAdminServerCell.swift in Sources */,
 				DAA3366F1DDE114100AA2D12 /* MStoreItemAlbums.swift in Sources */,
 				DA7367B41DD5228F0004B99C /* MOnboardFormItemPassGenerator.swift in Sources */,
@@ -1758,6 +1765,7 @@
 				DA406BCF1DCD022F0098D347 /* VSettings.swift in Sources */,
 				DA4EF8FA1DC395B300297C1D /* CController.swift in Sources */,
 				DA465BF11DDA4C7E0042C8C7 /* MAdminUsersPhotosItemStatusError.swift in Sources */,
+				DA88C92A1DE8B71200FB9A96 /* VPhotosAlbumPhotoSettingsCell.swift in Sources */,
 				DAEC5CC91DE0A3FF00DF52A9 /* FDatabaseModelUserSession.swift in Sources */,
 				DAAAFFA41DDA1CA800E8F839 /* MAdminUsersItem.swift in Sources */,
 				DAF6F2C31DD3D2530053ED1B /* DNubecero.xcdatamodeld in Sources */,

@@ -31,8 +31,6 @@ class MPhotos
         photoDeletables = []
         albumReferences = []
         photos = [:]
-        
-        loadPhotos()
     }
     
     //MARK: private

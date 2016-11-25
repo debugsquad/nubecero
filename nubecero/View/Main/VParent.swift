@@ -163,7 +163,8 @@ class VParent:UIView
         {
             controller.view.alpha = 0
             
-            UIView.animate(withDuration:kAnimationDuration, animations:
+            UIView.animate(withDuration:kAnimationDuration,
+                           animations:
             {
                 controller.view.alpha = 1
             })

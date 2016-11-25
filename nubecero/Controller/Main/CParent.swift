@@ -89,7 +89,7 @@ class CParent:UIViewController
         }
         else
         {
-            currentController = nil
+            currentController = controllers.last
         }
         
         controllers.append(controller)
@@ -105,8 +105,12 @@ class CParent:UIViewController
         {
             controller.endAppearanceTransition()
             
-            currentController?.view.removeFromSuperview()
-            currentController?.removeFromParentViewController()
+            if pop
+            {
+                currentController?.view.removeFromSuperview()
+                currentController?.removeFromParentViewController()
+            }
+            
             currentController?.endAppearanceTransition()
         }
     }

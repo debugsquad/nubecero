@@ -2,9 +2,9 @@ import UIKit
 
 class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    weak var collectionView:UICollectionView!
     private weak var controller:CPhotosAlbum!
     private weak var backButton:UIButton!
-    private weak var collectionView:UICollectionView!
     private weak var layoutBackgroundTop:NSLayoutConstraint!
     private weak var layoutBackButtonTop:NSLayoutConstraint!
     private weak var layoutTitleBottom:NSLayoutConstraint!

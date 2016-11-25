@@ -20,6 +20,7 @@ class CPhotosAlbum:CController
     {
         super.viewWillAppear(animated)
         parentController.statusBarDefault()
+        viewAlbum.collectionView.scrollsToTop = true
     }
     
     override func viewWillDisappear(_ animated:Bool)
@@ -44,6 +45,8 @@ class CPhotosAlbum:CController
     
     func selectPhoto(item:Int, inRect:CGRect)
     {
+        viewAlbum.collectionView.scrollsToTop = false
+        
         let controller:CPhotosAlbumPhoto = CPhotosAlbumPhoto(
             model:model,
             selected:item,

@@ -20,6 +20,18 @@ class CPhotosAlbumPhoto:CController
         fatalError()
     }
     
+    override func viewWillAppear(_ animated:Bool)
+    {
+        super.viewWillAppear(animated)
+        parentController.statusBarDefault()
+    }
+    
+    override func viewWillDisappear(_ animated:Bool)
+    {
+        super.viewWillDisappear(animated)
+        parentController.statusBarLight()
+    }
+    
     override func loadView()
     {
         let viewPhoto:VPhotosAlbumPhoto = VPhotosAlbumPhoto(controller:self)

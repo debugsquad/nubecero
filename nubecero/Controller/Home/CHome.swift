@@ -139,6 +139,8 @@ class CHome:CController
     func uploadPictures()
     {
         let controllerUpload:CHomeUpload = CHomeUpload()
-        parentController.push(controller:controllerUpload)
+        parentController.push(
+            controller:controllerUpload,
+            underBar:true)
     }
 }

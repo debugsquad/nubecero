@@ -182,12 +182,20 @@ class VParent:UIView
     func push(
         controller:CController,
         currentController:CController,
+        underBar:Bool,
         completion:@escaping(() -> ()))
     {
         let width:CGFloat = bounds.maxX
         let width_2:CGFloat = width / 2.0
         
-        insertSubview(controller.view, belowSubview:bar)
+        if underBar
+        {
+            insertSubview(controller.view, belowSubview:bar)
+        }
+        else
+        {
+            addSubview(controller.view)
+        }
         
         let views:[String:UIView] = [
             "view":controller.view]

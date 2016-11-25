@@ -188,7 +188,7 @@ class CParent:UIViewController
         setNeedsStatusBarAppearanceUpdate()
     }
     
-    func push(controller:CController)
+    func push(controller:CController, underBar:Bool)
     {
         guard
             
@@ -207,7 +207,8 @@ class CParent:UIViewController
         
         viewParent.push(
             controller:controller,
-            currentController:currentController)
+            currentController:currentController,
+            underBar:underBar)
         {
             controller.endAppearanceTransition()
             currentController.endAppearanceTransition()

@@ -38,6 +38,9 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         backButton.setImage(
             #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.normal)
+        backButton.setImage(
+            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.highlighted)
         backButton.imageView!.clipsToBounds = true
         backButton.imageView!.contentMode = UIViewContentMode.center
         backButton.imageView!.tintColor = UIColor.black

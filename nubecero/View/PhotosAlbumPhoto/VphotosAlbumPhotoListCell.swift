@@ -12,8 +12,6 @@ class VPhotosAlbumPhotoListCell:UICollectionViewCell
         clipsToBounds = true
         backgroundColor = UIColor.clear
         
-        
-        
         NotificationCenter.default.addObserver(
             self,
             selector:#selector(notifiedImageLoaded(sender:)),
@@ -49,7 +47,7 @@ class VPhotosAlbumPhotoListCell:UICollectionViewCell
             
             if picture === self?.model
             {
-                self?.placeImage()
+                self?.scroll?.imageView.image = picture.resources.image
             }
         }
     }

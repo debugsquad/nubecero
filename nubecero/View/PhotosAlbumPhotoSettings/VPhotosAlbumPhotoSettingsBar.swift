@@ -17,6 +17,9 @@ class VPhotosAlbumPhotoSettingsBar:UIView
         backButton.setImage(
             #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.normal)
+        backButton.setImage(
+            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
+            for:UIControlState.highlighted)
         backButton.imageView!.clipsToBounds = true
         backButton.imageView!.contentMode = UIViewContentMode.center
         backButton.imageView!.tintColor = UIColor.black
@@ -28,8 +31,13 @@ class VPhotosAlbumPhotoSettingsBar:UIView
         
         let deleteButton:UIButton = UIButton()
         deleteButton.translatesAutoresizingMaskIntoConstraints = false
-        deleteButton.setImage(#imageLiteral(resourceName: "assetPhotosDelete"),
+        deleteButton.setImage(
+            #imageLiteral(resourceName: "assetPhotosDelete").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
             for:UIControlState.normal)
+        deleteButton.setImage(
+            #imageLiteral(resourceName: "assetPhotosDelete").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            for:UIControlState.highlighted)
+        deleteButton.imageView!.tintColor = UIColor.white
         deleteButton.imageView!.clipsToBounds = true
         deleteButton.imageView!.contentMode = UIViewContentMode.center
         deleteButton.imageEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0)

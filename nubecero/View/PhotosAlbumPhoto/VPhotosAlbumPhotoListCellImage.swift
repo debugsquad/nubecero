@@ -7,7 +7,7 @@ class VPhotosAlbumPhotoListCellImage:UIScrollView, UIScrollViewDelegate
     private weak var scrollView:UIScrollView!
     private let kMinZoomScale:CGFloat = 1
     private let kMaxZoomScale:CGFloat = 10
-    private let kAnimationDuration:TimeInterval = 5
+    private let kAnimationDuration:TimeInterval = 0.3
     private var animationFinished:Bool
     
     init(controller:CPhotosAlbumPhoto)

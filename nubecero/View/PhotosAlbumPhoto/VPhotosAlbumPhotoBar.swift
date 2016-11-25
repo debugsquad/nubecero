@@ -28,7 +28,7 @@ class VPhotosAlbumPhotoBar:UIView, UICollectionViewDelegate, UICollectionViewDat
         
         let border:UIView = UIView()
         border.isUserInteractionEnabled = false
-        border.backgroundColor = UIColor(white:1, alpha:0.1)
+        border.backgroundColor = UIColor(white:1, alpha:0.2)
         border.translatesAutoresizingMaskIntoConstraints = false
         border.clipsToBounds = true
         

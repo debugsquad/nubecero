@@ -37,13 +37,13 @@ class VPhotosAlbumPhotoSettingsBar:UIView
         deleteButton.setImage(
             #imageLiteral(resourceName: "assetPhotosDelete").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.highlighted)
-        deleteButton.imageView!.tintColor = UIColor.white
+        deleteButton.imageView!.tintColor = UIColor.main
         deleteButton.imageView!.clipsToBounds = true
         deleteButton.imageView!.contentMode = UIViewContentMode.center
         deleteButton.imageEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0)
         deleteButton.addTarget(
             self,
-            action:#selector(actionBack(sender:)),
+            action:#selector(actionDelete(sender:)),
             for:UIControlEvents.touchUpInside)
         
         addSubview(deleteButton)
@@ -82,5 +82,10 @@ class VPhotosAlbumPhotoSettingsBar:UIView
     func actionBack(sender button:UIButton)
     {
         controller.back()
+    }
+    
+    func actionDelete(sender button:UIButton)
+    {
+        controller.deletePhoto()
     }
 }

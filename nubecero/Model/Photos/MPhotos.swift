@@ -10,6 +10,7 @@ class MPhotos
     {
         case waiting
         case synced
+        case deleting
     }
     
     static let sharedInstance:MPhotos = MPhotos()

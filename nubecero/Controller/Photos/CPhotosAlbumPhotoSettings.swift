@@ -25,4 +25,9 @@ class CPhotosAlbumPhotoSettings:CController
     {
         parentController.pop()
     }
+    
+    func deletePhoto()
+    {
+        
+    }
 }

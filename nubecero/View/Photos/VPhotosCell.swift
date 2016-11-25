@@ -136,11 +136,22 @@ class VPhotosCell:UICollectionViewCell
             constant:0)
         
         addConstraint(layoutRightWidth)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedAlbumRefreshed(sender:)),
+            name:Notification.albumRefreshed,
+            object:nil)
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override var isSelected:Bool
@@ -156,6 +167,29 @@ class VPhotosCell:UICollectionViewCell
         didSet
         {
             hover()
+        }
+    }
+    
+    //MARK: notifications
+    
+    func notifiedAlbumRefreshed(sender notification:Notification)
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            guard
+            
+                let album:MPhotosItem = notification.object as? MPhotosItem
+            
+            else
+            {
+                return
+            }
+            
+            if album === self?.model
+            {
+                self?.print()
+            }
         }
     }
     

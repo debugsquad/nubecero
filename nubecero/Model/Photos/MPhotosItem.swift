@@ -70,6 +70,7 @@ class MPhotosItem
         references.remove(at:indexFound)
         
         NotificationCenter.default.post(
-            Notification.albumRefreshed)
+            name:Notification.albumRefreshed,
+            object:self)
     }
 }

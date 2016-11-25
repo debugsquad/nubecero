@@ -39,4 +39,38 @@ class CPhotosAlbumPhoto:CController
     {
         parentController.dismiss()
     }
+    
+    func share()
+    {
+        let reference:MPhotosItemPhotoReference = model.references[selected]
+        let photo:MPhotosItemPhoto? = MPhotos.sharedInstance.photos[
+            reference.photoId]
+        
+        guard
+            
+            let image:UIImage = photo?.resources.image
+            
+        else
+        {
+            return
+        }
+        
+        let activity:UIActivityViewController = UIActivityViewController(
+            activityItems:[image],
+            applicationActivities:nil)
+        
+        if activity.popoverPresentationController != nil
+        {
+            activity.popoverPresentationController!.sourceView = viewPhoto
+            activity.popoverPresentationController!.sourceRect = CGRect.zero
+            activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
+        }
+        
+        present(activity, animated:true)
+    }
+    
+    func settings()
+    {
+        
+    }
 }

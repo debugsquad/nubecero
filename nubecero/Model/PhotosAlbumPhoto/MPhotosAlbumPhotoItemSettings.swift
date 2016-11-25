@@ -11,4 +11,9 @@ class MPhotosAlbumPhotoItemSettings:MPhotosAlbumPhotoItem
     {
         fatalError()
     }
+    
+    override func selected(controller:CPhotosAlbumPhoto)
+    {
+        controller.settings()
+    }
 }

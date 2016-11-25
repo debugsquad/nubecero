@@ -11,4 +11,9 @@ class MPhotosAlbumPhotoItemShare:MPhotosAlbumPhotoItem
     {
         fatalError()
     }
+    
+    override func selected(controller:CPhotosAlbumPhoto)
+    {
+        controller.share()
+    }
 }

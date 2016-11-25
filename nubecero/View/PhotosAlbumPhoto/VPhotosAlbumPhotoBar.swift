@@ -21,11 +21,10 @@ class VPhotosAlbumPhotoBar:UIView, UICollectionViewDelegate, UICollectionViewDat
         let backButton:UIButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
         backButton.setImage(
-            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            #imageLiteral(resourceName: "assetGenericDown"),
             for:UIControlState.normal)
         backButton.imageView!.clipsToBounds = true
         backButton.imageView!.contentMode = UIViewContentMode.center
-        backButton.imageView!.tintColor = UIColor.black
         backButton.imageEdgeInsets = UIEdgeInsetsMake(20, 0, 0, 25)
         backButton.addTarget(
             self,

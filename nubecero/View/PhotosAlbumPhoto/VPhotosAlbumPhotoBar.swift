@@ -1,6 +1,6 @@
 import UIKit
 
-class VPhotosAlbumPhotoBar:UIView
+class VPhotosAlbumPhotoBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CPhotosAlbumPhoto!
     
@@ -50,5 +50,18 @@ class VPhotosAlbumPhotoBar:UIView
     func actionBack(sender button:UIButton)
     {
         controller.back()
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count = 0
+        return count
     }
 }

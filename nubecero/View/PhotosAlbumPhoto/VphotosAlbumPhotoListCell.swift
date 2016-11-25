@@ -2,7 +2,7 @@ import UIKit
 
 class VPhotosAlbumPhotoListCell:UICollectionViewCell
 {
-    private weak var controller:CPhotosAlbumPhoto!
+    private weak var controller:CPhotosAlbumPhoto?
     private weak var scroll:VPhotosAlbumPhotoListCellImage?
     private weak var model:MPhotosItemPhoto?
     
@@ -56,32 +56,31 @@ class VPhotosAlbumPhotoListCell:UICollectionViewCell
     
     //MARK: private
     
-    private func checkScroll()
+    private func checkScroll(controller:CPhotosAlbumPhoto)
     {
-        if scroll == nil
-        {
-            let scroll:VPhotosAlbumPhotoListCellImage = VPhotosAlbumPhotoListCellImage(
-                controller:controller)
-            self.scroll = scroll
-            
-            addSubview(scroll)
-            
-            let views:[String:UIView] = [
-                "scroll":scroll]
-            
-            let metrics:[String:CGFloat] = [:]
-            
-            addConstraints(NSLayoutConstraint.constraints(
-                withVisualFormat:"H:|-0-[scroll]-0-|",
-                options:[],
-                metrics:metrics,
-                views:views))
-            addConstraints(NSLayoutConstraint.constraints(
-                withVisualFormat:"V:|-0-[scroll]-0-|",
-                options:[],
-                metrics:metrics,
-                views:views))
-        }
+        self.scroll?.removeFromSuperview()
+        
+        let scroll:VPhotosAlbumPhotoListCellImage = VPhotosAlbumPhotoListCellImage(
+            controller:controller)
+        self.scroll = scroll
+        
+        addSubview(scroll)
+        
+        let views:[String:UIView] = [
+            "scroll":scroll]
+        
+        let metrics:[String:CGFloat] = [:]
+        
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[scroll]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[scroll]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
     }
     
     private func placeImage()
@@ -96,7 +95,7 @@ class VPhotosAlbumPhotoListCell:UICollectionViewCell
         self.controller = controller
         self.model = model
         
-        checkScroll()
+        checkScroll(controller:controller)
         placeImage()
     }
 }

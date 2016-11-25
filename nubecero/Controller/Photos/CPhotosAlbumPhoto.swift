@@ -2,7 +2,7 @@ import UIKit
 
 class CPhotosAlbumPhoto:CController
 {
-    private weak var viewPhoto:VPhotosAlbumPhoto!
+    weak var viewPhoto:VPhotosAlbumPhoto!
     var selected:Int
     let model:MPhotosItem
     let inRect:CGRect

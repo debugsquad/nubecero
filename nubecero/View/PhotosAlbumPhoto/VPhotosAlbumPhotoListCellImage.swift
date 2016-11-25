@@ -32,50 +32,76 @@ class VPhotosAlbumPhotoListCellImage:UIScrollView, UIScrollViewDelegate
         scrollView.delegate = self
         self.scrollView = scrollView
         
-        let imageView:UIImageView = UIImageView(
-            frame:controller.inRect)
+        let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
         imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
         self.imageView = imageView
         
         scrollView.addSubview(imageView)
         addSubview(scrollView)
         
-        let indexSelected:Int = controller.selected
-        let photoReference:MPhotosItemPhotoReference = controller.model.references[indexSelected]
-        let photo:MPhotosItemPhoto = MPhotos.sharedInstance.photos[photoReference.photoId]!
-        let finalSize:CGSize = controller.view.bounds.size
-        let maxWidth:CGFloat = finalSize.width
-        let maxHeight:CGFloat = finalSize.height
-        let imageWidth:CGFloat = CGFloat(photo.width)
-        let imageHeight:CGFloat = CGFloat(photo.height)
-        let deltaWidth:CGFloat = imageWidth / maxWidth
-        let deltaHeight:CGFloat = imageHeight / maxHeight
-        let maxDelta:CGFloat = max(deltaWidth, deltaHeight)
-        let viewWidth:CGFloat = imageWidth / maxDelta
-        let viewHeight:CGFloat = imageHeight / maxDelta
-        let remainTop:CGFloat = maxHeight - viewHeight
-        let remainLeft:CGFloat = maxWidth - viewWidth
-        let marginTop:CGFloat = remainTop / 2.0
-        let marginLeft:CGFloat = remainLeft / 2.0
-        let viewRect:CGRect = CGRect(
-            x:marginLeft,
-            y:marginTop,
-            width:viewWidth,
-            height:viewHeight)
-        
-        UIView.animate(
-            withDuration:kAnimationDuration,
-            animations:
-            {
-                imageView.frame = viewRect
-            })
-        { [weak self] (done:Bool) in
+        if controller.viewPhoto.viewList.animate
+        {
+            let indexSelected:Int = controller.selected
+            let photoReference:MPhotosItemPhotoReference = controller.model.references[indexSelected]
+            let photo:MPhotosItemPhoto = MPhotos.sharedInstance.photos[photoReference.photoId]!
+            let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
+            let finalSize:CGSize = controller.view.bounds.size
+            let maxWidth:CGFloat = finalSize.width
+            let maxHeight:CGFloat = finalSize.height - barHeight
+            let imageWidth:CGFloat = CGFloat(photo.width)
+            let imageHeight:CGFloat = CGFloat(photo.height)
+            let deltaWidth:CGFloat = imageWidth / maxWidth
+            let deltaHeight:CGFloat = imageHeight / maxHeight
+            let maxDelta:CGFloat = max(deltaWidth, deltaHeight)
+            let viewWidth:CGFloat = imageWidth / maxDelta
+            let viewHeight:CGFloat = imageHeight / maxDelta
+            let remainTop:CGFloat = maxHeight - viewHeight
+            let remainLeft:CGFloat = maxWidth - viewWidth
+            let marginTop:CGFloat = remainTop / 2.0
+            let marginLeft:CGFloat = remainLeft / 2.0
+            let viewRect:CGRect = CGRect(
+                x:marginLeft,
+                y:marginTop,
+                width:viewWidth,
+                height:viewHeight)
+            let initialRect:CGRect = CGRect(
+                x:controller.inRect.origin.x,
+                y:controller.inRect.origin.y - barHeight,
+                width:controller.inRect.size.width,
+                height:controller.inRect.size.height)
             
-            imageView.frame = controller.view.bounds
+            imageView.contentMode = UIViewContentMode.scaleAspectFill
+            imageView.frame = initialRect
+            
+            UIView.animate(
+                withDuration:kAnimationDuration,
+                animations:
+                {
+                    imageView.frame = viewRect
+                })
+            { [weak self] (done:Bool) in
+                
+                guard
+                    
+                    let bounds:CGRect = self?.bounds
+                    
+                else
+                {
+                    return
+                }
+                
+                controller.viewPhoto.viewList.animate = false
+                imageView.frame = bounds
+                imageView.contentMode = UIViewContentMode.scaleAspectFit
+                self?.animationFinished = true
+            }
+        }
+        else
+        {
+            animationFinished = true
             imageView.contentMode = UIViewContentMode.scaleAspectFit
-            self?.animationFinished = true
+            imageView.frame = controller.view.frame
         }
     }
     

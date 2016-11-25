@@ -4,10 +4,13 @@ class VPhotosAlbumPhotoList:UIView, UICollectionViewDelegate, UICollectionViewDa
 {
     private weak var controller:CPhotosAlbumPhoto!
     private weak var collectionView:UICollectionView!
+    var animate:Bool
     
-    convenience init(controller:CPhotosAlbumPhoto)
+    init(controller:CPhotosAlbumPhoto)
     {
-        self.init()
+        animate = true
+        
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
@@ -50,6 +53,11 @@ class VPhotosAlbumPhotoList:UIView, UICollectionViewDelegate, UICollectionViewDa
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
     }
     
     override func layoutSubviews()

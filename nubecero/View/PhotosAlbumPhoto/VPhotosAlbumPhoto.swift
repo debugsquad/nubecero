@@ -2,11 +2,11 @@ import UIKit
 
 class VPhotosAlbumPhoto:UIView
 {
+    weak var viewList:VPhotosAlbumPhotoList!
     private weak var controller:CPhotosAlbumPhoto!
-    private weak var viewList:VPhotosAlbumPhotoList!
     private let kBackgroundAnimationDuration:TimeInterval = 0.05
     private let kBarAnimationDuration:TimeInterval = 0.2
-    private let kAfterBarAppear:TimeInterval = 0.4
+    private let kAfterBarAppear:TimeInterval = 0.1
     
     convenience init(controller:CPhotosAlbumPhoto)
     {
@@ -82,7 +82,12 @@ class VPhotosAlbumPhoto:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[bar(barHeight)]-0-[viewList]-0-|",
+            withVisualFormat:"V:[bar(barHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-(barHeight)-[viewList]-0-|",
             options:[],
             metrics:metrics,
             views:views))

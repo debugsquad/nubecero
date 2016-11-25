@@ -4,9 +4,9 @@ class VPhotosAlbumPhotoBar:UIView, UICollectionViewDelegate, UICollectionViewDat
 {
     private weak var controller:CPhotosAlbumPhoto!
     private weak var collectionView:UICollectionView!
-    private weak var layoutCollectionWidth:NSLayoutConstraint!
     private let model:MPhotosAlbumPhoto
-    private let kCellWidth:CGFloat = 64
+    private let kDeselectTime:TimeInterval = 1
+    private let kCellWidth:CGFloat = 50
     
     init(controller:CPhotosAlbumPhoto)
     {
@@ -110,17 +110,6 @@ class VPhotosAlbumPhotoBar:UIView, UICollectionViewDelegate, UICollectionViewDat
             options:[],
             metrics:metrics,
             views:views))
-        
-        layoutCollectionWidth = NSLayoutConstraint(
-            item:collectionView,
-            attribute:NSLayoutAttribute.width,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
-            constant:0)
-        
-        addConstraint(layoutCollectionWidth)
     }
     
     required init?(coder:NSCoder)
@@ -176,5 +165,20 @@ class VPhotosAlbumPhotoBar:UIView, UICollectionViewDelegate, UICollectionViewDat
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MPhotosAlbumPhotoItem = modelAtIndex(index:indexPath)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }

@@ -396,6 +396,34 @@ class MPhotos
         deletePhotos()
     }
     
+    private func asyncMarkForDeletion(item:MPhotosItemPhoto)
+    {
+        guard
+            
+            let userId:MSession.UserId = MSession.sharedInstance.user.userId
+            
+        else
+        {
+            return
+        }
+        
+        let photoId:PhotoId = item.photoId
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let propertyPhotos:String = FDatabaseModelUser.Property.photos.rawValue
+        let propertyStatus:String = FDatabaseModelPhoto.Property.status.rawValue
+        let pathStatus:String = "\(parentUser)/\(userId)/\(propertyPhotos)/\(photoId)/\(propertyStatus)"
+        let status:Int = MPhotos.Status.deleting.rawValue
+        
+        FMain.sharedInstance.database.updateChild(
+            path:pathStatus,
+            json:status)
+        
+        photoDeletables.append(item)
+        photos.removeValue(forKey:photoId)
+        
+        deletePhotos()
+    }
+    
     //MARK: public
     
     func loadPhotos()
@@ -418,11 +446,11 @@ class MPhotos
         }
     }
     
-    func deletePhoto(item:MPhotosItemPhoto)
+    func markForDeletion(item:MPhotosItemPhoto)
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
-            
+            self.asyncMarkForDeletion(item:item)
         }
     }
 }

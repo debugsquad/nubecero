@@ -4,14 +4,14 @@ class CPhotosAlbumPhotoSettings:CController
 {
     private weak var viewSettings:VPhotosAlbumPhotoSettings!
     private weak var model:MPhotosItemPhoto?
-    private weak var albumController:CPhotosAlbumPhoto!
+    private weak var photoController:CPhotosAlbumPhoto!
     
     convenience init(
-        albumController:CPhotosAlbumPhoto,
+        photoController:CPhotosAlbumPhoto,
         model:MPhotosItemPhoto)
     {
         self.init()
-        self.albumController = albumController
+        self.photoController = photoController
         self.model = model
     }
     
@@ -27,6 +27,20 @@ class CPhotosAlbumPhotoSettings:CController
     
     private func confirmedDelete()
     {
+        guard
+            
+            let model:MPhotosItemPhoto = model
+        
+        else
+        {
+            back()
+            
+            return
+        }
+        
+        MPhotos.sharedInstance.markForDeletion(
+            item:model)
+        
         
     }
     

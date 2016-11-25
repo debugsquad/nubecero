@@ -42,9 +42,7 @@ class VPhotosAlbumPhotoListCellImage:UIScrollView, UIScrollViewDelegate
         
         if controller.viewPhoto.viewList.animate
         {
-            let indexSelected:Int = controller.selected
-            let photoReference:MPhotosItemPhotoReference = controller.model.references[indexSelected]
-            let photo:MPhotosItemPhoto = MPhotos.sharedInstance.photos[photoReference.photoId]!
+            let photo:MPhotosItemPhoto = controller.selectedPhoto()!
             let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
             let finalSize:CGSize = controller.view.bounds.size
             let maxWidth:CGFloat = finalSize.width

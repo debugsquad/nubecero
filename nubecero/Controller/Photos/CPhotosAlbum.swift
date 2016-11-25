@@ -48,7 +48,7 @@ class CPhotosAlbum:CController
         viewAlbum.collectionView.scrollsToTop = false
         
         let controller:CPhotosAlbumPhoto = CPhotosAlbumPhoto(
-            model:model,
+            albumController:self,
             selected:item,
             inRect:inRect)
         

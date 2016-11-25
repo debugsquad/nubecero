@@ -3,13 +3,13 @@ import UIKit
 class CPhotosAlbumPhoto:CController
 {
     weak var viewPhoto:VPhotosAlbumPhoto!
+    weak var albumController:CPhotosAlbum!
     var selected:Int
-    let model:MPhotosItem
     let inRect:CGRect
     
-    init(model:MPhotosItem, selected:Int, inRect:CGRect)
+    init(albumController:CPhotosAlbum, selected:Int, inRect:CGRect)
     {
-        self.model = model
+        self.albumController = albumController
         self.selected = selected
         self.inRect = inRect
         super.init()
@@ -35,6 +35,15 @@ class CPhotosAlbumPhoto:CController
     
     //MARK: public
     
+    func selectedPhoto() -> MPhotosItemPhoto?
+    {
+        let reference:MPhotosItemPhotoReference = albumController.model.references[selected]
+        let photo:MPhotosItemPhoto? = MPhotos.sharedInstance.photos[
+            reference.photoId]
+        
+        return photo
+    }
+    
     func back()
     {
         parentController.dismiss()
@@ -42,9 +51,7 @@ class CPhotosAlbumPhoto:CController
     
     func share()
     {
-        let reference:MPhotosItemPhotoReference = model.references[selected]
-        let photo:MPhotosItemPhoto? = MPhotos.sharedInstance.photos[
-            reference.photoId]
+        let photo:MPhotosItemPhoto? = selectedPhoto()
         
         guard
             
@@ -71,12 +78,9 @@ class CPhotosAlbumPhoto:CController
     
     func settings()
     {
-        let reference:MPhotosItemPhotoReference = model.references[selected]
-        
         guard
             
-            let photo:MPhotosItemPhoto = MPhotos.sharedInstance.photos[
-                reference.photoId]
+            let photo:MPhotosItemPhoto = selectedPhoto()
         
         else
         {
@@ -84,7 +88,7 @@ class CPhotosAlbumPhoto:CController
         }
         
         let controllerSettings:CPhotosAlbumPhotoSettings = CPhotosAlbumPhotoSettings(
-            albumController:self,
+            photoController:self,
             model:photo)
         parentController.push(
             controller:controllerSettings,

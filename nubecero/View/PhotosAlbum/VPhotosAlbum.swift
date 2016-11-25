@@ -5,6 +5,7 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
     weak var collectionView:UICollectionView!
     private weak var controller:CPhotosAlbum!
     private weak var backButton:UIButton!
+    private weak var albumTitle:VPhotosAlbumTitle!
     private weak var layoutBackgroundTop:NSLayoutConstraint!
     private weak var layoutBackButtonTop:NSLayoutConstraint!
     private weak var layoutTitleBottom:NSLayoutConstraint!
@@ -52,6 +53,7 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         self.backButton = backButton
         
         let albumTitle:VPhotosAlbumTitle = VPhotosAlbumTitle(controller:controller)
+        self.albumTitle = albumTitle
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize.zero
@@ -173,6 +175,17 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         addConstraint(layoutBackButtonTop)
         addConstraint(layoutBackgroundTop)
         addConstraint(layoutTitleBottom)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedAlbumRefreshed(sender:)),
+            name:Notification.albumRefreshed,
+            object:nil)
+    }
+    
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
     }
     
     override func layoutSubviews()
@@ -181,6 +194,18 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         collectionView.collectionViewLayout.invalidateLayout()
         
         super.layoutSubviews()
+    }
+    
+    //MARK: notified
+    
+    func notifiedAlbumRefreshed(sender notification:Notification)
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.collectionView.reloadData()
+            self?.albumTitle.print()
+        }
     }
     
     //MARK: actions

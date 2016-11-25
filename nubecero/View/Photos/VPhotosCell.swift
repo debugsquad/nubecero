@@ -5,6 +5,7 @@ class VPhotosCell:UICollectionViewCell
     private weak var label:UILabel!
     private weak var labelSize:UILabel!
     private weak var layoutRightWidth:NSLayoutConstraint!
+    private weak var model:MPhotosItem?
     private let attributesName:[String:AnyObject]
     private let attributesCount:[String:AnyObject]
     private let attributesSize:[String:AnyObject]
@@ -172,11 +173,18 @@ class VPhotosCell:UICollectionViewCell
         }
     }
     
-    //MARK: public
+    //MARK: private
     
-    func config(model:MPhotosItem)
+    private func print()
     {
-        hover()
+        guard
+            
+            let model:MPhotosItem = self.model
+        
+        else
+        {
+            return
+        }
         
         let count:NSNumber = model.references.count as NSNumber
         let megaBytesFloat:CGFloat = CGFloat(model.kiloBytes) / kKiloBytesPerMega
@@ -186,7 +194,7 @@ class VPhotosCell:UICollectionViewCell
             
             let countString:String = numberFormatter.string(from:count),
             let megaBytesString:String = numberFormatter.string(from:megaBytes)
-        
+            
         else
         {
             return
@@ -230,7 +238,7 @@ class VPhotosCell:UICollectionViewCell
             guard
                 
                 let animationDuration:TimeInterval = self?.kAnimationDuration
-            
+                
             else
             {
                 return
@@ -244,5 +252,13 @@ class VPhotosCell:UICollectionViewCell
                 self?.layoutIfNeeded()
             }
         }
+    }
+    
+    //MARK: public
+    
+    func config(model:MPhotosItem)
+    {
+        self.model = model
+        hover()
     }
 }

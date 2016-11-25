@@ -64,12 +64,6 @@ class CPhotosAlbum:CController
         { [weak self] in
             
             self?.model.removePhoto(item:photo)
-            
-            DispatchQueue.main.async
-            { [weak self] in
-                
-                self?.viewAlbum.collectionView.reloadData()
-            }
         }
     }
 }

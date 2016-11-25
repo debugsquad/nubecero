@@ -68,5 +68,8 @@ class MPhotosItem
         
         kiloBytes -= item.size
         references.remove(at:indexFound)
+        
+        NotificationCenter.default.post(
+            Notification.albumRefreshed)
     }
 }

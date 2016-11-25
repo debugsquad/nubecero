@@ -10,13 +10,13 @@ class MPhotosItemPhoto
     var resources:MPhotosItemPhotoResources!
     private(set) var state:MPhotosItemPhotoState?
     
-    init(photoId:MPhotos.PhotoId, firebasePicture:FDatabaseModelPhoto)
+    init(photoId:MPhotos.PhotoId, firebasePhoto:FDatabaseModelPhoto)
     {
         self.photoId = photoId
-        created = firebasePicture.created
-        size = firebasePicture.size
-        width = firebasePicture.pixelWidth
-        height = firebasePicture.pixelHeight
+        created = firebasePhoto.created
+        size = firebasePhoto.size
+        width = firebasePhoto.pixelWidth
+        height = firebasePhoto.pixelHeight
         stateClear()
         initResources()
     }

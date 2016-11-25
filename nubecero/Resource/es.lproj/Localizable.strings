@@ -41,6 +41,9 @@
 "VPhotosCell_labelPhotos"="\n%@ Fotos";
 "VPhotosCell_labelSize"="%@ Mb";
 "VPhotosAlbumTitle_labelInfo"="%@ Fotos";
+"VStoreCellPurchasing_label"="Comprando";
+"VStoreCellPurchased_label"="Comprado";
+"VStoreCellNotAvailable_label"="No disponible";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";
@@ -75,9 +78,10 @@
 "CAdminServer_alertMessage"="¿Estas seguro?";
 "CAdminServer_alertDone"="Cambios guardados";
 "CAdminServer_alertError"="Error guardando";
-"VStoreCellPurchasing_label"="Comprando";
-"VStoreCellPurchased_label"="Comprado";
-"VStoreCellNotAvailable_label"="No disponible";
+"CPhotosAlbumPhotoSettings_deleteTitle"="¿Borrar foto?";
+"CPhotosAlbumPhotoSettings_deleteMessage"="No es posible recuperar";
+"CPhotosAlbumPhotoSettings_deleteDo"="Borrar";
+"CPhotosAlbumPhotoSettings_deleteCancel"="Cancelar";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

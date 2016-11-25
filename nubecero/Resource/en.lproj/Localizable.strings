@@ -78,6 +78,10 @@
 "CAdminServer_alertMessage"="Are you sure?";
 "CAdminServer_alertDone"="Changes saved";
 "CAdminServer_alertError"="Error saving";
+"CPhotosAlbumPhotoSettings_deleteTitle"="Delete photo?";
+"CPhotosAlbumPhotoSettings_deleteMessage"="Can't be undone";
+"CPhotosAlbumPhotoSettings_deleteDo"="Delete";
+"CPhotosAlbumPhotoSettings_deleteCancel"="Cancel";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading photo, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

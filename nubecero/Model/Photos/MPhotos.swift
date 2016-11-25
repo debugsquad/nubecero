@@ -217,7 +217,7 @@ class MPhotos
                 {
                     let newItem:MPhotosItemPhoto = MPhotosItemPhoto(
                         photoId:photoId,
-                        firebasePicture:firebasePhoto)
+                        firebasePhoto:firebasePhoto)
                     items[photoId] = newItem
                 }
                 
@@ -233,7 +233,7 @@ class MPhotos
             {
                 let deleteItem:MPhotosItemPhoto = MPhotosItemPhoto(
                     photoId:photoId,
-                    firebasePicture:firebasePhoto)
+                    firebasePhoto:firebasePhoto)
                 deletables.append(deleteItem)
             }
         }
@@ -272,7 +272,7 @@ class MPhotos
             name:Notification.photosLoaded,
             object:nil)
         
-        deletePictures()
+        deletePhotos()
     }
     
     private func asyncCleanResources()
@@ -286,15 +286,15 @@ class MPhotos
         }
     }
     
-    private func deletePictures()
+    private func deletePhotos()
     {
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
-            self.asyncDeletePictures()
+            self.asyncDeletePhotos()
         }
     }
     
-    private func asyncDeletePictures()
+    private func asyncDeletePhotos()
     {
         if !loading
         {
@@ -393,7 +393,7 @@ class MPhotos
         
         FMain.sharedInstance.database.removeChild(path:photoPath)
         
-        deletePictures()
+        deletePhotos()
     }
     
     //MARK: public
@@ -415,6 +415,14 @@ class MPhotos
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
             self.asyncCleanResources()
+        }
+    }
+    
+    func deletePhoto(item:MPhotosItemPhoto)
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            
         }
     }
 }

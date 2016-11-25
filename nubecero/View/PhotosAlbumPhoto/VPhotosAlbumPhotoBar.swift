@@ -26,10 +26,18 @@ class VPhotosAlbumPhotoBar:UIView, UICollectionViewDelegate, UICollectionViewDat
             action:#selector(actionBack(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        let border:UIView = UIView()
+        border.isUserInteractionEnabled = false
+        border.backgroundColor = UIColor(white:1, alpha:0.1)
+        border.translatesAutoresizingMaskIntoConstraints = false
+        border.clipsToBounds = true
+        
+        addSubview(border)
         addSubview(backButton)
         
         let views:[String:UIView] = [
-            "backButton":backButton]
+            "backButton":backButton,
+            "border":border]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -39,7 +47,17 @@ class VPhotosAlbumPhotoBar:UIView, UICollectionViewDelegate, UICollectionViewDat
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[border]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[backButton(64)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[border(1)]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -63,5 +81,9 @@ class VPhotosAlbumPhotoBar:UIView, UICollectionViewDelegate, UICollectionViewDat
     {
         let count = 0
         return count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
     }
 }

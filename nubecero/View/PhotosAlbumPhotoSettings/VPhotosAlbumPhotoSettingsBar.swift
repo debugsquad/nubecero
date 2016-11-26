@@ -40,7 +40,7 @@ class VPhotosAlbumPhotoSettingsBar:UIView
         deleteButton.imageView!.tintColor = UIColor.main
         deleteButton.imageView!.clipsToBounds = true
         deleteButton.imageView!.contentMode = UIViewContentMode.center
-        deleteButton.imageEdgeInsets = UIEdgeInsetsMake(0, 15, 0, 0)
+        deleteButton.imageEdgeInsets = UIEdgeInsetsMake(0, 12, 0, 0)
         deleteButton.addTarget(
             self,
             action:#selector(actionDelete(sender:)),

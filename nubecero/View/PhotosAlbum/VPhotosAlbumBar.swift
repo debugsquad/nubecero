@@ -35,22 +35,23 @@ class VPhotosAlbumBar:UIView
             #imageLiteral(resourceName: "assetPhotosOptions").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
             for:UIControlState.normal)
         optionsButton.setImage(
-            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
+            #imageLiteral(resourceName: "assetPhotosOptions").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
             for:UIControlState.highlighted)
         optionsButton.imageView!.clipsToBounds = true
         optionsButton.imageView!.contentMode = UIViewContentMode.center
         optionsButton.imageView!.tintColor = UIColor.black
-        optionsButton.imageEdgeInsets = UIEdgeInsetsMake(0, 12, 0, 0)
+        optionsButton.imageEdgeInsets = UIEdgeInsetsMake(0, 20, 0, 0)
         optionsButton.addTarget(
             self,
-            action:#selector(actionBack(sender:)),
+            action:#selector(actionOptions(sender:)),
             for:UIControlEvents.touchUpInside)
         
         addSubview(backButton)
         addSubview(optionsButton)
         
         let views:[String:UIView] = [
-            "backButton":backButton]
+            "backButton":backButton,
+            "optionsButton":optionsButton]
         
         let metrics:[String:CGFloat] = [:]
         
@@ -81,5 +82,10 @@ class VPhotosAlbumBar:UIView
     func actionBack(sender button:UIButton)
     {
         controller.back()
+    }
+    
+    func actionOptions(sender button:UIButton)
+    {
+        controller.options()
     }
 }

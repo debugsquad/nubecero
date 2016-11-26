@@ -43,6 +43,11 @@ class CPhotosAlbum:CController
         parentController.pop(completion:nil)
     }
     
+    func options()
+    {
+        
+    }
+    
     func selectPhoto(item:Int, inRect:CGRect)
     {
         viewAlbum.collectionView.scrollsToTop = false

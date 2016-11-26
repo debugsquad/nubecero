@@ -4,15 +4,15 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
 {
     weak var collectionView:UICollectionView!
     private weak var controller:CPhotosAlbum!
-    private weak var backButton:UIButton!
+    private weak var albumBar:VPhotosAlbumBar!
     private weak var albumTitle:VPhotosAlbumTitle!
     private weak var layoutBackgroundTop:NSLayoutConstraint!
-    private weak var layoutBackButtonTop:NSLayoutConstraint!
+    private weak var layoutBarTop:NSLayoutConstraint!
     private weak var layoutTitleBottom:NSLayoutConstraint!
     private var cellSize:CGSize!
     private let kInterLine:CGFloat = 1
     private let kCollectionTop:CGFloat = 130
-    private let kBackButtonTop:CGFloat = 20
+    private let kBarHeight:CGFloat = 64
     private let kDeselectTime:TimeInterval = 1
     
     convenience init(controller:CPhotosAlbum)
@@ -34,23 +34,8 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         background.translatesAutoresizingMaskIntoConstraints = false
         background.backgroundColor = UIColor.white
         
-        let backButton:UIButton = UIButton()
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.setImage(
-            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysTemplate),
-            for:UIControlState.normal)
-        backButton.setImage(
-            #imageLiteral(resourceName: "assetGenericBack").withRenderingMode(UIImageRenderingMode.alwaysOriginal),
-            for:UIControlState.highlighted)
-        backButton.imageView!.clipsToBounds = true
-        backButton.imageView!.contentMode = UIViewContentMode.center
-        backButton.imageView!.tintColor = UIColor.black
-        backButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 25)
-        backButton.addTarget(
-            self,
-            action:#selector(actionBack(sender:)),
-            for:UIControlEvents.touchUpInside)
-        self.backButton = backButton
+        let albumBar:VPhotosAlbumBar = VPhotosAlbumBar(controller:controller)
+        self.albumBar = albumBar
         
         let albumTitle:VPhotosAlbumTitle = VPhotosAlbumTitle(controller:controller)
         self.albumTitle = albumTitle
@@ -87,17 +72,18 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         addSubview(albumTitle)
         addSubview(background)
         addSubview(collectionView)
-        addSubview(backButton)
+        addSubview(albumBar)
         addSubview(leftBorder)
         
         let views:[String:UIView] = [
             "background":background,
-            "backButton":backButton,
+            "albumBar":albumBar,
             "leftBorder":leftBorder,
             "albumTitle":albumTitle,
             "collectionView":collectionView]
         
-        let metrics:[String:CGFloat] = [:]
+        let metrics:[String:CGFloat] = [
+            "barHeight":kBarHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[background]-0-|",
@@ -105,7 +91,7 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[backButton(60)]",
+            withVisualFormat:"H:|-0-[albumBar]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -125,7 +111,7 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[backButton(44)]",
+            withVisualFormat:"V:[albumBar(barHeight)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -145,14 +131,14 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             metrics:metrics,
             views:views))
         
-        layoutBackButtonTop = NSLayoutConstraint(
-            item:backButton,
+        layoutBarTop = NSLayoutConstraint(
+            item:albumBar,
             attribute:NSLayoutAttribute.top,
             relatedBy:NSLayoutRelation.equal,
             toItem:self,
             attribute:NSLayoutAttribute.top,
             multiplier:1,
-            constant:kBackButtonTop)
+            constant:0)
         
         layoutBackgroundTop = NSLayoutConstraint(
             item:background,
@@ -172,7 +158,7 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             multiplier:1,
             constant:0)
         
-        addConstraint(layoutBackButtonTop)
+        addConstraint(layoutBarTop)
         addConstraint(layoutBackgroundTop)
         addConstraint(layoutTitleBottom)
         
@@ -206,13 +192,6 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             self?.collectionView.reloadData()
             self?.albumTitle.print()
         }
-    }
-    
-    //MARK: actions
-    
-    func actionBack(sender button:UIButton)
-    {
-        controller.back()
     }
     
     //MARK: private
@@ -250,15 +229,15 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
                 backButtonAlpha = 0
             }
             
-            layoutBackButtonTop.constant = kBackButtonTop - halfOffset
+            layoutBarTop.constant = -halfOffset
             layoutTitleBottom.constant = halfOffset
-            backButton.alpha = backButtonAlpha
+            albumBar.alpha = backButtonAlpha
         }
         else
         {
-            layoutBackButtonTop.constant = kBackButtonTop
+            layoutBarTop.constant = 0
             layoutTitleBottom.constant = 0
-            backButton.alpha = 1
+            albumBar.alpha = 1
         }
     }
     

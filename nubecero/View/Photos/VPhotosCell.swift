@@ -294,5 +294,6 @@ class VPhotosCell:UICollectionViewCell
     {
         self.model = model
         hover()
+        print()
     }
 }

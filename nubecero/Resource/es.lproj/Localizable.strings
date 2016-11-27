@@ -82,6 +82,9 @@
 "CPhotosAlbumPhotoSettings_deleteMessage"="No es posible recuperar";
 "CPhotosAlbumPhotoSettings_deleteDo"="Borrar";
 "CPhotosAlbumPhotoSettings_deleteCancel"="Cancelar";
+"CPhotosAlbum_alertCancel"="Listo";
+"CPhotosAlbum_alertRename"="Renombrar";
+"CPhotosAlbum_alertDeleteAll"="Borrar todas";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

@@ -82,6 +82,9 @@
 "CPhotosAlbumPhotoSettings_deleteMessage"="Can't be undone";
 "CPhotosAlbumPhotoSettings_deleteDo"="Delete";
 "CPhotosAlbumPhotoSettings_deleteCancel"="Cancel";
+"CPhotosAlbum_alertCancel"="Done";
+"CPhotosAlbum_alertRename"="Rename";
+"CPhotosAlbum_alertDeleteAll"="Delete all";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading photo, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

@@ -4,6 +4,7 @@ class FDatabaseModelPhoto:FDatabaseModel
 {
     enum Property:String
     {
+        case localId = "localId"
         case albumId = "albumId"
         case created = "created"
         case status = "status"
@@ -13,6 +14,7 @@ class FDatabaseModelPhoto:FDatabaseModel
     }
     
     let albumId:MPhotos.AlbumId
+    let localId:String
     let created:TimeInterval
     let status:MPhotos.Status
     let size:Int
@@ -22,8 +24,9 @@ class FDatabaseModelPhoto:FDatabaseModel
     private let kNoTime:TimeInterval = 0
     private let kZero:Int = 0
     
-    init(size:Int, pixelWidth:Int, pixelHeight:Int)
+    init(localId:String, size:Int, pixelWidth:Int, pixelHeight:Int)
     {
+        self.localId = localId
         self.size = size
         self.pixelWidth = pixelWidth
         self.pixelHeight = pixelHeight
@@ -37,6 +40,15 @@ class FDatabaseModelPhoto:FDatabaseModel
     required init(snapshot:Any)
     {
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
+        
+        if let localId:String = snapshotDict?[Property.localId.rawValue] as? String
+        {
+            self.localId = localId
+        }
+        else
+        {
+            self.localId = kEmpty
+        }
         
         if let albumId:MPhotos.AlbumId = snapshotDict?[Property.albumId.rawValue] as? MPhotos.AlbumId
         {
@@ -110,6 +122,7 @@ class FDatabaseModelPhoto:FDatabaseModel
     override func modelJson() -> Any
     {
         let json:[String:Any] = [
+            Property.localId.rawValue:localId,
             Property.albumId.rawValue:albumId,
             Property.created.rawValue:created,
             Property.status.rawValue:status.rawValue,

@@ -86,6 +86,10 @@
 "CPhotosAlbum_alertRename"="Cambiar nombre";
 "CPhotosAlbum_alertDeleteAll"="Borrar todas las fotos";
 "CPhotosAlbum_alertDeleteAlbum"="Borrar album";
+"CPhotosAlbum_deleteAlbumTitle"="¿Borrar album?";
+"CPhotosAlbum_deleteAlbumMessage"="Fotos se moveran a default";
+"CPhotosAlbum_deleteAlbumCancel"="Cancelar";
+"CPhotosAlbum_deleteAlbumDelete"="Borrar";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

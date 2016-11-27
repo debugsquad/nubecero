@@ -45,7 +45,32 @@ class CPhotosAlbum:CController
     
     private func deleteAlbum()
     {
+        let alert:UIAlertController = UIAlertController(
+            title:
+            NSLocalizedString("CPhotosAlbum_deleteAlbumTitle", comment:""),
+            message:
+            NSLocalizedString("CPhotosAlbum_deleteAlbumDescr", comment:""),
+            preferredStyle:UIAlertControllerStyle.actionSheet)
         
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CPhotosAlbum_deleteAlbumCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionDelete:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CPhotosAlbum_deleteAlbumDelete", comment:""),
+            style:
+            UIAlertActionStyle.destructive)
+        { [weak self] (action:UIAlertAction) in
+            
+            self?.deleteAlbum()
+        }
+        
+        alert.addAction(actionDelete)
+        alert.addAction(actionCancel)
+        present(alert, animated:true, completion:nil)
     }
     
     private func deleteAllPhotos()
@@ -82,6 +107,7 @@ class CPhotosAlbum:CController
             UIAlertActionStyle.default)
         { [weak self] (action:UIAlertAction) in
             
+            self?.renameAlbum()
         }
         
         let actionDeleteAlbum:UIAlertAction = UIAlertAction(

@@ -82,10 +82,14 @@
 "CPhotosAlbumPhotoSettings_deleteMessage"="Can't be undone";
 "CPhotosAlbumPhotoSettings_deleteDo"="Delete";
 "CPhotosAlbumPhotoSettings_deleteCancel"="Cancel";
-"CPhotosAlbum_alertCancel"="Done";
+"CPhotosAlbum_alertCancel"="Do nothing";
 "CPhotosAlbum_alertRename"="Rename";
 "CPhotosAlbum_alertDeleteAll"="Delete all photos";
 "CPhotosAlbum_alertDeleteAlbum"="Delete album";
+"CPhotosAlbum_deleteAlbumTitle"="Delete album?";
+"CPhotosAlbum_deleteAlbumMessage"="Photos will be moved to default";
+"CPhotosAlbum_deleteAlbumCancel"="Cancel";
+"CPhotosAlbum_deleteAlbumDelete"="Delete";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading photo, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

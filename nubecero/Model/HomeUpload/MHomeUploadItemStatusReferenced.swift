@@ -8,7 +8,7 @@ class MHomeUploadItemStatusReferenced:MHomeUploadItemStatus
     
     init(item:MHomeUploadItem?)
     {
-        let reusableIdentifier:String = VHomeUploadCell.reusableIdentifier
+        let reusableIdentifier:String = VHomeUploadCellActive.reusableIdentifier
         let color:UIColor = UIColor.black
         super.init(
             reusableIdentifier:reusableIdentifier,

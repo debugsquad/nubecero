@@ -11,6 +11,7 @@
 		1E9AC0186DB6141BB7B8E493 /* Pods_nubecero.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 139B6F190B9092431A50FEE0 /* Pods_nubecero.framework */; };
 		DA0586751DEAD55000651619 /* MHomeUploadItemStatusClouded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0586741DEAD55000651619 /* MHomeUploadItemStatusClouded.swift */; };
 		DA0586771DEAD5AB00651619 /* VHomeUploadCellClouded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0586761DEAD5AB00651619 /* VHomeUploadCellClouded.swift */; };
+		DA0586791DEAD7A500651619 /* VHomeUploadCellActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0586781DEAD7A500651619 /* VHomeUploadCellActive.swift */; };
 		DA09B6621DE5151200654C2E /* VPhotosAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA09B6611DE5151200654C2E /* VPhotosAlbumCell.swift */; };
 		DA25F8E11DCD63A50048DFFE /* TFDatabaseModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA25F8E01DCD63A50048DFFE /* TFDatabaseModelUser.swift */; };
 		DA2F668F1DC90AF50078B466 /* FDatabaseModelPhotoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F668E1DC90AF50078B466 /* FDatabaseModelPhotoList.swift */; };
@@ -286,6 +287,7 @@
 		B32F1F3C4801828AB2F625CA /* Pods-tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-tests/Pods-tests.release.xcconfig"; sourceTree = "<group>"; };
 		DA0586741DEAD55000651619 /* MHomeUploadItemStatusClouded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadItemStatusClouded.swift; sourceTree = "<group>"; };
 		DA0586761DEAD5AB00651619 /* VHomeUploadCellClouded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadCellClouded.swift; sourceTree = "<group>"; };
+		DA0586781DEAD7A500651619 /* VHomeUploadCellActive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadCellActive.swift; sourceTree = "<group>"; };
 		DA09B6611DE5151200654C2E /* VPhotosAlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosAlbumCell.swift; sourceTree = "<group>"; };
 		DA1F0E221DC2C6480003AAB8 /* nubecero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nubecero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1F0E361DC2C6480003AAB8 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1273,6 +1275,7 @@
 				DACD1FB51DC56C250067D26B /* VHomeUploadBar.swift */,
 				DACD1FAA1DC4124B0067D26B /* VHomeUpload.swift */,
 				DACD1FB31DC545F70067D26B /* VHomeUploadCell.swift */,
+				DA0586781DEAD7A500651619 /* VHomeUploadCellActive.swift */,
 				DA0586761DEAD5AB00651619 /* VHomeUploadCellClouded.swift */,
 			);
 			path = HomeUpload;
@@ -1619,6 +1622,7 @@
 				DA4F98DF1DE7ABFB00C0AC07 /* VPhotosAlbumPhotoListFlow.swift in Sources */,
 				DA7A79CF1DD64F89001B5FA5 /* VHomeCellSpace.swift in Sources */,
 				DAAAFFAB1DDA399700E8F839 /* VAdminUsersPhotos.swift in Sources */,
+				DA0586791DEAD7A500651619 /* VHomeUploadCellActive.swift in Sources */,
 				DA4FA5B41DD7D7FE00358ABE /* MAdmin.swift in Sources */,
 				DAF6F2BC1DD39BC50053ED1B /* MOnboardFormItemPasswordSignin.swift in Sources */,
 				DAA336671DDE10F600AA2D12 /* MStore.swift in Sources */,

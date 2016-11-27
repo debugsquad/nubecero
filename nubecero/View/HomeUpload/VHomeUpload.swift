@@ -46,9 +46,13 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(
-            VHomeUploadCell.self,
+            VHomeUploadCellActive.self,
             forCellWithReuseIdentifier:
-            VHomeUploadCell.reusableIdentifier)
+            VHomeUploadCellActive.reusableIdentifier)
+        collectionView.register(
+            VHomeUploadCellClouded.self,
+            forCellWithReuseIdentifier:
+            VHomeUploadCellClouded.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(spinner)
@@ -187,7 +191,8 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     {
         let item:MHomeUploadItem = modelAtIndex(index:indexPath)
         let cell:VHomeUploadCell = collectionView.dequeueReusableCell(
-            withReuseIdentifier:VHomeUploadCell.reusableIdentifier,
+            withReuseIdentifier:
+            item.status.reusableIdentifier,
             for:indexPath) as! VHomeUploadCell
         cell.config(model:item)
         

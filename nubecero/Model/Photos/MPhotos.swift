@@ -20,6 +20,7 @@ class MPhotos
     private var photoDeletables:[MPhotosItemPhoto]
     private(set) var albumItems:[AlbumId:MPhotosItemUser]
     private(set) var albumReferences:[MPhotosItemReference]
+    private(set) var localReferences:[LocalId:Bool]
     private(set) var photos:[PhotoId:MPhotosItemPhoto]
     private var loading:Bool
     private let kZero:Int = 0
@@ -31,6 +32,7 @@ class MPhotos
         albumItems = [:]
         photoDeletables = []
         albumReferences = []
+        localReferences = [:]
         photos = [:]
     }
     
@@ -180,6 +182,7 @@ class MPhotos
     {
         var items:[PhotoId:MPhotosItemPhoto] = [:]
         var deletables:[MPhotosItemPhoto] = []
+        var localReferences:[LocalId:Bool] = [:]
         let photosIds:[PhotoId] = Array(photosMap.keys)
         
         for photoId:PhotoId in photosIds
@@ -194,6 +197,7 @@ class MPhotos
             }
             
             let photoStatus:MPhotos.Status = firebasePhoto.status
+            let localId:LocalId = firebasePhoto.localId
             let photoCreated:TimeInterval = firebasePhoto.created
             let kiloBytes:Int = firebasePhoto.size
             let albumId:AlbumId = firebasePhoto.albumId
@@ -229,6 +233,8 @@ class MPhotos
                 album?.addReference(
                     reference:photoReference,
                     kiloBytes:kiloBytes)
+                
+                localReferences[localId] = true
             }
             else
             {
@@ -241,6 +247,7 @@ class MPhotos
         
         self.photos = items
         self.photoDeletables = deletables
+        self.localReferences = localReferences
         
         sortAlbums()
     }

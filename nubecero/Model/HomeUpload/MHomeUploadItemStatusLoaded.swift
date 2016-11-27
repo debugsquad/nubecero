@@ -33,6 +33,7 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
         guard
             
             let userId:MSession.UserId = MSession.sharedInstance.user.userId,
+            let localId:String = item?.localId,
             let imageData:Data = item?.imageData,
             let pixelWidth:Int = item?.pixelWidth,
             let pixelHeight:Int = item?.pixelHeight
@@ -53,6 +54,7 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
         let pathDiskUsed:String = "\(parentUser)/\(userId)/\(propertyDiskUsed)"
         let dataLength:Int = imageData.count / kKilobytePerByte
         let modelPhoto:FDatabaseModelPhoto = FDatabaseModelPhoto(
+            localId:localId,
             size:dataLength,
             pixelWidth:pixelWidth,
             pixelHeight:pixelHeight)
@@ -98,7 +100,8 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
                         mutableData.value = dataLength
                     }
                     
-                    let transactionResult:FIRTransactionResult = FIRTransactionResult.success(withValue:mutableData)
+                    let transactionResult:FIRTransactionResult = FIRTransactionResult.success(
+                        withValue:mutableData)
                     
                     return transactionResult
                 }

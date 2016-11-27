@@ -7,7 +7,7 @@ class MHomeUploadItem
     var imageData:Data?
     var photoId:String?
     let asset:PHAsset
-    let assetId:String
+    let localId:String
     let pixelWidth:Int
     let pixelHeight:Int
     private(set) var status:MHomeUploadItemStatus
@@ -18,7 +18,7 @@ class MHomeUploadItem
         status = MHomeUploadItemStatusNone(item:nil)
         pixelWidth = asset.pixelWidth
         pixelHeight = asset.pixelHeight
-        assetId = asset.localIdentifier
+        localId = asset.localIdentifier
         self.asset = asset
 
         let imageSize:CGSize = CGSize(

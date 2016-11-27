@@ -49,7 +49,7 @@ class CPhotosAlbum:CController
             title:
             NSLocalizedString("CPhotosAlbum_deleteAlbumTitle", comment:""),
             message:
-            NSLocalizedString("CPhotosAlbum_deleteAlbumDescr", comment:""),
+            NSLocalizedString("CPhotosAlbum_deleteAlbumMessage", comment:""),
             preferredStyle:UIAlertControllerStyle.actionSheet)
         
         let actionCancel:UIAlertAction = UIAlertAction(
@@ -65,7 +65,6 @@ class CPhotosAlbum:CController
             UIAlertActionStyle.destructive)
         { [weak self] (action:UIAlertAction) in
             
-            self?.deleteAlbum()
         }
         
         alert.addAction(actionDelete)
@@ -75,7 +74,31 @@ class CPhotosAlbum:CController
     
     private func deleteAllPhotos()
     {
+        let alert:UIAlertController = UIAlertController(
+            title:
+            NSLocalizedString("CPhotosAlbum_deleteAllTitle", comment:""),
+            message:
+            NSLocalizedString("CPhotosAlbum_deleteAllMessage", comment:""),
+            preferredStyle:UIAlertControllerStyle.actionSheet)
         
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CPhotosAlbum_deleteAllCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionDelete:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CPhotosAlbum_deleteAllDelete", comment:""),
+            style:
+            UIAlertActionStyle.destructive)
+        { [weak self] (action:UIAlertAction) in
+            
+        }
+        
+        alert.addAction(actionDelete)
+        alert.addAction(actionCancel)
+        present(alert, animated:true, completion:nil)
     }
     
     //MARK: public

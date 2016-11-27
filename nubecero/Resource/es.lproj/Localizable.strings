@@ -90,6 +90,10 @@
 "CPhotosAlbum_deleteAlbumMessage"="Fotos se moveran a default";
 "CPhotosAlbum_deleteAlbumCancel"="Cancelar";
 "CPhotosAlbum_deleteAlbumDelete"="Borrar";
+"CPhotosAlbum_deleteAllTitle"="¿Borrar todas las fotos?";
+"CPhotosAlbum_deleteAllMessage"="No se puede deshacer";
+"CPhotosAlbum_deleteAllCancel"="Cancelar";
+"CPhotosAlbum_deleteAllDelete"="Borrar";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

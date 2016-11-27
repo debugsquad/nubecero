@@ -194,11 +194,25 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         return cell
     }
     
+    func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
+    {
+        let item:MHomeUploadItem = modelAtIndex(index:indexPath)
+        
+        return item.status.selectable
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
+    {
+        let item:MHomeUploadItem = modelAtIndex(index:indexPath)
+        
+        return item.status.selectable
+    }
+    
     func collectionView(_ collectionView:UICollectionView, shouldDeselectItemAt indexPath:IndexPath) -> Bool
     {
         let item:MHomeUploadItem = modelAtIndex(index:indexPath)
         
-        return !item.status.finished
+        return item.status.selectable
     }
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)

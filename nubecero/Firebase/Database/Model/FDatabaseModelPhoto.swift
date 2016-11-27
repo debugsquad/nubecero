@@ -14,7 +14,7 @@ class FDatabaseModelPhoto:FDatabaseModel
     }
     
     let albumId:MPhotos.AlbumId
-    let localId:String
+    let localId:MPhotos.LocalId
     let created:TimeInterval
     let status:MPhotos.Status
     let size:Int
@@ -24,7 +24,7 @@ class FDatabaseModelPhoto:FDatabaseModel
     private let kNoTime:TimeInterval = 0
     private let kZero:Int = 0
     
-    init(localId:String, size:Int, pixelWidth:Int, pixelHeight:Int)
+    init(localId:MPhotos.LocalId, size:Int, pixelWidth:Int, pixelHeight:Int)
     {
         self.localId = localId
         self.size = size
@@ -41,7 +41,7 @@ class FDatabaseModelPhoto:FDatabaseModel
     {
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
         
-        if let localId:String = snapshotDict?[Property.localId.rawValue] as? String
+        if let localId:MPhotos.LocalId = snapshotDict?[Property.localId.rawValue] as? MPhotos.LocalId
         {
             self.localId = localId
         }

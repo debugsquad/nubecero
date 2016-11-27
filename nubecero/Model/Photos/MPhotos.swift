@@ -5,6 +5,7 @@ class MPhotos
 {
     typealias AlbumId = String
     typealias PhotoId = String
+    typealias LocalId = String
     
     enum Status:Int
     {

@@ -7,7 +7,7 @@ class MHomeUploadItem
     var imageData:Data?
     var photoId:String?
     let asset:PHAsset
-    let localId:String
+    let localId:MPhotos.LocalId
     let pixelWidth:Int
     let pixelHeight:Int
     private(set) var status:MHomeUploadItemStatus

@@ -40,9 +40,13 @@ class CPhotosAlbum:CController
     
     private func confirmDeleteAll()
     {
-        MPhotos.sharedInstance.markForDeletion(
-            item:photo)
-        model.removePhoto(item:photo)
+        model.removeAll()
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewAlbum.hideLoading()
+        }
     }
     
     private func renameAlbum()
@@ -101,6 +105,13 @@ class CPhotosAlbum:CController
             UIAlertActionStyle.destructive)
         { [weak self] (action:UIAlertAction) in
             
+            self?.viewAlbum.showLoading()
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.confirmDeleteAll()
+            }
         }
         
         alert.addAction(actionDelete)

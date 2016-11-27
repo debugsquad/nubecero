@@ -73,4 +73,30 @@ class MPhotosItem
             name:Notification.albumRefreshed,
             object:self)
     }
+    
+    func removeAll()
+    {
+        for reference:MPhotosItemPhotoReference in references
+        {
+            guard
+                
+                let photo:MPhotosItemPhoto = MPhotos.sharedInstance.photos[
+                    reference.photoId]
+                
+                else
+            {
+                continue
+            }
+            
+            MPhotos.sharedInstance.markForDeletion(
+                item:photo)
+        }
+        
+        kiloBytes = kZero
+        references = []
+        
+        NotificationCenter.default.post(
+            name:Notification.albumRefreshed,
+            object:self)
+    }
 }

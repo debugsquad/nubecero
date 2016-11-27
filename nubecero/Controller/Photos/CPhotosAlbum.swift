@@ -36,6 +36,23 @@ class CPhotosAlbum:CController
         view = viewAlbum
     }
     
+    //MARK: private
+    
+    private func renameAlbum()
+    {
+        
+    }
+    
+    private func deleteAlbum()
+    {
+        
+    }
+    
+    private func deleteAllPhotos()
+    {
+        
+    }
+    
     //MARK: public
     
     func back()
@@ -67,6 +84,16 @@ class CPhotosAlbum:CController
             
         }
         
+        let actionDeleteAlbum:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CPhotosAlbum_alertDeleteAlbum", comment:""),
+            style:
+            UIAlertActionStyle.destructive)
+        { [weak self] (action:UIAlertAction) in
+            
+            self?.deleteAlbum()
+        }
+        
         let actionDeleteAll:UIAlertAction = UIAlertAction(
             title:
             NSLocalizedString("CPhotosAlbum_alertDeleteAll", comment:""),
@@ -74,9 +101,11 @@ class CPhotosAlbum:CController
             UIAlertActionStyle.destructive)
         { [weak self] (action:UIAlertAction) in
             
+            self?.deleteAllPhotos()
         }
         
         alert.addAction(actionRename)
+        alert.addAction(actionDeleteAlbum)
         alert.addAction(actionDeleteAll)
         alert.addAction(actionCancel)
         present(alert, animated:true, completion:nil)

@@ -84,7 +84,8 @@
 "CPhotosAlbumPhotoSettings_deleteCancel"="Cancel";
 "CPhotosAlbum_alertCancel"="Done";
 "CPhotosAlbum_alertRename"="Rename";
-"CPhotosAlbum_alertDeleteAll"="Delete all";
+"CPhotosAlbum_alertDeleteAll"="Delete all photos";
+"CPhotosAlbum_alertDeleteAlbum"="Delete album";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading photo, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

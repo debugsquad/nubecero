@@ -139,7 +139,6 @@ class VHomeUploadCell:UICollectionViewCell
     
     func config(model:MHomeUploadItem)
     {
-        print("photo id\(model.asset.localIdentifier)")
         imageView.image = model.image
         hover()
     }

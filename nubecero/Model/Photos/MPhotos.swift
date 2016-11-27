@@ -23,6 +23,7 @@ class MPhotos
     private(set) var localReferences:[LocalId:Bool]
     private(set) var photos:[PhotoId:MPhotosItemPhoto]
     private var loading:Bool
+    private let kReference:Bool = true
     private let kZero:Int = 0
     
     private init()
@@ -234,7 +235,7 @@ class MPhotos
                     reference:photoReference,
                     kiloBytes:kiloBytes)
                 
-                localReferences[localId] = true
+                localReferences[localId] = kReference
             }
             else
             {

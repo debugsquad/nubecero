@@ -15,7 +15,6 @@ class MHomeUploadItem
     
     init(asset:PHAsset)
     {
-        status = MHomeUploadItemStatusNone(item:nil)
         pixelWidth = asset.pixelWidth
         pixelHeight = asset.pixelHeight
         localId = asset.localIdentifier
@@ -29,6 +28,15 @@ class MHomeUploadItem
         requestOptions.resizeMode = PHImageRequestOptionsResizeMode.fast
         requestOptions.isSynchronous = false
         requestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.fastFormat
+        
+        if let _:Bool = MPhotos.sharedInstance.localReferences[localId]
+        {
+            status = MHomeUploadItemStatusSynced(item:nil)
+        }
+        else
+        {
+            status = MHomeUploadItemStatusNone(item:nil)
+        }
         
         status.item = self
         requestId = PHImageManager.default().requestImage(

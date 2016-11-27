@@ -53,8 +53,6 @@ class CHome:CController
                 parentController.controllerAuth?.askAuth()
             }
         }
-        
-        MPhotos.sharedInstance.loadPhotos()
     }
     
     override func viewDidAppear(_ animated:Bool)
@@ -82,6 +80,8 @@ class CHome:CController
             
             MSession.sharedInstance.user.sendUpdate()
         }
+        
+        MPhotos.sharedInstance.loadPhotos()
     }
     
     //MARK: notified

@@ -38,6 +38,13 @@ class CPhotosAlbum:CController
     
     //MARK: private
     
+    private func confirmDeleteAll()
+    {
+        MPhotos.sharedInstance.markForDeletion(
+            item:photo)
+        model.removePhoto(item:photo)
+    }
+    
     private func renameAlbum()
     {
         

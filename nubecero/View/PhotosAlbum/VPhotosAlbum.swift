@@ -4,6 +4,7 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
 {
     weak var collectionView:UICollectionView!
     private weak var controller:CPhotosAlbum!
+    private weak var spinner:VSpinner!
     private weak var albumBar:VPhotosAlbumBar!
     private weak var albumTitle:VPhotosAlbumTitle!
     private weak var layoutBackgroundTop:NSLayoutConstraint!
@@ -33,6 +34,10 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         background.isUserInteractionEnabled = false
         background.translatesAutoresizingMaskIntoConstraints = false
         background.backgroundColor = UIColor.white
+        
+        let spinner:VSpinner = VSpinner()
+        spinner.stopAnimating()
+        self.spinner = spinner
         
         let albumBar:VPhotosAlbumBar = VPhotosAlbumBar(controller:controller)
         self.albumBar = albumBar
@@ -73,6 +78,7 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         addSubview(background)
         addSubview(collectionView)
         addSubview(albumBar)
+        addSubview(spinner)
         addSubview(leftBorder)
         
         let views:[String:UIView] = [
@@ -111,6 +117,11 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[spinner]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[albumBar(barHeight)]",
             options:[],
             metrics:metrics,
@@ -127,6 +138,11 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[spinner]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -210,6 +226,24 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         let item:MPhotosItemPhoto = MPhotos.sharedInstance.photos[reference.photoId]!
         
         return item
+    }
+    
+    //MARK: public
+    
+    func showLoading()
+    {
+        collectionView.isHidden = true
+        albumTitle.isHidden = true
+        albumBar.isHidden = true
+        spinner.startAnimating()
+    }
+    
+    func hideLoading()
+    {
+        collectionView.isHidden = false
+        albumTitle.isHidden = false
+        albumBar.isHidden = false
+        spinner.stopAnimating()
     }
     
     //MARK: collectionView delegate

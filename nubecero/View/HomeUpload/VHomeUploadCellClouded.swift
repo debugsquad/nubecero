@@ -3,16 +3,16 @@ import UIKit
 class VHomeUploadCellClouded:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
-    private weak var baseBlur:UIView!
-    private weak var indicator:UIImageView!
     private let kBorderWidth:CGFloat = 1
     private let kBlurAlpha:CGFloat = 0.99
+    private let kIndicatorSize:CGFloat = 50
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.clear
+        isUserInteractionEnabled = false
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -25,7 +25,7 @@ class VHomeUploadCellClouded:UICollectionViewCell
         baseBlur.isUserInteractionEnabled = false
         baseBlur.translatesAutoresizingMaskIntoConstraints = false
         baseBlur.clipsToBounds = true
-        self.baseBlur = baseBlur
+        baseBlur.alpha = kBlurAlpha
         
         let blurEffect:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
         let blur:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
@@ -38,8 +38,8 @@ class VHomeUploadCellClouded:UICollectionViewCell
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.clipsToBounds = true
         indicator.contentMode = UIViewContentMode.center
-        indicator.image = #imageLiteral(resourceName: "assetHomeUploadSelect")
-        self.indicator = indicator
+        indicator.image = #imageLiteral(resourceName: "assetHomeSyncDone").withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        indicator.tintColor = UIColor.complement
         
         baseBlur.addSubview(blur)
         addSubview(imageView)
@@ -91,7 +91,7 @@ class VHomeUploadCellClouded:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[indicator(indicatorSize)]-0-|",
+            withVisualFormat:"V:|-0-[indicator(indicatorSize)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -102,43 +102,10 @@ class VHomeUploadCellClouded:UICollectionViewCell
         fatalError()
     }
     
-    override var isSelected:Bool
-        {
-        didSet
-        {
-            hover()
-        }
-    }
-    
-    override var isHighlighted:Bool
-        {
-        didSet
-        {
-            hover()
-        }
-    }
-    
-    //MARK: private
-    
-    private func hover()
-    {
-        if isSelected || isHighlighted
-        {
-            baseBlur.alpha = kBlurAlpha
-            indicator.isHidden = false
-        }
-        else
-        {
-            baseBlur.alpha = 0
-            indicator.isHidden = true
-        }
-    }
-    
     //MARK: public
     
     func config(model:MHomeUploadItem)
     {
         imageView.image = model.image
-        hover()
     }
 }

@@ -82,6 +82,7 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         addSubview(leftBorder)
         
         let views:[String:UIView] = [
+            "spinner":spinner,
             "background":background,
             "albumBar":albumBar,
             "leftBorder":leftBorder,

@@ -31,7 +31,7 @@ class MHomeUploadItem
         
         if let _:Bool = MPhotos.sharedInstance.localReferences[localId]
         {
-            status = MHomeUploadItemStatusSynced(item:nil)
+            status = MHomeUploadItemStatusClouded(item:nil)
         }
         else
         {

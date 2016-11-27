@@ -47,28 +47,37 @@ class CPhotosAlbum:CController
     {
         let alert:UIAlertController = UIAlertController(
             title:
-            NSLocalizedString("CPhotosAlbumPhotoSettings_deleteTitle", comment:""),
+            nil,
             message:
-            NSLocalizedString("CPhotosAlbumPhotoSettings_deleteMessage", comment:""),
+            nil,
             preferredStyle:UIAlertControllerStyle.actionSheet)
         
         let actionCancel:UIAlertAction = UIAlertAction(
             title:
-            NSLocalizedString("CPhotosAlbumPhotoSettings_deleteCancel", comment:""),
+            NSLocalizedString("CPhotosAlbum_alertCancel", comment:""),
             style:
             UIAlertActionStyle.cancel)
         
-        let actionDelete:UIAlertAction = UIAlertAction(
+        let actionRename:UIAlertAction = UIAlertAction(
             title:
-            NSLocalizedString("CPhotosAlbumPhotoSettings_deleteDo", comment:""),
+            NSLocalizedString("CPhotosAlbum_alertRename", comment:""),
+            style:
+            UIAlertActionStyle.default)
+        { [weak self] (action:UIAlertAction) in
+            
+        }
+        
+        let actionDeleteAll:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CPhotosAlbum_alertDeleteAll", comment:""),
             style:
             UIAlertActionStyle.destructive)
         { [weak self] (action:UIAlertAction) in
             
-            self?.confirmedDelete()
         }
         
-        alert.addAction(actionDelete)
+        alert.addAction(actionRename)
+        alert.addAction(actionDeleteAll)
         alert.addAction(actionCancel)
         present(alert, animated:true, completion:nil)
     }

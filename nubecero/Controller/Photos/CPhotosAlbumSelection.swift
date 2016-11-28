@@ -17,4 +17,29 @@ class CPhotosAlbumSelection:CController
         self.viewSelect = viewSelect
         view = viewSelect
     }
+    
+    //MARK: public
+    
+    func selected(index:IndexPath)
+    {
+        let reference:MPhotosItemReference = MPhotos.sharedInstance.albumReferences[index.item]
+        
+        guard
+        
+            let album:MPhotosItem = MPhotos.sharedInstance.albumItems[
+                reference.albumId]
+        
+        else
+        {
+            parentController.dismiss(completion:nil)
+            
+            return
+        }
+        
+        parentController.dismiss
+        { [weak delegate] in
+            
+            delegate?.albumSelected(album:album)
+        }
+    }
 }

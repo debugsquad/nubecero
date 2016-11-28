@@ -6,7 +6,9 @@ class VHomeUploadHeaderCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private weak var title:UILabel!
     private weak var layoutCircleLeft:NSLayoutConstraint!
-    private let kCircleSize:CGFloat = 80
+    private let kAlphaSelected:CGFloat = 0.1
+    private let kAlphaNotSelected:CGFloat = 1
+    private let kCircleSize:CGFloat = 50
     
     override init(frame:CGRect)
     {
@@ -32,8 +34,8 @@ class VHomeUploadHeaderCell:UICollectionViewCell
         title.translatesAutoresizingMaskIntoConstraints = false
         title.backgroundColor = UIColor.clear
         title.isUserInteractionEnabled = false
-        title.font = UIFont.regular(size:13)
-        title.textColor = UIColor(white:0.3, alpha:1)
+        title.font = UIFont.regular(size:11)
+        title.textColor = UIColor.black
         title.textAlignment = NSTextAlignment.center
         self.title = title
         
@@ -70,12 +72,12 @@ class VHomeUploadHeaderCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[title(20)]-20-|",
+            withVisualFormat:"V:[title(14)]-20-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-20-[circle(circleSize)]",
+            withVisualFormat:"V:|-22-[circle(circleSize)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -107,6 +109,38 @@ class VHomeUploadHeaderCell:UICollectionViewCell
         super.layoutSubviews()
     }
     
+    override var isSelected:Bool
+        {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+        {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            circle.alpha = kAlphaSelected
+            title.alpha = kAlphaSelected
+        }
+        else
+        {
+            circle.alpha = kAlphaNotSelected
+            title.alpha = kAlphaNotSelected
+        }
+    }
+    
     //MARK: public
     
     func config(model:MHomeUploadHeaderItem)
@@ -114,5 +148,7 @@ class VHomeUploadHeaderCell:UICollectionViewCell
         imageView.image = model.image
         circle.backgroundColor = model.color
         title.text = model.title
+        
+        hover()
     }
 }

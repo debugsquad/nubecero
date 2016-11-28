@@ -8,7 +8,7 @@ class VHomeUploadHeader:UICollectionReusableView, UICollectionViewDelegate, UICo
     private var leftInset:CGFloat!
     private let model:MHomeUploadHeader
     private let kDeselectTime:TimeInterval = 1
-    private let kMaxCellWidth:CGFloat = 70
+    private let kMaxCellWidth:CGFloat = 90
     
     override init(frame:CGRect)
     {
@@ -70,8 +70,8 @@ class VHomeUploadHeader:UICollectionReusableView, UICollectionViewDelegate, UICo
     override func layoutSubviews()
     {
         let count:CGFloat = CGFloat(model.items.count)
-        let width:CGFloat = collectionView.bounds.maxX
-        let height:CGFloat = collectionView.bounds.maxY
+        let width:CGFloat = bounds.maxX
+        let height:CGFloat = bounds.maxY
         let cellsWidth:CGFloat = kMaxCellWidth * count
         let remainWidth:CGFloat = width - cellsWidth
         leftInset = remainWidth / 2.0

@@ -45,6 +45,8 @@
 "VPhotosCell_labelPhotos"="\n%@ Photos";
 "VPhotosCell_labelSize"="%@ Mb";
 "VPhotosAlbumTitle_labelInfo"="%@ Photos";
+"VSettingsCellAutoDelete_label"="Auto delete";
+"VSettingsCellAutoDelete_labelDescription"="Remove photos from local storage after adding them";
 
 "CHomeUpload_title"="Add";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

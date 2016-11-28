@@ -349,8 +349,37 @@ class CHomeUpload:CController
         
     }
     
-    func selectAll()
+    func selectAll(selection:Bool)
     {
-        
+        if selection
+        {
+            let collectionView:UICollectionView = viewUpload.collectionView
+            let count:Int = model.items.count
+            for indexItem:Int in 0 ..< count
+            {
+                let item:MHomeUploadItem = model.items[indexItem]
+                
+                guard
+                
+                    let _:MHomeUploadItemStatusNone = item.status as? MHomeUploadItemStatusNone
+                
+                else
+                {
+                    continue
+                }
+                
+                let indexPath:IndexPath = IndexPath(
+                    item:indexItem,
+                    section:0)
+                collectionView.selectItem(
+                    at:indexPath,
+                    animated:false,
+                    scrollPosition:UICollectionViewScrollPosition())
+            }
+        }
+        else
+        {
+            viewUpload.collectionView.reloadData()
+        }
     }
 }

@@ -2,8 +2,11 @@ import UIKit
 
 class MHomeUploadHeaderItemSelectAll:MHomeUploadHeaderItem
 {
+    private var selected:Bool
+    
     override init()
     {
+        selected = false
         let title:String = NSLocalizedString("MHomeUploadHeaderItemSelectAll_title", comment:"")
         let color:UIColor = UIColor.main
         
@@ -20,6 +23,7 @@ class MHomeUploadHeaderItemSelectAll:MHomeUploadHeaderItem
     
     override func selected(controller:CHomeUpload?)
     {
-        controller?.selectAll()
+        selected = !selected
+        controller?.selectAll(selection:selected)
     }
 }

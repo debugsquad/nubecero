@@ -14,6 +14,8 @@
 		DA0586791DEAD7A500651619 /* VHomeUploadCellActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0586781DEAD7A500651619 /* VHomeUploadCellActive.swift */; };
 		DA05867B1DEBCCE500651619 /* VHomeUploadHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05867A1DEBCCE500651619 /* VHomeUploadHeader.swift */; };
 		DA05867D1DEC86BF00651619 /* VHomeUploadHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05867C1DEC86BF00651619 /* VHomeUploadHeaderCell.swift */; };
+		DA0586801DEC897700651619 /* MHomeUploadHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05867F1DEC897700651619 /* MHomeUploadHeader.swift */; };
+		DA0586821DEC898200651619 /* MHomeUploadHeaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0586811DEC898200651619 /* MHomeUploadHeaderItem.swift */; };
 		DA09B6621DE5151200654C2E /* VPhotosAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA09B6611DE5151200654C2E /* VPhotosAlbumCell.swift */; };
 		DA25F8E11DCD63A50048DFFE /* TFDatabaseModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA25F8E01DCD63A50048DFFE /* TFDatabaseModelUser.swift */; };
 		DA2F668F1DC90AF50078B466 /* FDatabaseModelPhotoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F668E1DC90AF50078B466 /* FDatabaseModelPhotoList.swift */; };
@@ -292,6 +294,8 @@
 		DA0586781DEAD7A500651619 /* VHomeUploadCellActive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadCellActive.swift; sourceTree = "<group>"; };
 		DA05867A1DEBCCE500651619 /* VHomeUploadHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadHeader.swift; sourceTree = "<group>"; };
 		DA05867C1DEC86BF00651619 /* VHomeUploadHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadHeaderCell.swift; sourceTree = "<group>"; };
+		DA05867F1DEC897700651619 /* MHomeUploadHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadHeader.swift; sourceTree = "<group>"; };
+		DA0586811DEC898200651619 /* MHomeUploadHeaderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadHeaderItem.swift; sourceTree = "<group>"; };
 		DA09B6611DE5151200654C2E /* VPhotosAlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosAlbumCell.swift; sourceTree = "<group>"; };
 		DA1F0E221DC2C6480003AAB8 /* nubecero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nubecero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1F0E361DC2C6480003AAB8 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -592,6 +596,15 @@
 				49A506DC17B7ED85B8FB3EE2 /* Pods_tests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA05867E1DEC890700651619 /* HomeUploadHeader */ = {
+			isa = PBXGroup;
+			children = (
+				DA05867F1DEC897700651619 /* MHomeUploadHeader.swift */,
+				DA0586811DEC898200651619 /* MHomeUploadHeaderItem.swift */,
+			);
+			path = HomeUploadHeader;
 			sourceTree = "<group>";
 		};
 		DA1F0E191DC2C6480003AAB8 = {
@@ -898,6 +911,7 @@
 				DAC55F1C1DD258CC00213C27 /* Onboard */,
 				DA406BD41DCD03640098D347 /* Settings */,
 				DACD1FCA1DC7D0270067D26B /* Session */,
+				DA05867E1DEC890700651619 /* HomeUploadHeader */,
 				DACD1FAE1DC540450067D26B /* HomeUpload */,
 				DACD1F9A1DC400010067D26B /* Home */,
 				DA4EF8E21DC395B300297C1D /* Main */,
@@ -1705,6 +1719,7 @@
 				DAA336761DDE466D00AA2D12 /* CPhotos.swift in Sources */,
 				DACD1F8C1DC3AD480067D26B /* CLogin.swift in Sources */,
 				DA34117F1DCBC4A8006E6D71 /* MSessionServer.swift in Sources */,
+				DA0586801DEC897700651619 /* MHomeUploadHeader.swift in Sources */,
 				DAF6F2BA1DD39BBB0053ED1B /* MOnboardFormItemPasswordRegister.swift in Sources */,
 				DAD739941DD16E9700FC3297 /* VSettingsCellShare.swift in Sources */,
 				DAEC5CB51DDF5C8A00DF52A9 /* MPhotosItemPhoto.swift in Sources */,
@@ -1730,6 +1745,7 @@
 				DAC55F2A1DD27FB000213C27 /* MOnboardItemAccess.swift in Sources */,
 				DAC98D4B1DDBDDF40074E16A /* VStoreCellNew.swift in Sources */,
 				DA05867D1DEC86BF00651619 /* VHomeUploadHeaderCell.swift in Sources */,
+				DA0586821DEC898200651619 /* MHomeUploadHeaderItem.swift in Sources */,
 				DA406BD81DCD03760098D347 /* MSettingsItem.swift in Sources */,
 				DA4524831DE3B6A8004BACB4 /* MPhotosItemUser.swift in Sources */,
 				DA3411851DCBEE57006E6D71 /* CBanned.swift in Sources */,

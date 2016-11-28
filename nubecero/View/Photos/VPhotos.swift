@@ -2,7 +2,7 @@ import UIKit
 
 class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    private weak var spinner:VSpinner?
+    private weak var spinner:VSpinner!
     private weak var controller:CPhotos!
     private weak var collectionView:UICollectionView!
     private let kInterLine:CGFloat = 1
@@ -116,9 +116,15 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     //MARK: public
     
+    func startLoading()
+    {
+        spinner.startAnimating()
+        collectionView.isHidden = true
+    }
+    
     func photosLoaded()
     {
-        spinner?.removeFromSuperview()
+        spinner.stopAnimating()
         collectionView.isHidden = false
         collectionView.reloadData()
     }

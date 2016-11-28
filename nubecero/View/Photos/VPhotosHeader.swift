@@ -2,7 +2,7 @@ import UIKit
 
 class VPhotosHeader:UICollectionReusableView
 {
-    private weak var controller:CPhotos?
+    weak var controller:CPhotos?
     private weak var layoutAddLeft:NSLayoutConstraint!
     private weak var layoutFieldWidth:NSLayoutConstraint!
     private weak var layoutConfirmWidth:NSLayoutConstraint!
@@ -33,7 +33,7 @@ class VPhotosHeader:UICollectionReusableView
             for:UIControlEvents.touchUpInside)
         self.buttonAdd = buttonAdd
         
-        let field:VPhotosHeaderField = VPhotosHeaderField()
+        let field:VPhotosHeaderField = VPhotosHeaderField(header:self)
         field.alpha = 0
         self.field = field
         
@@ -65,7 +65,7 @@ class VPhotosHeader:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[field(42)]-26-|",
+            withVisualFormat:"V:[field(34)]-30-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -173,7 +173,6 @@ class VPhotosHeader:UICollectionReusableView
     func config(controller:CPhotos)
     {
         self.controller = controller
-        field.controller = controller
     }
     
     func cancelAdd()

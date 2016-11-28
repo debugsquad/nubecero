@@ -13,12 +13,17 @@ class FDatabaseModelAlbum:FDatabaseModel
     private let kEmpty:String = ""
     private let kNoTime:TimeInterval = 0
     
-    override init()
+    init(name:String)
     {
         created = NSDate().timeIntervalSince1970
-        name = kEmpty
+        self.name = name
         
         super.init()
+    }
+    
+    override init()
+    {
+        fatalError()
     }
     
     required init(snapshot:Any)

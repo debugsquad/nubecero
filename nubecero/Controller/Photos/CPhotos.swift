@@ -41,6 +41,32 @@ class CPhotos:CController
         }
     }
     
+    //MARK: private
+    
+    private func asyncNewAlbum(name:String)
+    {
+        guard
+          
+            let userId:String = MSession.sharedInstance.user.userId
+        
+        else
+        {
+            return
+        }
+        
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let propertyAlbums:String = FDatabaseModelUser.Property.albums.rawValue
+        let albumsPath:String = "\(parentUser)/\(userId)/\(propertyAlbums)"
+        let modelAlbum:FDatabaseModelAlbum = FDatabaseModelAlbum(name:name)
+        let jsonAlbum:Any = modelAlbum.modelJson()
+        
+        FMain.sharedInstance.database.createChild(
+            path:albumsPath,
+            json:jsonAlbum)
+        
+        MPhotos.sharedInstance.loadPhotos()
+    }
+    
     //MARK: public
     
     func selected(item:MPhotosItem)
@@ -54,6 +80,12 @@ class CPhotos:CController
     
     func newAlbum(name:String)
     {
+        viewPhotos.startLoading()
         
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncNewAlbum(name:name)
+        }
     }
 }

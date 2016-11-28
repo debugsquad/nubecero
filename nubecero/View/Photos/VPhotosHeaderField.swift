@@ -4,7 +4,7 @@ class VPhotosHeaderField:UIView, UITextFieldDelegate
 {
     private weak var header:VPhotosHeader!
     weak var textField:UITextField!
-    private let kCornerRadius:CGFloat = 12
+    private let kCornerRadius:CGFloat = 17
     private let kMarginHorizontal:CGFloat = 10
     
     convenience init(header:VPhotosHeader)

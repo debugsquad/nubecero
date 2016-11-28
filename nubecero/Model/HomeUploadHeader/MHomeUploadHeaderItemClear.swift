@@ -8,7 +8,7 @@ class MHomeUploadHeaderItemClear:MHomeUploadHeaderItem
         let color:UIColor = UIColor.red
         
         super.init(
-            image:#imageLiteral(resourceName: "assetHomeAlbum"),
+            image:#imageLiteral(resourceName: "assetHomeClear"),
             title:title,
             color:color)
     }

@@ -2,15 +2,17 @@ import UIKit
 
 class VHomeUploadCellActive:VHomeUploadCell
 {
+    private let kBlurAlpha:CGFloat = 0.99
+    
     override init(frame:CGRect)
     {
         let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
         
-        super.init(frame:frame, blurEffect:blurEffect)
+        super.init(frame:frame, blurEffect:blurEffect, blurAlpha:kBlurAlpha)
         indicator.image = #imageLiteral(resourceName: "assetHomeUploadSelect")
     }
     
-    override init(frame:CGRect, blurEffect:UIBlurEffect)
+    override init(frame:CGRect, blurEffect:UIBlurEffect, blurAlpha:CGFloat)
     {
         fatalError()
     }

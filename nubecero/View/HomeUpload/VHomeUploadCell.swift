@@ -5,11 +5,10 @@ class VHomeUploadCell:UICollectionViewCell
     weak var indicator:UIImageView!
     weak var imageView:UIImageView!
     weak var baseBlur:UIView!
-    private let kBlurAlpha:CGFloat = 0.99
     private let kBorderWidth:CGFloat = 1
     private let kIndicatorSize:CGFloat = 50
     
-    init(frame:CGRect, blurEffect:UIBlurEffect)
+    init(frame:CGRect, blurEffect:UIBlurEffect, blurAlpha:CGFloat)
     {
         super.init(frame:frame)
         clipsToBounds = true
@@ -26,7 +25,7 @@ class VHomeUploadCell:UICollectionViewCell
         baseBlur.isUserInteractionEnabled = false
         baseBlur.translatesAutoresizingMaskIntoConstraints = false
         baseBlur.clipsToBounds = true
-        baseBlur.alpha = kBlurAlpha
+        baseBlur.alpha = blurAlpha
         self.baseBlur = baseBlur
         
         let blur:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)

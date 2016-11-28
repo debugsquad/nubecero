@@ -2,20 +2,21 @@ import UIKit
 
 class VPhotosHeaderField:UIView, UITextFieldDelegate
 {
-    weak var controller:CPhotos?
+    private weak var header:VPhotosHeader!
     weak var textField:UITextField!
     private let kCornerRadius:CGFloat = 12
     private let kMarginHorizontal:CGFloat = 10
     
-    init()
+    convenience init(header:VPhotosHeader)
     {
-        super.init(frame:CGRect.zero)
+        self.init()
         clipsToBounds = true
         backgroundColor = UIColor.white
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = kCornerRadius
         layer.borderWidth = 1
         layer.borderColor = UIColor(white:0, alpha:0.6).cgColor
+        self.header = header
         
         let textField:UITextField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -56,16 +57,27 @@ class VPhotosHeaderField:UIView, UITextFieldDelegate
             views:views))
     }
     
-    required init?(coder:NSCoder)
-    {
-        fatalError()
-    }
-    
     //MARK: textfield delegate
     
     func textFieldDidEndEditing(_ textField:UITextField)
     {
+        guard
         
+            let text:String = textField.text
+        
+        else
+        {
+            return
+        }
+        
+        textField.text = ""
+        
+        if !text.isEmpty
+        {
+            header.controller?.newAlbum(name:text)
+        }
+        
+        header.cancelAdd()
     }
     
     func textFieldShouldReturn(_ textField:UITextField) -> Bool

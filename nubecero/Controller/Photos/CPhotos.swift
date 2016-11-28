@@ -51,4 +51,9 @@ class CPhotos:CController
             underBar:false,
             pop:false)
     }
+    
+    func newAlbum(name:String)
+    {
+        
+    }
 }

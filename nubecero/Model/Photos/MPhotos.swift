@@ -169,6 +169,7 @@ class MPhotos
                 {
                     self.photoDeletables = []
                     self.albumReferences = []
+                    self.localReferences = [:]
                     self.photosLoaded()
                     
                     return

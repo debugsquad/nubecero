@@ -231,35 +231,26 @@ class CHomeUpload:CController
     
     private func performRemovePictures()
     {
-        guard
-            
-            let uploadItems:[MHomeUploadItem] = selectedItems()
-            
-        else
-        {
-            return
-        }
-        
         var deletableAssets:[PHAsset] = []
         
-        for uploadItem:MHomeUploadItem in uploadItems
+        for item:MHomeUploadItem in model.items
         {
-            if uploadItem.status.finished
+            if item.status.finished
             {
-                deletableAssets.append(uploadItem.asset)
+                deletableAssets.append(item.asset)
             }
             else
             {
                 guard
                 
-                    let _:MHomeUploadItemStatusSynced = uploadItem.status as? MHomeUploadItemStatusSynced
+                    let _:MHomeUploadItemStatusSynced = item.status as? MHomeUploadItemStatusSynced
                 
                 else
                 {
                     continue
                 }
                 
-                deletableAssets.append(uploadItem.asset)
+                deletableAssets.append(item.asset)
             }
         }
         

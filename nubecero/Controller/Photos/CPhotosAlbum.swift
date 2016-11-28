@@ -49,6 +49,33 @@ class CPhotosAlbum:CController
         }
     }
     
+    private func confirmDeleteAlbum()
+    {
+        guard
+            
+            let userId:MSession.UserId = MSession.sharedInstance.user.userId,
+            let albumUser:MPhotosItemUser = model as? MPhotosItemUser
+        
+        else
+        {
+            return
+        }
+        
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let propertyAlbums:String = FDatabaseModelUser.Property.albums.rawValue
+        let albumId:MPhotos.AlbumId = albumUser.albumId
+        let pathAlbum:String = "\(parentUser)/\(userId)/\(propertyAlbums)/\(albumId)"
+        
+        FMain.sharedInstance.database.removeChild(path:pathAlbum)
+        MPhotos.sharedInstance.loadPhotos()
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.parentController.pop(completion:nil)
+        }
+    }
+    
     private func renameAlbum()
     {
         
@@ -76,6 +103,13 @@ class CPhotosAlbum:CController
             UIAlertActionStyle.destructive)
         { [weak self] (action:UIAlertAction) in
             
+            self?.viewAlbum.showLoading()
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                self?.confirmDeleteAlbum()
+            }
         }
         
         alert.addAction(actionDelete)
@@ -171,8 +205,12 @@ class CPhotosAlbum:CController
             self?.deleteAllPhotos()
         }
         
-        alert.addAction(actionRename)
-        alert.addAction(actionDeleteAlbum)
+        if let _:MPhotosItemUser = model as? MPhotosItemUser
+        {
+            alert.addAction(actionRename)
+            alert.addAction(actionDeleteAlbum)
+        }
+        
         alert.addAction(actionDeleteAll)
         alert.addAction(actionCancel)
         present(alert, animated:true, completion:nil)

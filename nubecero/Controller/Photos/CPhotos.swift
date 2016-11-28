@@ -47,7 +47,7 @@ class CPhotos:CController
     {
         guard
           
-            let userId:String = MSession.sharedInstance.user.userId
+            let userId:MSession.UserId = MSession.sharedInstance.user.userId
         
         else
         {
@@ -60,7 +60,7 @@ class CPhotos:CController
         let modelAlbum:FDatabaseModelAlbum = FDatabaseModelAlbum(name:name)
         let jsonAlbum:Any = modelAlbum.modelJson()
         
-        let _:String = FMain.sharedInstance.database.createChild(
+        let _:MPhotos.AlbumId = FMain.sharedInstance.database.createChild(
             path:albumsPath,
             json:jsonAlbum)
         

@@ -5,7 +5,9 @@ class VPhotosHeader:UICollectionReusableView
     private weak var controller:CPhotos?
     private weak var layoutAddLeft:NSLayoutConstraint!
     private weak var layoutFieldWidth:NSLayoutConstraint!
+    private weak var layoutConfirmWidth:NSLayoutConstraint!
     private weak var buttonAdd:VPhotosHeaderAdd!
+    private weak var confirm:VPhotosHeaderConfirm!
     weak var field:VPhotosHeaderField!
     private var creating:Bool
     private let kAnimationDuration:TimeInterval = 0.3
@@ -13,6 +15,8 @@ class VPhotosHeader:UICollectionReusableView
     private let kAddMargin:CGFloat = 10
     private let kMinFieldWidth:CGFloat = 15
     private let kMaxFieldWidth:CGFloat = 160
+    private let kMinConfirmWidth:CGFloat = 0
+    private let kMaxConfirmWidth:CGFloat = 100
     
     override init(frame:CGRect)
     {
@@ -33,19 +37,25 @@ class VPhotosHeader:UICollectionReusableView
         field.alpha = 0
         self.field = field
         
+        let confirm:VPhotosHeaderConfirm = VPhotosHeaderConfirm()
+        confirm.alpha = 0
+        self.confirm = confirm
+        
         addSubview(buttonAdd)
+        addSubview(confirm)
         addSubview(field)
         
         let views:[String:UIView] = [
             "buttonAdd":buttonAdd,
-            "field":field]
+            "field":field,
+            "confirm":confirm]
         
         let metrics:[String:CGFloat] = [
             "addSize":kAddSize,
             "addMargin":kAddMargin]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[buttonAdd(addSize)]-(addMargin)-[field]",
+            withVisualFormat:"H:[buttonAdd(addSize)]-(addMargin)-[field]-(addMargin)-[confirm]",
             options:[],
             metrics:metrics,
             views:views))
@@ -56,6 +66,11 @@ class VPhotosHeader:UICollectionReusableView
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[field(42)]-26-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[confirm(50)]-22-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -78,8 +93,18 @@ class VPhotosHeader:UICollectionReusableView
             multiplier:1,
             constant:kMinFieldWidth)
         
+        layoutConfirmWidth = NSLayoutConstraint(
+            item:confirm,
+            attribute:NSLayoutAttribute.width,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:nil,
+            attribute:NSLayoutAttribute.notAnAttribute,
+            multiplier:1,
+            constant:kMinConfirmWidth)
+        
         addConstraint(layoutAddLeft)
         addConstraint(layoutFieldWidth)
+        addConstraint(layoutConfirmWidth)
     }
     
     required init?(coder:NSCoder)
@@ -109,6 +134,7 @@ class VPhotosHeader:UICollectionReusableView
         layoutAddLeft.constant = kAddMargin
         
         let maxFieldWidth:CGFloat = kMaxFieldWidth
+        let maxConfirmWidth:CGFloat = kMaxConfirmWidth
         let animationDuration:TimeInterval = kAnimationDuration
         
         UIView.animate(
@@ -132,10 +158,20 @@ class VPhotosHeader:UICollectionReusableView
                 { [weak self] in
                     
                     self?.layoutIfNeeded()
+                    self?.confirm.alpha = 1
                 })
             { [weak self] (done:Bool) in
                 
                 self?.field.textField.becomeFirstResponder()
+                self?.layoutConfirmWidth.constant = maxConfirmWidth
+                
+                UIView.animate(
+                    withDuration:
+                    animationDuration)
+                { [weak self] in
+                    
+                    self?.layoutIfNeeded()
+                }
             }
         }
     }

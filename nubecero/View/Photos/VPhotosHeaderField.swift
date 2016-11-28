@@ -2,19 +2,18 @@ import UIKit
 
 class VPhotosHeaderField:UIView, UITextFieldDelegate
 {
-    private weak var controller:CPhotos!
-    private weak var textField:UITextField!
+    weak var controller:CPhotos?
+    weak var textField:UITextField!
     private let kCornerRadius:CGFloat = 10
     private let kMarginHorizontal:CGFloat = 10
     
-    convenience init(controller:CPhotos)
+    init()
     {
-        self.init()
+        super.init(frame:CGRect.zero)
         clipsToBounds = true
         backgroundColor = UIColor.white
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = kCornerRadius
-        self.controller = controller
         
         let textField:UITextField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -53,6 +52,11 @@ class VPhotosHeaderField:UIView, UITextFieldDelegate
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
     }
     
     //MARK: textfield delegate

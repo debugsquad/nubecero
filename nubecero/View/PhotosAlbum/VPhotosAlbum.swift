@@ -29,8 +29,7 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         leftBorder.translatesAutoresizingMaskIntoConstraints = false
         leftBorder.backgroundColor = UIColor.black
         
-        let background:UIView = UIView()
-        
+        let background:VPhotosAlbumBackground = VPhotosAlbumBackground()
         
         let spinner:VSpinner = VSpinner()
         spinner.stopAnimating()

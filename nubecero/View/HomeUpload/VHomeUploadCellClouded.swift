@@ -4,10 +4,16 @@ class VHomeUploadCellClouded:VHomeUploadCell
 {
     override init(frame:CGRect)
     {
-        super.init(frame:frame)
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.dark)
+        
+        super.init(frame:frame, blurEffect:blurEffect)
         isUserInteractionEnabled = false
         indicator.image = #imageLiteral(resourceName: "assetHomeSyncDone")
-        
+    }
+    
+    override init(frame:CGRect, blurEffect:UIBlurEffect)
+    {
+        fatalError()
     }
     
     required init?(coder:NSCoder)

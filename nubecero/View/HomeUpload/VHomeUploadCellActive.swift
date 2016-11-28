@@ -4,8 +4,15 @@ class VHomeUploadCellActive:VHomeUploadCell
 {
     override init(frame:CGRect)
     {
-        super.init(frame:frame)
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
+        
+        super.init(frame:frame, blurEffect:blurEffect)
         indicator.image = #imageLiteral(resourceName: "assetHomeUploadSelect")
+    }
+    
+    override init(frame:CGRect, blurEffect:UIBlurEffect)
+    {
+        fatalError()
     }
     
     required init?(coder:NSCoder)

@@ -9,7 +9,7 @@ class VHomeUploadCell:UICollectionViewCell
     private let kBorderWidth:CGFloat = 1
     private let kIndicatorSize:CGFloat = 50
     
-    override init(frame:CGRect)
+    init(frame:CGRect, blurEffect:UIBlurEffect)
     {
         super.init(frame:frame)
         clipsToBounds = true
@@ -29,7 +29,6 @@ class VHomeUploadCell:UICollectionViewCell
         baseBlur.alpha = kBlurAlpha
         self.baseBlur = baseBlur
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.dark)
         let blur:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
         blur.isUserInteractionEnabled = false
         blur.clipsToBounds = true
@@ -97,6 +96,11 @@ class VHomeUploadCell:UICollectionViewCell
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    override init(frame:CGRect)
+    {
+        fatalError()
     }
     
     required init?(coder:NSCoder)

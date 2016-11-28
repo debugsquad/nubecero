@@ -4,11 +4,13 @@ class MHomeUploadHeaderItem
 {
     var title:String
     let image:UIImage
+    let color:UIColor
     
-    init(image:UIImage, title:String)
+    init(image:UIImage, title:String, color:UIColor)
     {
         self.image = image
         self.title = title
+        self.color = color
     }
     
     init()

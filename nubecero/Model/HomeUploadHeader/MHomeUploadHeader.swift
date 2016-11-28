@@ -7,8 +7,10 @@ class MHomeUploadHeader
     init()
     {
         let itemAlbum:MHomeUploadHeaderItemAlbum = MHomeUploadHeaderItemAlbum()
+        let itemClear:MHomeUploadHeaderItemClear = MHomeUploadHeaderItemClear()
         
         items = [
+            itemClear,
             itemAlbum
         ]
     }

@@ -42,12 +42,7 @@ class VPhotosHeaderConfirm:UIView
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[buttonCancel(40)]",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[buttonAdd(40)]-0-|",
+            withVisualFormat:"H:[buttonCancel(40)]-5-[buttonAdd(40)]-0-|",
             options:[],
             metrics:metrics,
             views:views))

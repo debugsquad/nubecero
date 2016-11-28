@@ -10,6 +10,7 @@ class MSettings
         let itemAccount:MSettingsItemAccount = MSettingsItemAccount()
         let itemShare:MSettingsItemShare = MSettingsItemShare()
         let itemSecurity:MSettingsItemSecurity = MSettingsItemSecurity()
+        let itemAutoDelete:MSettingsItemAutoDelete = MSettingsItemAutoDelete()
         let itemRate:MSettingsItemRate = MSettingsItemRate()
         let itemLogout:MSettingsItemLogout = MSettingsItemLogout()
         let itemBlankTop:MSettingsItemBlank = MSettingsItemBlank()
@@ -21,6 +22,7 @@ class MSettings
             itemAccount,
             itemBlankTop,
             itemSecurity,
+            itemAutoDelete,
             itemBlankMiddle,
             itemShare,
             itemRate,

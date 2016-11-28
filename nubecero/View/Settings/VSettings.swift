@@ -42,6 +42,10 @@ class VSettings:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UI
             forCellWithReuseIdentifier:
             VSettingsCellSecurity.reusableIdentifier)
         collectionView.register(
+            VSettingsCellAutoDelete.self,
+            forCellWithReuseIdentifier:
+            VSettingsCellAutoDelete.reusableIdentifier)
+        collectionView.register(
             VSettingsCellLogout.self,
             forCellWithReuseIdentifier:
             VSettingsCellLogout.reusableIdentifier)

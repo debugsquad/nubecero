@@ -42,7 +42,8 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
             let localId:String = item?.localId,
             let imageData:Data = item?.imageData,
             let pixelWidth:Int = item?.pixelWidth,
-            let pixelHeight:Int = item?.pixelHeight
+            let pixelHeight:Int = item?.pixelHeight,
+            let taken:TimeInterval = item?.creationDate
         
         else
         {
@@ -61,6 +62,7 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
         let dataLength:Int = imageData.count / kKilobytePerByte
         let modelPhoto:FDatabaseModelPhoto = FDatabaseModelPhoto(
             localId:localId,
+            taken:taken,
             size:dataLength,
             pixelWidth:pixelWidth,
             pixelHeight:pixelHeight)

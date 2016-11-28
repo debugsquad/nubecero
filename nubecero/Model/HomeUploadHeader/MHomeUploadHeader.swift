@@ -6,7 +6,10 @@ class MHomeUploadHeader
     
     init()
     {
+        let itemAlbum:MHomeUploadHeaderItemAlbum = MHomeUploadHeaderItemAlbum()
+        
         items = [
+            itemAlbum
         ]
     }
 }

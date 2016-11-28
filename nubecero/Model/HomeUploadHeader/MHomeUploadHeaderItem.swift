@@ -2,8 +2,8 @@ import UIKit
 
 class MHomeUploadHeaderItem
 {
+    var title:String
     let image:UIImage
-    let title:String
     
     init(image:UIImage, title:String)
     {
@@ -14,5 +14,11 @@ class MHomeUploadHeaderItem
     init()
     {
         fatalError()
+    }
+    
+    //MARK: public
+    
+    func selected(controller:CHomeUpload)
+    {
     }
 }

@@ -16,6 +16,7 @@
 		DA05867D1DEC86BF00651619 /* VHomeUploadHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05867C1DEC86BF00651619 /* VHomeUploadHeaderCell.swift */; };
 		DA0586801DEC897700651619 /* MHomeUploadHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA05867F1DEC897700651619 /* MHomeUploadHeader.swift */; };
 		DA0586821DEC898200651619 /* MHomeUploadHeaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0586811DEC898200651619 /* MHomeUploadHeaderItem.swift */; };
+		DA0586841DEC8A2D00651619 /* MHomeUploadHeaderItemAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0586831DEC8A2D00651619 /* MHomeUploadHeaderItemAlbum.swift */; };
 		DA09B6621DE5151200654C2E /* VPhotosAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA09B6611DE5151200654C2E /* VPhotosAlbumCell.swift */; };
 		DA25F8E11DCD63A50048DFFE /* TFDatabaseModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA25F8E01DCD63A50048DFFE /* TFDatabaseModelUser.swift */; };
 		DA2F668F1DC90AF50078B466 /* FDatabaseModelPhotoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F668E1DC90AF50078B466 /* FDatabaseModelPhotoList.swift */; };
@@ -296,6 +297,7 @@
 		DA05867C1DEC86BF00651619 /* VHomeUploadHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VHomeUploadHeaderCell.swift; sourceTree = "<group>"; };
 		DA05867F1DEC897700651619 /* MHomeUploadHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadHeader.swift; sourceTree = "<group>"; };
 		DA0586811DEC898200651619 /* MHomeUploadHeaderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadHeaderItem.swift; sourceTree = "<group>"; };
+		DA0586831DEC8A2D00651619 /* MHomeUploadHeaderItemAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MHomeUploadHeaderItemAlbum.swift; sourceTree = "<group>"; };
 		DA09B6611DE5151200654C2E /* VPhotosAlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosAlbumCell.swift; sourceTree = "<group>"; };
 		DA1F0E221DC2C6480003AAB8 /* nubecero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nubecero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1F0E361DC2C6480003AAB8 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -603,6 +605,7 @@
 			children = (
 				DA05867F1DEC897700651619 /* MHomeUploadHeader.swift */,
 				DA0586811DEC898200651619 /* MHomeUploadHeaderItem.swift */,
+				DA0586831DEC8A2D00651619 /* MHomeUploadHeaderItemAlbum.swift */,
 			);
 			path = HomeUploadHeader;
 			sourceTree = "<group>";
@@ -1740,6 +1743,7 @@
 				DAA336891DDE6B3000AA2D12 /* VPhotosAlbum.swift in Sources */,
 				DAD739901DD161F600FC3297 /* VSettingsCellRate.swift in Sources */,
 				DAF6F2A61DD378FF0053ED1B /* MOnboardFormItem.swift in Sources */,
+				DA0586841DEC8A2D00651619 /* MHomeUploadHeaderItemAlbum.swift in Sources */,
 				DA4FA58F1DD7C69F00358ABE /* CStore.swift in Sources */,
 				DA7A79BD1DD622B0001B5FA5 /* MHomeItemBlank.swift in Sources */,
 				DAC55F2A1DD27FB000213C27 /* MOnboardItemAccess.swift in Sources */,

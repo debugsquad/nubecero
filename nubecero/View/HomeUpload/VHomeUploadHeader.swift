@@ -43,15 +43,33 @@ class VHomeUploadHeader:UICollectionReusableView, UICollectionViewDelegate, UICo
             VHomeUploadHeaderCell.reusableIdentifier)
         self.collectionView = collectionView
         
+        let border:UIView = UIView()
+        border.isUserInteractionEnabled = false
+        border.backgroundColor = UIColor(white:0, alpha:0.1)
+        border.translatesAutoresizingMaskIntoConstraints = false
+        border.clipsToBounds = true
+        
+        addSubview(border)
         addSubview(collectionView)
         
         let views:[String:UIView] = [
-            "collectionView":collectionView]
+            "collectionView":collectionView,
+            "border":border]
         
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[border]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[border(1)]-0-|",
             options:[],
             metrics:metrics,
             views:views))

@@ -113,7 +113,7 @@ class MPhotos
             let before:Bool
             let nameA:String = referenceA.name
             let nameB:String = referenceB.name
-            let comparison:ComparisonResult = nameA.compare(nameB)
+            let comparison:ComparisonResult = nameA.caseInsensitiveCompare(nameB)
             
             switch comparison
             {

@@ -11,8 +11,8 @@ class VPhotosHeader:UICollectionReusableView
     private let kAnimationDuration:TimeInterval = 0.3
     private let kAddSize:CGFloat = 55
     private let kAddMargin:CGFloat = 10
-    private let kMinFieldWidth:CGFloat = 20
-    private let kMaxFieldWidth:CGFloat = 140
+    private let kMinFieldWidth:CGFloat = 15
+    private let kMaxFieldWidth:CGFloat = 170
     
     override init(frame:CGRect)
     {
@@ -55,7 +55,7 @@ class VPhotosHeader:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[field(40)]-35-|",
+            withVisualFormat:"V:[field(42)]-26-|",
             options:[],
             metrics:metrics,
             views:views))

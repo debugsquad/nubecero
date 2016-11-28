@@ -14,6 +14,8 @@ class VPhotosHeaderField:UIView, UITextFieldDelegate
         backgroundColor = UIColor.white
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = kCornerRadius
+        layer.borderWidth = 1
+        layer.borderColor = UIColor(white:0, alpha:0.3).cgColor
         
         let textField:UITextField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -43,7 +45,7 @@ class VPhotosHeaderField:UIView, UITextFieldDelegate
             "marginHorizontal":kMarginHorizontal]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-(marginHorizontal)-[textField]-(marginHorizontal)-|",
+            withVisualFormat:"H:|-(marginHorizontal)-[textField]-2-|",
             options:[],
             metrics:metrics,
             views:views))

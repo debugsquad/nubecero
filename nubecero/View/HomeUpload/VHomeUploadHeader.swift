@@ -45,7 +45,7 @@ class VHomeUploadHeader:UICollectionReusableView, UICollectionViewDelegate, UICo
         
         let border:UIView = UIView()
         border.isUserInteractionEnabled = false
-        border.backgroundColor = UIColor(white:0, alpha:0.1)
+        border.backgroundColor = UIColor(white:0, alpha:0.2)
         border.translatesAutoresizingMaskIntoConstraints = false
         border.clipsToBounds = true
         

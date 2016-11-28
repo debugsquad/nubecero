@@ -67,7 +67,11 @@ class CHomeUploadSync:CController
     
     private func dismissClear()
     {
-        parentController.dismiss(completion:nil)
+        parentController.dismiss
+        { [weak controllerUpload] in
+            
+            controllerUpload?.uploadFinished()
+        }
     }
     
     //MARK: public

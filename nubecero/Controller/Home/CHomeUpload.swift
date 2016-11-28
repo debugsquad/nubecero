@@ -328,7 +328,23 @@ class CHomeUpload:CController
     
     func uploadFinished()
     {
-        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+                
+            guard
+            
+                let autoDelete:Bool = MSession.sharedInstance.settings.current?.autoDelete
+            
+            else
+            {
+                return
+            }
+            
+            if autoDelete
+            {
+                self?.performRemovePictures()
+            }
+        }
     }
     
     func clearAdded()

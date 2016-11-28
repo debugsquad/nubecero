@@ -352,10 +352,10 @@ class CHomeUpload:CController
     func selectAll(selection:Bool)
     {
         let collectionView:UICollectionView = viewUpload.collectionView
+        let count:Int = model.items.count
         
         if selection
         {
-            let count:Int = model.items.count
             for indexItem:Int in 0 ..< count
             {
                 let item:MHomeUploadItem = model.items[indexItem]
@@ -369,6 +369,8 @@ class CHomeUpload:CController
                     continue
                 }
                 
+                item.statusWaiting()
+                
                 let indexPath:IndexPath = IndexPath(
                     item:indexItem,
                     section:0)
@@ -380,6 +382,22 @@ class CHomeUpload:CController
         }
         else
         {
+            for indexItem:Int in 0 ..< count
+            {
+                let item:MHomeUploadItem = model.items[indexItem]
+                
+                guard
+                    
+                    let _:MHomeUploadItemStatusWaiting = item.status as? MHomeUploadItemStatusWaiting
+                    
+                else
+                {
+                    continue
+                }
+                
+                item.statusClear()
+            }
+            
             collectionView.reloadData()
         }
         

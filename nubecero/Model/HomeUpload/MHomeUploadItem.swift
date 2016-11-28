@@ -8,10 +8,12 @@ class MHomeUploadItem
     var photoId:String?
     let asset:PHAsset
     let localId:MPhotos.LocalId
+    let creationDate:TimeInterval
     let pixelWidth:Int
     let pixelHeight:Int
     private(set) var status:MHomeUploadItemStatus
     private var requestId:PHImageRequestID?
+    private let kTimeZero:TimeInterval = 0
     
     init(asset:PHAsset)
     {
@@ -36,6 +38,15 @@ class MHomeUploadItem
         else
         {
             status = MHomeUploadItemStatusNone(item:nil)
+        }
+        
+        if let creationDate:TimeInterval = asset.creationDate?.timeIntervalSince1970
+        {
+            self.creationDate = creationDate
+        }
+        else
+        {
+            self.creationDate = kTimeZero
         }
         
         status.item = self

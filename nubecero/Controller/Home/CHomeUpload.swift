@@ -154,6 +154,8 @@ class CHomeUpload:CController
     
     private func loadCameraRoll()
     {
+        model.items = []
+        
         let collectionResult:PHFetchResult = PHAssetCollection.fetchAssetCollections(
             with:PHAssetCollectionType.smartAlbum,
             subtype:PHAssetCollectionSubtype.smartAlbumUserLibrary,
@@ -243,10 +245,10 @@ class CHomeUpload:CController
             {
                 guard
                 
-                    let _:MHomeUploadItemStatusSynced = item.status as? MHomeUploadItemStatusSynced
+                    let _:MHomeUploadItemStatusClouded = item.status as? MHomeUploadItemStatusClouded
                 
                 else
-                {
+                {                    
                     continue
                 }
                 

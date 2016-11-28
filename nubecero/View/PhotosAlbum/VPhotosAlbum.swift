@@ -30,10 +30,7 @@ class VPhotosAlbum:UIView, UICollectionViewDelegate, UICollectionViewDataSource,
         leftBorder.backgroundColor = UIColor.black
         
         let background:UIView = UIView()
-        background.clipsToBounds = true
-        background.isUserInteractionEnabled = false
-        background.translatesAutoresizingMaskIntoConstraints = false
-        background.backgroundColor = UIColor.white
+        
         
         let spinner:VSpinner = VSpinner()
         spinner.stopAnimating()

@@ -2,9 +2,9 @@ import UIKit
 
 class VHomeUploadCell:UICollectionViewCell
 {
+    weak var indicator:UIImageView!
     weak var imageView:UIImageView!
     weak var baseBlur:UIView!
-    weak var indicator:UIImageView!
     private let kBlurAlpha:CGFloat = 0.99
     private let kBorderWidth:CGFloat = 1
     private let kIndicatorSize:CGFloat = 50
@@ -29,7 +29,7 @@ class VHomeUploadCell:UICollectionViewCell
         baseBlur.alpha = kBlurAlpha
         self.baseBlur = baseBlur
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.dark)
         let blur:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
         blur.isUserInteractionEnabled = false
         blur.clipsToBounds = true

@@ -1272,8 +1272,8 @@
 		DACD1FA91DC412430067D26B /* HomeUpload */ = {
 			isa = PBXGroup;
 			children = (
-				DACD1FB51DC56C250067D26B /* VHomeUploadBar.swift */,
 				DACD1FAA1DC4124B0067D26B /* VHomeUpload.swift */,
+				DACD1FB51DC56C250067D26B /* VHomeUploadBar.swift */,
 				DACD1FB31DC545F70067D26B /* VHomeUploadCell.swift */,
 				DA0586781DEAD7A500651619 /* VHomeUploadCellActive.swift */,
 				DA0586761DEAD5AB00651619 /* VHomeUploadCellClouded.swift */,

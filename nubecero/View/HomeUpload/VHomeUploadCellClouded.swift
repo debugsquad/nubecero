@@ -6,9 +6,8 @@ class VHomeUploadCellClouded:VHomeUploadCell
     {
         super.init(frame:frame)
         isUserInteractionEnabled = false
-        indicator.image = #imageLiteral(resourceName: "assetHomeSyncDone").withRenderingMode(
-            UIImageRenderingMode.alwaysTemplate)
-        indicator.tintColor = UIColor.complement
+        indicator.image = #imageLiteral(resourceName: "assetHomeSyncDone")
+        
     }
     
     required init?(coder:NSCoder)

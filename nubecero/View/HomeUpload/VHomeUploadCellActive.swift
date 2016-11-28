@@ -5,8 +5,7 @@ class VHomeUploadCellActive:VHomeUploadCell
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        indicator.image = #imageLiteral(resourceName: "assetHomeUploadSelect").withRenderingMode(
-            UIImageRenderingMode.alwaysOriginal)
+        indicator.image = #imageLiteral(resourceName: "assetHomeUploadSelect")
     }
     
     required init?(coder:NSCoder)

@@ -51,6 +51,7 @@
 		DA441B761DECCDCB000C845D /* VPhotosAlbumBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA441B751DECCDCB000C845D /* VPhotosAlbumBackground.swift */; };
 		DA441B781DECD448000C845D /* VPhotosHeaderField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA441B771DECD448000C845D /* VPhotosHeaderField.swift */; };
 		DA441B7A1DECDC44000C845D /* VPhotosHeaderConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA441B791DECDC44000C845D /* VPhotosHeaderConfirm.swift */; };
+		DA441B7C1DECF855000C845D /* CPhotosAlbumSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA441B7B1DECF855000C845D /* CPhotosAlbumSelection.swift */; };
 		DA45247D1DE236F3004BACB4 /* VPhotosHeaderAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45247C1DE236F3004BACB4 /* VPhotosHeaderAdd.swift */; };
 		DA45247F1DE3A47C004BACB4 /* MPhotosItemReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA45247E1DE3A47C004BACB4 /* MPhotosItemReference.swift */; };
 		DA4524811DE3B69A004BACB4 /* MPhotosItemDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4524801DE3B69A004BACB4 /* MPhotosItemDefault.swift */; };
@@ -341,6 +342,7 @@
 		DA441B751DECCDCB000C845D /* VPhotosAlbumBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosAlbumBackground.swift; sourceTree = "<group>"; };
 		DA441B771DECD448000C845D /* VPhotosHeaderField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosHeaderField.swift; sourceTree = "<group>"; };
 		DA441B791DECDC44000C845D /* VPhotosHeaderConfirm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosHeaderConfirm.swift; sourceTree = "<group>"; };
+		DA441B7B1DECF855000C845D /* CPhotosAlbumSelection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPhotosAlbumSelection.swift; sourceTree = "<group>"; };
 		DA45247C1DE236F3004BACB4 /* VPhotosHeaderAdd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosHeaderAdd.swift; sourceTree = "<group>"; };
 		DA45247E1DE3A47C004BACB4 /* MPhotosItemReference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosItemReference.swift; sourceTree = "<group>"; };
 		DA4524801DE3B69A004BACB4 /* MPhotosItemDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosItemDefault.swift; sourceTree = "<group>"; };
@@ -1167,6 +1169,7 @@
 				DAA336851DDE6AA000AA2D12 /* CPhotosAlbum.swift */,
 				DA3609A71DE6392B00A75B63 /* CPhotosAlbumPhoto.swift */,
 				DA88C9221DE8AFD300FB9A96 /* CPhotosAlbumPhotoSettings.swift */,
+				DA441B7B1DECF855000C845D /* CPhotosAlbumSelection.swift */,
 			);
 			path = Photos;
 			sourceTree = "<group>";
@@ -1691,6 +1694,7 @@
 				DAC55F321DD2BB3700213C27 /* VOnboardOptionsButton.swift in Sources */,
 				DA88C9231DE8AFD300FB9A96 /* CPhotosAlbumPhotoSettings.swift in Sources */,
 				DAF6F2B81DD39B5E0053ED1B /* MOnboardFormItemPassword.swift in Sources */,
+				DA441B7C1DECF855000C845D /* CPhotosAlbumSelection.swift in Sources */,
 				DAAAFFA21DDA152700E8F839 /* MAdminUsers.swift in Sources */,
 				DA4524811DE3B69A004BACB4 /* MPhotosItemDefault.swift in Sources */,
 				DA3411831DCBEA81006E6D71 /* FDatabaseModelUserDiskUsed.swift in Sources */,

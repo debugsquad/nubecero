@@ -351,9 +351,10 @@ class CHomeUpload:CController
     
     func selectAll(selection:Bool)
     {
+        let collectionView:UICollectionView = viewUpload.collectionView
+        
         if selection
         {
-            let collectionView:UICollectionView = viewUpload.collectionView
             let count:Int = model.items.count
             for indexItem:Int in 0 ..< count
             {
@@ -379,7 +380,9 @@ class CHomeUpload:CController
         }
         else
         {
-            viewUpload.collectionView.reloadData()
+            collectionView.reloadData()
         }
+        
+        viewUpload.updateBar()
     }
 }

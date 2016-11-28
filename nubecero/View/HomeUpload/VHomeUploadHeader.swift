@@ -7,7 +7,7 @@ class VHomeUploadHeader:UICollectionReusableView, UICollectionViewDelegate, UICo
     private var cellSize:CGSize!
     private var leftInset:CGFloat!
     private let model:MHomeUploadHeader
-    private let kDeselectTime:TimeInterval = 1
+    private let kDeselectTime:TimeInterval = 0.5
     private let kMaxCellWidth:CGFloat = 100
     
     override init(frame:CGRect)

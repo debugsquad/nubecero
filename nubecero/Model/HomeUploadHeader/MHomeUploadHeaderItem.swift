@@ -18,7 +18,7 @@ class MHomeUploadHeaderItem
     
     //MARK: public
     
-    func selected(controller:CHomeUpload)
+    func selected(controller:CHomeUpload?)
     {
     }
 }

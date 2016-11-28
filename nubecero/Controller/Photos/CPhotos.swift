@@ -60,7 +60,7 @@ class CPhotos:CController
         let modelAlbum:FDatabaseModelAlbum = FDatabaseModelAlbum(name:name)
         let jsonAlbum:Any = modelAlbum.modelJson()
         
-        FMain.sharedInstance.database.createChild(
+        let _:String = FMain.sharedInstance.database.createChild(
             path:albumsPath,
             json:jsonAlbum)
         

@@ -7,6 +7,7 @@ class VHomeUploadHeader:UICollectionReusableView
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.background
+        
     }
     
     required init?(coder:NSCoder)

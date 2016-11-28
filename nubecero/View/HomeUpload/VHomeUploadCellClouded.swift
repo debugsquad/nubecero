@@ -2,7 +2,7 @@ import UIKit
 
 class VHomeUploadCellClouded:VHomeUploadCell
 {
-    private let kBlurAlpha:CGFloat = 0.7
+    private let kBlurAlpha:CGFloat = 0.6
     
     override init(frame:CGRect)
     {

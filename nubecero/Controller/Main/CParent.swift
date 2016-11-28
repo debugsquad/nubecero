@@ -303,6 +303,8 @@ class CParent:UIViewController
             currentController.view.removeFromSuperview()
             currentController.removeFromParentViewController()
             currentController.endAppearanceTransition()
+            
+            completion?()
         }
     }
     

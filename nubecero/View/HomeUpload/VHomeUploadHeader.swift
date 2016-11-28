@@ -13,4 +13,11 @@ class VHomeUploadHeader:UICollectionReusableView
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(controller:CHomeUpload)
+    {
+        
+    }
 }

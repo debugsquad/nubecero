@@ -8,6 +8,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     private var imageSize:CGSize!
     private let kCollectionBottom:CGFloat = 20
     private let kInterLine:CGFloat = 1
+    private let kHeaderHeight:CGFloat = 60
     
     convenience init(controller:CHomeUpload)
     {
@@ -23,7 +24,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         self.spinner = spinner
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSize.zero
+        flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
         flow.footerReferenceSize = CGSize.zero
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
@@ -53,6 +54,12 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
             VHomeUploadCellClouded.self,
             forCellWithReuseIdentifier:
             VHomeUploadCellClouded.reusableIdentifier)
+        collectionView.register(
+            VHomeUploadHeader.self,
+            forSupplementaryViewOfKind:
+            UICollectionElementKindSectionHeader,
+            withReuseIdentifier:
+            VHomeUploadHeader.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(spinner)
@@ -185,6 +192,18 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         let count:Int = controller.model.items.count
         
         return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
+    {
+        let reusable:VHomeUploadHeader = collectionView.dequeueReusableSupplementaryView(
+            ofKind:kind,
+            withReuseIdentifier:
+            VHomeUploadHeader.reusableIdentifier,
+            for:indexPath) as! VHomeUploadHeader
+        reusable.config(controller:controller)
+        
+        return reusable
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell

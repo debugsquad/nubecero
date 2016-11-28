@@ -7,6 +7,7 @@ class FDatabaseModelPhoto:FDatabaseModel
         case localId = "localId"
         case albumId = "albumId"
         case created = "created"
+        case taken = "taken"
         case status = "status"
         case size = "size"
         case pixelWidth = "pixelWidth"
@@ -16,6 +17,7 @@ class FDatabaseModelPhoto:FDatabaseModel
     let albumId:MPhotos.AlbumId
     let localId:MPhotos.LocalId
     let created:TimeInterval
+    let taken:TimeInterval
     let status:MPhotos.Status
     let size:Int
     let pixelWidth:Int
@@ -24,9 +26,15 @@ class FDatabaseModelPhoto:FDatabaseModel
     private let kNoTime:TimeInterval = 0
     private let kZero:Int = 0
     
-    init(localId:MPhotos.LocalId, size:Int, pixelWidth:Int, pixelHeight:Int)
+    init(
+        localId:MPhotos.LocalId,
+        taken:TimeInterval,
+        size:Int,
+        pixelWidth:Int,
+        pixelHeight:Int)
     {
         self.localId = localId
+        self.taken = taken
         self.size = size
         self.pixelWidth = pixelWidth
         self.pixelHeight = pixelHeight
@@ -66,6 +74,15 @@ class FDatabaseModelPhoto:FDatabaseModel
         else
         {
             self.created = kNoTime
+        }
+        
+        if let taken:TimeInterval = snapshotDict?[Property.taken.rawValue] as? TimeInterval
+        {
+            self.taken = taken
+        }
+        else
+        {
+            self.taken = kNoTime
         }
         
         if let statusInt:Int = snapshotDict?[Property.status.rawValue] as? Int
@@ -125,6 +142,7 @@ class FDatabaseModelPhoto:FDatabaseModel
             Property.localId.rawValue:localId,
             Property.albumId.rawValue:albumId,
             Property.created.rawValue:created,
+            Property.taken.rawValue:taken,
             Property.status.rawValue:status.rawValue,
             Property.size.rawValue:size,
             Property.pixelWidth.rawValue:pixelWidth,

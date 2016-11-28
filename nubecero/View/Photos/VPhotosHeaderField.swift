@@ -15,14 +15,14 @@ class VPhotosHeaderField:UIView, UITextFieldDelegate
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = kCornerRadius
         layer.borderWidth = 1
-        layer.borderColor = UIColor(white:0, alpha:0.3).cgColor
+        layer.borderColor = UIColor(white:0, alpha:0.6).cgColor
         
         let textField:UITextField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.clipsToBounds = true
         textField.backgroundColor = UIColor.clear
         textField.borderStyle = UITextBorderStyle.none
-        textField.font = UIFont.medium(size:18)
+        textField.font = UIFont.medium(size:16)
         textField.textColor = UIColor.black
         textField.tintColor = UIColor.black
         textField.delegate = self

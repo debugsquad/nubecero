@@ -2,7 +2,7 @@ import UIKit
 
 class CPhotos:CController
 {
-    private weak var viewPhotos:VPhotos!
+    weak var viewPhotos:VPhotos!
     
     deinit
     {

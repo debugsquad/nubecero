@@ -6,13 +6,13 @@ class VPhotosHeader:UICollectionReusableView
     private weak var layoutAddLeft:NSLayoutConstraint!
     private weak var layoutFieldWidth:NSLayoutConstraint!
     private weak var buttonAdd:VPhotosHeaderAdd!
-    private weak var field:VPhotosHeaderField!
+    weak var field:VPhotosHeaderField!
     private var creating:Bool
     private let kAnimationDuration:TimeInterval = 0.3
     private let kAddSize:CGFloat = 55
     private let kAddMargin:CGFloat = 10
     private let kMinFieldWidth:CGFloat = 15
-    private let kMaxFieldWidth:CGFloat = 170
+    private let kMaxFieldWidth:CGFloat = 160
     
     override init(frame:CGRect)
     {
@@ -118,6 +118,7 @@ class VPhotosHeader:UICollectionReusableView
             { [weak self] in
                 
                 self?.layoutIfNeeded()
+                self?.buttonAdd.alpha = 0.2
                 self?.field.alpha = 1
             })
         { [weak self] (done:Bool) in

@@ -7,7 +7,6 @@ class CHomeUpload:CController
     weak var viewBar:VHomeUploadBar?
     private weak var viewUpload:VHomeUpload!
     private let kBarWidth:CGFloat = 150
-    private let kAlertAfter:TimeInterval = 1
     
     override init()
     {
@@ -67,6 +66,12 @@ class CHomeUpload:CController
         }
     }
     
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        loadBar()
+    }
+    
     override func viewWillDisappear(_ animated:Bool)
     {
         super.viewWillDisappear(animated)
@@ -78,6 +83,8 @@ class CHomeUpload:CController
     
     private func loadBar()
     {
+        self.viewBar?.removeFromSuperview()
+        
         let mainBar:VBar = parentController.viewParent.bar
         let viewBar:VHomeUploadBar = VHomeUploadBar(controller:self)
         self.viewBar = viewBar
@@ -100,6 +107,8 @@ class CHomeUpload:CController
             options:[],
             metrics:metrics,
             views:views))
+        
+        viewUpload.updateBar()
     }
     
     private func showError()
@@ -117,7 +126,6 @@ class CHomeUpload:CController
         { [weak self] in
             
             self?.viewUpload.imagesLoaded()
-            self?.loadBar()
         }
     }
     
@@ -193,8 +201,7 @@ class CHomeUpload:CController
         let alert:UIAlertController = UIAlertController(
             title:
             NSLocalizedString("CHomeUpload_uploadedTitle", comment:""),
-            message:
-            NSLocalizedString("CHomeUpload_uploadedMessage", comment:""),
+            message:nil,
             preferredStyle:UIAlertControllerStyle.actionSheet)
         
         let actionDontRemove:UIAlertAction = UIAlertAction(
@@ -241,6 +248,19 @@ class CHomeUpload:CController
             {
                 deletableAssets.append(uploadItem.asset)
             }
+            else
+            {
+                guard
+                
+                    let _:MHomeUploadItemStatusSynced = uploadItem.status as? MHomeUploadItemStatusSynced
+                
+                else
+                {
+                    continue
+                }
+                
+                deletableAssets.append(uploadItem.asset)
+            }
         }
         
         let deletableEnumeration:NSFastEnumeration = deletableAssets as NSFastEnumeration
@@ -257,30 +277,8 @@ class CHomeUpload:CController
             }
             else
             {
-                self?.hideUploadedItems()
+                self?.loadCameraRoll()
             }
-        }
-    }
-    
-    private func hideUploadedItems()
-    {
-        var newModelItems:[MHomeUploadItem] = []
-        
-        for currentItem:MHomeUploadItem in model.items
-        {
-            if !currentItem.status.finished
-            {
-                newModelItems.append(currentItem)
-            }
-        }
-        
-        model.items = newModelItems
-        
-        DispatchQueue.main.async
-        { [weak self] in
-            
-            self?.viewUpload.collectionView.reloadData()
-            self?.viewUpload.updateBar()
         }
     }
     
@@ -329,19 +327,9 @@ class CHomeUpload:CController
             animate:true)
     }
     
-    func picturesUploaded()
-    {
-        DispatchQueue.main.asyncAfter(
-            deadline:DispatchTime.now() + kAlertAfter)
-        { [weak self] in
-            
-            self?.removePicturesAlert()
-        }
-    }
-    
     func clearAdded()
     {
-        
+        removePicturesAlert()
     }
     
     func changeAlbum()

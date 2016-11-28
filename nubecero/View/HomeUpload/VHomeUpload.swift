@@ -173,6 +173,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         spinner.stopAnimating()
         collectionView.reloadData()
         collectionView.isHidden = false
+        updateBar()
     }
     
     //MARK: collectionView delegate

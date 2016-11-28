@@ -50,8 +50,7 @@
 "CHomeUpload_noCameraRoll"="No se pudieron agregar tus fotos";
 "CHomeUploadSync_syncComplete"="Fotos agregas";
 "CHomeUploadSync_diskFull"="Tu nube esta llena, algunas fotos no se pudieron agregar";
-"CHomeUpload_uploadedTitle"="¿Borras esas fotos de tu dispositivo?";
-"CHomeUpload_uploadedMessage"="Ya estan respaldadas en la nube";
+"CHomeUpload_uploadedTitle"="Fotos respaldadas se borraran localmente";
 "CHomeUpload_uploadedDontRemove"="Mantenerlas";
 "CHomeUpload_uploadedRemove"="Borrarlas";
 "CAuth_reason"="Validate para ingresar a tu nube";

@@ -65,6 +65,11 @@ class CHomeUploadSync:CController
         uploadItem.status.process(controller:self)
     }
     
+    private func dismissClear()
+    {
+        parentController.dismiss()
+    }
+    
     //MARK: public
     
     func uploadedItems() -> Int
@@ -85,7 +90,7 @@ class CHomeUploadSync:CController
     func cancelSync()
     {
         FMain.sharedInstance.analytics?.photoStopUpload()
-        parentController.dismiss()
+        dismissClear()
     }
     
     func errorSyncing(error:String)
@@ -122,8 +127,7 @@ class CHomeUploadSync:CController
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.parentController.dismiss()
-            self?.controllerUpload.picturesUploaded()
+            self?.dismissClear()
         }
     }
     
@@ -134,9 +138,8 @@ class CHomeUploadSync:CController
         
         DispatchQueue.main.async
         { [weak self] in
-                
-            self?.parentController.dismiss()
-            self?.controllerUpload.picturesUploaded()
+            
+            self?.dismissClear()
         }
     }
 }

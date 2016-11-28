@@ -7,10 +7,12 @@ class MHomeUploadHeader
     init()
     {
         let itemAlbum:MHomeUploadHeaderItemAlbum = MHomeUploadHeaderItemAlbum()
+        let itemSelectAll:MHomeUploadHeaderItemSelectAll = MHomeUploadHeaderItemSelectAll()
         let itemClear:MHomeUploadHeaderItemClear = MHomeUploadHeaderItemClear()
         
         items = [
             itemClear,
+            itemSelectAll,
             itemAlbum
         ]
     }

@@ -338,4 +338,19 @@ class CHomeUpload:CController
             self?.removePicturesAlert()
         }
     }
+    
+    func clearAdded()
+    {
+        
+    }
+    
+    func changeAlbum()
+    {
+        
+    }
+    
+    func selectAll()
+    {
+        
+    }
 }

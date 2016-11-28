@@ -17,4 +17,9 @@ class MHomeUploadHeaderItemClear:MHomeUploadHeaderItem
     {
         fatalError()
     }
+    
+    override func selected(controller:CHomeUpload?)
+    {
+        controller?.clearAdded()
+    }
 }

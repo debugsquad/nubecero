@@ -1,14 +1,14 @@
 import UIKit
 
-class MHomeUploadHeaderItemAlbum:MHomeUploadHeaderItem
+class MHomeUploadHeaderItemSelectAll:MHomeUploadHeaderItem
 {
     override init()
     {
-        let title:String = MPhotos.sharedInstance.defaultAlbum.name
-        let color:UIColor = UIColor.complement
+        let title:String = NSLocalizedString("MHomeUploadHeaderItemSelectAll_title", comment:"")
+        let color:UIColor = UIColor.main
         
         super.init(
-            image:#imageLiteral(resourceName: "assetHomeAlbum"),
+            image:#imageLiteral(resourceName: "assetHomeSelectAll"),
             title:title,
             color:color)
     }
@@ -20,6 +20,6 @@ class MHomeUploadHeaderItemAlbum:MHomeUploadHeaderItem
     
     override func selected(controller:CHomeUpload?)
     {
-        controller?.changeAlbum()
+        controller?.selectAll()
     }
 }

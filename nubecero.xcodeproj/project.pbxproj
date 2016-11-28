@@ -1279,10 +1279,10 @@
 				DACD1FAA1DC4124B0067D26B /* VHomeUpload.swift */,
 				DACD1FB51DC56C250067D26B /* VHomeUploadBar.swift */,
 				DA05867A1DEBCCE500651619 /* VHomeUploadHeader.swift */,
+				DA05867C1DEC86BF00651619 /* VHomeUploadHeaderCell.swift */,
 				DACD1FB31DC545F70067D26B /* VHomeUploadCell.swift */,
 				DA0586781DEAD7A500651619 /* VHomeUploadCellActive.swift */,
 				DA0586761DEAD5AB00651619 /* VHomeUploadCellClouded.swift */,
-				DA05867C1DEC86BF00651619 /* VHomeUploadHeaderCell.swift */,
 			);
 			path = HomeUpload;
 			sourceTree = "<group>";

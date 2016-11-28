@@ -326,6 +326,11 @@ class CHomeUpload:CController
             animate:true)
     }
     
+    func uploadFinished()
+    {
+        
+    }
+    
     func clearAdded()
     {
         removePicturesAlert()

@@ -46,7 +46,7 @@ class CPhotosAlbumPhoto:CController
     
     func back()
     {
-        parentController.dismiss()
+        parentController.dismiss(completion:nil)
     }
     
     func share()
@@ -101,6 +101,6 @@ class CPhotosAlbumPhoto:CController
             item:photo)
         albumController.removeFromList(photo:photo)
         
-        parentController.dismiss()
+        parentController.dismiss(completion:nil)
     }
 }

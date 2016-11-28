@@ -8,7 +8,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     private var imageSize:CGSize!
     private let kCollectionBottom:CGFloat = 20
     private let kInterLine:CGFloat = 1
-    private let kHeaderHeight:CGFloat = 110
+    private let kHeaderHeight:CGFloat = 120
     
     convenience init(controller:CHomeUpload)
     {

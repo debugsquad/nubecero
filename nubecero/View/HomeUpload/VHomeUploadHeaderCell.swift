@@ -72,7 +72,7 @@ class VHomeUploadHeaderCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[title(14)]-20-|",
+            withVisualFormat:"V:[title(14)]-30-|",
             options:[],
             metrics:metrics,
             views:views))

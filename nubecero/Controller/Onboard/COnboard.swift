@@ -53,7 +53,7 @@ class COnboard:CController
     {
         let successAfter:TimeInterval = kSuccessAfter
         viewOnboard.isUserInteractionEnabled = false
-        parentController.dismiss()
+        parentController.dismiss(completion:nil)
         
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + successAfter)

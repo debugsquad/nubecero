@@ -281,7 +281,7 @@ class CParent:UIViewController
         }
     }
     
-    func dismiss()
+    func dismiss(completion:(() -> ())?)
     {
         guard
             

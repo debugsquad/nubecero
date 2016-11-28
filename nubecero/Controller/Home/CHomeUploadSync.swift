@@ -67,7 +67,7 @@ class CHomeUploadSync:CController
     
     private func dismissClear()
     {
-        parentController.dismiss()
+        parentController.dismiss(completion:nil)
     }
     
     //MARK: public

@@ -19,7 +19,7 @@ class CAuth:CController
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.parentController.dismiss()
+            self?.parentController.dismiss(completion:nil)
         }
     }
     

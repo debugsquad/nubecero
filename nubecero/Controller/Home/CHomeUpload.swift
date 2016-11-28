@@ -304,11 +304,17 @@ class CHomeUpload:CController
     {
         guard
             
-            let uploadItems:[MHomeUploadItem] = selectedItems()
+            var uploadItems:[MHomeUploadItem] = selectedItems()
         
         else
         {
             return
+        }
+        
+        uploadItems.sort
+        { (itemA:MHomeUploadItem, itemB:MHomeUploadItem) -> Bool in
+            
+            return itemA.creationDate > itemB.creationDate
         }
         
         let controllerSync:CHomeUploadSync = CHomeUploadSync(

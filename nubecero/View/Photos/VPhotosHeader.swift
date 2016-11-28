@@ -175,4 +175,27 @@ class VPhotosHeader:UICollectionReusableView
         self.controller = controller
         field.controller = controller
     }
+    
+    func cancelAdd()
+    {
+        creating = false
+        buttonAdd.isUserInteractionEnabled = true
+        
+        let width:CGFloat = bounds.maxX
+        let remain:CGFloat = width - kAddSize
+        let margin:CGFloat = remain / 2.0
+        layoutAddLeft.constant = margin
+        layoutFieldWidth.constant = kMinFieldWidth
+        layoutConfirmWidth.constant = kMinConfirmWidth
+        
+        UIView.animate(
+            withDuration:kAnimationDuration)
+            { [weak self] in
+                
+                self?.layoutIfNeeded()
+                self?.confirm.alpha = 0
+                self?.field.alpha = 0
+                self?.buttonAdd.alpha = 1
+            }
+    }
 }

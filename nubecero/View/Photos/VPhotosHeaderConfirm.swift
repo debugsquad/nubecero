@@ -69,5 +69,6 @@ class VPhotosHeaderConfirm:UIView
     {
         header.field.textField.text = ""
         UIApplication.shared.keyWindow!.endEditing(true)
+        header.cancelAdd()
     }
 }

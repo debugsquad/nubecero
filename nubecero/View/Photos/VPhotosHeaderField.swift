@@ -4,7 +4,7 @@ class VPhotosHeaderField:UIView, UITextFieldDelegate
 {
     weak var controller:CPhotos?
     weak var textField:UITextField!
-    private let kCornerRadius:CGFloat = 10
+    private let kCornerRadius:CGFloat = 12
     private let kMarginHorizontal:CGFloat = 10
     
     init()
@@ -22,7 +22,7 @@ class VPhotosHeaderField:UIView, UITextFieldDelegate
         textField.clipsToBounds = true
         textField.backgroundColor = UIColor.clear
         textField.borderStyle = UITextBorderStyle.none
-        textField.font = UIFont.medium(size:16)
+        textField.font = UIFont.medium(size:15)
         textField.textColor = UIColor.black
         textField.tintColor = UIColor.black
         textField.delegate = self

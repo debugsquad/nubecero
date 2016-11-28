@@ -14,6 +14,7 @@ class VPhotosHeaderConfirm:UIView
         
         let buttonCancel:UIButton = UIButton()
         buttonCancel.translatesAutoresizingMaskIntoConstraints = false
+        buttonCancel.setImage(#imageLiteral(resourceName: "assetHomeAlbumCancel"), for:UIControlState.normal)
         buttonCancel.imageView!.clipsToBounds = true
         buttonCancel.imageView!.contentMode = UIViewContentMode.center
         buttonCancel.addTarget(
@@ -23,6 +24,7 @@ class VPhotosHeaderConfirm:UIView
         
         let buttonAdd:UIButton = UIButton()
         buttonAdd.translatesAutoresizingMaskIntoConstraints = false
+        buttonAdd.setImage(#imageLiteral(resourceName: "assetHomeAlbumAdd"), for:UIControlState.normal)
         buttonAdd.imageView!.clipsToBounds = true
         buttonAdd.imageView!.contentMode = UIViewContentMode.center
         buttonAdd.addTarget(
@@ -40,12 +42,12 @@ class VPhotosHeaderConfirm:UIView
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[buttonCancel(50)]",
+            withVisualFormat:"H:|-0-[buttonCancel(40)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[buttonAdd(50)]-0-|",
+            withVisualFormat:"H:[buttonAdd(40)]-0-|",
             options:[],
             metrics:metrics,
             views:views))

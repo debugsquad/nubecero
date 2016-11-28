@@ -14,9 +14,9 @@ class VPhotosHeader:UICollectionReusableView
     private let kAddSize:CGFloat = 55
     private let kAddMargin:CGFloat = 10
     private let kMinFieldWidth:CGFloat = 15
-    private let kMaxFieldWidth:CGFloat = 160
+    private let kMaxFieldWidth:CGFloat = 150
     private let kMinConfirmWidth:CGFloat = 0
-    private let kMaxConfirmWidth:CGFloat = 100
+    private let kMaxConfirmWidth:CGFloat = 80
     
     override init(frame:CGRect)
     {
@@ -37,7 +37,7 @@ class VPhotosHeader:UICollectionReusableView
         field.alpha = 0
         self.field = field
         
-        let confirm:VPhotosHeaderConfirm = VPhotosHeaderConfirm()
+        let confirm:VPhotosHeaderConfirm = VPhotosHeaderConfirm(header:self)
         confirm.alpha = 0
         self.confirm = confirm
         
@@ -55,7 +55,7 @@ class VPhotosHeader:UICollectionReusableView
             "addMargin":kAddMargin]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[buttonAdd(addSize)]-(addMargin)-[field]-(addMargin)-[confirm]",
+            withVisualFormat:"H:[buttonAdd(addSize)]-(addMargin)-[field]-0-[confirm]",
             options:[],
             metrics:metrics,
             views:views))

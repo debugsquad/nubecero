@@ -2,8 +2,8 @@ import UIKit
 
 class VHomeUploadHeader:UICollectionReusableView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
+    weak var collectionView:UICollectionView!
     private weak var controller:CHomeUpload?
-    private weak var collectionView:UICollectionView!
     private var cellSize:CGSize!
     private var leftInset:CGFloat!
     private var model:MHomeUploadHeader?

@@ -3,6 +3,7 @@ import UIKit
 class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var collectionView:UICollectionView!
+    weak var header:VHomeUploadHeader?
     private weak var controller:CHomeUpload!
     private weak var spinner:VSpinner!
     private var imageSize:CGSize!
@@ -197,14 +198,14 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
     {
-        let reusable:VHomeUploadHeader = collectionView.dequeueReusableSupplementaryView(
+        header = collectionView.dequeueReusableSupplementaryView(
             ofKind:kind,
             withReuseIdentifier:
             VHomeUploadHeader.reusableIdentifier,
-            for:indexPath) as! VHomeUploadHeader
-        reusable.config(controller:controller)
+            for:indexPath) as? VHomeUploadHeader
+        header!.config(controller:controller)
         
-        return reusable
+        return header!
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell

@@ -2,6 +2,8 @@ import UIKit
 
 class VPhotosAlbumPhotoSettingsCell:UICollectionViewCell
 {
+    weak var controller:CPhotosAlbumPhotoSettings?
+    
     override init(frame:CGRect)
     {
         super.init(frame:frame)
@@ -16,8 +18,8 @@ class VPhotosAlbumPhotoSettingsCell:UICollectionViewCell
     
     //MARK: public
     
-    func config(model:MPhotosAlbumPhotoSettingsItem)
+    func config(controller:CPhotosAlbumPhotoSettings, model:MPhotosAlbumPhotoSettingsItem)
     {
-        
+        self.controller = controller
     }
 }

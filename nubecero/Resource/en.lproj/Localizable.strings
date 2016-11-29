@@ -50,6 +50,8 @@
 "VPhotosHeaderField_placeholder"="Album name";
 "VPhotosAlbumSelection_buttonCancel"="Cancel";
 "VPhotosAlbumSelection_labelTitle"="Albums";
+"VPhotosAlbumPhotoSettingsCellPixels_labelWidth"="%@ px";
+"VPhotosAlbumPhotoSettingsCellPixels_labelHeight"="%@ px";
 
 "CHomeUpload_title"="Add";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

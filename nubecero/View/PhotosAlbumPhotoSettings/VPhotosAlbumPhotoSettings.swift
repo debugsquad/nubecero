@@ -76,6 +76,12 @@ class VPhotosAlbumPhotoSettings:UIView, UICollectionViewDelegate, UICollectionVi
             views:views))
     }
     
+    override func layoutSubviews()
+    {
+        collectionView.collectionViewLayout.invalidateLayout()
+        super.layoutSubviews()
+    }
+    
     //MARK: private
     
     private func modelAtIndex(index:IndexPath) -> MPhotosAlbumPhotoSettingsItem
@@ -117,7 +123,7 @@ class VPhotosAlbumPhotoSettings:UIView, UICollectionViewDelegate, UICollectionVi
             withReuseIdentifier:
             VPhotosAlbumPhotoSettingsCell.reusableIdentifier,
             for:indexPath) as! VPhotosAlbumPhotoSettingsCell
-        cell.config(model:item)
+        cell.config(controller:controller, model:item)
         
         return cell
     }

@@ -49,6 +49,8 @@
 "VPhotosHeaderField_placeholder"="Nombre del album";
 "VPhotosAlbumSelection_buttonCancel"="Cancelar";
 "VPhotosAlbumSelection_labelTitle"="Albums";
+"VPhotosAlbumPhotoSettingsCellPixels_labelWidth"="%@ px";
+"VPhotosAlbumPhotoSettingsCellPixels_labelHeight"="%@ px";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

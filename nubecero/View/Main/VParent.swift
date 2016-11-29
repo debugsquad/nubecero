@@ -260,8 +260,8 @@ class VParent:UIView
         completion:@escaping(() -> ()))
     {
         let height:CGFloat = bounds.maxY
-        currentController.layoutTop.constant = height
         currentController.layoutBottom.constant = height
+        currentController.layoutTop.constant = height
         
         UIView.animate(withDuration:kAnimationDuration,
                        animations:

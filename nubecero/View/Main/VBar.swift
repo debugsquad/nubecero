@@ -92,7 +92,8 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         let metrics:[String:CGFloat] = [
             "barHeight":barHeight,
-            "barDelta":barDelta]
+            "barDelta":barDelta,
+            "labelWidth":kLabelWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:[label(labelWidth)]",

@@ -21,6 +21,12 @@ class VPhotosAlbumSelection:UIView
         visualEffect.isUserInteractionEnabled = false
         visualEffect.clipsToBounds = true
         
+        let statusBar:UIView = UIView()
+        statusBar.isUserInteractionEnabled = false
+        statusBar.translatesAutoresizingMaskIntoConstraints = false
+        statusBar.clipsToBounds = true
+        statusBar.backgroundColor = UIColor(white:0, alpha:0.1)
+        
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
         let buttonCancel:UIButton = UIButton()
@@ -41,11 +47,13 @@ class VPhotosAlbumSelection:UIView
             for:UIControlEvents.touchUpInside)
         
         addSubview(visualEffect)
+        addSubview(statusBar)
         addSubview(buttonCancel)
 
         let views:[String:UIView] = [
             "buttonCancel":buttonCancel,
-            "visualEffect":visualEffect]
+            "visualEffect":visualEffect,
+            "statusBar":statusBar]
         
         let metrics:[String:CGFloat] = [
             "buttonCancelWidth":kButtonCancelWidth]
@@ -57,6 +65,16 @@ class VPhotosAlbumSelection:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[visualEffect]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[statusBar]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[statusBar(20)]",
             options:[],
             metrics:metrics,
             views:views))

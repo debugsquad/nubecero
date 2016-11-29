@@ -53,7 +53,7 @@
 "VPhotosAlbumPhotoSettingsCellPixels_labelWidth"="%@ px";
 "VPhotosAlbumPhotoSettingsCellPixels_labelHeight"="%@ px";
 "VPhotosAlbumPhotoSettingsCellSize_labelTitle"="Size";
-"VPhotosAlbumPhotoSettingsCellSize_labelSize"="%@ Megabytes";
+"VPhotosAlbumPhotoSettingsCellSize_labelSize"="%@ Kilobytes";
 
 "CHomeUpload_title"="Add";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

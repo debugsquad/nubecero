@@ -4,14 +4,11 @@ class VPhotosAlbumPhotoSettingsCellSize:VPhotosAlbumPhotoSettingsCell
 {
     private weak var labelSize:UILabel!
     private let numberFormatter:NumberFormatter
-    private let kKiloBytesPerMega:CGFloat = 1000
-    private let kMaxFractions:Int = 4
     
     override init(frame:CGRect)
     {
         numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
-        numberFormatter.maximumFractionDigits = kMaxFractions
         
         super.init(frame:frame)
         isUserInteractionEnabled = false
@@ -28,7 +25,7 @@ class VPhotosAlbumPhotoSettingsCellSize:VPhotosAlbumPhotoSettingsCell
         labelSize.translatesAutoresizingMaskIntoConstraints = false
         labelSize.isUserInteractionEnabled = false
         labelSize.backgroundColor = UIColor.clear
-        labelSize.font = UIFont.regular(size:14)
+        labelSize.font = UIFont.regular(size:17)
         labelSize.textColor = UIColor.black
         self.labelSize = labelSize
         
@@ -42,7 +39,7 @@ class VPhotosAlbumPhotoSettingsCellSize:VPhotosAlbumPhotoSettingsCell
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[labelTitle(65)]-0-[labelSize(250)]",
+            withVisualFormat:"H:|-10-[labelTitle(50)]-0-[labelSize(250)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -76,13 +73,12 @@ class VPhotosAlbumPhotoSettingsCellSize:VPhotosAlbumPhotoSettingsCell
             return
         }
         
-        let size:CGFloat = CGFloat(photo.size)
-        let megas:CGFloat = size / kKiloBytesPerMega
-        let megasNumber:NSNumber = megas as NSNumber
+        let size:Int = photo.size
+        let sizeNumber:NSNumber = size as NSNumber
         
         guard
             
-            let megasString:String = numberFormatter.string(from:megasNumber)
+            let kilosString:String = numberFormatter.string(from:sizeNumber)
         
         else
         {
@@ -91,7 +87,7 @@ class VPhotosAlbumPhotoSettingsCellSize:VPhotosAlbumPhotoSettingsCell
         
         let sizeString:String = String(
             format:NSLocalizedString("VPhotosAlbumPhotoSettingsCellSize_labelSize", comment:""),
-            megasString)
+            kilosString)
         
         labelSize.text = sizeString
     }

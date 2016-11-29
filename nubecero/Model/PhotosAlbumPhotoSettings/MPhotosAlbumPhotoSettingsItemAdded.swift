@@ -7,7 +7,7 @@ class MPhotosAlbumPhotoSettingsItemAdded:MPhotosAlbumPhotoSettingsItem
     
     override init()
     {
-        let reusableIdentifier:String = VPhotosAlbumPhotoSettingsCellTaken.reusableIdentifier
+        let reusableIdentifier:String = VPhotosAlbumPhotoSettingsCellAdded.reusableIdentifier
         
         super.init(
             reusableIdentifier:reusableIdentifier,

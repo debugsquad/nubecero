@@ -26,8 +26,25 @@ class VPhotosAlbumPhotoSettingsCellAlbum:VPhotosAlbumPhotoSettingsCell
         labelAlbum.textColor = UIColor.black
         self.labelAlbum = labelAlbum
         
+        let buttonChange:UIButton = UIButton()
+        buttonChange.translatesAutoresizingMaskIntoConstraints = false
+        buttonChange.backgroundColor = UIColor.main
+        buttonChange.setTitle(
+            NSLocalizedString("VPhotosAlbumPhotoSettingsCellAlbum_buttonChange", comment:""),
+            for:UIControlState.normal)
+        buttonChange.setTitleColor(
+            UIColor.white,
+            for:UIControlState.normal)
+        buttonChange.setTitleColor(
+            UIColor(white:1, alpha:0.2),
+            for:UIControlState.highlighted)
+        buttonChange.titleLabel!.font = UIFont.medium(size:14)
+        buttonChange.clipsToBounds = true
+        buttonChange.layer.cornerRadius = 4
+        
         addSubview(labelTitle)
         addSubview(labelAlbum)
+        addSubview(buttonChange)
         
         let views:[String:UIView] = [
             "labelTitle":labelTitle,
@@ -36,12 +53,17 @@ class VPhotosAlbumPhotoSettingsCellAlbum:VPhotosAlbumPhotoSettingsCell
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[labelTitle(65)]-0-[labelAlbum(150)]",
+            withVisualFormat:"H:|-10-[labelTitle(65)]-0-[labelAlbum(160)]-5-[buttonChange(60)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[labelTitle]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-14-[buttonChange]-14-|",
             options:[],
             metrics:metrics,
             views:views))

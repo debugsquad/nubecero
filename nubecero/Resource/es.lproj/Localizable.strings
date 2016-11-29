@@ -125,8 +125,10 @@
 "MAdminItemServer_title"="Servidor";
 "MAdminItemUsers_title"="Usuarios";
 "MAdminUsersPhotosItemStatusLoading_errorUnknown"="Error al cargar imagen";
-"MStoreItemAlbums_title"="Album admin";
-"MStoreItemAlbums_descr"="Administra tus fotos creando albums";
 "MPhotosItemDefault_name"="Default";
 "MHomeUploadHeaderItemClear_title"="Borrar agregadas";
 "MHomeUploadHeaderItemSelectAll_title"="Todas";
+"MStoreItemAlbums_title"="Album admin";
+"MStoreItemAlbums_descr"="Administra tus fotos creando albums";
+"MStoreItemPlus_title"="nubecero plus";
+"MStoreItemPlus_descr"="\nIncrementa tu nube agregando 1,000 Megabytes a la capacidad de tu nube";

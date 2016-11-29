@@ -125,8 +125,10 @@
 "MAdminItemServer_title"="Server";
 "MAdminItemUsers_title"="Users";
 "MAdminUsersPhotosItemStatusLoading_errorUnknown"="Error loading image";
-"MStoreItemAlbums_title"="Album manager";
-"MStoreItemAlbums_descr"="\nCreate albums to organize your photos";
 "MPhotosItemDefault_name"="Default";
 "MHomeUploadHeaderItemClear_title"="Clear added";
 "MHomeUploadHeaderItemSelectAll_title"="Select all";
+"MStoreItemAlbums_title"="Album manager";
+"MStoreItemAlbums_descr"="\nCreate albums to organize your photos";
+"MStoreItemPlus_title"="nubecero plus";
+"MStoreItemPlus_descr"="\nBoost your cloud adding 1,000 Megabytes to your cloud storage capacity";

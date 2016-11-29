@@ -281,7 +281,7 @@ class CParent:UIViewController
         }
     }
     
-    func dismiss(completion:(() -> ())?)
+    func dismiss(centered:Bool, completion:(() -> ())?)
     {
         guard
             
@@ -296,7 +296,7 @@ class CParent:UIViewController
         previousController.beginAppearanceTransition(true, animated:true)
         currentController.beginAppearanceTransition(false, animated:true)
         
-        viewParent.dismiss(currentController:currentController)
+        let completionView:(() -> ()) =
         {
             previousController.endAppearanceTransition()
             
@@ -305,6 +305,19 @@ class CParent:UIViewController
             currentController.endAppearanceTransition()
             
             completion?()
+        }
+        
+        if centered
+        {
+            viewParent.dismiss(
+                currentController:currentController,
+                completion:completionView)
+        }
+        else
+        {
+            viewParent.dismissBelow(
+                currentController:currentController,
+                completion:completionView)
         }
     }
     

@@ -31,9 +31,16 @@ class VPhotosAlbumSelection:UIView
         labelTitle.isUserInteractionEnabled = false
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.textAlignment = NSTextAlignment.center
-        labelTitle.font = UIFont.medium(size:18)
+        labelTitle.font = UIFont.medium(size:22)
         labelTitle.textColor = UIColor.black
+        labelTitle.backgroundColor = UIColor.clear
         labelTitle.text = NSLocalizedString("VPhotosAlbumSelection_labelTitle", comment:"")
+        
+        let background:UIView = UIView()
+        background.isUserInteractionEnabled = false
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.clipsToBounds = true
+        background.backgroundColor = UIColor.white
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
@@ -60,6 +67,7 @@ class VPhotosAlbumSelection:UIView
         addSubview(buttonCancel)
 
         let views:[String:UIView] = [
+            "background":background,
             "buttonCancel":buttonCancel,
             "visualEffect":visualEffect,
             "vibrancyVisual":vibrancyVisual,
@@ -89,6 +97,11 @@ class VPhotosAlbumSelection:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[background]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[buttonCancel(40)]-20-|",
             options:[],
             metrics:metrics,
@@ -104,7 +117,12 @@ class VPhotosAlbumSelection:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-30-[labelTitle(30)]",
+            withVisualFormat:"V:|-65-[labelTitle(30)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-120-[background]-120-|",
             options:[],
             metrics:metrics,
             views:views))

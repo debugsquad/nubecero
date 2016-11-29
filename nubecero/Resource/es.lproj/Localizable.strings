@@ -48,7 +48,7 @@
 "VSettingsCellAutoDelete_labelDescription"="Borrar fotos localmente despues de agregadas";
 "VPhotosHeaderField_placeholder"="Nombre del album";
 "VPhotosAlbumSelection_buttonCancel"="Cancelar";
-"VPhotosAlbumSelection_labelTitle"="Selecciona Album";
+"VPhotosAlbumSelection_labelTitle"="Albums";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

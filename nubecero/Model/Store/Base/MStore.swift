@@ -15,13 +15,16 @@ class MStore
         priceFormatter = NumberFormatter()
         priceFormatter.numberStyle = NumberFormatter.Style.currencyISOCode
         
+        let itemPlus:MStoreItemPlus = MStoreItemPlus()
         let itemAlbums:MStoreItemAlbums = MStoreItemAlbums()
         
         mapItems = [
+            itemPlus.purchaseId:itemPlus,
             itemAlbums.purchaseId:itemAlbums
         ]
         
         references = [
+            itemPlus.purchaseId,
             itemAlbums.purchaseId
         ]
     }

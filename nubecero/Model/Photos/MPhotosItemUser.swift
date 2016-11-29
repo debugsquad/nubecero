@@ -16,4 +16,11 @@ class MPhotosItemUser:MPhotosItem
     {
         fatalError()
     }
+    
+    override func moveToSelf(path:String)
+    {
+        FMain.sharedInstance.database.updateChild(
+            path:path,
+            json:albumId)
+    }
 }

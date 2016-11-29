@@ -8,7 +8,6 @@ class VPhotosAlbumPhotoSettingsCellAlbum:VPhotosAlbumPhotoSettingsCell
     {
         super.init(frame:frame)
         backgroundColor = UIColor.white
-        isUserInteractionEnabled = false
         
         let labelTitle:UILabel = UILabel()
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -41,6 +40,10 @@ class VPhotosAlbumPhotoSettingsCellAlbum:VPhotosAlbumPhotoSettingsCell
         buttonChange.titleLabel!.font = UIFont.medium(size:14)
         buttonChange.clipsToBounds = true
         buttonChange.layer.cornerRadius = 4
+        buttonChange.addTarget(
+            self,
+            action:#selector(actionChange(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(labelTitle)
         addSubview(labelAlbum)
@@ -48,12 +51,13 @@ class VPhotosAlbumPhotoSettingsCellAlbum:VPhotosAlbumPhotoSettingsCell
         
         let views:[String:UIView] = [
             "labelTitle":labelTitle,
-            "labelAlbum":labelAlbum]
+            "labelAlbum":labelAlbum,
+            "buttonChange":buttonChange]
         
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[labelTitle(65)]-0-[labelAlbum(160)]-5-[buttonChange(60)]",
+            withVisualFormat:"H:|-10-[labelTitle(65)]-0-[labelAlbum(150)]-5-[buttonChange(70)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -84,5 +88,12 @@ class VPhotosAlbumPhotoSettingsCellAlbum:VPhotosAlbumPhotoSettingsCell
         super.config(controller:controller, model:model)
         
         labelAlbum.text = controller.photoController.albumController.model.name
+    }
+    
+    //MARK: actions
+    
+    func actionChange(sender button:UIButton)
+    {
+        controller?.changeAlbum()
     }
 }

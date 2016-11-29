@@ -103,4 +103,15 @@ class CPhotosAlbumPhoto:CController
         
         parentController.dismiss(centered:true, completion:nil)
     }
+    
+    func moveToAlbum(photo:MPhotosItemPhoto, album:MPhotosItem)
+    {
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            album.moveToList(photo:photo)
+        }
+        
+        albumController.removeFromList(photo:photo)
+        parentController.dismiss(centered:true, completion:nil)
+    }
 }

@@ -1,6 +1,6 @@
 import UIKit
 
-class CPhotosAlbumPhotoSettings:CController
+class CPhotosAlbumPhotoSettings:CController, CPhotosAlbumSelectionDelegate
 {
     let model:MPhotosAlbumPhotoSettings
     weak var photo:MPhotosItemPhoto?
@@ -88,5 +88,42 @@ class CPhotosAlbumPhotoSettings:CController
         alert.addAction(actionDelete)
         alert.addAction(actionCancel)
         present(alert, animated:true, completion:nil)
+    }
+    
+    func changeAlbum()
+    {
+        let album:MPhotosItem? = photoController.albumController.model
+        
+        let albumSelection:CPhotosAlbumSelection = CPhotosAlbumSelection(
+            currentAlbum:album,
+            delegate:self)
+        parentController.over(
+            controller:albumSelection,
+            pop:false,
+            animate:true)
+    }
+    
+    //MARK: albumSelection delegate
+    
+    func albumSelected(album:MPhotosItem)
+    {
+        guard
+            
+            let photo:MPhotosItemPhoto = photo
+            
+        else
+        {
+            back()
+            
+            return
+        }
+        
+        parentController.pop
+        { [weak photoController] in
+            
+            photoController?.moveToAlbum(
+                photo:photo,
+                album:album)
+        }
     }
 }

@@ -136,4 +136,41 @@ class MPhotosItem
                 json:kEmpty)
         }
     }
+    
+    func moveToSelf(path:String)
+    {
+        fatalError()
+    }
+    
+    func moveToList(photo:MPhotosItemPhoto)
+    {
+        guard
+            
+            let userId:MSession.UserId = MSession.sharedInstance.user.userId
+            
+        else
+        {
+            return
+        }
+        
+        let photoId:MPhotos.PhotoId = photo.photoId
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let propertyPhotos:String = FDatabaseModelUser.Property.photos.rawValue
+        let propertyAlbumId:String = FDatabaseModelPhoto.Property.albumId.rawValue
+        let pathAlbum:String = "\(parentUser)/\(userId)/\(propertyPhotos)/\(photoId)/\(propertyAlbumId)"
+        
+        moveToSelf(path:pathAlbum)
+        
+        let photoReference:MPhotosItemPhotoReference = MPhotosItemPhotoReference(
+            photoId:photo.photoId,
+            created:photo.created)
+        
+        references.insert(
+            photoReference,
+            at:0)
+        
+        NotificationCenter.default.post(
+            name:Notification.albumRefreshed,
+            object:self)
+    }
 }

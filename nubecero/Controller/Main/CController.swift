@@ -4,6 +4,8 @@ class CController:UIViewController
 {
     weak var layoutLeft:NSLayoutConstraint!
     weak var layoutRight:NSLayoutConstraint!
+    weak var layoutTop:NSLayoutConstraint!
+    weak var layoutBottom:NSLayoutConstraint!
     weak var shadow:VShadow?
     
     init()

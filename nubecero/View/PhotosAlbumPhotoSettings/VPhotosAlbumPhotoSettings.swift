@@ -4,6 +4,7 @@ class VPhotosAlbumPhotoSettings:UIView, UICollectionViewDelegate, UICollectionVi
 {
     private weak var controller:CPhotosAlbumPhotoSettings!
     private weak var collectionView:UICollectionView!
+    private let kDeselectTime:TimeInterval = 1
     private let kBarHeight:CGFloat = 120
     private let kCollectionBottom:CGFloat = 20
     private let kInterLine:CGFloat = 1
@@ -86,6 +87,17 @@ class VPhotosAlbumPhotoSettings:UIView, UICollectionViewDelegate, UICollectionVi
     
     //MARK: collectionView delegate
     
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let item:MPhotosAlbumPhotoSettingsItem = modelAtIndex(index:indexPath)
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(
+            width:width,
+            height:item.cellHeight)
+        
+        return size
+    }
+    
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
         return 1
@@ -108,5 +120,35 @@ class VPhotosAlbumPhotoSettings:UIView, UICollectionViewDelegate, UICollectionVi
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
+    {
+        let item:MPhotosAlbumPhotoSettingsItem = modelAtIndex(index:indexPath)
+        
+        return item.selectable
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
+    {
+        let item:MPhotosAlbumPhotoSettingsItem = modelAtIndex(index:indexPath)
+        
+        return item.selectable
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MPhotosAlbumPhotoSettingsItem = modelAtIndex(index:indexPath)
+        item.selected(controller:controller)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:false,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }

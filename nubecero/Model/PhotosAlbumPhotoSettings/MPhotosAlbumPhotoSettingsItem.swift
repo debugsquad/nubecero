@@ -20,4 +20,11 @@ class MPhotosAlbumPhotoSettingsItem
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func selected(controller:CPhotosAlbumPhotoSettings)
+    {
+        
+    }
 }

@@ -13,4 +13,11 @@ class VPhotosAlbumPhotoSettingsCell:UICollectionViewCell
     {
         fatalError()
     }
+    
+    //MARK: public
+    
+    func config(model:MPhotosAlbumPhotoSettingsItem)
+    {
+        
+    }
 }

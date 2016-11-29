@@ -9,11 +9,13 @@ class MPhotosAlbumPhotoSettings
         let itemPixels:MPhotosAlbumPhotoSettingsItemPixels = MPhotosAlbumPhotoSettingsItemPixels()
         let itemSize:MPhotosAlbumPhotoSettingsItemSize = MPhotosAlbumPhotoSettingsItemSize()
         let itemTaken:MPhotosAlbumPhotoSettingsItemTaken = MPhotosAlbumPhotoSettingsItemTaken()
+        let itemAdded:MPhotosAlbumPhotoSettingsItemAdded = MPhotosAlbumPhotoSettingsItemAdded()
         
         items = [
             itemPixels,
             itemSize,
-            itemTaken
+            itemTaken,
+            itemAdded
         ]
     }
 }

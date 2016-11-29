@@ -47,14 +47,15 @@ class VParent:UIView
         addConstraint(layoutBarHeight)
     }
     
-    //MARK: public
+    //MARK: private
     
-    func scroll(
+    func addControllerView(
         controller:CController,
-        currentController:CController,
-        delta:CGFloat,
         underBar:Bool,
-        completion:@escaping(() -> ()))
+        constantLeft:CGFloat,
+        constantRight:CGFloat,
+        constantTop:CGFloat,
+        constantBottom:CGFloat)
     {
         if underBar
         {
@@ -65,17 +66,6 @@ class VParent:UIView
             addSubview(controller.view)
         }
         
-        let views:[String:UIView] = [
-            "view":controller.view]
-        
-        let metrics:[String:CGFloat] = [:]
-        
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[view]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        
         controller.layoutLeft = NSLayoutConstraint(
             item:controller.view,
             attribute:NSLayoutAttribute.left,
@@ -83,7 +73,7 @@ class VParent:UIView
             toItem:self,
             attribute:NSLayoutAttribute.left,
             multiplier:1,
-            constant:-delta)
+            constant:constantLeft)
         controller.layoutRight = NSLayoutConstraint(
             item:controller.view,
             attribute:NSLayoutAttribute.right,
@@ -91,19 +81,56 @@ class VParent:UIView
             toItem:self,
             attribute:NSLayoutAttribute.right,
             multiplier:1,
-            constant:-delta)
+            constant:constantRight)
+        controller.layoutTop = NSLayoutConstraint(
+            item:controller.view,
+            attribute:NSLayoutAttribute.top,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.top,
+            multiplier:1,
+            constant:constantTop)
+        controller.layoutBottom = NSLayoutConstraint(
+            item:controller.view,
+            attribute:NSLayoutAttribute.bottom,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.bottom,
+            multiplier:1,
+            constant:constantBottom)
         
         addConstraint(controller.layoutLeft)
         addConstraint(controller.layoutRight)
+        addConstraint(controller.layoutTop)
+        addConstraint(controller.layoutBottom)
         
         layoutIfNeeded()
+    }
+    
+    //MARK: public
+    
+    func scroll(
+        controller:CController,
+        currentController:CController,
+        delta:CGFloat,
+        underBar:Bool,
+        completion:@escaping(() -> ()))
+    {
+        addControllerView(
+            controller:controller,
+            underBar:underBar,
+            constantLeft:-delta,
+            constantRight:-delta,
+            constantTop:0,
+            constantBottom:0)
         
         controller.layoutLeft.constant = 0
         controller.layoutRight.constant = 0
         currentController.layoutLeft.constant = delta
         currentController.layoutRight.constant = delta
         
-        UIView.animate(withDuration:kAnimationDuration, animations:
+        UIView.animate(withDuration:kAnimationDuration,
+                       animations:
         {
             self.layoutIfNeeded()
         })
@@ -119,45 +146,13 @@ class VParent:UIView
         animate:Bool,
         completion:@escaping(() -> ()))
     {
-        if underBar
-        {
-            insertSubview(controller.view, belowSubview:bar)
-        }
-        else
-        {
-            addSubview(controller.view)
-        }
-        
-        let views:[String:UIView] = [
-            "view":controller.view]
-        
-        let metrics:[String:CGFloat] = [:]
-        
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[view]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        
-        controller.layoutLeft = NSLayoutConstraint(
-            item:controller.view,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:0)
-        controller.layoutRight = NSLayoutConstraint(
-            item:controller.view,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:0)
-        
-        addConstraint(controller.layoutLeft)
-        addConstraint(controller.layoutRight)
+        addControllerView(
+            controller:controller,
+            underBar:underBar,
+            constantLeft:0,
+            constantRight:0,
+            constantTop:0,
+            constantBottom:0)
         
         if animate
         {
@@ -188,47 +183,13 @@ class VParent:UIView
         let width:CGFloat = bounds.maxX
         let width_2:CGFloat = width / 2.0
         
-        if underBar
-        {
-            insertSubview(controller.view, belowSubview:bar)
-        }
-        else
-        {
-            addSubview(controller.view)
-        }
-        
-        let views:[String:UIView] = [
-            "view":controller.view]
-        
-        let metrics:[String:CGFloat] = [:]
-        
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[view]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        
-        controller.layoutLeft = NSLayoutConstraint(
-            item:controller.view,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:width)
-        controller.layoutRight = NSLayoutConstraint(
-            item:controller.view,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:width)
-        
-        addConstraint(controller.layoutLeft)
-        addConstraint(controller.layoutRight)
-        
-        layoutIfNeeded()
+        addControllerView(
+            controller:controller,
+            underBar:underBar,
+            constantLeft:width,
+            constantRight:width,
+            constantTop:0,
+            constantBottom:0)
         
         controller.layoutLeft.constant = 0
         controller.layoutRight.constant = 0
@@ -237,7 +198,8 @@ class VParent:UIView
         currentController.addShadow()
         bar.push(name:controller.title)
         
-        UIView.animate(withDuration:kAnimationDuration, animations:
+        UIView.animate(withDuration:kAnimationDuration,
+                       animations:
         {
             self.layoutIfNeeded()
             currentController.shadow?.maxAlpha()
@@ -265,7 +227,8 @@ class VParent:UIView
             bar.pop()
         }
         
-        UIView.animate(withDuration:kAnimationDuration, animations:
+        UIView.animate(withDuration:kAnimationDuration,
+                       animations:
         {
             self.layoutIfNeeded()
             previousController.shadow?.minAlpha()
@@ -281,7 +244,8 @@ class VParent:UIView
         currentController:CController,
         completion:@escaping(() -> ()))
     {
-        UIView.animate(withDuration:kAnimationDuration, animations:
+        UIView.animate(withDuration:kAnimationDuration,
+                       animations:
         {
             currentController.view.alpha = 0
         })
@@ -296,24 +260,16 @@ class VParent:UIView
         completion:@escaping(() -> ()))
     {
         let height:CGFloat = bounds.maxY
-        currentController.layoutTop.constant = width
-        currentController.layout
-        previousController.layoutLeft.constant = 0
-        previousController.layoutRight.constant = 0
+        currentController.layoutTop.constant = height
+        currentController.layoutBottom.constant = height
         
-        if popBar
+        UIView.animate(withDuration:kAnimationDuration,
+                       animations:
         {
-            bar.pop()
-        }
-        
-        UIView.animate(withDuration:kAnimationDuration, animations:
-            {
-                self.layoutIfNeeded()
-                previousController.shadow?.minAlpha()
-            })
+            self.layoutIfNeeded()
+        })
         { (done:Bool) in
             
-            previousController.shadow?.removeFromSuperview()
             completion()
         }
     }

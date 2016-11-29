@@ -1,10 +1,9 @@
 import UIKit
 
-class VPhotosAlbumPhotoSettingsCellTaken:VPhotosAlbumPhotoSettingsCell
+class VPhotosAlbumPhotoSettingsCellAdded:VPhotosAlbumPhotoSettingsCell
 {
     private weak var labelDate:UILabel!
     private let dateFormatter:DateFormatter
-    private let kNoDate:String = "-"
     
     override init(frame:CGRect)
     {
@@ -21,7 +20,7 @@ class VPhotosAlbumPhotoSettingsCellTaken:VPhotosAlbumPhotoSettingsCell
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.font = UIFont.medium(size:14)
         labelTitle.textColor = UIColor.complement
-        labelTitle.text = NSLocalizedString("VPhotosAlbumPhotoSettingsCellTaken_labelTitle", comment:"")
+        labelTitle.text = NSLocalizedString("VPhotosAlbumPhotoSettingsCellAdded_labelTitle", comment:"")
         
         let labelDate:UILabel = UILabel()
         labelDate.translatesAutoresizingMaskIntoConstraints = false
@@ -68,22 +67,15 @@ class VPhotosAlbumPhotoSettingsCellTaken:VPhotosAlbumPhotoSettingsCell
         
         guard
             
-            let taken:TimeInterval = controller.photo?.taken
+            let added:TimeInterval = controller.photo?.created
             
         else
         {
             return
         }
         
-        if taken > 0
-        {
-            let date:Date = Date(timeIntervalSince1970:taken)
-            let takenString:String = dateFormatter.string(from:date)
-            labelDate.text = takenString
-        }
-        else
-        {
-            labelDate.text = kNoDate
-        }
+        let date:Date = Date(timeIntervalSince1970:added)
+        let addedString:String = dateFormatter.string(from:date)
+        labelDate.text = addedString
     }
 }

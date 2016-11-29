@@ -40,7 +40,7 @@ class VPhotosAlbumPhotoSettingsCellSize:VPhotosAlbumPhotoSettingsCell
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[labelTitle(60)]-0-[labelSize(250)]",
+            withVisualFormat:"H:|-10-[labelTitle(65)]-0-[labelSize(250)]",
             options:[],
             metrics:metrics,
             views:views))

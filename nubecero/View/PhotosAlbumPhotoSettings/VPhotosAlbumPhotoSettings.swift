@@ -44,9 +44,9 @@ class VPhotosAlbumPhotoSettings:UIView, UICollectionViewDelegate, UICollectionVi
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(
-            VPhotosAlbumPhotoSettingsCell.self,
+            VPhotosAlbumPhotoSettingsCellPixels.self,
             forCellWithReuseIdentifier:
-            VPhotosAlbumPhotoSettingsCell.reusableIdentifier)
+            VPhotosAlbumPhotoSettingsCellPixels.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(collectionView)

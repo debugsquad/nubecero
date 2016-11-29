@@ -6,7 +6,10 @@ class MPhotosAlbumPhotoSettings
     
     init()
     {
+        let itemPixels:MPhotosAlbumPhotoSettingsItemPixels = MPhotosAlbumPhotoSettingsItemPixels()
+        
         items = [
+            itemPixels
         ]
     }
 }

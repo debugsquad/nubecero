@@ -4,7 +4,7 @@ class VPhotosAlbumPhotoSettings:UIView
 {
     private weak var controller:CPhotosAlbumPhotoSettings!
     private weak var collectionView:UICollectionView!
-    private let kBarHeight:CGFloat = 150
+    private let kBarHeight:CGFloat = 120
     
     convenience init(controller:CPhotosAlbumPhotoSettings)
     {

@@ -3,9 +3,11 @@ import UIKit
 class VPhotosAlbumPhotoSettingsBar:UIView
 {
     private weak var controller:CPhotosAlbumPhotoSettings!
+    private weak var imageView:UIImageView!
     private weak var layoutImageLeft:NSLayoutConstraint!
     private weak var layoutImageTop:NSLayoutConstraint!
-    private let kImageSize:CGFloat = 100
+    private let kImageSize:CGFloat = 80
+    private let kStatusBarHeight:CGFloat = 20
     
     convenience init(controller:CPhotosAlbumPhotoSettings)
     {
@@ -55,9 +57,10 @@ class VPhotosAlbumPhotoSettingsBar:UIView
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor(white:0, alpha:0.2).cgColor
+        imageView.layer.borderColor = UIColor(white:0, alpha:0.5).cgColor
         imageView.layer.cornerRadius = kImageSize / 2.0
         imageView.image = controller.model?.state?.loadImage()
+        self.imageView = imageView
         
         addSubview(deleteButton)
         addSubview(backButton)
@@ -124,16 +127,21 @@ class VPhotosAlbumPhotoSettingsBar:UIView
         addConstraint(layoutImageTop)
     }
     
+    deinit
+    {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func layoutSubviews()
     {
         let width:CGFloat = bounds.maxX
-        let height:CGFloat = bounds.maxY
+        let height:CGFloat = bounds.maxY - kStatusBarHeight
         let remainWidth:CGFloat = width - kImageSize
         let remainHeight:CGFloat = height - kImageSize
         let marginLeft:CGFloat = remainWidth / 2.0
         let marginTop:CGFloat = remainHeight / 2.0
         layoutImageLeft.constant = marginLeft
-        layoutImageTop.constant = marginTop
+        layoutImageTop.constant = marginTop + kStatusBarHeight
         super.layoutSubviews()
     }
     

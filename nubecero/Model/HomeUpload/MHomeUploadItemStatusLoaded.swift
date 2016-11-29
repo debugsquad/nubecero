@@ -53,6 +53,17 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
             return
         }
         
+        let albumId:MPhotos.AlbumId?
+        
+        if let userAlbum:MPhotosItemUser = controller.album as? MPhotosItemUser
+        {
+            albumId = userAlbum.albumId
+        }
+        else
+        {
+            albumId = nil
+        }
+        
         let totalStorage:Int = MSession.sharedInstance.server.totalStorage()
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyPhotos:String = FDatabaseModelUser.Property.photos.rawValue
@@ -62,6 +73,7 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
         let dataLength:Int = imageData.count / kKilobytePerByte
         let modelPhoto:FDatabaseModelPhoto = FDatabaseModelPhoto(
             localId:localId,
+            albumId:albumId,
             taken:taken,
             size:dataLength,
             pixelWidth:pixelWidth,

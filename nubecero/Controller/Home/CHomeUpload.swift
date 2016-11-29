@@ -320,6 +320,7 @@ class CHomeUpload:CController, CPhotosAlbumSelectionDelegate
         }
         
         let controllerSync:CHomeUploadSync = CHomeUploadSync(
+            album:album,
             uploadItems:uploadItems,
             controllerUpload:self)
         parentController.over(

@@ -28,6 +28,7 @@ class FDatabaseModelPhoto:FDatabaseModel
     
     init(
         localId:MPhotos.LocalId,
+        albumId:MPhotos.AlbumId?,
         taken:TimeInterval,
         size:Int,
         pixelWidth:Int,
@@ -38,9 +39,17 @@ class FDatabaseModelPhoto:FDatabaseModel
         self.size = size
         self.pixelWidth = pixelWidth
         self.pixelHeight = pixelHeight
-        albumId = kEmpty
         created = NSDate().timeIntervalSince1970
         status = MPhotos.Status.waiting
+        
+        if let receivedAlbumId:MPhotos.AlbumId = albumId
+        {
+            self.albumId = receivedAlbumId
+        }
+        else
+        {
+            self.albumId = kEmpty
+        }
         
         super.init()
     }

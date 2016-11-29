@@ -4,14 +4,16 @@ class CHomeUploadSync:CController
 {
     var currentItem:Int
     let uploadItems:[MHomeUploadItem]
+    weak var album:MPhotosItem?
     private weak var viewSync:VHomeUploadSync!
     private weak var controllerUpload:CHomeUpload!
     private var syncStarted:Bool
     
-    init(uploadItems:[MHomeUploadItem], controllerUpload:CHomeUpload)
+    init(album:MPhotosItem?, uploadItems:[MHomeUploadItem], controllerUpload:CHomeUpload)
     {
         currentItem = 0
         syncStarted = false
+        self.album = album
         self.uploadItems = uploadItems
         self.controllerUpload = controllerUpload
         super.init()

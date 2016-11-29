@@ -68,29 +68,22 @@ class VPhotosAlbumPhotoSettingsCellTaken:VPhotosAlbumPhotoSettingsCell
         
         guard
             
-            let photo:MPhotosItemPhoto = controller.photo.add
+            let taken:TimeInterval = controller.photo?.taken
             
         else
         {
             return
         }
         
-        let size:Int = photo.size
-        let sizeNumber:NSNumber = size as NSNumber
-        
-        guard
-            
-            let kilosString:String = numberFormatter.string(from:sizeNumber)
-            
-            else
+        if taken > 0
         {
-            return
+            let date:Date = Date(timeIntervalSince1970:taken)
+            let takenString:String = dateFormatter.string(from:date)
+            labelDate.text = takenString
         }
-        
-        let sizeString:String = String(
-            format:NSLocalizedString("VPhotosAlbumPhotoSettingsCellSize_labelSize", comment:""),
-            kilosString)
-        
-        labelSize.text = sizeString
+        else
+        {
+            labelDate.text = kNoDate
+        }
     }
 }

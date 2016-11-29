@@ -22,22 +22,8 @@ class CPhotosAlbumSelection:CController
     
     //MARK: public
     
-    func selected(index:IndexPath)
+    func selected(album:MPhotosItem)
     {
-        let reference:MPhotosItemReference = MPhotos.sharedInstance.albumReferences[index.item]
-        
-        guard
-        
-            let album:MPhotosItem = MPhotos.sharedInstance.albumItems[
-                reference.albumId]
-        
-        else
-        {
-            cancel()
-            
-            return
-        }
-        
         parentController.dismiss
         { [weak delegate] in
             

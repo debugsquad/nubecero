@@ -168,7 +168,8 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
             
             for indexAlbum:Int in 0 ..< countAlbums
             {
-                let reference:MPhotosItemReference = MPhotos.sharedInstance.albumReferences[indexAlbum]
+                let reference:MPhotosItemReference = MPhotos.sharedInstance.albumReferences[
+                    indexAlbum]
                 
                 if reference.albumId == albumId
                 {
@@ -263,5 +264,15 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MPhotosItem = modelAtIndex(index:indexPath)
+        
+        if item !== controller.currentAlbum
+        {
+            controller.selected(album:item)
+        }
     }
 }

@@ -15,7 +15,7 @@ class VPhotosAlbumSelection:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
         let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
         visualEffect.translatesAutoresizingMaskIntoConstraints = false
         visualEffect.isUserInteractionEnabled = false
@@ -40,7 +40,7 @@ class VPhotosAlbumSelection:UIView
         background.isUserInteractionEnabled = false
         background.translatesAutoresizingMaskIntoConstraints = false
         background.clipsToBounds = true
-        background.backgroundColor = UIColor.white
+        background.backgroundColor = UIColor(white:1, alpha:0.3)
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
@@ -55,7 +55,7 @@ class VPhotosAlbumSelection:UIView
         buttonCancel.setTitle(
             NSLocalizedString("VPhotosAlbumSelection_buttonCancel", comment:""),
             for:UIControlState.normal)
-        buttonCancel.titleLabel!.font = UIFont.medium(size:16)
+        buttonCancel.titleLabel!.font = UIFont.regular(size:16)
         buttonCancel.addTarget(
             self,
             action:#selector(actionCancel(sender:)),
@@ -65,6 +65,7 @@ class VPhotosAlbumSelection:UIView
         visualEffect.contentView.addSubview(vibrancyVisual)
         addSubview(visualEffect)
         addSubview(buttonCancel)
+        addSubview(background)
 
         let views:[String:UIView] = [
             "background":background,
@@ -102,7 +103,7 @@ class VPhotosAlbumSelection:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[buttonCancel(40)]-20-|",
+            withVisualFormat:"V:[buttonCancel(45)]-45-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -117,12 +118,12 @@ class VPhotosAlbumSelection:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-65-[labelTitle(30)]",
+            withVisualFormat:"V:|-50-[labelTitle(30)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-120-[background]-120-|",
+            withVisualFormat:"V:|-95-[background]-95-|",
             options:[],
             metrics:metrics,
             views:views))

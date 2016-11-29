@@ -8,12 +8,11 @@ class VPhotosAlbumSelectionCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.white
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.medium(size:16)
+        label.font = UIFont.medium(size:15)
         label.backgroundColor = UIColor.clear
         self.label = label
         
@@ -25,7 +24,7 @@ class VPhotosAlbumSelectionCell:UICollectionViewCell
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[label]",
+            withVisualFormat:"H:|-20-[label]-20-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -41,10 +40,43 @@ class VPhotosAlbumSelectionCell:UICollectionViewCell
         fatalError()
     }
     
+    override var isSelected:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    override var isHighlighted:Bool
+    {
+        didSet
+        {
+            hover()
+        }
+    }
+    
+    //MARK: private
+    
+    private func hover()
+    {
+        if isSelected || isHighlighted
+        {
+            label.textColor = UIColor.white
+            backgroundColor = UIColor.complement
+        }
+        else
+        {
+            label.textColor = UIColor(white:0, alpha:0.4)
+            backgroundColor = UIColor(white:1, alpha:0.3)
+        }
+    }
+    
     //MARK: public
     
     func config(model:MPhotosItem)
     {
-        
+        label.text = model.name
+        hover()
     }
 }

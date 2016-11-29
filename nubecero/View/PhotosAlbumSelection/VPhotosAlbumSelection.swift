@@ -7,6 +7,7 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
     private weak var layoutButtonCancelLeft:NSLayoutConstraint!
     private let kButtonCancelWidth:CGFloat = 120
     private let kCellHeight:CGFloat = 55
+    private let kInterLine:CGFloat = 1
     
     convenience init(controller:CPhotosAlbumSelection)
     {
@@ -37,16 +38,10 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.text = NSLocalizedString("VPhotosAlbumSelection_labelTitle", comment:"")
         
-        let background:UIView = UIView()
-        background.isUserInteractionEnabled = false
-        background.translatesAutoresizingMaskIntoConstraints = false
-        background.clipsToBounds = true
-        background.backgroundColor = UIColor(white:1, alpha:0.3)
-        
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize.zero
         flow.footerReferenceSize = CGSize.zero
-        flow.minimumLineSpacing = 0
+        flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
         flow.sectionInset = UIEdgeInsets.zero
@@ -87,13 +82,11 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
         
         vibrancyVisual.contentView.addSubview(labelTitle)
         visualEffect.contentView.addSubview(vibrancyVisual)
-        background.addSubview(collectionView)
         addSubview(visualEffect)
         addSubview(buttonCancel)
-        addSubview(background)
+        addSubview(collectionView)
 
         let views:[String:UIView] = [
-            "background":background,
             "buttonCancel":buttonCancel,
             "visualEffect":visualEffect,
             "vibrancyVisual":vibrancyVisual,
@@ -124,11 +117,6 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[background]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
@@ -154,12 +142,7 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-95-[background]-95-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[collectionView]-0-|",
+            withVisualFormat:"V:|-95-[collectionView]-95-|",
             options:[],
             metrics:metrics,
             views:views))

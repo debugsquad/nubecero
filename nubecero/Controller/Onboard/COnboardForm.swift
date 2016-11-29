@@ -179,7 +179,7 @@ class COnboardForm:CController
     func cancel()
     {
         UIApplication.shared.keyWindow!.endEditing(true)
-        parentController.dismiss(completion:nil)
+        parentController.dismiss(centered:true, completion:nil)
     }
     
     func send()

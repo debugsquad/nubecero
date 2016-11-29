@@ -24,7 +24,7 @@ class CPhotosAlbumSelection:CController
     
     func selected(album:MPhotosItem)
     {
-        parentController.dismiss
+        parentController.dismiss(centered:true)
         { [weak delegate] in
             
             delegate?.albumSelected(album:album)
@@ -33,6 +33,6 @@ class CPhotosAlbumSelection:CController
     
     func cancel()
     {
-        parentController.dismiss(completion:nil)
+        parentController.dismiss(centered:true, completion:nil)
     }
 }

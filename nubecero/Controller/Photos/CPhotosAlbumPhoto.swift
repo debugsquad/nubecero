@@ -46,7 +46,7 @@ class CPhotosAlbumPhoto:CController
     
     func back()
     {
-        parentController.dismiss(completion:nil)
+        parentController.dismiss(centerd:false, completion:nil)
     }
     
     func share()

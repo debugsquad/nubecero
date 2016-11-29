@@ -37,7 +37,7 @@ class CPhotosAlbumPhotoSettings:CController
     {
         guard
             
-            let model:MPhotosItemPhoto = model
+            let photo:MPhotosItemPhoto = photo
         
         else
         {
@@ -49,7 +49,7 @@ class CPhotosAlbumPhotoSettings:CController
         parentController.pop
         { [weak photoController] in
             
-            photoController?.deletePhoto(photo:model)
+            photoController?.deletePhoto(photo:photo)
         }
     }
     

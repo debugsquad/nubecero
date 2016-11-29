@@ -59,7 +59,7 @@ class VPhotosAlbumPhotoSettingsBar:UIView
         imageView.layer.borderWidth = 1
         imageView.layer.borderColor = UIColor(white:0, alpha:0.5).cgColor
         imageView.layer.cornerRadius = kImageSize / 2.0
-        imageView.image = controller.model?.state?.loadImage()
+        imageView.image = controller.photo?.state?.loadImage()
         self.imageView = imageView
         
         addSubview(deleteButton)

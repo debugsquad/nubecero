@@ -61,7 +61,7 @@ class CPhotosAlbum:CController
             return
         }
         
-        
+        model.moveAll()
         
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyAlbums:String = FDatabaseModelUser.Property.albums.rawValue

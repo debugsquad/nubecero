@@ -6,14 +6,12 @@ class VHomeUploadHeader:UICollectionReusableView, UICollectionViewDelegate, UICo
     private weak var collectionView:UICollectionView!
     private var cellSize:CGSize!
     private var leftInset:CGFloat!
-    private let model:MHomeUploadHeader
+    private var model:MHomeUploadHeader?
     private let kDeselectTime:TimeInterval = 0.35
     private let kMaxCellWidth:CGFloat = 100
     
     override init(frame:CGRect)
     {
-        model = MHomeUploadHeader()
-        
         super.init(frame:frame)
         clipsToBounds = true
         backgroundColor = UIColor.background
@@ -87,14 +85,17 @@ class VHomeUploadHeader:UICollectionReusableView, UICollectionViewDelegate, UICo
     
     override func layoutSubviews()
     {
-        let count:CGFloat = CGFloat(model.items.count)
-        let width:CGFloat = bounds.maxX
-        let height:CGFloat = bounds.maxY
-        let cellsWidth:CGFloat = kMaxCellWidth * count
-        let remainWidth:CGFloat = width - cellsWidth
-        leftInset = remainWidth / 2.0
-        cellSize = CGSize(width:kMaxCellWidth, height:height)
-        collectionView.collectionViewLayout.invalidateLayout()
+        if let model:MHomeUploadHeader = self.model
+        {
+            let count:CGFloat = CGFloat(model.items.count)
+            let width:CGFloat = bounds.maxX
+            let height:CGFloat = bounds.maxY
+            let cellsWidth:CGFloat = kMaxCellWidth * count
+            let remainWidth:CGFloat = width - cellsWidth
+            leftInset = remainWidth / 2.0
+            cellSize = CGSize(width:kMaxCellWidth, height:height)
+            collectionView.collectionViewLayout.invalidateLayout()
+        }
         
         super.layoutSubviews()
     }
@@ -103,7 +104,7 @@ class VHomeUploadHeader:UICollectionReusableView, UICollectionViewDelegate, UICo
     
     private func modelAtIndex(index:IndexPath) -> MHomeUploadHeaderItem
     {
-        let item:MHomeUploadHeaderItem = model.items[index.item]
+        let item:MHomeUploadHeaderItem = model!.items[index.item]
         
         return item
     }
@@ -113,6 +114,9 @@ class VHomeUploadHeader:UICollectionReusableView, UICollectionViewDelegate, UICo
     func config(controller:CHomeUpload)
     {
         self.controller = controller
+        model = MHomeUploadHeader(controller:controller)
+        setNeedsLayout()
+        collectionView.reloadData()
     }
     
     //MARK: collectionView delegate
@@ -140,7 +144,16 @@ class VHomeUploadHeader:UICollectionReusableView, UICollectionViewDelegate, UICo
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = model.items.count
+        let count:Int
+        
+        if let countItems:Int = model?.items.count
+        {
+            count = countItems
+        }
+        else
+        {
+            count = 0
+        }
         
         return count
     }

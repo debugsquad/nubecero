@@ -6,20 +6,22 @@ class MHomeUploadHeaderItemAlbum:MHomeUploadHeaderItem
     
     init(controller:CHomeUpload)
     {
+        let albumTitle:String
+        
         if let title:String = controller.album?.name
         {
-            self.title = title
+            albumTitle = title
         }
         else
         {
-            self.title = kEmpty
+            albumTitle = kEmpty
         }
         
         let color:UIColor = UIColor.complement
         
         super.init(
             image:#imageLiteral(resourceName: "assetHomeAlbum"),
-            title:title,
+            title:albumTitle,
             color:color)
     }
     

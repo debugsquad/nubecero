@@ -89,7 +89,7 @@ class CPhotosAlbumPhoto:CController
         
         let controllerSettings:CPhotosAlbumPhotoSettings = CPhotosAlbumPhotoSettings(
             photoController:self,
-            model:photo)
+            photo:photo)
         parentController.push(
             controller:controllerSettings,
             underBar:false)

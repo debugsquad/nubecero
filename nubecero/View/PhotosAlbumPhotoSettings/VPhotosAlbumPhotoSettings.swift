@@ -37,6 +37,15 @@ class VPhotosAlbumPhotoSettings:UIView, UICollectionViewDelegate, UICollectionVi
             views:views))
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MPhotosAlbumPhotoSettingsItem
+    {
+        let item:MPhotosAlbumPhotoSettingsItem = controller.model.items[index.item]
+        
+        return item
+    }
+    
     //MARK: collectionView delegate
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
@@ -46,9 +55,9 @@ class VPhotosAlbumPhotoSettings:UIView, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = controller.model.ite
+        let count:Int = controller.model.items.count
         
-        return
+        return count
     }
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell

@@ -2,17 +2,19 @@ import UIKit
 
 class CPhotosAlbumPhotoSettings:CController
 {
-    weak var model:MPhotosItemPhoto?
+    let model:MPhotosAlbumPhotoSettings
+    weak var photo:MPhotosItemPhoto?
     private weak var viewSettings:VPhotosAlbumPhotoSettings!
     private weak var photoController:CPhotosAlbumPhoto!
     
     convenience init(
         photoController:CPhotosAlbumPhoto,
-        model:MPhotosItemPhoto)
+        photo:MPhotosItemPhoto)
     {
         self.init()
         self.photoController = photoController
-        self.model = model
+        self.photo = photo
+        model = MPhotosAlbumPhotoSettings()
     }
     
     override func loadView()

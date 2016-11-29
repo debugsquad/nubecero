@@ -2,7 +2,7 @@ import UIKit
 
 class MStoreItemPlus:MStoreItem
 {
-    private let kStorePurchaseId:MStore.PurchaseId = "iturbide.nubercero.nubeceroplus"
+    private let kStorePurchaseId:MStore.PurchaseId = "iturbide.nubecero.nubeceroplus"
     
     override init()
     {

@@ -80,14 +80,19 @@ class VPhotosAlbumPhotoSettingsCellSize:VPhotosAlbumPhotoSettingsCell
         let megas:CGFloat = size / kKiloBytesPerMega
         let megasNumber:NSNumber = megas as NSNumber
         
-        let widthString:String = String(
-            format:NSLocalizedString("VPhotosAlbumPhotoSettingsCellPixels_labelWidth", comment:""),
-            widthNumber)
-        let heightString:String = String(
-            format:NSLocalizedString("VPhotosAlbumPhotoSettingsCellPixels_labelHeight", comment:""),
-            heightNumber)
+        guard
+            
+            let megasString:String = numberFormatter.string(from:megasNumber)
         
-        labelWidth.text = widthString
-        labelHeight.text = heightString
+        else
+        {
+            return
+        }
+        
+        let sizeString:String = String(
+            format:NSLocalizedString("VPhotosAlbumPhotoSettingsCellSize_labelSize", comment:""),
+            megasString)
+        
+        labelSize.text = sizeString
     }
 }

@@ -98,6 +98,7 @@
 "CPhotosAlbum_deleteAllMessage"="No se puede deshacer";
 "CPhotosAlbum_deleteAllCancel"="Cancelar";
 "CPhotosAlbum_deleteAllDelete"="Borrar";
+"CPhotosAlbumPhotoSettings_title"="Info de foto";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

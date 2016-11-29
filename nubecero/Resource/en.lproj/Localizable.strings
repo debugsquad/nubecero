@@ -98,6 +98,7 @@
 "CPhotosAlbum_deleteAllMessage"="This can't be undone";
 "CPhotosAlbum_deleteAllCancel"="Cancel";
 "CPhotosAlbum_deleteAllDelete"="Delete";
+"CPhotosAlbumPhotoSettings_title"="Photo info";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading photo, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

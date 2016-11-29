@@ -15,6 +15,12 @@ class CPhotosAlbumPhotoSettings:CController
         self.model = model
     }
     
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        title = NSLocalizedString("CPhotosAlbumPhotoSettings_title", comment:"")
+    }
+    
     override func loadView()
     {
         let viewSettings:VPhotosAlbumPhotoSettings = VPhotosAlbumPhotoSettings(

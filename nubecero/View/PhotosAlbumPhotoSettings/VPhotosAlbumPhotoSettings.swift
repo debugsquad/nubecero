@@ -1,6 +1,6 @@
 import UIKit
 
-class VPhotosAlbumPhotoSettings:UIView
+class VPhotosAlbumPhotoSettings:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CPhotosAlbumPhotoSettings!
     private weak var collectionView:UICollectionView!
@@ -35,5 +35,29 @@ class VPhotosAlbumPhotoSettings:UIView
             options:[],
             metrics:metrics,
             views:views))
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.model.ite
+        
+        return
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let cell:VPhotosAlbumPhotoSettingsCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VPhotosAlbumPhotoSettingsCell.reusableIdentifier,
+            for:indexPath) as! VPhotosAlbumPhotoSettingsCell
+        
+        return cell
     }
 }

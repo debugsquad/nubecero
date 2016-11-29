@@ -1,9 +1,8 @@
 import UIKit
 
-class VPhotosAlbumPhotoSettingsCellPixels:VPhotosAlbumPhotoSettingsCell
+class VPhotosAlbumPhotoSettingsCellSize:VPhotosAlbumPhotoSettingsCell
 {
-    private weak var labelWidth:UILabel!
-    private weak var labelHeight:UILabel!
+    private weak var labelSize:UILabel!
     
     override init(frame:CGRect)
     {
@@ -77,10 +76,10 @@ class VPhotosAlbumPhotoSettingsCellPixels:VPhotosAlbumPhotoSettingsCell
         super.config(controller:controller, model:model)
         
         guard
-        
+            
             let photo:MPhotosItemPhoto = controller.photo
-        
-        else
+            
+            else
         {
             return
         }

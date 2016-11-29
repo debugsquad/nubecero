@@ -59,6 +59,10 @@ class VPhotosAlbumPhotoSettings:UIView, UICollectionViewDelegate, UICollectionVi
             VPhotosAlbumPhotoSettingsCellAdded.self,
             forCellWithReuseIdentifier:
             VPhotosAlbumPhotoSettingsCellAdded.reusableIdentifier)
+        collectionView.register(
+            VPhotosAlbumPhotoSettingsCellAlbum.self,
+            forCellWithReuseIdentifier:
+            VPhotosAlbumPhotoSettingsCellAlbum.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(collectionView)

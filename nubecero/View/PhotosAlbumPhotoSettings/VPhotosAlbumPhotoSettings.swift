@@ -29,8 +29,8 @@ class VPhotosAlbumPhotoSettings:UIView, UICollectionViewDelegate, UICollectionVi
         flow.sectionInset = UIEdgeInsets(
             top:0,
             left:0,
-            bottom:0,
-            right:kCollectionBottom)
+            bottom:kCollectionBottom,
+            right:0)
         
         let collectionView:UICollectionView = UICollectionView(
             frame:CGRect.zero,

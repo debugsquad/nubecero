@@ -39,6 +39,7 @@
 		DA3A0CD61DEE0C5A0030E3AC /* VPhotosAlbumPhotoSettingsCellPixels.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A0CD51DEE0C5A0030E3AC /* VPhotosAlbumPhotoSettingsCellPixels.swift */; };
 		DA3A0CD81DEE2BAD0030E3AC /* VPhotosAlbumPhotoSettingsCellSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A0CD71DEE2BAD0030E3AC /* VPhotosAlbumPhotoSettingsCellSize.swift */; };
 		DA3A0CDA1DEE2F080030E3AC /* MPhotosAlbumPhotoSettingsItemSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A0CD91DEE2F080030E3AC /* MPhotosAlbumPhotoSettingsItemSize.swift */; };
+		DA3A0CDC1DEE31900030E3AC /* VPhotosAlbumPhotoSettingsCellTaken.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A0CDB1DEE31900030E3AC /* VPhotosAlbumPhotoSettingsCellTaken.swift */; };
 		DA406BC61DCCE7BF0098D347 /* CAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BC51DCCE7BF0098D347 /* CAuth.swift */; };
 		DA406BC91DCCE8480098D347 /* VAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BC81DCCE8480098D347 /* VAuth.swift */; };
 		DA406BCC1DCD01E30098D347 /* CSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BCB1DCD01E30098D347 /* CSettings.swift */; };
@@ -339,6 +340,7 @@
 		DA3A0CD51DEE0C5A0030E3AC /* VPhotosAlbumPhotoSettingsCellPixels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosAlbumPhotoSettingsCellPixels.swift; sourceTree = "<group>"; };
 		DA3A0CD71DEE2BAD0030E3AC /* VPhotosAlbumPhotoSettingsCellSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosAlbumPhotoSettingsCellSize.swift; sourceTree = "<group>"; };
 		DA3A0CD91DEE2F080030E3AC /* MPhotosAlbumPhotoSettingsItemSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosAlbumPhotoSettingsItemSize.swift; sourceTree = "<group>"; };
+		DA3A0CDB1DEE31900030E3AC /* VPhotosAlbumPhotoSettingsCellTaken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosAlbumPhotoSettingsCellTaken.swift; sourceTree = "<group>"; };
 		DA406BC51DCCE7BF0098D347 /* CAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAuth.swift; sourceTree = "<group>"; };
 		DA406BC81DCCE8480098D347 /* VAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAuth.swift; sourceTree = "<group>"; };
 		DA406BCB1DCD01E30098D347 /* CSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSettings.swift; sourceTree = "<group>"; };
@@ -1177,6 +1179,7 @@
 				DA88C9291DE8B71200FB9A96 /* VPhotosAlbumPhotoSettingsCell.swift */,
 				DA3A0CD51DEE0C5A0030E3AC /* VPhotosAlbumPhotoSettingsCellPixels.swift */,
 				DA3A0CD71DEE2BAD0030E3AC /* VPhotosAlbumPhotoSettingsCellSize.swift */,
+				DA3A0CDB1DEE31900030E3AC /* VPhotosAlbumPhotoSettingsCellTaken.swift */,
 			);
 			path = PhotosAlbumPhotoSettings;
 			sourceTree = "<group>";
@@ -1936,6 +1939,7 @@
 				DA4EF9021DC395B300297C1D /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA4EF9031DC395B300297C1D /* ExtensionUIColor.swift in Sources */,
 				DAC98D4F1DDBDE070074E16A /* VStoreCellPurchased.swift in Sources */,
+				DA3A0CDC1DEE31900030E3AC /* VPhotosAlbumPhotoSettingsCellTaken.swift in Sources */,
 				DA34118A1DCBFCD1006E6D71 /* MHomeUploadItemStatusDiskFull.swift in Sources */,
 				DACD1F9C1DC400090067D26B /* MHome.swift in Sources */,
 				DAF6F2A41DD378B80053ED1B /* MOnboardForm.swift in Sources */,

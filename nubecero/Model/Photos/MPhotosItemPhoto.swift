@@ -4,6 +4,7 @@ class MPhotosItemPhoto
 {
     let photoId:MPhotos.PhotoId
     let created:TimeInterval
+    let taken:TimeInterval
     let size:Int
     let width:Int
     let height:Int
@@ -14,6 +15,7 @@ class MPhotosItemPhoto
     {
         self.photoId = photoId
         created = firebasePhoto.created
+        taken = firebasePhoto.taken
         size = firebasePhoto.size
         width = firebasePhoto.pixelWidth
         height = firebasePhoto.pixelHeight

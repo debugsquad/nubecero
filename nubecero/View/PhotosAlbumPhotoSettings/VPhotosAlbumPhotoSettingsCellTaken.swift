@@ -1,14 +1,15 @@
 import UIKit
 
-class VPhotosAlbumPhotoSettingsCellSize:VPhotosAlbumPhotoSettingsCell
+class VPhotosAlbumPhotoSettingsCellTaken:VPhotosAlbumPhotoSettingsCell
 {
-    private weak var labelSize:UILabel!
-    private let numberFormatter:NumberFormatter
+    private weak var labelDate:UILabel!
+    private let dateFormatter:DateFormatter
+    private let kNoDate:String = "-"
     
     override init(frame:CGRect)
     {
-        numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.long
         
         super.init(frame:frame)
         backgroundColor = UIColor.white
@@ -20,27 +21,27 @@ class VPhotosAlbumPhotoSettingsCellSize:VPhotosAlbumPhotoSettingsCell
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.font = UIFont.medium(size:14)
         labelTitle.textColor = UIColor.complement
-        labelTitle.text = NSLocalizedString("VPhotosAlbumPhotoSettingsCellSize_labelTitle", comment:"")
+        labelTitle.text = NSLocalizedString("VPhotosAlbumPhotoSettingsCellTaken_labelTitle", comment:"")
         
-        let labelSize:UILabel = UILabel()
-        labelSize.translatesAutoresizingMaskIntoConstraints = false
-        labelSize.isUserInteractionEnabled = false
-        labelSize.backgroundColor = UIColor.clear
-        labelSize.font = UIFont.regular(size:17)
-        labelSize.textColor = UIColor.black
-        self.labelSize = labelSize
+        let labelDate:UILabel = UILabel()
+        labelDate.translatesAutoresizingMaskIntoConstraints = false
+        labelDate.isUserInteractionEnabled = false
+        labelDate.backgroundColor = UIColor.clear
+        labelDate.font = UIFont.regular(size:17)
+        labelDate.textColor = UIColor.black
+        self.labelDate = labelDate
         
         addSubview(labelTitle)
-        addSubview(labelSize)
+        addSubview(labelDate)
         
         let views:[String:UIView] = [
             "labelTitle":labelTitle,
-            "labelSize":labelSize]
+            "labelDate":labelDate]
         
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[labelTitle(60)]-0-[labelSize(250)]",
+            withVisualFormat:"H:|-10-[labelTitle(60)]-0-[labelDate(250)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -50,7 +51,7 @@ class VPhotosAlbumPhotoSettingsCellSize:VPhotosAlbumPhotoSettingsCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[labelSize]-0-|",
+            withVisualFormat:"V:|-0-[labelDate]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -67,7 +68,7 @@ class VPhotosAlbumPhotoSettingsCellSize:VPhotosAlbumPhotoSettingsCell
         
         guard
             
-            let photo:MPhotosItemPhoto = controller.photo
+            let photo:MPhotosItemPhoto = controller.photo.add
             
         else
         {
@@ -80,8 +81,8 @@ class VPhotosAlbumPhotoSettingsCellSize:VPhotosAlbumPhotoSettingsCell
         guard
             
             let kilosString:String = numberFormatter.string(from:sizeNumber)
-        
-        else
+            
+            else
         {
             return
         }

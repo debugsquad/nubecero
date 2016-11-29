@@ -7,9 +7,11 @@ class MPhotosAlbumPhotoSettings
     init()
     {
         let itemPixels:MPhotosAlbumPhotoSettingsItemPixels = MPhotosAlbumPhotoSettingsItemPixels()
+        let itemSize:MPhotosAlbumPhotoSettingsItemSize = MPhotosAlbumPhotoSettingsItemSize()
         
         items = [
-            itemPixels
+            itemPixels,
+            itemSize
         ]
     }
 }

@@ -21,8 +21,11 @@ class VPhotosAlbumSelection:UIView
         visualEffect.isUserInteractionEnabled = false
         visualEffect.clipsToBounds = true
         
-//        let vibrancyEffect:UIVibrancyEffect
-//        UIVisualEffectView(effect: UIVibrancyEffect)
+        let vibrancyEffect:UIVibrancyEffect = UIVibrancyEffect(blurEffect:blurEffect)
+        let vibrancyVisual:UIVisualEffectView = UIVisualEffectView(effect:vibrancyEffect)
+        vibrancyVisual.translatesAutoresizingMaskIntoConstraints = false
+        vibrancyVisual.isUserInteractionEnabled = false
+        vibrancyVisual.clipsToBounds = true
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
@@ -43,12 +46,14 @@ class VPhotosAlbumSelection:UIView
             action:#selector(actionCancel(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        visualEffect.contentView.addSubview(vibrancyVisual)
         addSubview(visualEffect)
         addSubview(buttonCancel)
 
         let views:[String:UIView] = [
             "buttonCancel":buttonCancel,
-            "visualEffect":visualEffect]
+            "visualEffect":visualEffect,
+            "vibrancyVisual":vibrancyVisual]
         
         let metrics:[String:CGFloat] = [
             "buttonCancelWidth":kButtonCancelWidth]
@@ -64,12 +69,22 @@ class VPhotosAlbumSelection:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[vibrancyVisual]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[buttonCancel(40)]-20-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[visualEffect]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[vibrancyVisual]-0-|",
             options:[],
             metrics:metrics,
             views:views))

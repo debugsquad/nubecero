@@ -5,8 +5,9 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
     private weak var controller:CPhotosAlbumSelection!
     private weak var collectionView:UICollectionView!
     private weak var layoutButtonCancelLeft:NSLayoutConstraint!
+    private let kSelectAfter:TimeInterval = 0.1
     private let kButtonCancelWidth:CGFloat = 120
-    private let kCellHeight:CGFloat = 55
+    private let kCellHeight:CGFloat = 50
     private let kInterLine:CGFloat = 1
     
     convenience init(controller:CPhotosAlbumSelection)
@@ -157,6 +158,39 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
             constant:0)
         
         addConstraint(layoutButtonCancelLeft)
+        
+        var indexSelected:Int = 0
+        
+        if let userAlbum:MPhotosItemUser = controller.currentAlbum as? MPhotosItemUser
+        {
+            let albumId:MPhotos.AlbumId = userAlbum.albumId
+            let countAlbums:Int = MPhotos.sharedInstance.albumReferences.count
+            
+            for indexAlbum:Int in 0 ..< countAlbums
+            {
+                let reference:MPhotosItemReference = MPhotos.sharedInstance.albumReferences[indexAlbum]
+                
+                if reference.albumId == albumId
+                {
+                    indexSelected = indexAlbum + 1
+                    
+                    break
+                }
+            }
+        }
+        
+        let indexPath:IndexPath = IndexPath(item:indexSelected, section:0)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kSelectAfter)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:indexPath,
+                animated:false,
+                scrollPosition:
+                UICollectionViewScrollPosition.centeredVertically)
+        }
     }
     
     override func layoutSubviews()

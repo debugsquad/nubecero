@@ -355,8 +355,10 @@ class CHomeUpload:CController, CPhotosAlbumSelectionDelegate
     }
     
     func changeAlbum()
-    {
-        let albumSelect:CPhotosAlbumSelection = CPhotosAlbumSelection(delegate:self)
+    {   
+        let albumSelect:CPhotosAlbumSelection = CPhotosAlbumSelection(
+            currentAlbum:album,
+            delegate:self)
         parentController.over(
             controller:albumSelect,
             pop:false,

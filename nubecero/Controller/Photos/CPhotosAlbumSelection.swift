@@ -4,10 +4,12 @@ class CPhotosAlbumSelection:CController
 {
     private weak var viewSelect:VPhotosAlbumSelection!
     private weak var delegate:CPhotosAlbumSelectionDelegate?
+    weak var currentAlbum:MPhotosItem?
     
-    convenience init(delegate:CPhotosAlbumSelectionDelegate)
+    convenience init(currentAlbum:MPhotosItem?, delegate:CPhotosAlbumSelectionDelegate)
     {
         self.init()
+        self.currentAlbum = currentAlbum
         self.delegate = delegate
     }
     

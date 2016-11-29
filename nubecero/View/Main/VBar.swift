@@ -382,6 +382,8 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
         let item:MMainItem = modelAtIndex(index:indexPath)
         
         if item !== model.current

@@ -425,6 +425,6 @@ class CHomeUpload:CController, CPhotosAlbumSelectionDelegate
     func albumSelected(album:MPhotosItem)
     {
         self.album = album
-        viewUpload.header?.collectionView.reloadData()
+        viewUpload.header?.refresh()
     }
 }

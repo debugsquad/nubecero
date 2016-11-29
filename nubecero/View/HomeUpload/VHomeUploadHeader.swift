@@ -2,7 +2,7 @@ import UIKit
 
 class VHomeUploadHeader:UICollectionReusableView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    weak var collectionView:UICollectionView!
+    private weak var collectionView:UICollectionView!
     private weak var controller:CHomeUpload?
     private var cellSize:CGSize!
     private var leftInset:CGFloat!
@@ -114,6 +114,20 @@ class VHomeUploadHeader:UICollectionReusableView, UICollectionViewDelegate, UICo
     func config(controller:CHomeUpload)
     {
         self.controller = controller
+        refresh()
+    }
+    
+    func refresh()
+    {
+        guard
+            
+            let controller:CHomeUpload = self.controller
+        
+        else
+        {
+            return
+        }
+        
         model = MHomeUploadHeader(controller:controller)
         setNeedsLayout()
         collectionView.reloadData()

@@ -15,17 +15,14 @@ class VPhotosAlbumSelection:UIView
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
         let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
         visualEffect.translatesAutoresizingMaskIntoConstraints = false
         visualEffect.isUserInteractionEnabled = false
         visualEffect.clipsToBounds = true
         
-        let statusBar:UIView = UIView()
-        statusBar.isUserInteractionEnabled = false
-        statusBar.translatesAutoresizingMaskIntoConstraints = false
-        statusBar.clipsToBounds = true
-        statusBar.backgroundColor = UIColor(white:0, alpha:0.1)
+//        let vibrancyEffect:UIVibrancyEffect
+//        UIVisualEffectView(effect: UIVibrancyEffect)
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
@@ -47,13 +44,11 @@ class VPhotosAlbumSelection:UIView
             for:UIControlEvents.touchUpInside)
         
         addSubview(visualEffect)
-        addSubview(statusBar)
         addSubview(buttonCancel)
 
         let views:[String:UIView] = [
             "buttonCancel":buttonCancel,
-            "visualEffect":visualEffect,
-            "statusBar":statusBar]
+            "visualEffect":visualEffect]
         
         let metrics:[String:CGFloat] = [
             "buttonCancelWidth":kButtonCancelWidth]
@@ -65,16 +60,6 @@ class VPhotosAlbumSelection:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[visualEffect]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[statusBar]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[statusBar(20)]",
             options:[],
             metrics:metrics,
             views:views))

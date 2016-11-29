@@ -5,11 +5,13 @@ class CHomeUpload:CController
 {
     let model:MHomeUpload
     weak var viewBar:VHomeUploadBar?
+    weak var album:MPhotosItem?
     private weak var viewUpload:VHomeUpload!
     private let kBarWidth:CGFloat = 150
     
     override init()
     {
+        album = MPhotos.sharedInstance.defaultAlbum
         model = MHomeUpload()
         
         super.init()

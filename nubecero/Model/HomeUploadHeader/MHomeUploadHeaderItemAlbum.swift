@@ -2,15 +2,30 @@ import UIKit
 
 class MHomeUploadHeaderItemAlbum:MHomeUploadHeaderItem
 {
-    override init()
+    private let kEmpty:String = ""
+    
+    init(controller:CHomeUpload)
     {
-        let title:String = MPhotos.sharedInstance.defaultAlbum.name
+        if let title:String = controller.album?.name
+        {
+            self.title = title
+        }
+        else
+        {
+            self.title = kEmpty
+        }
+        
         let color:UIColor = UIColor.complement
         
         super.init(
             image:#imageLiteral(resourceName: "assetHomeAlbum"),
             title:title,
             color:color)
+    }
+    
+    override init()
+    {
+        fatalError()
     }
     
     override init(image:UIImage, title:String, color:UIColor)

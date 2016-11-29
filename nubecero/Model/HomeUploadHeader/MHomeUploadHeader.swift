@@ -4,9 +4,9 @@ class MHomeUploadHeader
 {
     let items:[MHomeUploadHeaderItem]
     
-    init()
+    init(controller:CHomeUpload)
     {
-        let itemAlbum:MHomeUploadHeaderItemAlbum = MHomeUploadHeaderItemAlbum()
+        let itemAlbum:MHomeUploadHeaderItemAlbum = MHomeUploadHeaderItemAlbum(controller:controller)
         let itemSelectAll:MHomeUploadHeaderItemSelectAll = MHomeUploadHeaderItemSelectAll()
         let itemClear:MHomeUploadHeaderItemClear = MHomeUploadHeaderItemClear()
         

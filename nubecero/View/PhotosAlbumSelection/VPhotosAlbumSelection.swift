@@ -27,6 +27,14 @@ class VPhotosAlbumSelection:UIView
         vibrancyVisual.isUserInteractionEnabled = false
         vibrancyVisual.clipsToBounds = true
         
+        let labelTitle:UILabel = UILabel()
+        labelTitle.isUserInteractionEnabled = false
+        labelTitle.translatesAutoresizingMaskIntoConstraints = false
+        labelTitle.textAlignment = NSTextAlignment.center
+        labelTitle.font = UIFont.medium(size:18)
+        labelTitle.textColor = UIColor.black
+        labelTitle.text = NSLocalizedString("VPhotosAlbumSelection_labelTitle", comment:"")
+        
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
         let buttonCancel:UIButton = UIButton()
@@ -40,12 +48,13 @@ class VPhotosAlbumSelection:UIView
         buttonCancel.setTitle(
             NSLocalizedString("VPhotosAlbumSelection_buttonCancel", comment:""),
             for:UIControlState.normal)
-        buttonCancel.titleLabel!.font = UIFont.regular(size:16)
+        buttonCancel.titleLabel!.font = UIFont.medium(size:16)
         buttonCancel.addTarget(
             self,
             action:#selector(actionCancel(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        vibrancyVisual.contentView.addSubview(labelTitle)
         visualEffect.contentView.addSubview(vibrancyVisual)
         addSubview(visualEffect)
         addSubview(buttonCancel)
@@ -53,7 +62,8 @@ class VPhotosAlbumSelection:UIView
         let views:[String:UIView] = [
             "buttonCancel":buttonCancel,
             "visualEffect":visualEffect,
-            "vibrancyVisual":vibrancyVisual]
+            "vibrancyVisual":vibrancyVisual,
+            "labelTitle":labelTitle]
         
         let metrics:[String:CGFloat] = [
             "buttonCancelWidth":kButtonCancelWidth]
@@ -74,6 +84,11 @@ class VPhotosAlbumSelection:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[labelTitle]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[buttonCancel(40)]-20-|",
             options:[],
             metrics:metrics,
@@ -85,6 +100,11 @@ class VPhotosAlbumSelection:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[vibrancyVisual]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-30-[labelTitle(30)]",
             options:[],
             metrics:metrics,
             views:views))

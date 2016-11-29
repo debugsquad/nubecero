@@ -51,6 +51,7 @@
 "VPhotosAlbumSelection_labelTitle"="Albums";
 "VPhotosAlbumPhotoSettingsCellPixels_labelWidth"="%@ px";
 "VPhotosAlbumPhotoSettingsCellPixels_labelHeight"="%@ px";
+"VPhotosAlbumPhotoSettingsCellSize_labelTitle"="Peso";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

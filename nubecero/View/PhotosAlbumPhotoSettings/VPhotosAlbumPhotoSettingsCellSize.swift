@@ -3,64 +3,56 @@ import UIKit
 class VPhotosAlbumPhotoSettingsCellSize:VPhotosAlbumPhotoSettingsCell
 {
     private weak var labelSize:UILabel!
+    private let numberFormatter:NumberFormatter
+    private let kKiloBytesPerMega:CGFloat = 1000
+    private let kMaxFractions:Int = 4
     
     override init(frame:CGRect)
     {
+        numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        numberFormatter.maximumFractionDigits = kMaxFractions
+        
         super.init(frame:frame)
         isUserInteractionEnabled = false
         
-        let imageView:UIImageView = UIImageView()
-        imageView.isUserInteractionEnabled = false
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.center
-        imageView.image = #imageLiteral(resourceName: "assetPhotosSettingsPixels")
+        let labelTitle:UILabel = UILabel()
+        labelTitle.translatesAutoresizingMaskIntoConstraints = false
+        labelTitle.isUserInteractionEnabled = false
+        labelTitle.backgroundColor = UIColor.clear
+        labelTitle.font = UIFont.medium(size:14)
+        labelTitle.textColor = UIColor.complement
+        labelTitle.text = NSLocalizedString("VPhotosAlbumPhotoSettingsCellSize_labelTitle", comment:"")
         
-        let labelWidth:UILabel = UILabel()
-        labelWidth.translatesAutoresizingMaskIntoConstraints = false
-        labelWidth.isUserInteractionEnabled = false
-        labelWidth.backgroundColor = UIColor.clear
-        labelWidth.font = UIFont.regular(size:14)
-        labelWidth.textColor = UIColor.black
-        labelWidth.textAlignment = NSTextAlignment.center
-        self.labelWidth = labelWidth
+        let labelSize:UILabel = UILabel()
+        labelSize.translatesAutoresizingMaskIntoConstraints = false
+        labelSize.isUserInteractionEnabled = false
+        labelSize.backgroundColor = UIColor.clear
+        labelSize.font = UIFont.regular(size:14)
+        labelSize.textColor = UIColor.black
+        self.labelSize = labelSize
         
-        let labelHeight:UILabel = UILabel()
-        labelHeight.translatesAutoresizingMaskIntoConstraints = false
-        labelHeight.isUserInteractionEnabled = false
-        labelHeight.backgroundColor = UIColor.clear
-        labelHeight.font = UIFont.regular(size:14)
-        labelHeight.textColor = UIColor.black
-        self.labelHeight = labelHeight
-        
-        addSubview(labelWidth)
-        addSubview(labelHeight)
-        addSubview(imageView)
+        addSubview(labelTitle)
+        addSubview(labelSize)
         
         let views:[String:UIView] = [
-            "imageView":imageView,
-            "labelWidth":labelWidth,
-            "labelHeight":labelHeight]
+            "labelTitle":labelTitle,
+            "labelSize":labelSize]
         
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[imageView(100)]-10-[labelHeight(210)]",
+            withVisualFormat:"H:|-10-[labelTitle(65)]-0-[labelSize(250)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[labelWidth(100)]",
+            withVisualFormat:"V:|-0-[labelTitle]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[labelHeight(100)]",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[imageView(100)]-10-[labelWidth(18)]",
+            withVisualFormat:"V:|-0-[labelSize]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -79,15 +71,15 @@ class VPhotosAlbumPhotoSettingsCellSize:VPhotosAlbumPhotoSettingsCell
             
             let photo:MPhotosItemPhoto = controller.photo
             
-            else
+        else
         {
             return
         }
         
-        let width:Int = photo.width
-        let height:Int = photo.height
-        let widthNumber:NSNumber = width as NSNumber
-        let heightNumber:NSNumber = height as NSNumber
+        let size:CGFloat = CGFloat(photo.size)
+        let megas:CGFloat = size / kKiloBytesPerMega
+        let megasNumber:NSNumber = megas as NSNumber
+        
         let widthString:String = String(
             format:NSLocalizedString("VPhotosAlbumPhotoSettingsCellPixels_labelWidth", comment:""),
             widthNumber)

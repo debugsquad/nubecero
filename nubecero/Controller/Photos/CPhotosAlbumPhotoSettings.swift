@@ -4,8 +4,8 @@ class CPhotosAlbumPhotoSettings:CController
 {
     let model:MPhotosAlbumPhotoSettings
     weak var photo:MPhotosItemPhoto?
+    weak var photoController:CPhotosAlbumPhoto!
     private weak var viewSettings:VPhotosAlbumPhotoSettings!
-    private weak var photoController:CPhotosAlbumPhoto!
     
     init(
         photoController:CPhotosAlbumPhoto,

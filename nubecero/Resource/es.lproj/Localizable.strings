@@ -56,6 +56,7 @@
 "VPhotosAlbumPhotoSettingsCellTaken_labelTitle"="Tomada";
 "VPhotosAlbumPhotoSettingsCellAdded_labelTitle"="Subida";
 "VPhotosAlbumPhotoSettingsCellAlbum_labelTitle"="Album";
+"VPhotosAlbumPhotoSettingsCellAlbum_buttonChange"="Mover";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";
@@ -105,7 +106,10 @@
 "CPhotosAlbum_deleteAllMessage"="No se puede deshacer";
 "CPhotosAlbum_deleteAllCancel"="Cancelar";
 "CPhotosAlbum_deleteAllDelete"="Borrar";
-"VPhotosAlbumPhotoSettingsCellAlbum_buttonChange"="Mover";
+"CPhotosAlbum_renameTitle"="Nombre de Album";
+"CPhotosAlbum_renamePlaceholder"="nombre";
+"CPhotosAlbum_renameCancel"="Cancelar";
+"CPhotosAlbum_renameSave"="Guardar";
 
 "MHomeUploadItemStatusWaiting_error"="Error cargando foto, reintentalo";
 "MHomeUploadItemStatusLoaded_errorUser"="Error iniciando sessión, reintentalo";

@@ -106,6 +106,10 @@
 "CPhotosAlbum_deleteAllMessage"="This can't be undone";
 "CPhotosAlbum_deleteAllCancel"="Cancel";
 "CPhotosAlbum_deleteAllDelete"="Delete";
+"CPhotosAlbum_renameTitle"="Album name";
+"CPhotosAlbum_renamePlaceholder"="name";
+"CPhotosAlbum_renameCancel"="Cancel";
+"CPhotosAlbum_renameSave"="Save";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading photo, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

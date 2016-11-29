@@ -2,7 +2,7 @@ import Foundation
 
 class MPhotosItem
 {
-    let name:String
+    var name:String
     private(set) var references:[MPhotosItemPhotoReference]
     private(set) var kiloBytes:Int
     private let kEmpty:String = ""

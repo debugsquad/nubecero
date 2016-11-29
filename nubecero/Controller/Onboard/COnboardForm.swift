@@ -293,7 +293,7 @@ class COnboardForm:CController
         }
         
         alert.addTextField
-            { (textfield:UITextField) in
+        { (textfield:UITextField) in
             
             textfield.placeholder = NSLocalizedString("COnboardForm_forgotPlaceholder", comment:"")
             textfield.keyboardType = UIKeyboardType.emailAddress

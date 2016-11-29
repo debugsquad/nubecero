@@ -80,7 +80,45 @@ class CPhotosAlbum:CController
     
     private func renameAlbum()
     {
+        let alert:UIAlertController = UIAlertController(
+            title:
+            NSLocalizedString("CPhotosAlbum_renameTitle", comment:""),
+            message:nil,
+            preferredStyle:UIAlertControllerStyle.alert)
         
+        let actionCancel:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CPhotosAlbum_renameCancel", comment:""),
+            style:
+            UIAlertActionStyle.cancel)
+        
+        let actionSave:UIAlertAction = UIAlertAction(
+            title:
+            NSLocalizedString("CPhotosAlbum_renameSave", comment:""),
+            style:
+            UIAlertActionStyle.default)
+        { [weak self] (action:UIAlertAction) in
+            
+            self?.viewAlbum.showLoading()
+            
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            { [weak self] in
+                
+                
+            }
+        }
+        
+        alert.addAction(actionSave)
+        alert.addAction(actionCancel)
+        alert.addTextField
+        { [weak self] (textfield:UITextField) in
+            
+            textfield.text = self?.model.name
+            textfield.placeholder = NSLocalizedString("CPhotosAlbum_renamePlaceholder", comment:"")
+            textfield.keyboardType = UIKeyboardType.alphabet
+        }
+        
+        present(alert, animated:true, completion:nil)
     }
     
     private func deleteAlbum()

@@ -6,6 +6,7 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
     private weak var collectionView:UICollectionView!
     private weak var layoutButtonCancelLeft:NSLayoutConstraint!
     private let kButtonCancelWidth:CGFloat = 120
+    private let kCellHeight:CGFloat = 55
     
     convenience init(controller:CPhotosAlbumSelection)
     {
@@ -147,6 +148,7 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
         let margin:CGFloat = remain / 2.0
         
         layoutButtonCancelLeft.constant = margin
+        collectionView.collectionViewLayout.invalidateLayout()
         super.layoutSubviews()
     }
     
@@ -157,7 +159,35 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
         controller.cancel()
     }
     
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MPhotosItem
+    {
+        let indexItem:Int = index.item
+        let item:MPhotosItem
+        
+        if indexItem == 0
+        {
+            item = MPhotos.sharedInstance.defaultAlbum
+        }
+        else
+        {
+            let reference:MPhotosItemReference = MPhotos.sharedInstance.albumReferences[indexItem - 1]
+            item = MPhotos.sharedInstance.albumItems[reference.albumId]!
+        }
+        
+        return item
+    }
+    
     //MARK: collectionView delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let width:CGFloat = collectionView.bounds.maxX
+        let size:CGSize = CGSize(width:width, height:kCellHeight)
+        
+        return size
+    }
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
@@ -173,6 +203,13 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
     
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
+        let item:MPhotosItem = modelAtIndex(index:indexPath)
+        let cell:VPhotosAlbumSelectionCell = collectionView.dequeueReusableCell(
+            withReuseIdentifier:
+            VPhotosAlbumSelectionCell.reusableIdentifier,
+            for:indexPath) as! VPhotosAlbumSelectionCell
+        cell.config(model:item)
         
+        return cell
     }
 }

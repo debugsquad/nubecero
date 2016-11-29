@@ -121,7 +121,7 @@ class VPhotosAlbumPhotoSettings:UIView, UICollectionViewDelegate, UICollectionVi
         let item:MPhotosAlbumPhotoSettingsItem = modelAtIndex(index:indexPath)
         let cell:VPhotosAlbumPhotoSettingsCell = collectionView.dequeueReusableCell(
             withReuseIdentifier:
-            VPhotosAlbumPhotoSettingsCell.reusableIdentifier,
+            item.reusableIdentifier,
             for:indexPath) as! VPhotosAlbumPhotoSettingsCell
         cell.config(controller:controller, model:item)
         

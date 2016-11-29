@@ -61,6 +61,8 @@ class CPhotosAlbum:CController
             return
         }
         
+        
+        
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyAlbums:String = FDatabaseModelUser.Property.albums.rawValue
         let albumId:MPhotos.AlbumId = albumUser.albumId

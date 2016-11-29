@@ -2,8 +2,8 @@ import UIKit
 
 class CPhotosAlbumPhotoSettings:CController
 {
+    weak var model:MPhotosItemPhoto?
     private weak var viewSettings:VPhotosAlbumPhotoSettings!
-    private weak var model:MPhotosItemPhoto?
     private weak var photoController:CPhotosAlbumPhoto!
     
     convenience init(
@@ -13,12 +13,6 @@ class CPhotosAlbumPhotoSettings:CController
         self.init()
         self.photoController = photoController
         self.model = model
-    }
-    
-    override func viewDidLoad()
-    {
-        super.viewDidLoad()
-        title = NSLocalizedString("CPhotosAlbumPhotoSettings_title", comment:"")
     }
     
     override func loadView()

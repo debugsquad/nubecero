@@ -4,6 +4,7 @@ class VPhotosAlbumPhotoSettings:UIView
 {
     private weak var controller:CPhotosAlbumPhotoSettings!
     private weak var collectionView:UICollectionView!
+    private let kBarHeight:CGFloat = 150
     
     convenience init(controller:CPhotosAlbumPhotoSettings)
     {
@@ -12,8 +13,6 @@ class VPhotosAlbumPhotoSettings:UIView
         backgroundColor = UIColor.background
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
-        
-        let barHeight:CGFloat = controller.parentController.viewParent.kBarHeight
         
         let bar:VPhotosAlbumPhotoSettingsBar = VPhotosAlbumPhotoSettingsBar(
             controller:controller)
@@ -24,7 +23,7 @@ class VPhotosAlbumPhotoSettings:UIView
             "bar":bar]
         
         let metrics:[String:CGFloat] = [
-            "barHeight":barHeight]
+            "barHeight":kBarHeight]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[bar]-0-|",

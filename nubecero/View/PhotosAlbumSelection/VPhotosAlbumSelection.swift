@@ -1,6 +1,6 @@
 import UIKit
 
-class VPhotosAlbumSelection:UIView
+class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     private weak var controller:CPhotosAlbumSelection!
     private weak var collectionView:UICollectionView!
@@ -155,5 +155,24 @@ class VPhotosAlbumSelection:UIView
     func actionCancel(sender button:UIButton)
     {
         controller.cancel()
+    }
+    
+    //MARK: collectionView delegate
+    
+    func numberOfSections(in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = MPhotos.sharedInstance.albumReferences.count + 1
+        
+        return count
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        
     }
 }

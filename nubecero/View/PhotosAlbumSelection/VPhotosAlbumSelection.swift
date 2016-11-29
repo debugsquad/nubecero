@@ -44,6 +44,29 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
         background.backgroundColor = UIColor(white:1, alpha:0.3)
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        flow.headerReferenceSize = CGSize.zero
+        flow.footerReferenceSize = CGSize.zero
+        flow.minimumLineSpacing = 0
+        flow.minimumInteritemSpacing = 0
+        flow.scrollDirection = UICollectionViewScrollDirection.vertical
+        flow.sectionInset = UIEdgeInsets.zero
+        
+        let collectionView:UICollectionView = UICollectionView(
+            frame:CGRect.zero,
+            collectionViewLayout:flow)
+        collectionView.clipsToBounds = true
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = UIColor.clear
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.alwaysBounceVertical = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(
+            VPhotosAlbumSelectionCell.self,
+            forCellWithReuseIdentifier:
+            VPhotosAlbumSelectionCell.reusableIdentifier)
+        self.collectionView = collectionView
         
         let buttonCancel:UIButton = UIButton()
         buttonCancel.translatesAutoresizingMaskIntoConstraints = false
@@ -64,6 +87,7 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
         
         vibrancyVisual.contentView.addSubview(labelTitle)
         visualEffect.contentView.addSubview(vibrancyVisual)
+        background.addSubview(collectionView)
         addSubview(visualEffect)
         addSubview(buttonCancel)
         addSubview(background)
@@ -73,7 +97,8 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
             "buttonCancel":buttonCancel,
             "visualEffect":visualEffect,
             "vibrancyVisual":vibrancyVisual,
-            "labelTitle":labelTitle]
+            "labelTitle":labelTitle,
+            "collectionView":collectionView]
         
         let metrics:[String:CGFloat] = [
             "buttonCancelWidth":kButtonCancelWidth]
@@ -104,6 +129,11 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[collectionView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[buttonCancel(45)]-45-|",
             options:[],
             metrics:metrics,
@@ -125,6 +155,11 @@ class VPhotosAlbumSelection:UIView, UICollectionViewDelegate, UICollectionViewDa
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-95-[background]-95-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[collectionView]-0-|",
             options:[],
             metrics:metrics,
             views:views))

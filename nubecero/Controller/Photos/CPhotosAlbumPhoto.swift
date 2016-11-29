@@ -46,7 +46,7 @@ class CPhotosAlbumPhoto:CController
     
     func back()
     {
-        parentController.dismiss(centerd:false, completion:nil)
+        parentController.dismiss(centered:false, completion:nil)
     }
     
     func share()
@@ -101,6 +101,6 @@ class CPhotosAlbumPhoto:CController
             item:photo)
         albumController.removeFromList(photo:photo)
         
-        parentController.dismiss(completion:nil)
+        parentController.dismiss(centered:true, completion:nil)
     }
 }

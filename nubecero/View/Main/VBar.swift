@@ -7,10 +7,12 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     private weak var parent:CParent!
     private weak var collectionView:UICollectionView!
     private weak var backButton:UIButton!
+    private weak var layoutLabelLeft:NSLayoutConstraint!
     private var currentWidth:CGFloat
     private let barHeight:CGFloat
     private let barDelta:CGFloat
     private let kCellWidth:CGFloat = 64
+    private let kLabelWidth:CGFloat = 200
     private let kAnimationDuration:TimeInterval = 0.3
     private let kWaitingTime:TimeInterval = 0.2
     
@@ -93,7 +95,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             "barDelta":barDelta]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-60-[label]-60-|",
+            withVisualFormat:"H:[label(labelWidth)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -123,6 +125,17 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             metrics:metrics,
             views:views))
         
+        layoutLabelLeft = NSLayoutConstraint(
+            item:label,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.left,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutLabelLeft)
+        
         DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kWaitingTime)
         {
             self.restart()
@@ -137,6 +150,8 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     override func layoutSubviews()
     {
         let width:CGFloat = bounds.maxX
+        let remainLabel:CGFloat = width - kLabelWidth
+        let marginLabel:CGFloat = remainLabel / 2.0
         
         if currentWidth != width
         {
@@ -167,6 +182,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             }
         }
         
+        layoutLabelLeft.constant = marginLabel
         super.layoutSubviews()
     }
     

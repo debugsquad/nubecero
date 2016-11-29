@@ -1,7 +1,7 @@
 import UIKit
 import Photos
 
-class CHomeUpload:CController
+class CHomeUpload:CController, CPhotosAlbumSelectionDelegate
 {
     let model:MHomeUpload
     weak var viewBar:VHomeUploadBar?
@@ -356,7 +356,11 @@ class CHomeUpload:CController
     
     func changeAlbum()
     {
-        
+        let albumSelect:CPhotosAlbumSelection = CPhotosAlbumSelection(delegate:self)
+        parentController.over(
+            controller:albumSelect,
+            pop:false,
+            animate:true)
     }
     
     func selectAll(selection:Bool)
@@ -412,5 +416,11 @@ class CHomeUpload:CController
         }
         
         viewUpload.updateBar()
+    }
+    
+    //MARK: album selection delegate
+    
+    func albumSelected(album:MPhotosItem)
+    {
     }
 }

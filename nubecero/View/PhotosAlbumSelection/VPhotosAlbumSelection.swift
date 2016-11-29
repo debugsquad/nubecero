@@ -44,7 +44,8 @@ class VPhotosAlbumSelection:UIView
         addSubview(buttonCancel)
 
         let views:[String:UIView] = [
-            "buttonCancel":buttonCancel]
+            "buttonCancel":buttonCancel,
+            "visualEffect":visualEffect]
         
         let metrics:[String:CGFloat] = [
             "buttonCancelWidth":kButtonCancelWidth]
@@ -55,7 +56,17 @@ class VPhotosAlbumSelection:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[visualEffect]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[buttonCancel(40)]-20-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[visualEffect]-0-|",
             options:[],
             metrics:metrics,
             views:views))

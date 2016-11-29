@@ -31,7 +31,7 @@ class CPhotosAlbumSelection:CController
         
         else
         {
-            parentController.dismiss(completion:nil)
+            cancel()
             
             return
         }
@@ -41,5 +41,10 @@ class CPhotosAlbumSelection:CController
             
             delegate?.albumSelected(album:album)
         }
+    }
+    
+    func cancel()
+    {
+        parentController.dismiss(completion:nil)
     }
 }

@@ -48,6 +48,7 @@
 "VSettingsCellAutoDelete_label"="Auto delete";
 "VSettingsCellAutoDelete_labelDescription"="Remove photos from local storage after adding them";
 "VPhotosHeaderField_placeholder"="Album name";
+"VPhotosAlbumSelection_buttonCancel"="Cancel";
 
 "CHomeUpload_title"="Add";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

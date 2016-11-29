@@ -202,6 +202,8 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
         let item:MPhotosItem = modelAtIndex(index:indexPath)
         controller.selected(item:item)
         

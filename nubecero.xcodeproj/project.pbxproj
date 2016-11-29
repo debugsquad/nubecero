@@ -45,6 +45,7 @@
 		DA3A0CE21DEE359E0030E3AC /* MPhotosAlbumPhotoSettingsItemAdded.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A0CE11DEE359E0030E3AC /* MPhotosAlbumPhotoSettingsItemAdded.swift */; };
 		DA3A0CE41DEE37950030E3AC /* VPhotosAlbumPhotoSettingsCellAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A0CE31DEE37950030E3AC /* VPhotosAlbumPhotoSettingsCellAlbum.swift */; };
 		DA3A0CE61DEE3C2B0030E3AC /* MPhotosAlbumPhotoSettingsItemAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A0CE51DEE3C2B0030E3AC /* MPhotosAlbumPhotoSettingsItemAlbum.swift */; };
+		DA3A0CE81DEE48320030E3AC /* MStoreItemPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3A0CE71DEE48320030E3AC /* MStoreItemPlus.swift */; };
 		DA406BC61DCCE7BF0098D347 /* CAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BC51DCCE7BF0098D347 /* CAuth.swift */; };
 		DA406BC91DCCE8480098D347 /* VAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BC81DCCE8480098D347 /* VAuth.swift */; };
 		DA406BCC1DCD01E30098D347 /* CSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA406BCB1DCD01E30098D347 /* CSettings.swift */; };
@@ -351,6 +352,7 @@
 		DA3A0CE11DEE359E0030E3AC /* MPhotosAlbumPhotoSettingsItemAdded.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosAlbumPhotoSettingsItemAdded.swift; sourceTree = "<group>"; };
 		DA3A0CE31DEE37950030E3AC /* VPhotosAlbumPhotoSettingsCellAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPhotosAlbumPhotoSettingsCellAlbum.swift; sourceTree = "<group>"; };
 		DA3A0CE51DEE3C2B0030E3AC /* MPhotosAlbumPhotoSettingsItemAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPhotosAlbumPhotoSettingsItemAlbum.swift; sourceTree = "<group>"; };
+		DA3A0CE71DEE48320030E3AC /* MStoreItemPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MStoreItemPlus.swift; sourceTree = "<group>"; };
 		DA406BC51DCCE7BF0098D347 /* CAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CAuth.swift; sourceTree = "<group>"; };
 		DA406BC81DCCE8480098D347 /* VAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAuth.swift; sourceTree = "<group>"; };
 		DA406BCB1DCD01E30098D347 /* CSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSettings.swift; sourceTree = "<group>"; };
@@ -1218,6 +1220,7 @@
 			isa = PBXGroup;
 			children = (
 				DAA3366E1DDE114100AA2D12 /* MStoreItemAlbums.swift */,
+				DA3A0CE71DEE48320030E3AC /* MStoreItemPlus.swift */,
 			);
 			path = Purchases;
 			sourceTree = "<group>";
@@ -1872,6 +1875,7 @@
 				DACD1FCC1DC7D0320067D26B /* MSession.swift in Sources */,
 				DA406BDC1DCD1CF00098D347 /* VSettingsCellLogout.swift in Sources */,
 				DA441B721DECC559000C845D /* VSettingsCellAutoDelete.swift in Sources */,
+				DA3A0CE81DEE48320030E3AC /* MStoreItemPlus.swift in Sources */,
 				DACD1FB21DC540810067D26B /* MHomeUploadItem.swift in Sources */,
 				DA4EF8FE1DC395B300297C1D /* ExtensionFileManager.swift in Sources */,
 				DA88F67C1DC7EE1F009F61B3 /* MHomeUploadItemStatusUploaded.swift in Sources */,

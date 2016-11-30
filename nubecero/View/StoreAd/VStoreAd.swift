@@ -42,7 +42,7 @@ class VStoreAd:UIView
             UIColor.white,
             for:UIControlState.normal)
         buttonAccept.setTitleColor(
-            UIColor(white:1, alpha:0.2),
+            UIColor(white:1, alpha:0.3),
             for:UIControlState.highlighted)
         buttonAccept.setTitle(
             NSLocalizedString("VStoreAd_buttonAccept", comment:""),
@@ -61,7 +61,7 @@ class VStoreAd:UIView
             UIColor.white,
             for:UIControlState.normal)
         buttonCancel.setTitleColor(
-            UIColor(white:1, alpha:0.2),
+            UIColor(white:1, alpha:0.3),
             for:UIControlState.highlighted)
         buttonCancel.setTitle(
             NSLocalizedString("VStoreAd_buttonCancel", comment:""),
@@ -167,7 +167,7 @@ class VStoreAd:UIView
         }
         else
         {
-            marginTop = height - kBaseHeight
+            marginTop = height - (kBaseHeight + kButtonHeight)
         }
         
         layoutBaseTop.constant = marginTop

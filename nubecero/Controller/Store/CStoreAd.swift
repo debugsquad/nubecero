@@ -20,6 +20,10 @@ class CStoreAd:CController
     
     func accept()
     {
-        parentController.viewParent.bar.openStore()
+        parentController.dismiss(centered:true)
+        { [weak self] in
+            
+            self?.parentController.viewParent.bar.openStore()
+        }
     }
 }

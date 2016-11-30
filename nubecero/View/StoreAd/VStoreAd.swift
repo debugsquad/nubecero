@@ -7,14 +7,15 @@ class VStoreAd:UIView
     private weak var layoutBaseTop:NSLayoutConstraint!
     private let kBaseWidth:CGFloat = 300
     private let kBaseHeight:CGFloat = 420
-    private let kButtonHeight:CGFloat = 38
-    private let kCornerRadius:CGFloat = 10
+    private let kButtonHeight:CGFloat = 42
+    private let kCornerRadius:CGFloat = 12
     
     convenience init(controller:CStoreAd)
     {
         self.init()
         clipsToBounds = true
         backgroundColor = UIColor.clear
+        translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
         
         let buttonWidth:CGFloat = kBaseWidth / 2.0
@@ -30,7 +31,7 @@ class VStoreAd:UIView
         baseView.clipsToBounds = true
         baseView.backgroundColor = UIColor.white
         baseView.layer.borderWidth = 1
-        baseView.layer.borderColor = UIColor(white:0, alpha:0.1).cgColor
+        baseView.layer.borderColor = UIColor(white:0, alpha:0.5).cgColor
         baseView.layer.cornerRadius = kCornerRadius
         
         let buttonAccept:UIButton = UIButton()
@@ -47,6 +48,10 @@ class VStoreAd:UIView
             NSLocalizedString("VStoreAd_buttonAccept", comment:""),
             for:UIControlState.normal)
         buttonAccept.titleLabel!.font = UIFont.medium(size:13)
+        buttonAccept.addTarget(
+            self,
+            action:#selector(actionAccept(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         let buttonCancel:UIButton = UIButton()
         buttonCancel.backgroundColor = UIColor.red
@@ -62,11 +67,15 @@ class VStoreAd:UIView
             NSLocalizedString("VStoreAd_buttonCancel", comment:""),
             for:UIControlState.normal)
         buttonCancel.titleLabel!.font = UIFont.medium(size:13)
+        buttonCancel.addTarget(
+            self,
+            action:#selector(actionCancel(sender:)),
+            for:UIControlEvents.touchUpInside)
         
+        baseView.addSubview(buttonCancel)
+        baseView.addSubview(buttonAccept)
         addSubview(visualEffect)
         addSubview(baseView)
-        addSubview(buttonCancel)
-        addSubview(buttonAccept)
         
         let views:[String:UIView] = [
             "visualEffect":visualEffect,
@@ -101,7 +110,12 @@ class VStoreAd:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[baseHeight(baseHeight)]",
+            withVisualFormat:"V:|-0-[visualEffect]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[baseView(baseHeight)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -143,11 +157,21 @@ class VStoreAd:UIView
         let width:CGFloat = bounds.maxX
         let height:CGFloat = bounds.maxY
         let remainWidth:CGFloat = width - kBaseWidth
-        let remainHeight:CGFloat = height - kBaseHeight
         let marginLeft:CGFloat = remainWidth / 2.0
-        let marginTop:CGFloat = remainHeight / 2.0
-        layoutBaseLeft.constant = marginLeft
+        let marginTop:CGFloat
+        
+        if height > kBaseHeight
+        {
+            let remainHeight:CGFloat = height - kBaseHeight
+            marginTop = remainHeight / 2.0
+        }
+        else
+        {
+            marginTop = height - kBaseHeight
+        }
+        
         layoutBaseTop.constant = marginTop
+        layoutBaseLeft.constant = marginLeft
         
         super.layoutSubviews()
     }

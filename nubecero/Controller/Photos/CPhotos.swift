@@ -91,7 +91,9 @@ class CPhotos:CController
     
     func storeAd()
     {
-        let adController:CStoreAd = CStoreAd()
+        let modelAd:MStoreAdAlbum = MStoreAdAlbum()
+        
+        let adController:CStoreAd = CStoreAd(model:modelAd)
         parentController.over(
             controller:adController,
             pop:false,

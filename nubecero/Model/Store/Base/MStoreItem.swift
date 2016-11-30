@@ -61,5 +61,11 @@ class MStoreItem
     func statusPurchased()
     {
         status = MStoreItemStatusPurchased()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.purchaseAction()
+        }
     }
 }

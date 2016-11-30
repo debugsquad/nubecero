@@ -7,7 +7,7 @@ class MHomeItemSpacePhotos:MHomeItem
     
     override init()
     {
-        let reusableIdentifier:String = VHomeCellPhotos.reusableIdentifier
+        let reusableIdentifier:String = VHomeCellSpacePhotos.reusableIdentifier
         super.init(
             reusableIdentifier:reusableIdentifier,
             cellHeight:kCellHeight,

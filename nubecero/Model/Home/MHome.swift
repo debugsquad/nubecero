@@ -11,7 +11,7 @@ class MHome
         let itemSpaceFree:MHomeItemSpaceFree = MHomeItemSpaceFree()
         let itemSpaceUsed:MHomeItemSpaceUsed = MHomeItemSpaceUsed()
         let itemSpaceTotal:MHomeItemSpaceTotal = MHomeItemSpaceTotal()
-        let itemPhotos:MHomeItemPhotos = MHomeItemPhotos()
+        let itemSpacePhotos:MHomeItemSpacePhotos = MHomeItemSpacePhotos()
         
         items = [
             itemUpload,
@@ -19,7 +19,7 @@ class MHome
             itemSpaceFree,
             itemSpaceUsed,
             itemSpaceTotal,
-            itemPhotos
+            itemSpacePhotos
         ]
     }
 }

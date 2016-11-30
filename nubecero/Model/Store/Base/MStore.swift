@@ -94,7 +94,7 @@ class MStore
                 case SKPaymentTransactionState.purchased,
                      SKPaymentTransactionState.restored:
                     
-                    mappedItem.statusPurchased()
+                    mappedItem.statusPurchased(callAction:true)
                     SKPaymentQueue.default().finishTransaction(skPaymentTransaction)
                     
                     break

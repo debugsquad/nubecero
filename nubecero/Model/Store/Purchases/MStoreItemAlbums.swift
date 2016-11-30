@@ -20,4 +20,28 @@ class MStoreItemAlbums:MStoreItem
     {
         fatalError()
     }
+    
+    override func purchaseAction()
+    {
+        MSession.sharedInstance.settings.current?.nubeceroAlbums = true
+        DManager.sharedInstance.save()
+    }
+    
+    override func validatePurchase() -> Bool
+    {
+        var isPurchased:Bool = false
+        
+        guard
+        
+            let albums:Bool = MSession.sharedInstance.settings.current?.nubeceroAlbums
+        
+        else
+        {
+            return isPurchased
+        }
+        
+        isPurchased = albums
+        
+        return isPurchased
+    }
 }

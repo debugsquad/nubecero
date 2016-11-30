@@ -20,4 +20,28 @@ class MStoreItemPlus:MStoreItem
     {
         fatalError()
     }
+    
+    override func purchaseAction()
+    {
+        MSession.sharedInstance.settings.current?.nubeceroPlus = true
+        DManager.sharedInstance.save()
+    }
+    
+    override func validatePurchase() -> Bool
+    {
+        var isPurchased:Bool = false
+        
+        guard
+            
+            let plus:Bool = MSession.sharedInstance.settings.current?.nubeceroPlus
+            
+        else
+        {
+            return isPurchased
+        }
+        
+        isPurchased = plus
+        
+        return isPurchased
+    }
 }

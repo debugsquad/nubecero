@@ -6,7 +6,7 @@ class VStoreAd:UIView
     private weak var layoutBaseLeft:NSLayoutConstraint!
     private weak var layoutBaseTop:NSLayoutConstraint!
     private let kBaseWidth:CGFloat = 300
-    private let kBaseHeight:CGFloat = 420
+    private let kBaseHeight:CGFloat = 350
     private let kButtonHeight:CGFloat = 42
     private let kCornerRadius:CGFloat = 12
     
@@ -39,7 +39,7 @@ class VStoreAd:UIView
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.textColor = UIColor.main
-        labelTitle.font = UIFont.medium(size:15)
+        labelTitle.font = UIFont.medium(size:22)
         labelTitle.text = controller.model.title
         
         let labelDescr:UILabel = UILabel()
@@ -48,7 +48,7 @@ class VStoreAd:UIView
         labelDescr.backgroundColor = UIColor.clear
         labelDescr.textAlignment = NSTextAlignment.center
         labelDescr.textColor = UIColor.black
-        labelDescr.font = UIFont.regular(size:14)
+        labelDescr.font = UIFont.regular(size:18)
         labelDescr.numberOfLines = 0
         labelDescr.text = controller.model.descr
         
@@ -127,7 +127,7 @@ class VStoreAd:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[labelTitle]-10-|",
+            withVisualFormat:"H:|-0-[labelTitle]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -157,7 +157,7 @@ class VStoreAd:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-10-[labelTitle(20)]-0-[labelDescr(60)]-0-[imageView(50)]",
+            withVisualFormat:"V:|-20-[labelTitle(30)]-0-[labelDescr(140)]-0-[imageView(100)]",
             options:[],
             metrics:metrics,
             views:views))

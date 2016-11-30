@@ -135,10 +135,10 @@
 "MPhotosItemDefault_name"="Default";
 "MHomeUploadHeaderItemClear_title"="Clear added";
 "MHomeUploadHeaderItemSelectAll_title"="Select all";
-"MStoreAdAlbum_title"="How about more albums?";
-"MStoreAdAlbum_descr"="Album manager allows you to create as many albums as you want";
-"MStoreAdPlus_title"="Need more space?";
-"MStoreAdPlus_descr"="With nubecero plus you get 1,000 Megabytes extra";
+"MStoreAdAlbum_title"="Want albums?";
+"MStoreAdAlbum_descr"="Album manager allows you to create as many albums as you want.";
+"MStoreAdPlus_title"="More space?";
+"MStoreAdPlus_descr"="With nubecero plus you get 1,000 Megabytes extra.";
 "MStoreItemAlbums_title"="Album manager";
 "MStoreItemAlbums_descr"="\nCreate albums to organize your photos";
 "MStoreItemPlus_title"="nubecero plus";

@@ -11,7 +11,7 @@ class VSettingsCellShare:VSettingsCell
         imageView.contentMode = UIViewContentMode.center
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = #imageLiteral(resourceName: "assetPicturesShare").withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        imageView.image = #imageLiteral(resourceName: "assetPhotosShare").withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         imageView.tintColor = UIColor.complement
         
         addSubview(imageView)

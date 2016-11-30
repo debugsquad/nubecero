@@ -4,6 +4,8 @@ class CController:UIViewController
 {
     weak var layoutLeft:NSLayoutConstraint!
     weak var layoutRight:NSLayoutConstraint!
+    weak var layoutTop:NSLayoutConstraint!
+    weak var layoutBottom:NSLayoutConstraint!
     weak var shadow:VShadow?
     
     init()
@@ -38,7 +40,7 @@ class CController:UIViewController
     {
         super.viewDidLoad()
         
-        FMain.sharedInstance.analytics?.screen(controller:self)
+        FMain.sharedInstance.analytics?.screenView(controller:self)
         edgesForExtendedLayout = UIRectEdge()
         extendedLayoutIncludesOpaqueBars = false
         automaticallyAdjustsScrollViewInsets = false

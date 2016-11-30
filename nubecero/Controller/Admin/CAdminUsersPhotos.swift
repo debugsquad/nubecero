@@ -4,7 +4,7 @@ class CAdminUsersPhotos:CController
 {
     private weak var viewPhotos:VAdminUsersPhotos!
     private let model:MAdminUsersItem
-    var pictures:MAdminUsersPhotos?
+    var photos:MAdminUsersPhotos?
     
     init(model:MAdminUsersItem)
     {
@@ -25,7 +25,7 @@ class CAdminUsersPhotos:CController
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
-            self?.loadPictures()
+            self?.loadPhotos()
         }
     }
     
@@ -38,21 +38,21 @@ class CAdminUsersPhotos:CController
     
     //MARK: private
     
-    private func loadPictures()
+    private func loadPhotos()
     {
         let userId:MSession.UserId = model.userId
         let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyPictures:String = FDatabaseModelUser.Property.pictures.rawValue
-        let pathPictures:String = "\(parentUser)/\(userId)/\(propertyPictures)"
+        let propertyPhotos:String = FDatabaseModelUser.Property.photos.rawValue
+        let pathPhotos:String = "\(parentUser)/\(userId)/\(propertyPhotos)"
         
         FMain.sharedInstance.database.listenOnce(
-            path:pathPictures,
-            modelType:FDatabaseModelPictureList.self)
-        { [weak self] (pictures) in
+            path:pathPhotos,
+            modelType:FDatabaseModelPhotoList.self)
+        { [weak self] (photos:FDatabaseModelPhotoList?) in
             
             guard
             
-                let picturesStrong:FDatabaseModelPictureList = pictures
+                let photosStrong:FDatabaseModelPhotoList = photos
             
             else
             {
@@ -62,7 +62,7 @@ class CAdminUsersPhotos:CController
                 return
             }
             
-            self?.pictures = MAdminUsersPhotos(userId:userId, pictureList:picturesStrong)
+            self?.photos = MAdminUsersPhotos(userId:userId, photoList:photosStrong)
             self?.loadingCompleted()
         }
     }

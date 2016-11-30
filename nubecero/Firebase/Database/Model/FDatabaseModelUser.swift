@@ -4,32 +4,29 @@ class FDatabaseModelUser:FDatabaseModel
 {
     enum Property:String
     {
-        case status = "status"
+        case session = "session"
+        case email = "email"
         case created = "created"
-        case lastSession = "lastSession"
         case diskUsed = "diskUsed"
-        case pictures = "pictures"
-        case plus = "plus"
+        case photos = "photos"
+        case albums = "albums"
     }
     
-    enum Status:Int
-    {
-        case unknown
-        case active
-        case banned
-    }
-    
+    let session:FDatabaseModelUserSession
+    let email:String
     let created:TimeInterval
-    let lastSession:TimeInterval
-    let status:Status
     let diskUsed:Int
+    private let kEmpty:String = ""
     private let kNoTime:TimeInterval = 0
     
-    init(status:Status)
+    init(email:String, token:String?, version:String)
     {
-        self.status = status
+        self.session = FDatabaseModelUserSession(
+            token:token,
+            version:version,
+            ttl:nil)
+        self.email = email
         created = NSDate().timeIntervalSince1970
-        lastSession = created
         diskUsed = 0
         
         super.init()
@@ -39,23 +36,29 @@ class FDatabaseModelUser:FDatabaseModel
     {
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
         
-        if let statusInt:Int = snapshotDict?[Property.status.rawValue] as? Int
+        if let sessionSnapshot:[String:Any] = snapshotDict?[
+            Property.session.rawValue] as? [String:Any]
         {
-            if let status:Status = Status(rawValue:statusInt)
-            {
-                self.status = status
-            }
-            else
-            {
-                self.status = Status.unknown
-            }
+            self.session = FDatabaseModelUserSession(
+                snapshot:sessionSnapshot)
         }
         else
         {
-            self.status = Status.unknown
+            self.session = FDatabaseModelUserSession(snapshot:[])
         }
         
-        if let created:TimeInterval = snapshotDict?[Property.created.rawValue] as? TimeInterval
+        if let email:String = snapshotDict?[
+            Property.email.rawValue] as? String
+        {
+            self.email = email
+        }
+        else
+        {
+            self.email = kEmpty
+        }
+        
+        if let created:TimeInterval = snapshotDict?[
+            Property.created.rawValue] as? TimeInterval
         {
             self.created = created
         }
@@ -64,16 +67,8 @@ class FDatabaseModelUser:FDatabaseModel
             self.created = kNoTime
         }
         
-        if let lastSession:TimeInterval = snapshotDict?[Property.lastSession.rawValue] as? TimeInterval
-        {
-            self.lastSession = lastSession
-        }
-        else
-        {
-            self.lastSession = kNoTime
-        }
-        
-        if let diskUsed:Int = snapshotDict?[Property.diskUsed.rawValue] as? Int
+        if let diskUsed:Int = snapshotDict?[
+            Property.diskUsed.rawValue] as? Int
         {
             self.diskUsed = diskUsed
         }
@@ -92,10 +87,12 @@ class FDatabaseModelUser:FDatabaseModel
     
     override func modelJson() -> Any
     {
+        let sessionJson:Any = session.modelJson()
+        
         let json:[String:Any] = [
-            Property.status.rawValue:status.rawValue,
+            Property.session.rawValue:sessionJson,
+            Property.email.rawValue:email,
             Property.created.rawValue:created,
-            Property.lastSession.rawValue:lastSession,
             Property.diskUsed.rawValue:diskUsed
         ]
         

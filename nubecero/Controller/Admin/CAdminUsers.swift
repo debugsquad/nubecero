@@ -34,7 +34,7 @@ class CAdminUsers:CController
         FMain.sharedInstance.database.listenOnce(
             path:parentUser,
             modelType:FDatabaseModelUserList.self)
-        { [weak self] (users) in
+        { [weak self] (users:FDatabaseModelUserList?) in
             
             guard
             
@@ -78,6 +78,8 @@ class CAdminUsers:CController
     func selected(item:MAdminUsersItem)
     {
         let controller:CAdminUsersPhotos = CAdminUsersPhotos(model:item)
-        parentController.push(controller:controller)
+        parentController.push(
+            controller:controller,
+            underBar:true)
     }
 }

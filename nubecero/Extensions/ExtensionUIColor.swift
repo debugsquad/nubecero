@@ -22,7 +22,7 @@ extension UIColor
     {
         get
         {
-            return UIColor(red:0.98, green:0.97, blue:0.96, alpha:1)
+            return UIColor(red:0.97, green:0.98, blue:0.99, alpha:1)
         }
     }
 }

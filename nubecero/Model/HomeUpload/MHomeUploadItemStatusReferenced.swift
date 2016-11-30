@@ -1,16 +1,31 @@
-import Foundation
+import UIKit
 
 class MHomeUploadItemStatusReferenced:MHomeUploadItemStatus
 {
-    private let kAssetSync:String = "assetHomeSyncWait"
+    private let kAssetSync:String = "assetHomeSyncUploading"
     private let kFinished:Bool = false
+    private let kSelectable:Bool = true
     
     init(item:MHomeUploadItem?)
     {
-        super.init(item:item, assetSync:kAssetSync, finished:kFinished)
+        let reusableIdentifier:String = VHomeUploadCellActive.reusableIdentifier
+        let color:UIColor = UIColor.black
+        super.init(
+            reusableIdentifier:reusableIdentifier,
+            item:item,
+            assetSync:kAssetSync,
+            finished:kFinished,
+            selectable:kSelectable,
+            color:color)
     }
     
-    override init(item:MHomeUploadItem?, assetSync:String, finished:Bool)
+    override init(
+        reusableIdentifier:String,
+        item:MHomeUploadItem?,
+        assetSync:String,
+        finished:Bool,
+        selectable:Bool,
+        color:UIColor)
     {
         fatalError()
     }
@@ -21,8 +36,8 @@ class MHomeUploadItemStatusReferenced:MHomeUploadItemStatus
         
         guard
             
-            let userId:MSession.UserId = MSession.sharedInstance.userId,
-            let pictureId:String = item?.pictureId,
+            let userId:MSession.UserId = MSession.sharedInstance.user.userId,
+            let photoId:String = item?.photoId,
             let imageData:Data = item?.imageData
             
         else
@@ -34,12 +49,12 @@ class MHomeUploadItemStatusReferenced:MHomeUploadItemStatus
         }
         
         let parentUser:String = FStorage.Parent.user.rawValue
-        let pathPicture:String = "\(parentUser)/\(userId)/\(pictureId)"
+        let pathPhotos:String = "\(parentUser)/\(userId)/\(photoId)"
         
         FMain.sharedInstance.storage.saveData(
-            path:pathPicture,
+            path:pathPhotos,
             data:imageData)
-        { [weak self, weak controller] (error) in
+        { [weak self, weak controller] (error:String?) in
             
             if let errorStrong:String = error
             {

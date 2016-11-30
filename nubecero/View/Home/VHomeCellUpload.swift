@@ -2,62 +2,40 @@ import UIKit
 
 class VHomeCellUpload:VHomeCell
 {
-    private weak var layoutImageLeft:NSLayoutConstraint!
-    private let kImageSize:CGFloat = 40
-    private let kLabelWidth:CGFloat = 115
-    private let kImageRight:CGFloat = 20
-    private let labelImageWidth:CGFloat
+    private weak var layoutAddLeft:NSLayoutConstraint!
+    private let kAddWidth:CGFloat = 150
     
     override init(frame:CGRect)
     {
-        labelImageWidth = kLabelWidth + kImageSize
-        
         super.init(frame:frame)
         
-        let label:UILabel = UILabel()
-        label.isUserInteractionEnabled = false
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor.clear
-        label.font = UIFont.bold(size:14)
-        label.textColor = UIColor.complement
-        label.text = NSLocalizedString("VHomeCellUpload_label", comment:"")
+        let add:VHomeCellUploadAdd = VHomeCellUploadAdd()
+        add.addTarget(
+            self,
+            action:#selector(actionAdd(sender:)),
+            for:UIControlEvents.touchUpInside)
         
-        let imageView:UIImageView = UIImageView()
-        imageView.isUserInteractionEnabled = false
-        imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.center
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = #imageLiteral(resourceName: "assetHomeUpload")
-        
-        addSubview(label)
-        addSubview(imageView)
+        addSubview(add)
         
         let views:[String:UIView] = [
-            "label":label,
-            "imageView":imageView]
+            "add":add]
         
         let metrics:[String:CGFloat] = [
-            "imageSize":kImageSize,
-            "labelWidth":kLabelWidth]
+            "addWidth":kAddWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[imageView(imageSize)]-3-[label(labelWidth)]",
+            withVisualFormat:"H:[add(addWidth)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-2-[label]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[imageView]-0-|",
+            withVisualFormat:"V:|-20-[add]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         
-        layoutImageLeft = NSLayoutConstraint(
-            item:imageView,
+        layoutAddLeft = NSLayoutConstraint(
+            item:add,
             attribute:NSLayoutAttribute.left,
             relatedBy:NSLayoutRelation.equal,
             toItem:self,
@@ -65,7 +43,7 @@ class VHomeCellUpload:VHomeCell
             multiplier:1,
             constant:0)
         
-        addConstraint(layoutImageLeft)
+        addConstraint(layoutAddLeft)
     }
     
     required init?(coder:NSCoder)
@@ -76,10 +54,17 @@ class VHomeCellUpload:VHomeCell
     override func layoutSubviews()
     {
         let width:CGFloat = bounds.size.width
-        let remain:CGFloat = width - labelImageWidth
+        let remain:CGFloat = width - kAddWidth
         let margin:CGFloat = remain / 2.0
-        layoutImageLeft.constant = margin + kImageRight
+        layoutAddLeft.constant = margin
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionAdd(sender button:UIButton)
+    {
+        controller?.uploadPictures()
     }
 }

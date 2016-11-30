@@ -4,23 +4,23 @@ class MAdminUsersPhotos
 {
     let items:[MAdminUsersPhotosItem]
     
-    init(userId:MSession.UserId, pictureList:FDatabaseModelPictureList)
+    init(userId:MSession.UserId, photoList:FDatabaseModelPhotoList)
     {
         var items:[MAdminUsersPhotosItem] = []
-        let arrayIds:[MPictures.PictureId] = Array(pictureList.items.keys)
+        let arrayIds:[MPhotos.PhotoId] = Array(photoList.items.keys)
         
-        for pictureId:MPictures.PictureId in arrayIds
+        for photoId:MPhotos.PhotoId in arrayIds
         {
-            let firebasePicture:FDatabaseModelPicture = pictureList.items[pictureId]!
+            let firebasePhoto:FDatabaseModelPhoto = photoList.items[photoId]!
             let item:MAdminUsersPhotosItem = MAdminUsersPhotosItem(
                 userId:userId,
-                pictureId:pictureId,
-                firebasePicture:firebasePicture)
+                photoId:photoId,
+                firebasePhoto:firebasePhoto)
             items.append(item)
         }
         
         items.sort
-        { (itemA, itemB) -> Bool in
+        { (itemA:MAdminUsersPhotosItem, itemB:MAdminUsersPhotosItem) -> Bool in
             
             return itemA.created < itemB.created
         }

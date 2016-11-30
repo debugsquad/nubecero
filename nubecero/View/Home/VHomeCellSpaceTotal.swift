@@ -21,7 +21,7 @@ class VHomeCellSpaceTotal:VHomeCellSpace
     
     override func config(controller:CHome, model:MHomeItem)
     {
-        let totalStorageInt:Int = MSession.sharedInstance.totalStorage()
+        let totalStorageInt:Int = MSession.sharedInstance.server.totalStorage()
         let totalSpace:NSNumber = (CGFloat(totalStorageInt) / kKilobytesPerMega) as NSNumber
         
         guard

@@ -4,14 +4,16 @@ class CHomeUploadSync:CController
 {
     var currentItem:Int
     let uploadItems:[MHomeUploadItem]
+    weak var album:MPhotosItem?
     private weak var viewSync:VHomeUploadSync!
     private weak var controllerUpload:CHomeUpload!
     private var syncStarted:Bool
     
-    init(uploadItems:[MHomeUploadItem], controllerUpload:CHomeUpload)
+    init(album:MPhotosItem?, uploadItems:[MHomeUploadItem], controllerUpload:CHomeUpload)
     {
         currentItem = 0
         syncStarted = false
+        self.album = album
         self.uploadItems = uploadItems
         self.controllerUpload = controllerUpload
         super.init()
@@ -27,7 +29,7 @@ class CHomeUploadSync:CController
         super.viewDidLoad()
         
         let uploadTotal:Int = uploadItems.count
-        FMain.sharedInstance.analytics?.upload(pictures:uploadTotal)
+        FMain.sharedInstance.analytics?.photoUpload(photos:uploadTotal)
     }
     
     override func viewDidAppear(_ animated:Bool)
@@ -65,6 +67,15 @@ class CHomeUploadSync:CController
         uploadItem.status.process(controller:self)
     }
     
+    private func dismissClear()
+    {
+        parentController.dismiss(centered:true)
+        { [weak controllerUpload] in
+            
+            controllerUpload?.uploadFinished()
+        }
+    }
+    
     //MARK: public
     
     func uploadedItems() -> Int
@@ -84,7 +95,8 @@ class CHomeUploadSync:CController
     
     func cancelSync()
     {
-        parentController.dismiss()
+        FMain.sharedInstance.analytics?.photoStopUpload()
+        dismissClear()
     }
     
     func errorSyncing(error:String)
@@ -121,21 +133,25 @@ class CHomeUploadSync:CController
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.parentController.dismiss()
-            self?.controllerUpload.picturesUploaded()
+            self?.dismissClear()
         }
     }
     
     func diskFull()
     {
-        let message:String = NSLocalizedString("CHomeUploadSync_diskFull", comment:"")
-        VAlert.message(message:message)
-        
-        DispatchQueue.main.async
-        { [weak self] in
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            MSession.sharedInstance.settings.current?.fullWarning = true
+            DManager.sharedInstance.save()
+            
+            let message:String = NSLocalizedString("CHomeUploadSync_diskFull", comment:"")
+            VAlert.message(message:message)
+            
+            DispatchQueue.main.async
+            { [weak self] in
                 
-            self?.parentController.dismiss()
-            self?.controllerUpload.picturesUploaded()
+                self?.dismissClear()
+            }
         }
     }
 }

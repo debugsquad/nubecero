@@ -2,12 +2,13 @@ import UIKit
 
 class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
-    weak var controller:CStore!
-    weak var viewSpinner:VSpinner!
-    weak var collectionView:UICollectionView!
-    private let kHeaderHeight:CGFloat = 130
-    private let kFooterHeight:CGFloat = 100
+    private weak var controller:CStore!
+    private weak var viewSpinner:VSpinner?
+    private weak var collectionView:UICollectionView!
+    private let kHeaderHeight:CGFloat = 150
+    private let kFooterHeight:CGFloat = 70
     private let kInterLine:CGFloat = 1
+    private let kCollectionBottom:CGFloat = 10
     
     convenience init(controller:CStore)
     {
@@ -24,13 +25,13 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
-        flow.footerReferenceSize = CGSize(width:0, height:kFooterHeight)
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
-        flow.sectionInset = UIEdgeInsets(top:kInterLine, left:0, bottom:kInterLine, right:0)
+        flow.sectionInset = UIEdgeInsets(top:kInterLine, left:0, bottom:kCollectionBottom, right:0)
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
+        collectionView.isHidden = true
         collectionView.clipsToBounds = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = UIColor.clear
@@ -39,6 +40,10 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
         collectionView.alwaysBounceVertical = true
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(
+            VStoreCellNotAvailable.self,
+            forCellWithReuseIdentifier:
+            VStoreCellNotAvailable.reusableIdentifier)
         collectionView.register(
             VStoreCellDeferred.self,
             forCellWithReuseIdentifier:
@@ -109,28 +114,55 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     private func modelAtIndex(index:IndexPath) -> MStoreItem
     {
-        let itemId:MStore.PurchaseId = controller.model!.listReferences![index.section]
-        let item:MStoreItem = controller.model!.mapItems![itemId]!
+        let itemId:MStore.PurchaseId = controller.model.references[index.section]
+        let item:MStoreItem = controller.model.mapItems[itemId]!
         
         return item
     }
     
     //MARK: public
     
-    func showLoading()
-    {
-        collectionView.isHidden = true
-        viewSpinner.startAnimating()
-    }
-    
     func refreshStore()
     {
-        viewSpinner.stopAnimating()
-        collectionView.reloadData()
-        collectionView.isHidden = false
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewSpinner?.removeFromSuperview()
+            self?.collectionView.reloadData()
+            self?.collectionView.isHidden = false
+            
+            guard
+            
+                let errorMessage:String = self?.controller.model.error
+            
+            else
+            {
+                return
+            }
+            
+            VAlert.message(message:errorMessage)
+        }
     }
     
     //MARK: collection delegate
+    
+    func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, referenceSizeForFooterInSection section:Int) -> CGSize
+    {
+        let indexPath:IndexPath = IndexPath(item:0, section:section)
+        let item:MStoreItem = modelAtIndex(index:indexPath)
+        let size:CGSize
+        
+        if item.status?.restorable == true
+        {
+            size = CGSize(width:0, height:kFooterHeight)
+        }
+        else
+        {
+            size = CGSize.zero
+        }
+        
+        return size
+    }
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, sizeForItemAt indexPath:IndexPath) -> CGSize
     {
@@ -144,14 +176,7 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
-        guard
-        
-            let count:Int = controller.model?.listReferences?.count
-        
-        else
-        {
-            return 0
-        }
+        let count:Int = controller.model.references.count
         
         return count
     }

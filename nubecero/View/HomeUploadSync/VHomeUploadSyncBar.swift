@@ -27,9 +27,14 @@ class VHomeUploadSyncBar:UIView
         
         super.init(frame:CGRect.zero)
         clipsToBounds = true
-        backgroundColor = UIColor.clear
         translatesAutoresizingMaskIntoConstraints = false
         self.controller = controller
+        
+        let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
+        let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
+        visualEffect.translatesAutoresizingMaskIntoConstraints = false
+        visualEffect.clipsToBounds = true
+        visualEffect.isUserInteractionEnabled = false
         
         let spinner:VSpinner = VSpinner()
         self.spinner = spinner
@@ -40,7 +45,7 @@ class VHomeUploadSyncBar:UIView
         border.translatesAutoresizingMaskIntoConstraints = false
         
         let cancelButton:UIButton = UIButton()
-        cancelButton.backgroundColor = UIColor.main
+        cancelButton.backgroundColor = UIColor.complement
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.setTitleColor(
             UIColor.white,
@@ -51,7 +56,7 @@ class VHomeUploadSyncBar:UIView
         cancelButton.setTitle(
             NSLocalizedString("VHomeUploadSyncBar_cancel", comment:""),
             for:UIControlState.normal)
-        cancelButton.titleLabel!.font = UIFont.medium(size:13)
+        cancelButton.titleLabel!.font = UIFont.bold(size:13)
         cancelButton.layer.cornerRadius = kCornerRadius
         cancelButton.addTarget(
             self,
@@ -80,9 +85,10 @@ class VHomeUploadSyncBar:UIView
         labelCount.isUserInteractionEnabled = false
         labelCount.translatesAutoresizingMaskIntoConstraints = false
         labelCount.backgroundColor = UIColor.clear
-        labelCount.textAlignment = NSTextAlignment.center
+        labelCount.textAlignment = NSTextAlignment.right
         self.labelCount = labelCount
         
+        addSubview(visualEffect)
         addSubview(border)
         addSubview(cancelButton)
         addSubview(spinner)
@@ -90,6 +96,7 @@ class VHomeUploadSyncBar:UIView
         addSubview(tryAgainButton)
         
         let views:[String:UIView] = [
+            "visualEffect":visualEffect,
             "border":border,
             "cancelButton":cancelButton,
             "spinner":spinner,
@@ -101,6 +108,11 @@ class VHomeUploadSyncBar:UIView
             "cancelButtonWidth":kCancelButtonWith,
             "tryAgainButtonWidth":kTryAgainButtonWith]
         
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[visualEffect]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[border]-0-|",
             options:[],
@@ -117,7 +129,7 @@ class VHomeUploadSyncBar:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[labelCount]-0-|",
+            withVisualFormat:"H:[labelCount(150)]-10-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -132,22 +144,27 @@ class VHomeUploadSyncBar:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-15-[spinner(spinnerHeight)]",
+            withVisualFormat:"V:|-10-[spinner(spinnerHeight)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-39-[cancelButton(32)]",
+            withVisualFormat:"V:|-35-[cancelButton(30)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[labelCount(40)]-0-|",
+            withVisualFormat:"V:|-30-[labelCount(40)]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-39-[tryAgainButton(32)]",
+            withVisualFormat:"V:|-35-[tryAgainButton(30)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[visualEffect]-0-|",
             options:[],
             metrics:metrics,
             views:views))

@@ -8,18 +8,18 @@ class VStoreHeader:UICollectionReusableView
     private weak var label:UILabel!
     private weak var imageView:UIImageView!
     private weak var layoutLabelHeight:NSLayoutConstraint!
-    private let kLabelMarginHorizontal:CGFloat = 10
+    private let kLabelMarginHorizontal:CGFloat = 20
     private let kImageViewSize:CGFloat = 100
     
     override init(frame:CGRect)
     {
         attrTitle = [
-            NSFontAttributeName:UIFont.bold(size:17),
+            NSFontAttributeName:UIFont.medium(size:18),
             NSForegroundColorAttributeName:UIColor.main
         ]
         
         attrDescr = [
-            NSFontAttributeName:UIFont.regular(size:14),
+            NSFontAttributeName:UIFont.regular(size:18),
             NSForegroundColorAttributeName:UIColor.black
         ]
         
@@ -60,12 +60,12 @@ class VStoreHeader:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-20-[label]",
+            withVisualFormat:"V:|-22-[label]",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-12-[imageView(imageViewSize)]",
+            withVisualFormat:"V:|-0-[imageView(imageViewSize)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -120,16 +120,16 @@ class VStoreHeader:UICollectionReusableView
     {
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
         let stringTitle:NSAttributedString = NSAttributedString(
-            string:model.purchaseTitle,
+            string:model.title,
             attributes:attrTitle)
         let stringDescr:NSAttributedString = NSAttributedString(
-            string:model.purchaseDescription,
+            string:model.descr,
             attributes:attrDescr)
         mutableString.append(stringTitle)
         mutableString.append(stringDescr)
         
         label.attributedText = mutableString
-        imageView.image = UIImage(named:model.purchaseAsset)
+        imageView.image = model.image
         
         setNeedsLayout()
     }

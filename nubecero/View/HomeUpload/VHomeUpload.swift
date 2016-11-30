@@ -3,11 +3,13 @@ import UIKit
 class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
     weak var collectionView:UICollectionView!
+    weak var header:VHomeUploadHeader?
     private weak var controller:CHomeUpload!
     private weak var spinner:VSpinner!
     private var imageSize:CGSize!
     private let kCollectionBottom:CGFloat = 20
     private let kInterLine:CGFloat = 1
+    private let kHeaderHeight:CGFloat = 120
     
     convenience init(controller:CHomeUpload)
     {
@@ -23,11 +25,15 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         self.spinner = spinner
         
         let flow:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        flow.headerReferenceSize = CGSize.zero
+        flow.headerReferenceSize = CGSize(width:0, height:kHeaderHeight)
         flow.footerReferenceSize = CGSize.zero
         flow.minimumLineSpacing = kInterLine
         flow.minimumInteritemSpacing = 0
-        flow.sectionInset = UIEdgeInsets(top:kInterLine, left:0, bottom:kCollectionBottom, right:0)
+        flow.sectionInset = UIEdgeInsets(
+            top:kInterLine,
+            left:kInterLine,
+            bottom:kCollectionBottom,
+            right:kInterLine)
         flow.scrollDirection = UICollectionViewScrollDirection.vertical
         
         let collectionView:UICollectionView = UICollectionView(frame:CGRect.zero, collectionViewLayout:flow)
@@ -42,9 +48,19 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(
-            VHomeUploadCell.self,
+            VHomeUploadCellActive.self,
             forCellWithReuseIdentifier:
-            VHomeUploadCell.reusableIdentifier)
+            VHomeUploadCellActive.reusableIdentifier)
+        collectionView.register(
+            VHomeUploadCellClouded.self,
+            forCellWithReuseIdentifier:
+            VHomeUploadCellClouded.reusableIdentifier)
+        collectionView.register(
+            VHomeUploadHeader.self,
+            forSupplementaryViewOfKind:
+            UICollectionElementKindSectionHeader,
+            withReuseIdentifier:
+            VHomeUploadHeader.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(spinner)
@@ -92,7 +108,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
     private func computeImageSize()
     {
         let width:CGFloat = bounds.maxX - kInterLine
-        let proximate:CGFloat = floor(width / MHomeUpload.kImageMaxSize)
+        let proximate:CGFloat = floor(width / MPhotos.kThumbnailSize)
         let size:CGFloat = (width / proximate) - kInterLine
         imageSize = CGSize(width:size, height:size)
     }
@@ -158,6 +174,7 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         spinner.stopAnimating()
         collectionView.reloadData()
         collectionView.isHidden = false
+        updateBar()
     }
     
     //MARK: collectionView delegate
@@ -179,22 +196,49 @@ class VHomeUpload:UIView, UICollectionViewDelegate, UICollectionViewDataSource, 
         return count
     }
     
+    func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView
+    {
+        header = collectionView.dequeueReusableSupplementaryView(
+            ofKind:kind,
+            withReuseIdentifier:
+            VHomeUploadHeader.reusableIdentifier,
+            for:indexPath) as? VHomeUploadHeader
+        header!.config(controller:controller)
+        
+        return header!
+    }
+    
     func collectionView(_ collectionView:UICollectionView, cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
         let item:MHomeUploadItem = modelAtIndex(index:indexPath)
         let cell:VHomeUploadCell = collectionView.dequeueReusableCell(
-            withReuseIdentifier:VHomeUploadCell.reusableIdentifier,
+            withReuseIdentifier:
+            item.status.reusableIdentifier,
             for:indexPath) as! VHomeUploadCell
         cell.config(model:item)
         
         return cell
     }
     
+    func collectionView(_ collectionView:UICollectionView, shouldHighlightItemAt indexPath:IndexPath) -> Bool
+    {
+        let item:MHomeUploadItem = modelAtIndex(index:indexPath)
+        
+        return item.status.selectable
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, shouldSelectItemAt indexPath:IndexPath) -> Bool
+    {
+        let item:MHomeUploadItem = modelAtIndex(index:indexPath)
+        
+        return item.status.selectable
+    }
+    
     func collectionView(_ collectionView:UICollectionView, shouldDeselectItemAt indexPath:IndexPath) -> Bool
     {
         let item:MHomeUploadItem = modelAtIndex(index:indexPath)
         
-        return !item.status.finished
+        return item.status.selectable
     }
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)

@@ -5,24 +5,49 @@ class MHomeUploadItem
 {
     var image:UIImage?
     var imageData:Data?
-    var pictureId:String?
+    var photoId:String?
     let asset:PHAsset
+    let localId:MPhotos.LocalId
+    let creationDate:TimeInterval
+    let pixelWidth:Int
+    let pixelHeight:Int
     private(set) var status:MHomeUploadItemStatus
     private var requestId:PHImageRequestID?
+    private let kTimeZero:TimeInterval = 0
     
     init(asset:PHAsset)
     {
-        status = MHomeUploadItemStatusNone(item:nil)
+        pixelWidth = asset.pixelWidth
+        pixelHeight = asset.pixelHeight
+        localId = asset.localIdentifier
         self.asset = asset
-        
+
         let imageSize:CGSize = CGSize(
-            width:MHomeUpload.kImageMaxSize,
-            height:MHomeUpload.kImageMaxSize)
+            width:MPhotos.kThumbnailSize,
+            height:MPhotos.kThumbnailSize)
         
         let requestOptions:PHImageRequestOptions = PHImageRequestOptions()
         requestOptions.resizeMode = PHImageRequestOptionsResizeMode.fast
         requestOptions.isSynchronous = false
         requestOptions.deliveryMode = PHImageRequestOptionsDeliveryMode.fastFormat
+        
+        if let _:Bool = MPhotos.sharedInstance.localReferences[localId]
+        {
+            status = MHomeUploadItemStatusClouded(item:nil)
+        }
+        else
+        {
+            status = MHomeUploadItemStatusNone(item:nil)
+        }
+        
+        if let creationDate:TimeInterval = asset.creationDate?.timeIntervalSince1970
+        {
+            self.creationDate = creationDate
+        }
+        else
+        {
+            self.creationDate = kTimeZero
+        }
         
         status.item = self
         requestId = PHImageManager.default().requestImage(
@@ -30,7 +55,9 @@ class MHomeUploadItem
             targetSize:imageSize,
             contentMode:PHImageContentMode.aspectFill,
             options:requestOptions)
-        { [weak self] (image, info) in
+        { [weak self] (
+            image:UIImage?,
+            info:[AnyHashable:Any]?) in
             
             self?.requestId = nil
             self?.image = image

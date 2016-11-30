@@ -4,7 +4,19 @@ import StoreKit
 class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserver, SKRequestDelegate
 {
     private weak var viewStore:VStore!
-    var model:MStore?
+    private weak var request:SKProductsRequest?
+    let model:MStore
+    
+    override init()
+    {
+        model = MStore()
+        super.init()
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
     
     override func loadView()
     {
@@ -18,53 +30,73 @@ class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserve
         super.viewDidLoad()
         
         SKPaymentQueue.default().add(self)
-        model = MStore(controller:self)
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            guard
+                
+                let purchaseIds:[MStore.PurchaseId] = self?.model.references
+            
+            else
+            {
+                return
+            }
+            
+            let purchases:Set<MStore.PurchaseId> = Set<MStore.PurchaseId>(purchaseIds)
+            self?.checkAvailabilities(purchases:purchases)
+        }
     }
     
     deinit
     {
+        request?.cancel()
         SKPaymentQueue.default().remove(self)
     }
     
-    //MARK: public
+    //MARK: private
     
-    func noFirebasePurchases()
+    private func checkAvailabilities(purchases:Set<MStore.PurchaseId>)
     {
-        viewStore.refreshStore()
-    }
-    
-    func checkAvailabilities(itemsSet:Set<MStore.PurchaseId>)
-    {
-        let request:SKProductsRequest = SKProductsRequest(productIdentifiers:itemsSet)
+        let request:SKProductsRequest = SKProductsRequest(productIdentifiers:purchases)
+        self.request = request
         request.delegate = self
         request.start()
     }
     
+    //MARK: public
+    
     func restorePurchases()
     {
-        SKPaymentQueue.default().restoreCompletedTransactions()
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            SKPaymentQueue.default().restoreCompletedTransactions()
+        }
     }
     
     func purchase(skProduct:SKProduct?)
     {
-        guard
-            
-            let skProduct:SKProduct = skProduct
-            
-        else
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         {
-            return
+            guard
+                
+                let skProduct:SKProduct = skProduct
+                
+            else
+            {
+                return
+            }
+            
+            let skPayment:SKPayment = SKPayment(product:skProduct)
+            SKPaymentQueue.default().add(skPayment)
         }
-        
-        let skPayment:SKPayment = SKPayment(product:skProduct)
-        SKPaymentQueue.default().add(skPayment)
     }
     
     //MARK: storeKit delegate
     
     func request(_ request:SKRequest, didFailWithError error:Error)
     {
-        model?.error = error.localizedDescription
+        model.error = error.localizedDescription
         viewStore.refreshStore()
     }
     
@@ -74,7 +106,7 @@ class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserve
         
         for product:SKProduct in products
         {
-            model?.loadSkProduct(skProduct:product)
+            model.loadSkProduct(skProduct:product)
         }
         
         viewStore.refreshStore()
@@ -82,13 +114,13 @@ class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserve
     
     func paymentQueue(_ queue:SKPaymentQueue, updatedTransactions transactions:[SKPaymentTransaction])
     {
-        model?.updateTransactions(transactions:transactions)
+        model.updateTransactions(transactions:transactions)
         viewStore.refreshStore()
     }
     
     func paymentQueue(_ queue:SKPaymentQueue, removedTransactions transactions:[SKPaymentTransaction])
     {
-        model?.updateTransactions(transactions:transactions)
+        model.updateTransactions(transactions:transactions)
         viewStore.refreshStore()
     }
     
@@ -99,7 +131,7 @@ class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserve
     
     func paymentQueue(_ queue:SKPaymentQueue, restoreCompletedTransactionsFailedWithError error:Error)
     {
-        model?.error = error.localizedDescription
+        model.error = error.localizedDescription
         viewStore.refreshStore()
     }
 }

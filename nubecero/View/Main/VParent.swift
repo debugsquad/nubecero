@@ -49,61 +49,13 @@ class VParent:UIView
     
     //MARK: private
     
-    private func scroll(controller:CController, currentController:CController, delta:CGFloat, completion:@escaping(() -> ()))
-    {
-        insertSubview(controller.view, belowSubview:bar)
-        
-        let views:[String:UIView] = [
-            "view":controller.view]
-        
-        let metrics:[String:CGFloat] = [:]
-        
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[view]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        
-        controller.layoutLeft = NSLayoutConstraint(
-            item:controller.view,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:-delta)
-        controller.layoutRight = NSLayoutConstraint(
-            item:controller.view,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:-delta)
-        
-        addConstraint(controller.layoutLeft)
-        addConstraint(controller.layoutRight)
-        
-        layoutIfNeeded()
-        
-        controller.layoutLeft.constant = 0
-        controller.layoutRight.constant = 0
-        currentController.layoutLeft.constant = delta
-        currentController.layoutRight.constant = delta
-        
-        UIView.animate(withDuration:kAnimationDuration, animations:
-        {
-            self.layoutIfNeeded()
-        })
-        { (done:Bool) in
-            
-            completion()
-        }
-    }
-    
-    //MARK: public
-    
-    func over(controller:CController, underBar:Bool, animate:Bool, completion:@escaping(() -> ()))
+    func addControllerView(
+        controller:CController,
+        underBar:Bool,
+        constantLeft:CGFloat,
+        constantRight:CGFloat,
+        constantTop:CGFloat,
+        constantBottom:CGFloat)
     {
         if underBar
         {
@@ -114,17 +66,6 @@ class VParent:UIView
             addSubview(controller.view)
         }
         
-        let views:[String:UIView] = [
-            "view":controller.view]
-        
-        let metrics:[String:CGFloat] = [:]
-        
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[view]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        
         controller.layoutLeft = NSLayoutConstraint(
             item:controller.view,
             attribute:NSLayoutAttribute.left,
@@ -132,7 +73,7 @@ class VParent:UIView
             toItem:self,
             attribute:NSLayoutAttribute.left,
             multiplier:1,
-            constant:0)
+            constant:constantLeft)
         controller.layoutRight = NSLayoutConstraint(
             item:controller.view,
             attribute:NSLayoutAttribute.right,
@@ -140,20 +81,89 @@ class VParent:UIView
             toItem:self,
             attribute:NSLayoutAttribute.right,
             multiplier:1,
-            constant:0)
+            constant:constantRight)
+        controller.layoutTop = NSLayoutConstraint(
+            item:controller.view,
+            attribute:NSLayoutAttribute.top,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.top,
+            multiplier:1,
+            constant:constantTop)
+        controller.layoutBottom = NSLayoutConstraint(
+            item:controller.view,
+            attribute:NSLayoutAttribute.bottom,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.bottom,
+            multiplier:1,
+            constant:constantBottom)
         
         addConstraint(controller.layoutLeft)
         addConstraint(controller.layoutRight)
+        addConstraint(controller.layoutTop)
+        addConstraint(controller.layoutBottom)
+        
+        layoutIfNeeded()
+    }
+    
+    //MARK: public
+    
+    func scroll(
+        controller:CController,
+        currentController:CController,
+        delta:CGFloat,
+        underBar:Bool,
+        completion:@escaping(() -> ()))
+    {
+        addControllerView(
+            controller:controller,
+            underBar:underBar,
+            constantLeft:-delta,
+            constantRight:-delta,
+            constantTop:0,
+            constantBottom:0)
+        
+        controller.layoutLeft.constant = 0
+        controller.layoutRight.constant = 0
+        currentController.layoutLeft.constant = delta
+        currentController.layoutRight.constant = delta
+        
+        UIView.animate(withDuration:kAnimationDuration,
+                       animations:
+        {
+            self.layoutIfNeeded()
+        })
+        { (done:Bool) in
+            
+            completion()
+        }
+    }
+    
+    func over(
+        controller:CController,
+        underBar:Bool,
+        animate:Bool,
+        completion:@escaping(() -> ()))
+    {
+        addControllerView(
+            controller:controller,
+            underBar:underBar,
+            constantLeft:0,
+            constantRight:0,
+            constantTop:0,
+            constantBottom:0)
         
         if animate
         {
             controller.view.alpha = 0
             
-            UIView.animate(withDuration:kAnimationDuration, animations:
+            UIView.animate(withDuration:kAnimationDuration,
+                           animations:
             {
                 controller.view.alpha = 1
             })
-            { (done) in
+            { (done:Bool) in
                 
                 completion()
             }
@@ -164,57 +174,22 @@ class VParent:UIView
         }
     }
     
-    func fromLeft(controller:CController, currentController:CController, completion:@escaping(() -> ()))
-    {
-        let width:CGFloat = bounds.maxX
-        scroll(controller:controller, currentController:currentController, delta:width, completion:completion)
-    }
-    
-    func fromRight(controller:CController, currentController:CController, completion:@escaping(() -> ()))
-    {
-        let width:CGFloat = -bounds.maxX
-        scroll(controller:controller, currentController:currentController, delta:width, completion:completion)
-    }
-    
-    func push(controller:CController, currentController:CController, completion:@escaping(() -> ()))
+    func push(
+        controller:CController,
+        currentController:CController,
+        underBar:Bool,
+        completion:@escaping(() -> ()))
     {
         let width:CGFloat = bounds.maxX
         let width_2:CGFloat = width / 2.0
         
-        insertSubview(controller.view, belowSubview:bar)
-        
-        let views:[String:UIView] = [
-            "view":controller.view]
-        
-        let metrics:[String:CGFloat] = [:]
-        
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[view]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        
-        controller.layoutLeft = NSLayoutConstraint(
-            item:controller.view,
-            attribute:NSLayoutAttribute.left,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.left,
-            multiplier:1,
-            constant:width)
-        controller.layoutRight = NSLayoutConstraint(
-            item:controller.view,
-            attribute:NSLayoutAttribute.right,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:self,
-            attribute:NSLayoutAttribute.right,
-            multiplier:1,
-            constant:width)
-        
-        addConstraint(controller.layoutLeft)
-        addConstraint(controller.layoutRight)
-        
-        layoutIfNeeded()
+        addControllerView(
+            controller:controller,
+            underBar:underBar,
+            constantLeft:width,
+            constantRight:width,
+            constantTop:0,
+            constantBottom:0)
         
         controller.layoutLeft.constant = 0
         controller.layoutRight.constant = 0
@@ -223,7 +198,8 @@ class VParent:UIView
         currentController.addShadow()
         bar.push(name:controller.title)
         
-        UIView.animate(withDuration:kAnimationDuration, animations:
+        UIView.animate(withDuration:kAnimationDuration,
+                       animations:
         {
             self.layoutIfNeeded()
             currentController.shadow?.maxAlpha()
@@ -234,7 +210,11 @@ class VParent:UIView
         }
     }
     
-    func pop(currentController:CController, previousController:CController, popBar:Bool, completion:@escaping(() -> ()))
+    func pop(
+        currentController:CController,
+        previousController:CController,
+        popBar:Bool,
+        completion:@escaping(() -> ()))
     {
         let width:CGFloat = bounds.maxX
         currentController.layoutRight.constant = width
@@ -247,7 +227,8 @@ class VParent:UIView
             bar.pop()
         }
         
-        UIView.animate(withDuration:kAnimationDuration, animations:
+        UIView.animate(withDuration:kAnimationDuration,
+                       animations:
         {
             self.layoutIfNeeded()
             previousController.shadow?.minAlpha()
@@ -259,11 +240,33 @@ class VParent:UIView
         }
     }
     
-    func dismiss(currentController:CController, completion:@escaping(() -> ()))
+    func dismiss(
+        currentController:CController,
+        completion:@escaping(() -> ()))
     {
-        UIView.animate(withDuration:kAnimationDuration, animations:
+        UIView.animate(withDuration:kAnimationDuration,
+                       animations:
         {
             currentController.view.alpha = 0
+        })
+        { (done:Bool) in
+            
+            completion()
+        }
+    }
+    
+    func dismissBelow(
+        currentController:CController,
+        completion:@escaping(() -> ()))
+    {
+        let height:CGFloat = bounds.maxY
+        currentController.layoutBottom.constant = height
+        currentController.layoutTop.constant = height
+        
+        UIView.animate(withDuration:kAnimationDuration,
+                       animations:
+        {
+            self.layoutIfNeeded()
         })
         { (done:Bool) in
             

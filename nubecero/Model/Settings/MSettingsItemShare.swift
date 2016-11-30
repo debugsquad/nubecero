@@ -21,7 +21,7 @@ class MSettingsItemShare:MSettingsItem
     
     override func selected(controller:CSettings)
     {
-        FMain.sharedInstance.analytics?.share()
+        FMain.sharedInstance.analytics?.actionShare()
         
         controller.share()
     }

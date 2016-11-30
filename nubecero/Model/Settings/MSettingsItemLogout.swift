@@ -21,7 +21,7 @@ class MSettingsItemLogout:MSettingsItem
     
     override func selected(controller:CSettings)
     {
-        FMain.sharedInstance.analytics?.logout()
+        FMain.sharedInstance.analytics?.sessionLogout()
         
         controller.logOut()
     }

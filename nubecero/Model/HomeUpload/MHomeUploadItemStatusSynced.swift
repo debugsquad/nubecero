@@ -1,16 +1,31 @@
-import Foundation
+import UIKit
 
 class MHomeUploadItemStatusSynced:MHomeUploadItemStatus
 {
     private let kAssetSync:String = "assetHomeSyncDone"
     private let kFinished:Bool = true
+    private let kSelectable:Bool = false
     
     init(item:MHomeUploadItem?)
     {
-        super.init(item:item, assetSync:kAssetSync, finished:kFinished)
+        let reusableIdentifier:String = VHomeUploadCellActive.reusableIdentifier
+        let color:UIColor = UIColor.complement
+        super.init(
+            reusableIdentifier:reusableIdentifier,
+            item:item,
+            assetSync:kAssetSync,
+            finished:kFinished,
+            selectable:kSelectable,
+            color:color)
     }
     
-    override init(item:MHomeUploadItem?, assetSync:String, finished:Bool)
+    override init(
+        reusableIdentifier:String,
+        item:MHomeUploadItem?,
+        assetSync:String,
+        finished:Bool,
+        selectable:Bool,
+        color:UIColor)
     {
         fatalError()
     }

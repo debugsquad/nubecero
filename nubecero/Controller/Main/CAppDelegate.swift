@@ -29,7 +29,7 @@ class AppDelegate:UIResponder, UIApplicationDelegate
     {
         guard
             
-            let askAuth:Bool = MSession.sharedInstance.settings?.security
+            let askAuth:Bool = MSession.sharedInstance.settings.current?.security
             
         else
         {
@@ -47,7 +47,7 @@ class AppDelegate:UIResponder, UIApplicationDelegate
         parent.controllerAuth?.askAuth()
     }
     
-    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+    func application(_ application:UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken:Data)
     {
         FIRInstanceID.instanceID().setAPNSToken(
             deviceToken,

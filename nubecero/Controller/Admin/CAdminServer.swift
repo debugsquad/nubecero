@@ -33,7 +33,7 @@ class CAdminServer:CController
         FMain.sharedInstance.database.listenOnce(
             path:parentServer,
             modelType:FDatabaseModelServer.self)
-        { [weak self] (modelServer) in
+        { [weak self] (modelServer:FDatabaseModelServer?) in
             
             guard
                 
@@ -120,7 +120,7 @@ class CAdminServer:CController
             NSLocalizedString("CAdminServer_alertSave", comment:""),
             style:
             UIAlertActionStyle.default)
-        { (action) in
+        { (action:UIAlertAction) in
             
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             { [weak self] in

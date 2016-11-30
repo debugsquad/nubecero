@@ -66,17 +66,13 @@ class VHome:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             forCellWithReuseIdentifier:
             VHomeCellSpaceTotal.reusableIdentifier)
         collectionView.register(
-            VHomeCellPictures.self,
+            VHomeCellSpacePhotos.self,
             forCellWithReuseIdentifier:
-            VHomeCellPictures.reusableIdentifier)
+            VHomeCellSpacePhotos.reusableIdentifier)
         collectionView.register(
             VHomeCellDisk.self,
             forCellWithReuseIdentifier:
             VHomeCellDisk.reusableIdentifier)
-        collectionView.register(
-            VHomeCellBlank.self,
-            forCellWithReuseIdentifier:
-            VHomeCellBlank.reusableIdentifier)
         self.collectionView = collectionView
         
         addSubview(collectionView)

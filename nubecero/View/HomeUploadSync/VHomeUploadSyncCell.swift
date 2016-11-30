@@ -4,20 +4,14 @@ class VHomeUploadSyncCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private weak var imageStatus:UIImageView!
-    private weak var layoutImageViewWidth:NSLayoutConstraint!
-    private let kImageViewLeft:CGFloat = 5
-    private let kImageViewRight:CGFloat = 5
-    private let kStatusWidth:CGFloat = 50
-    private let kImageViewMarginVertical:CGFloat = 5
-    private let compoundMarginVertical:CGFloat
+    private weak var shade:UIView!
+    private let kShadeAlpha:CGFloat = 0.6
     
     override init(frame:CGRect)
     {
-        compoundMarginVertical = kImageViewMarginVertical + kImageViewMarginVertical
-        
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor(white:0, alpha:0.06)
+        backgroundColor = UIColor.clear
         isUserInteractionEnabled = false
         
         let imageView:UIImageView = UIImageView()
@@ -25,8 +19,6 @@ class VHomeUploadSyncCell:UICollectionViewCell
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.scaleAspectFill
-        imageView.layer.borderWidth = 1
-        imageView.layer.borderColor = UIColor(white:0, alpha:0.2).cgColor
         self.imageView = imageView
         
         let imageStatus:UIImageView = UIImageView()
@@ -36,26 +28,49 @@ class VHomeUploadSyncCell:UICollectionViewCell
         imageStatus.contentMode = UIViewContentMode.center
         self.imageStatus = imageStatus
         
+        let shade:UIView = UIView()
+        shade.isUserInteractionEnabled = false
+        shade.clipsToBounds = true
+        shade.translatesAutoresizingMaskIntoConstraints = false
+        shade.alpha = kShadeAlpha
+        self.shade = shade
+        
         addSubview(imageView)
+        addSubview(shade)
         addSubview(imageStatus)
         
         let views:[String:UIView] = [
             "imageView":imageView,
-            "imageStatus":imageStatus]
+            "imageStatus":imageStatus,
+            "shade":shade]
         
-        let metrics:[String:CGFloat] = [
-            "imageViewLeft":kImageViewLeft,
-            "imageViewRight":kImageViewRight,
-            "imageViewMarginVertical":kImageViewMarginVertical,
-            "statusWidth":kStatusWidth]
+        let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-(imageViewLeft)-[imageView]-(imageViewRight)-[imageStatus(statusWidth)]",
+            withVisualFormat:
+            "H:|-0-[imageStatus]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(imageViewMarginVertical)-[imageView]-(imageViewMarginVertical)-|",
+            withVisualFormat:
+            "H:|-0-[imageView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:
+            "V:|-0-[imageView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[shade]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-0-[shade]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -64,17 +79,6 @@ class VHomeUploadSyncCell:UICollectionViewCell
             options:[],
             metrics:metrics,
             views:views))
-        
-        layoutImageViewWidth = NSLayoutConstraint(
-            item:imageView,
-            attribute:NSLayoutAttribute.width,
-            relatedBy:NSLayoutRelation.equal,
-            toItem:nil,
-            attribute:NSLayoutAttribute.notAnAttribute,
-            multiplier:1,
-            constant:0)
-        
-        addConstraint(layoutImageViewWidth)
     }
     
     required init?(coder:NSCoder)
@@ -82,21 +86,11 @@ class VHomeUploadSyncCell:UICollectionViewCell
         fatalError()
     }
     
-    override func layoutSubviews()
-    {
-        let height:CGFloat = bounds.maxY
-        let height_margin:CGFloat = height - compoundMarginVertical
-        let cornerRadius:CGFloat = height_margin / 2.0
-        layoutImageViewWidth.constant = height_margin
-        imageView.layer.cornerRadius = cornerRadius
-        
-        super.layoutSubviews()
-    }
-    
     //MARK: public
     
     func config(model:MHomeUploadItem)
     {
+        shade.backgroundColor = model.status.color
         imageView.image = model.image
         imageStatus.image = UIImage(
             named:model.status.assetSync)

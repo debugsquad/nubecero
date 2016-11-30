@@ -2,14 +2,13 @@ import UIKit
 
 class VHomeUploadCell:UICollectionViewCell
 {
-    private weak var imageView:UIImageView!
-    private weak var baseBlur:UIView!
-    private weak var indicator:UIImageView!
+    weak var indicator:UIImageView!
+    weak var imageView:UIImageView!
+    weak var baseBlur:UIView!
     private let kBorderWidth:CGFloat = 1
-    private let kBlurAlpha:CGFloat = 0.99
     private let kIndicatorSize:CGFloat = 50
     
-    override init(frame:CGRect)
+    init(frame:CGRect, blurEffect:UIBlurEffect, blurAlpha:CGFloat)
     {
         super.init(frame:frame)
         clipsToBounds = true
@@ -26,9 +25,9 @@ class VHomeUploadCell:UICollectionViewCell
         baseBlur.isUserInteractionEnabled = false
         baseBlur.translatesAutoresizingMaskIntoConstraints = false
         baseBlur.clipsToBounds = true
+        baseBlur.alpha = blurAlpha
         self.baseBlur = baseBlur
         
-        let blurEffect:UIBlurEffect = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
         let blur:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
         blur.isUserInteractionEnabled = false
         blur.clipsToBounds = true
@@ -39,7 +38,7 @@ class VHomeUploadCell:UICollectionViewCell
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.clipsToBounds = true
         indicator.contentMode = UIViewContentMode.center
-        indicator.image = #imageLiteral(resourceName: "assetHomeUploadSelect")
+        indicator.tintColor = UIColor.main
         self.indicator = indicator
         
         baseBlur.addSubview(blur)
@@ -98,41 +97,14 @@ class VHomeUploadCell:UICollectionViewCell
             views:views))
     }
     
-    required init?(coder:NSCoder)
+    override init(frame:CGRect)
     {
         fatalError()
     }
     
-    override var isSelected:Bool
+    required init?(coder:NSCoder)
     {
-        didSet
-        {
-            hover()
-        }
-    }
-    
-    override var isHighlighted:Bool
-    {
-        didSet
-        {
-            hover()
-        }
-    }
-    
-    //MARK: private
-    
-    private func hover()
-    {
-        if isSelected || isHighlighted
-        {
-            baseBlur.alpha = kBlurAlpha
-            indicator.isHidden = false
-        }
-        else
-        {
-            baseBlur.alpha = 0
-            indicator.isHidden = true
-        }
+        fatalError()
     }
     
     //MARK: public
@@ -140,6 +112,5 @@ class VHomeUploadCell:UICollectionViewCell
     func config(model:MHomeUploadItem)
     {
         imageView.image = model.image
-        hover()
     }
 }

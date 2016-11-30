@@ -105,7 +105,7 @@ class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     private func modelAtIndex(index:IndexPath) -> MAdminUsersPhotosItem
     {
-        let item:MAdminUsersPhotosItem = controller.pictures!.items[index.item]
+        let item:MAdminUsersPhotosItem = controller.photos!.items[index.item]
         
         return item
     }
@@ -134,7 +134,7 @@ class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     {
         guard
         
-            let _:MAdminUsersPhotos = controller.pictures
+            let _:MAdminUsersPhotos = controller.photos
         
         else
         {
@@ -146,7 +146,7 @@ class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
     {
-        let count:Int = controller.pictures!.items.count
+        let count:Int = controller.photos!.items.count
         
         return count
     }

@@ -5,10 +5,9 @@ class VAuth:UIView
     private weak var controller:CAuth!
     private weak var buttonTryAgain:UIButton!
     private weak var layoutButtonTryAgainLeft:NSLayoutConstraint!
-    private let kButtonTryAgainWidth:CGFloat = 140
-    private let kButtonTryAgainHeight:CGFloat = 36
-    private let kButtonTryAgainBottom:CGFloat = 30
-    private let kCornerRadius:CGFloat = 4
+    private let kButtonTryAgainWidth:CGFloat = 180
+    private let kButtonTryAgainHeight:CGFloat = 50
+    private let kButtonTryAgainBottom:CGFloat = 15
     
     convenience init(controller:CAuth)
     {
@@ -23,20 +22,23 @@ class VAuth:UIView
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.contentMode = UIViewContentMode.center
-        imageView.image = #imageLiteral(resourceName: "assetGenericLogo")
+        imageView.image = #imageLiteral(resourceName: "assetGenericLock")
         
         let buttonTryAgain:UIButton = UIButton()
         buttonTryAgain.isHidden = true
         buttonTryAgain.clipsToBounds = true
         buttonTryAgain.translatesAutoresizingMaskIntoConstraints = false
-        buttonTryAgain.backgroundColor = UIColor.black
-        buttonTryAgain.setTitleColor(UIColor.white, for:UIControlState.normal)
-        buttonTryAgain.setTitleColor(UIColor.complement, for:UIControlState.highlighted)
+        buttonTryAgain.backgroundColor = UIColor.clear
+        buttonTryAgain.setTitleColor(
+            UIColor.white,
+            for:UIControlState.normal)
+        buttonTryAgain.setTitleColor(
+            UIColor(white:1, alpha:0.2),
+            for:UIControlState.highlighted)
         buttonTryAgain.setTitle(
             NSLocalizedString("VAuth_buttonTryAgain", comment:""),
             for:UIControlState.normal)
-        buttonTryAgain.titleLabel!.font = UIFont.bold(size:14)
-        buttonTryAgain.layer.cornerRadius = kCornerRadius
+        buttonTryAgain.titleLabel!.font = UIFont.medium(size:18)
         buttonTryAgain.addTarget(
             self,
             action:#selector(actionTryAgain(sender:)),

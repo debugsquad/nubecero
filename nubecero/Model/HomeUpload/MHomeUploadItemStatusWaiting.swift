@@ -1,17 +1,32 @@
-import Foundation
+import UIKit
 import Photos
 
 class MHomeUploadItemStatusWaiting:MHomeUploadItemStatus
 {
     private let kAssetSync:String = "assetHomeSyncWait"
     private let kFinished:Bool = false
+    private let kSelectable:Bool = true
     
     init(item:MHomeUploadItem?)
     {
-        super.init(item:item, assetSync:kAssetSync, finished:kFinished)
+        let reusableIdentifier:String = VHomeUploadCellActive.reusableIdentifier
+        let color:UIColor = UIColor(white:0, alpha:0.6)
+        super.init(
+            reusableIdentifier:reusableIdentifier,
+            item:item,
+            assetSync:kAssetSync,
+            finished:kFinished,
+            selectable:kSelectable,
+            color:color)
     }
     
-    override init(item:MHomeUploadItem?, assetSync:String, finished:Bool)
+    override init(
+        reusableIdentifier:String,
+        item:MHomeUploadItem?,
+        assetSync:String,
+        finished:Bool,
+        selectable:Bool,
+        color:UIColor)
     {
         fatalError()
     }
@@ -42,7 +57,11 @@ class MHomeUploadItemStatusWaiting:MHomeUploadItemStatus
             PHImageManager.default().requestImageData(
                 for:asset,
                 options:requestOptions)
-            { [weak self, weak controller] (data, dataUTI, orientation, info) in
+            { [weak self, weak controller] (
+                data:Data?,
+                dataUTI:String?,
+                orientation:UIImageOrientation,
+                info:[AnyHashable:Any]?) in
                 
                 guard
                     

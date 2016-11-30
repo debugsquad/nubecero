@@ -35,7 +35,11 @@ class CParent:UIViewController
             object:nil)
         
         let login:CLogin = CLogin()
-        over(controller:login, pop:false, animate:false)
+        
+        over(
+            controller:login,
+            pop:false,
+            animate:false)
     }
     
     override func loadView()
@@ -71,7 +75,11 @@ class CParent:UIViewController
     
     //MARK: private
     
-    private func mainController(controller:CController, underBar:Bool, pop:Bool, animate:Bool)
+    private func mainController(
+        controller:CController,
+        underBar:Bool,
+        pop:Bool,
+        animate:Bool)
     {
         let currentController:CController?
         
@@ -81,7 +89,7 @@ class CParent:UIViewController
         }
         else
         {
-            currentController = nil
+            currentController = controllers.last
         }
         
         controllers.append(controller)
@@ -90,13 +98,79 @@ class CParent:UIViewController
         
         currentController?.beginAppearanceTransition(false, animated:animate)
         
-        viewParent.over(controller:controller, underBar:underBar, animate:animate)
+        viewParent.over(
+            controller:controller,
+            underBar:underBar,
+            animate:animate)
         {
             controller.endAppearanceTransition()
             
-            currentController?.view.removeFromSuperview()
-            currentController?.removeFromParentViewController()
+            if pop
+            {
+                currentController?.view.removeFromSuperview()
+                currentController?.removeFromParentViewController()
+            }
+            
             currentController?.endAppearanceTransition()
+        }
+    }
+    
+    private func scroll(
+        controller:CController,
+        underBar:Bool,
+        pop:Bool,
+        delta:CGFloat)
+    {
+        let currentController:CController
+        
+        if pop
+        {
+            guard
+                
+                let popedController:CController = controllers.popLast()
+                
+            else
+            {
+                return
+            }
+            
+            currentController = popedController
+        }
+        else
+        {
+            guard
+                
+                let stackedController:CController = controllers.last
+                
+            else
+            {
+                return
+            }
+            
+            currentController = stackedController
+        }
+        
+        controllers.append(controller)
+        addChildViewController(controller)
+        controller.beginAppearanceTransition(true, animated:true)
+        
+        currentController.beginAppearanceTransition(false, animated:true)
+        
+        viewParent.scroll(
+            controller:controller,
+            currentController:currentController,
+            delta:delta,
+            underBar:underBar)
+        {
+            controller.endAppearanceTransition()
+            
+            if pop
+            {
+                currentController.view.removeFromSuperview()
+                currentController.removeFromParentViewController()
+            }
+            
+            currentController.endAppearanceTransition()
         }
     }
     
@@ -114,7 +188,7 @@ class CParent:UIViewController
         setNeedsStatusBarAppearanceUpdate()
     }
     
-    func push(controller:CController)
+    func push(controller:CController, underBar:Bool)
     {
         guard
             
@@ -131,24 +205,41 @@ class CParent:UIViewController
         
         currentController.beginAppearanceTransition(false, animated:true)
         
-        viewParent.push(controller:controller, currentController:currentController)
+        viewParent.push(
+            controller:controller,
+            currentController:currentController,
+            underBar:underBar)
         {
             controller.endAppearanceTransition()
             currentController.endAppearanceTransition()
         }
     }
     
-    func center(controller:CController, pop:Bool, animate:Bool)
+    func center(
+        controller:CController,
+        pop:Bool,
+        animate:Bool)
     {
-        mainController(controller:controller, underBar:true, pop:pop, animate:animate)
+        mainController(
+            controller:controller,
+            underBar:true,
+            pop:pop,
+            animate:animate)
     }
     
-    func over(controller:CController, pop:Bool, animate:Bool)
+    func over(
+        controller:CController,
+        pop:Bool,
+        animate:Bool)
     {
-        mainController(controller:controller, underBar:false, pop:pop, animate:animate)
+        mainController(
+            controller:controller,
+            underBar:false,
+            pop:pop,
+            animate:animate)
     }
     
-    func pop()
+    func pop(completion:(() -> ())?)
     {
         guard
             
@@ -185,10 +276,12 @@ class CParent:UIViewController
             currentController.view.removeFromSuperview()
             currentController.removeFromParentViewController()
             currentController.endAppearanceTransition()
+            
+            completion?()
         }
     }
     
-    func dismiss()
+    func dismiss(centered:Bool, completion:(() -> ())?)
     {
         guard
             
@@ -203,68 +296,57 @@ class CParent:UIViewController
         previousController.beginAppearanceTransition(true, animated:true)
         currentController.beginAppearanceTransition(false, animated:true)
         
-        viewParent.dismiss(currentController:currentController)
+        let completionView:(() -> ()) =
         {
             previousController.endAppearanceTransition()
             
             currentController.view.removeFromSuperview()
             currentController.removeFromParentViewController()
             currentController.endAppearanceTransition()
-        }
-    }
-    
-    func scrollLeft(controller:CController)
-    {
-        guard
             
-            let currentController:CController = controllers.popLast()
+            completion?()
+        }
         
+        if centered
+        {
+            viewParent.dismiss(
+                currentController:currentController,
+                completion:completionView)
+        }
         else
         {
-            return
-        }
-        
-        controllers.append(controller)
-        addChildViewController(controller)
-        controller.beginAppearanceTransition(true, animated:true)
-        
-        currentController.beginAppearanceTransition(false, animated:true)
-        
-        viewParent.fromLeft(controller:controller, currentController:currentController)
-        {
-            controller.endAppearanceTransition()
-            
-            currentController.view.removeFromSuperview()
-            currentController.removeFromParentViewController()
-            currentController.endAppearanceTransition()
+            viewParent.dismissBelow(
+                currentController:currentController,
+                completion:completionView)
         }
     }
     
-    func scrollRight(controller:CController)
+    func scrollLeft(
+        controller:CController,
+        underBar:Bool,
+        pop:Bool)
     {
-        guard
-            
-            let currentController:CController = controllers.popLast()
-            
-            else
-        {
-            return
-        }
+        let delta:CGFloat = viewParent.bounds.maxX
         
-        controllers.append(controller)
-        addChildViewController(controller)
-        controller.beginAppearanceTransition(true, animated:true)
+        scroll(
+            controller:controller,
+            underBar:underBar,
+            pop:pop,
+            delta:delta)
+    }
+    
+    func scrollRight(
+        controller:CController,
+        underBar:Bool,
+        pop:Bool)
+    {
+        let delta:CGFloat = -viewParent.bounds.maxX
         
-        currentController.beginAppearanceTransition(false, animated:true)
-        
-        viewParent.fromRight(controller:controller, currentController:currentController)
-        {
-            controller.endAppearanceTransition()
-            
-            currentController.view.removeFromSuperview()
-            currentController.removeFromParentViewController()
-            currentController.endAppearanceTransition()
-        }
+        scroll(
+            controller:controller,
+            underBar:underBar,
+            pop:pop,
+            delta:delta)
     }
     
     func presentAuth()
@@ -273,7 +355,11 @@ class CParent:UIViewController
         {
             let controllerAuth:CAuth = CAuth()
             self.controllerAuth = controllerAuth
-            over(controller:controllerAuth, pop:false, animate:false)
+            
+            over(
+                controller:controllerAuth,
+                pop:false,
+                animate:false)
         }
     }
 }

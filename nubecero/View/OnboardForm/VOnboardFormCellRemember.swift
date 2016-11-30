@@ -61,7 +61,7 @@ class VOnboardFormCellRemember:VOnboardFormCell
     {
         guard
         
-            let remember:Bool = MSession.sharedInstance.settings?.rememberMe
+            let remember:Bool = MSession.sharedInstance.settings.current?.rememberMe
         
         else
         {
@@ -77,7 +77,7 @@ class VOnboardFormCellRemember:VOnboardFormCell
     {
         let shouldRemember:Bool = check.isOn
         
-        MSession.sharedInstance.settings?.rememberMe = shouldRemember
+        MSession.sharedInstance.settings.current?.rememberMe = shouldRemember
         DManager.sharedInstance.save()
     }
 }

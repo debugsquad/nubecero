@@ -1,9 +1,12 @@
 import UIKit
+import UserNotifications
+import Firebase
 import FirebaseAuth
 
 class CLogin:CController
 {
     private weak var viewLogin:VLogin!
+    private let kAskNotifications:TimeInterval = 4
     
     deinit
     {
@@ -27,7 +30,8 @@ class CLogin:CController
             name:Notification.settingsLoaded,
             object:nil)
         
-        MSession.sharedInstance.loadSettings()
+        MSession.sharedInstance.settings.loadSettings()
+        registerNotifications()
     }
     
     //MARK: notified
@@ -50,7 +54,7 @@ class CLogin:CController
                 return
             }
             
-            MSession.sharedInstance.loadUser(userId:userId)
+            MSession.sharedInstance.user.loadUser(userId:userId)
             
             DispatchQueue.main.async
             { [weak self] in
@@ -76,6 +80,38 @@ class CLogin:CController
                 controller:controllerOnboard,
                 pop:true,
                 animate:true)
+        }
+    }
+    
+    private func registerNotifications()
+    {
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kAskNotifications)
+        {
+            if #available(iOS 10.0, *)
+            {
+                let authOptions:UNAuthorizationOptions = [
+                    UNAuthorizationOptions.alert,
+                    UNAuthorizationOptions.badge,
+                    UNAuthorizationOptions.sound]
+                
+                UNUserNotificationCenter.current().requestAuthorization(options:authOptions)
+                { (done:Bool, error:Error?) in
+                }
+            }
+            else
+            {
+                let settings:UIUserNotificationSettings = UIUserNotificationSettings(
+                    types:[
+                        UIUserNotificationType.alert,
+                        UIUserNotificationType.badge,
+                        UIUserNotificationType.sound],
+                    categories:nil)
+                
+                UIApplication.shared.registerUserNotificationSettings(settings)
+            }
+            
+            UIApplication.shared.registerForRemoteNotifications()
         }
     }
 }

@@ -176,19 +176,19 @@ class VAdminUsersCell:UICollectionViewCell
         
         switch model.status
         {
-            case FDatabaseModelUser.Status.active:
+            case MSession.Status.active:
                 
                 stringStatus = NSLocalizedString("VAdminUsersCell_labelStatusActive", comment:"")
             
                 break
             
-            case FDatabaseModelUser.Status.banned:
+            case MSession.Status.banned:
                 
                 stringStatus = NSLocalizedString("VAdminUsersCell_labelStatusBanned", comment:"")
                 
                 break
                 
-            case FDatabaseModelUser.Status.unknown:
+            case MSession.Status.unknown:
                 
                 stringStatus = NSLocalizedString("VAdminUsersCell_labelStatusUnknown", comment:"")
                 

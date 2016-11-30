@@ -10,12 +10,14 @@ class FAnalytics
     private let kEventPurchase:NSString = "Buy"
     private let kEventPurchaseBuy:NSString = "Buy"
     private let kEventPurchaseRestore:NSString = "Restore"
-    private let kEventPicture:NSString = "Picture"
-    private let kEventPictureShare:NSString = "Share"
-    private let kEventPictureDelete:NSString = "Delete"
-    private let kEventPictureInfo:NSString = "Info"
-    private let kEventPictureUpload:NSString = "Picture/Upload"
+    private let kEventPhoto:NSString = "Photo"
+    private let kEventPhotoStopUpload:NSString = "Upload/Stop"
+    private let kEventPhotoShare:NSString = "Share"
+    private let kEventPhotoDelete:NSString = "Delete"
+    private let kEventPhotoInfo:NSString = "Info"
+    private let kEventPhotoUpload:NSString = "Photo/Upload"
     private let kEventSession:NSString = "Session"
+    private let kEventSessionBanned:NSString = "Banned"
     private let kEventSessionLogout:NSString = "Logout"
     private let kEventSessionTrySignin:NSString = "Try/Signin"
     private let kEventSessionTryRegister:NSString = "Try/Register"
@@ -24,8 +26,8 @@ class FAnalytics
     private let kEventSessionPasswordGenerate:NSString = "Password/Generate"
     private let kEventSessionPasswordReset:NSString = "Pasword/Reset"
     private let kEventClean:NSString = "Clean"
-    private let kEventCleanPictureDeletable:NSString = "Picture/Deletable"
-    private let kEventCleanPictureDeletableNoData:NSString = "Picture/Deletable/NoData"
+    private let kEventCleanPhotoDeletable:NSString = "Photo/Deletable"
+    private let kEventCleanPhotoDeletableNoData:NSString = "Photo/Deletable/NoData"
     
     //MARK: private
     
@@ -46,93 +48,103 @@ class FAnalytics
     
     //MARK: public
     
-    func screen(controller:CController)
+    func screenView(controller:CController)
     {
         trackSelectContent(contentType:kEventScreen, itemId:controller.name)
     }
     
     //MARK: session
     
-    func logout()
+    func sessionBanned()
+    {
+        trackSelectContent(contentType:kEventSession, itemId:kEventSessionBanned)
+    }
+    
+    func sessionLogout()
     {
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionLogout)
     }
     
-    func trySignin()
+    func sessionTrySignin()
     {
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionTrySignin)
     }
     
-    func tryRegister()
+    func sessionTryRegister()
     {
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionTryRegister)
     }
     
-    func signin()
+    func sessionSignin()
     {
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionSignin)
     }
     
-    func register()
+    func sessionRegister()
     {
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionRegister)
     }
     
-    func passwordReset()
+    func sessionPasswordReset()
     {
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionPasswordReset)
     }
     
-    func passwordGenerate()
+    func sessionPasswordGenerate()
     {
         trackSelectContent(contentType:kEventSession, itemId:kEventSessionPasswordGenerate)
     }
     
     //MARK: actions
     
-    func rate()
+    func actionRate()
     {
         trackSelectContent(contentType:kEventAction, itemId:kEventActionRate)
     }
     
-    func share()
+    func actionShare()
     {
         trackSelectContent(contentType:kEventAction, itemId:kEventActionShare)
     }
     
-    //MARK: pictures
+    //MARK: photos
     
-    func upload(pictures:Int)
+    func photoUpload(photos:Int)
     {
-        let picturesObject:NSObject = "\(pictures)" as NSObject
-        trackSelectContent(contentType:kEventPictureUpload, itemId:picturesObject)
+        let photosObject:NSObject = "\(photos)" as NSObject
+        trackSelectContent(contentType:kEventPhotoUpload, itemId:photosObject)
     }
     
-    func pictureShare()
+    func photoStopUpload()
     {
-        trackSelectContent(contentType:kEventPicture, itemId:kEventPictureShare)
+        trackSelectContent(contentType:kEventPhoto, itemId:kEventPhotoStopUpload)
     }
     
-    func pictureDelete()
+    func photoShare()
     {
-        trackSelectContent(contentType:kEventPicture, itemId:kEventPictureDelete)
+        trackSelectContent(contentType:kEventPhoto, itemId:kEventPhotoShare)
     }
     
-    func pictureInfo()
+    func photoDelete()
     {
-        trackSelectContent(contentType:kEventPicture, itemId:kEventPictureInfo)
+        trackSelectContent(contentType:kEventPhoto, itemId:kEventPhotoDelete)
+    }
+    
+    func photoInfo()
+    {
+        trackSelectContent(contentType:kEventPhoto, itemId:kEventPhotoInfo)
     }
     
     //MARK: clean
     
-    func cleanPictureDeletable()
+    func cleanPhotoDeletable()
     {
-        trackSelectContent(contentType:kEventClean, itemId:kEventCleanPictureDeletable)
+        trackSelectContent(contentType:kEventClean, itemId:kEventCleanPhotoDeletable)
     }
     
-    func cleanPictureDeletableNoData()
+    func cleanPhotoDeletableNoData()
     {
-        trackSelectContent(contentType:kEventClean, itemId:kEventCleanPictureDeletableNoData)
+        trackSelectContent(contentType:kEventClean, itemId:kEventCleanPhotoDeletableNoData)
     }
     
     //MARK: purchase

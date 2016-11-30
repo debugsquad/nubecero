@@ -48,9 +48,22 @@ class COnboardForm:CController
         }
     }
     
-    private func authSuccess(userId:MSession.UserId)
+    private func signInSuccess(userId:MSession.UserId)
     {
-        MSession.sharedInstance.loadUser(userId:userId)
+        MSession.sharedInstance.user.loadUser(userId:userId)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.onboard?.authSuccess()
+        }
+    }
+    
+    private func registerSuccess(email:String, userId:MSession.UserId)
+    {
+        MSession.sharedInstance.user.createUser(
+            email:email,
+            userId:userId)
         
         DispatchQueue.main.async
         { [weak self] in
@@ -63,7 +76,7 @@ class COnboardForm:CController
     {
         guard
         
-            let remember:Bool = MSession.sharedInstance.settings?.rememberMe
+            let remember:Bool = MSession.sharedInstance.settings.current?.rememberMe
         
         else
         {
@@ -72,13 +85,13 @@ class COnboardForm:CController
         
         if remember
         {
-            MSession.sharedInstance.settings?.lastEmail = credentials.email
-            MSession.sharedInstance.settings?.lastPassword = credentials.password
+            MSession.sharedInstance.settings.current?.lastEmail = credentials.email
+            MSession.sharedInstance.settings.current?.lastPassword = credentials.password
         }
         else
         {
-            MSession.sharedInstance.settings?.lastEmail = nil
-            MSession.sharedInstance.settings?.lastPassword = nil
+            MSession.sharedInstance.settings.current?.lastEmail = nil
+            MSession.sharedInstance.settings.current?.lastPassword = nil
         }
         
         DManager.sharedInstance.save()
@@ -86,12 +99,12 @@ class COnboardForm:CController
     
     private func authenticateRegister(credentials:MOnboardFormCredentials)
     {
-        FMain.sharedInstance.analytics?.tryRegister()
+        FMain.sharedInstance.analytics?.sessionTryRegister()
         
         FIRAuth.auth()?.createUser(
             withEmail:credentials.email,
             password:credentials.password)
-        { [weak self] (user, error) in
+        { [weak self] (user:FIRUser?, error:Error?) in
             
             guard
                 
@@ -115,8 +128,13 @@ class COnboardForm:CController
                 return
             }
             
-            FMain.sharedInstance.analytics?.register()
-            self?.authSuccess(userId:firUser.uid)
+            FMain.sharedInstance.analytics?.sessionRegister()
+            let email:String = credentials.email
+            let userId:MSession.UserId = firUser.uid
+            
+            self?.registerSuccess(
+                email:email,
+                userId:userId)
         }
     }
     
@@ -125,7 +143,7 @@ class COnboardForm:CController
         FIRAuth.auth()?.signIn(
             withEmail:credentials.email,
             password:credentials.password)
-        { [weak self] (user, error) in
+        { [weak self] (user:FIRUser?, error:Error?) in
             
             guard
                 
@@ -149,8 +167,10 @@ class COnboardForm:CController
                 return
             }
             
-            FMain.sharedInstance.analytics?.signin()
-            self?.authSuccess(userId:firUser.uid)
+            FMain.sharedInstance.analytics?.sessionSignin()
+            let userId:MSession.UserId = firUser.uid
+            
+            self?.signInSuccess(userId:userId)
         }
     }
     
@@ -159,7 +179,7 @@ class COnboardForm:CController
     func cancel()
     {
         UIApplication.shared.keyWindow!.endEditing(true)
-        parentController.dismiss()
+        parentController.dismiss(centered:true, completion:nil)
     }
     
     func send()
@@ -171,7 +191,9 @@ class COnboardForm:CController
         { [weak self] in
 
             self?.model.createCredentials
-            { [weak self] (credentials, errorString) in
+            { [weak self] (
+                credentials:MOnboardFormCredentials?,
+                errorString:String?) in
                 
                 guard
                 
@@ -232,7 +254,7 @@ class COnboardForm:CController
             NSLocalizedString("COnboardForm_forgotSend", comment:""),
             style:
             UIAlertActionStyle.default)
-        { [weak self] (action) in
+        { [weak self] (action:UIAlertAction) in
             
             guard
                 
@@ -247,7 +269,7 @@ class COnboardForm:CController
             if email.characters.count > minEmailLength
             {
                 FIRAuth.auth()?.sendPasswordReset(withEmail:email)
-                { (error) in
+                { (error:Error?) in
                     
                     let message:String
                     
@@ -271,10 +293,11 @@ class COnboardForm:CController
         }
         
         alert.addTextField
-        { (textfield) in
+        { (textfield:UITextField) in
             
             textfield.placeholder = NSLocalizedString("COnboardForm_forgotPlaceholder", comment:"")
             textfield.keyboardType = UIKeyboardType.emailAddress
+            textfield.returnKeyType = UIReturnKeyType.done
         }
         
         alert.addAction(actionCancel)

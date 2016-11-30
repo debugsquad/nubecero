@@ -1,16 +1,17 @@
 import UIKit
 import Photos
 
-class CHomeUpload:CController
+class CHomeUpload:CController, CPhotosAlbumSelectionDelegate
 {
     let model:MHomeUpload
     weak var viewBar:VHomeUploadBar?
+    weak var album:MPhotosItem?
     private weak var viewUpload:VHomeUpload!
     private let kBarWidth:CGFloat = 150
-    private let kAlertAfter:TimeInterval = 1
     
     override init()
     {
+        album = MPhotos.sharedInstance.defaultAlbum
         model = MHomeUpload()
         
         super.init()
@@ -45,7 +46,7 @@ class CHomeUpload:CController
             case PHAuthorizationStatus.notDetermined:
                 
                 PHPhotoLibrary.requestAuthorization()
-                { [weak self] (status) in
+                { [weak self] (status:PHAuthorizationStatus) in
                     
                     if status == PHAuthorizationStatus.authorized
                     {
@@ -67,6 +68,12 @@ class CHomeUpload:CController
         }
     }
     
+    override func viewDidAppear(_ animated:Bool)
+    {
+        super.viewDidAppear(animated)
+        loadBar()
+    }
+    
     override func viewWillDisappear(_ animated:Bool)
     {
         super.viewWillDisappear(animated)
@@ -78,6 +85,8 @@ class CHomeUpload:CController
     
     private func loadBar()
     {
+        self.viewBar?.removeFromSuperview()
+        
         let mainBar:VBar = parentController.viewParent.bar
         let viewBar:VHomeUploadBar = VHomeUploadBar(controller:self)
         self.viewBar = viewBar
@@ -100,6 +109,8 @@ class CHomeUpload:CController
             options:[],
             metrics:metrics,
             views:views))
+        
+        viewUpload.updateBar()
     }
     
     private func showError()
@@ -117,7 +128,6 @@ class CHomeUpload:CController
         { [weak self] in
             
             self?.viewUpload.imagesLoaded()
-            self?.loadBar()
         }
     }
     
@@ -146,6 +156,8 @@ class CHomeUpload:CController
     
     private func loadCameraRoll()
     {
+        model.items = []
+        
         let collectionResult:PHFetchResult = PHAssetCollection.fetchAssetCollections(
             with:PHAssetCollectionType.smartAlbum,
             subtype:PHAssetCollectionSubtype.smartAlbumUserLibrary,
@@ -193,8 +205,7 @@ class CHomeUpload:CController
         let alert:UIAlertController = UIAlertController(
             title:
             NSLocalizedString("CHomeUpload_uploadedTitle", comment:""),
-            message:
-            NSLocalizedString("CHomeUpload_uploadedMessage", comment:""),
+            message:nil,
             preferredStyle:UIAlertControllerStyle.actionSheet)
         
         let actionDontRemove:UIAlertAction = UIAlertAction(
@@ -208,7 +219,7 @@ class CHomeUpload:CController
             NSLocalizedString("CHomeUpload_uploadedRemove", comment:""),
             style:
             UIAlertActionStyle.destructive)
-        { (action) in
+        { (action:UIAlertAction) in
             
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             { [weak self] in
@@ -224,22 +235,26 @@ class CHomeUpload:CController
     
     private func performRemovePictures()
     {
-        guard
-            
-            let uploadItems:[MHomeUploadItem] = selectedItems()
-            
-        else
-        {
-            return
-        }
-        
         var deletableAssets:[PHAsset] = []
         
-        for uploadItem:MHomeUploadItem in uploadItems
+        for item:MHomeUploadItem in model.items
         {
-            if uploadItem.status.finished
+            if item.status.finished
             {
-                deletableAssets.append(uploadItem.asset)
+                deletableAssets.append(item.asset)
+            }
+            else
+            {
+                guard
+                
+                    let _:MHomeUploadItemStatusClouded = item.status as? MHomeUploadItemStatusClouded
+                
+                else
+                {                    
+                    continue
+                }
+                
+                deletableAssets.append(item.asset)
             }
         }
         
@@ -249,7 +264,7 @@ class CHomeUpload:CController
         {
             PHAssetChangeRequest.deleteAssets(deletableEnumeration)
         })
-        { [weak self] (done, error) in
+        { [weak self] (done:Bool, error:Error?) in
             
             if let errorStrong:Error = error
             {
@@ -257,30 +272,8 @@ class CHomeUpload:CController
             }
             else
             {
-                self?.hideUploadedItems()
+                self?.loadCameraRoll()
             }
-        }
-    }
-    
-    private func hideUploadedItems()
-    {
-        var newModelItems:[MHomeUploadItem] = []
-        
-        for currentItem:MHomeUploadItem in model.items
-        {
-            if !currentItem.status.finished
-            {
-                newModelItems.append(currentItem)
-            }
-        }
-        
-        model.items = newModelItems
-        
-        DispatchQueue.main.async
-        { [weak self] in
-            
-            self?.viewUpload.collectionView.reloadData()
-            self?.viewUpload.updateBar()
         }
     }
     
@@ -313,14 +306,21 @@ class CHomeUpload:CController
     {
         guard
             
-            let uploadItems:[MHomeUploadItem] = selectedItems()
+            var uploadItems:[MHomeUploadItem] = selectedItems()
         
         else
         {
             return
         }
         
+        uploadItems.sort
+        { (itemA:MHomeUploadItem, itemB:MHomeUploadItem) -> Bool in
+            
+            return itemA.creationDate > itemB.creationDate
+        }
+        
         let controllerSync:CHomeUploadSync = CHomeUploadSync(
+            album:album,
             uploadItems:uploadItems,
             controllerUpload:self)
         parentController.over(
@@ -329,13 +329,103 @@ class CHomeUpload:CController
             animate:true)
     }
     
-    func picturesUploaded()
+    func uploadFinished()
     {
-        DispatchQueue.main.asyncAfter(
-            deadline:DispatchTime.now() + kAlertAfter)
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
+                
+            guard
             
-            self?.removePicturesAlert()
+                let autoDelete:Bool = MSession.sharedInstance.settings.current?.autoDelete
+            
+            else
+            {
+                return
+            }
+            
+            if autoDelete
+            {
+                self?.performRemovePictures()
+            }
         }
+    }
+    
+    func clearAdded()
+    {
+        removePicturesAlert()
+    }
+    
+    func changeAlbum()
+    {   
+        let albumSelect:CPhotosAlbumSelection = CPhotosAlbumSelection(
+            currentAlbum:album,
+            delegate:self)
+        parentController.over(
+            controller:albumSelect,
+            pop:false,
+            animate:true)
+    }
+    
+    func selectAll(selection:Bool)
+    {
+        let collectionView:UICollectionView = viewUpload.collectionView
+        let count:Int = model.items.count
+        
+        if selection
+        {
+            for indexItem:Int in 0 ..< count
+            {
+                let item:MHomeUploadItem = model.items[indexItem]
+                
+                guard
+                
+                    let _:MHomeUploadItemStatusNone = item.status as? MHomeUploadItemStatusNone
+                
+                else
+                {
+                    continue
+                }
+                
+                item.statusWaiting()
+                
+                let indexPath:IndexPath = IndexPath(
+                    item:indexItem,
+                    section:0)
+                collectionView.selectItem(
+                    at:indexPath,
+                    animated:false,
+                    scrollPosition:UICollectionViewScrollPosition())
+            }
+        }
+        else
+        {
+            for indexItem:Int in 0 ..< count
+            {
+                let item:MHomeUploadItem = model.items[indexItem]
+                
+                guard
+                    
+                    let _:MHomeUploadItemStatusWaiting = item.status as? MHomeUploadItemStatusWaiting
+                    
+                else
+                {
+                    continue
+                }
+                
+                item.statusClear()
+            }
+            
+            collectionView.reloadData()
+        }
+        
+        viewUpload.updateBar()
+    }
+    
+    //MARK: album selection delegate
+    
+    func albumSelected(album:MPhotosItem)
+    {
+        self.album = album
+        viewUpload.header?.refresh()
     }
 }

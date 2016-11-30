@@ -1,5 +1,4 @@
 import UIKit
-import UserNotifications
 
 class CHome:CController
 {
@@ -7,7 +6,6 @@ class CHome:CController
     let model:MHome
     let askAuth:Bool
     var diskUsed:Int?
-    private let kAskNotifications:TimeInterval = 3
     
     init(askAuth:Bool)
     {
@@ -42,7 +40,7 @@ class CHome:CController
         {
             guard
             
-                let shouldAuth:Bool = MSession.sharedInstance.settings?.security
+                let shouldAuth:Bool = MSession.sharedInstance.settings.current?.security
             
             else
             {
@@ -55,8 +53,6 @@ class CHome:CController
                 parentController.controllerAuth?.askAuth()
             }
         }
-        
-        registerNotifications()
     }
     
     override func viewDidAppear(_ animated:Bool)
@@ -82,8 +78,10 @@ class CHome:CController
                 name:Notification.sessionLoaded,
                 object:nil)
             
-            MSession.sharedInstance.loadPerks()
+            MSession.sharedInstance.user.sendUpdate()
         }
+        
+        MPhotos.sharedInstance.loadPhotos()
     }
     
     //MARK: notified
@@ -102,7 +100,7 @@ class CHome:CController
         {
             guard
                 
-                let userId:MSession.UserId = MSession.sharedInstance.userId
+                let userId:MSession.UserId = MSession.sharedInstance.user.userId
             
             else
             {
@@ -116,7 +114,7 @@ class CHome:CController
             FMain.sharedInstance.database.listenOnce(
                 path:pathDiskUsed,
                 modelType:FDatabaseModelUserDiskUsed.self)
-            { [weak self] (diskUsed) in
+            { [weak self] (diskUsed:FDatabaseModelUserDiskUsed?) in
                 
                 guard
                 
@@ -132,42 +130,60 @@ class CHome:CController
                 DispatchQueue.main.async
                 { [weak self] in
                         
-                    self?.viewHome.sessionLoaded()
+                    self?.usedDiskLoaded()
                 }
             }
         }
     }
     
-    private func registerNotifications()
+    private func usedDiskLoaded()
     {
-        DispatchQueue.main.asyncAfter(
-            deadline:DispatchTime.now() + kAskNotifications)
+        viewHome.sessionLoaded()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.checkFullDisk()
+        }
+    }
+    
+    private func checkFullDisk()
+    {
+        guard
+        
+            let fullWarning:Bool = MSession.sharedInstance.settings.current?.fullWarning,
+            let plus:Bool = MSession.sharedInstance.settings.current?.nubeceroPlus
+        
+        else
         {
-            if #available(iOS 10.0, *)
+            return
+        }
+        
+        if !plus
+        {
+            if fullWarning
             {
-                let authOptions:UNAuthorizationOptions = [
-                    UNAuthorizationOptions.alert,
-                    UNAuthorizationOptions.badge,
-                    UNAuthorizationOptions.sound]
+                MSession.sharedInstance.settings.current?.fullWarning = false
+                DManager.sharedInstance.save()
                 
-                UNUserNotificationCenter.current().requestAuthorization(options:authOptions)
-                { (_, _) in
+                DispatchQueue.main.async
+                { [weak self] in
+                    
+                    self?.storeAd()
                 }
             }
-            else
-            {
-                let settings:UIUserNotificationSettings = UIUserNotificationSettings(
-                    types:[
-                        UIUserNotificationType.alert,
-                        UIUserNotificationType.badge,
-                        UIUserNotificationType.sound],
-                    categories:nil)
-                
-                UIApplication.shared.registerUserNotificationSettings(settings)
-            }
-            
-            UIApplication.shared.registerForRemoteNotifications()
         }
+    }
+    
+    private func storeAd()
+    {
+        let modelAd:MStoreAdPlus = MStoreAdPlus()
+        
+        let adController:CStoreAd = CStoreAd(model:modelAd)
+        parentController.over(
+            controller:adController,
+            pop:false,
+            animate:true)
     }
     
     //MARK: public
@@ -175,6 +191,8 @@ class CHome:CController
     func uploadPictures()
     {
         let controllerUpload:CHomeUpload = CHomeUpload()
-        parentController.push(controller:controllerUpload)
+        parentController.push(
+            controller:controllerUpload,
+            underBar:true)
     }
 }

@@ -19,7 +19,9 @@ class CAuth:CController
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.parentController.dismiss()
+            self?.parentController.dismiss(
+                centered:true,
+                completion:nil)
         }
     }
     
@@ -42,8 +44,9 @@ class CAuth:CController
         
         laContext.evaluatePolicy(
             LAPolicy.deviceOwnerAuthentication,
-            localizedReason:NSLocalizedString("CAuth_reason", comment:""))
-        { [weak self] (success, error) in
+            localizedReason:
+            NSLocalizedString("CAuth_reason", comment:""))
+        { [weak self] (success:Bool, error:Error?) in
             
             if success
             {

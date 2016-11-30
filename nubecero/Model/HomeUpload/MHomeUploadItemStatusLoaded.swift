@@ -1,18 +1,33 @@
-import Foundation
+import UIKit
 import FirebaseDatabase
 
 class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
 {
     private let kKilobytePerByte:Int = 1000
-    private let kAssetSync:String = "assetHomeSyncWait"
+    private let kAssetSync:String = "assetHomeSyncUploading"
     private let kFinished:Bool = false
+    private let kSelectable:Bool = true
     
     init(item:MHomeUploadItem?)
     {
-        super.init(item:item, assetSync:kAssetSync, finished:kFinished)
+        let reusableIdentifier:String = VHomeUploadCellActive.reusableIdentifier
+        let color:UIColor = UIColor.black
+        super.init(
+            reusableIdentifier:reusableIdentifier,
+            item:item,
+            assetSync:kAssetSync,
+            finished:kFinished,
+            selectable:kSelectable,
+            color:color)
     }
     
-    override init(item:MHomeUploadItem?, assetSync:String, finished:Bool)
+    override init(
+        reusableIdentifier:String,
+        item:MHomeUploadItem?,
+        assetSync:String,
+        finished:Bool,
+        selectable:Bool,
+        color:UIColor)
     {
         fatalError()
     }
@@ -23,9 +38,13 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
         
         guard
             
-            let userId:MSession.UserId = MSession.sharedInstance.userId,
-            let imageData:Data = item?.imageData
-            
+            let userId:MSession.UserId = MSession.sharedInstance.user.userId,
+            let localId:String = item?.localId,
+            let imageData:Data = item?.imageData,
+            let pixelWidth:Int = item?.pixelWidth,
+            let pixelHeight:Int = item?.pixelHeight,
+            let taken:TimeInterval = item?.creationDate
+        
         else
         {
             let errorString:String = NSLocalizedString("MHomeUploadItemStatusLoaded_errorUser", comment:"")
@@ -34,20 +53,38 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
             return
         }
         
-        let totalStorage:Int = MSession.sharedInstance.totalStorage()
+        let albumId:MPhotos.AlbumId?
+        
+        if let userAlbum:MPhotosItemUser = controller.album as? MPhotosItemUser
+        {
+            albumId = userAlbum.albumId
+        }
+        else
+        {
+            albumId = nil
+        }
+        
+        let totalStorage:Int = MSession.sharedInstance.server.totalStorage()
         let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyPictures:String = FDatabaseModelUser.Property.pictures.rawValue
+        let propertyPhotos:String = FDatabaseModelUser.Property.photos.rawValue
         let propertyDiskUsed:String = FDatabaseModelUser.Property.diskUsed.rawValue
-        let pathPicture:String = "\(parentUser)/\(userId)/\(propertyPictures)"
+        let pathPhotos:String = "\(parentUser)/\(userId)/\(propertyPhotos)"
         let pathDiskUsed:String = "\(parentUser)/\(userId)/\(propertyDiskUsed)"
         let dataLength:Int = imageData.count / kKilobytePerByte
-        let modelPicture:FDatabaseModelPicture = FDatabaseModelPicture(size:dataLength)
-        let pictureJson:Any = modelPicture.modelJson()
+        let modelPhoto:FDatabaseModelPhoto = FDatabaseModelPhoto(
+            localId:localId,
+            albumId:albumId,
+            taken:taken,
+            size:dataLength,
+            pixelWidth:pixelWidth,
+            pixelHeight:pixelHeight)
+        let photoJson:Any = modelPhoto.modelJson()
         
         FMain.sharedInstance.database.listenOnce(
             path:pathDiskUsed,
             modelType:FDatabaseModelUserDiskUsed.self)
-        { [weak self, weak controller] (diskUsed) in
+        { [weak self, weak controller] (
+            diskUsed:FDatabaseModelUserDiskUsed?) in
             
             guard
             
@@ -65,9 +102,9 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
             
             if remainDisk > dataLength
             {
-                self?.item?.pictureId = FMain.sharedInstance.database.createChild(
-                    path:pathPicture,
-                    json:pictureJson)
+                self?.item?.photoId = FMain.sharedInstance.database.createChild(
+                    path:pathPhotos,
+                    json:photoJson)
                 
                 FMain.sharedInstance.database.transaction(
                     path:pathDiskUsed)
@@ -83,7 +120,8 @@ class MHomeUploadItemStatusLoaded:MHomeUploadItemStatus
                         mutableData.value = dataLength
                     }
                     
-                    let transactionResult:FIRTransactionResult = FIRTransactionResult.success(withValue:mutableData)
+                    let transactionResult:FIRTransactionResult = FIRTransactionResult.success(
+                        withValue:mutableData)
                     
                     return transactionResult
                 }

@@ -7,10 +7,12 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     private weak var parent:CParent!
     private weak var collectionView:UICollectionView!
     private weak var backButton:UIButton!
+    private weak var layoutLabelLeft:NSLayoutConstraint!
     private var currentWidth:CGFloat
     private let barHeight:CGFloat
     private let barDelta:CGFloat
     private let kCellWidth:CGFloat = 64
+    private let kLabelWidth:CGFloat = 200
     private let kAnimationDuration:TimeInterval = 0.3
     private let kWaitingTime:TimeInterval = 0.2
     
@@ -90,10 +92,11 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         let metrics:[String:CGFloat] = [
             "barHeight":barHeight,
-            "barDelta":barDelta]
+            "barDelta":barDelta,
+            "labelWidth":kLabelWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-60-[label]-60-|",
+            withVisualFormat:"H:[label(labelWidth)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -123,6 +126,17 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             metrics:metrics,
             views:views))
         
+        layoutLabelLeft = NSLayoutConstraint(
+            item:label,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.left,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutLabelLeft)
+        
         DispatchQueue.main.asyncAfter(deadline:DispatchTime.now() + kWaitingTime)
         {
             self.restart()
@@ -137,6 +151,8 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     override func layoutSubviews()
     {
         let width:CGFloat = bounds.maxX
+        let remainLabel:CGFloat = width - kLabelWidth
+        let marginLabel:CGFloat = remainLabel / 2.0
         
         if currentWidth != width
         {
@@ -167,6 +183,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             }
         }
         
+        layoutLabelLeft.constant = marginLabel
         super.layoutSubviews()
     }
     
@@ -174,7 +191,7 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func actionBack(sender button:UIButton)
     {
-        parent.pop()
+        parent.pop(completion:nil)
     }
     
     //MARK: private
@@ -192,17 +209,41 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         
         if item.index < model.current.index
         {
-            parent.scrollLeft(controller:controller)
+            parent.scrollLeft(
+                controller:controller,
+                underBar:true,
+                pop:true)
         }
         else
         {
-            parent.scrollRight(controller:controller)
+            parent.scrollRight(
+                controller:controller,
+                underBar:true,
+                pop:true)
         }
         
         model.current = item
     }
     
+    private func synthSelect(index:Int)
+    {
+        let menuItem:MMainItem = model.items[index]
+        let indexPath:IndexPath = IndexPath(item:index, section:0)
+        selectItem(item:menuItem)
+        
+        collectionView.selectItem(
+            at:indexPath,
+            animated:true,
+            scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
+    }
+    
     //MARK: public
+    
+    func openStore()
+    {
+        let indexStore:Int = model.store.index
+        synthSelect(index:indexStore)
+    }
     
     func restart()
     {
@@ -301,18 +342,6 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         }
     }
     
-    func synthSelect(index:Int)
-    {
-        let menuItem:MMainItem = model.items[index]
-        let indexPath:IndexPath = IndexPath(item:index, section:0)
-        selectItem(item:menuItem)
-        
-        collectionView.selectItem(
-            at:indexPath,
-            animated:true,
-            scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
-    }
-    
     //MARK: col del
     
     func collectionView(_ collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, insetForSectionAt section:Int) -> UIEdgeInsets
@@ -359,6 +388,8 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
+        UIApplication.shared.keyWindow!.endEditing(true)
+        
         let item:MMainItem = modelAtIndex(index:indexPath)
         
         if item !== model.current

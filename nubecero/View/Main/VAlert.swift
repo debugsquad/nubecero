@@ -2,18 +2,17 @@ import UIKit
 
 class VAlert:UIView
 {
-    static let kMarginHorizontal:CGFloat = 10
-    static let kHeight:CGFloat = 70
+    static let kMarginHorizontal:CGFloat = 5
+    static let kHeight:CGFloat = 60
     private weak var layoutTop:NSLayoutConstraint!
     private weak var timer:Timer?
     private let kMarginTop:CGFloat = 20
     private let kAnimationDuration:TimeInterval = 0.2
-    private let kTimeOut:TimeInterval = 6
-    private let kFontSize:CGFloat = 14
-    private let kLabelMargin:CGFloat = 10
-    private let kCornerRadius:CGFloat = 5
+    private let kTimeOut:TimeInterval = 4
+    private let kFontSize:CGFloat = 13
+    private let kLabelMargin:CGFloat = 5
+    private let kCornerRadius:CGFloat = 10
     private let kBorderWidth:CGFloat = 0.5
-    private let kHeaderHeight:CGFloat = 10
     
     class func message(message:String)
     {
@@ -66,17 +65,12 @@ class VAlert:UIView
         translatesAutoresizingMaskIntoConstraints = false
         layer.cornerRadius = kCornerRadius
         layer.borderWidth = kBorderWidth
-        layer.borderColor = UIColor(white:0, alpha:0.6).cgColor
+        layer.borderColor = UIColor(white:0, alpha:0.7).cgColor
         
         let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.extraLight)
         let blur:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
         blur.isUserInteractionEnabled = false
         blur.translatesAutoresizingMaskIntoConstraints = false
-        
-        let header:UIView = UIView()
-        header.isUserInteractionEnabled = false
-        header.backgroundColor = UIColor.complement
-        header.translatesAutoresizingMaskIntoConstraints = false
         
         let label:UILabel = UILabel()
         label.isUserInteractionEnabled = false
@@ -97,19 +91,16 @@ class VAlert:UIView
             for:UIControlEvents.touchUpInside)
         
         addSubview(blur)
-        addSubview(header)
         addSubview(label)
         addSubview(button)
         
         let views:[String:UIView] = [
             "blur":blur,
             "label":label,
-            "button":button,
-            "header":header]
+            "button":button]
         
         let metrics:[String:CGFloat] = [
-            "labelMargin":kLabelMargin,
-            "headerHeight":kHeaderHeight
+            "labelMargin":kLabelMargin
         ]
         
         addConstraints(NSLayoutConstraint.constraints(
@@ -128,22 +119,12 @@ class VAlert:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-0-[header]-0-|",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[header(headerHeight)]",
-            options:[],
-            metrics:metrics,
-            views:views))
-        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:|-0-[blur]-0-|",
             options:[],
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-(headerHeight)-[label]-0-|",
+            withVisualFormat:"V:|-0-[label]-0-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -200,7 +181,7 @@ class VAlert:UIView
             self?.superview?.layoutIfNeeded()
             
         })
-        { [weak self] (done) in
+        { [weak self] (done:Bool) in
         
             if open
             {

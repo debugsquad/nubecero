@@ -2,6 +2,7 @@ import UIKit
 
 class VHomeCell:UICollectionViewCell
 {
+    weak var controller:CHome?
     private let kAlphaSelected:CGFloat = 0.3
     private let kAlphaNotSelected:CGFloat = 1
     
@@ -9,7 +10,7 @@ class VHomeCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.clear
     }
     
     required init?(coder:NSCoder)
@@ -17,41 +18,10 @@ class VHomeCell:UICollectionViewCell
         fatalError()
     }
     
-    override var isSelected:Bool
-    {
-        didSet
-        {
-            hover()
-        }
-    }
-    
-    override var isHighlighted:Bool
-    {
-        didSet
-        {
-            hover()
-        }
-    }
-    
-    //MARK: private
-    
-    private func hover()
-    {
-        if isSelected || isHighlighted
-        {
-            alpha = kAlphaSelected
-            backgroundColor = UIColor.clear
-        }
-        else
-        {
-            alpha = kAlphaNotSelected
-            backgroundColor = UIColor.white
-        }
-    }
-    
     //MARK: public
     
     func config(controller:CHome, model:MHomeItem)
     {
+        self.controller = controller
     }
 }

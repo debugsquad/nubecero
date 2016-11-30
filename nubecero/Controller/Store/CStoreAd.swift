@@ -3,6 +3,18 @@ import UIKit
 class CStoreAd:CController
 {
     private weak var viewAd:VStoreAd!
+    let model:MStoreAd
+    
+    init(model:MStoreAd)
+    {
+        self.model = model
+        super.init()
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        fatalError()
+    }
     
     override func loadView()
     {

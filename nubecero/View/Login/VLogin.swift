@@ -59,7 +59,7 @@ class VLogin:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:[label(textHeight)]-0-|",
+            withVisualFormat:"V:[label(textHeight)]-5-|",
             options:[],
             metrics:metrics,
             views:views))

@@ -75,7 +75,10 @@ class MStoreItem
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
-            self?.purchaseAction()
+            if callAction
+            {
+                self?.purchaseAction()
+            }
         }
     }
 }

@@ -157,7 +157,7 @@ class VStoreAd:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-10-[labelTitle(30)]-0-[labelDescr(90)]-0-[imageView(80)]",
+            withVisualFormat:"V:|-25-[labelTitle(28)]-0-[labelDescr(80)]-0-[imageView(70)]",
             options:[],
             metrics:metrics,
             views:views))

@@ -27,6 +27,16 @@ class MStoreItem
     
     //MARK: public
     
+    func purchaseAction()
+    {
+        fatalError()
+    }
+    
+    func validatePurchase() -> Bool
+    {
+        fatalError()
+    }
+    
     func foundPurchase(price:String)
     {
         self.price = price

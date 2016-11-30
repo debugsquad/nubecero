@@ -54,6 +54,7 @@ class MSessionServer
     func totalStorage() -> Int
     {
         var space:Int = froobSpace
+        space = 100
         
         if let nubeceroPlus:Bool = MSession.sharedInstance.settings.current?.nubeceroPlus
         {

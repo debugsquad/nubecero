@@ -33,7 +33,13 @@ class VHomeCellSpaceFree:VHomeCellSpace
         }
         
         let totalStorageInt:Int = MSession.sharedInstance.server.totalStorage()
-        let freeSpaceInt:Int = totalStorageInt - usedSpaceInt
+        var freeSpaceInt:Int = totalStorageInt - usedSpaceInt
+        
+        if freeSpaceInt < 0
+        {
+            freeSpaceInt = 0
+        }
+        
         let freeSpace:NSNumber = (CGFloat(freeSpaceInt) / kKilobytesPerMega) as NSNumber
         
         guard

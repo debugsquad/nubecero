@@ -6,7 +6,7 @@ class VStoreAd:UIView
     private weak var layoutBaseLeft:NSLayoutConstraint!
     private weak var layoutBaseTop:NSLayoutConstraint!
     private let kBaseWidth:CGFloat = 300
-    private let kBaseHeight:CGFloat = 350
+    private let kBaseHeight:CGFloat = 280
     private let kButtonHeight:CGFloat = 42
     private let kCornerRadius:CGFloat = 12
     
@@ -48,7 +48,7 @@ class VStoreAd:UIView
         labelDescr.backgroundColor = UIColor.clear
         labelDescr.textAlignment = NSTextAlignment.center
         labelDescr.textColor = UIColor.black
-        labelDescr.font = UIFont.regular(size:18)
+        labelDescr.font = UIFont.regular(size:17)
         labelDescr.numberOfLines = 0
         labelDescr.text = controller.model.descr
         
@@ -157,7 +157,7 @@ class VStoreAd:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-20-[labelTitle(30)]-0-[labelDescr(140)]-0-[imageView(100)]",
+            withVisualFormat:"V:|-10-[labelTitle(30)]-0-[labelDescr(90)]-0-[imageView(80)]",
             options:[],
             metrics:metrics,
             views:views))

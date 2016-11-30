@@ -31,6 +31,20 @@ class VStoreAd:UIView
         baseView.layer.borderColor = UIColor(white:0, alpha:0.1).cgColor
         baseView.layer.cornerRadius = kCornerRadius
         
+        let buttonAccept:UIButton = UIButton()
+        buttonAccept.backgroundColor = UIColor.complement
+        buttonAccept.clipsToBounds = true
+        buttonAccept.translatesAutoresizingMaskIntoConstraints = false
+        buttonAccept.setTitleColor(
+            UIColor.white,
+            for:UIControlState.normal)
+        buttonAccept.setTitleColor(
+            UIColor(white:1, alpha:0.2),
+            for:UIControlState.highlighted)
+        buttonAccept.setTitle(
+            NSLocalizedString("VStoreAd_buttonAccept", comment:""),
+            for:UIControlState.normal)
+        
         addSubview(visualEffect)
         addSubview(baseView)
         
@@ -93,5 +107,17 @@ class VStoreAd:UIView
         layoutBaseTop.constant = marginTop
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionCancel(sender button:UIButton)
+    {
+        controller.cancel()
+    }
+    
+    func actionAccept(sender button:UIButton)
+    {
+        controller.accept()
     }
 }

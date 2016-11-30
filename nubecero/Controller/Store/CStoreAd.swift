@@ -20,6 +20,6 @@ class CStoreAd:CController
     
     func accept()
     {
-        p
+        parentController.viewParent.bar.openStore()
     }
 }

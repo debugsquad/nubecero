@@ -58,6 +58,8 @@
 "VPhotosAlbumPhotoSettingsCellAdded_labelTitle"="Added";
 "VPhotosAlbumPhotoSettingsCellAlbum_labelTitle"="Album";
 "VPhotosAlbumPhotoSettingsCellAlbum_buttonChange"="Move";
+"VStoreAd_buttonAccept"="Continue";
+"VStoreAd_buttonCancel"="Not now";
 
 "CHomeUpload_title"="Add";
 "CHomeUpload_authDenied"="Unable to acccess your photo library";

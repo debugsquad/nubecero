@@ -57,6 +57,8 @@
 "VPhotosAlbumPhotoSettingsCellAdded_labelTitle"="Subida";
 "VPhotosAlbumPhotoSettingsCellAlbum_labelTitle"="Album";
 "VPhotosAlbumPhotoSettingsCellAlbum_buttonChange"="Mover";
+"VStoreAd_buttonAccept"="Continuar";
+"VStoreAd_buttonCancel"="Ahora no";
 
 "CHomeUpload_title"="Agregar";
 "CHomeUpload_authDenied"="No se pudo acceder a tu librería";

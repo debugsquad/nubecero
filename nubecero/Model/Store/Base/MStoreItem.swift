@@ -40,7 +40,17 @@ class MStoreItem
     func foundPurchase(price:String)
     {
         self.price = price
-        statusNew()
+        
+        let isPurchased:Bool = validatePurchase()
+        
+        if isPurchased
+        {
+            statusPurchased(callAction:false)
+        }
+        else
+        {
+            statusNew()
+        }
     }
     
     func statusNew()
@@ -58,7 +68,7 @@ class MStoreItem
         status = MStoreItemStatusPurchasing()
     }
     
-    func statusPurchased()
+    func statusPurchased(callAction:Bool)
     {
         status = MStoreItemStatusPurchased()
         

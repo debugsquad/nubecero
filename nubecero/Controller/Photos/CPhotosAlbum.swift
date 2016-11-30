@@ -114,6 +114,7 @@ class CPhotosAlbum:CController
         { [weak self] (textfield:UITextField) in
             
             textfield.text = self?.model.name
+            textfield.returnKeyType = UIReturnKeyType.done
             textfield.placeholder = NSLocalizedString("CPhotosAlbum_renamePlaceholder", comment:"")
             textfield.keyboardType = UIKeyboardType.alphabet
         }

@@ -40,7 +40,7 @@ class VStoreFooter:UICollectionReusableView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-10-[button(40)]",
+            withVisualFormat:"V:|-0-[button(35)]",
             options:[],
             metrics:metrics,
             views:views))

@@ -88,4 +88,13 @@ class CPhotos:CController
             self?.asyncNewAlbum(name:name)
         }
     }
+    
+    func storeAd()
+    {
+        let adController:CStoreAd = CStoreAd()
+        parentController.over(
+            controller:adController,
+            pop:false,
+            animate:true)
+    }
 }

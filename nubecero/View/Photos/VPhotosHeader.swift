@@ -129,6 +129,29 @@ class VPhotosHeader:UICollectionReusableView
     
     func actionAdd(sender button:UIButton)
     {
+        guard
+        
+            let albumManager:Bool = MSession.sharedInstance.settings.current?.nubeceroAlbums
+        
+        else
+        {
+            return
+        }
+        
+        if albumManager
+        {
+            addAlbum()
+        }
+        else
+        {
+            controller?.storeAd()
+        }
+    }
+    
+    //MARK: private
+    
+    private func addAlbum()
+    {
         buttonAdd.isUserInteractionEnabled = false
         creating = true
         layoutAddLeft.constant = kAddMargin

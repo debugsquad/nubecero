@@ -12,6 +12,7 @@ class VHomeCellPhotos:VHomeCell
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
         
         super.init(frame:frame)
+        backgroundColor = UIColor(white:0, alpha:0.05)
         isUserInteractionEnabled = false
         
         let label:UILabel = UILabel()

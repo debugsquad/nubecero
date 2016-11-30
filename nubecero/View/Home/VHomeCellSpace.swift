@@ -18,6 +18,7 @@ class VHomeCellSpace:VHomeCell
         numberFormatter.maximumFractionDigits = kMaxFractions
         
         super.init(frame:frame)
+        backgroundColor = UIColor(white:0, alpha:0.05)
         isUserInteractionEnabled = false
         
         let indicator:UIView = UIView()

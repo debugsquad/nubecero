@@ -2,7 +2,7 @@ import UIKit
 
 class MHomeItemUpload:MHomeItem
 {
-    private let kCellHeight:CGFloat = 120
+    private let kCellHeight:CGFloat = 102
     private let kSelectable:Bool = false
     
     override init()

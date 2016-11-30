@@ -157,7 +157,18 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
     
     func numberOfSections(in collectionView:UICollectionView) -> Int
     {
-        return 2
+        let sections:Int
+        
+        if collectionView.isHidden
+        {
+            sections = 0
+        }
+        else
+        {
+            sections = 2
+        }
+        
+        return sections
     }
     
     func collectionView(_ collectionView:UICollectionView, numberOfItemsInSection section:Int) -> Int
@@ -170,7 +181,7 @@ class VPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICo
         }
         else
         {
-            count = MPhotos.sharedInstance.albumItems.count
+            count = MPhotos.sharedInstance.albumReferences.count
         }
         
         return count

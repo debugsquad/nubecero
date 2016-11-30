@@ -8,7 +8,6 @@ class VHomeCellUpload:VHomeCell
     override init(frame:CGRect)
     {
         super.init(frame:frame)
-        backgroundColor = UIColor.clear
         
         let add:VHomeCellUploadAdd = VHomeCellUploadAdd()
         add.addTarget(
@@ -30,7 +29,7 @@ class VHomeCellUpload:VHomeCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-20-[add]-10-|",
+            withVisualFormat:"V:|-20-[add]-0-|",
             options:[],
             metrics:metrics,
             views:views))

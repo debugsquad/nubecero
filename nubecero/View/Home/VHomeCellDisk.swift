@@ -16,6 +16,7 @@ class VHomeCellDisk:VHomeCell
         circleSize = CGSize(width:circleSide, height:circleSide)
         
         super.init(frame:frame)
+        isUserInteractionEnabled = false
         
         let circleFrame:CGRect = CGRect(
             origin:CGPoint(x:-circleSide, y:-circleSide),

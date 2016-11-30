@@ -6,7 +6,7 @@ class VHomeCellUploadAdd:UIButton
     private weak var image:UIImageView!
     private weak var label:UILabel!
     private weak var layoutBaseLeft:NSLayoutConstraint!
-    private let kBaseSize:CGFloat = 80
+    private let kBaseSize:CGFloat = 50
     
     init()
     {

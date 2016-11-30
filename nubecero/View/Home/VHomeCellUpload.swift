@@ -3,7 +3,7 @@ import UIKit
 class VHomeCellUpload:VHomeCell
 {
     private weak var layoutAddLeft:NSLayoutConstraint!
-    private let kAddWidth:CGFloat = 40
+    private let kAddWidth:CGFloat = 100
     
     override init(frame:CGRect)
     {
@@ -11,6 +11,10 @@ class VHomeCellUpload:VHomeCell
         backgroundColor = UIColor.clear
         
         let add:VHomeCellUploadAdd = VHomeCellUploadAdd()
+        add.addTarget(
+            self,
+            action:#selector(actionAdd(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(add)
         
@@ -56,5 +60,12 @@ class VHomeCellUpload:VHomeCell
         layoutAddLeft.constant = margin
         
         super.layoutSubviews()
+    }
+    
+    //MARK: actions
+    
+    func actionAdd(sender button:UIButton)
+    {
+        controller?.uploadPictures()
     }
 }

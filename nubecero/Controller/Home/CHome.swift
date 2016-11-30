@@ -145,4 +145,15 @@ class CHome:CController
             controller:controllerUpload,
             underBar:true)
     }
+    
+    func storeAd()
+    {
+        let modelAd:MStoreAdPlus = MStoreAdPlus()
+        
+        let adController:CStoreAd = CStoreAd(model:modelAd)
+        parentController.over(
+            controller:adController,
+            pop:false,
+            animate:true)
+    }
 }

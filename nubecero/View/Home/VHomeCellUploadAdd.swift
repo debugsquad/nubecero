@@ -35,7 +35,7 @@ class VHomeCellUploadAdd:UIButton
         label.isUserInteractionEnabled = false
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor.clear
-        label.font = UIFont.medium(size:13)
+        label.font = UIFont.medium(size:12)
         label.text = NSLocalizedString("VHomeCellUploadAdd_label", comment:"")
         label.textAlignment = NSTextAlignment.center
         self.label = label
@@ -73,7 +73,7 @@ class VHomeCellUploadAdd:UIButton
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-20-[base(baseSize)]-0-[label(20)]",
+            withVisualFormat:"V:|-10-[base(baseSize)]-0-[label(22)]",
             options:[],
             metrics:metrics,
             views:views))

@@ -3,7 +3,7 @@ import UIKit
 class VHomeCellUpload:VHomeCell
 {
     private weak var layoutAddLeft:NSLayoutConstraint!
-    private let kAddWidth:CGFloat = 100
+    private let kAddWidth:CGFloat = 150
     
     override init(frame:CGRect)
     {
@@ -30,7 +30,7 @@ class VHomeCellUpload:VHomeCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-0-[add]-0-|",
+            withVisualFormat:"V:|-20-[add]-10-|",
             options:[],
             metrics:metrics,
             views:views))

@@ -2,8 +2,8 @@ import UIKit
 
 class MHomeItemUpload:MHomeItem
 {
-    private let kCellHeight:CGFloat = 60
-    private let kSelectable:Bool = true
+    private let kCellHeight:CGFloat = 100
+    private let kSelectable:Bool = false
     
     override init()
     {
@@ -17,10 +17,5 @@ class MHomeItemUpload:MHomeItem
     override init(reusableIdentifier:String, cellHeight:CGFloat, selectable:Bool)
     {
         fatalError()
-    }
-    
-    override func selected(controller:CHome)
-    {
-        controller.uploadPictures()
     }
 }

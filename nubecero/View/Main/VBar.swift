@@ -225,6 +225,18 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
         model.current = item
     }
     
+    private func synthSelect(index:Int)
+    {
+        let menuItem:MMainItem = model.items[index]
+        let indexPath:IndexPath = IndexPath(item:index, section:0)
+        selectItem(item:menuItem)
+        
+        collectionView.selectItem(
+            at:indexPath,
+            animated:true,
+            scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
+    }
+    
     //MARK: public
     
     func restart()
@@ -322,18 +334,6 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
             self.backButton.alpha = alphaBackButton
             self.label.alpha = alphaLabel
         }
-    }
-    
-    func synthSelect(index:Int)
-    {
-        let menuItem:MMainItem = model.items[index]
-        let indexPath:IndexPath = IndexPath(item:index, section:0)
-        selectItem(item:menuItem)
-        
-        collectionView.selectItem(
-            at:indexPath,
-            animated:true,
-            scrollPosition:UICollectionViewScrollPosition.centeredHorizontally)
     }
     
     //MARK: col del

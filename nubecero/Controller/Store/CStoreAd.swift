@@ -10,4 +10,16 @@ class CStoreAd:CController
         self.viewAd = viewAd
         view = viewAd
     }
+    
+    //MARK: public
+    
+    func cancel()
+    {
+        parentController.dismiss(centered:true, completion:nil)
+    }
+    
+    func accept()
+    {
+        p
+    }
 }

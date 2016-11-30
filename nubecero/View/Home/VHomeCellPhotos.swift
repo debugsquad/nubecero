@@ -12,7 +12,6 @@ class VHomeCellPhotos:VHomeCell
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
         
         super.init(frame:frame)
-        backgroundColor = UIColor(white:0, alpha:0.05)
         isUserInteractionEnabled = false
         
         let label:UILabel = UILabel()
@@ -31,7 +30,7 @@ class VHomeCellPhotos:VHomeCell
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[label]-10-|",
+            withVisualFormat:"H:|-32-[label(280)]",
             options:[],
             metrics:metrics,
             views:views))

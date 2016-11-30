@@ -1,6 +1,6 @@
 import UIKit
 
-class MHomeItemPhotos:MHomeItem
+class MHomeItemSpacePhotos:MHomeItem
 {
     private let kCellHeight:CGFloat = 44
     private let kSelectable:Bool = false

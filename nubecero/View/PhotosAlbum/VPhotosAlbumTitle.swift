@@ -4,6 +4,7 @@ class VPhotosAlbumTitle:UIView
 {
     private weak var controller:CPhotosAlbum!
     private weak var labelInfo:UILabel!
+    private weak var labelName:UILabel!
     private let numberFormatter:NumberFormatter
     private let kContentWidth:CGFloat = 310
     private let kContentHeight:CGFloat = 70
@@ -26,7 +27,7 @@ class VPhotosAlbumTitle:UIView
         labelName.backgroundColor = UIColor.clear
         labelName.font = UIFont.regular(size:22)
         labelName.textColor = UIColor.black
-        labelName.text = controller.model.name
+        self.labelName = labelName
         
         let labelInfo:UILabel = UILabel()
         labelInfo.isUserInteractionEnabled = false
@@ -98,6 +99,7 @@ class VPhotosAlbumTitle:UIView
             format:NSLocalizedString("VPhotosAlbumTitle_labelInfo", comment:""),
             countString)
         
+        labelName.text = controller.model.name
         labelInfo.text = compositeString
     }
 }

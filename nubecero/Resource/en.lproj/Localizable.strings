@@ -110,6 +110,7 @@
 "CPhotosAlbum_renamePlaceholder"="name";
 "CPhotosAlbum_renameCancel"="Cancel";
 "CPhotosAlbum_renameSave"="Save";
+"CPhotosAlbum_renameError"="Albums need a name";
 
 "MHomeUploadItemStatusWaiting_error"="Error loading photo, try again";
 "MHomeUploadItemStatusLoaded_errorUser"="Error loading session, try again";

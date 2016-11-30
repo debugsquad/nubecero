@@ -5,7 +5,6 @@ class MPhotosItem
     var name:String
     private(set) var references:[MPhotosItemPhotoReference]
     private(set) var kiloBytes:Int
-    private let kEmpty:String = ""
     private let kZero:Int = 0
     
     init(name:String)
@@ -99,42 +98,6 @@ class MPhotosItem
         NotificationCenter.default.post(
             name:Notification.albumRefreshed,
             object:self)
-    }
-    
-    func moveAll()
-    {
-        guard
-        
-            let userId:MSession.UserId = MSession.sharedInstance.user.userId
-        
-        else
-        {
-            return
-        }
-        
-        let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyPhotos:String = FDatabaseModelUser.Property.photos.rawValue
-        let propertyAlbumId:String = FDatabaseModelPhoto.Property.albumId.rawValue
-        
-        for reference:MPhotosItemPhotoReference in references
-        {
-            guard
-                
-                let photo:MPhotosItemPhoto = MPhotos.sharedInstance.photos[
-                    reference.photoId]
-                
-            else
-            {
-                continue
-            }
-            
-            let photoId:MPhotos.PhotoId = photo.photoId
-            let pathAlbum:String = "\(parentUser)/\(userId)/\(propertyPhotos)/\(photoId)/\(propertyAlbumId)"
-            
-            FMain.sharedInstance.database.updateChild(
-                path:pathAlbum,
-                json:kEmpty)
-        }
     }
     
     func moveToSelf(path:String)

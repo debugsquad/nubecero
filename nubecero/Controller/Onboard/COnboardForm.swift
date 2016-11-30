@@ -297,6 +297,7 @@ class COnboardForm:CController
             
             textfield.placeholder = NSLocalizedString("COnboardForm_forgotPlaceholder", comment:"")
             textfield.keyboardType = UIKeyboardType.emailAddress
+            textfield.returnKeyType = UIReturnKeyType.done
         }
         
         alert.addAction(actionCancel)

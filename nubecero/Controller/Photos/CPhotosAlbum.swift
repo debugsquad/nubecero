@@ -61,7 +61,7 @@ class CPhotosAlbum:CController
             return
         }
         
-        model.moveAll()
+        albumUser.moveAll()
         
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyAlbums:String = FDatabaseModelUser.Property.albums.rawValue
@@ -75,6 +75,37 @@ class CPhotosAlbum:CController
         { [weak self] in
             
             self?.parentController.pop(completion:nil)
+        }
+    }
+    
+    private func confirmRenameAlbum(newName:String)
+    {
+        guard
+            
+            let userId:MSession.UserId = MSession.sharedInstance.user.userId,
+            let albumUser:MPhotosItemUser = model as? MPhotosItemUser
+            
+        else
+        {
+            return
+        }
+        
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let propertyAlbums:String = FDatabaseModelUser.Property.albums.rawValue
+        let albumId:MPhotos.AlbumId = albumUser.albumId
+        let propertyAlbumName:String = FDatabaseModelAlbum.Property.name.rawValue
+        let pathAlbum:String = "\(parentUser)/\(userId)/\(propertyAlbums)/\(albumId)/\(propertyAlbumName)"
+        
+        FMain.sharedInstance.database.updateChild(
+            path:pathAlbum,
+            json:newName)
+        
+        albumUser.rename(name:newName)
+        
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.viewAlbum.hideLoading()
         }
     }
     
@@ -99,12 +130,23 @@ class CPhotosAlbum:CController
             UIAlertActionStyle.default)
         { [weak self] (action:UIAlertAction) in
             
-            self?.viewAlbum.showLoading()
-            
-            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            { [weak self] in
-                
-                
+            if let newName:String = alert.textFields?.first?.text
+            {
+                if !newName.isEmpty
+                {
+                    self?.viewAlbum.showLoading()
+                    
+                    DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+                    { [weak self] in
+                        
+                        self?.confirmRenameAlbum(newName:newName)
+                    }
+                }
+                else
+                {
+                    let error:String = NSLocalizedString("CPhotosAlbum_renameError", comment:"")
+                    VAlert.message(message:error)
+                }
             }
         }
         

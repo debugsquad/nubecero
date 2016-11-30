@@ -130,10 +130,60 @@ class CHome:CController
                 DispatchQueue.main.async
                 { [weak self] in
                         
-                    self?.viewHome.sessionLoaded()
+                    self?.usedDiskLoaded()
                 }
             }
         }
+    }
+    
+    private func usedDiskLoaded()
+    {
+        viewHome.sessionLoaded()
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.checkFullDisk()
+        }
+    }
+    
+    private func checkFullDisk()
+    {
+        guard
+        
+            let fullWarning:Bool = MSession.sharedInstance.settings.current?.fullWarning,
+            let plus:Bool = MSession.sharedInstance.settings.current?.nubeceroPlus
+        
+        else
+        {
+            return
+        }
+        
+        if !plus
+        {
+            if fullWarning
+            {
+                MSession.sharedInstance.settings.current?.fullWarning = false
+                DManager.sharedInstance.save()
+                
+                DispatchQueue.main.async
+                { [weak self] in
+                    
+                    self?.storeAd()
+                }
+            }
+        }
+    }
+    
+    private func storeAd()
+    {
+        let modelAd:MStoreAdPlus = MStoreAdPlus()
+        
+        let adController:CStoreAd = CStoreAd(model:modelAd)
+        parentController.over(
+            controller:adController,
+            pop:false,
+            animate:true)
     }
     
     //MARK: public
@@ -144,16 +194,5 @@ class CHome:CController
         parentController.push(
             controller:controllerUpload,
             underBar:true)
-    }
-    
-    func storeAd()
-    {
-        let modelAd:MStoreAdPlus = MStoreAdPlus()
-        
-        let adController:CStoreAd = CStoreAd(model:modelAd)
-        parentController.over(
-            controller:adController,
-            pop:false,
-            animate:true)
     }
 }

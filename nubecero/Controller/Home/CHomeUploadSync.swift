@@ -139,13 +139,19 @@ class CHomeUploadSync:CController
     
     func diskFull()
     {
-        let message:String = NSLocalizedString("CHomeUploadSync_diskFull", comment:"")
-        VAlert.message(message:message)
-        
-        DispatchQueue.main.async
-        { [weak self] in
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        {
+            MSession.sharedInstance.settings.current?.fullWarning = true
+            DManager.sharedInstance.save()
             
-            self?.dismissClear()
+            let message:String = NSLocalizedString("CHomeUploadSync_diskFull", comment:"")
+            VAlert.message(message:message)
+            
+            DispatchQueue.main.async
+            { [weak self] in
+                
+                self?.dismissClear()
+            }
         }
     }
 }

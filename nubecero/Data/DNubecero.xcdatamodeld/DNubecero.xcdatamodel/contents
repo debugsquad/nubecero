@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="16A323" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DObjectSettings" representedClassName="DObjectSettings" syncable="YES" codeGenerationType="class">
         <attribute name="autoDelete" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="fullWarning" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastEmail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastPassword" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nubeceroAlbums" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
@@ -11,6 +12,6 @@
         <attribute name="security" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DObjectSettings" positionX="-54" positionY="-9" width="128" height="165"/>
+        <element name="DObjectSettings" positionX="-54" positionY="-9" width="128" height="180"/>
     </elements>
 </model>

@@ -76,15 +76,6 @@ class CHomeUploadSync:CController
         }
     }
     
-    private func dismissFull()
-    {
-        parentController.dismiss(centered:true)
-        { [weak controllerUpload] in
-            
-            controllerUpload?.uploadFinished()
-        }
-    }
-    
     //MARK: public
     
     func uploadedItems() -> Int
@@ -154,7 +145,7 @@ class CHomeUploadSync:CController
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.dismissFull()
+            self?.dismissClear()
         }
     }
 }

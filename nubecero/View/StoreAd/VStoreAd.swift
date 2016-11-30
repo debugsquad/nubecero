@@ -26,6 +26,32 @@ class VStoreAd:UIView
         visualEffect.translatesAutoresizingMaskIntoConstraints = false
         visualEffect.clipsToBounds = true
         
+        let imageView:UIImageView = UIImageView()
+        imageView.isUserInteractionEnabled = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.clipsToBounds = true
+        imageView.contentMode = UIViewContentMode.center
+        imageView.image = controller.model.image
+        
+        let labelTitle:UILabel = UILabel()
+        labelTitle.isUserInteractionEnabled = false
+        labelTitle.translatesAutoresizingMaskIntoConstraints = false
+        labelTitle.backgroundColor = UIColor.clear
+        labelTitle.textAlignment = NSTextAlignment.center
+        labelTitle.textColor = UIColor.main
+        labelTitle.font = UIFont.medium(size:15)
+        labelTitle.text = controller.model.title
+        
+        let labelDescr:UILabel = UILabel()
+        labelDescr.isUserInteractionEnabled = false
+        labelDescr.translatesAutoresizingMaskIntoConstraints = false
+        labelDescr.backgroundColor = UIColor.clear
+        labelDescr.textAlignment = NSTextAlignment.center
+        labelDescr.textColor = UIColor.black
+        labelDescr.font = UIFont.regular(size:14)
+        labelDescr.numberOfLines = 0
+        labelDescr.text = controller.model.descr
+        
         let baseView:UIView = UIView()
         baseView.translatesAutoresizingMaskIntoConstraints = false
         baseView.clipsToBounds = true
@@ -72,12 +98,18 @@ class VStoreAd:UIView
             action:#selector(actionCancel(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        baseView.addSubview(imageView)
+        baseView.addSubview(labelTitle)
+        baseView.addSubview(labelDescr)
         baseView.addSubview(buttonCancel)
         baseView.addSubview(buttonAccept)
         addSubview(visualEffect)
         addSubview(baseView)
         
         let views:[String:UIView] = [
+            "imageView":imageView,
+            "labelTitle":labelTitle,
+            "labelDescr":labelDescr,
             "visualEffect":visualEffect,
             "baseView":baseView,
             "buttonAccept":buttonAccept,
@@ -89,6 +121,21 @@ class VStoreAd:UIView
             "buttonHeight":kButtonHeight,
             "buttonWidth":buttonWidth]
         
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[imageView]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-10-[labelTitle]-10-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-10-[labelDescr]-10-|",
+            options:[],
+            metrics:metrics,
+            views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[visualEffect]-0-|",
             options:[],
@@ -106,6 +153,11 @@ class VStoreAd:UIView
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:[buttonAccept(buttonWidth)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:|-10-[labelTitle(20)]-0-[labelDescr(60)]-0-[imageView(50)]",
             options:[],
             metrics:metrics,
             views:views))

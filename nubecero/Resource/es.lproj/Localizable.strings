@@ -3,7 +3,7 @@
 "VHomeUploadSyncBar_cancel"="Detener";
 "VHomeUploadSyncBar_tryAgain"="Reiniciar";
 "VBanned_disclaimer"="Tu cuenta esta suspendida\nContacta soporte para mayor información";
-"VAuth_buttonTryAgain"="Reintentar";
+"VAuth_buttonTryAgain"="Desbloquear";
 "VSettingsCellSecurity_label"="Proteger con Passcode";
 "VSettingsCellSecurity_labelDescription"="Manten tus fotos privadas pidiendo Passcode/Touch ID al iniciar";
 "VSettingsCellLogout_label"="Cerrar sessión";

@@ -53,7 +53,7 @@ class VHomeCellUploadAdd:UIButton
             "baseSize":kBaseSize]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:[base[baseSize]]",
+            withVisualFormat:"H:[base(baseSize)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -73,7 +73,7 @@ class VHomeCellUploadAdd:UIButton
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-20-[base[baseSize]]-0-[label(20)]",
+            withVisualFormat:"V:|-20-[base(baseSize)]-0-[label(20)]",
             options:[],
             metrics:metrics,
             views:views))

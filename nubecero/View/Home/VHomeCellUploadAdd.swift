@@ -78,12 +78,33 @@ class VHomeCellUploadAdd:UIButton
             metrics:metrics,
             views:views))
         
+        layoutBaseLeft = NSLayoutConstraint(
+            item:base,
+            attribute:NSLayoutAttribute.left,
+            relatedBy:NSLayoutRelation.equal,
+            toItem:self,
+            attribute:NSLayoutAttribute.left,
+            multiplier:1,
+            constant:0)
+        
+        addConstraint(layoutBaseLeft)
+        
         hover()
     }
     
     required init?(coder:NSCoder)
     {
         fatalError()
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.maxX
+        let remainWidth:CGFloat = width - kBaseSize
+        let marginLeft:CGFloat = remainWidth / 2.0
+        layoutBaseLeft.constant = marginLeft
+        
+        super.layoutSubviews()
     }
     
     override var isSelected:Bool

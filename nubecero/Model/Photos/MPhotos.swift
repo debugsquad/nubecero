@@ -50,6 +50,11 @@ class MPhotos
             return
         }
         
+        photoDeletables = []
+        albumItems = [:]
+        albumReferences = []
+        localReferences = [:]
+        
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyAlbums:String = FDatabaseModelUser.Property.albums.rawValue
         let path:String = "\(parentUser)/\(userId)/\(propertyAlbums)"
@@ -167,9 +172,7 @@ class MPhotos
                     
                 else
                 {
-                    self.photoDeletables = []
-                    self.albumReferences = []
-                    self.localReferences = [:]
+                    self.photos = [:]
                     self.photosLoaded()
                     
                     return

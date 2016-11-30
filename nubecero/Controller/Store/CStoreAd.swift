@@ -20,10 +20,11 @@ class CStoreAd:CController
     
     func accept()
     {
+        let bar:VBar = parentController.viewParent.bar
+        
         parentController.dismiss(centered:true)
-        { [weak self] in
-            
-            self?.parentController.viewParent.bar.openStore()
+        {   
+            bar.openStore()
         }
     }
 }

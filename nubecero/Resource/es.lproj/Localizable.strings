@@ -69,7 +69,7 @@
 "CHomeUpload_uploadedTitle"="Fotos respaldadas se borraran localmente";
 "CHomeUpload_uploadedDontRemove"="Mantenerlas";
 "CHomeUpload_uploadedRemove"="Borrarlas";
-"CAuth_reason"="Validate para ingresar a tu nube";
+"CAuth_reason"="Cuenta privada";
 "CAuth_errorUnknown"="No se pudo validad, reintentalo";
 "CAuth_passCodeNotSet"="Define una contraseña en la configuración del dispositivo para asegurar tu nube";
 "COnboardForm_errorUnknown"="Error inesperado, reintenta";

@@ -7,7 +7,7 @@ class VAuth:UIView
     private weak var layoutButtonTryAgainLeft:NSLayoutConstraint!
     private let kButtonTryAgainWidth:CGFloat = 180
     private let kButtonTryAgainHeight:CGFloat = 50
-    private let kButtonTryAgainBottom:CGFloat = 20
+    private let kButtonTryAgainBottom:CGFloat = 15
     
     convenience init(controller:CAuth)
     {
@@ -29,12 +29,16 @@ class VAuth:UIView
         buttonTryAgain.clipsToBounds = true
         buttonTryAgain.translatesAutoresizingMaskIntoConstraints = false
         buttonTryAgain.backgroundColor = UIColor.clear
-        buttonTryAgain.setTitleColor(UIColor.white, for:UIControlState.normal)
-        buttonTryAgain.setTitleColor(UIColor.complement, for:UIControlState.highlighted)
+        buttonTryAgain.setTitleColor(
+            UIColor.white,
+            for:UIControlState.normal)
+        buttonTryAgain.setTitleColor(
+            UIColor(white:1, alpha:0.2),
+            for:UIControlState.highlighted)
         buttonTryAgain.setTitle(
             NSLocalizedString("VAuth_buttonTryAgain", comment:""),
             for:UIControlState.normal)
-        buttonTryAgain.titleLabel!.font = UIFont.bold(size:20)
+        buttonTryAgain.titleLabel!.font = UIFont.medium(size:18)
         buttonTryAgain.addTarget(
             self,
             action:#selector(actionTryAgain(sender:)),

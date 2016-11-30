@@ -70,7 +70,7 @@
 "CHomeUpload_uploadedTitle"="Synched photos will be locally removed";
 "CHomeUpload_uploadedDontRemove"="Keep them";
 "CHomeUpload_uploadedRemove"="Remove them";
-"CAuth_reason"="Authenticate to access your cloud";
+"CAuth_reason"="Private account";
 "CAuth_errorUnknown"="Couldn't authenticate, try again";
 "CAuth_passCodeNotSet"="Set your password in the device Settings to secure your cloud";
 "COnboardForm_errorUnknown"="Unexpected error, try again";

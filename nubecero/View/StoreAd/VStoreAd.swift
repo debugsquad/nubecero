@@ -17,6 +17,8 @@ class VStoreAd:UIView
         backgroundColor = UIColor.clear
         self.controller = controller
         
+        let buttonWidth:CGFloat = kBaseWidth / 2.0
+        
         let blurEffect:UIBlurEffect = UIBlurEffect(style:UIBlurEffectStyle.light)
         let visualEffect:UIVisualEffectView = UIVisualEffectView(effect:blurEffect)
         visualEffect.isUserInteractionEnabled = false
@@ -44,18 +46,39 @@ class VStoreAd:UIView
         buttonAccept.setTitle(
             NSLocalizedString("VStoreAd_buttonAccept", comment:""),
             for:UIControlState.normal)
+        buttonAccept.titleLabel!.font = UIFont.medium(size:13)
+        
+        let buttonCancel:UIButton = UIButton()
+        buttonCancel.backgroundColor = UIColor.red
+        buttonCancel.clipsToBounds = true
+        buttonCancel.translatesAutoresizingMaskIntoConstraints = false
+        buttonCancel.setTitleColor(
+            UIColor.white,
+            for:UIControlState.normal)
+        buttonCancel.setTitleColor(
+            UIColor(white:1, alpha:0.2),
+            for:UIControlState.highlighted)
+        buttonCancel.setTitle(
+            NSLocalizedString("VStoreAd_buttonCancel", comment:""),
+            for:UIControlState.normal)
+        buttonCancel.titleLabel!.font = UIFont.medium(size:13)
         
         addSubview(visualEffect)
         addSubview(baseView)
+        addSubview(buttonCancel)
+        addSubview(buttonAccept)
         
         let views:[String:UIView] = [
             "visualEffect":visualEffect,
-            "baseView":baseView]
+            "baseView":baseView,
+            "buttonAccept":buttonAccept,
+            "buttonCancel":buttonCancel]
         
         let metrics:[String:CGFloat] = [
             "baseWidth":kBaseWidth,
             "baseHeight":kBaseHeight,
-            "buttonHeight":kButtonHeight]
+            "buttonHeight":kButtonHeight,
+            "buttonWidth":buttonWidth]
         
         addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"H:|-0-[visualEffect]-0-|",
@@ -68,7 +91,27 @@ class VStoreAd:UIView
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:|-0-[buttonCancel(buttonWidth)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"H:[buttonAccept(buttonWidth)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
             withVisualFormat:"V:[baseHeight(baseHeight)]",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[buttonAccept(buttonHeight)]-0-|",
+            options:[],
+            metrics:metrics,
+            views:views))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat:"V:[buttonCancel(buttonHeight)]-0-|",
             options:[],
             metrics:metrics,
             views:views))

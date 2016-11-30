@@ -239,6 +239,12 @@ class VBar:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UIColle
     
     //MARK: public
     
+    func openStore()
+    {
+        let indexStore:Int = model.store.index
+        synthSelect(index:indexStore)
+    }
+    
     func restart()
     {
         model.restart()

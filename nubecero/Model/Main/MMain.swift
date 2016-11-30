@@ -5,6 +5,7 @@ class MMain
     let items:[MMainItem]
     var state:MMainState
     weak var current:MMainItem!
+    weak var store:MMainItemStore!
     private weak var home:MMainItem!
     
     init()
@@ -31,6 +32,7 @@ class MMain
         items.append(itemPhotos)
         
         let itemStore:MMainItemStore = MMainItemStore(index:items.count)
+        store = itemStore
         items.append(itemStore)
         
         self.items = items

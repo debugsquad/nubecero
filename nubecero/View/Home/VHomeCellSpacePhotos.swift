@@ -7,6 +7,12 @@ class VHomeCellSpacePhotos:VHomeCellSpace
         let color:UIColor = UIColor.black
         
         super.init(frame:frame, color:color)
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector:#selector(notifiedPhotosLoaded(sender:)),
+            name:Notification.photosLoaded,
+            object:nil)
     }
     
     override init(frame:CGRect, color:UIColor)

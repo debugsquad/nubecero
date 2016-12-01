@@ -5,10 +5,10 @@ class TFDatabaseModelUser:XCTestCase
 {
     private let kEmail:String = "atest@mail.com"
     private let kCreated:TimeInterval = 123456
-    private let kLastSession:TimeInterval = 45678
     private let kDiskUsed:Int = 3098765
     private let kDiskInitial:Int = 0
     
+    /*
     enum Property:String
     {
         case session = "session"
@@ -17,27 +17,17 @@ class TFDatabaseModelUser:XCTestCase
         case diskUsed = "diskUsed"
         case photos = "photos"
         case albums = "albums"
-    }
-    
-    let session:FDatabaseModelUserSession
-    let email:String
-    let created:TimeInterval
-    let diskUsed:Int
-    private let kEmpty:String = ""
-    private let kNoTime:TimeInterval = 0
+    }*/
     
     func testInitSnapshot()
     {
-        let status:FDatabaseModelUser.Status = FDatabaseModelUser.Status.active
-        let keyStatus:String = FDatabaseModelUser.Property.status.rawValue
+        let keyEmail:String = FDatabaseModelUser.Property.email.rawValue
         let keyCreated:String = FDatabaseModelUser.Property.created.rawValue
-        let keyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
         let keyDiskUsed:String = FDatabaseModelUser.Property.diskUsed.rawValue
         
         let snapshot:[String:Any] = [
-            keyStatus:status.rawValue,
+            keyEmail:kEmail,
             keyCreated:kCreated,
-            keyLastSession:kLastSession,
             keyDiskUsed:kDiskUsed
         ]
         
@@ -45,19 +35,14 @@ class TFDatabaseModelUser:XCTestCase
             snapshot:snapshot)
         
         XCTAssertEqual(
-            fDatabaseModelUser.status,
-            status,
-            "Parsing status error")
+            fDatabaseModelUser.email,
+            kEmail,
+            "Parsing email error")
         
         XCTAssertEqual(
             fDatabaseModelUser.created,
             kCreated,
             "Parsing created error")
-        
-        XCTAssertEqual(
-            fDatabaseModelUser.lastSession,
-            kLastSession,
-            "Parsing last session error")
         
         XCTAssertEqual(
             fDatabaseModelUser.diskUsed,
@@ -70,32 +55,19 @@ class TFDatabaseModelUser:XCTestCase
             modelJson,
             "Error creating model json")
         
-        let jsonStatusInt:Int? = modelJson![keyStatus] as? Int
+        let jsonEmail:String? = modelJson![keyEmail] as? String
         let jsonCreated:TimeInterval? = modelJson![keyCreated] as? TimeInterval
-        let jsonLastSession:TimeInterval? = modelJson![keyLastSession] as? TimeInterval
         let jsonDiskUsed:Int? = modelJson![keyDiskUsed] as? Int
         
-        XCTAssertNotNil(
-            jsonStatusInt,
-            "Error storing status on json")
-        
-        let jsonStatus:FDatabaseModelUser.Status? = FDatabaseModelUser.Status(
-            rawValue:jsonStatusInt!)
-        
         XCTAssertEqual(
-            status,
-            jsonStatus,
-            "Status received from json is no the same as the stored")
+            kEmail,
+            jsonEmail,
+            "Email received from json is no the same as the stored")
         
         XCTAssertEqual(
             kCreated,
             jsonCreated,
             "Created received from json is not the same as the stored")
-        
-        XCTAssertEqual(
-            kLastSession,
-            jsonLastSession,
-            "Last session received from json is not the same as the stored")
         
         XCTAssertEqual(
             kDiskUsed,

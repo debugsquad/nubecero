@@ -3,10 +3,28 @@ import XCTest
 
 class TFDatabaseModelUser:XCTestCase
 {
+    private let kEmail:String = "atest@mail.com"
     private let kCreated:TimeInterval = 123456
     private let kLastSession:TimeInterval = 45678
     private let kDiskUsed:Int = 3098765
     private let kDiskInitial:Int = 0
+    
+    enum Property:String
+    {
+        case session = "session"
+        case email = "email"
+        case created = "created"
+        case diskUsed = "diskUsed"
+        case photos = "photos"
+        case albums = "albums"
+    }
+    
+    let session:FDatabaseModelUserSession
+    let email:String
+    let created:TimeInterval
+    let diskUsed:Int
+    private let kEmpty:String = ""
+    private let kNoTime:TimeInterval = 0
     
     func testInitSnapshot()
     {

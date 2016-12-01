@@ -7,17 +7,7 @@ class TFDatabaseModelUser:XCTestCase
     private let kCreated:TimeInterval = 123456
     private let kDiskUsed:Int = 3098765
     private let kDiskInitial:Int = 0
-    
-    /*
-    enum Property:String
-    {
-        case session = "session"
-        case email = "email"
-        case created = "created"
-        case diskUsed = "diskUsed"
-        case photos = "photos"
-        case albums = "albums"
-    }*/
+    private let kEmpty:String = ""
     
     func testInitSnapshot()
     {
@@ -75,62 +65,27 @@ class TFDatabaseModelUser:XCTestCase
             "Disk used received from json is not the same as the recived")
     }
     
-    func testInitSnapshotUserBanned()
-    {
-        let status:FDatabaseModelUser.Status = FDatabaseModelUser.Status.banned
-        
-        let snapshot:[String:Any] = [
-            FDatabaseModelUser.Property.status.rawValue:status.rawValue
-        ]
-        
-        let fDatabaseModelUser:FDatabaseModelUser = FDatabaseModelUser(
-            snapshot:snapshot)
-        
-        XCTAssertEqual(
-            fDatabaseModelUser.status,
-            status,
-            "User banned not working")
-    }
-    
-    func testInitSnapshotNil()
+    func testInitMinValues()
     {
         let snapshot:Any = ""
-        
-        let fDatabaseModelUser:FDatabaseModelUser = FDatabaseModelUser(
-            snapshot:snapshot)
-        
-        XCTAssertEqual(
-            fDatabaseModelUser.status,
-            FDatabaseModelUser.Status.unknown,
-            "Snapshot nil not using unknown status")
-    }
-    
-    func testInitStatus()
-    {
-        let status:FDatabaseModelUser.Status = FDatabaseModelUser.Status.active
         let currentTime:TimeInterval = Date().timeIntervalSince1970
         
         let fDatabaseModelUser:FDatabaseModelUser = FDatabaseModelUser(
-            status:status)
+            snapshot:snapshot)
         
         XCTAssertEqual(
-            fDatabaseModelUser.status,
-            status,
-            "Error init with status")
+            fDatabaseModelUser.email,
+            kEmpty,
+            "Error min email")
         
         XCTAssertGreaterThanOrEqual(
             fDatabaseModelUser.created,
             currentTime,
-            "Error making the created timestamp")
-        
-        XCTAssertEqual(
-            fDatabaseModelUser.created,
-            fDatabaseModelUser.lastSession,
-            "Last session and created are not the same")
+            "Error min created")
         
         XCTAssertEqual(
             fDatabaseModelUser.diskUsed,
             kDiskInitial,
-            "Error initializing disk space")
+            "Error min disk used")
     }
 }

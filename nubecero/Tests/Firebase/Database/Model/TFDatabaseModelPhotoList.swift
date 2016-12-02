@@ -36,4 +36,25 @@ class TFDatabaseModelPhotoList:XCTestCase
             kCreated,
             "Error parsing picture properties")
     }
+    
+    func testInitSnapshotEmpty()
+    {
+        let snapshot:[MPhotos.PhotoId:Any] = [
+            kPictureIdA:kEmpty,
+            kPictureIdB:kEmpty,
+            kPictureIdC:kEmpty
+        ]
+        
+        let model:FDatabaseModelPhotoList = FDatabaseModelPhotoList(
+            snapshot:snapshot)
+        
+        let snapshotKeys:[MPhotos.PhotoId] = Array(snapshot.keys)
+        let countPictures:Int = model.items.count
+        let countSnapshotKeys:Int = snapshotKeys.count
+        
+        XCTAssertEqual(
+            countSnapshotKeys,
+            countPictures,
+            "Not the same amount of items parsed")
+    }
 }

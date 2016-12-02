@@ -68,14 +68,20 @@ class TFDatabaseModelServer:XCTestCase
             "When nil snapshot there should be no plus space")
     }
     
-    func testInitFroobSpace()
+    func testInitFroobPlusSpace()
     {
         let fDatabaseModelServer:FDatabaseModelServer = FDatabaseModelServer(
-            froobSpace:kFroobSpace)
+            froobSpace:kFroobSpace,
+            plusSpace:kPlusSpace)
         
         XCTAssertEqual(
             fDatabaseModelServer.froobSpace,
             kFroobSpace,
             "Error parsing init with froob space")
+        
+        XCTAssertEqual(
+            fDatabaseModelServer.plusSpace,
+            kPlusSpace,
+            "Error parsing init with plus space")
     }
 }

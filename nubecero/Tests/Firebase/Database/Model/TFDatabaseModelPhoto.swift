@@ -4,7 +4,7 @@ import XCTest
 class TFDatabaseModelPhoto:XCTestCase
 {
     private let kLocalId:String = "9addas9auajadsjkhn331212aaddsa"
-    private let kAlbumId:String? = "sdaadadn2312312312nnb2"
+    private let kAlbumId:MPhotos.AlbumId? = "sdaadadn2312312312nnb2"
     private let kCreated:TimeInterval = 1434342.344
     private let kTaken:TimeInterval = 34342.344
     private let kSize:Int = 2343545

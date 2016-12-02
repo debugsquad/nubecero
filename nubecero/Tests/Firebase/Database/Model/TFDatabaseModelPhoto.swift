@@ -249,4 +249,22 @@ class TFDatabaseModelPhoto:XCTestCase
             kNoTime,
             "Error snapshot nil not using taken no time")
     }
+    
+    func testStatusWaiting()
+    {
+        let status:MPhotos.Status = MPhotos.Status.waiting
+        let keyStatus:String = FDatabaseModelPhoto.Property.status.rawValue
+        
+        let snapshot:[String:Any] = [
+            keyStatus:status.rawValue
+        ]
+        
+        let model:FDatabaseModelPhoto = FDatabaseModelPhoto(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            model.status,
+            status,
+            "Error parsing status waiting")
+    }
 }

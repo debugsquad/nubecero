@@ -123,4 +123,50 @@ class TFDatabaseModelUserSession:XCTestCase
             kNoTtle,
             "Error ttl should be zero")
     }
+    
+    func testInitSnapshot()
+    {
+        let initialStatus:MSession.Status = MSession.Status.active
+        let currentTime:TimeInterval = NSDate().timeIntervalSince1970
+        
+        let keyStatus:String = FDatabaseModelUserSession.Property.status.rawValue
+        let keyToken:String = FDatabaseModelUserSession.Property.token.rawValue
+        let keyVersion:String = FDatabaseModelUserSession.Property.version.rawValue
+        let keyTimestamp:String = FDatabaseModelUserSession.Property.timestamp.rawValue
+        let keyTtl:String = FDatabaseModelUserSession.Property.ttl.rawValue
+        
+        let snapshot:[String:Any] = [
+            keyStatus:kEmail,
+            keyCreated:kCreated,
+            keyDiskUsed:kDiskUsed
+        ]
+        
+        let model:FDatabaseModelUserSession = FDatabaseModelUserSession(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            model.token,
+            kToken,
+            "Error storing token")
+        
+        XCTAssertEqual(
+            model.version,
+            kVersion,
+            "Error storing version")
+        
+        XCTAssertEqual(
+            model.ttl,
+            kTtl,
+            "Error storing ttl")
+        
+        XCTAssertGreaterThanOrEqual(
+            model.timestamp,
+            currentTime,
+            "Error timestamp should be greater or equal to starting time")
+        
+        XCTAssertEqual(
+            model.status,
+            initialStatus,
+            "Error user should be acitve on creation")
+    }
 }

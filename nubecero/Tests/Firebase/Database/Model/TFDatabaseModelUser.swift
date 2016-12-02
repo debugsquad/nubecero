@@ -7,6 +7,7 @@ class TFDatabaseModelUser:XCTestCase
     private let kCreated:TimeInterval = 123456
     private let kDiskUsed:Int = 3098765
     private let kDiskInitial:Int = 0
+    private let kNoTime:TimeInterval = 0
     private let kEmpty:String = ""
     
     func testInitSnapshot()
@@ -80,7 +81,7 @@ class TFDatabaseModelUser:XCTestCase
         
         XCTAssertGreaterThanOrEqual(
             model.created,
-            currentTime,
+            kNoTime,
             "Error min created")
         
         XCTAssertEqual(
@@ -88,4 +89,6 @@ class TFDatabaseModelUser:XCTestCase
             kDiskInitial,
             "Error min disk used")
     }
+    
+    //TODO: test email token version
 }

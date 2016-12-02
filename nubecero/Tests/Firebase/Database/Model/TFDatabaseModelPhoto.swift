@@ -29,7 +29,7 @@ class TFDatabaseModelPhoto:XCTestCase
             keyAlbumId:kAlbumId,
             keyCreated:kCreated,
             keyTaken:kTaken,
-            keyStatus:status,
+            keyStatus:status.rawValue,
             keySize:kSize,
             keyPixelWidth:kPixelWidth,
             keyPixelHeight:kPixelHeight

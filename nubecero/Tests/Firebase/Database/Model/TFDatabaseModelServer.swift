@@ -17,20 +17,20 @@ class TFDatabaseModelServer:XCTestCase
             keyPlusSpace:kPlusSpace
         ]
         
-        let fDatabaseModelServer:FDatabaseModelServer = FDatabaseModelServer(
+        let model:FDatabaseModelServer = FDatabaseModelServer(
             snapshot:snapshot)
         
         XCTAssertEqual(
-            fDatabaseModelServer.froobSpace,
+            model.froobSpace,
             kFroobSpace,
             "Error parsing froob space")
         
         XCTAssertEqual(
-            fDatabaseModelServer.plusSpace,
+            model.plusSpace,
             kPlusSpace,
             "Error parsing plus space")
         
-        let modelJson:[String:Any]? = fDatabaseModelServer.modelJson() as? [String:Any]
+        let modelJson:[String:Any]? = model.modelJson() as? [String:Any]
         
         XCTAssertNotNil(
             modelJson,
@@ -54,33 +54,33 @@ class TFDatabaseModelServer:XCTestCase
     {
         let snapshot:Any = ""
         
-        let fDatabaseModelServer:FDatabaseModelServer = FDatabaseModelServer(
+        let model:FDatabaseModelServer = FDatabaseModelServer(
             snapshot:snapshot)
         
         XCTAssertEqual(
-            fDatabaseModelServer.froobSpace,
+            model.froobSpace,
             kNoSpace,
             "When nil snapshot there should be no froob space")
         
         XCTAssertEqual(
-            fDatabaseModelServer.plusSpace,
+            model.plusSpace,
             kNoSpace,
             "When nil snapshot there should be no plus space")
     }
     
     func testInitFroobPlusSpace()
     {
-        let fDatabaseModelServer:FDatabaseModelServer = FDatabaseModelServer(
+        let model:FDatabaseModelServer = FDatabaseModelServer(
             froobSpace:kFroobSpace,
             plusSpace:kPlusSpace)
         
         XCTAssertEqual(
-            fDatabaseModelServer.froobSpace,
+            model.froobSpace,
             kFroobSpace,
             "Error parsing init with froob space")
         
         XCTAssertEqual(
-            fDatabaseModelServer.plusSpace,
+            model.plusSpace,
             kPlusSpace,
             "Error parsing init with plus space")
     }

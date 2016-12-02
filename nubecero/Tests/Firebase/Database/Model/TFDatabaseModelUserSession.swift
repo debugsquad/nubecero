@@ -7,6 +7,7 @@ class TFDatabaseModelUserSession:XCTestCase
     private let kVersion:String = "312"
     private let kTtl:Int? = 134398765
     private let kEmpty:String = ""
+    private let kNoTtle = 0
     
     func testInitTokenVersionTtl()
     {
@@ -108,5 +109,18 @@ class TFDatabaseModelUserSession:XCTestCase
             model.token,
             kEmpty,
             "Error token should be empty")
+    }
+    
+    func testInitTtlNil()
+    {
+        let model:FDatabaseModelUserSession = FDatabaseModelUserSession(
+            token:kToken,
+            version:kVersion,
+            ttl:nil)
+        
+        XCTAssertEqual(
+            model.ttl,
+            kNoTtle,
+            "Error ttl should be zero")
     }
 }

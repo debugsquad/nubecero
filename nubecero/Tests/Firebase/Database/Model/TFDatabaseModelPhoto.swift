@@ -4,12 +4,13 @@ import XCTest
 class TFDatabaseModelPhoto:XCTestCase
 {
     private let kLocalId:String = "9addas9auajadsjkhn331212aaddsa"
-    private let kAlbumId:String = "sdaadadn2312312312nnb2"
+    private let kAlbumId:String? = "sdaadadn2312312312nnb2"
     private let kCreated:TimeInterval = 1434342.344
     private let kTaken:TimeInterval = 34342.344
     private let kSize:Int = 2343545
     private let kPixelWidth:Int = 43532225
     private let kPixelHeight:Int = 534663123
+    private let kEmpty:String = ""
     private let kNoTime:TimeInterval = 0
     private let kNoSize:Int = 0
     
@@ -141,6 +142,72 @@ class TFDatabaseModelPhoto:XCTestCase
             jsonPixelHeight,
             "Error pixel height not matching")
     }
+    
+    func testInitProperties()
+    {
+        let currentTime:TimeInterval = Date().timeIntervalSince1970
+        
+        let model:FDatabaseModelPhoto = FDatabaseModelPhoto(
+            localId:kLocalId,
+            albumId:kAlbumId,
+            taken:kTaken,
+            size:kSize,
+            pixelWidth:kPixelWidth,
+            pixelHeight:kPixelHeight)
+        
+        XCTAssertEqual(
+            model.localId,
+            kLocalId,
+            "Error parsing local id")
+        
+        XCTAssertEqual(
+            model.albumId,
+            kAlbumId,
+            "Error parsing album id")
+        
+        XCTAssertGreaterThanOrEqual(
+            model.created,
+            currentTime,
+            "Error with created")
+        
+        XCTAssertEqual(
+            model.taken,
+            kTaken,
+            "Error parsing taken")
+        
+        XCTAssertEqual(
+            model.status,
+            MPhotos.Status.waiting,
+            "Error parsing status")
+        
+        XCTAssertEqual(
+            model.size,
+            kSize,
+            "Error parsing size")
+        
+        XCTAssertEqual(
+            model.pixelWidth,
+            kPixelWidth,
+            "Error parsing pixel width")
+        
+        XCTAssertEqual(
+            model.pixelHeight,
+            kPixelHeight,
+            "Error parsing pixel height")
+    }
+    /*
+    func testInitNoAlbumId()
+    {
+        let keyAlbumId:String = FDatabaseModelPhoto.Property.albumId.rawValue
+        
+        let snapshot:[String:Any] = [
+            keyAlbumId:kAlbumId,
+        ]
+        
+        let model:FDatabaseModelPhoto = FDatabaseModelPhoto(
+            snapshot:snapshot)
+        
+    }*/
     
     func testInitSnapshotNil()
     {

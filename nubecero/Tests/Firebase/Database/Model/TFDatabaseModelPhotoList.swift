@@ -8,7 +8,7 @@ class TFDatabaseModelPhotoList:XCTestCase
     private let kPhotoIdC:MPhotos.PhotoId = "swift"
     private let kEmpty:Any = ""
     private let kCreated:TimeInterval = 123456
-    private let kNoPictures:Int = 0
+    private let kNoPhotos:Int = 0
     
     func testInitSnapshot()
     {
@@ -65,11 +65,11 @@ class TFDatabaseModelPhotoList:XCTestCase
         let model:FDatabaseModelPhotoList = FDatabaseModelPhotoList(
             snapshot:snapshot)
         
-        let countPictures:Int = model.items.count
+        let countPhotos:Int = model.items.count
         
         XCTAssertEqual(
-            kNoPictures,
-            countPictures,
+            kNoPhotos,
+            countPhotos,
             "Photos should be empty")
     }
 }

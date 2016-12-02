@@ -57,4 +57,19 @@ class TFDatabaseModelUserList:XCTestCase
             countUsers,
             "Not the same amount of items parsed")
     }
+    
+    func testInitSnapshotNil()
+    {
+        let snapshot:Any = kEmpty
+        
+        let model:FDatabaseModelUserList = FDatabaseModelUserList(
+            snapshot:snapshot)
+        
+        let countUsers:Int = model.items.count
+        
+        XCTAssertEqual(
+            kNoUsers,
+            countUsers,
+            "Users should be empty")
+    }
 }

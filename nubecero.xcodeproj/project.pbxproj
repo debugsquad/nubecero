@@ -260,7 +260,6 @@
 		DAD237571DDD1CAE00BF52C3 /* MAdminServerItemPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD237561DDD1CAE00BF52C3 /* MAdminServerItemPlus.swift */; };
 		DAD237591DDD1D7F00BF52C3 /* VAdminServerCellPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD237581DDD1D7F00BF52C3 /* VAdminServerCellPlus.swift */; };
 		DAD739591DD0E35700FC3297 /* TFDatabaseModelUserDiskUsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD739581DD0E35700FC3297 /* TFDatabaseModelUserDiskUsed.swift */; };
-		DAD7395D1DD0EE9F00FC3297 /* TFDatabaseModelPictureList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7395C1DD0EE9F00FC3297 /* TFDatabaseModelPictureList.swift */; };
 		DAD7395F1DD0F70900FC3297 /* TFDatabaseModelServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7395E1DD0F70900FC3297 /* TFDatabaseModelServer.swift */; };
 		DAD7398C1DD1571700FC3297 /* VSettingsCellAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7398B1DD1571700FC3297 /* VSettingsCellAbout.swift */; };
 		DAD7398E1DD1597B00FC3297 /* MSettingsItemAbout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD7398D1DD1597B00FC3297 /* MSettingsItemAbout.swift */; };
@@ -574,7 +573,6 @@
 		DAD237561DDD1CAE00BF52C3 /* MAdminServerItemPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAdminServerItemPlus.swift; sourceTree = "<group>"; };
 		DAD237581DDD1D7F00BF52C3 /* VAdminServerCellPlus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAdminServerCellPlus.swift; sourceTree = "<group>"; };
 		DAD739581DD0E35700FC3297 /* TFDatabaseModelUserDiskUsed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelUserDiskUsed.swift; sourceTree = "<group>"; };
-		DAD7395C1DD0EE9F00FC3297 /* TFDatabaseModelPictureList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelPictureList.swift; sourceTree = "<group>"; };
 		DAD7395E1DD0F70900FC3297 /* TFDatabaseModelServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelServer.swift; sourceTree = "<group>"; };
 		DAD7398B1DD1571700FC3297 /* VSettingsCellAbout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSettingsCellAbout.swift; sourceTree = "<group>"; };
 		DAD7398D1DD1597B00FC3297 /* MSettingsItemAbout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSettingsItemAbout.swift; sourceTree = "<group>"; };
@@ -812,7 +810,6 @@
 			children = (
 				DA25F8E01DCD63A50048DFFE /* TFDatabaseModelUser.swift */,
 				DAD739581DD0E35700FC3297 /* TFDatabaseModelUserDiskUsed.swift */,
-				DAD7395C1DD0EE9F00FC3297 /* TFDatabaseModelPictureList.swift */,
 				DAD7395E1DD0F70900FC3297 /* TFDatabaseModelServer.swift */,
 				DAC99A061DF0F40D0031FEDF /* TFDatabaseModelPhoto.swift */,
 				DA14D6371DF1CDC4001E8022 /* TFDatabaseModelPhotoList.swift */,
@@ -2022,7 +2019,6 @@
 				DAC99A071DF0F40D0031FEDF /* TFDatabaseModelPhoto.swift in Sources */,
 				DAD739591DD0E35700FC3297 /* TFDatabaseModelUserDiskUsed.swift in Sources */,
 				DA4FA58A1DD7A4CE00358ABE /* TOnboardFormItemPassGenerator.swift in Sources */,
-				DAD7395D1DD0EE9F00FC3297 /* TFDatabaseModelPictureList.swift in Sources */,
 				DAD7395F1DD0F70900FC3297 /* TFDatabaseModelServer.swift in Sources */,
 				DA25F8E11DCD63A50048DFFE /* TFDatabaseModelUser.swift in Sources */,
 				DA14D6381DF1CDC4001E8022 /* TFDatabaseModelPhotoList.swift in Sources */,

@@ -8,7 +8,8 @@ class TFDatabaseModelUserSession:XCTestCase
     private let kTtl:Int? = 134398765
     private let kTimestamp:TimeInterval = 1344556
     private let kEmpty:String = ""
-    private let kNoTtle = 0
+    private let kNoTime:TimeInterval = 0
+    private let kNoTtl:Int = 0
     
     func testInitTokenVersionTtl()
     {
@@ -121,7 +122,7 @@ class TFDatabaseModelUserSession:XCTestCase
         
         XCTAssertEqual(
             model.ttl,
-            kNoTtle,
+            kNoTtl,
             "Error ttl should be zero")
     }
     
@@ -169,6 +170,39 @@ class TFDatabaseModelUserSession:XCTestCase
         XCTAssertEqual(
             model.ttl,
             kTtl,
-            "Error storing ttlt")
+            "Error storing ttl")
+    }
+    
+    func testInitSnapshotNil()
+    {
+        let snapshot:Any? = nil
+        
+        let model:FDatabaseModelUserSession = FDatabaseModelUserSession(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            model.status,
+            MSession.Status.unknown,
+            "Error default status")
+        
+        XCTAssertEqual(
+            model.token,
+            kEmpty,
+            "Error default token")
+        
+        XCTAssertEqual(
+            model.version,
+            kEmpty,
+            "Error default version")
+        
+        XCTAssertEqual(
+            model.timestamp,
+            kNoTime,
+            "Error default timestamp")
+        
+        XCTAssertEqual(
+            model.ttl,
+            kNoTtl,
+            "Error default ttl")
     }
 }

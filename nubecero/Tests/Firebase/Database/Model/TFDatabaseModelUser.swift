@@ -90,5 +90,9 @@ class TFDatabaseModelUser:XCTestCase
             "Error min disk used")
     }
     
+    func testInitEmailTokenVersion()
+    {
+        
+    }
     //TODO: test email token version
 }

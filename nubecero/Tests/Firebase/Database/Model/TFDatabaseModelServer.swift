@@ -37,11 +37,17 @@ class TFDatabaseModelServer:XCTestCase
             "Error creating model json")
         
         let jsonFroobSpace:Int? = modelJson?[keyFroobSpace] as? Int
+        let jsonPlusSpace:Int? = modelJson?[keyPlusSpace] as? Int
         
         XCTAssertEqual(
             jsonFroobSpace,
             kFroobSpace,
             "Error storing froob space on json model")
+        
+        XCTAssertEqual(
+            jsonPlusSpace,
+            kPlusSpace,
+            "Error storing plus space on json model")
     }
     
     func testInitSnapshotNil()

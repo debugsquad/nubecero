@@ -266,6 +266,15 @@ class TFDatabaseModelPhoto:XCTestCase
             model.status,
             status,
             "Error parsing status waiting")
+        
+        let modelJson:[String:AnyObject]? = model.modelJson() as? [String:AnyObject]
+        let jsonStatusInt:Int? = modelJson?[keyStatus] as? Int
+        let jsonStatus:MPhotos.Status? = MPhotos.Status(rawValue:jsonStatusInt!)
+        
+        XCTAssertEqual(
+            jsonStatus,
+            status,
+            "Error status json")
     }
     
     func testStatusSynced()
@@ -284,6 +293,15 @@ class TFDatabaseModelPhoto:XCTestCase
             model.status,
             status,
             "Error parsing status synced")
+        
+        let modelJson:[String:AnyObject]? = model.modelJson() as? [String:AnyObject]
+        let jsonStatusInt:Int? = modelJson?[keyStatus] as? Int
+        let jsonStatus:MPhotos.Status? = MPhotos.Status(rawValue:jsonStatusInt!)
+        
+        XCTAssertEqual(
+            jsonStatus,
+            status,
+            "Error status json")
     }
     
     func testStatusDeleting()
@@ -302,5 +320,14 @@ class TFDatabaseModelPhoto:XCTestCase
             model.status,
             status,
             "Error parsing status deleting")
+        
+        let modelJson:[String:AnyObject]? = model.modelJson() as? [String:AnyObject]
+        let jsonStatusInt:Int? = modelJson?[keyStatus] as? Int
+        let jsonStatus:MPhotos.Status? = MPhotos.Status(rawValue:jsonStatusInt!)
+        
+        XCTAssertEqual(
+            jsonStatus,
+            status,
+            "Error status json")
     }
 }

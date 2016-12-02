@@ -267,4 +267,40 @@ class TFDatabaseModelPhoto:XCTestCase
             status,
             "Error parsing status waiting")
     }
+    
+    func testStatusSynced()
+    {
+        let status:MPhotos.Status = MPhotos.Status.synced
+        let keyStatus:String = FDatabaseModelPhoto.Property.status.rawValue
+        
+        let snapshot:[String:Any] = [
+            keyStatus:status.rawValue
+        ]
+        
+        let model:FDatabaseModelPhoto = FDatabaseModelPhoto(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            model.status,
+            status,
+            "Error parsing status synced")
+    }
+    
+    func testStatusDeleting()
+    {
+        let status:MPhotos.Status = MPhotos.Status.deleting
+        let keyStatus:String = FDatabaseModelPhoto.Property.status.rawValue
+        
+        let snapshot:[String:Any] = [
+            keyStatus:status.rawValue
+        ]
+        
+        let model:FDatabaseModelPhoto = FDatabaseModelPhoto(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            model.status,
+            status,
+            "Error parsing status deleting")
+    }
 }

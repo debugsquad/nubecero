@@ -6,6 +6,7 @@ class TFDatabaseModelUserSession:XCTestCase
     private let kToken:String? = "ddsfkjfsjksd3324fd"
     private let kVersion:String = "312"
     private let kTtl:Int? = 134398765
+    private let kEmpty:String = ""
     
     func testInitTokenVersionTtl()
     {
@@ -94,5 +95,18 @@ class TFDatabaseModelUserSession:XCTestCase
             kTtl,
             jsonTtl,
             "Error with ttl on json")
+    }
+    
+    func testInitTokenNil()
+    {
+        let model:FDatabaseModelUserSession = FDatabaseModelUserSession(
+            token:nil,
+            version:kVersion,
+            ttl:kTtl)
+        
+        XCTAssertEqual(
+            model.token,
+            kEmpty,
+            "Error token should be empty")
     }
 }

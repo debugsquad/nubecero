@@ -10,6 +10,8 @@ class TFDatabaseModelPhoto:XCTestCase
     private let kSize:Int = 2343545
     private let kPixelWidth:Int = 43532225
     private let kPixelHeight:Int = 534663123
+    private let kNoTime:TimeInterval = 0
+    private let kNoSize:Int = 0
     
     func testInitSnapshot()
     {
@@ -138,5 +140,43 @@ class TFDatabaseModelPhoto:XCTestCase
             kPixelHeight,
             jsonPixelHeight,
             "Error pixel height not matching")
+    }
+    
+    func testInitSnapshotNil()
+    {
+        let snapshot:Any = ""
+        
+        let model:FDatabaseModelPhoto = FDatabaseModelPhoto(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            model.status,
+            MPhotos.Status.waiting,
+            "Error snapshot nil not using waiting status")
+        
+        XCTAssertEqual(
+            model.size,
+            kNoSize,
+            "Error snapshot nil not using size zero")
+        
+        XCTAssertEqual(
+            model.pixelWidth,
+            kNoSize,
+            "Error snapshot nil not using width zero")
+        
+        XCTAssertEqual(
+            model.pixelHeight,
+            kNoSize,
+            "Error snapshot nil not using height zero")
+        
+        XCTAssertEqual(
+            model.created,
+            kNoTime,
+            "Error snapshot nil not using created no time")
+        
+        XCTAssertEqual(
+            model.taken,
+            kNoTime,
+            "Error snapshot nil not using taken no time")
     }
 }

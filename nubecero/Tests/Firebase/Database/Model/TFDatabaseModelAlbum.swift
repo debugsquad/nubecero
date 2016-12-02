@@ -5,7 +5,7 @@ class TFDatabaseModelAlbum:XCTestCase
 {
     private let kName:String = "a super cool nubecero album"
     private let kCreated:TimeInterval = 154423
-    private let kNoName:String = ""
+    private let kEmpty:String = ""
     private let kNoTime:TimeInterval = 0
     
     func testInitName()
@@ -69,5 +69,23 @@ class TFDatabaseModelAlbum:XCTestCase
             model.created,
             kCreated,
             "Error storing created")
+    }
+    
+    func testInitNil()
+    {
+        let snapshot:Any? = nil
+        
+        let model:FDatabaseModelAlbum = FDatabaseModelAlbum(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            model.name,
+            kEmpty,
+            "Error empty name")
+        
+        XCTAssertGreaterThanOrEqual(
+            model.created,
+            kNoTime,
+            "Error no created")
     }
 }

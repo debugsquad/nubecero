@@ -46,4 +46,28 @@ class TFDatabaseModelAlbum:XCTestCase
             kName,
             "Error json name")
     }
+    
+    func testInitSnapshot()
+    {
+        let keyName:String = FDatabaseModelAlbum.Property.name.rawValue
+        let keyCreated:String = FDatabaseModelAlbum.Property.created.rawValue
+        
+        let snapshot:[String:Any] = [
+            keyName:kName,
+            keyCreated:kCreated
+        ]
+        
+        let model:FDatabaseModelAlbum = FDatabaseModelAlbum(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            model.name,
+            kName,
+            "Error storing name")
+        
+        XCTAssertGreaterThanOrEqual(
+            model.created,
+            kCreated,
+            "Error storing created")
+    }
 }

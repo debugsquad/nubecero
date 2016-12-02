@@ -3,9 +3,9 @@ import XCTest
 
 class TFDatabaseModelPhotoList:XCTestCase
 {
-    private let kPictureIdA:MPhotos.PhotoId = "hello world"
-    private let kPictureIdB:MPhotos.PhotoId = "nubecero"
-    private let kPictureIdC:MPhotos.PhotoId = "swift"
+    private let kPhotoIdA:MPhotos.PhotoId = "hello world"
+    private let kPhotoIdB:MPhotos.PhotoId = "nubecero"
+    private let kPhotoIdC:MPhotos.PhotoId = "swift"
     private let kEmpty:Any = ""
     private let kCreated:TimeInterval = 123456
     private let kNoPictures:Int = 0
@@ -15,7 +15,7 @@ class TFDatabaseModelPhotoList:XCTestCase
         let keyCreated:String = FDatabaseModelPhoto.Property.created.rawValue
         
         let snapshot:[MPhotos.PhotoId:Any] = [
-            kPictureIdA:[
+            kPhotoIdA:[
                 keyCreated:kCreated
             ]
         ]
@@ -28,21 +28,21 @@ class TFDatabaseModelPhotoList:XCTestCase
             "Error parsing first item")
         
         XCTAssertNotNil(
-            model.items[kPictureIdA],
+            model.items[kPhotoIdA],
             "Error parsing first item")
         
         XCTAssertEqual(
-            model.items[kPictureIdA]!.created,
+            model.items[kPhotoIdA]!.created,
             kCreated,
-            "Error parsing picture properties")
+            "Error parsing photo properties")
     }
     
     func testInitSnapshotEmpty()
     {
         let snapshot:[MPhotos.PhotoId:Any] = [
-            kPictureIdA:kEmpty,
-            kPictureIdB:kEmpty,
-            kPictureIdC:kEmpty
+            kPhotoIdA:kEmpty,
+            kPhotoIdB:kEmpty,
+            kPhotoIdC:kEmpty
         ]
         
         let model:FDatabaseModelPhotoList = FDatabaseModelPhotoList(

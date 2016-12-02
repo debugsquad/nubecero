@@ -22,6 +22,7 @@
 		DA14D63A1DF1D353001E8022 /* TFDatabaseModelUserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D6391DF1D353001E8022 /* TFDatabaseModelUserList.swift */; };
 		DA14D63C1DF1D856001E8022 /* TFDatabaseModelUserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D63B1DF1D856001E8022 /* TFDatabaseModelUserSession.swift */; };
 		DA14D63E1DF1FFAC001E8022 /* TFDatabaseModelAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D63D1DF1FFAC001E8022 /* TFDatabaseModelAlbum.swift */; };
+		DA14D6401DF20E7D001E8022 /* TFDatabaseModelAlbumList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA14D63F1DF20E7D001E8022 /* TFDatabaseModelAlbumList.swift */; };
 		DA25F8E11DCD63A50048DFFE /* TFDatabaseModelUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA25F8E01DCD63A50048DFFE /* TFDatabaseModelUser.swift */; };
 		DA2F668F1DC90AF50078B466 /* FDatabaseModelPhotoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA2F668E1DC90AF50078B466 /* FDatabaseModelPhotoList.swift */; };
 		DA3411751DCB90D7006E6D71 /* VHomeCellDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3411741DCB90D7006E6D71 /* VHomeCellDisk.swift */; };
@@ -333,6 +334,7 @@
 		DA14D6391DF1D353001E8022 /* TFDatabaseModelUserList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelUserList.swift; sourceTree = "<group>"; };
 		DA14D63B1DF1D856001E8022 /* TFDatabaseModelUserSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelUserSession.swift; sourceTree = "<group>"; };
 		DA14D63D1DF1FFAC001E8022 /* TFDatabaseModelAlbum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelAlbum.swift; sourceTree = "<group>"; };
+		DA14D63F1DF20E7D001E8022 /* TFDatabaseModelAlbumList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelAlbumList.swift; sourceTree = "<group>"; };
 		DA1F0E221DC2C6480003AAB8 /* nubecero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nubecero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA1F0E361DC2C6480003AAB8 /* tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA25F8E01DCD63A50048DFFE /* TFDatabaseModelUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFDatabaseModelUser.swift; sourceTree = "<group>"; };
@@ -822,6 +824,7 @@
 				DAC99A061DF0F40D0031FEDF /* TFDatabaseModelPhoto.swift */,
 				DA14D6371DF1CDC4001E8022 /* TFDatabaseModelPhotoList.swift */,
 				DA14D63D1DF1FFAC001E8022 /* TFDatabaseModelAlbum.swift */,
+				DA14D63F1DF20E7D001E8022 /* TFDatabaseModelAlbumList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2031,6 +2034,7 @@
 				DAD7395F1DD0F70900FC3297 /* TFDatabaseModelServer.swift in Sources */,
 				DA14D63C1DF1D856001E8022 /* TFDatabaseModelUserSession.swift in Sources */,
 				DA14D63A1DF1D353001E8022 /* TFDatabaseModelUserList.swift in Sources */,
+				DA14D6401DF20E7D001E8022 /* TFDatabaseModelAlbumList.swift in Sources */,
 				DA25F8E11DCD63A50048DFFE /* TFDatabaseModelUser.swift in Sources */,
 				DA14D63E1DF1FFAC001E8022 /* TFDatabaseModelAlbum.swift in Sources */,
 				DA14D6381DF1CDC4001E8022 /* TFDatabaseModelPhotoList.swift in Sources */,

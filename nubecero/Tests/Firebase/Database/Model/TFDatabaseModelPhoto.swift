@@ -195,19 +195,22 @@ class TFDatabaseModelPhoto:XCTestCase
             kPixelHeight,
             "Error parsing pixel height")
     }
-    /*
+    
     func testInitNoAlbumId()
     {
-        let keyAlbumId:String = FDatabaseModelPhoto.Property.albumId.rawValue
-        
-        let snapshot:[String:Any] = [
-            keyAlbumId:kAlbumId,
-        ]
-        
         let model:FDatabaseModelPhoto = FDatabaseModelPhoto(
-            snapshot:snapshot)
+            localId:kLocalId,
+            albumId:nil,
+            taken:kTaken,
+            size:kSize,
+            pixelWidth:kPixelWidth,
+            pixelHeight:kPixelHeight)
         
-    }*/
+        XCTAssertEqual(
+            model.albumId,
+            kEmpty,
+            "Error using default album id")
+    }
     
     func testInitSnapshotNil()
     {

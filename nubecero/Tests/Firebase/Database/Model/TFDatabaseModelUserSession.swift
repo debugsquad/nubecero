@@ -234,14 +234,14 @@ class TFDatabaseModelUserSession:XCTestCase
             "Error json status")
     }
     
-    func testInitStatusActive()
+    func testInitStatusBanned()
     {
-        let initialStatus:MSession.Status = MSession.Status.active
+        let status:MSession.Status = MSession.Status.banned
         
         let keyStatus:String = FDatabaseModelUserSession.Property.status.rawValue
         
         let snapshot:[String:Any] = [
-            keyStatus:initialStatus.rawValue,
+            keyStatus:status.rawValue,
             ]
         
         let model:FDatabaseModelUserSession = FDatabaseModelUserSession(
@@ -249,7 +249,16 @@ class TFDatabaseModelUserSession:XCTestCase
         
         XCTAssertEqual(
             model.status,
-            initialStatus,
-            "Error status active")
+            status,
+            "Error status banned")
+        
+        let modelJson:[String:AnyObject]? = model.modelJson() as? [String:AnyObject]
+        let jsonStatusInt:Int? = modelJson?[keyStatus] as? Int
+        let jsonStatus:MSession.Status? = MSession.Status(rawValue:jsonStatusInt!)
+        
+        XCTAssertEqual(
+            jsonStatus,
+            status,
+            "Error json status")
     }
 }

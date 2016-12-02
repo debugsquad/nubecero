@@ -3,15 +3,18 @@ import XCTest
 
 class TFDatabaseModelServer:XCTestCase
 {
+    private let kPlusSpace:Int = 123434324
     private let kFroobSpace:Int = 2434234
     private let kNoSpace:Int = 0
     
     func testInitSnapshot()
     {
         let keyFroobSpace:String = FDatabaseModelServer.Property.froobSpace.rawValue
+        let keyPlusSpace:String = FDatabaseModelServer.Property.plusSpace.rawValue
         
         let snapshot:[String:Any] = [
-            keyFroobSpace:kFroobSpace
+            keyFroobSpace:kFroobSpace,
+            keyPlusSpace:kPlusSpace
         ]
         
         let fDatabaseModelServer:FDatabaseModelServer = FDatabaseModelServer(
@@ -21,6 +24,11 @@ class TFDatabaseModelServer:XCTestCase
             fDatabaseModelServer.froobSpace,
             kFroobSpace,
             "Error parsing froob space")
+        
+        XCTAssertEqual(
+            fDatabaseModelServer.plusSpace,
+            kPlusSpace,
+            "Error parsing plus space")
         
         let modelJson:[String:Any]? = fDatabaseModelServer.modelJson() as? [String:Any]
         

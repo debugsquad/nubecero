@@ -57,4 +57,19 @@ class TFDatabaseModelPhotoList:XCTestCase
             countPictures,
             "Not the same amount of items parsed")
     }
+    
+    func testInitSnapshotNil()
+    {
+        let snapshot:Any = kEmpty
+        
+        let model:FDatabaseModelPhotoList = FDatabaseModelPhotoList(
+            snapshot:snapshot)
+        
+        let countPictures:Int = model.items.count
+        
+        XCTAssertEqual(
+            kNoPictures,
+            countPictures,
+            "Photos should be empty")
+    }
 }

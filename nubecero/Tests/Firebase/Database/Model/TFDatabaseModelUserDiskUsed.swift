@@ -10,11 +10,11 @@ class TFDatabaseModelUserDiskUsed:XCTestCase
     {
         let snapshot:Any = kDiskUsed
         
-        let fDatabaseModelUserDiskUsed:FDatabaseModelUserDiskUsed = FDatabaseModelUserDiskUsed(
+        let model:FDatabaseModelUserDiskUsed = FDatabaseModelUserDiskUsed(
             snapshot:snapshot)
         
         XCTAssertEqual(
-            fDatabaseModelUserDiskUsed.diskUsed,
+            model.diskUsed,
             kDiskUsed,
             "Parsing disk used error")
     }
@@ -23,11 +23,11 @@ class TFDatabaseModelUserDiskUsed:XCTestCase
     {
         let snapshot:Any = ""
         
-        let fDatabaseModelUserDiskUsed:FDatabaseModelUserDiskUsed = FDatabaseModelUserDiskUsed(
+        let model:FDatabaseModelUserDiskUsed = FDatabaseModelUserDiskUsed(
             snapshot:snapshot)
         
         XCTAssertEqual(
-            fDatabaseModelUserDiskUsed.diskUsed,
+            model.diskUsed,
             kDiskUsedZero,
             "Parsing disk used nil error")
     }

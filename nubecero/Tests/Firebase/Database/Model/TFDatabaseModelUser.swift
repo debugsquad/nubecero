@@ -3,71 +3,59 @@ import XCTest
 
 class TFDatabaseModelUser:XCTestCase
 {
+    private let kEmail:String = "atest@mail.com"
+    private let kToken:String? = "ffsdn3342fsdlmfnsdkfns34423"
+    private let kVersion:String = "123"
     private let kCreated:TimeInterval = 123456
-    private let kLastSession:TimeInterval = 45678
     private let kDiskUsed:Int = 3098765
     private let kDiskInitial:Int = 0
+    private let kNoTime:TimeInterval = 0
+    private let kEmpty:String = ""
     
     func testInitSnapshot()
     {
-        let status:FDatabaseModelUser.Status = FDatabaseModelUser.Status.active
-        let keyStatus:String = FDatabaseModelUser.Property.status.rawValue
+        let keyEmail:String = FDatabaseModelUser.Property.email.rawValue
         let keyCreated:String = FDatabaseModelUser.Property.created.rawValue
-        let keyLastSession:String = FDatabaseModelUser.Property.lastSession.rawValue
         let keyDiskUsed:String = FDatabaseModelUser.Property.diskUsed.rawValue
         
         let snapshot:[String:Any] = [
-            keyStatus:status.rawValue,
+            keyEmail:kEmail,
             keyCreated:kCreated,
-            keyLastSession:kLastSession,
             keyDiskUsed:kDiskUsed
         ]
         
-        let fDatabaseModelUser:FDatabaseModelUser = FDatabaseModelUser(
+        let model:FDatabaseModelUser = FDatabaseModelUser(
             snapshot:snapshot)
         
         XCTAssertEqual(
-            fDatabaseModelUser.status,
-            status,
-            "Parsing status error")
+            model.email,
+            kEmail,
+            "Parsing email error")
         
         XCTAssertEqual(
-            fDatabaseModelUser.created,
+            model.created,
             kCreated,
             "Parsing created error")
         
         XCTAssertEqual(
-            fDatabaseModelUser.lastSession,
-            kLastSession,
-            "Parsing last session error")
-        
-        XCTAssertEqual(
-            fDatabaseModelUser.diskUsed,
+            model.diskUsed,
             kDiskUsed,
             "Parsing disk used error")
         
-        let modelJson:[String:Any]? = fDatabaseModelUser.modelJson() as? [String:Any]
+        let modelJson:[String:Any]? = model.modelJson() as? [String:Any]
         
         XCTAssertNotNil(
             modelJson,
             "Error creating model json")
         
-        let jsonStatusInt:Int? = modelJson![keyStatus] as? Int
-        let jsonCreated:TimeInterval? = modelJson![keyCreated] as? TimeInterval
-        let jsonLastSession:TimeInterval? = modelJson![keyLastSession] as? TimeInterval
-        let jsonDiskUsed:Int? = modelJson![keyDiskUsed] as? Int
-        
-        XCTAssertNotNil(
-            jsonStatusInt,
-            "Error storing status on json")
-        
-        let jsonStatus:FDatabaseModelUser.Status? = FDatabaseModelUser.Status(
-            rawValue:jsonStatusInt!)
+        let jsonEmail:String? = modelJson?[keyEmail] as? String
+        let jsonCreated:TimeInterval? = modelJson?[keyCreated] as? TimeInterval
+        let jsonDiskUsed:Int? = modelJson?[keyDiskUsed] as? Int
         
         XCTAssertEqual(
-            status,
-            jsonStatus,
-            "Status received from json is no the same as the stored")
+            kEmail,
+            jsonEmail,
+            "Email received from json is no the same as the stored")
         
         XCTAssertEqual(
             kCreated,
@@ -75,72 +63,61 @@ class TFDatabaseModelUser:XCTestCase
             "Created received from json is not the same as the stored")
         
         XCTAssertEqual(
-            kLastSession,
-            jsonLastSession,
-            "Last session received from json is not the same as the stored")
-        
-        XCTAssertEqual(
             kDiskUsed,
             jsonDiskUsed,
             "Disk used received from json is not the same as the recived")
     }
     
-    func testInitSnapshotUserBanned()
-    {
-        let status:FDatabaseModelUser.Status = FDatabaseModelUser.Status.banned
-        
-        let snapshot:[String:Any] = [
-            FDatabaseModelUser.Property.status.rawValue:status.rawValue
-        ]
-        
-        let fDatabaseModelUser:FDatabaseModelUser = FDatabaseModelUser(
-            snapshot:snapshot)
-        
-        XCTAssertEqual(
-            fDatabaseModelUser.status,
-            status,
-            "User banned not working")
-    }
-    
-    func testInitSnapshotNil()
+    func testInitMinValues()
     {
         let snapshot:Any = ""
         
-        let fDatabaseModelUser:FDatabaseModelUser = FDatabaseModelUser(
+        let model:FDatabaseModelUser = FDatabaseModelUser(
             snapshot:snapshot)
         
         XCTAssertEqual(
-            fDatabaseModelUser.status,
-            FDatabaseModelUser.Status.unknown,
-            "Snapshot nil not using unknown status")
-    }
-    
-    func testInitStatus()
-    {
-        let status:FDatabaseModelUser.Status = FDatabaseModelUser.Status.active
-        let currentTime:TimeInterval = Date().timeIntervalSince1970
-        
-        let fDatabaseModelUser:FDatabaseModelUser = FDatabaseModelUser(
-            status:status)
-        
-        XCTAssertEqual(
-            fDatabaseModelUser.status,
-            status,
-            "Error init with status")
+            model.email,
+            kEmpty,
+            "Error min email")
         
         XCTAssertGreaterThanOrEqual(
-            fDatabaseModelUser.created,
-            currentTime,
-            "Error making the created timestamp")
+            model.created,
+            kNoTime,
+            "Error min created")
         
         XCTAssertEqual(
-            fDatabaseModelUser.created,
-            fDatabaseModelUser.lastSession,
-            "Last session and created are not the same")
-        
-        XCTAssertEqual(
-            fDatabaseModelUser.diskUsed,
+            model.diskUsed,
             kDiskInitial,
-            "Error initializing disk space")
+            "Error min disk used")
+    }
+    
+    func testInitEmailTokenVersion()
+    {
+        let currentTime:TimeInterval = Date().timeIntervalSince1970
+        
+        let model:FDatabaseModelUser = FDatabaseModelUser(
+            email:kEmail,
+            token:kToken,
+            version:kVersion)
+        
+        XCTAssertEqual(
+            model.email,
+            kEmail,
+            "Error email not matching")
+        
+        XCTAssertEqual(
+            model.session.token,
+            kToken,
+            "Error session doesn't use the same token")
+        
+        XCTAssertGreaterThanOrEqual(
+            model.created,
+            currentTime,
+            "Error created has to be greater than current time")
+        
+        XCTAssertEqual(
+            model.diskUsed,
+            kDiskInitial,
+            "Error disk used not zero")
     }
 }

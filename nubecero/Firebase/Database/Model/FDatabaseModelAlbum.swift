@@ -21,11 +21,6 @@ class FDatabaseModelAlbum:FDatabaseModel
         super.init()
     }
     
-    override init()
-    {
-        fatalError()
-    }
-    
     required init(snapshot:Any)
     {
         let snapshotDict:[String:Any]? = snapshot as? [String:Any]
@@ -49,6 +44,11 @@ class FDatabaseModelAlbum:FDatabaseModel
         }
         
         super.init()
+    }
+    
+    override init()
+    {
+        fatalError()
     }
     
     override func modelJson() -> Any

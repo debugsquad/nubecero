@@ -37,12 +37,17 @@ class TFDatabaseModelPhoto:XCTestCase
         let keyPixelHeight:String = FDatabaseModelPhoto.Property.pixelHeight.rawValue
         
         let snapshot:[String:Any] = [
+            keyLocalId:kLocalId,
+            keyAlbumId:kAlbumId,
             keyCreated:kCreated,
-            keyStatus:status.rawValue,
-            keySize:kSize
+            keyTaken:kTaken,
+            keyStatus:status,
+            keySize:kSize,
+            keyPixelWidth:kPixelWidth,
+            keyPixelHeight:kPixelHeight
         ]
         
-        let fDatabaseModelPicture:FDatabaseModelPicture = FDatabaseModelPicture(
+        let model:FDatabaseModelPhoto = FDatabaseModelPicture(
             snapshot:snapshot)
         
         XCTAssertEqual(

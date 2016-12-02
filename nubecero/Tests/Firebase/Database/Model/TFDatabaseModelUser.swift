@@ -21,25 +21,25 @@ class TFDatabaseModelUser:XCTestCase
             keyDiskUsed:kDiskUsed
         ]
         
-        let fDatabaseModelUser:FDatabaseModelUser = FDatabaseModelUser(
+        let model:FDatabaseModelUser = FDatabaseModelUser(
             snapshot:snapshot)
         
         XCTAssertEqual(
-            fDatabaseModelUser.email,
+            model.email,
             kEmail,
             "Parsing email error")
         
         XCTAssertEqual(
-            fDatabaseModelUser.created,
+            model.created,
             kCreated,
             "Parsing created error")
         
         XCTAssertEqual(
-            fDatabaseModelUser.diskUsed,
+            model.diskUsed,
             kDiskUsed,
             "Parsing disk used error")
         
-        let modelJson:[String:Any]? = fDatabaseModelUser.modelJson() as? [String:Any]
+        let modelJson:[String:Any]? = model.modelJson() as? [String:Any]
         
         XCTAssertNotNil(
             modelJson,
@@ -70,21 +70,21 @@ class TFDatabaseModelUser:XCTestCase
         let snapshot:Any = ""
         let currentTime:TimeInterval = Date().timeIntervalSince1970
         
-        let fDatabaseModelUser:FDatabaseModelUser = FDatabaseModelUser(
+        let model:FDatabaseModelUser = FDatabaseModelUser(
             snapshot:snapshot)
         
         XCTAssertEqual(
-            fDatabaseModelUser.email,
+            model.email,
             kEmpty,
             "Error min email")
         
         XCTAssertGreaterThanOrEqual(
-            fDatabaseModelUser.created,
+            model.created,
             currentTime,
             "Error min created")
         
         XCTAssertEqual(
-            fDatabaseModelUser.diskUsed,
+            model.diskUsed,
             kDiskInitial,
             "Error min disk used")
     }

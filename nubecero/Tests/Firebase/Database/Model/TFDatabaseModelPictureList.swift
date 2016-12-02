@@ -3,6 +3,7 @@ import XCTest
 
 class TFDatabaseModelPictureList:XCTestCase
 {
+    /*
     private let kPictureIdA:MPictures.PictureId = "hello world"
     private let kPictureIdB:MPictures.PictureId = "nubecero"
     private let kPictureIdC:MPictures.PictureId = "swift"
@@ -72,4 +73,6 @@ class TFDatabaseModelPictureList:XCTestCase
             countPictures,
             "Pictures should be empty")
     }
+    
+    */
 }

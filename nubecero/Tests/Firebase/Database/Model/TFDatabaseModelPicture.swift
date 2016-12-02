@@ -2,7 +2,7 @@ import XCTest
 @testable import nubecero
 
 class TFDatabaseModelPicture:XCTestCase
-{
+{/*
     private let kCreated:TimeInterval = 123456
     private let kSize:Int = 98655
     
@@ -104,4 +104,6 @@ class TFDatabaseModelPicture:XCTestCase
             FDatabaseModelPicture.Status.waiting,
             "When no status found picture should have a status waiting")
     }
+ 
+ */
 }

@@ -3,9 +3,9 @@ import XCTest
 
 class TFDatabaseModelUserList:XCTestCase
 {
-    private let kUserIdA:MPhotos.PhotoId = "johnny"
-    private let kUserIdB:MPhotos.PhotoId = "test"
-    private let kUserIdC:MPhotos.PhotoId = "user"
+    private let kUserIdA:MSession.UserId = "johnny"
+    private let kUserIdB:MSession.UserId = "test"
+    private let kUserIdC:MSession.UserId = "user"
     private let kEmpty:Any = ""
     private let kCreated:TimeInterval = 123456
     private let kNoUsers:Int = 0
@@ -14,7 +14,7 @@ class TFDatabaseModelUserList:XCTestCase
     {
         let keyCreated:String = FDatabaseModelUser.Property.created.rawValue
         
-        let snapshot:[MPhotos.PhotoId:Any] = [
+        let snapshot:[MSession.UserId:Any] = [
             kUserIdA:[
                 keyCreated:kCreated
             ]
@@ -35,5 +35,26 @@ class TFDatabaseModelUserList:XCTestCase
             model.items[kUserIdA]!.created,
             kCreated,
             "Error parsing user properties")
+    }
+    
+    func testInitSnapshotEmpty()
+    {
+        let snapshot:[MSession.UserId:Any] = [
+            kUserIdA:kEmpty,
+            kUserIdB:kEmpty,
+            kUserIdC:kEmpty
+        ]
+        
+        let model:FDatabaseModelUserList = FDatabaseModelUserList(
+            snapshot:snapshot)
+        
+        let snapshotKeys:[MSession.UserId] = Array(snapshot.keys)
+        let countUsers:Int = model.items.count
+        let countSnapshotKeys:Int = snapshotKeys.count
+        
+        XCTAssertEqual(
+            countSnapshotKeys,
+            countUsers,
+            "Not the same amount of items parsed")
     }
 }

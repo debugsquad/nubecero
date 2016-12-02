@@ -40,21 +40,21 @@ class TFDatabaseModelAlbumList:XCTestCase
     func testInitSnapshotEmpty()
     {
         let snapshot:[MSession.UserId:Any] = [
-            kUserIdA:kEmpty,
-            kUserIdB:kEmpty,
-            kUserIdC:kEmpty
+            kAlbumIdA:kEmpty,
+            kAlbumIdB:kEmpty,
+            kAlbumIdC:kEmpty
         ]
         
-        let model:FDatabaseModelUserList = FDatabaseModelUserList(
+        let model:FDatabaseModelAlbumList = FDatabaseModelAlbumList(
             snapshot:snapshot)
         
         let snapshotKeys:[MSession.UserId] = Array(snapshot.keys)
-        let countUsers:Int = model.items.count
+        let countAlbums:Int = model.items.count
         let countSnapshotKeys:Int = snapshotKeys.count
         
         XCTAssertEqual(
             countSnapshotKeys,
-            countUsers,
+            countAlbums,
             "Not the same amount of items parsed")
     }
     
@@ -65,11 +65,11 @@ class TFDatabaseModelAlbumList:XCTestCase
         let model:FDatabaseModelUserList = FDatabaseModelUserList(
             snapshot:snapshot)
         
-        let countUsers:Int = model.items.count
+        let countAlbums:Int = model.items.count
         
         XCTAssertEqual(
-            kNoUsers,
-            countUsers,
-            "Users should be empty")
+            countAlbums,
+            kNoAlbums,
+            "albums should be empty")
     }
 }

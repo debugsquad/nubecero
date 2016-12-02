@@ -45,9 +45,9 @@ class TFDatabaseModelUser:XCTestCase
             modelJson,
             "Error creating model json")
         
-        let jsonEmail:String? = modelJson![keyEmail] as? String
-        let jsonCreated:TimeInterval? = modelJson![keyCreated] as? TimeInterval
-        let jsonDiskUsed:Int? = modelJson![keyDiskUsed] as? Int
+        let jsonEmail:String? = modelJson?[keyEmail] as? String
+        let jsonCreated:TimeInterval? = modelJson?[keyCreated] as? TimeInterval
+        let jsonDiskUsed:Int? = modelJson?[keyDiskUsed] as? Int
         
         XCTAssertEqual(
             kEmail,

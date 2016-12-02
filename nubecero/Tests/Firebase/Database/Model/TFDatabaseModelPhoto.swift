@@ -11,18 +11,6 @@ class TFDatabaseModelPhoto:XCTestCase
     private let kPixelWidth:Int = 43532225
     private let kPixelHeight:Int = 534663123
     
-    enum Property:String
-    {
-        case localId = "localId"
-        case albumId = "albumId"
-        case created = "created"
-        case taken = "taken"
-        case status = "status"
-        case size = "size"
-        case pixelWidth = "pixelWidth"
-        case pixelHeight = "pixelHeight"
-    }
-    
     func testInitSnapshot()
     {
         let status:MPhotos.Status = MPhotos.Status.synced
@@ -47,54 +35,108 @@ class TFDatabaseModelPhoto:XCTestCase
             keyPixelHeight:kPixelHeight
         ]
         
-        let model:FDatabaseModelPhoto = FDatabaseModelPicture(
+        let model:FDatabaseModelPhoto = FDatabaseModelPhoto(
             snapshot:snapshot)
         
         XCTAssertEqual(
-            fDatabaseModelPicture.created,
+            model.localId,
+            kLocalId,
+            "Error parsing local id")
+        
+        XCTAssertEqual(
+            model.albumId,
+            kAlbumId,
+            "Error parsing album id")
+        
+        XCTAssertEqual(
+            model.created,
             kCreated,
             "Error parsing created")
         
         XCTAssertEqual(
-            fDatabaseModelPicture.status,
+            model.taken,
+            kTaken,
+            "Error parsing taken")
+        
+        XCTAssertEqual(
+            model.status,
             status,
             "Error parsing status")
         
         XCTAssertEqual(
-            fDatabaseModelPicture.size,
+            model.size,
             kSize,
             "Error parsing size")
         
-        let modelJson:[String:Any]? = fDatabaseModelPicture.modelJson() as? [String:Any]
+        XCTAssertEqual(
+            model.pixelWidth,
+            kPixelWidth,
+            "Error parsing pixel width")
+        
+        XCTAssertEqual(
+            model.pixelHeight,
+            kPixelHeight,
+            "Error parsing pixel height")
+        
+        let modelJson:[String:Any]? = model.modelJson() as? [String:Any]
         
         XCTAssertNotNil(
             modelJson,
             "Error creating model json")
         
-        let jsonCreated:TimeInterval? = modelJson![keyCreated] as? TimeInterval
-        let jsonStatusInt:Int? = modelJson![keyStatus] as? Int
-        let jsonSize:Int? = modelJson![keySize] as? Int
-        
-        XCTAssertEqual(
-            kCreated,
-            jsonCreated,
-            "Created received from json is no the same as the stored")
+        let jsonLocalId:String? = modelJson?[keyLocalId] as? String
+        let jsonAlbumId:String? = modelJson?[keyAlbumId] as? String
+        let jsonCreated:TimeInterval? = modelJson?[keyCreated] as? TimeInterval
+        let jsonTaken:TimeInterval? = modelJson?[keyTaken] as? TimeInterval
+        let jsonStatusInt:Int? = modelJson?[keyStatus] as? Int
+        let jsonSize:Int? = modelJson?[keySize] as? Int
+        let jsonPixelWidth:Int? = modelJson?[keyPixelWidth] as? Int
+        let jsonPixelHeight:Int? = modelJson?[keyPixelHeight] as? Int
         
         XCTAssertNotNil(
             jsonStatusInt,
             "Error storing status on json")
         
-        let jsonStatus:FDatabaseModelPicture.Status? = FDatabaseModelPicture.Status(
-            rawValue:jsonStatusInt!)
+        let jsonStatus:MPhotos.Status? = MPhotos.Status(rawValue:jsonStatusInt!)
+        
+        XCTAssertEqual(
+            kLocalId,
+            jsonLocalId,
+            "Error local id not matching")
+        
+        XCTAssertEqual(
+            kAlbumId,
+            jsonAlbumId,
+            "Error album id not matching")
+        
+        XCTAssertEqual(
+            kCreated,
+            jsonCreated,
+            "Error created not matching")
+        
+        XCTAssertEqual(
+            kTaken,
+            jsonTaken,
+            "Error taken not matching")
         
         XCTAssertEqual(
             status,
             jsonStatus,
-            "Status received from json is no the same as the stored")
+            "Error status not matching")
         
         XCTAssertEqual(
             kSize,
             jsonSize,
-            "Size received from json is no the same as the stored")
+            "Error size not matching")
+        
+        XCTAssertEqual(
+            kPixelWidth,
+            jsonPixelWidth,
+            "Error pixel width not matching")
+        
+        XCTAssertEqual(
+            kPixelHeight,
+            jsonPixelHeight,
+            "Error pixel height not matching")
     }
 }

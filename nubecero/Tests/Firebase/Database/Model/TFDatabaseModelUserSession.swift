@@ -205,4 +205,51 @@ class TFDatabaseModelUserSession:XCTestCase
             kNoTtl,
             "Error default ttl")
     }
+    
+    func testInitStatusActive()
+    {
+        let status:MSession.Status = MSession.Status.active
+        
+        let keyStatus:String = FDatabaseModelUserSession.Property.status.rawValue
+        
+        let snapshot:[String:Any] = [
+            keyStatus:status.rawValue,
+        ]
+        
+        let model:FDatabaseModelUserSession = FDatabaseModelUserSession(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            model.status,
+            status,
+            "Error status active")
+        
+        let modelJson:[String:AnyObject]? = model.modelJson() as? [String:AnyObject]
+        let jsonStatusInt:Int? = modelJson?[keyStatus] as? Int
+        let jsonStatus:MSession.Status? = MSession.Status(rawValue:jsonStatusInt!)
+        
+        XCTAssertEqual(
+            jsonStatus,
+            status,
+            "Error json status")
+    }
+    
+    func testInitStatusActive()
+    {
+        let initialStatus:MSession.Status = MSession.Status.active
+        
+        let keyStatus:String = FDatabaseModelUserSession.Property.status.rawValue
+        
+        let snapshot:[String:Any] = [
+            keyStatus:initialStatus.rawValue,
+            ]
+        
+        let model:FDatabaseModelUserSession = FDatabaseModelUserSession(
+            snapshot:snapshot)
+        
+        XCTAssertEqual(
+            model.status,
+            initialStatus,
+            "Error status active")
+    }
 }

@@ -4,6 +4,8 @@ import XCTest
 class TFDatabaseModelUser:XCTestCase
 {
     private let kEmail:String = "atest@mail.com"
+    private let kToken:String? = "ffsdn3342fsdlmfnsdkfns34423"
+    private let kVersion:String = "123"
     private let kCreated:TimeInterval = 123456
     private let kDiskUsed:Int = 3098765
     private let kDiskInitial:Int = 0
@@ -69,7 +71,6 @@ class TFDatabaseModelUser:XCTestCase
     func testInitMinValues()
     {
         let snapshot:Any = ""
-        let currentTime:TimeInterval = Date().timeIntervalSince1970
         
         let model:FDatabaseModelUser = FDatabaseModelUser(
             snapshot:snapshot)
@@ -92,7 +93,31 @@ class TFDatabaseModelUser:XCTestCase
     
     func testInitEmailTokenVersion()
     {
+        let currentTime:TimeInterval = Date().timeIntervalSince1970
         
+        let model:FDatabaseModelUser = FDatabaseModelUser(
+            email:kEmail,
+            token:kToken,
+            version:kVersion)
+        
+        XCTAssertEqual(
+            model.email,
+            kEmail,
+            "Error email not matching")
+        
+        XCTAssertEqual(
+            model.session.token,
+            kToken,
+            "Error session doesn't use the same token")
+        
+        XCTAssertGreaterThanOrEqual(
+            model.created,
+            currentTime,
+            "Error created has to be greater than current time")
+        
+        XCTAssertEqual(
+            model.diskUsed,
+            kDiskInitial,
+            "Error disk used not zero")
     }
-    //TODO: test email token version
 }

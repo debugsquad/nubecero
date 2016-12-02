@@ -60,7 +60,12 @@ class TFDatabaseModelServer:XCTestCase
         XCTAssertEqual(
             fDatabaseModelServer.froobSpace,
             kNoSpace,
-            "When nil snapshot there should be no space")
+            "When nil snapshot there should be no froob space")
+        
+        XCTAssertEqual(
+            fDatabaseModelServer.plusSpace,
+            kNoSpace,
+            "When nil snapshot there should be no plus space")
     }
     
     func testInitFroobSpace()

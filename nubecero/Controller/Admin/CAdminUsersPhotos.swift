@@ -56,49 +56,14 @@ class CAdminUsersPhotos:CController
             
             else
             {
-                self?.migratePhotos()
-//                let errorString:String = NSLocalizedString("CAdminUsersPhotos_errorLoading", comment:"")
-//                self?.loadingError(error:errorString)
+                let errorString:String = NSLocalizedString("CAdminUsersPhotos_errorLoading", comment:"")
+                self?.loadingError(error:errorString)
                 
                 return
             }
             
             self?.photos = MAdminUsersPhotos(userId:userId, photoList:photosStrong)
             self?.loadingCompleted()
-        }
-    }
-    
-    private func migratePhotos()
-    {
-        let userId:MSession.UserId = model.userId
-        let parentUser:String = FDatabase.Parent.user.rawValue
-        let propertyPhotos:String = FDatabaseModelUser.Property.photos.rawValue
-        let pathPictures:String = "\(parentUser)/\(userId)/pictures"
-        
-        FMain.sharedInstance.database.listenOnce(
-            path:pathPictures,
-            modelType:FDatabaseModelPhotoList.self)
-        { [weak self] (photos:FDatabaseModelPhotoList?) in
-            
-            guard
-                
-                let photosStrong:FDatabaseModelPhotoList = photos
-                
-            else
-            {
-                print("pictures error")
-                
-                return
-            }
-            
-            let pathPhotos:String = "\(parentUser)/\(userId)/\(propertyPhotos)"
-            let modelJson:Any = photosStrong.modelJson()
-            
-            FMain.sharedInstance.database.updateChild(
-                path:pathPhotos,
-                json:modelJson)
-            
-            self?.loadingError(error:"Migration complete")
         }
     }
     

@@ -13,7 +13,15 @@ class FDatabaseModelAlbumList:FDatabaseModel
             
             for rawKey:MPhotos.AlbumId in keys
             {
-                let rawItem:Any = rawItems[rawKey]
+                guard
+                    
+                    let rawItem:Any = rawItems[rawKey]
+                
+                else
+                {
+                    continue
+                }
+                
                 let item:FDatabaseModelAlbum = FDatabaseModelAlbum(snapshot:rawItem)
                 items[rawKey] = item
             }

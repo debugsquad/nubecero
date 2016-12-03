@@ -13,7 +13,15 @@ class FDatabaseModelUserList:FDatabaseModel
             
             for rawKey:MSession.UserId in keys
             {
-                let rawItem:Any = rawItems[rawKey]
+                guard
+                    
+                    let rawItem:Any = rawItems[rawKey]
+                
+                else
+                {
+                    continue
+                }
+                
                 let item:FDatabaseModelUser = FDatabaseModelUser(snapshot:rawItem)
                 items[rawKey] = item
             }

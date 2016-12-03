@@ -5,6 +5,7 @@ import Firebase
 class AppDelegate:UIResponder, UIApplicationDelegate
 {
     var window:UIWindow?
+    private weak var parent:CParent!
 
     func application(_ application:UIApplication, didFinishLaunchingWithOptions launchOptions:[UIApplicationLaunchOptionsKey:Any]?) -> Bool
     {
@@ -15,6 +16,7 @@ class AppDelegate:UIResponder, UIApplicationDelegate
         window.makeKeyAndVisible()
         
         let parent:CParent = CParent()
+        self.parent = parent
         window.rootViewController = parent
         self.window = window
         

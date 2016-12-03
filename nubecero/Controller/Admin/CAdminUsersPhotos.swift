@@ -56,14 +56,42 @@ class CAdminUsersPhotos:CController
             
             else
             {
-                let errorString:String = NSLocalizedString("CAdminUsersPhotos_errorLoading", comment:"")
-                self?.loadingError(error:errorString)
+                self?.migratePhotos()
+//                let errorString:String = NSLocalizedString("CAdminUsersPhotos_errorLoading", comment:"")
+//                self?.loadingError(error:errorString)
                 
                 return
             }
             
             self?.photos = MAdminUsersPhotos(userId:userId, photoList:photosStrong)
             self?.loadingCompleted()
+        }
+    }
+    
+    private func migratePhotos()
+    {
+        let userId:MSession.UserId = model.userId
+        let parentUser:String = FDatabase.Parent.user.rawValue
+        let propertyPhotos:String = FDatabaseModelUser.Property.photos.rawValue
+        let pathPhotos:String = "\(parentUser)/\(userId)/pictures"
+        
+        FMain.sharedInstance.database.listenOnce(
+            path:pathPhotos,
+            modelType:FDatabaseModelPhotoList.self)
+        { [weak self] (photos:FDatabaseModelPhotoList?) in
+            
+            guard
+                
+                let photosStrong:FDatabaseModelPhotoList = photos
+                
+            else
+            {
+                print("pictures error")
+                
+                return
+            }
+            
+            print("pictures received")
         }
     }
     

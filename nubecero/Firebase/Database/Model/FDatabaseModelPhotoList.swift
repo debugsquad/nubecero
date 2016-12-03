@@ -13,7 +13,15 @@ class FDatabaseModelPhotoList:FDatabaseModel
             
             for rawKey:MPhotos.PhotoId in keys
             {
-                let rawItem:Any = rawItems[rawKey]
+                guard
+                    
+                    let rawItem:Any = rawItems[rawKey]
+                
+                else
+                {
+                    continue
+                }
+                
                 let item:FDatabaseModelPhoto = FDatabaseModelPhoto(snapshot:rawItem)
                 items[rawKey] = item
             }
@@ -31,5 +39,28 @@ class FDatabaseModelPhotoList:FDatabaseModel
     override init()
     {
         fatalError()
+    }
+    
+    override func modelJson() -> Any
+    {
+        let keys:[MPhotos.PhotoId] = Array(items.keys)
+        var json:[String:Any] = [:]
+        
+        for key:MPhotos.PhotoId in keys
+        {
+            guard
+            
+                let photo:FDatabaseModelPhoto = items[key]
+            
+            else
+            {
+                continue
+            }
+            
+            let jsonPhoto:Any = photo.modelJson()
+            json[key] = jsonPhoto
+        }
+        
+        return json
     }
 }

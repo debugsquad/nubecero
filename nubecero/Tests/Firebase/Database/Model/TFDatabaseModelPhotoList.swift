@@ -35,6 +35,25 @@ class TFDatabaseModelPhotoList:XCTestCase
             model.items[kPhotoIdA]!.created,
             kCreated,
             "Error parsing photo properties")
+        
+        let modelJson:[String:Any]? = model.modelJson() as? [String:Any]
+        
+        XCTAssertNotNil(
+            modelJson,
+            "Error creating json")
+        
+        let jsonFirstItem:[String:Any]? = modelJson?[kPhotoIdA] as? [String:Any]
+        
+        XCTAssertNotNil(
+            jsonFirstItem,
+            "Error storing first item on json")
+        
+        let jsonCreated:TimeInterval? = jsonFirstItem?[keyCreated] as? TimeInterval
+        
+        XCTAssertEqual(
+            jsonCreated,
+            kCreated,
+            "Error storing properties on json")
     }
     
     func testInitSnapshotEmpty()

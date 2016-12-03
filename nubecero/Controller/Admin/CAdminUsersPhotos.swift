@@ -73,10 +73,10 @@ class CAdminUsersPhotos:CController
         let userId:MSession.UserId = model.userId
         let parentUser:String = FDatabase.Parent.user.rawValue
         let propertyPhotos:String = FDatabaseModelUser.Property.photos.rawValue
-        let pathPhotos:String = "\(parentUser)/\(userId)/pictures"
+        let pathPictures:String = "\(parentUser)/\(userId)/pictures"
         
         FMain.sharedInstance.database.listenOnce(
-            path:pathPhotos,
+            path:pathPictures,
             modelType:FDatabaseModelPhotoList.self)
         { [weak self] (photos:FDatabaseModelPhotoList?) in
             
@@ -91,7 +91,14 @@ class CAdminUsersPhotos:CController
                 return
             }
             
-            print("pictures received")
+            let pathPhotos:String = "\(parentUser)/\(userId)/\(propertyPhotos)"
+            let modelJson:Any = photosStrong.modelJson()
+            
+            FMain.sharedInstance.database.updateChild(
+                path:pathPhotos,
+                json:modelJson)
+            
+            self?.loadingError(error:"Migration complete")
         }
     }
     

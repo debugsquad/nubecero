@@ -73,7 +73,7 @@ class TFDatabaseModelAlbum:XCTestCase
     
     func testInitNil()
     {
-        let snapshot:Any? = nil
+        let snapshot:Any = ""
         
         let model:FDatabaseModelAlbum = FDatabaseModelAlbum(
             snapshot:snapshot)

@@ -3,9 +3,9 @@ import XCTest
 
 class TFDatabaseModelUserSession:XCTestCase
 {
-    private let kToken:String? = "ddsfkjfsjksd3324fd"
+    private let kToken:String = "ddsfkjfsjksd3324fd"
     private let kVersion:String = "312"
-    private let kTtl:Int? = 134398765
+    private let kTtl:Int = 134398765
     private let kTimestamp:TimeInterval = 1344556
     private let kEmpty:String = ""
     private let kNoTime:TimeInterval = 0
@@ -175,7 +175,7 @@ class TFDatabaseModelUserSession:XCTestCase
     
     func testInitSnapshotNil()
     {
-        let snapshot:Any? = nil
+        let snapshot:Any = ""
         
         let model:FDatabaseModelUserSession = FDatabaseModelUserSession(
             snapshot:snapshot)

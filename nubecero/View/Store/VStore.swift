@@ -185,17 +185,18 @@ class VStore:UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICol
     {
         let indexPath:IndexPath = IndexPath(item:0, section:section)
         let item:MStoreItem = modelAtIndex(index:indexPath)
+        let count:Int
         
-        guard
-        
-            let _:MStoreItemStatus = item.status
-        
+        if item.status == nil
+        {
+            count = 0
+        }
         else
         {
-            return 0
+            count = 1
         }
         
-        return 1
+        return count
     }
     
     func collectionView(_ collectionView:UICollectionView, viewForSupplementaryElementOfKind kind:String, at indexPath:IndexPath) -> UICollectionReusableView

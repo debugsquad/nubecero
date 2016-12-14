@@ -18,6 +18,12 @@ class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserve
         fatalError()
     }
     
+    deinit
+    {
+        request?.cancel()
+        SKPaymentQueue.default().remove(self)
+    }
+    
     override func loadView()
     {
         let viewStore:VStore = VStore(controller:self)
@@ -46,12 +52,6 @@ class CStore:CController, SKProductsRequestDelegate, SKPaymentTransactionObserve
             let purchases:Set<MStore.PurchaseId> = Set<MStore.PurchaseId>(purchaseIds)
             self?.checkAvailabilities(purchases:purchases)
         }
-    }
-    
-    deinit
-    {
-        request?.cancel()
-        SKPaymentQueue.default().remove(self)
     }
     
     //MARK: private

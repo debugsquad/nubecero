@@ -179,7 +179,7 @@ class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
     {
         let item:MAdminUsersPhotosItem = modelAtIndex(index:indexPath)
-        
+
         DispatchQueue.main.asyncAfter(
             deadline:DispatchTime.now() + kDeselectTime)
         { [weak collectionView] in
@@ -189,5 +189,27 @@ class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSo
                 animated:true,
                 scrollPosition:UICollectionViewScrollPosition())
         }
+        
+        guard
+            
+            let image:UIImage = item.image
+            
+        else
+        {
+            return
+        }
+        
+        let activity:UIActivityViewController = UIActivityViewController(
+            activityItems:[image],
+            applicationActivities:nil)
+        
+        if activity.popoverPresentationController != nil
+        {
+            activity.popoverPresentationController!.sourceView = self
+            activity.popoverPresentationController!.sourceRect = CGRect.zero
+            activity.popoverPresentationController!.permittedArrowDirections = UIPopoverArrowDirection.up
+        }
+        
+        controller.present(activity, animated:true)
     }
 }

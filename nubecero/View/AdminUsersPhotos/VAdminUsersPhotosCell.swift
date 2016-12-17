@@ -16,7 +16,7 @@ class VAdminUsersPhotosCell:UICollectionViewCell
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
         self.imageView = imageView
         
         addSubview(imageView)

@@ -10,6 +10,7 @@ class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSo
     private let kInterLine:CGFloat = 1
     private let kImageMaxSize:CGFloat = 150
     private let kHeaderHeight:CGFloat = 60
+    private let kDeselectTime:TimeInterval = 0.5
     
     convenience init(controller:CAdminUsersPhotos)
     {
@@ -173,5 +174,20 @@ class VAdminUsersPhotos:UIView, UICollectionViewDelegate, UICollectionViewDataSo
         cell.config(model:item)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView:UICollectionView, didSelectItemAt indexPath:IndexPath)
+    {
+        let item:MAdminUsersPhotosItem = modelAtIndex(index:indexPath)
+        
+        DispatchQueue.main.asyncAfter(
+            deadline:DispatchTime.now() + kDeselectTime)
+        { [weak collectionView] in
+            
+            collectionView?.selectItem(
+                at:nil,
+                animated:true,
+                scrollPosition:UICollectionViewScrollPosition())
+        }
     }
 }

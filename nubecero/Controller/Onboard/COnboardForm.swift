@@ -33,6 +33,7 @@ class COnboardForm:CController
     {
         super.viewDidAppear(animated)
         emailField?.becomeFirstResponder()
+        parentController.statusBarDefault()
     }
     
     //MARK: private

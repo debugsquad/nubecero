@@ -4,7 +4,7 @@ class VAdminUsersCell:UICollectionViewCell
 {
     private let dateFormatter:DateFormatter
     private let numberFormatter:NumberFormatter
-    private weak var labelUserId:UILabel!
+    private weak var labelUserEmail:UILabel!
     private weak var labelCreated:UILabel!
     private weak var labelLastSession:UILabel!
     private weak var labelStatus:UILabel!
@@ -27,13 +27,13 @@ class VAdminUsersCell:UICollectionViewCell
         clipsToBounds = true
         backgroundColor = UIColor.white
         
-        let labelUserId:UILabel = UILabel()
-        labelUserId.translatesAutoresizingMaskIntoConstraints = false
-        labelUserId.isUserInteractionEnabled = false
-        labelUserId.backgroundColor = UIColor.clear
-        labelUserId.font = UIFont.medium(size:14)
-        labelUserId.textColor = UIColor.black
-        self.labelUserId = labelUserId
+        let labelUserEmail:UILabel = UILabel()
+        labelUserEmail.translatesAutoresizingMaskIntoConstraints = false
+        labelUserEmail.isUserInteractionEnabled = false
+        labelUserEmail.backgroundColor = UIColor.clear
+        labelUserEmail.font = UIFont.medium(size:14)
+        labelUserEmail.textColor = UIColor.black
+        self.labelUserEmail = labelUserEmail
         
         let labelCreated:UILabel = UILabel()
         labelCreated.translatesAutoresizingMaskIntoConstraints = false
@@ -67,14 +67,14 @@ class VAdminUsersCell:UICollectionViewCell
         labelStatus.textColor = UIColor.complement
         self.labelStatus = labelStatus
         
-        addSubview(labelUserId)
+        addSubview(labelUserEmail)
         addSubview(labelCreated)
         addSubview(labelLastSession)
         addSubview(labelDiskUsed)
         addSubview(labelStatus)
         
         let views:[String:UIView] = [
-            "labelUserId":labelUserId,
+            "labelUserEmail":labelUserEmail,
             "labelCreated":labelCreated,
             "labelLastSession":labelLastSession,
             "labelStatus":labelStatus,
@@ -83,7 +83,7 @@ class VAdminUsersCell:UICollectionViewCell
         let metrics:[String:CGFloat] = [:]
         
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"H:|-10-[labelUserId]-10-|",
+            withVisualFormat:"H:|-10-[labelUserEmail]-10-|",
             options:[],
             metrics:metrics,
             views:views))
@@ -108,7 +108,7 @@ class VAdminUsersCell:UICollectionViewCell
             metrics:metrics,
             views:views))
         addConstraints(NSLayoutConstraint.constraints(
-            withVisualFormat:"V:|-10-[labelUserId(18)]-2-[labelCreated(17)]-0-[labelLastSession(17)]-10-[labelStatus(18)]-5-[labelDiskUsed(20)]",
+            withVisualFormat:"V:|-10-[labelUserEmail(18)]-2-[labelCreated(17)]-0-[labelLastSession(17)]-10-[labelStatus(18)]-5-[labelDiskUsed(20)]",
             options:[],
             metrics:metrics,
             views:views))
@@ -155,7 +155,7 @@ class VAdminUsersCell:UICollectionViewCell
     
     func config(model:MAdminUsersItem)
     {
-        labelUserId.text = model.userId
+        labelUserEmail.text = model.userEmail
         
         let dateCreated:Date = Date(timeIntervalSince1970:model.created)
         let dateLastSession:Date = Date(timeIntervalSince1970:model.lastSession)

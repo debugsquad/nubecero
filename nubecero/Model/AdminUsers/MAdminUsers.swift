@@ -35,11 +35,11 @@ class MAdminUsers
             
             if ascending
             {
-                before = itemA.created < itemB.created
+                before = itemA.lastSession < itemB.lastSession
             }
             else
             {
-                before = itemB.created < itemA.created
+                before = itemB.lastSession < itemA.lastSession
             }
             
             return before

@@ -22,7 +22,7 @@ class MAdminUsersPhotos
         items.sort
         { (itemA:MAdminUsersPhotosItem, itemB:MAdminUsersPhotosItem) -> Bool in
             
-            return itemA.created < itemB.created
+            return itemA.created > itemB.created
         }
         
         self.items = items
